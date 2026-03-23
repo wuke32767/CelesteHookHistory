@@ -1,0 +1,29 @@
+On: VivHelper.MoonHooks.JumpThru_HasRider(orig_HasRider,JumpThru)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000b: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.Actor>()
+   IL_0010: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_0015: stloc.0
+   IL_0016: br.s IL_0030
+   IL_0018: ldloca.s V_0
+   IL_001a: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_001f: castclass Celeste.Actor
+   IL_0024: ldarg.0
+   IL_0025: callvirt System.Boolean Celeste.Actor::IsRiding(Celeste.JumpThru)
+   IL_002a: brfalse.s IL_0030
+   IL_002c: ldc.i4.1
+   IL_002d: stloc.1
+   IL_002e: leave.s IL_004b
+   IL_0030: ldloca.s V_0
+   IL_0032: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0037: brtrue.s IL_0018
+   IL_0039: leave.s IL_0049
+   IL_003b: ldloca.s V_0
+   IL_003d: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0043: callvirt System.Void System.IDisposable::Dispose()
+   IL_0048: endfinally
+   IL_0049: ldc.i4.0
+   IL_004a: ret
+   IL_004b: ldloc.1
+   IL_004c: ret

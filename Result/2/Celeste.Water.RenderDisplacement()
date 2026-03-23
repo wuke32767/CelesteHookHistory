@@ -1,0 +1,116 @@
+On: Celeste.Mod.SelfishHelper.Entities.WaterBlock+Hooks.Water_RenderDisplacement(orig_RenderDisplacement,Water)
+On: Celeste.Mod.ScuffedHelper.FourSurfaceWater.Water_RenderDisplacement(orig_RenderDisplacement,Water)
+   IL_0000: ldloca.s V_0
+   IL_0002: ldc.r4 0.5
+   IL_0007: ldc.r4 0.5
+   IL_000c: ldc.r4 0.25
+   IL_0011: ldc.r4 1
+   IL_0016: call System.Void Microsoft.Xna.Framework.Color::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_001b: ldc.i4.0
+   IL_001c: stloc.1
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.Boolean[0...,0...] Celeste.Water::grid
+   IL_0023: ldc.i4.0
+   IL_0024: callvirt System.Int32 System.Array::GetLength(System.Int32)
+   IL_0029: stloc.2
+   IL_002a: ldarg.0
+   IL_002b: ldfld System.Boolean[0...,0...] Celeste.Water::grid
+   IL_0030: ldc.i4.1
+   IL_0031: callvirt System.Int32 System.Array::GetLength(System.Int32)
+   IL_0036: stloc.3
+   IL_0037: br IL_00f0
+   IL_003c: ldloc.3
+   IL_003d: ldc.i4.0
+   IL_003e: ble.s IL_0076
+   IL_0040: ldarg.0
+   IL_0041: ldfld System.Boolean[0...,0...] Celeste.Water::grid
+   IL_0046: ldloc.1
+   IL_0047: ldc.i4.0
+   IL_0048: call System.Boolean System.Boolean[0...,0...]::Get(System.Int32,System.Int32)
+   IL_004d: brfalse.s IL_0076
+   IL_004f: ldarg.0
+   IL_0050: call System.Single Monocle.Entity::get_X()
+   IL_0055: ldloc.1
+   IL_0056: ldc.i4.8
+   IL_0057: mul
+   IL_0058: conv.r4
+   IL_0059: add
+   IL_005a: ldarg.0
+   IL_005b: call System.Single Monocle.Entity::get_Y()
+   IL_0060: ldc.r4 3
+   IL_0065: add
+   IL_0066: ldc.r4 8
+   IL_006b: ldc.r4 5
+   IL_0070: ldloc.0
+   IL_0071: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0076: ldc.i4.1
+   IL_0077: stloc.s V_4
+   IL_0079: br.s IL_00e7
+   IL_007b: ldarg.0
+   IL_007c: ldfld System.Boolean[0...,0...] Celeste.Water::grid
+   IL_0081: ldloc.1
+   IL_0082: ldloc.s V_4
+   IL_0084: call System.Boolean System.Boolean[0...,0...]::Get(System.Int32,System.Int32)
+   IL_0089: brfalse.s IL_00e1
+   IL_008b: ldc.i4.1
+   IL_008c: stloc.s V_5
+   IL_008e: br.s IL_0096
+   IL_0090: ldloc.s V_5
+   IL_0092: ldc.i4.1
+   IL_0093: add
+   IL_0094: stloc.s V_5
+   IL_0096: ldloc.s V_4
+   IL_0098: ldloc.s V_5
+   IL_009a: add
+   IL_009b: ldloc.3
+   IL_009c: bge.s IL_00b1
+   IL_009e: ldarg.0
+   IL_009f: ldfld System.Boolean[0...,0...] Celeste.Water::grid
+   IL_00a4: ldloc.1
+   IL_00a5: ldloc.s V_4
+   IL_00a7: ldloc.s V_5
+   IL_00a9: add
+   IL_00aa: call System.Boolean System.Boolean[0...,0...]::Get(System.Int32,System.Int32)
+   IL_00af: brtrue.s IL_0090
+   IL_00b1: ldarg.0
+   IL_00b2: call System.Single Monocle.Entity::get_X()
+   IL_00b7: ldloc.1
+   IL_00b8: ldc.i4.8
+   IL_00b9: mul
+   IL_00ba: conv.r4
+   IL_00bb: add
+   IL_00bc: ldarg.0
+   IL_00bd: call System.Single Monocle.Entity::get_Y()
+   IL_00c2: ldloc.s V_4
+   IL_00c4: ldc.i4.8
+   IL_00c5: mul
+   IL_00c6: conv.r4
+   IL_00c7: add
+   IL_00c8: ldc.r4 8
+   IL_00cd: ldloc.s V_5
+   IL_00cf: ldc.i4.8
+   IL_00d0: mul
+   IL_00d1: conv.r4
+   IL_00d2: ldloc.0
+   IL_00d3: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00d8: ldloc.s V_4
+   IL_00da: ldloc.s V_5
+   IL_00dc: ldc.i4.1
+   IL_00dd: sub
+   IL_00de: add
+   IL_00df: stloc.s V_4
+   IL_00e1: ldloc.s V_4
+   IL_00e3: ldc.i4.1
+   IL_00e4: add
+   IL_00e5: stloc.s V_4
+   IL_00e7: ldloc.s V_4
+   IL_00e9: ldloc.3
+   IL_00ea: blt.s IL_007b
+   IL_00ec: ldloc.1
+   IL_00ed: ldc.i4.1
+   IL_00ee: add
+   IL_00ef: stloc.1
+   IL_00f0: ldloc.1
+   IL_00f1: ldloc.2
+   IL_00f2: blt IL_003c
+   IL_00f7: ret

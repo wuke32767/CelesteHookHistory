@@ -1,0 +1,15 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_JournalClose(orig_Close,OuiJournal)
+On: Celeste.Mod.izumisQOL.BetterJournalModule.OnJournalClose(orig_Close,OuiJournal)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.OuiJournal::fromAreaInspect
+   IL_0006: brfalse.s IL_0015
+   IL_0008: ldarg.0
+   IL_0009: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_000e: callvirt T Celeste.Overworld::Goto<Celeste.OuiChapterPanel>()
+   IL_0013: pop
+   IL_0014: ret
+   IL_0015: ldarg.0
+   IL_0016: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_001b: callvirt T Celeste.Overworld::Goto<Celeste.OuiChapterSelect>()
+   IL_0020: pop
+   IL_0021: ret

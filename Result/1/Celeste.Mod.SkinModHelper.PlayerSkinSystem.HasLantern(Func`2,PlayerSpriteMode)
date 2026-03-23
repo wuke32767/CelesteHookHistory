@@ -1,0 +1,37 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.1
+   IL_0003: callvirt TResult System.Func`2<Celeste.PlayerSpriteMode,System.Boolean>::Invoke(T)
+   IL_0008: stloc.0
+   IL_0009: ldloc.0
+   IL_000a: stloc.2
+   IL_000b: ldloc.2
+   IL_000c: brfalse.s IL_0013
+   IL_000e: nop
+   IL_000f: ldloc.0
+   IL_0010: stloc.3
+   IL_0011: br.s IL_003f
+   IL_0013: ldarg.1
+   IL_0014: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetPlayerSkinName(System.Int32)
+   IL_0019: stloc.1
+   IL_001a: ldloc.1
+   IL_001b: brfalse.s IL_002f
+   IL_001d: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.SkinModHelper.SkinModHelperConfig> Celeste.Mod.SkinModHelper.SkinsSystem::skinConfigs
+   IL_0022: ldloc.1
+   IL_0023: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.SkinModHelper.SkinModHelperConfig>::get_Item(TKey)
+   IL_0028: ldfld System.Boolean Celeste.Mod.SkinModHelper.SkinModHelperConfig::JungleLanternMode
+   IL_002d: br.s IL_0030
+   IL_002f: ldc.i4.0
+   IL_0030: stloc.s V_4
+   IL_0032: ldloc.s V_4
+   IL_0034: brfalse.s IL_003b
+   IL_0036: nop
+   IL_0037: ldc.i4.1
+   IL_0038: stloc.3
+   IL_0039: br.s IL_003f
+   IL_003b: ldloc.0
+   IL_003c: stloc.3
+   IL_003d: br.s IL_003f
+   IL_003f: ldloc.3
+   IL_0040: ret

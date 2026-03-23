@@ -1,0 +1,83 @@
+IL: Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Boolean Celeste.RotateSpinner::Moving
+   IL_000c: brfalse IL_0091
+   IL_0011: ldarg.0
+   IL_0012: callvirt System.Boolean Celeste.RotateSpinner::get_Clockwise()
+   IL_0017: brfalse.s IL_0045
+   IL_0019: ldarg.0
+   IL_001a: ldarg.0
+   IL_001b: ldfld System.Single Celeste.RotateSpinner::rotationPercent
+   IL_0020: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0025: ldc.r4 1.8
+   IL_002a: div
+   IL_002b: sub
+   IL_002c: stfld System.Single Celeste.RotateSpinner::rotationPercent
+   IL_0031: ldarg.0
+   IL_0032: ldarg.0
+   IL_0033: ldfld System.Single Celeste.RotateSpinner::rotationPercent
+   IL_0038: ldc.r4 1
+   IL_003d: add
+   IL_003e: stfld System.Single Celeste.RotateSpinner::rotationPercent
+   IL_0043: br.s IL_005d
+   IL_0045: ldarg.0
+   IL_0046: ldarg.0
+   IL_0047: ldfld System.Single Celeste.RotateSpinner::rotationPercent
+   IL_004c: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0051: ldc.r4 1.8
+   IL_0056: div
+   IL_0057: add
+   IL_0058: stfld System.Single Celeste.RotateSpinner::rotationPercent
+   IL_005d: ldarg.0
+   IL_005e: ldarg.0
+   IL_005f: ldfld System.Single Celeste.RotateSpinner::rotationPercent
+   IL_0064: ldc.r4 1
+   IL_0069: rem
+   IL_006a: stfld System.Single Celeste.RotateSpinner::rotationPercent
+   IL_006f: ldarg.0
+   IL_0070: ldarg.0
+   IL_0071: ldfld Microsoft.Xna.Framework.Vector2 Celeste.RotateSpinner::center
+   IL_0076: ldarg.0
+   IL_0077: callvirt System.Single Celeste.RotateSpinner::get_Angle()
+   IL_007c: ldarg.0
+   IL_007d: ldfld System.Single Celeste.RotateSpinner::length
+   IL_0082: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_0087: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_008c: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0091: ldarg.0
+   IL_0092: ldfld System.Boolean Celeste.RotateSpinner::fallOutOfScreen
+   IL_0097: brfalse.s IL_10000
+   IL_0099: ldarg.0
+   IL_009a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.RotateSpinner::center
+   IL_009f: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00a4: dup
+   IL_00a5: ldind.r4
+   IL_00a6: ldc.r4 160
+   IL_00ab: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00b0: mul
+   IL_00b1: add
+   IL_00b2: stind.r4
+   IL_00b3: ldarg.0
+   IL_00b4: call System.Single Monocle.Entity::get_Y()
+   IL_00b9: ldarg.0
+   IL_00ba: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00bf: isinst Celeste.Level
+   IL_00c4: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00c9: stloc.0
+   IL_00ca: ldloca.s V_0
+   IL_00cc: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_00d1: ldc.i4.s 32
+   IL_00d3: add
+   IL_00d4: conv.r4
+   IL_00d5: ble.un.s IL_10000
+   IL_00d7: ldarg.0
+   IL_00d8: call System.Void Monocle.Entity::RemoveSelf()
+ + IL_10000: ldarg.0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10001: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10002: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+       => Invoke: Celeste.Mod.TASHelper.Gameplay.MovingEntityTrack+<>c.<Initialize>b__0_2(RotateSpinner)
+ + IL_10004: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.RotateSpinner>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+   IL_00dd: ret

@@ -1,0 +1,12 @@
+On: Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerHairUpdateHook(orig_Update,PlayerHair)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Single Celeste.PlayerHair::wave
+   IL_0007: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_000c: ldc.r4 4
+   IL_0011: mul
+   IL_0012: add
+   IL_0013: stfld System.Single Celeste.PlayerHair::wave
+   IL_0018: ldarg.0
+   IL_0019: call System.Void Monocle.Component::Update()
+   IL_001e: ret

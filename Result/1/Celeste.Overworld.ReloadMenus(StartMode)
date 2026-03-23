@@ -1,0 +1,71 @@
+On: Celeste.Mod.DBBHelper.Mechanism.DBBCustomOuiManager.ReloadCustomOui(orig_ReloadMenus,Overworld,StartMode)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.List`1<Celeste.Oui> Celeste.Overworld::UIs
+   IL_0006: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Oui>::GetEnumerator()
+   IL_000b: stloc.0
+   IL_000c: br.s IL_001d
+   IL_000e: ldloca.s V_0
+   IL_0010: call T System.Collections.Generic.List`1/Enumerator<Celeste.Oui>::get_Current()
+   IL_0015: stloc.1
+   IL_0016: ldarg.0
+   IL_0017: ldloc.1
+   IL_0018: call System.Void Monocle.Scene::Remove(Monocle.Entity)
+   IL_001d: ldloca.s V_0
+   IL_001f: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Oui>::MoveNext()
+   IL_0024: brtrue.s IL_000e
+   IL_0026: leave.s IL_0036
+   IL_0028: ldloca.s V_0
+   IL_002a: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Oui>
+   IL_0030: callvirt System.Void System.IDisposable::Dispose()
+   IL_0035: endfinally
+   IL_0036: ldarg.0
+   IL_0037: ldfld System.Collections.Generic.List`1<Celeste.Oui> Celeste.Overworld::UIs
+   IL_003c: callvirt System.Void System.Collections.Generic.List`1<Celeste.Oui>::Clear()
+   IL_0041: call System.Reflection.Assembly Celeste.Mod.Helpers.FakeAssembly::GetFakeEntryAssembly()
+   IL_0046: callvirt System.Type[] System.Reflection.Assembly::GetTypes()
+   IL_004b: stloc.2
+   IL_004c: ldc.i4.0
+   IL_004d: stloc.3
+   IL_004e: br.s IL_00a5
+   IL_0050: ldloc.2
+   IL_0051: ldloc.3
+   IL_0052: ldelem.ref
+   IL_0053: stloc.s V_4
+   IL_0055: ldtoken Celeste.Oui
+   IL_005a: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_005f: ldloc.s V_4
+   IL_0061: callvirt System.Boolean System.Type::IsAssignableFrom(System.Type)
+   IL_0066: brfalse.s IL_00a1
+   IL_0068: ldloc.s V_4
+   IL_006a: callvirt System.Boolean System.Type::get_IsAbstract()
+   IL_006f: brtrue.s IL_00a1
+   IL_0071: ldarg.0
+   IL_0072: ldloc.s V_4
+   IL_0074: call Celeste.Oui Celeste.Overworld::RegisterOui(System.Type)
+   IL_0079: stloc.s V_5
+   IL_007b: ldloc.s V_5
+   IL_007d: ldarg.0
+   IL_007e: ldarg.1
+   IL_007f: callvirt System.Boolean Celeste.Oui::IsStart(Celeste.Overworld,Celeste.Overworld/StartMode)
+   IL_0084: brfalse.s IL_00a1
+   IL_0086: ldloc.s V_5
+   IL_0088: ldc.i4.1
+   IL_0089: stfld System.Boolean Monocle.Entity::Visible
+   IL_008e: ldarg.0
+   IL_008f: ldarg.0
+   IL_0090: ldloc.s V_5
+   IL_0092: dup
+   IL_0093: stloc.s V_6
+   IL_0095: stfld Celeste.Oui Celeste.Overworld::Current
+   IL_009a: ldloc.s V_6
+   IL_009c: stfld Celeste.Oui Celeste.Overworld::Last
+   IL_00a1: ldloc.3
+   IL_00a2: ldc.i4.1
+   IL_00a3: add
+   IL_00a4: stloc.3
+   IL_00a5: ldloc.3
+   IL_00a6: ldloc.2
+   IL_00a7: ldlen
+   IL_00a8: conv.i4
+   IL_00a9: blt.s IL_0050
+   IL_00ab: ret

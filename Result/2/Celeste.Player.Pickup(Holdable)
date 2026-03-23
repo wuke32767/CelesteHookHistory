@@ -1,0 +1,12 @@
+On: Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier.PlayerOnPickup(orig_Pickup,Player,Holdable)
+On: vitmod.DropHoldableTrigger.pickupOverride(orig_Pickup,Player,Holdable)
+On: FactoryHelper.FactoryHelperHooks.Pickup(orig_Pickup,Player,Holdable)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Boolean Celeste.Player::get_Dead()
+   IL_0006: brfalse.s IL_000a
+   IL_0008: ldc.i4.0
+   IL_0009: ret
+   IL_000a: ldarg.0
+   IL_000b: ldarg.1
+   IL_000c: callvirt System.Boolean Celeste.Player::orig_Pickup(Celeste.Holdable)
+   IL_0011: ret

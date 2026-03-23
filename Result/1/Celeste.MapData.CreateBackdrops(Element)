@@ -1,0 +1,63 @@
+On: Celeste.Mod.auspicioushelper.BackdropCapturer.Hook(orig_CreateBackdrops,MapData,Element)
+   IL_0000: newobj System.Void System.Collections.Generic.List`1<Celeste.Backdrop>::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldarg.1
+   IL_0007: brfalse IL_00b1
+   IL_000c: ldarg.1
+   IL_000d: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_0012: brfalse IL_00b1
+   IL_0017: ldarg.1
+   IL_0018: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_001d: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.BinaryPacker/Element>::GetEnumerator()
+   IL_0022: stloc.1
+   IL_0023: br.s IL_0095
+   IL_0025: ldloca.s V_1
+   IL_0027: call T System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::get_Current()
+   IL_002c: stloc.2
+   IL_002d: ldloc.2
+   IL_002e: ldfld System.String Celeste.BinaryPacker/Element::Name
+   IL_0033: ldstr "apply"
+   IL_0038: ldc.i4.5
+   IL_0039: callvirt System.Boolean System.String::Equals(System.String,System.StringComparison)
+   IL_003e: brfalse.s IL_0087
+   IL_0040: ldloc.2
+   IL_0041: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_0046: brfalse.s IL_0095
+   IL_0048: ldloc.2
+   IL_0049: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_004e: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.BinaryPacker/Element>::GetEnumerator()
+   IL_0053: stloc.3
+   IL_0054: br.s IL_006e
+   IL_0056: ldloca.s V_3
+   IL_0058: call T System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::get_Current()
+   IL_005d: stloc.s V_4
+   IL_005f: ldloc.0
+   IL_0060: ldarg.0
+   IL_0061: ldloc.s V_4
+   IL_0063: ldloc.2
+   IL_0064: callvirt Celeste.Backdrop Celeste.MapData::ParseBackdrop(Celeste.BinaryPacker/Element,Celeste.BinaryPacker/Element)
+   IL_0069: callvirt System.Void System.Collections.Generic.List`1<Celeste.Backdrop>::Add(T)
+   IL_006e: ldloca.s V_3
+   IL_0070: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::MoveNext()
+   IL_0075: brtrue.s IL_0056
+   IL_0077: leave.s IL_0095
+   IL_0079: ldloca.s V_3
+   IL_007b: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>
+   IL_0081: callvirt System.Void System.IDisposable::Dispose()
+   IL_0086: endfinally
+   IL_0087: ldloc.0
+   IL_0088: ldarg.0
+   IL_0089: ldloc.2
+   IL_008a: ldnull
+   IL_008b: callvirt Celeste.Backdrop Celeste.MapData::ParseBackdrop(Celeste.BinaryPacker/Element,Celeste.BinaryPacker/Element)
+   IL_0090: callvirt System.Void System.Collections.Generic.List`1<Celeste.Backdrop>::Add(T)
+   IL_0095: ldloca.s V_1
+   IL_0097: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::MoveNext()
+   IL_009c: brtrue IL_0025
+   IL_00a1: leave.s IL_00b1
+   IL_00a3: ldloca.s V_1
+   IL_00a5: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>
+   IL_00ab: callvirt System.Void System.IDisposable::Dispose()
+   IL_00b0: endfinally
+   IL_00b1: ldloc.0
+   IL_00b2: ret

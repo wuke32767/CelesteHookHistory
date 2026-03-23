@@ -1,0 +1,81 @@
+On: Celeste.Mod.SaladimHelper.ChronoHookModule.OnPlayerHook(orig_OnPlayer,Entity,Player)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Single Celeste.Mod.ChronoHelper.Entities.GravityFallingBlockSwitch::cooldownTimer
+   IL_0007: ldc.r4 0
+   IL_000c: bgt.un.s IL_0019
+   IL_000e: ldarg.0
+   IL_000f: callvirt System.Boolean Celeste.Mod.ChronoHelper.Entities.GravityFallingBlockSwitch::get_Usable()
+   IL_0014: ldc.i4.0
+   IL_0015: ceq
+   IL_0017: br.s IL_001a
+   IL_0019: ldc.i4.1
+   IL_001a: stloc.2
+   IL_001b: ldloc.2
+   IL_001c: brfalse.s IL_0024
+   IL_001e: nop
+   IL_001f: br IL_00df
+   IL_0024: call ChronoHelperSessionModule Celeste.Mod.ChronoHelper.ChronoHelper::get_Session()
+   IL_0029: callvirt System.Boolean ChronoHelperSessionModule::get_gravityModeUp()
+   IL_002e: stloc.0
+   IL_002f: ldarg.0
+   IL_0030: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0035: stloc.1
+   IL_0036: ldloc.0
+   IL_0037: brtrue.s IL_0040
+   IL_0039: ldstr "event:/game/09_core/switch_to_cold"
+   IL_003e: br.s IL_0045
+   IL_0040: ldstr "event:/game/09_core/switch_to_hot"
+   IL_0045: ldarg.0
+   IL_0046: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_004b: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0050: pop
+   IL_0051: nop
+   IL_0052: ldarg.0
+   IL_0053: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0058: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_005d: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.Mod.ChronoHelper.Entities.GravityFallingBlock>()
+   IL_0062: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_0067: stloc.3
+   IL_0068: br.s IL_0082
+   IL_006a: ldloca.s V_3
+   IL_006c: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_0071: castclass Celeste.Mod.ChronoHelper.Entities.GravityFallingBlock
+   IL_0076: stloc.s V_4
+   IL_0078: nop
+   IL_0079: ldloc.s V_4
+   IL_007b: callvirt System.Void Celeste.Mod.ChronoHelper.Entities.GravityFallingBlock::changeAngle()
+   IL_0080: nop
+   IL_0081: nop
+   IL_0082: ldloca.s V_3
+   IL_0084: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0089: brtrue.s IL_006a
+   IL_008b: leave.s IL_009c
+   IL_008d: ldloca.s V_3
+   IL_008f: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0095: callvirt System.Void System.IDisposable::Dispose()
+   IL_009a: nop
+   IL_009b: endfinally
+   IL_009c: call ChronoHelperSessionModule Celeste.Mod.ChronoHelper.ChronoHelper::get_Session()
+   IL_00a1: ldloc.0
+   IL_00a2: ldc.i4.0
+   IL_00a3: ceq
+   IL_00a5: callvirt System.Void ChronoHelperSessionModule::set_gravityModeUp(System.Boolean)
+   IL_00aa: nop
+   IL_00ab: ldloc.1
+   IL_00ac: call System.Void Celeste.Mod.ChronoHelper.ChronoHelper::changeSwitches(Celeste.Level)
+   IL_00b1: nop
+   IL_00b2: ldloc.1
+   IL_00b3: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00b8: ldc.r4 0.15
+   IL_00bd: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00c2: ldc.i4.1
+   IL_00c3: callvirt System.Void Celeste.Level::Flash(Microsoft.Xna.Framework.Color,System.Boolean)
+   IL_00c8: nop
+   IL_00c9: ldc.r4 0.05
+   IL_00ce: call System.Void Celeste.Celeste::Freeze(System.Single)
+   IL_00d3: nop
+   IL_00d4: ldarg.0
+   IL_00d5: ldc.r4 1
+   IL_00da: stfld System.Single Celeste.Mod.ChronoHelper.Entities.GravityFallingBlockSwitch::cooldownTimer
+   IL_00df: ret

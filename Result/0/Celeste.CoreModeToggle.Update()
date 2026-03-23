@@ -1,0 +1,14 @@
+On: Celeste.Mod.FemtoHelper.Code.Entities.ExtraHoldableInteractionsController.CoreModeToggle_Update(orig_Update,CoreModeToggle)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Single Celeste.CoreModeToggle::cooldownTimer
+   IL_000c: ldc.r4 0
+   IL_0011: ble.un.s IL_0025
+   IL_0013: ldarg.0
+   IL_0014: ldarg.0
+   IL_0015: ldfld System.Single Celeste.CoreModeToggle::cooldownTimer
+   IL_001a: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_001f: sub
+   IL_0020: stfld System.Single Celeste.CoreModeToggle::cooldownTimer
+   IL_0025: ret

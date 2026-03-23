@@ -1,0 +1,22 @@
+On: TAS.Playback.Core.On_Celeste_Update(orig_Update,Celeste,GameTime)
+On: Celeste.Mod.AltEnterFullscreen.AltEnterFullscreenModule.Celeste_Update(orig_Update,Celeste,GameTime)
+On: Celeste.Mod.Private_Headful.Private_HeadfulModule.Celeste_Update(orig_Update,Celeste,GameTime)
+On: TAS.EverestInterop.AutoMute.CelesteOnUpdate(orig_Update,Celeste,GameTime)
+On: Celeste.Mod.TASRecorder.VideoCapture.On_Celeste_Update(orig_Celeste_Update,Celeste,GameTime)
+   IL_0000: ldarg.0
+   IL_0001: call Microsoft.Xna.Framework.GameWindow Microsoft.Xna.Framework.Game::get_Window()
+   IL_0006: callvirt System.IntPtr Microsoft.Xna.Framework.GameWindow::get_Handle()
+   IL_000b: call System.Void Celeste.StatsForStadia::BeginFrame(System.IntPtr)
+   IL_0010: ldsfld Monocle.Coroutine Celeste.Celeste::SaveRoutine
+   IL_0015: brfalse.s IL_0021
+   IL_0017: ldsfld Monocle.Coroutine Celeste.Celeste::SaveRoutine
+   IL_001c: callvirt System.Void Monocle.Component::Update()
+   IL_0021: ldarg.0
+   IL_0022: ldfld Celeste.AutoSplitterInfo Celeste.Celeste::AutoSplitterInfo
+   IL_0027: callvirt System.Void Celeste.AutoSplitterInfo::Update()
+   IL_002c: call System.Void Celeste.Audio::Update()
+   IL_0031: ldarg.0
+   IL_0032: ldarg.1
+   IL_0033: call System.Void Monocle.Engine::Update(Microsoft.Xna.Framework.GameTime)
+   IL_0038: call System.Void Celeste.Input::UpdateGrab()
+   IL_003d: ret

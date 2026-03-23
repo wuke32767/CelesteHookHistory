@@ -1,0 +1,188 @@
+On: TAS.EverestInterop.Pico8Fixer.ClassicOnInit(orig_Init,Classic,Emulator)
+On: Celeste.Mod.FewerVisualDistractions.Patches.AdditionalEffectTweaker.Classic_Init(orig_Init,Classic,Emulator)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: stfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_0007: ldarg.0
+   IL_0008: ldc.i4.0
+   IL_0009: ldc.i4.0
+   IL_000a: newobj System.Void Microsoft.Xna.Framework.Point::.ctor(System.Int32,System.Int32)
+   IL_000f: stfld Microsoft.Xna.Framework.Point Celeste.Pico8.Classic::room
+   IL_0014: ldarg.0
+   IL_0015: newobj System.Void System.Collections.Generic.List`1<Celeste.Pico8.Classic/ClassicObject>::.ctor()
+   IL_001a: stfld System.Collections.Generic.List`1<Celeste.Pico8.Classic/ClassicObject> Celeste.Pico8.Classic::objects
+   IL_001f: ldarg.0
+   IL_0020: ldc.i4.0
+   IL_0021: stfld System.Int32 Celeste.Pico8.Classic::freeze
+   IL_0026: ldarg.0
+   IL_0027: ldc.i4.0
+   IL_0028: stfld System.Boolean Celeste.Pico8.Classic::will_restart
+   IL_002d: ldarg.0
+   IL_002e: ldc.i4.0
+   IL_002f: stfld System.Int32 Celeste.Pico8.Classic::delay_restart
+   IL_0034: ldarg.0
+   IL_0035: newobj System.Void System.Collections.Generic.HashSet`1<System.Int32>::.ctor()
+   IL_003a: stfld System.Collections.Generic.HashSet`1<System.Int32> Celeste.Pico8.Classic::got_fruit
+   IL_003f: ldarg.0
+   IL_0040: ldc.i4.0
+   IL_0041: stfld System.Boolean Celeste.Pico8.Classic::has_dashed
+   IL_0046: ldarg.0
+   IL_0047: ldc.i4.0
+   IL_0048: stfld System.Int32 Celeste.Pico8.Classic::sfx_timer
+   IL_004d: ldarg.0
+   IL_004e: ldc.i4.0
+   IL_004f: stfld System.Boolean Celeste.Pico8.Classic::has_key
+   IL_0054: ldarg.0
+   IL_0055: ldc.i4.0
+   IL_0056: stfld System.Boolean Celeste.Pico8.Classic::pause_player
+   IL_005b: ldarg.0
+   IL_005c: ldc.i4.0
+   IL_005d: stfld System.Boolean Celeste.Pico8.Classic::flash_bg
+   IL_0062: ldarg.0
+   IL_0063: ldc.i4.0
+   IL_0064: stfld System.Int32 Celeste.Pico8.Classic::music_timer
+   IL_0069: ldarg.0
+   IL_006a: ldc.i4.0
+   IL_006b: stfld System.Boolean Celeste.Pico8.Classic::new_bg
+   IL_0070: ldarg.0
+   IL_0071: ldc.i4.0
+   IL_0072: stfld System.Boolean Celeste.Pico8.Classic::room_just_loaded
+   IL_0077: ldarg.0
+   IL_0078: ldc.i4.0
+   IL_0079: stfld System.Int32 Celeste.Pico8.Classic::frames
+   IL_007e: ldarg.0
+   IL_007f: ldc.i4.0
+   IL_0080: stfld System.Int32 Celeste.Pico8.Classic::seconds
+   IL_0085: ldarg.0
+   IL_0086: ldc.i4.0
+   IL_0087: stfld System.Int32 Celeste.Pico8.Classic::minutes
+   IL_008c: ldarg.0
+   IL_008d: ldc.i4.0
+   IL_008e: stfld System.Int32 Celeste.Pico8.Classic::deaths
+   IL_0093: ldarg.0
+   IL_0094: ldc.i4.1
+   IL_0095: stfld System.Int32 Celeste.Pico8.Classic::max_djump
+   IL_009a: ldarg.0
+   IL_009b: ldc.i4.0
+   IL_009c: stfld System.Boolean Celeste.Pico8.Classic::start_game
+   IL_00a1: ldarg.0
+   IL_00a2: ldc.i4.0
+   IL_00a3: stfld System.Int32 Celeste.Pico8.Classic::start_game_flash
+   IL_00a8: ldarg.0
+   IL_00a9: newobj System.Void System.Collections.Generic.List`1<Celeste.Pico8.Classic/Cloud>::.ctor()
+   IL_00ae: stfld System.Collections.Generic.List`1<Celeste.Pico8.Classic/Cloud> Celeste.Pico8.Classic::clouds
+   IL_00b3: ldc.i4.0
+   IL_00b4: stloc.0
+   IL_00b5: br.s IL_012f
+   IL_00b7: ldarg.0
+   IL_00b8: ldfld System.Collections.Generic.List`1<Celeste.Pico8.Classic/Cloud> Celeste.Pico8.Classic::clouds
+   IL_00bd: newobj System.Void Celeste.Pico8.Classic/Cloud::.ctor()
+   IL_00c2: dup
+   IL_00c3: ldarg.0
+   IL_00c4: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_00c9: ldc.r4 128
+   IL_00ce: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_00d3: stfld System.Single Celeste.Pico8.Classic/Cloud::x
+   IL_00d8: dup
+   IL_00d9: ldarg.0
+   IL_00da: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_00df: ldc.r4 128
+   IL_00e4: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_00e9: stfld System.Single Celeste.Pico8.Classic/Cloud::y
+   IL_00ee: dup
+   IL_00ef: ldc.r4 1
+   IL_00f4: ldarg.0
+   IL_00f5: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_00fa: ldc.r4 4
+   IL_00ff: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_0104: add
+   IL_0105: stfld System.Single Celeste.Pico8.Classic/Cloud::spd
+   IL_010a: dup
+   IL_010b: ldc.r4 32
+   IL_0110: ldarg.0
+   IL_0111: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_0116: ldc.r4 32
+   IL_011b: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_0120: add
+   IL_0121: stfld System.Single Celeste.Pico8.Classic/Cloud::w
+   IL_0126: callvirt System.Void System.Collections.Generic.List`1<Celeste.Pico8.Classic/Cloud>::Add(T)
+   IL_012b: ldloc.0
+   IL_012c: ldc.i4.1
+   IL_012d: add
+   IL_012e: stloc.0
+   IL_012f: ldloc.0
+   IL_0130: ldc.i4.s 16
+   IL_0132: ble.s IL_00b7
+   IL_0134: ldarg.0
+   IL_0135: newobj System.Void System.Collections.Generic.List`1<Celeste.Pico8.Classic/Particle>::.ctor()
+   IL_013a: stfld System.Collections.Generic.List`1<Celeste.Pico8.Classic/Particle> Celeste.Pico8.Classic::particles
+   IL_013f: ldc.i4.0
+   IL_0140: stloc.1
+   IL_0141: br IL_0208
+   IL_0146: ldarg.0
+   IL_0147: ldfld System.Collections.Generic.List`1<Celeste.Pico8.Classic/Particle> Celeste.Pico8.Classic::particles
+   IL_014c: newobj System.Void Celeste.Pico8.Classic/Particle::.ctor()
+   IL_0151: dup
+   IL_0152: ldarg.0
+   IL_0153: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_0158: ldc.r4 128
+   IL_015d: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_0162: stfld System.Single Celeste.Pico8.Classic/Particle::x
+   IL_0167: dup
+   IL_0168: ldarg.0
+   IL_0169: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_016e: ldc.r4 128
+   IL_0173: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_0178: stfld System.Single Celeste.Pico8.Classic/Particle::y
+   IL_017d: dup
+   IL_017e: ldarg.0
+   IL_017f: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_0184: ldarg.0
+   IL_0185: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_018a: ldc.r4 5
+   IL_018f: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_0194: ldc.r4 4
+   IL_0199: div
+   IL_019a: callvirt System.Int32 Celeste.Pico8.Emulator::flr(System.Single)
+   IL_019f: stfld System.Int32 Celeste.Pico8.Classic/Particle::s
+   IL_01a4: dup
+   IL_01a5: ldc.r4 0.25
+   IL_01aa: ldarg.0
+   IL_01ab: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_01b0: ldc.r4 5
+   IL_01b5: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_01ba: add
+   IL_01bb: stfld System.Single Celeste.Pico8.Classic/Particle::spd
+   IL_01c0: dup
+   IL_01c1: ldarg.0
+   IL_01c2: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_01c7: ldc.r4 1
+   IL_01cc: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_01d1: stfld System.Single Celeste.Pico8.Classic/Particle::off
+   IL_01d6: dup
+   IL_01d7: ldc.i4.6
+   IL_01d8: ldarg.0
+   IL_01d9: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_01de: ldc.r4 0.5
+   IL_01e3: ldarg.0
+   IL_01e4: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic::E
+   IL_01e9: ldc.r4 1
+   IL_01ee: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_01f3: add
+   IL_01f4: callvirt System.Int32 Celeste.Pico8.Emulator::flr(System.Single)
+   IL_01f9: add
+   IL_01fa: stfld System.Int32 Celeste.Pico8.Classic/Particle::c
+   IL_01ff: callvirt System.Void System.Collections.Generic.List`1<Celeste.Pico8.Classic/Particle>::Add(T)
+   IL_0204: ldloc.1
+   IL_0205: ldc.i4.1
+   IL_0206: add
+   IL_0207: stloc.1
+   IL_0208: ldloc.1
+   IL_0209: ldc.i4.s 32
+   IL_020b: ble IL_0146
+   IL_0210: ldarg.0
+   IL_0211: newobj System.Void System.Collections.Generic.List`1<Celeste.Pico8.Classic/DeadParticle>::.ctor()
+   IL_0216: stfld System.Collections.Generic.List`1<Celeste.Pico8.Classic/DeadParticle> Celeste.Pico8.Classic::dead_particles
+   IL_021b: ldarg.0
+   IL_021c: callvirt System.Void Celeste.Pico8.Classic::title_screen()
+   IL_0221: ret

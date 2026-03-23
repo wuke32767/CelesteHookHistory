@@ -1,0 +1,34 @@
+On: Celeste.Mod.SkinModHelper.ParticleModify.onBadelineDummy_Appear(orig_Appear,BadelineDummy,Level,Boolean)
+   IL_0000: ldarg.2
+   IL_0001: brtrue.s IL_001b
+   IL_0003: ldstr "event:/char/badeline/appear"
+   IL_0008: ldarg.0
+   IL_0009: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000e: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0013: pop
+   IL_0014: ldc.i4.1
+   IL_0015: ldc.i4.1
+   IL_0016: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_001b: ldarg.1
+   IL_001c: ldfld Celeste.DisplacementRenderer Celeste.Level::Displacement
+   IL_0021: ldarg.0
+   IL_0022: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0027: ldc.r4 0.5
+   IL_002c: ldc.r4 24
+   IL_0031: ldc.r4 96
+   IL_0036: ldc.r4 0.4
+   IL_003b: ldnull
+   IL_003c: ldnull
+   IL_003d: callvirt Celeste.DisplacementRenderer/Burst Celeste.DisplacementRenderer::AddBurst(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Single,System.Single,Monocle.Ease/Easer,Monocle.Ease/Easer)
+   IL_0042: pop
+   IL_0043: ldarg.1
+   IL_0044: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_0049: ldsfld Monocle.ParticleType Celeste.BadelineOldsite::P_Vanish
+   IL_004e: ldc.i4.s 12
+   IL_0050: ldarg.0
+   IL_0051: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0056: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_005b: ldc.r4 6
+   IL_0060: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0065: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_006a: ret

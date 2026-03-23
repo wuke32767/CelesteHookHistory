@@ -1,0 +1,156 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: ldarg self @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0004: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0009: starg self @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000d: nop
+   IL_000e: ldarg.1
+   IL_000f: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
+   IL_0014: stloc.0
+   IL_0015: ldloc.0
+   IL_0016: ldfld Monocle.Atlas Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Atlas
+   IL_001b: dup
+   IL_001c: brtrue.s IL_0024
+   IL_001e: pop
+   IL_001f: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0024: stloc.1
+   IL_0025: ldloc.0
+   IL_0026: ldfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Path
+   IL_002b: brfalse.s IL_003b
+   IL_002d: ldloc.1
+   IL_002e: ldloc.0
+   IL_002f: ldfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Path
+   IL_0034: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_0039: brtrue.s IL_003e
+   IL_003b: ldnull
+   IL_003c: br.s IL_004a
+   IL_003e: ldloc.1
+   IL_003f: ldloc.0
+   IL_0040: ldfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Path
+   IL_0045: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_004a: stloc.2
+   IL_004b: ldloc.2
+   IL_004c: brtrue.s IL_0056
+   IL_004e: ldloc.0
+   IL_004f: callvirt System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::get_TintMaskWithHair()
+   IL_0054: br.s IL_0057
+   IL_0056: ldc.i4.1
+   IL_0057: stloc.3
+   IL_0058: ldloc.3
+   IL_0059: brfalse IL_01c5
+   IL_005e: nop
+   IL_005f: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.Mod.SkinModHelper.SkinsSystem::FxColorGrading_SMH
+   IL_0064: stloc.s V_4
+   IL_0066: ldloc.2
+   IL_0067: ldnull
+   IL_0068: cgt.un
+   IL_006a: stloc.s V_6
+   IL_006c: ldloc.s V_6
+   IL_006e: brfalse.s IL_00bd
+   IL_0070: nop
+   IL_0071: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0076: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_007b: callvirt Microsoft.Xna.Framework.Graphics.TextureCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Textures()
+   IL_0080: ldc.i4.1
+   IL_0081: ldloc.2
+   IL_0082: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_0087: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_008c: callvirt System.Void Microsoft.Xna.Framework.Graphics.TextureCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.Texture)
+   IL_0091: nop
+   IL_0092: ldloc.s V_4
+   IL_0094: ldloc.s V_4
+   IL_0096: callvirt Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection Microsoft.Xna.Framework.Graphics.Effect::get_Techniques()
+   IL_009b: ldloc.0
+   IL_009c: callvirt System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::get_ColorGradingAfterColored()
+   IL_00a1: brtrue.s IL_00aa
+   IL_00a3: ldstr "ColorGrade"
+   IL_00a8: br.s IL_00af
+   IL_00aa: ldstr "ColorGradeAftColored"
+   IL_00af: callvirt Microsoft.Xna.Framework.Graphics.EffectTechnique Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection::get_Item(System.String)
+   IL_00b4: callvirt System.Void Microsoft.Xna.Framework.Graphics.Effect::set_CurrentTechnique(Microsoft.Xna.Framework.Graphics.EffectTechnique)
+   IL_00b9: nop
+   IL_00ba: nop
+   IL_00bb: br.s IL_00d8
+   IL_00bd: nop
+   IL_00be: ldloc.s V_4
+   IL_00c0: ldloc.s V_4
+   IL_00c2: callvirt Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection Microsoft.Xna.Framework.Graphics.Effect::get_Techniques()
+   IL_00c7: ldstr "NoColorGrade"
+   IL_00cc: callvirt Microsoft.Xna.Framework.Graphics.EffectTechnique Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection::get_Item(System.String)
+   IL_00d1: callvirt System.Void Microsoft.Xna.Framework.Graphics.Effect::set_CurrentTechnique(Microsoft.Xna.Framework.Graphics.EffectTechnique)
+   IL_00d6: nop
+   IL_00d7: nop
+   IL_00d8: ldloc.s V_4
+   IL_00da: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_00df: ldstr "haircolor"
+   IL_00e4: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_00e9: ldloc.0
+   IL_00ea: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.CharacterConfig::effect_hairColor
+   IL_00ef: ldarg.1
+   IL_00f0: ldfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00f5: call System.Boolean Microsoft.Xna.Framework.Color::op_Inequality(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_00fa: brtrue.s IL_0103
+   IL_00fc: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0101: br.s IL_0109
+   IL_0103: ldloc.0
+   IL_0104: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.CharacterConfig::effect_hairColor
+   IL_0109: stloc.s V_7
+   IL_010b: ldloca.s V_7
+   IL_010d: call Microsoft.Xna.Framework.Vector4 Microsoft.Xna.Framework.Color::ToVector4()
+   IL_0112: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector4)
+   IL_0117: nop
+   IL_0118: ldloc.s V_4
+   IL_011a: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_011f: ldstr "maskMode"
+   IL_0124: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0129: ldloc.0
+   IL_012a: callvirt System.Int32 Celeste.Mod.SkinModHelper.CharacterConfig::get__MaskMode()
+   IL_012f: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Int32)
+   IL_0134: nop
+   IL_0135: ldloc.s V_4
+   IL_0137: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_013c: ldstr "DoMixHair"
+   IL_0141: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0146: ldloc.0
+   IL_0147: callvirt System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::get_TintMaskWithHair()
+   IL_014c: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Boolean)
+   IL_0151: nop
+   IL_0152: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0157: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
+   IL_015c: ldstr "transformMatrix"
+   IL_0161: callvirt T MonoMod.Utils.DynamicData::Get<Microsoft.Xna.Framework.Matrix>(System.String)
+   IL_0166: stloc.s V_5
+   IL_0168: call System.Void Celeste.GameplayRenderer::End()
+   IL_016d: nop
+   IL_016e: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0173: ldc.i4.0
+   IL_0174: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_0179: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointWrap
+   IL_017e: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::None
+   IL_0183: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
+   IL_0188: ldloc.s V_4
+   IL_018a: ldloc.s V_5
+   IL_018c: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
+   IL_0191: nop
+   IL_0192: ldarg.0
+   IL_0193: ldarg.1
+   IL_0194: callvirt System.Void System.Action`1<Monocle.Sprite>::Invoke(T)
+   IL_0199: nop
+   IL_019a: call System.Void Celeste.GameplayRenderer::End()
+   IL_019f: nop
+   IL_01a0: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_01a5: ldc.i4.0
+   IL_01a6: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_01ab: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointWrap
+   IL_01b0: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::None
+   IL_01b5: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
+   IL_01ba: ldnull
+   IL_01bb: ldloc.s V_5
+   IL_01bd: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
+   IL_01c2: nop
+   IL_01c3: br.s IL_01cd
+   IL_01c5: ldarg.0
+   IL_01c6: ldarg.1
+   IL_01c7: callvirt System.Void System.Action`1<Monocle.Sprite>::Invoke(T)
+   IL_01cc: nop
+   IL_01cd: ret

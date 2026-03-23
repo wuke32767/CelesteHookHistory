@@ -1,0 +1,36 @@
+On: Celeste.Mod.XaphanHelper.Entities.TransitionBlackEffect.OnTalkComponentTalkComponentUICtor(orig_ctor,TalkComponentUI,TalkComponent)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 1
+   IL_0006: stfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_000b: ldarg.0
+   IL_000c: ldc.r4 1
+   IL_0011: ldc.r4 1
+   IL_0016: ldc.r4 1
+   IL_001b: newobj System.Void Microsoft.Xna.Framework.Color::.ctor(System.Single,System.Single,System.Single)
+   IL_0020: stfld Microsoft.Xna.Framework.Color Celeste.TalkComponent/TalkComponentUI::lineColor
+   IL_0025: ldarg.0
+   IL_0026: call System.Void Monocle.Entity::.ctor()
+   IL_002b: ldarg.0
+   IL_002c: ldarg.1
+   IL_002d: stfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_0032: ldarg.0
+   IL_0033: ldsfld Monocle.BitTag Celeste.Tags::HUD
+   IL_0038: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_003d: ldsfld Monocle.BitTag Celeste.Tags::Persistent
+   IL_0042: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0047: or
+   IL_0048: call System.Void Monocle.Entity::AddTag(System.Int32)
+   IL_004d: ldarg.0
+   IL_004e: ldarg.0
+   IL_004f: ldc.r4 0.25
+   IL_0054: ldc.r4 4
+   IL_0059: ldnull
+   IL_005a: ldc.i4.0
+   IL_005b: ldc.i4.0
+   IL_005c: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_0061: dup
+   IL_0062: stloc.0
+   IL_0063: stfld Monocle.Wiggler Celeste.TalkComponent/TalkComponentUI::wiggler
+   IL_0068: ldloc.0
+   IL_0069: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_006e: ret

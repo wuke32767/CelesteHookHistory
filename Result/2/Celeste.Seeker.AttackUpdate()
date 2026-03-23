@@ -1,0 +1,78 @@
+On: ChaosEnsues.Entry.Seeker_AttackUpdate(orig_AttackUpdate,Seeker)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Seeker::attackWindUp
+   IL_0006: brtrue IL_0106
+   IL_000b: ldarg.0
+   IL_000c: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Seeker::get_FollowTarget()
+   IL_0011: ldarg.0
+   IL_0012: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0017: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_001c: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_0021: stloc.0
+   IL_0022: ldarg.0
+   IL_0023: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_0028: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_002d: ldloc.0
+   IL_002e: call System.Single Microsoft.Xna.Framework.Vector2::Dot(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0033: ldc.r4 0.4
+   IL_0038: bge.un.s IL_003c
+   IL_003a: ldc.i4.5
+   IL_003b: ret
+   IL_003c: ldarg.0
+   IL_003d: ldarg.0
+   IL_003e: ldfld System.Single Celeste.Seeker::attackSpeed
+   IL_0043: ldc.r4 260
+   IL_0048: ldc.r4 300
+   IL_004d: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0052: mul
+   IL_0053: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0058: stfld System.Single Celeste.Seeker::attackSpeed
+   IL_005d: ldarg.0
+   IL_005e: ldarg.0
+   IL_005f: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_0064: ldloc.0
+   IL_0065: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_006a: ldc.r4 0.61086524
+   IL_006f: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0074: mul
+   IL_0075: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::RotateTowards(Microsoft.Xna.Framework.Vector2,System.Single,System.Single)
+   IL_007a: ldarg.0
+   IL_007b: ldfld System.Single Celeste.Seeker::attackSpeed
+   IL_0080: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0085: stfld Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_008a: ldarg.0
+   IL_008b: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0090: ldc.r4 0.04
+   IL_0095: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_009a: brfalse.s IL_00ee
+   IL_009c: ldarg.0
+   IL_009d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_00a2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_00a7: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_00ac: stloc.1
+   IL_00ad: ldarg.0
+   IL_00ae: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_00b3: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_00b8: ldsfld Monocle.ParticleType Celeste.Seeker::P_Attack
+   IL_00bd: ldc.i4.2
+   IL_00be: ldarg.0
+   IL_00bf: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00c4: ldloc.1
+   IL_00c5: ldc.r4 4
+   IL_00ca: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00cf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00d4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00d9: ldc.r4 4
+   IL_00de: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00e3: ldloc.1
+   IL_00e4: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_00e9: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00ee: ldarg.0
+   IL_00ef: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00f4: ldc.r4 0.06
+   IL_00f9: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_00fe: brfalse.s IL_0106
+   IL_0100: ldarg.0
+   IL_0101: callvirt System.Void Celeste.Seeker::CreateTrail()
+   IL_0106: ldc.i4.3
+   IL_0107: ret

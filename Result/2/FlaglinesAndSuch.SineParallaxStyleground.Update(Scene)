@@ -1,0 +1,89 @@
+On: Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.Update(Action`2,SineParallaxStyleground,Scene)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.0
+   IL_0003: ldfld System.Single FlaglinesAndSuch.SineParallaxStyleground::amplitude
+   IL_0008: ldarg.0
+   IL_0009: ldfld System.Single FlaglinesAndSuch.SineParallaxStyleground::frequency
+   IL_000e: ldarg.0
+   IL_000f: ldfld System.Single FlaglinesAndSuch.SineParallaxStyleground::theta
+   IL_0014: mul
+   IL_0015: conv.r8
+   IL_0016: ldc.r8 3.141592653589793
+   IL_001f: ldarg.0
+   IL_0020: ldfld System.Single FlaglinesAndSuch.SineParallaxStyleground::xOffset
+   IL_0025: conv.r8
+   IL_0026: mul
+   IL_0027: add
+   IL_0028: call System.Double System.Math::Sin(System.Double)
+   IL_002d: conv.r4
+   IL_002e: mul
+   IL_002f: stfld System.Single FlaglinesAndSuch.SineParallaxStyleground::sinValue
+   IL_0034: ldarg.0
+   IL_0035: ldfld System.Boolean FlaglinesAndSuch.SineParallaxStyleground::isVert
+   IL_003a: stloc.0
+   IL_003b: ldloc.0
+   IL_003c: brfalse.s IL_005f
+   IL_003e: nop
+   IL_003f: ldarg.0
+   IL_0040: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Backdrop::Position
+   IL_0045: ldarg.0
+   IL_0046: ldfld System.Single FlaglinesAndSuch.SineParallaxStyleground::sinValue
+   IL_004b: ldarg.0
+   IL_004c: ldflda Microsoft.Xna.Framework.Vector2 FlaglinesAndSuch.SineParallaxStyleground::initialPos
+   IL_0051: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0056: add
+   IL_0057: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_005c: nop
+   IL_005d: br.s IL_007e
+   IL_005f: nop
+   IL_0060: ldarg.0
+   IL_0061: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Backdrop::Position
+   IL_0066: ldarg.0
+   IL_0067: ldfld System.Single FlaglinesAndSuch.SineParallaxStyleground::sinValue
+   IL_006c: ldarg.0
+   IL_006d: ldflda Microsoft.Xna.Framework.Vector2 FlaglinesAndSuch.SineParallaxStyleground::initialPos
+   IL_0072: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0077: add
+   IL_0078: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_007d: nop
+   IL_007e: ldarg.0
+   IL_007f: ldarg.1
+   IL_0080: call System.Void Celeste.Backdrop::Update(Monocle.Scene)
+   IL_0085: nop
+   IL_0086: ldarg.0
+   IL_0087: ldarg.0
+   IL_0088: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Backdrop::Position
+   IL_008d: ldarg.0
+   IL_008e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Backdrop::Speed
+   IL_0093: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0098: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_009d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a2: stfld Microsoft.Xna.Framework.Vector2 Celeste.Backdrop::Position
+   IL_00a7: ldarg.0
+   IL_00a8: ldarg.0
+   IL_00a9: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Backdrop::Position
+   IL_00ae: ldarg.0
+   IL_00af: ldfld System.Single Celeste.Backdrop::WindMultiplier
+   IL_00b4: ldarg.1
+   IL_00b5: isinst Celeste.Level
+   IL_00ba: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Level::Wind
+   IL_00bf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_00c4: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00c9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00ce: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00d3: stfld Microsoft.Xna.Framework.Vector2 Celeste.Backdrop::Position
+   IL_00d8: ldarg.0
+   IL_00d9: ldarg.0
+   IL_00da: ldfld System.Single FlaglinesAndSuch.SineParallaxStyleground::theta
+   IL_00df: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00e4: add
+   IL_00e5: ldc.r8 6.283185307179586
+   IL_00ee: ldarg.0
+   IL_00ef: ldfld System.Single FlaglinesAndSuch.SineParallaxStyleground::frequency
+   IL_00f4: conv.r8
+   IL_00f5: div
+   IL_00f6: conv.r4
+   IL_00f7: rem
+   IL_00f8: stfld System.Single FlaglinesAndSuch.SineParallaxStyleground::theta
+   IL_00fd: ret

@@ -1,0 +1,22 @@
+On: TAS.EverestInterop.PreventExitGame.OuiMainMenuOnOnExit(orig_OnExit,OuiMainMenu)
+   IL_0000: ldstr "event:/ui/main/button_select"
+   IL_0005: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_000a: pop
+   IL_000b: ldarg.0
+   IL_000c: ldc.i4.0
+   IL_000d: stfld System.Boolean Celeste.Oui::Focused
+   IL_0012: ldarg.0
+   IL_0013: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0018: ldc.i4.0
+   IL_0019: ldsfld System.Action Celeste.OuiMainMenu/<>c::<>9__29_0
+   IL_001e: dup
+   IL_001f: brtrue.s IL_0038
+   IL_0021: pop
+   IL_0022: ldsfld Celeste.OuiMainMenu/<>c Celeste.OuiMainMenu/<>c::<>9
+   IL_0027: ldftn System.Void Celeste.OuiMainMenu/<>c::<OnExit>b__29_0()
+   IL_002d: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0032: dup
+   IL_0033: stsfld System.Action Celeste.OuiMainMenu/<>c::<>9__29_0
+   IL_0038: newobj System.Void Celeste.FadeWipe::.ctor(Monocle.Scene,System.Boolean,System.Action)
+   IL_003d: pop
+   IL_003e: ret

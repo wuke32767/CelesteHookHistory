@@ -1,0 +1,280 @@
+On: Celeste.Mod.CelesteRace.CelesteRaceModule.LevelLoader_LoadingThread(orig_LoadingThread_Safe,LevelLoader)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.LevelLoader::LoadingThread()
+   IL_0006: leave IL_0383
+   IL_000b: stloc.0
+   IL_000c: ldarg.0
+   IL_000d: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_0012: dup
+   IL_0013: brtrue.s IL_0019
+   IL_0015: pop
+   IL_0016: ldnull
+   IL_0017: br.s IL_0023
+   IL_0019: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_001e: call System.String Celeste.AreaKeyExt::GetSID(Celeste.AreaKey)
+   IL_0023: dup
+   IL_0024: brtrue.s IL_002c
+   IL_0026: pop
+   IL_0027: ldstr "NULL"
+   IL_002c: stloc.1
+   IL_002d: ldarg.0
+   IL_002e: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_0033: dup
+   IL_0034: brtrue.s IL_003a
+   IL_0036: pop
+   IL_0037: ldc.i4.0
+   IL_0038: br.s IL_0041
+   IL_003a: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_003f: pop
+   IL_0040: ldc.i4.1
+   IL_0041: brfalse.s IL_0062
+   IL_0043: ldarg.0
+   IL_0044: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_0049: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_004e: call Celeste.AreaData Celeste.AreaData::Get(Celeste.AreaKey)
+   IL_0053: ldfld System.String Celeste.AreaData::Name
+   IL_0058: dup
+   IL_0059: stloc.2
+   IL_005a: ldnull
+   IL_005b: call System.Boolean Celeste.Dialog::Has(System.String,Celeste.Language)
+   IL_0060: brtrue.s IL_0065
+   IL_0062: ldnull
+   IL_0063: br.s IL_0089
+   IL_0065: ldstr " ["
+   IL_006a: ldloc.2
+   IL_006b: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Language> Celeste.Dialog::Languages
+   IL_0070: ldstr "english"
+   IL_0075: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Celeste.Language>::get_Item(TKey)
+   IL_007a: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_007f: ldstr "]"
+   IL_0084: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0089: stloc.2
+   IL_008a: ldarg.0
+   IL_008b: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_0090: dup
+   IL_0091: brtrue.s IL_0097
+   IL_0093: pop
+   IL_0094: ldc.i4.0
+   IL_0095: br.s IL_00a4
+   IL_0097: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_009c: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_00a1: ldc.i4.0
+   IL_00a2: cgt
+   IL_00a4: brfalse.s IL_00ec
+   IL_00a6: ldloc.2
+   IL_00a7: ldloca.s V_3
+   IL_00a9: ldc.i4.3
+   IL_00aa: ldc.i4.1
+   IL_00ab: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_00b0: ldloca.s V_3
+   IL_00b2: ldstr " ["
+   IL_00b7: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_00bc: ldloca.s V_3
+   IL_00be: ldarg.0
+   IL_00bf: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_00c4: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_00c9: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_00ce: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<Celeste.AreaMode>(T)
+   IL_00d3: ldloca.s V_3
+   IL_00d5: ldstr "]"
+   IL_00da: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_00df: ldloca.s V_3
+   IL_00e1: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_00e6: call System.String System.String::Concat(System.String,System.String)
+   IL_00eb: stloc.2
+   IL_00ec: ldsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_00f1: brtrue IL_0335
+   IL_00f6: ldloc.0
+   IL_00f7: isinst Celeste.Mod.Helpers.AutotilerException
+   IL_00fc: stloc.s V_4
+   IL_00fe: ldloc.s V_4
+   IL_0100: brfalse IL_031a
+   IL_0105: ldloc.0
+   IL_0106: callvirt System.String System.Exception::get_Source()
+   IL_010b: ldstr "TileHandler"
+   IL_0110: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0115: brfalse IL_031a
+   IL_011a: ldstr "???"
+   IL_011f: stloc.s V_5
+   IL_0121: ldc.i4.0
+   IL_0122: stloc.s V_7
+   IL_0124: br IL_01c1
+   IL_0129: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_012e: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Autotiler::LevelBounds
+   IL_0133: ldloc.s V_7
+   IL_0135: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::get_Item(System.Int32)
+   IL_013a: stloc.s V_8
+   IL_013c: ldloca.s V_8
+   IL_013e: ldloc.s V_4
+   IL_0140: callvirt System.Int32 Celeste.Mod.Helpers.AutotilerException::get_X()
+   IL_0145: ldloc.s V_4
+   IL_0147: callvirt System.Int32 Celeste.Mod.Helpers.AutotilerException::get_Y()
+   IL_014c: call System.Boolean Microsoft.Xna.Framework.Rectangle::Contains(System.Int32,System.Int32)
+   IL_0151: brfalse.s IL_01bb
+   IL_0153: ldloc.s V_4
+   IL_0155: dup
+   IL_0156: callvirt System.Int32 Celeste.Mod.Helpers.AutotilerException::get_X()
+   IL_015b: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_0160: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Autotiler::LevelBounds
+   IL_0165: ldloc.s V_7
+   IL_0167: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::get_Item(System.Int32)
+   IL_016c: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0171: sub
+   IL_0172: callvirt System.Void Celeste.Mod.Helpers.AutotilerException::set_X(System.Int32)
+   IL_0177: ldloc.s V_4
+   IL_0179: dup
+   IL_017a: callvirt System.Int32 Celeste.Mod.Helpers.AutotilerException::get_Y()
+   IL_017f: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_0184: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Autotiler::LevelBounds
+   IL_0189: ldloc.s V_7
+   IL_018b: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::get_Item(System.Int32)
+   IL_0190: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0195: sub
+   IL_0196: callvirt System.Void Celeste.Mod.Helpers.AutotilerException::set_Y(System.Int32)
+   IL_019b: ldarg.0
+   IL_019c: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_01a1: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_01a6: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_01ab: ldloc.s V_7
+   IL_01ad: callvirt T System.Collections.Generic.List`1<Celeste.LevelData>::get_Item(System.Int32)
+   IL_01b2: ldfld System.String Celeste.LevelData::Name
+   IL_01b7: stloc.s V_5
+   IL_01b9: br.s IL_01d7
+   IL_01bb: ldloc.s V_7
+   IL_01bd: ldc.i4.1
+   IL_01be: add
+   IL_01bf: stloc.s V_7
+   IL_01c1: ldloc.s V_7
+   IL_01c3: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_01c8: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Autotiler::LevelBounds
+   IL_01cd: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::get_Count()
+   IL_01d2: blt IL_0129
+   IL_01d7: ldstr ""
+   IL_01dc: stloc.s V_6
+   IL_01de: ldloc.0
+   IL_01df: ldtoken Celeste.SolidTiles
+   IL_01e4: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_01e9: call System.Boolean Celeste.Mod.Helpers.ExceptionExt::TypeInStacktrace(System.Exception,System.Type)
+   IL_01ee: brfalse.s IL_01f9
+   IL_01f0: ldstr "fg"
+   IL_01f5: stloc.s V_6
+   IL_01f7: br.s IL_0212
+   IL_01f9: ldloc.0
+   IL_01fa: ldtoken Celeste.BackgroundTiles
+   IL_01ff: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_0204: call System.Boolean Celeste.Mod.Helpers.ExceptionExt::TypeInStacktrace(System.Exception,System.Type)
+   IL_0209: brfalse.s IL_0212
+   IL_020b: ldstr "bg"
+   IL_0210: stloc.s V_6
+   IL_0212: ldstr "postcard_badtileid"
+   IL_0217: ldnull
+   IL_0218: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_021d: ldstr "((type))"
+   IL_0222: ldloc.s V_6
+   IL_0224: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0229: ldstr "((id))"
+   IL_022e: ldloc.s V_4
+   IL_0230: callvirt System.Char Celeste.Mod.Helpers.AutotilerException::get_ID()
+   IL_0235: stloc.s V_9
+   IL_0237: ldloca.s V_9
+   IL_0239: call System.String System.Char::ToString()
+   IL_023e: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0243: ldstr "((x))"
+   IL_0248: ldloc.s V_4
+   IL_024a: callvirt System.Int32 Celeste.Mod.Helpers.AutotilerException::get_X()
+   IL_024f: stloc.s V_10
+   IL_0251: ldloca.s V_10
+   IL_0253: call System.String System.Int32::ToString()
+   IL_0258: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_025d: ldstr "((y))"
+   IL_0262: ldloc.s V_4
+   IL_0264: callvirt System.Int32 Celeste.Mod.Helpers.AutotilerException::get_Y()
+   IL_0269: stloc.s V_10
+   IL_026b: ldloca.s V_10
+   IL_026d: call System.String System.Int32::ToString()
+   IL_0272: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0277: ldstr "((room))"
+   IL_027c: ldloc.s V_5
+   IL_027e: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0283: ldstr "((sid))"
+   IL_0288: ldloc.1
+   IL_0289: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_028e: stsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_0293: ldstr "LevelLoader"
+   IL_0298: stloc.s V_11
+   IL_029a: ldloc.s V_11
+   IL_029c: ldc.i4.s 37
+   IL_029e: ldc.i4.4
+   IL_029f: ldloc.s V_11
+   IL_02a1: ldloca.s V_13
+   IL_02a3: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_02a8: stloc.s V_12
+   IL_02aa: ldloc.s V_13
+   IL_02ac: brfalse.s IL_0311
+   IL_02ae: ldloca.s V_12
+   IL_02b0: ldstr "Undefined tile id '"
+   IL_02b5: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_02ba: ldloca.s V_12
+   IL_02bc: ldloc.s V_4
+   IL_02be: callvirt System.Char Celeste.Mod.Helpers.AutotilerException::get_ID()
+   IL_02c3: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted<System.Char>(T)
+   IL_02c8: ldloca.s V_12
+   IL_02ca: ldstr "' at ("
+   IL_02cf: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_02d4: ldloca.s V_12
+   IL_02d6: ldloc.s V_4
+   IL_02d8: callvirt System.Int32 Celeste.Mod.Helpers.AutotilerException::get_X()
+   IL_02dd: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted<System.Int32>(T)
+   IL_02e2: ldloca.s V_12
+   IL_02e4: ldstr ", "
+   IL_02e9: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_02ee: ldloca.s V_12
+   IL_02f0: ldloc.s V_4
+   IL_02f2: callvirt System.Int32 Celeste.Mod.Helpers.AutotilerException::get_Y()
+   IL_02f7: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted<System.Int32>(T)
+   IL_02fc: ldloca.s V_12
+   IL_02fe: ldstr ") in room "
+   IL_0303: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0308: ldloca.s V_12
+   IL_030a: ldloc.s V_5
+   IL_030c: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0311: ldloc.s V_12
+   IL_0313: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_0318: br.s IL_0335
+   IL_031a: ldstr "postcard_levelloadfailed"
+   IL_031f: ldnull
+   IL_0320: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_0325: ldstr "((sid))"
+   IL_032a: ldloc.1
+   IL_032b: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0330: stsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_0335: ldstr "LevelLoader"
+   IL_033a: stloc.s V_11
+   IL_033c: ldloc.s V_11
+   IL_033e: ldc.i4.s 15
+   IL_0340: ldc.i4.2
+   IL_0341: ldloc.s V_11
+   IL_0343: ldloca.s V_13
+   IL_0345: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_034a: stloc.s V_12
+   IL_034c: ldloc.s V_13
+   IL_034e: brfalse.s IL_036c
+   IL_0350: ldloca.s V_12
+   IL_0352: ldstr "Failed loading "
+   IL_0357: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_035c: ldloca.s V_12
+   IL_035e: ldloc.1
+   IL_035f: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0364: ldloca.s V_12
+   IL_0366: ldloc.2
+   IL_0367: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_036c: ldloc.s V_12
+   IL_036e: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_0373: ldloc.0
+   IL_0374: ldnull
+   IL_0375: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_037a: ldarg.0
+   IL_037b: ldc.i4.1
+   IL_037c: callvirt System.Void Celeste.LevelLoader::set_Loaded(System.Boolean)
+   IL_0381: leave.s IL_0383
+   IL_0383: ret

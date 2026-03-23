@@ -1,0 +1,38 @@
+On: Celeste.Mod.SpeedrunTool.RoomTimer.EndPoint.LevelTemplateOnRenderHighlight(orig_RenderHighlight,LevelTemplate,Camera,Boolean,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Boolean Celeste.Editor.LevelTemplate::IsVisible(Monocle.Camera)
+   IL_0007: brtrue.s IL_000a
+   IL_0009: ret
+   IL_000a: ldarg.3
+   IL_000b: ldarg.2
+   IL_000c: or
+   IL_000d: brfalse.s IL_0054
+   IL_000f: ldc.r4 1
+   IL_0014: ldarg.1
+   IL_0015: callvirt System.Single Monocle.Camera::get_Zoom()
+   IL_001a: div
+   IL_001b: ldc.r4 2
+   IL_0020: mul
+   IL_0021: stloc.0
+   IL_0022: ldarg.0
+   IL_0023: ldarg.0
+   IL_0024: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
+   IL_0029: conv.r4
+   IL_002a: ldarg.0
+   IL_002b: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
+   IL_0030: conv.r4
+   IL_0031: ldarg.0
+   IL_0032: ldfld System.Int32 Celeste.Editor.LevelTemplate::Width
+   IL_0037: conv.r4
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Int32 Celeste.Editor.LevelTemplate::Height
+   IL_003e: conv.r4
+   IL_003f: ldloc.0
+   IL_0040: ldarg.2
+   IL_0041: brtrue.s IL_004a
+   IL_0043: ldsfld Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::selectedBorderColor
+   IL_0048: br.s IL_004f
+   IL_004a: ldsfld Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::hoveredBorderColor
+   IL_004f: callvirt System.Void Celeste.Editor.LevelTemplate::Outline(System.Single,System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0054: ret

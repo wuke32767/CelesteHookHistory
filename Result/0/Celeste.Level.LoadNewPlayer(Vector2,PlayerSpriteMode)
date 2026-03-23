@@ -1,0 +1,17 @@
+On: Celeste.Mod.MaxHelpingHand.Triggers.SetFlagOnSpawnTrigger.onLoadNewPlayer(orig_LoadNewPlayer,Vector2,PlayerSpriteMode)
+   IL_0000: ldsfld Celeste.Player Celeste.Level::_PlayerOverride
+   IL_0005: brfalse.s IL_000d
+   IL_0007: ldsfld Celeste.Player Celeste.Level::_PlayerOverride
+   IL_000c: ret
+   IL_000d: ldsfld Celeste.Player Celeste.Level::NextLoadedPlayer
+   IL_0012: stloc.0
+   IL_0013: ldloc.0
+   IL_0014: brfalse.s IL_001e
+   IL_0016: ldnull
+   IL_0017: stsfld Celeste.Player Celeste.Level::NextLoadedPlayer
+   IL_001c: ldloc.0
+   IL_001d: ret
+   IL_001e: ldarg.0
+   IL_001f: ldarg.1
+   IL_0020: newobj System.Void Celeste.Player::.ctor(Microsoft.Xna.Framework.Vector2,Celeste.PlayerSpriteMode)
+   IL_0025: ret

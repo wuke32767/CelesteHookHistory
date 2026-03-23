@@ -1,0 +1,109 @@
+On: Celeste.Mod.SpringCollab2020.Entities.SafeRespawnCrumble.SafeActivatorRespawn(orig_IntroRespawnBegin,Player)
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_OnPlayerRespawn(orig_IntroRespawnBegin,Player)
+On: Celeste.Mod.SafeRespawnCrumble.SafeRespawnCrumble.SafeActivatorRespawn(orig_IntroRespawnBegin,Player)
+   IL_0000: newobj System.Void Celeste.Player/<>c__DisplayClass556_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.0
+   IL_0008: stfld Celeste.Player Celeste.Player/<>c__DisplayClass556_0::<>4__this
+   IL_000d: ldarg.0
+   IL_000e: ldstr "event:/char/madeline/revive"
+   IL_0013: ldnull
+   IL_0014: ldc.r4 0
+   IL_0019: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
+   IL_001e: pop
+   IL_001f: ldarg.0
+   IL_0020: ldc.i4 -1000000
+   IL_0025: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_002a: ldarg.0
+   IL_002b: ldc.r4 1
+   IL_0030: stfld System.Single Celeste.Player::introEase
+   IL_0035: ldloc.0
+   IL_0036: ldarg.0
+   IL_0037: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003c: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player/<>c__DisplayClass556_0::from
+   IL_0041: ldloc.0
+   IL_0042: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player/<>c__DisplayClass556_0::from
+   IL_0047: ldloc.0
+   IL_0048: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player/<>c__DisplayClass556_0::from
+   IL_004d: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0052: ldarg.0
+   IL_0053: ldfld Celeste.Level Celeste.Player::level
+   IL_0058: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_005d: stloc.1
+   IL_005e: ldloca.s V_1
+   IL_0060: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0065: conv.r4
+   IL_0066: ldc.r4 40
+   IL_006b: add
+   IL_006c: ldarg.0
+   IL_006d: ldfld Celeste.Level Celeste.Player::level
+   IL_0072: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0077: stloc.1
+   IL_0078: ldloca.s V_1
+   IL_007a: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_007f: conv.r4
+   IL_0080: ldc.r4 40
+   IL_0085: sub
+   IL_0086: call System.Single Microsoft.Xna.Framework.MathHelper::Clamp(System.Single,System.Single,System.Single)
+   IL_008b: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0090: ldloc.0
+   IL_0091: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player/<>c__DisplayClass556_0::from
+   IL_0096: ldloc.0
+   IL_0097: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player/<>c__DisplayClass556_0::from
+   IL_009c: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00a1: ldarg.0
+   IL_00a2: ldfld Celeste.Level Celeste.Player::level
+   IL_00a7: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00ac: stloc.1
+   IL_00ad: ldloca.s V_1
+   IL_00af: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_00b4: conv.r4
+   IL_00b5: ldc.r4 40
+   IL_00ba: add
+   IL_00bb: ldarg.0
+   IL_00bc: ldfld Celeste.Level Celeste.Player::level
+   IL_00c1: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00c6: stloc.1
+   IL_00c7: ldloca.s V_1
+   IL_00c9: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_00ce: conv.r4
+   IL_00cf: ldc.r4 40
+   IL_00d4: sub
+   IL_00d5: call System.Single Microsoft.Xna.Framework.MathHelper::Clamp(System.Single,System.Single,System.Single)
+   IL_00da: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00df: ldarg.0
+   IL_00e0: ldloc.0
+   IL_00e1: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player/<>c__DisplayClass556_0::from
+   IL_00e6: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::deadOffset
+   IL_00eb: ldloc.0
+   IL_00ec: ldloc.0
+   IL_00ed: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player/<>c__DisplayClass556_0::from
+   IL_00f2: ldarg.0
+   IL_00f3: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00f8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00fd: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player/<>c__DisplayClass556_0::from
+   IL_0102: ldarg.0
+   IL_0103: ldc.i4.1
+   IL_0104: ldnull
+   IL_0105: ldc.r4 0.6
+   IL_010a: ldc.i4.1
+   IL_010b: call Monocle.Tween Monocle.Tween::Create(Monocle.Tween/TweenMode,Monocle.Ease/Easer,System.Single,System.Boolean)
+   IL_0110: stfld Monocle.Tween Celeste.Player::respawnTween
+   IL_0115: ldarg.0
+   IL_0116: ldfld Monocle.Tween Celeste.Player::respawnTween
+   IL_011b: ldloc.0
+   IL_011c: ldftn System.Void Celeste.Player/<>c__DisplayClass556_0::<IntroRespawnBegin>b__0(Monocle.Tween)
+   IL_0122: newobj System.Void System.Action`1<Monocle.Tween>::.ctor(System.Object,System.IntPtr)
+   IL_0127: stfld System.Action`1<Monocle.Tween> Monocle.Tween::OnUpdate
+   IL_012c: ldarg.0
+   IL_012d: ldfld Monocle.Tween Celeste.Player::respawnTween
+   IL_0132: ldloc.0
+   IL_0133: ldftn System.Void Celeste.Player/<>c__DisplayClass556_0::<IntroRespawnBegin>b__1(Monocle.Tween)
+   IL_0139: newobj System.Void System.Action`1<Monocle.Tween>::.ctor(System.Object,System.IntPtr)
+   IL_013e: stfld System.Action`1<Monocle.Tween> Monocle.Tween::OnComplete
+   IL_0143: ldarg.0
+   IL_0144: ldarg.0
+   IL_0145: ldfld Monocle.Tween Celeste.Player::respawnTween
+   IL_014a: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_014f: ret

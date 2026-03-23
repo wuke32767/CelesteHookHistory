@@ -1,0 +1,17 @@
+On: Celeste.Mod.ProgHelper.SolidTilesExtensions.SolidTiles_Added(orig_Added,SolidTiles,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldfld Monocle.TileGrid Celeste.SolidTiles::Tiles
+   IL_000d: ldarg.0
+   IL_000e: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0013: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0018: stfld Monocle.Camera Monocle.TileGrid::ClipCamera
+   IL_001d: ldarg.0
+   IL_001e: ldfld Celeste.AnimatedTiles Celeste.SolidTiles::AnimatedTiles
+   IL_0023: ldarg.0
+   IL_0024: ldfld Monocle.TileGrid Celeste.SolidTiles::Tiles
+   IL_0029: ldfld Monocle.Camera Monocle.TileGrid::ClipCamera
+   IL_002e: stfld Monocle.Camera Celeste.AnimatedTiles::ClipCamera
+   IL_0033: ret

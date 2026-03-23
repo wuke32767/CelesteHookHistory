@@ -1,0 +1,28 @@
+On: Celeste.Mod.TASHelper.Gameplay.Spinner.Info.PositionHelper.PatchLightningUpdate(orig_Update,Lightning)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0006: brfalse.s IL_0026
+   IL_0008: ldarg.0
+   IL_0009: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000e: ldc.r4 0.25
+   IL_0013: ldarg.0
+   IL_0014: ldfld System.Single Celeste.Lightning::toggleOffset
+   IL_0019: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single,System.Single)
+   IL_001e: brfalse.s IL_0026
+   IL_0020: ldarg.0
+   IL_0021: callvirt System.Void Celeste.Lightning::ToggleCheck()
+   IL_0026: ldarg.0
+   IL_0027: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_002c: brtrue.s IL_004c
+   IL_002e: ldarg.0
+   IL_002f: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0034: ldc.r4 0.05
+   IL_0039: ldarg.0
+   IL_003a: ldfld System.Single Celeste.Lightning::toggleOffset
+   IL_003f: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single,System.Single)
+   IL_0044: brfalse.s IL_004c
+   IL_0046: ldarg.0
+   IL_0047: callvirt System.Void Celeste.Lightning::ToggleCheck()
+   IL_004c: ldarg.0
+   IL_004d: call System.Void Monocle.Entity::Update()
+   IL_0052: ret

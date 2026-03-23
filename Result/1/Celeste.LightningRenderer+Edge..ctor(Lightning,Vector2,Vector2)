@@ -1,0 +1,42 @@
+On: Celeste.Mod.aonHelper.Entities.SeamlessLightningController.LightningRenderer_Edge_ctor(orig_ctor,Object,Lightning,Vector2,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void System.Object::.ctor()
+   IL_0006: ldarg.0
+   IL_0007: ldarg.1
+   IL_0008: stfld Celeste.Lightning Celeste.LightningRenderer/Edge::Parent
+   IL_000d: ldarg.0
+   IL_000e: ldc.i4.1
+   IL_000f: stfld System.Boolean Celeste.LightningRenderer/Edge::Visible
+   IL_0014: ldarg.0
+   IL_0015: ldarg.2
+   IL_0016: stfld Microsoft.Xna.Framework.Vector2 Celeste.LightningRenderer/Edge::A
+   IL_001b: ldarg.0
+   IL_001c: ldarg.3
+   IL_001d: stfld Microsoft.Xna.Framework.Vector2 Celeste.LightningRenderer/Edge::B
+   IL_0022: ldarg.0
+   IL_0023: ldarg.2
+   IL_0024: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0029: ldarg.3
+   IL_002a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_002f: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_0034: ldarg.2
+   IL_0035: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_003a: ldarg.3
+   IL_003b: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0040: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_0045: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_004a: stfld Microsoft.Xna.Framework.Vector2 Celeste.LightningRenderer/Edge::Min
+   IL_004f: ldarg.0
+   IL_0050: ldarg.2
+   IL_0051: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0056: ldarg.3
+   IL_0057: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_005c: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_0061: ldarg.2
+   IL_0062: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0067: ldarg.3
+   IL_0068: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_006d: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_0072: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0077: stfld Microsoft.Xna.Framework.Vector2 Celeste.LightningRenderer/Edge::Max
+   IL_007c: ret

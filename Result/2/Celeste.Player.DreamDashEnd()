@@ -1,0 +1,116 @@
+On: LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashEnd(orig_DreamDashEnd,Player)
+On: FrostHelper.CustomDreamBlockV2.Player_DreamDashEnd(orig_DreamDashEnd,Player)
+On: Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.modDreamDashEnd(orig_DreamDashEnd,Player)
+On: Celeste.Mod.CommunalHelper.Components.DreamDashCollider.Player_DreamDashEnd(orig_DreamDashEnd,Player)
+On: Celeste.Mod.Aqua.Core.PlayerStates.Player_DreamDashEnd(orig_DreamDashEnd,Player)
+On: ExtendedVariants.Variants.JumpCount.modDreamDashEnd(orig_DreamDashEnd,Player)
+On: Celeste.Mod.BounceHelper.BounceHelperModule.modDreamDashEnd(orig_DreamDashEnd,Player)
+IL: Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock.Player_DreamDashEnd(ILContext)
+IL: Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+IL: LuckyHelper.Modules.DreamZoneModule.PlayerOnDreamDashEnd(ILContext)
+IL: LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashEnd(ILContext)
+IL: ExtendedVariants.Variants.DontRefillDashOnGround.patchNoRefills(ILContext)
+IL: ExtendedVariants.Variants.CoyoteTime.modCoyoteTime(ILContext)
+IL: Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionDreamJumps.allowAllDirectionDreamJumps(ILContext)
+ + IL_10000: ldarg.0 @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_10001: ldfld Celeste.DreamBlock Celeste.Player::dreamBlock @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_10002: isinst Celeste.Mod.Procedurline.CustomDreamBlock @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_10003: stloc V_0 @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Boolean Celeste.Player::dreamJump
+   IL_000d: brtrue.s IL_0021
+   IL_000f: ldarg.0
+   IL_0010: ldc.i4.1
+   IL_0011: stfld System.Boolean Celeste.Player::AutoJump
+   IL_0016: ldarg.0
+   IL_0017: ldc.r4 0
+   IL_001c: stfld System.Single Celeste.Player::AutoJumpTimer
+   IL_0021: ldarg.0
+   IL_0022: callvirt Celeste.PlayerInventory Celeste.Player::get_Inventory()
+   IL_0027: ldfld System.Boolean Celeste.PlayerInventory::NoRefills
+ + IL_10004: call System.Boolean ExtendedVariants.Variants.DontRefillDashOnGround::areRefillsOnGroundDisabled(System.Boolean) @ ExtendedVariants.Variants.DontRefillDashOnGround.patchNoRefills(ILContext)
+   IL_002c: brtrue.s IL_0035
+   IL_002e: ldarg.0
+ + IL_10005: ldarg.0 @ Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock.Player_DreamDashEnd(ILContext)
+ + IL_10006: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock.Player_DreamDashEnd(ILContext)
+ + IL_10007: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock.Player_DreamDashEnd(ILContext)
+ + IL_10008: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock.Player_DreamDashEnd(ILContext)
+       => Invoke: Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock+<>c.<Player_DreamDashEnd>b__64_0(Player)
+ + IL_10009: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock.Player_DreamDashEnd(ILContext)
+ + IL_1000a: brtrue.s IL_0034 @ Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock.Player_DreamDashEnd(ILContext)
+ + IL_1000b: ldc.i4 0 @ LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashEnd(ILContext)
+ + IL_1000c: ldc.i4 0 @ LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashEnd(ILContext)
+ + IL_1000d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashEnd(ILContext)
+       => Invoke: LuckyHelper.Entities.DreamZone_V2+<>c.<PlayerOnDreamDashEnd>b__40_1(Player)
+ + IL_1000e: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashEnd(ILContext)
+ + IL_1000f: brtrue IL_0035 @ LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashEnd(ILContext)
+ + IL_10010: ldarg.0 @ LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashEnd(ILContext)
+   IL_002f: callvirt System.Boolean Celeste.Player::RefillDash()
+   IL_0034: pop
+   IL_0035: ldarg.0
+   IL_0036: callvirt System.Void Celeste.Player::RefillStamina()
+   IL_003b: ldarg.0
+   IL_003c: ldc.i4.0
+   IL_003d: stfld System.Boolean Celeste.Actor::TreatNaive
+   IL_0042: ldarg.0
+   IL_0043: ldfld Celeste.DreamBlock Celeste.Player::dreamBlock
+   IL_0048: brfalse.s IL_008e
+ + IL_10011: ldarg.0 @ LuckyHelper.Modules.DreamZoneModule.PlayerOnDreamDashEnd(ILContext)
+ + IL_10012: ldc.i4 0 @ LuckyHelper.Modules.DreamZoneModule.PlayerOnDreamDashEnd(ILContext)
+ + IL_10013: ldc.i4 0 @ LuckyHelper.Modules.DreamZoneModule.PlayerOnDreamDashEnd(ILContext)
+ + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ LuckyHelper.Modules.DreamZoneModule.PlayerOnDreamDashEnd(ILContext)
+       => Invoke: LuckyHelper.Modules.DreamZoneModule+<>c.<HookVerticalOutJump>b__5_5(Player)
+ + IL_10015: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ LuckyHelper.Modules.DreamZoneModule.PlayerOnDreamDashEnd(ILContext)
+ + IL_10016: brtrue IL_005c @ LuckyHelper.Modules.DreamZoneModule.PlayerOnDreamDashEnd(ILContext)
+   IL_004a: ldarg.0
+   IL_004b: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_0050: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0055: ldc.r4 0
+ + IL_10017: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionDreamJumps::overrideDashDirX(System.Single) @ Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionDreamJumps.allowAllDirectionDreamJumps(ILContext)
+   IL_005a: beq.s IL_0070
+   IL_005c: ldarg.0
+   IL_005d: ldc.r4 0.1
+ + IL_10018: call System.Single ExtendedVariants.Variants.CoyoteTime::modCoyoteTimeInner(System.Single) @ ExtendedVariants.Variants.CoyoteTime.modCoyoteTime(ILContext)
+   IL_0062: stfld System.Single Celeste.Player::jumpGraceTimer
+   IL_0067: ldarg.0
+   IL_0068: ldc.i4.1
+   IL_0069: stfld System.Boolean Celeste.Player::dreamJump
+   IL_006e: br.s IL_007b
+   IL_0070: ldarg.0
+   IL_0071: ldc.r4 0
+   IL_0076: stfld System.Single Celeste.Player::jumpGraceTimer
+   IL_007b: ldarg.0
+   IL_007c: ldfld Celeste.DreamBlock Celeste.Player::dreamBlock
+   IL_0081: ldarg.0
+ + IL_10019: ldloc V_0 @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_1001a: brfalse IL_0082 @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_1001b: ldloc V_0 @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_1001c: ldarg.0 @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_1001d: ldnull @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_1001e: callvirt System.Void Celeste.Mod.Procedurline.CustomDreamBlock::OnExit(Celeste.Player,Celeste.DreamBlock) @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+   IL_0082: callvirt System.Void Celeste.DreamBlock::OnPlayerExit(Celeste.Player)
+   IL_0087: ldarg.0
+   IL_0088: ldnull
+   IL_0089: stfld Celeste.DreamBlock Celeste.Player::dreamBlock
+   IL_008e: ldarg.0
+   IL_008f: ldarg.0
+   IL_0090: ldfld Celeste.SoundSource Celeste.Player::dreamSfxLoop
+   IL_0095: callvirt System.Void Celeste.Player::Stop(Celeste.SoundSource)
+   IL_009a: ldarg.0
+   IL_009b: ldstr "event:/char/madeline/dreamblock_exit"
+ + IL_1001f: ldloc V_0 @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_10020: brfalse IL_00a0 @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_10021: pop @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_10022: ldloc V_0 @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+ + IL_10023: callvirt System.String Celeste.Mod.Procedurline.CustomDreamBlock::get_ExitSFX() @ Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashEndModifer(ILContext)
+   IL_00a0: ldnull
+   IL_00a1: ldc.r4 0
+   IL_00a6: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
+   IL_00ab: pop
+   IL_00ac: ldc.i4.1
+   IL_00ad: ldc.i4.0
+   IL_00ae: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_00b3: ret

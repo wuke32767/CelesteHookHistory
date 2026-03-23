@@ -1,0 +1,268 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.BubbleCollider.OnSpringCtor(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: ChroniaHelper.Entities.MigratedNeonHelper.PufferBomb.springOrientHook(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: Celeste.Mod.XaphanHelper.Colliders.CustomPufferSpringCollider.onSpringCtor(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: Celeste.Mod.XaphanHelper.Colliders.SpringCollider.onSpringCtor(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: Celeste.Mod.ShrimpHelper.Entities.StarfishGuy.Spring_ctor_Vector2_Orientations_bool(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: Celeste.Mod.ShrimpHelper.Entities.BonkKrill.Spring_ctor_Vector2_Orientations_bool(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: Celeste.Mod.PersistenceHelper.CorePuffer.Spring_ctor_Vector2_Orientations_bool(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: Celeste.Mod.Aqua.Core.SpringExtensions.Spring_Construct(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: Celeste.Mod.VortexHelper.Entities.BowlPuffer+Hooks.Spring_orig(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: Celeste.Mod.BitsHelper.Entities.BubbleCollider.OnSpringCtor(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: vitmod.CustomPuffer.Spring_ctor_Vector2_Orientations_bool(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+On: Celeste.Mod.auspicioushelper.SpringTracker.SpringCtorHook(orig_ctor_Vector2_Orientations_bool,Spring,Vector2,Orientations,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0006: stfld Microsoft.Xna.Framework.Color Celeste.Spring::DisabledColor
+   IL_000b: ldarg.0
+   IL_000c: ldarg.1
+   IL_000d: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0012: ldarg.0
+   IL_0013: ldarg.2
+   IL_0014: stfld Celeste.Spring/Orientations Celeste.Spring::Orientation
+   IL_0019: ldarg.0
+   IL_001a: ldarg.3
+   IL_001b: stfld System.Boolean Celeste.Spring::playerCanUse
+   IL_0020: ldarg.0
+   IL_0021: ldarg.0
+   IL_0022: ldftn System.Void Celeste.Spring::OnCollide(Celeste.Player)
+   IL_0028: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_002d: ldnull
+   IL_002e: ldnull
+   IL_002f: newobj System.Void Celeste.PlayerCollider::.ctor(System.Action`1<Celeste.Player>,Monocle.Collider,Monocle.Collider)
+   IL_0034: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0039: ldarg.0
+   IL_003a: ldarg.0
+   IL_003b: ldftn System.Void Celeste.Spring::OnHoldable(Celeste.Holdable)
+   IL_0041: newobj System.Void System.Action`1<Celeste.Holdable>::.ctor(System.Object,System.IntPtr)
+   IL_0046: ldnull
+   IL_0047: newobj System.Void Celeste.HoldableCollider::.ctor(System.Action`1<Celeste.Holdable>,Monocle.Collider)
+   IL_004c: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0051: ldarg.0
+   IL_0052: ldftn System.Void Celeste.Spring::OnPuffer(Celeste.Puffer)
+   IL_0058: newobj System.Void System.Action`1<Celeste.Puffer>::.ctor(System.Object,System.IntPtr)
+   IL_005d: ldnull
+   IL_005e: newobj System.Void Celeste.PufferCollider::.ctor(System.Action`1<Celeste.Puffer>,Monocle.Collider)
+   IL_0063: stloc.0
+   IL_0064: ldarg.0
+   IL_0065: ldloc.0
+   IL_0066: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_006b: ldarg.0
+   IL_006c: ldarg.0
+   IL_006d: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0072: ldstr "objects/spring/"
+   IL_0077: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_007c: dup
+   IL_007d: stloc.1
+   IL_007e: stfld Monocle.Sprite Celeste.Spring::sprite
+   IL_0083: ldloc.1
+   IL_0084: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0089: ldarg.0
+   IL_008a: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_008f: ldstr "idle"
+   IL_0094: ldstr ""
+   IL_0099: ldc.r4 0
+   IL_009e: ldc.i4.1
+   IL_009f: newarr System.Int32
+   IL_00a4: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single,System.Int32[])
+   IL_00a9: ldarg.0
+   IL_00aa: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_00af: ldstr "bounce"
+   IL_00b4: ldstr ""
+   IL_00b9: ldc.r4 0.07
+   IL_00be: ldstr "idle"
+   IL_00c3: ldc.i4.s 14
+   IL_00c5: newarr System.Int32
+   IL_00ca: dup
+   IL_00cb: ldtoken <PrivateImplementationDetails>/__StaticArrayInitTypeSize=56 <PrivateImplementationDetails>::261FB989D4503427F8BDA5F14B6FC176CD5AA844
+   IL_00d0: call System.Void System.Runtime.CompilerServices.RuntimeHelpers::InitializeArray(System.Array,System.RuntimeFieldHandle)
+   IL_00d5: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single,System.String,System.Int32[])
+   IL_00da: ldarg.0
+   IL_00db: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_00e0: ldstr "disabled"
+   IL_00e5: ldstr "white"
+   IL_00ea: ldc.r4 0.07
+   IL_00ef: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single)
+   IL_00f4: ldarg.0
+   IL_00f5: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_00fa: ldstr "idle"
+   IL_00ff: ldc.i4.0
+   IL_0100: ldc.i4.0
+   IL_0101: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0106: ldarg.0
+   IL_0107: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_010c: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Origin
+   IL_0111: ldarg.0
+   IL_0112: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_0117: callvirt System.Single Monocle.Image::get_Width()
+   IL_011c: ldc.r4 2
+   IL_0121: div
+   IL_0122: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0127: ldarg.0
+   IL_0128: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_012d: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Origin
+   IL_0132: ldarg.0
+   IL_0133: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_0138: callvirt System.Single Monocle.Image::get_Height()
+   IL_013d: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0142: ldarg.0
+   IL_0143: ldc.i4 -8501
+   IL_0148: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_014d: ldarg.0
+   IL_014e: newobj System.Void Celeste.StaticMover::.ctor()
+   IL_0153: stfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_0158: ldarg.0
+   IL_0159: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_015e: ldarg.0
+   IL_015f: ldftn System.Void Celeste.Spring::<.ctor>b__8_0(Celeste.Platform)
+   IL_0165: newobj System.Void System.Action`1<Celeste.Platform>::.ctor(System.Object,System.IntPtr)
+   IL_016a: stfld System.Action`1<Celeste.Platform> Celeste.StaticMover::OnAttach
+   IL_016f: ldarg.2
+   IL_0170: brtrue.s IL_01b1
+   IL_0172: ldarg.0
+   IL_0173: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_0178: ldarg.0
+   IL_0179: ldftn System.Boolean Celeste.Spring::<.ctor>b__8_1(Celeste.Solid)
+   IL_017f: newobj System.Void System.Func`2<Celeste.Solid,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0184: stfld System.Func`2<Celeste.Solid,System.Boolean> Celeste.StaticMover::SolidChecker
+   IL_0189: ldarg.0
+   IL_018a: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_018f: ldarg.0
+   IL_0190: ldftn System.Boolean Celeste.Spring::<.ctor>b__8_2(Celeste.JumpThru)
+   IL_0196: newobj System.Void System.Func`2<Celeste.JumpThru,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_019b: stfld System.Func`2<Celeste.JumpThru,System.Boolean> Celeste.StaticMover::JumpThruChecker
+   IL_01a0: ldarg.0
+   IL_01a1: ldarg.0
+   IL_01a2: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_01a7: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01ac: br IL_022f
+   IL_01b1: ldarg.2
+   IL_01b2: ldc.i4.1
+   IL_01b3: bne.un.s IL_01f1
+   IL_01b5: ldarg.0
+   IL_01b6: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_01bb: ldarg.0
+   IL_01bc: ldftn System.Boolean Celeste.Spring::<.ctor>b__8_3(Celeste.Solid)
+   IL_01c2: newobj System.Void System.Func`2<Celeste.Solid,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_01c7: stfld System.Func`2<Celeste.Solid,System.Boolean> Celeste.StaticMover::SolidChecker
+   IL_01cc: ldarg.0
+   IL_01cd: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_01d2: ldarg.0
+   IL_01d3: ldftn System.Boolean Celeste.Spring::<.ctor>b__8_4(Celeste.JumpThru)
+   IL_01d9: newobj System.Void System.Func`2<Celeste.JumpThru,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_01de: stfld System.Func`2<Celeste.JumpThru,System.Boolean> Celeste.StaticMover::JumpThruChecker
+   IL_01e3: ldarg.0
+   IL_01e4: ldarg.0
+   IL_01e5: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_01ea: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01ef: br.s IL_022f
+   IL_01f1: ldarg.2
+   IL_01f2: ldc.i4.2
+   IL_01f3: bne.un.s IL_022f
+   IL_01f5: ldarg.0
+   IL_01f6: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_01fb: ldarg.0
+   IL_01fc: ldftn System.Boolean Celeste.Spring::<.ctor>b__8_5(Celeste.Solid)
+   IL_0202: newobj System.Void System.Func`2<Celeste.Solid,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0207: stfld System.Func`2<Celeste.Solid,System.Boolean> Celeste.StaticMover::SolidChecker
+   IL_020c: ldarg.0
+   IL_020d: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_0212: ldarg.0
+   IL_0213: ldftn System.Boolean Celeste.Spring::<.ctor>b__8_6(Celeste.JumpThru)
+   IL_0219: newobj System.Void System.Func`2<Celeste.JumpThru,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_021e: stfld System.Func`2<Celeste.JumpThru,System.Boolean> Celeste.StaticMover::JumpThruChecker
+   IL_0223: ldarg.0
+   IL_0224: ldarg.0
+   IL_0225: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_022a: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_022f: ldarg.0
+   IL_0230: ldarg.0
+   IL_0231: ldc.r4 1
+   IL_0236: ldc.r4 4
+   IL_023b: ldarg.0
+   IL_023c: ldftn System.Void Celeste.Spring::<.ctor>b__8_7(System.Single)
+   IL_0242: newobj System.Void System.Action`1<System.Single>::.ctor(System.Object,System.IntPtr)
+   IL_0247: ldc.i4.0
+   IL_0248: ldc.i4.0
+   IL_0249: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_024e: dup
+   IL_024f: stloc.2
+   IL_0250: stfld Monocle.Wiggler Celeste.Spring::wiggler
+   IL_0255: ldloc.2
+   IL_0256: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_025b: ldarg.2
+   IL_025c: brtrue.s IL_02a1
+   IL_025e: ldarg.0
+   IL_025f: ldc.r4 16
+   IL_0264: ldc.r4 6
+   IL_0269: ldc.r4 -8
+   IL_026e: ldc.r4 -6
+   IL_0273: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0278: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_027d: ldloc.0
+   IL_027e: ldc.r4 16
+   IL_0283: ldc.r4 10
+   IL_0288: ldc.r4 -8
+   IL_028d: ldc.r4 -10
+   IL_0292: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0297: stfld Monocle.Collider Celeste.PufferCollider::Collider
+   IL_029c: br IL_0354
+   IL_02a1: ldarg.2
+   IL_02a2: ldc.i4.1
+   IL_02a3: bne.un.s IL_02f5
+   IL_02a5: ldarg.0
+   IL_02a6: ldc.r4 6
+   IL_02ab: ldc.r4 16
+   IL_02b0: ldc.r4 0
+   IL_02b5: ldc.r4 -8
+   IL_02ba: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_02bf: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_02c4: ldloc.0
+   IL_02c5: ldc.r4 12
+   IL_02ca: ldc.r4 16
+   IL_02cf: ldc.r4 0
+   IL_02d4: ldc.r4 -8
+   IL_02d9: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_02de: stfld Monocle.Collider Celeste.PufferCollider::Collider
+   IL_02e3: ldarg.0
+   IL_02e4: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_02e9: ldc.r4 1.5707964
+   IL_02ee: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_02f3: br.s IL_0354
+   IL_02f5: ldarg.2
+   IL_02f6: ldc.i4.2
+   IL_02f7: bne.un.s IL_0349
+   IL_02f9: ldarg.0
+   IL_02fa: ldc.r4 6
+   IL_02ff: ldc.r4 16
+   IL_0304: ldc.r4 -6
+   IL_0309: ldc.r4 -8
+   IL_030e: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0313: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0318: ldloc.0
+   IL_0319: ldc.r4 12
+   IL_031e: ldc.r4 16
+   IL_0323: ldc.r4 -12
+   IL_0328: ldc.r4 -8
+   IL_032d: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0332: stfld Monocle.Collider Celeste.PufferCollider::Collider
+   IL_0337: ldarg.0
+   IL_0338: ldfld Monocle.Sprite Celeste.Spring::sprite
+   IL_033d: ldc.r4 -1.5707964
+   IL_0342: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_0347: br.s IL_0354
+   IL_0349: ldstr "Orientation not supported!"
+   IL_034e: newobj System.Void System.Exception::.ctor(System.String)
+   IL_0353: throw
+   IL_0354: ldarg.0
+   IL_0355: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_035a: ldarg.0
+   IL_035b: ldftn System.Void Celeste.Spring::OnEnable()
+   IL_0361: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0366: stfld System.Action Celeste.StaticMover::OnEnable
+   IL_036b: ldarg.0
+   IL_036c: ldfld Celeste.StaticMover Celeste.Spring::staticMover
+   IL_0371: ldarg.0
+   IL_0372: ldftn System.Void Celeste.Spring::OnDisable()
+   IL_0378: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_037d: stfld System.Action Celeste.StaticMover::OnDisable
+   IL_0382: ret

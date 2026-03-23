@@ -1,0 +1,30 @@
+On: ExtendedVariants.Variants.MuteSeekerSounds.onSeekerSpottedBegin(orig_SpottedBegin,Seeker)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.SoundSource Celeste.Seeker::aggroSfx
+   IL_0006: ldstr "event:/game/05_mirror_temple/seeker_aggro"
+   IL_000b: ldnull
+   IL_000c: ldc.r4 0
+   IL_0011: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)
+   IL_0016: pop
+   IL_0017: ldarg.0
+   IL_0018: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_001d: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0022: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0027: stloc.0
+   IL_0028: ldloc.0
+   IL_0029: brfalse.s IL_0043
+   IL_002b: ldarg.0
+   IL_002c: ldloc.0
+   IL_002d: callvirt System.Single Monocle.Entity::get_X()
+   IL_0032: ldarg.0
+   IL_0033: call System.Single Monocle.Entity::get_X()
+   IL_0038: sub
+   IL_0039: ldstr "spot"
+   IL_003e: callvirt System.Void Celeste.Seeker::TurnFacing(System.Single,System.String)
+   IL_0043: ldarg.0
+   IL_0044: ldc.r4 0.6
+   IL_0049: stfld System.Single Celeste.Seeker::spottedLosePlayerTimer
+   IL_004e: ldarg.0
+   IL_004f: ldc.r4 1
+   IL_0054: stfld System.Single Celeste.Seeker::spottedTurnDelay
+   IL_0059: ret

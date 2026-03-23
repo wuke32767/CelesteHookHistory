@@ -1,0 +1,23 @@
+On: Celeste.Mod.StrawberryJam2021.Triggers.LiftBoostTrigger.set_LiftSpeed(orig_set_LiftSpeed,Actor,Vector2)
+On: ChroniaHelper.Entities.TeraBlock.OnSetLiftSpeed(orig_SetLiftSpeed,Actor,Vector2)
+On: Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSetLiftSpeed(orig_SetLiftSpeed,Actor,Vector2)
+On: MayaHelper.Entities.liftBoostTrigger.set_LiftSpeed(orig_set_LiftSpeed,Actor,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: stfld Microsoft.Xna.Framework.Vector2 Celeste.Actor::currentLiftSpeed
+   IL_0007: ldarg.1
+   IL_0008: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_000d: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0012: brfalse.s IL_0034
+   IL_0014: ldarg.0
+   IL_0015: ldfld System.Single Celeste.Actor::LiftSpeedGraceTime
+   IL_001a: ldc.r4 0
+   IL_001f: ble.un.s IL_0034
+   IL_0021: ldarg.0
+   IL_0022: ldarg.1
+   IL_0023: stfld Microsoft.Xna.Framework.Vector2 Celeste.Actor::lastLiftSpeed
+   IL_0028: ldarg.0
+   IL_0029: ldarg.0
+   IL_002a: ldfld System.Single Celeste.Actor::LiftSpeedGraceTime
+   IL_002f: stfld System.Single Celeste.Actor::liftSpeedTimer
+   IL_0034: ret

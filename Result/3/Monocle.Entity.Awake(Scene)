@@ -1,0 +1,26 @@
+On: Celeste.Mod.LylyraHelper.Components.Slicer.Entity_Awake(orig_Awake,Entity,Scene)
+On: Celeste.Mod.LylyraHelper.Triggers.AddSlicerTrigger.SlicerTriggerCheck(orig_Awake,Entity,Scene)
+On: Celeste.Mod.PuzzleHelper.PuzzleHelper.modAwake(orig_Awake,Entity,Scene)
+On: Celeste.Mod.Aqua.Core.EntityExtensions.Entity_Awake(orig_Awake,Entity,Scene)
+On: Celeste.Mod.aonHelper.Entities.LightningCornerboostController.Entity_Awake(orig_Awake,Entity,Scene)
+   IL_0000: ldarg.0
+   IL_0001: callvirt Monocle.ComponentList Monocle.Entity::get_Components()
+   IL_0006: brfalse.s IL_0035
+   IL_0008: ldarg.0
+   IL_0009: callvirt Monocle.ComponentList Monocle.Entity::get_Components()
+   IL_000e: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Component> Monocle.ComponentList::GetEnumerator()
+   IL_0013: stloc.0
+   IL_0014: br.s IL_0021
+   IL_0016: ldloc.0
+   IL_0017: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Component>::get_Current()
+   IL_001c: callvirt System.Void Monocle.Component::EntityAwake()
+   IL_0021: ldloc.0
+   IL_0022: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_0027: brtrue.s IL_0016
+   IL_0029: leave.s IL_0035
+   IL_002b: ldloc.0
+   IL_002c: brfalse.s IL_0034
+   IL_002e: ldloc.0
+   IL_002f: callvirt System.Void System.IDisposable::Dispose()
+   IL_0034: endfinally
+   IL_0035: ret

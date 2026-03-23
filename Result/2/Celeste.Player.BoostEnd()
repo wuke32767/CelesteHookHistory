@@ -1,0 +1,21 @@
+On: Celeste.Mod.DashlessHelper.DashlessModule.CorrectDir(orig_BoostEnd,Player)
+On: ExtendedVariants.Variants.DashDirection.onBoostEnd(orig_BoostEnd,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::boostTarget
+   IL_0006: ldarg.0
+   IL_0007: call Monocle.Collider Monocle.Entity::get_Collider()
+   IL_000c: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Collider::get_Center()
+   IL_0011: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0016: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Floor(Microsoft.Xna.Framework.Vector2)
+   IL_001b: stloc.0
+   IL_001c: ldarg.0
+   IL_001d: ldloc.0
+   IL_001e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0023: ldnull
+   IL_0024: call System.Void Celeste.Actor::MoveToX(System.Single,Celeste.Collision)
+   IL_0029: ldarg.0
+   IL_002a: ldloc.0
+   IL_002b: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0030: ldnull
+   IL_0031: call System.Void Celeste.Actor::MoveToY(System.Single,Celeste.Collision)
+   IL_0036: ret

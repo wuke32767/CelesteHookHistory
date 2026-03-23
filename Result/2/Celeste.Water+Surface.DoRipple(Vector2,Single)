@@ -1,0 +1,84 @@
+On: Celeste.Mod.Spirialis.TimeController.waterRipple(orig_DoRipple,Surface,Vector2,Single)
+On: Celeste.Mod.auspicioushelper.FancyWater+FakeTopsurface.Hook(orig_DoRipple,Surface,Vector2,Single)
+   IL_0000: ldc.r4 80
+   IL_0005: stloc.0
+   IL_0006: ldc.r4 3
+   IL_000b: stloc.1
+   IL_000c: ldarg.0
+   IL_000d: ldarg.1
+   IL_000e: callvirt System.Single Celeste.Water/Surface::GetPointAlong(Microsoft.Xna.Framework.Vector2)
+   IL_0013: stloc.2
+   IL_0014: ldc.i4.2
+   IL_0015: stloc.3
+   IL_0016: ldarg.0
+   IL_0017: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_001c: ldc.i4 200
+   IL_0021: bge.s IL_006a
+   IL_0023: ldloc.1
+   IL_0024: ldarg.0
+   IL_0025: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_002a: conv.r4
+   IL_002b: ldc.r4 0
+   IL_0030: ldc.r4 200
+   IL_0035: ldc.r4 0.25
+   IL_003a: ldc.r4 1
+   IL_003f: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0044: mul
+   IL_0045: stloc.1
+   IL_0046: ldarg.2
+   IL_0047: ldarg.0
+   IL_0048: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_004d: conv.r4
+   IL_004e: ldc.r4 0
+   IL_0053: ldc.r4 200
+   IL_0058: ldc.r4 0.5
+   IL_005d: ldc.r4 1
+   IL_0062: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0067: mul
+   IL_0068: starg.s multiplier
+   IL_006a: ldarg.0
+   IL_006b: ldfld System.Collections.Generic.List`1<Celeste.Water/Ripple> Celeste.Water/Surface::Ripples
+   IL_0070: newobj System.Void Celeste.Water/Ripple::.ctor()
+   IL_0075: dup
+   IL_0076: ldloc.2
+   IL_0077: stfld System.Single Celeste.Water/Ripple::Position
+   IL_007c: dup
+   IL_007d: ldloc.0
+   IL_007e: neg
+   IL_007f: stfld System.Single Celeste.Water/Ripple::Speed
+   IL_0084: dup
+   IL_0085: ldloc.3
+   IL_0086: conv.r4
+   IL_0087: ldarg.2
+   IL_0088: mul
+   IL_0089: stfld System.Single Celeste.Water/Ripple::Height
+   IL_008e: dup
+   IL_008f: ldc.r4 0
+   IL_0094: stfld System.Single Celeste.Water/Ripple::Percent
+   IL_0099: dup
+   IL_009a: ldloc.1
+   IL_009b: stfld System.Single Celeste.Water/Ripple::Duration
+   IL_00a0: callvirt System.Void System.Collections.Generic.List`1<Celeste.Water/Ripple>::Add(T)
+   IL_00a5: ldarg.0
+   IL_00a6: ldfld System.Collections.Generic.List`1<Celeste.Water/Ripple> Celeste.Water/Surface::Ripples
+   IL_00ab: newobj System.Void Celeste.Water/Ripple::.ctor()
+   IL_00b0: dup
+   IL_00b1: ldloc.2
+   IL_00b2: stfld System.Single Celeste.Water/Ripple::Position
+   IL_00b7: dup
+   IL_00b8: ldloc.0
+   IL_00b9: stfld System.Single Celeste.Water/Ripple::Speed
+   IL_00be: dup
+   IL_00bf: ldloc.3
+   IL_00c0: conv.r4
+   IL_00c1: ldarg.2
+   IL_00c2: mul
+   IL_00c3: stfld System.Single Celeste.Water/Ripple::Height
+   IL_00c8: dup
+   IL_00c9: ldc.r4 0
+   IL_00ce: stfld System.Single Celeste.Water/Ripple::Percent
+   IL_00d3: dup
+   IL_00d4: ldloc.1
+   IL_00d5: stfld System.Single Celeste.Water/Ripple::Duration
+   IL_00da: callvirt System.Void System.Collections.Generic.List`1<Celeste.Water/Ripple>::Add(T)
+   IL_00df: ret

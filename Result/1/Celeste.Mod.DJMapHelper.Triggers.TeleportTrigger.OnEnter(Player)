@@ -1,0 +1,60 @@
+On: Celeste.Mod.Randomizer.RandoModule.DJCutsceneWarp(Action`2,Object,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Celeste.Trigger::OnEnter(Celeste.Player)
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Boolean Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::triggered
+   IL_000d: brfalse.s IL_0010
+   IL_000f: ret
+   IL_0010: ldarg.0
+   IL_0011: ldc.i4.1
+   IL_0012: stfld System.Boolean Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::triggered
+   IL_0017: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_001c: isinst Celeste.Level
+   IL_0021: stloc.0
+   IL_0022: ldloc.0
+   IL_0023: brfalse.s IL_006c
+   IL_0025: ldarg.0
+   IL_0026: ldfld System.String Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::room
+   IL_002b: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0030: brfalse.s IL_0043
+   IL_0032: ldloc.0
+   IL_0033: ldstr "DJ_MAP_HELPER_TELEPORT_TRIGGER_NAME_EMPTY"
+   IL_0038: newobj System.Void Celeste.MiniTextbox::.ctor(System.String)
+   IL_003d: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0042: ret
+   IL_0043: ldloc.0
+   IL_0044: ldfld Celeste.Session Celeste.Level::Session
+   IL_0049: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_004e: ldarg.0
+   IL_004f: ldfld System.String Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::room
+   IL_0054: callvirt Celeste.LevelData Celeste.MapData::Get(System.String)
+   IL_0059: brtrue.s IL_006c
+   IL_005b: ldloc.0
+   IL_005c: ldstr "DJ_MAP_HELPER_TELEPORT_TRIGGER_NAME_NOT_EXIST"
+   IL_0061: newobj System.Void Celeste.MiniTextbox::.ctor(System.String)
+   IL_0066: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_006b: ret
+   IL_006c: ldarg.0
+   IL_006d: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0072: ldarg.1
+   IL_0073: ldarg.0
+   IL_0074: ldfld System.Boolean Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::bonfire
+   IL_0079: ldarg.0
+   IL_007a: ldfld System.String Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::room
+   IL_007f: ldarg.0
+   IL_0080: ldfld System.Int32 Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::spawnPointX
+   IL_0085: conv.r4
+   IL_0086: ldarg.0
+   IL_0087: ldfld System.Int32 Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::spawnPointY
+   IL_008c: conv.r4
+   IL_008d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0092: ldarg.0
+   IL_0093: ldfld Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger/Dreams Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::dreams
+   IL_0098: ldarg.0
+   IL_0099: ldfld System.Boolean Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::keepKey
+   IL_009e: ldarg.0
+   IL_009f: ldfld Celeste.Player/IntroTypes Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger::introTypes
+   IL_00a4: newobj System.Void Celeste.Mod.DJMapHelper.Cutscenes.CS_Teleport::.ctor(Celeste.Player,System.Boolean,System.String,Microsoft.Xna.Framework.Vector2,Celeste.Mod.DJMapHelper.Triggers.TeleportTrigger/Dreams,System.Boolean,Celeste.Player/IntroTypes)
+   IL_00a9: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_00ae: ret

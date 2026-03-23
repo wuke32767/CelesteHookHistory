@@ -1,0 +1,82 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_SilentUpdateBlocks(orig_SilentUpdateBlocks,CassetteBlockManager)
+On: FrostHelper.Components.CassetteListener.CassetteBlockManager_SilentUpdateBlocks(orig_SilentUpdateBlocks,CassetteBlockManager)
+On: PrismaticHelper.Entities.CassetteListener.CsSilentActive(orig_SilentUpdateBlocks,CassetteBlockManager)
+On: SnowyAssortedEntities.Entities.CassetteListener.CsSilentActive(orig_SilentUpdateBlocks,CassetteBlockManager)
+On: AltLevelsHelper.Entry.CassetteBlockManager_SilentUpdateBlocks(orig_SilentUpdateBlocks,CassetteBlockManager)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000b: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.CassetteBlock>()
+   IL_0010: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_0015: stloc.0
+   IL_0016: br.s IL_005b
+   IL_0018: ldloca.s V_0
+   IL_001a: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_001f: castclass Celeste.CassetteBlock
+   IL_0024: stloc.1
+   IL_0025: ldloc.1
+   IL_0026: ldflda Celeste.EntityID Celeste.CassetteBlock::ID
+   IL_002b: ldfld System.String Celeste.EntityID::Level
+   IL_0030: ldarg.0
+   IL_0031: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0036: ldfld Celeste.Session Celeste.Level::Session
+   IL_003b: ldfld System.String Celeste.Session::Level
+   IL_0040: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0045: brfalse.s IL_005b
+   IL_0047: ldloc.1
+   IL_0048: ldloc.1
+   IL_0049: ldfld System.Int32 Celeste.CassetteBlock::Index
+   IL_004e: ldarg.0
+   IL_004f: ldfld System.Int32 Celeste.CassetteBlockManager::currentIndex
+   IL_0054: ceq
+   IL_0056: callvirt System.Void Celeste.CassetteBlock::SetActivatedSilently(System.Boolean)
+   IL_005b: ldloca.s V_0
+   IL_005d: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0062: brtrue.s IL_0018
+   IL_0064: leave.s IL_0074
+   IL_0066: ldloca.s V_0
+   IL_0068: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_006e: callvirt System.Void System.IDisposable::Dispose()
+   IL_0073: endfinally
+   IL_0074: ldarg.0
+   IL_0075: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_007a: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_007f: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.Mod.Entities.CassetteListener>()
+   IL_0084: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
+   IL_0089: stloc.2
+   IL_008a: br.s IL_00e6
+   IL_008c: ldloca.s V_2
+   IL_008e: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
+   IL_0093: castclass Celeste.Mod.Entities.CassetteListener
+   IL_0098: stloc.3
+   IL_0099: ldloc.3
+   IL_009a: ldflda Celeste.EntityID Celeste.Mod.Entities.CassetteListener::ID
+   IL_009f: ldfld System.Int32 Celeste.EntityID::ID
+   IL_00a4: ldsflda Celeste.EntityID Celeste.EntityID::None
+   IL_00a9: ldfld System.Int32 Celeste.EntityID::ID
+   IL_00ae: beq.s IL_00d2
+   IL_00b0: ldloc.3
+   IL_00b1: ldflda Celeste.EntityID Celeste.Mod.Entities.CassetteListener::ID
+   IL_00b6: ldfld System.String Celeste.EntityID::Level
+   IL_00bb: ldarg.0
+   IL_00bc: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_00c1: ldfld Celeste.Session Celeste.Level::Session
+   IL_00c6: ldfld System.String Celeste.Session::Level
+   IL_00cb: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_00d0: brfalse.s IL_00e6
+   IL_00d2: ldloc.3
+   IL_00d3: ldloc.3
+   IL_00d4: ldfld System.Int32 Celeste.Mod.Entities.CassetteListener::Index
+   IL_00d9: ldarg.0
+   IL_00da: ldfld System.Int32 Celeste.CassetteBlockManager::currentIndex
+   IL_00df: ceq
+   IL_00e1: callvirt System.Void Celeste.Mod.Entities.CassetteListener::Start(System.Boolean)
+   IL_00e6: ldloca.s V_2
+   IL_00e8: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Component>::MoveNext()
+   IL_00ed: brtrue.s IL_008c
+   IL_00ef: leave.s IL_00ff
+   IL_00f1: ldloca.s V_2
+   IL_00f3: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+   IL_00f9: callvirt System.Void System.IDisposable::Dispose()
+   IL_00fe: endfinally
+   IL_00ff: ret

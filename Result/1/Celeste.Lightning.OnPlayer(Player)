@@ -1,0 +1,29 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomLightningOnPlayer(orig_OnPlayer,Lightning,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Lightning::disappearing
+   IL_0006: brtrue.s IL_0046
+   IL_0008: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_000d: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0012: ldfld System.Boolean Celeste.Assists::Invincible
+   IL_0017: brtrue.s IL_0046
+   IL_0019: ldarg.1
+   IL_001a: callvirt System.Single Monocle.Entity::get_X()
+   IL_001f: ldarg.0
+   IL_0020: call System.Single Monocle.Entity::get_X()
+   IL_0025: sub
+   IL_0026: call System.Int32 System.Math::Sign(System.Single)
+   IL_002b: stloc.0
+   IL_002c: ldloc.0
+   IL_002d: brtrue.s IL_0031
+   IL_002f: ldc.i4.m1
+   IL_0030: stloc.0
+   IL_0031: ldarg.1
+   IL_0032: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0037: ldloc.0
+   IL_0038: conv.r4
+   IL_0039: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_003e: ldc.i4.0
+   IL_003f: ldc.i4.1
+   IL_0040: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_0045: pop
+   IL_0046: ret

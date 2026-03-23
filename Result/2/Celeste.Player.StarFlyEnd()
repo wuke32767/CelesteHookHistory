@@ -1,0 +1,70 @@
+On: Celeste.Mod.GameHelper.Entities.Feathers.SaveSpeedFeather.OnStarFlyEnd(orig_StarFlyEnd,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldstr "event:/game/06_reflection/feather_state_end"
+   IL_0006: ldnull
+   IL_0007: ldc.r4 0
+   IL_000c: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
+   IL_0011: pop
+   IL_0012: ldarg.0
+   IL_0013: ldfld Celeste.SoundSource Celeste.Player::starFlyWarningSfx
+   IL_0018: ldc.i4.1
+   IL_0019: callvirt Celeste.SoundSource Celeste.SoundSource::Stop(System.Boolean)
+   IL_001e: pop
+   IL_001f: ldarg.0
+   IL_0020: ldfld Celeste.SoundSource Celeste.Player::starFlyLoopSfx
+   IL_0025: ldc.i4.1
+   IL_0026: callvirt Celeste.SoundSource Celeste.SoundSource::Stop(System.Boolean)
+   IL_002b: pop
+   IL_002c: ldarg.0
+   IL_002d: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0032: ldc.i4.0
+   IL_0033: stfld System.Boolean Celeste.PlayerHair::DrawPlayerSpriteOutline
+   IL_0038: ldarg.0
+   IL_0039: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_003e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0043: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0048: ldarg.0
+   IL_0049: ldfld Celeste.Level Celeste.Player::level
+   IL_004e: ldfld Celeste.DisplacementRenderer Celeste.Level::Displacement
+   IL_0053: ldarg.0
+   IL_0054: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0059: ldc.r4 0.25
+   IL_005e: ldc.r4 8
+   IL_0063: ldc.r4 32
+   IL_0068: ldc.r4 1
+   IL_006d: ldnull
+   IL_006e: ldnull
+   IL_006f: callvirt Celeste.DisplacementRenderer/Burst Celeste.DisplacementRenderer::AddBurst(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Single,System.Single,Monocle.Ease/Easer,Monocle.Ease/Easer)
+   IL_0074: pop
+   IL_0075: ldarg.0
+   IL_0076: ldfld Celeste.BloomPoint Celeste.Player::starFlyBloom
+   IL_007b: ldc.i4.0
+   IL_007c: stfld System.Boolean Monocle.Component::Visible
+   IL_0081: ldarg.0
+   IL_0082: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0087: ldarg.0
+   IL_0088: ldfld System.Int32 Celeste.Player::startHairCount
+   IL_008d: stfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_0092: ldarg.0
+   IL_0093: callvirt System.Void Celeste.Player::StarFlyReturnToNormalHitbox()
+   IL_0098: ldarg.0
+   IL_0099: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_009e: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_00a3: ldc.i4.2
+   IL_00a4: beq.s IL_00e2
+   IL_00a6: ldarg.0
+   IL_00a7: ldfld Celeste.Level Celeste.Player::level
+   IL_00ac: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_00b1: ldsfld Monocle.ParticleType Celeste.FlyFeather::P_Boost
+   IL_00b6: ldc.i4.s 12
+   IL_00b8: ldarg.0
+   IL_00b9: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_00be: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00c3: ldc.r4 4
+   IL_00c8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00cd: ldarg.0
+   IL_00ce: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_00d3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_00d8: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_00dd: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00e2: ret

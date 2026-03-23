@@ -1,0 +1,145 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: ldsfld System.Random TAS.Gameplay.DesyncFix.SeededRandomness/VortexHelperColorSwitchHandler::switchRandom @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: call DynamicMethod!SeedMethod_PushRandom!System.Void TAS.Gameplay.DesyncFix.SeededRandomness/Handler::SeedMethod_PushRandom(System.Random) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000a: nop
+   IL_000b: ldarg.0
+   IL_000c: ldc.r4 1
+   IL_0011: ldarg.1
+   IL_0012: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0017: call System.Single System.Math::Abs(System.Single)
+   IL_001c: ldc.r4 0.5
+   IL_0021: mul
+   IL_0022: ldarg.1
+   IL_0023: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0028: call System.Single System.Math::Abs(System.Single)
+   IL_002d: ldc.r4 0.5
+   IL_0032: mul
+   IL_0033: sub
+   IL_0034: ldarg.0
+   IL_0035: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.VortexHelper.Entities.ColorSwitch::scaleStrength
+   IL_003a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_003f: div
+   IL_0040: add
+   IL_0041: ldc.r4 1
+   IL_0046: ldarg.1
+   IL_0047: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_004c: call System.Single System.Math::Abs(System.Single)
+   IL_0051: ldc.r4 0.5
+   IL_0056: mul
+   IL_0057: ldarg.1
+   IL_0058: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_005d: call System.Single System.Math::Abs(System.Single)
+   IL_0062: ldc.r4 0.5
+   IL_0067: mul
+   IL_0068: sub
+   IL_0069: ldarg.0
+   IL_006a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.VortexHelper.Entities.ColorSwitch::scaleStrength
+   IL_006f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0074: div
+   IL_0075: add
+   IL_0076: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_007b: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.VortexHelper.Entities.ColorSwitch::scale
+   IL_0080: ldarg.0
+   IL_0081: ldfld System.Boolean Celeste.Mod.VortexHelper.Entities.ColorSwitch::random
+   IL_0086: stloc.2
+   IL_0087: ldloc.2
+   IL_0088: brfalse.s IL_00a3
+   IL_008a: ldarg.0
+   IL_008b: ldsfld System.Random Monocle.Calc::Random
+   IL_0090: ldc.i4.0
+   IL_0091: ldarg.0
+   IL_0092: ldfld Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor[] Celeste.Mod.VortexHelper.Entities.ColorSwitch::colors
+   IL_0097: ldlen
+   IL_0098: conv.i4
+   IL_0099: callvirt System.Int32 System.Random::Next(System.Int32,System.Int32)
+   IL_009e: stfld System.Int32 Celeste.Mod.VortexHelper.Entities.ColorSwitch::nextColorIndex
+   IL_00a3: call Celeste.Mod.VortexHelper.VortexHelperSession Celeste.Mod.VortexHelper.VortexHelperModule::get_SessionProperties()
+   IL_00a8: ldarg.0
+   IL_00a9: ldfld Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor[] Celeste.Mod.VortexHelper.Entities.ColorSwitch::colors
+   IL_00ae: ldarg.0
+   IL_00af: ldfld System.Int32 Celeste.Mod.VortexHelper.Entities.ColorSwitch::nextColorIndex
+   IL_00b4: ldelem.i4
+   IL_00b5: callvirt System.Void Celeste.Mod.VortexHelper.VortexHelperSession::set_SessionSwitchBlockColor(Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor)
+   IL_00ba: nop
+   IL_00bb: call Celeste.Mod.VortexHelper.VortexHelperSession Celeste.Mod.VortexHelper.VortexHelperModule::get_SessionProperties()
+   IL_00c0: callvirt Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor Celeste.Mod.VortexHelper.VortexHelperSession::get_SessionSwitchBlockColor()
+   IL_00c5: call Microsoft.Xna.Framework.Color Celeste.Mod.VortexHelper.Misc.Extensions.EnumExt::GetColor(Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor)
+   IL_00ca: stloc.0
+   IL_00cb: ldarg.0
+   IL_00cc: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00d1: ldarg.0
+   IL_00d2: ldfld Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor[] Celeste.Mod.VortexHelper.Entities.ColorSwitch::colors
+   IL_00d7: ldarg.0
+   IL_00d8: ldfld System.Int32 Celeste.Mod.VortexHelper.Entities.ColorSwitch::nextColorIndex
+   IL_00dd: ldelem.i4
+   IL_00de: call System.Void Celeste.Mod.VortexHelper.Entities.ColorSwitch::UpdateColorSwitches(Monocle.Scene,Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor)
+   IL_00e3: nop
+   IL_00e4: ldarg.0
+   IL_00e5: ldsfld Microsoft.Xna.Framework.Color Celeste.Mod.VortexHelper.Entities.ColorSwitch::defaultEdgeColor
+   IL_00ea: ldloc.0
+   IL_00eb: callvirt System.Void Celeste.Mod.VortexHelper.Entities.ColorSwitch::SetEdgeColor(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_00f0: nop
+   IL_00f1: ldarg.0
+   IL_00f2: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00f7: stfld Microsoft.Xna.Framework.Color Celeste.Mod.VortexHelper.Entities.ColorSwitch::currentBackgroundColor
+   IL_00fc: ldstr "event:/vortexHelperEvents/game/colorSwitch/hit"
+   IL_0101: ldarg.0
+   IL_0102: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0107: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_010c: pop
+   IL_010d: ldarg.0
+   IL_010e: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0113: call Celeste.Mod.VortexHelper.VortexHelperSession Celeste.Mod.VortexHelper.VortexHelperModule::get_SessionProperties()
+   IL_0118: callvirt Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor Celeste.Mod.VortexHelper.VortexHelperSession::get_SessionSwitchBlockColor()
+   IL_011d: call System.Boolean Celeste.Mod.VortexHelper.Entities.SwitchBlock::RoomHasSwitchBlock(Monocle.Scene,Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor)
+   IL_0122: stloc.3
+   IL_0123: ldloc.3
+   IL_0124: brfalse.s IL_0146
+   IL_0126: ldstr "event:/vortexHelperEvents/game/switchBlock/switch"
+   IL_012b: ldstr "tone"
+   IL_0130: call Celeste.Mod.VortexHelper.VortexHelperSession Celeste.Mod.VortexHelper.VortexHelperModule::get_SessionProperties()
+   IL_0135: callvirt Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor Celeste.Mod.VortexHelper.VortexHelperSession::get_SessionSwitchBlockColor()
+   IL_013a: call System.Int32 Celeste.Mod.VortexHelper.Misc.Extensions.EnumExt::GetSoundParam(Celeste.Mod.VortexHelper.VortexHelperSession/SwitchBlockColor)
+   IL_013f: conv.r4
+   IL_0140: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,System.String,System.Single)
+   IL_0145: pop
+   IL_0146: ldc.i4.2
+   IL_0147: ldc.i4.2
+   IL_0148: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_014d: nop
+   IL_014e: ldarg.0
+   IL_014f: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0154: ldarg.1
+   IL_0155: ldc.r4 0.25
+   IL_015a: callvirt System.Void Celeste.Level::DirectionalShake(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_015f: nop
+   IL_0160: ldarg.0
+   IL_0161: ldc.r4 0.25
+   IL_0166: call System.Void Celeste.Platform::StartShaking(System.Single)
+   IL_016b: nop
+   IL_016c: ldsfld Monocle.ParticleType Celeste.LightningBreakerBox::P_Smash
+   IL_0171: stloc.1
+   IL_0172: ldloc.1
+   IL_0173: ldloc.0
+   IL_0174: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0179: ldloc.1
+   IL_017a: ldloc.0
+   IL_017b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0180: ldc.r4 0.5
+   IL_0185: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_018a: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_018f: ldarg.0
+   IL_0190: ldarg.1
+   IL_0191: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Perpendicular(Microsoft.Xna.Framework.Vector2)
+   IL_0196: ldloc.1
+   IL_0197: callvirt System.Void Celeste.Mod.VortexHelper.Entities.ColorSwitch::SmashParticles(Microsoft.Xna.Framework.Vector2,Monocle.ParticleType)
+   IL_019c: nop
+   IL_019d: ldarg.0
+   IL_019e: ldarg.1
+   IL_019f: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Perpendicular(Microsoft.Xna.Framework.Vector2)
+   IL_01a4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_01a9: ldloc.1
+   IL_01aa: callvirt System.Void Celeste.Mod.VortexHelper.Entities.ColorSwitch::SmashParticles(Microsoft.Xna.Framework.Vector2,Monocle.ParticleType)
+   IL_01af: nop
+ + IL_01b0: call System.Void Monocle.Calc::PopRandom() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_01b5: ret

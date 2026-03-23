@@ -1,0 +1,44 @@
+On: Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.OnSetAmbience(orig_SetAmbience,String,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0006: brtrue.s IL_0015
+   IL_0008: ldarg.0
+   IL_0009: ldstr "null"
+   IL_000e: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0013: brfalse.s IL_0028
+   IL_0015: ldsfld FMOD.Studio.EventInstance Celeste.Audio::currentAmbientEvent
+   IL_001a: ldc.i4.1
+   IL_001b: call System.Void Celeste.Audio::Stop(FMOD.Studio.EventInstance,System.Boolean)
+   IL_0020: ldnull
+   IL_0021: stsfld FMOD.Studio.EventInstance Celeste.Audio::currentAmbientEvent
+   IL_0026: br.s IL_0070
+   IL_0028: ldsfld FMOD.Studio.EventInstance Celeste.Audio::currentAmbientEvent
+   IL_002d: call System.String Celeste.Audio::GetEventName(FMOD.Studio.EventInstance)
+   IL_0032: ldarg.0
+   IL_0033: ldc.i4.5
+   IL_0034: callvirt System.Boolean System.String::Equals(System.String,System.StringComparison)
+   IL_0039: brtrue.s IL_0070
+   IL_003b: ldsfld FMOD.Studio.EventInstance Celeste.Audio::currentAmbientEvent
+   IL_0040: ldc.i4.1
+   IL_0041: call System.Void Celeste.Audio::Stop(FMOD.Studio.EventInstance,System.Boolean)
+   IL_0046: ldarg.0
+   IL_0047: ldloca.s V_1
+   IL_0049: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector2>
+   IL_004f: ldloc.1
+   IL_0050: call FMOD.Studio.EventInstance Celeste.Audio::CreateInstance(System.String,System.Nullable`1<Microsoft.Xna.Framework.Vector2>)
+   IL_0055: stloc.0
+   IL_0056: ldloc.0
+   IL_0057: ldnull
+   IL_0058: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_005d: ldarg.1
+   IL_005e: and
+   IL_005f: brfalse.s IL_0068
+   IL_0061: ldloc.0
+   IL_0062: callvirt FMOD.RESULT FMOD.Studio.EventInstance::start()
+   IL_0067: pop
+   IL_0068: ldloc.0
+   IL_0069: stsfld FMOD.Studio.EventInstance Celeste.Audio::currentAmbientEvent
+   IL_006e: ldc.i4.1
+   IL_006f: ret
+   IL_0070: ldc.i4.0
+   IL_0071: ret

@@ -1,0 +1,11 @@
+On: HitboxFixer.HitboxFixerModule.modCircleRender(orig_Render,Circle,Camera,Color)
+On: TAS.EverestInterop.Hitboxes.HitboxOptimized.CircleOnRender(orig_Render,Circle,Camera,Color)
+On: TAS.Gameplay.Hitboxes.ActualCollideHitbox.On_Circle_Render(orig_Render,Circle,Camera,Color)
+   IL_0000: ldarg.0
+   IL_0001: call Microsoft.Xna.Framework.Vector2 Monocle.Collider::get_AbsolutePosition()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Single Monocle.Circle::Radius
+   IL_000c: ldarg.2
+   IL_000d: ldc.i4.4
+   IL_000e: call System.Void Monocle.Draw::Circle(Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Int32)
+   IL_0013: ret

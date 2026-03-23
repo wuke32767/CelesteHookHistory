@@ -1,0 +1,36 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_0007: stloc.0
+   IL_0008: ldarg.0
+   IL_0009: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_000e: isinst Celeste.Player
+   IL_0013: brtrue.s IL_0039
+   IL_0015: ldloc.0
+   IL_0016: ldloc.0
+   IL_0017: ldfld System.Nullable`1<System.Int32> Celeste.Mod.SkinModHelper.HairConfig::lastDashes
+   IL_001c: callvirt System.Nullable`1<System.Int32> Celeste.Mod.SkinModHelper.HairConfig::GetHairLength(System.Nullable`1<System.Int32>)
+   IL_0021: stloc.3
+   IL_0022: ldloca.s V_3
+   IL_0024: call System.Boolean System.Nullable`1<System.Int32>::get_HasValue()
+   IL_0029: brfalse.s IL_0036
+   IL_002b: ldloca.s V_3
+   IL_002d: call T System.Nullable`1<System.Int32>::GetValueOrDefault()
+   IL_0032: stloc.1
+   IL_0033: ldc.i4.1
+   IL_0034: br.s IL_0037
+   IL_0036: ldc.i4.0
+   IL_0037: br.s IL_003a
+   IL_0039: ldc.i4.0
+   IL_003a: stloc.2
+   IL_003b: ldloc.2
+   IL_003c: brfalse.s IL_0051
+   IL_003e: nop
+   IL_003f: ldarg.0
+   IL_0040: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_0045: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_004a: ldloc.1
+   IL_004b: stfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_0050: nop
+   IL_0051: ret

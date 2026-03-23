@@ -1,0 +1,69 @@
+On: Celeste.Mod.Aqua.Core.PlayerStates.Player_RedDashBegin(orig_RedDashBegin,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: stfld System.Boolean Celeste.Player::calledDashEvents
+   IL_0007: ldarg.0
+   IL_0008: ldc.i4.0
+   IL_0009: stfld System.Boolean Celeste.Player::dashStartedOnGround
+   IL_000e: ldc.r4 0.05
+   IL_0013: call System.Void Celeste.Celeste::Freeze(System.Single)
+   IL_0018: ldarg.0
+   IL_0019: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_001e: ldarg.0
+   IL_001f: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_0024: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_0029: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_002e: ldc.i4.8
+   IL_002f: ldnull
+   IL_0030: call System.Void Celeste.Dust::Burst(Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,Monocle.ParticleType)
+   IL_0035: ldarg.0
+   IL_0036: ldc.r4 0.2
+   IL_003b: stfld System.Single Celeste.Player::dashCooldownTimer
+   IL_0040: ldarg.0
+   IL_0041: ldc.r4 0.1
+   IL_0046: stfld System.Single Celeste.Player::dashRefillCooldownTimer
+   IL_004b: ldarg.0
+   IL_004c: ldc.i4.1
+   IL_004d: callvirt System.Void Celeste.Player::set_StartedDashing(System.Boolean)
+   IL_0052: ldarg.0
+   IL_0053: ldfld Celeste.Level Celeste.Player::level
+   IL_0058: ldfld Celeste.DisplacementRenderer Celeste.Level::Displacement
+   IL_005d: ldarg.0
+   IL_005e: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0063: ldc.r4 0.5
+   IL_0068: ldc.r4 0
+   IL_006d: ldc.r4 80
+   IL_0072: ldc.r4 0.666
+   IL_0077: ldsfld Monocle.Ease/Easer Monocle.Ease::QuadOut
+   IL_007c: ldsfld Monocle.Ease/Easer Monocle.Ease::QuadOut
+   IL_0081: callvirt Celeste.DisplacementRenderer/Burst Celeste.DisplacementRenderer::AddBurst(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Single,System.Single,Monocle.Ease/Easer,Monocle.Ease/Easer)
+   IL_0086: pop
+   IL_0087: ldc.i4.2
+   IL_0088: ldc.i4.1
+   IL_0089: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_008e: ldarg.0
+   IL_008f: ldc.r4 0.3
+   IL_0094: stfld System.Single Celeste.Player::dashAttackTimer
+   IL_0099: ldarg.0
+   IL_009a: ldc.r4 0.55
+   IL_009f: stfld System.Single Celeste.Player::gliderBoostTimer
+   IL_00a4: ldarg.0
+   IL_00a5: ldarg.0
+   IL_00a6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_00ab: dup
+   IL_00ac: stloc.0
+   IL_00ad: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_00b2: ldloc.0
+   IL_00b3: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_00b8: ldarg.0
+   IL_00b9: ldfld System.Boolean Celeste.Player::onGround
+   IL_00be: brtrue.s IL_00cf
+   IL_00c0: ldarg.0
+   IL_00c1: callvirt System.Boolean Celeste.Player::get_CanUnDuck()
+   IL_00c6: brfalse.s IL_00cf
+   IL_00c8: ldarg.0
+   IL_00c9: ldc.i4.0
+   IL_00ca: callvirt System.Void Celeste.Player::set_Ducking(System.Boolean)
+   IL_00cf: ldarg.0
+   IL_00d0: callvirt System.Void Celeste.Player::DashAssistInit()
+   IL_00d5: ret

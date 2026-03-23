@@ -1,0 +1,80 @@
+IL: Celeste.Mod.SpeedrunTool.Utils.HookHelper+<>c__DisplayClass2_0.<ILHook>b__0(ILContext)
+ + IL_10000: ldarg.0 @ Celeste.Mod.SpeedrunTool.Utils.HookHelper+<>c__DisplayClass2_0.<ILHook>b__0(ILContext)
+ + IL_10001: ldarg.1 @ Celeste.Mod.SpeedrunTool.Utils.HookHelper+<>c__DisplayClass2_0.<ILHook>b__0(ILContext)
+ + IL_10002: call System.Void Celeste.Mod.SpeedrunTool.TeleportRoom.TeleportRoomUtils::<Initialize>g__SetSourceData|30_1(Monocle.Entity,Celeste.EntityData) @ Celeste.Mod.SpeedrunTool.Utils.HookHelper+<>c__DisplayClass2_0.<ILHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: ldarg.2
+   IL_0003: call System.Void Celeste.Trigger::.ctor(Celeste.EntityData,Microsoft.Xna.Framework.Vector2)
+   IL_0008: newobj System.Void Celeste.Mod.CollabUtils2.Triggers.ChapterPanelTrigger/<>c__DisplayClass2_0::.ctor()
+   IL_000d: stloc.0
+   IL_000e: ldloc.0
+   IL_000f: ldarg.1
+   IL_0010: ldstr "map"
+   IL_0015: ldstr ""
+   IL_001a: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_001f: stfld System.String Celeste.Mod.CollabUtils2.Triggers.ChapterPanelTrigger/<>c__DisplayClass2_0::map
+   IL_0024: ldloc.0
+   IL_0025: ldarg.1
+   IL_0026: ldstr "returnToLobbyMode"
+   IL_002b: ldc.i4.0
+   IL_002c: callvirt T Celeste.EntityData::Enum<Celeste.Mod.CollabUtils2.Triggers.ChapterPanelTrigger/ReturnToLobbyMode>(System.String,T)
+   IL_0031: stfld Celeste.Mod.CollabUtils2.Triggers.ChapterPanelTrigger/ReturnToLobbyMode Celeste.Mod.CollabUtils2.Triggers.ChapterPanelTrigger/<>c__DisplayClass2_0::returnToLobbyMode
+   IL_0036: ldloc.0
+   IL_0037: ldarg.1
+   IL_0038: ldstr "allowSaving"
+   IL_003d: ldc.i4.1
+   IL_003e: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_0043: stfld System.Boolean Celeste.Mod.CollabUtils2.Triggers.ChapterPanelTrigger/<>c__DisplayClass2_0::savingAllowed
+   IL_0048: ldloc.0
+   IL_0049: ldarg.1
+   IL_004a: ldfld System.String Celeste.EntityData::Name
+   IL_004f: ldstr "CollabUtils2/ExitFromGymTrigger"
+   IL_0054: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0059: stfld System.Boolean Celeste.Mod.CollabUtils2.Triggers.ChapterPanelTrigger/<>c__DisplayClass2_0::exitFromGym
+   IL_005e: ldarg.0
+   IL_005f: ldarg.0
+   IL_0060: ldc.i4.0
+   IL_0061: ldc.i4.0
+   IL_0062: ldarg.1
+   IL_0063: ldfld System.Int32 Celeste.EntityData::Width
+   IL_0068: ldarg.1
+   IL_0069: ldfld System.Int32 Celeste.EntityData::Height
+   IL_006e: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0073: ldarg.1
+   IL_0074: ldfld Microsoft.Xna.Framework.Vector2[] Celeste.EntityData::Nodes
+   IL_0079: ldlen
+   IL_007a: brtrue.s IL_009d
+   IL_007c: ldarg.1
+   IL_007d: ldfld System.Int32 Celeste.EntityData::Width
+   IL_0082: conv.r4
+   IL_0083: ldc.r4 2
+   IL_0088: div
+   IL_0089: ldarg.1
+   IL_008a: ldfld System.Int32 Celeste.EntityData::Height
+   IL_008f: conv.r4
+   IL_0090: ldc.r4 2
+   IL_0095: div
+   IL_0096: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_009b: br.s IL_00b4
+   IL_009d: ldarg.1
+   IL_009e: ldfld Microsoft.Xna.Framework.Vector2[] Celeste.EntityData::Nodes
+   IL_00a3: ldc.i4.0
+   IL_00a4: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_00a9: ldarg.1
+   IL_00aa: ldfld Microsoft.Xna.Framework.Vector2 Celeste.EntityData::Position
+   IL_00af: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00b4: ldloc.0
+   IL_00b5: ldftn System.Void Celeste.Mod.CollabUtils2.Triggers.ChapterPanelTrigger/<>c__DisplayClass2_0::<.ctor>b__0(Celeste.Player)
+   IL_00bb: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_00c0: ldnull
+   IL_00c1: newobj System.Void Celeste.TalkComponent::.ctor(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2,System.Action`1<Celeste.Player>,Celeste.TalkComponent/HoverDisplay)
+   IL_00c6: dup
+   IL_00c7: ldc.i4.0
+   IL_00c8: stfld System.Boolean Celeste.TalkComponent::PlayerMustBeFacing
+   IL_00cd: dup
+   IL_00ce: stloc.1
+   IL_00cf: stfld Celeste.TalkComponent Celeste.Mod.CollabUtils2.Triggers.ChapterPanelTrigger::talkComponent
+   IL_00d4: ldloc.1
+   IL_00d5: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00da: ret

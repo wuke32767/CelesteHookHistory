@@ -1,0 +1,29 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomSeekerOnBouncePlayer(orig_OnBouncePlayer,Seeker,Player)
+On: Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Seeker_OnBouncePlayer(orig_OnBouncePlayer,Seeker,Player)
+On: Celeste.Mod.SeekerHelper.SeekerHelperModule.HookSeekerOnBouncePlayer(orig_OnBouncePlayer,Seeker,Player)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Collider Monocle.Entity::get_Collider()
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldarg.0
+   IL_0009: ldfld Monocle.Hitbox Celeste.Seeker::attackHitbox
+   IL_000e: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0013: ldarg.0
+   IL_0014: ldarg.1
+   IL_0015: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_001a: brfalse.s IL_0025
+   IL_001c: ldarg.0
+   IL_001d: ldarg.1
+   IL_001e: callvirt System.Void Celeste.Seeker::OnAttackPlayer(Celeste.Player)
+   IL_0023: br.s IL_0038
+   IL_0025: ldarg.1
+   IL_0026: ldarg.0
+   IL_0027: call System.Single Monocle.Entity::get_Top()
+   IL_002c: callvirt System.Void Celeste.Player::Bounce(System.Single)
+   IL_0031: ldarg.0
+   IL_0032: ldarg.1
+   IL_0033: callvirt System.Void Celeste.Seeker::GotBouncedOn(Monocle.Entity)
+   IL_0038: ldarg.0
+   IL_0039: ldloc.0
+   IL_003a: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_003f: ret

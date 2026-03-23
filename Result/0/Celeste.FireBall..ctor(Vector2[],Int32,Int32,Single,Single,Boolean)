@@ -1,0 +1,186 @@
+On: Celeste.Mod.Aqua.Core.FireBallExtensions.FireBall_Construct(orig_ctor_Vector2Array_int_int_float_float_bool,FireBall,Vector2[],Int32,Int32,Single,Single,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::.ctor()
+   IL_0006: ldarg.0
+   IL_0007: ldsfld Monocle.BitTag Celeste.Tags::TransitionUpdate
+   IL_000c: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0011: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_0016: ldarg.0
+   IL_0017: ldc.r4 6
+   IL_001c: ldc.r4 0
+   IL_0021: ldc.r4 0
+   IL_0026: newobj System.Void Monocle.Circle::.ctor(System.Single,System.Single,System.Single)
+   IL_002b: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0030: ldarg.0
+   IL_0031: ldarg.1
+   IL_0032: stfld Microsoft.Xna.Framework.Vector2[] Celeste.FireBall::nodes
+   IL_0037: ldarg.0
+   IL_0038: ldarg.2
+   IL_0039: stfld System.Int32 Celeste.FireBall::amount
+   IL_003e: ldarg.0
+   IL_003f: ldarg.3
+   IL_0040: stfld System.Int32 Celeste.FireBall::index
+   IL_0045: ldarg.0
+   IL_0046: ldarg.s offset
+   IL_0048: stfld System.Single Celeste.FireBall::offset
+   IL_004d: ldarg.0
+   IL_004e: ldarg.s speedMult
+   IL_0050: stfld System.Single Celeste.FireBall::mult
+   IL_0055: ldarg.0
+   IL_0056: ldarg.s notCoreMode
+   IL_0058: stfld System.Boolean Celeste.FireBall::notCoreMode
+   IL_005d: ldarg.0
+   IL_005e: ldarg.1
+   IL_005f: ldlen
+   IL_0060: conv.i4
+   IL_0061: newarr System.Single
+   IL_0066: stfld System.Single[] Celeste.FireBall::lengths
+   IL_006b: ldc.i4.1
+   IL_006c: stloc.0
+   IL_006d: br.s IL_009b
+   IL_006f: ldarg.0
+   IL_0070: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_0075: ldloc.0
+   IL_0076: ldarg.0
+   IL_0077: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_007c: ldloc.0
+   IL_007d: ldc.i4.1
+   IL_007e: sub
+   IL_007f: ldelem.r4
+   IL_0080: ldarg.1
+   IL_0081: ldloc.0
+   IL_0082: ldc.i4.1
+   IL_0083: sub
+   IL_0084: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_0089: ldarg.1
+   IL_008a: ldloc.0
+   IL_008b: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_0090: call System.Single Microsoft.Xna.Framework.Vector2::Distance(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0095: add
+   IL_0096: stelem.r4
+   IL_0097: ldloc.0
+   IL_0098: ldc.i4.1
+   IL_0099: add
+   IL_009a: stloc.0
+   IL_009b: ldloc.0
+   IL_009c: ldarg.0
+   IL_009d: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_00a2: ldlen
+   IL_00a3: conv.i4
+   IL_00a4: blt.s IL_006f
+   IL_00a6: ldarg.0
+   IL_00a7: ldc.r4 60
+   IL_00ac: ldarg.0
+   IL_00ad: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_00b2: ldarg.0
+   IL_00b3: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_00b8: ldlen
+   IL_00b9: conv.i4
+   IL_00ba: ldc.i4.1
+   IL_00bb: sub
+   IL_00bc: ldelem.r4
+   IL_00bd: div
+   IL_00be: ldarg.0
+   IL_00bf: ldfld System.Single Celeste.FireBall::mult
+   IL_00c4: mul
+   IL_00c5: stfld System.Single Celeste.FireBall::speed
+   IL_00ca: ldarg.3
+   IL_00cb: brtrue.s IL_00da
+   IL_00cd: ldarg.0
+   IL_00ce: ldc.r4 0
+   IL_00d3: stfld System.Single Celeste.FireBall::percent
+   IL_00d8: br.s IL_00e5
+   IL_00da: ldarg.0
+   IL_00db: ldarg.3
+   IL_00dc: conv.r4
+   IL_00dd: ldarg.2
+   IL_00de: conv.r4
+   IL_00df: div
+   IL_00e0: stfld System.Single Celeste.FireBall::percent
+   IL_00e5: ldarg.0
+   IL_00e6: ldarg.0
+   IL_00e7: ldfld System.Single Celeste.FireBall::percent
+   IL_00ec: ldc.r4 1
+   IL_00f1: ldarg.2
+   IL_00f2: conv.r4
+   IL_00f3: div
+   IL_00f4: ldarg.s offset
+   IL_00f6: mul
+   IL_00f7: add
+   IL_00f8: stfld System.Single Celeste.FireBall::percent
+   IL_00fd: ldarg.0
+   IL_00fe: ldarg.0
+   IL_00ff: ldfld System.Single Celeste.FireBall::percent
+   IL_0104: ldc.r4 1
+   IL_0109: rem
+   IL_010a: stfld System.Single Celeste.FireBall::percent
+   IL_010f: ldarg.0
+   IL_0110: ldarg.0
+   IL_0111: ldarg.0
+   IL_0112: ldfld System.Single Celeste.FireBall::percent
+   IL_0117: callvirt Microsoft.Xna.Framework.Vector2 Celeste.FireBall::GetPercentPosition(System.Single)
+   IL_011c: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0121: ldarg.0
+   IL_0122: ldarg.0
+   IL_0123: ldftn System.Void Celeste.FireBall::OnPlayer(Celeste.Player)
+   IL_0129: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_012e: ldnull
+   IL_012f: ldnull
+   IL_0130: newobj System.Void Celeste.PlayerCollider::.ctor(System.Action`1<Celeste.Player>,Monocle.Collider,Monocle.Collider)
+   IL_0135: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_013a: ldarg.0
+   IL_013b: ldarg.0
+   IL_013c: ldftn System.Void Celeste.FireBall::OnBounce(Celeste.Player)
+   IL_0142: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_0147: ldc.r4 16
+   IL_014c: ldc.r4 6
+   IL_0151: ldc.r4 -8
+   IL_0156: ldc.r4 -3
+   IL_015b: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0160: ldnull
+   IL_0161: newobj System.Void Celeste.PlayerCollider::.ctor(System.Action`1<Celeste.Player>,Monocle.Collider,Monocle.Collider)
+   IL_0166: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_016b: ldarg.0
+   IL_016c: ldarg.0
+   IL_016d: ldftn System.Void Celeste.FireBall::OnChangeMode(Celeste.Session/CoreModes)
+   IL_0173: newobj System.Void System.Action`1<Celeste.Session/CoreModes>::.ctor(System.Object,System.IntPtr)
+   IL_0178: newobj System.Void Celeste.CoreModeListener::.ctor(System.Action`1<Celeste.Session/CoreModes>)
+   IL_017d: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0182: ldarg.0
+   IL_0183: ldarg.0
+   IL_0184: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_0189: ldstr "fireball"
+   IL_018e: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_0193: dup
+   IL_0194: stloc.1
+   IL_0195: stfld Monocle.Sprite Celeste.FireBall::sprite
+   IL_019a: ldloc.1
+   IL_019b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01a0: ldarg.0
+   IL_01a1: ldarg.0
+   IL_01a2: ldc.r4 1.2
+   IL_01a7: ldc.r4 2
+   IL_01ac: ldnull
+   IL_01ad: ldc.i4.0
+   IL_01ae: ldc.i4.0
+   IL_01af: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_01b4: dup
+   IL_01b5: stloc.2
+   IL_01b6: stfld Monocle.Wiggler Celeste.FireBall::hitWiggler
+   IL_01bb: ldloc.2
+   IL_01bc: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01c1: ldarg.0
+   IL_01c2: ldfld Monocle.Wiggler Celeste.FireBall::hitWiggler
+   IL_01c7: ldc.i4.1
+   IL_01c8: stfld System.Boolean Monocle.Wiggler::StartZero
+   IL_01cd: ldarg.3
+   IL_01ce: brtrue.s IL_01e4
+   IL_01d0: ldarg.0
+   IL_01d1: ldarg.0
+   IL_01d2: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_01d7: dup
+   IL_01d8: stloc.3
+   IL_01d9: stfld Celeste.SoundSource Celeste.FireBall::trackSfx
+   IL_01de: ldloc.3
+   IL_01df: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01e4: ret

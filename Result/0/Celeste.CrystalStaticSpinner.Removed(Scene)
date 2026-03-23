@@ -1,0 +1,27 @@
+On: Celeste.Mod.DJMapHelper.Triggers.ChangeSpinnerColorTrigger.CrystalStaticSpinnerOnRemoved(orig_Removed,CrystalStaticSpinner,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.Entity Celeste.CrystalStaticSpinner::filler
+   IL_0006: brfalse.s IL_0021
+   IL_0008: ldarg.0
+   IL_0009: ldfld Monocle.Entity Celeste.CrystalStaticSpinner::filler
+   IL_000e: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0013: ldarg.1
+   IL_0014: bne.un.s IL_0021
+   IL_0016: ldarg.0
+   IL_0017: ldfld Monocle.Entity Celeste.CrystalStaticSpinner::filler
+   IL_001c: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_0021: ldarg.0
+   IL_0022: ldfld Celeste.CrystalStaticSpinner/Border Celeste.CrystalStaticSpinner::border
+   IL_0027: brfalse.s IL_0042
+   IL_0029: ldarg.0
+   IL_002a: ldfld Celeste.CrystalStaticSpinner/Border Celeste.CrystalStaticSpinner::border
+   IL_002f: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0034: ldarg.1
+   IL_0035: bne.un.s IL_0042
+   IL_0037: ldarg.0
+   IL_0038: ldfld Celeste.CrystalStaticSpinner/Border Celeste.CrystalStaticSpinner::border
+   IL_003d: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_0042: ldarg.0
+   IL_0043: ldarg.1
+   IL_0044: call System.Void Monocle.Entity::Removed(Monocle.Scene)
+   IL_0049: ret

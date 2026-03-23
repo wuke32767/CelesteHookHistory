@@ -1,0 +1,25 @@
+On: Celeste.Mod.Aqua.Core.InvisibleBarrierExtensions.InvisibleBarrier_Construct(orig_ctor_Vector2_float_float,InvisibleBarrier,Vector2,Single,Single)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: ldarg.2
+   IL_0003: ldarg.3
+   IL_0004: ldc.i4.1
+   IL_0005: call System.Void Celeste.Solid::.ctor(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Boolean)
+   IL_000a: ldarg.0
+   IL_000b: ldsfld Monocle.BitTag Celeste.Tags::TransitionUpdate
+   IL_0010: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0015: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_001a: ldarg.0
+   IL_001b: ldc.i4.0
+   IL_001c: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0021: ldarg.0
+   IL_0022: ldc.i4.0
+   IL_0023: stfld System.Boolean Monocle.Entity::Visible
+   IL_0028: ldarg.0
+   IL_0029: ldc.i4.1
+   IL_002a: newobj System.Void Celeste.ClimbBlocker::.ctor(System.Boolean)
+   IL_002f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0034: ldarg.0
+   IL_0035: ldc.i4.s 33
+   IL_0037: stfld System.Int32 Celeste.Platform::SurfaceSoundIndex
+   IL_003c: ret

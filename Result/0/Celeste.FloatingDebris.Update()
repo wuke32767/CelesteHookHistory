@@ -1,0 +1,66 @@
+On: TwigModule.lazyRender(orig_Update,FloatingDebris)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: call System.Void Monocle.Entity::Update()
+   IL_0011: ldarg.0
+   IL_0012: ldfld Microsoft.Xna.Framework.Vector2 Celeste.FloatingDebris::pushOut
+   IL_0017: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_001c: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0021: brfalse.s IL_006e
+   IL_0023: ldarg.0
+   IL_0024: ldarg.0
+   IL_0025: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_002a: ldarg.0
+   IL_002b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.FloatingDebris::pushOut
+   IL_0030: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0035: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_003a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_003f: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0044: ldarg.0
+   IL_0045: ldarg.0
+   IL_0046: ldfld Microsoft.Xna.Framework.Vector2 Celeste.FloatingDebris::pushOut
+   IL_004b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0050: ldc.r4 64
+   IL_0055: ldarg.0
+   IL_0056: ldfld System.Single Celeste.FloatingDebris::accelMult
+   IL_005b: mul
+   IL_005c: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0061: mul
+   IL_0062: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0067: stfld Microsoft.Xna.Framework.Vector2 Celeste.FloatingDebris::pushOut
+   IL_006c: br.s IL_009b
+   IL_006e: ldarg.0
+   IL_006f: ldc.r4 1
+   IL_0074: stfld System.Single Celeste.FloatingDebris::accelMult
+   IL_0079: ldarg.0
+   IL_007a: ldarg.0
+   IL_007b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0080: ldarg.0
+   IL_0081: ldfld Microsoft.Xna.Framework.Vector2 Celeste.FloatingDebris::start
+   IL_0086: ldc.r4 6
+   IL_008b: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0090: mul
+   IL_0091: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0096: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_009b: ldarg.0
+   IL_009c: ldfld Monocle.Image Celeste.FloatingDebris::image
+   IL_00a1: dup
+   IL_00a2: ldfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_00a7: ldarg.0
+   IL_00a8: ldfld System.Single Celeste.FloatingDebris::rotateSpeed
+   IL_00ad: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00b2: mul
+   IL_00b3: add
+   IL_00b4: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_00b9: ldarg.0
+   IL_00ba: ldfld Monocle.Image Celeste.FloatingDebris::image
+   IL_00bf: ldarg.0
+   IL_00c0: ldfld Monocle.SineWave Celeste.FloatingDebris::sine
+   IL_00c5: callvirt System.Single Monocle.SineWave::get_Value()
+   IL_00ca: ldc.r4 2
+   IL_00cf: mul
+   IL_00d0: callvirt System.Void Monocle.GraphicsComponent::set_Y(System.Single)
+   IL_00d5: ret

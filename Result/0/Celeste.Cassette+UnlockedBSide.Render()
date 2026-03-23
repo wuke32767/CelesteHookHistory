@@ -1,0 +1,82 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modCassetteUnlockedBSideRender(orig_Render,Entity)
+   IL_0000: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0005: ldarg.0
+   IL_0006: ldfld System.Single Celeste.Cassette/UnlockedBSide::alpha
+   IL_000b: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0010: stloc.0
+   IL_0011: call Microsoft.Xna.Framework.Vector2 Celeste.Celeste::get_TargetCenter()
+   IL_0016: ldc.r4 0
+   IL_001b: ldc.r4 64
+   IL_0020: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0025: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_002a: stloc.1
+   IL_002b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0030: ldc.r4 64
+   IL_0035: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_003a: ldc.r4 1
+   IL_003f: ldloc.0
+   IL_0040: sub
+   IL_0041: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0046: stloc.2
+   IL_0047: ldc.r4 -10
+   IL_004c: ldc.r4 -10
+   IL_0051: ldc.r4 1940
+   IL_0056: ldc.r4 1100
+   IL_005b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0060: ldloc.0
+   IL_0061: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0066: ldc.r4 0.8
+   IL_006b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0070: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0075: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_007a: ldstr "collectables/cassette"
+   IL_007f: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0084: ldloc.1
+   IL_0085: ldloc.2
+   IL_0086: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_008b: ldc.r4 0
+   IL_0090: ldc.r4 32
+   IL_0095: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_009a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_009f: ldc.r4 0.5
+   IL_00a4: ldc.r4 1
+   IL_00a9: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00ae: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00b3: ldloc.0
+   IL_00b4: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00b9: callvirt System.Void Monocle.MTexture::DrawJustified(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_00be: ldarg.0
+   IL_00bf: ldfld System.String Celeste.Cassette/UnlockedBSide::text
+   IL_00c4: ldloc.1
+   IL_00c5: ldloc.2
+   IL_00c6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00cb: ldc.r4 0.5
+   IL_00d0: ldc.r4 0
+   IL_00d5: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00da: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00df: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00e4: ldloc.0
+   IL_00e5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00ea: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_00ef: ldarg.0
+   IL_00f0: ldfld System.Boolean Celeste.Cassette/UnlockedBSide::waitForKeyPress
+   IL_00f5: brfalse.s IL_0133
+   IL_00f7: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_00fc: ldstr "textboxbutton"
+   IL_0101: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0106: ldc.r4 1824
+   IL_010b: ldc.i4 984
+   IL_0110: ldarg.0
+   IL_0111: ldfld System.Single Celeste.Cassette/UnlockedBSide::timer
+   IL_0116: ldc.r4 1
+   IL_011b: rem
+   IL_011c: ldc.r4 0.25
+   IL_0121: blt.s IL_0126
+   IL_0123: ldc.i4.0
+   IL_0124: br.s IL_0127
+   IL_0126: ldc.i4.6
+   IL_0127: add
+   IL_0128: conv.r4
+   IL_0129: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_012e: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2)
+   IL_0133: ret

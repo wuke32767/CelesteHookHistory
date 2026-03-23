@@ -1,0 +1,37 @@
+On: Celeste.Mod.FewerVisualDistractions.Patches.AdditionalEffectTweaker.ReflectionTentacles_Render(orig_Render,ReflectionTentacles)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedClutteredEntity() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Int32 Celeste.ReflectionTentacles::vertexCount
+   IL_0011: ldc.i4.0
+   IL_0012: ble.s IL_0077
+   IL_0014: call System.Void Celeste.GameplayRenderer::End()
+   IL_0019: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_001e: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0023: callvirt Microsoft.Xna.Framework.Graphics.TextureCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Textures()
+   IL_0028: ldc.i4.0
+   IL_0029: ldarg.0
+   IL_002a: ldfld System.Collections.Generic.List`1<Monocle.MTexture[]> Celeste.ReflectionTentacles::arms
+   IL_002f: ldc.i4.0
+   IL_0030: callvirt T System.Collections.Generic.List`1<Monocle.MTexture[]>::get_Item(System.Int32)
+   IL_0035: ldc.i4.0
+   IL_0036: ldelem.ref
+   IL_0037: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_003c: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0041: callvirt System.Void Microsoft.Xna.Framework.Graphics.TextureCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.Texture)
+   IL_0046: ldarg.0
+   IL_0047: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_004c: isinst Celeste.Level
+   IL_0051: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0056: callvirt Microsoft.Xna.Framework.Matrix Monocle.Camera::get_Matrix()
+   IL_005b: ldarg.0
+   IL_005c: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColorTexture[] Celeste.ReflectionTentacles::vertices
+   IL_0061: ldarg.0
+   IL_0062: ldfld System.Int32 Celeste.ReflectionTentacles::vertexCount
+   IL_0067: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxTexture
+   IL_006c: ldnull
+   IL_006d: call System.Void Celeste.GFX::DrawVertices<Microsoft.Xna.Framework.Graphics.VertexPositionColorTexture>(Microsoft.Xna.Framework.Matrix,T[],System.Int32,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_0072: call System.Void Celeste.GameplayRenderer::Begin()
+   IL_0077: ret

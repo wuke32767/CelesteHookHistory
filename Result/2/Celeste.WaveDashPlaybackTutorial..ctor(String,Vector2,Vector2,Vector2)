@@ -1,0 +1,27 @@
+On: Celeste.Mod.TASHelper.Gameplay.Spinner.Info.HazardTypeHelper.On_WaveDashPlaybackTutorial_ctor(orig_ctor,WaveDashPlaybackTutorial,String,Vector2,Vector2,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.1
+   IL_0002: stfld System.Boolean Celeste.WaveDashPlaybackTutorial::firstDash
+   IL_0007: ldarg.0
+   IL_0008: call System.Void System.Object::.ctor()
+   IL_000d: ldsfld System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<Celeste.Player/ChaserState>> Celeste.PlaybackData::Tutorials
+   IL_0012: ldarg.1
+   IL_0013: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<Celeste.Player/ChaserState>>::get_Item(TKey)
+   IL_0018: stloc.0
+   IL_0019: ldarg.0
+   IL_001a: ldarg.2
+   IL_001b: ldc.i4.1
+   IL_001c: ldloc.0
+   IL_001d: newobj System.Void Celeste.PlayerPlayback::.ctor(Microsoft.Xna.Framework.Vector2,Celeste.PlayerSpriteMode,System.Collections.Generic.List`1<Celeste.Player/ChaserState>)
+   IL_0022: callvirt System.Void Celeste.WaveDashPlaybackTutorial::set_Playback(Celeste.PlayerPlayback)
+   IL_0027: ldarg.0
+   IL_0028: ldsfld System.Random Monocle.Calc::Random
+   IL_002d: callvirt System.Int32 System.Random::Next()
+   IL_0032: stfld System.Int32 Celeste.WaveDashPlaybackTutorial::tag
+   IL_0037: ldarg.0
+   IL_0038: ldarg.3
+   IL_0039: stfld Microsoft.Xna.Framework.Vector2 Celeste.WaveDashPlaybackTutorial::dashDirection0
+   IL_003e: ldarg.0
+   IL_003f: ldarg.s dashDirection1
+   IL_0041: stfld Microsoft.Xna.Framework.Vector2 Celeste.WaveDashPlaybackTutorial::dashDirection1
+   IL_0046: ret

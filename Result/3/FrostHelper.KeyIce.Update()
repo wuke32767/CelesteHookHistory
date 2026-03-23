@@ -1,0 +1,52 @@
+On: vitmod.ResetDoorTrigger.KeyIce_Update(KeyIce_orig_Update,Entity)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: dup
+   IL_000c: brtrue.s IL_0012
+   IL_000e: pop
+   IL_000f: ldnull
+   IL_0010: br.s IL_0017
+   IL_0012: ldfld Celeste.Session Celeste.Level::Session
+   IL_0017: stloc.0
+   IL_0018: ldarg.0
+   IL_0019: ldfld System.Boolean Celeste.Key::IsUsed
+   IL_001e: brfalse.s IL_0044
+   IL_0020: ldarg.0
+   IL_0021: ldfld System.Boolean FrostHelper.KeyIce::wasUsed
+   IL_0026: brtrue.s IL_0044
+   IL_0028: ldloc.0
+   IL_0029: brfalse.s IL_003d
+   IL_002b: ldloc.0
+   IL_002c: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.Session::DoNotLoad
+   IL_0031: ldarg.0
+   IL_0032: ldfld Celeste.EntityID Celeste.Key::ID
+   IL_0037: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Add(T)
+   IL_003c: pop
+   IL_003d: ldarg.0
+   IL_003e: ldc.i4.1
+   IL_003f: stfld System.Boolean FrostHelper.KeyIce::wasUsed
+   IL_0044: ldarg.0
+   IL_0045: ldfld System.Boolean FrostHelper.KeyIce::dissolved
+   IL_004a: brtrue.s IL_007a
+   IL_004c: ldarg.0
+   IL_004d: ldfld System.Boolean Celeste.Key::IsUsed
+   IL_0052: brtrue.s IL_007a
+   IL_0054: ldarg.0
+   IL_0055: call System.Boolean Celeste.Key::get_Turning()
+   IL_005a: brtrue.s IL_007a
+   IL_005c: ldloc.0
+   IL_005d: brfalse.s IL_007a
+   IL_005f: ldloc.0
+   IL_0060: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.Session::Keys
+   IL_0065: ldarg.0
+   IL_0066: ldfld Celeste.EntityID Celeste.Key::ID
+   IL_006b: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Contains(T)
+   IL_0070: brfalse.s IL_007a
+   IL_0072: ldarg.0
+   IL_0073: ldloc.0
+   IL_0074: ldc.i4.0
+   IL_0075: callvirt System.Void FrostHelper.KeyIce::RemoveFromDoNotLoad(Celeste.Session,System.Boolean)
+   IL_007a: ldarg.0
+   IL_007b: call System.Void Celeste.Key::Update()
+   IL_0080: ret

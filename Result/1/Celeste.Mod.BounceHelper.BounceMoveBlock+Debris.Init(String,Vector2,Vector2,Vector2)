@@ -1,0 +1,116 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: ldarg position @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0004: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0009: nop
+   IL_000a: ldarg.0
+   IL_000b: ldfld System.Boolean Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::spriteInitialised
+   IL_0010: ldc.i4.0
+   IL_0011: ceq
+   IL_0013: stloc.0
+   IL_0014: ldloc.0
+   IL_0015: brfalse.s IL_007b
+   IL_0017: nop
+   IL_0018: ldarg.0
+   IL_0019: ldarg.0
+   IL_001a: ldsfld System.Random Monocle.Calc::Random
+   IL_001f: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0024: ldarg.1
+   IL_0025: ldstr "/debris"
+   IL_002a: call System.String System.String::Concat(System.String,System.String)
+   IL_002f: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0034: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_0039: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_003e: dup
+   IL_003f: stloc.1
+   IL_0040: stfld Monocle.Image Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::sprite
+   IL_0045: ldloc.1
+   IL_0046: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_004b: nop
+   IL_004c: ldarg.0
+   IL_004d: ldfld Monocle.Image Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::sprite
+   IL_0052: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0057: pop
+   IL_0058: ldarg.0
+   IL_0059: ldfld Monocle.Image Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::sprite
+   IL_005e: ldsfld System.Random Monocle.Calc::Random
+   IL_0063: ldc.r4 0.5
+   IL_0068: call System.Boolean Monocle.Calc::Chance(System.Random,System.Single)
+   IL_006d: callvirt System.Void Monocle.GraphicsComponent::set_FlipX(System.Boolean)
+   IL_0072: nop
+   IL_0073: ldarg.0
+   IL_0074: ldc.i4.1
+   IL_0075: stfld System.Boolean Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::spriteInitialised
+   IL_007a: nop
+   IL_007b: ldarg.0
+   IL_007c: ldc.i4.1
+   IL_007d: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0082: ldarg.0
+   IL_0083: ldarg.2
+   IL_0084: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0089: ldarg.0
+   IL_008a: ldarg.2
+   IL_008b: ldarg.3
+   IL_008c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0091: ldc.r4 60
+   IL_0096: ldsfld System.Random Monocle.Calc::Random
+   IL_009b: ldc.r4 60
+   IL_00a0: call System.Single Monocle.Calc::NextFloat(System.Random,System.Single)
+   IL_00a5: add
+   IL_00a6: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00ab: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::speed
+   IL_00b0: ldarg.0
+   IL_00b1: ldarg.s returnTo
+   IL_00b3: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::home
+   IL_00b8: ldarg.0
+   IL_00b9: ldfld Monocle.Image Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::sprite
+   IL_00be: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_00c3: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_00c8: ldarg.0
+   IL_00c9: ldfld Monocle.Image Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::sprite
+   IL_00ce: ldsfld System.Random Monocle.Calc::Random
+   IL_00d3: call System.Single Monocle.Calc::NextAngle(System.Random)
+   IL_00d8: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_00dd: ldarg.0
+   IL_00de: ldc.i4.0
+   IL_00df: stfld System.Boolean Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::returning
+   IL_00e4: ldarg.0
+   IL_00e5: ldc.i4.0
+   IL_00e6: stfld System.Boolean Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::shaking
+   IL_00eb: ldarg.0
+   IL_00ec: ldfld Monocle.Image Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::sprite
+   IL_00f1: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_00f6: ldc.r4 1
+   IL_00fb: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0100: ldarg.0
+   IL_0101: ldfld Monocle.Image Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::sprite
+   IL_0106: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_010b: ldc.r4 1
+   IL_0110: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0115: ldarg.0
+   IL_0116: ldfld Monocle.Image Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::sprite
+   IL_011b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0120: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0125: ldarg.0
+   IL_0126: ldc.r4 1
+   IL_012b: stfld System.Single Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::alpha
+   IL_0130: ldarg.0
+   IL_0131: ldc.i4.0
+   IL_0132: stfld System.Boolean Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::firstHit
+   IL_0137: ldarg.0
+   IL_0138: ldsfld System.Random Monocle.Calc::Random
+   IL_013d: ldc.r4 3.4906585
+   IL_0142: ldc.r4 10.471975
+   IL_0147: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_014c: ldsfld System.Random Monocle.Calc::Random
+   IL_0151: ldc.i4.1
+   IL_0152: ldc.i4.m1
+   IL_0153: call T Monocle.Calc::Choose<System.Int32>(System.Random,T,T)
+   IL_0158: conv.r4
+   IL_0159: mul
+   IL_015a: stfld System.Single Celeste.Mod.BounceHelper.BounceMoveBlock/Debris::spin
+   IL_015f: ldarg.0
+   IL_0160: stloc.2
+   IL_0161: br.s IL_0163
+   IL_0163: ldloc.2
+ + IL_0164: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0169: ret

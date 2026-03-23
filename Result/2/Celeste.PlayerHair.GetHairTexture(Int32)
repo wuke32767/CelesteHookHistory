@@ -1,0 +1,16 @@
+On: Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerHairGetHairTextureHook(orig_GetHairTexture,PlayerHair,Int32)
+On: SkinModHelper.Module.SkinModHelperModule.PlayerHairGetHairTextureHook(orig_GetHairTexture,PlayerHair,Int32)
+On: Celeste.Mod.Procedurline.PlayerManager.HairNodeTextureHook(orig_GetHairTexture,PlayerHair,Int32)
+   IL_0000: ldarg.1
+   IL_0001: brtrue.s IL_001a
+   IL_0003: ldarg.0
+   IL_0004: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.PlayerHair::bangs
+   IL_0009: ldarg.0
+   IL_000a: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+   IL_000f: callvirt System.Int32 Celeste.PlayerSprite::get_HairFrame()
+   IL_0014: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_0019: ret
+   IL_001a: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_001f: ldstr "characters/player/hair00"
+   IL_0024: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0029: ret

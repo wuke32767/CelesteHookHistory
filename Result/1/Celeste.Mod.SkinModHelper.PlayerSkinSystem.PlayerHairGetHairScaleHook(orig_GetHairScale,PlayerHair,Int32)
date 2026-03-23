@@ -1,0 +1,41 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_0007: stloc.0
+   IL_0008: ldloc.0
+   IL_0009: ldfld System.Nullable`1<System.Int32> Celeste.Mod.SkinModHelper.HairConfig::lastDashes
+   IL_000e: stloc.s V_4
+   IL_0010: ldloca.s V_4
+   IL_0012: call System.Boolean System.Nullable`1<System.Int32>::get_HasValue()
+   IL_0017: brfalse.s IL_0030
+   IL_0019: ldloca.s V_4
+   IL_001b: call T System.Nullable`1<System.Int32>::GetValueOrDefault()
+   IL_0020: stloc.1
+   IL_0021: ldloc.0
+   IL_0022: ldarg.2
+   IL_0023: ldloc.1
+   IL_0024: ldloca.s V_2
+   IL_0026: callvirt System.Boolean Celeste.Mod.SkinModHelper.HairConfig::GetHairScale(System.Int32,System.Int32,Microsoft.Xna.Framework.Vector2&)
+   IL_002b: ldc.i4.0
+   IL_002c: ceq
+   IL_002e: br.s IL_0031
+   IL_0030: ldc.i4.1
+   IL_0031: stloc.3
+   IL_0032: ldloc.3
+   IL_0033: brfalse.s IL_0040
+   IL_0035: nop
+   IL_0036: ldarg.0
+   IL_0037: ldarg.1
+   IL_0038: ldarg.2
+   IL_0039: callvirt Microsoft.Xna.Framework.Vector2 On.Celeste.PlayerHair/orig_GetHairScale::Invoke(Celeste.PlayerHair,System.Int32)
+   IL_003e: stloc.2
+   IL_003f: nop
+   IL_0040: ldloc.0
+   IL_0041: ldloc.2
+   IL_0042: ldarg.2
+   IL_0043: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Mod.SkinModHelper.HairConfig::FlipHair(Microsoft.Xna.Framework.Vector2,System.Int32)
+   IL_0048: stloc.s V_5
+   IL_004a: br.s IL_004c
+   IL_004c: ldloc.s V_5
+   IL_004e: ret

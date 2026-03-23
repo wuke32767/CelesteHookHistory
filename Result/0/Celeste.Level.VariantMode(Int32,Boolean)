@@ -1,0 +1,365 @@
+On: Celeste.Mod.HardcoreMode.HMModule.On_Level_VariantMode(orig_VariantMode,Level,Int32,Boolean)
+On: Celeste.Mod.CollabUtils2.Triggers.MiniHeartDoorUnlockCutsceneTrigger.modVariantModeOptions(orig_VariantMode,Level,Int32,Boolean)
+On: ExtendedVariants.UI.VanillaVariantOptions.buildVariantModeMenu(orig_VariantMode,Level,Int32,Boolean)
+On: Celeste.Mod.IsaGrabBag.ForceVariants.Level_VariantMode(orig_VariantMode,Level,Int32,Boolean)
+   IL_0000: newobj System.Void Celeste.Level/<>c__DisplayClass154_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.0
+   IL_0008: stfld Celeste.Level Celeste.Level/<>c__DisplayClass154_0::<>4__this
+   IL_000d: ldloc.0
+   IL_000e: ldarg.1
+   IL_000f: stfld System.Int32 Celeste.Level/<>c__DisplayClass154_0::returnIndex
+   IL_0014: ldloc.0
+   IL_0015: ldarg.2
+   IL_0016: stfld System.Boolean Celeste.Level/<>c__DisplayClass154_0::minimal
+   IL_001b: ldarg.0
+   IL_001c: ldc.i4.1
+   IL_001d: stfld System.Boolean Monocle.Scene::Paused
+   IL_0022: ldloc.0
+   IL_0023: newobj System.Void Celeste.TextMenu::.ctor()
+   IL_0028: stfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_002d: ldloc.0
+   IL_002e: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_0033: ldstr "MENU_VARIANT_TITLE"
+   IL_0038: ldnull
+   IL_0039: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_003e: newobj System.Void Celeste.TextMenu/Header::.ctor(System.String)
+   IL_0043: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0048: pop
+   IL_0049: ldloc.0
+   IL_004a: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_004f: ldstr "MENU_VARIANT_SUBTITLE"
+   IL_0054: ldnull
+   IL_0055: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_005a: ldc.i4.1
+   IL_005b: newobj System.Void Celeste.TextMenu/SubHeader::.ctor(System.String,System.Boolean)
+   IL_0060: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0065: pop
+   IL_0066: ldloc.0
+   IL_0067: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_006c: ldloc.0
+   IL_006d: ldstr "MENU_ASSIST_GAMESPEED"
+   IL_0072: ldnull
+   IL_0073: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0078: ldsfld System.Func`2<System.Int32,System.String> Celeste.Level/<>c::<>9__154_0
+   IL_007d: dup
+   IL_007e: brtrue.s IL_0097
+   IL_0080: pop
+   IL_0081: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_0086: ldftn System.String Celeste.Level/<>c::<VariantMode>b__154_0(System.Int32)
+   IL_008c: newobj System.Void System.Func`2<System.Int32,System.String>::.ctor(System.Object,System.IntPtr)
+   IL_0091: dup
+   IL_0092: stsfld System.Func`2<System.Int32,System.String> Celeste.Level/<>c::<>9__154_0
+   IL_0097: ldc.i4.5
+   IL_0098: ldc.i4.s 16
+   IL_009a: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_009f: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_00a4: ldfld System.Int32 Celeste.Assists::GameSpeed
+   IL_00a9: newobj System.Void Celeste.TextMenu/Slider::.ctor(System.String,System.Func`2<System.Int32,System.String>,System.Int32,System.Int32,System.Int32)
+   IL_00ae: dup
+   IL_00af: stloc.2
+   IL_00b0: stfld Celeste.TextMenu/Slider Celeste.Level/<>c__DisplayClass154_0::speed
+   IL_00b5: ldloc.2
+   IL_00b6: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_00bb: pop
+   IL_00bc: ldloc.0
+   IL_00bd: ldfld Celeste.TextMenu/Slider Celeste.Level/<>c__DisplayClass154_0::speed
+   IL_00c2: ldloc.0
+   IL_00c3: ldftn System.Void Celeste.Level/<>c__DisplayClass154_0::<VariantMode>b__1(System.Int32)
+   IL_00c9: newobj System.Void System.Action`1<System.Int32>::.ctor(System.Object,System.IntPtr)
+   IL_00ce: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Int32>::Change(System.Action`1<T>)
+   IL_00d3: pop
+   IL_00d4: ldloc.0
+   IL_00d5: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_00da: ldstr "MENU_VARIANT_MIRROR"
+   IL_00df: ldnull
+   IL_00e0: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_00e5: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00ea: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_00ef: ldfld System.Boolean Celeste.Assists::MirrorMode
+   IL_00f4: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_00f9: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_2
+   IL_00fe: dup
+   IL_00ff: brtrue.s IL_0118
+   IL_0101: pop
+   IL_0102: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_0107: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_2(System.Boolean)
+   IL_010d: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0112: dup
+   IL_0113: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_2
+   IL_0118: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_011d: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0122: pop
+   IL_0123: ldloc.0
+   IL_0124: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_0129: ldstr "MENU_VARIANT_360DASHING"
+   IL_012e: ldnull
+   IL_012f: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0134: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0139: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_013e: ldfld System.Boolean Celeste.Assists::ThreeSixtyDashing
+   IL_0143: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_0148: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_3
+   IL_014d: dup
+   IL_014e: brtrue.s IL_0167
+   IL_0150: pop
+   IL_0151: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_0156: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_3(System.Boolean)
+   IL_015c: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0161: dup
+   IL_0162: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_3
+   IL_0167: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_016c: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0171: pop
+   IL_0172: ldloc.0
+   IL_0173: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_0178: ldstr "MENU_VARIANT_INVISMOTION"
+   IL_017d: ldnull
+   IL_017e: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0183: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0188: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_018d: ldfld System.Boolean Celeste.Assists::InvisibleMotion
+   IL_0192: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_0197: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_4
+   IL_019c: dup
+   IL_019d: brtrue.s IL_01b6
+   IL_019f: pop
+   IL_01a0: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_01a5: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_4(System.Boolean)
+   IL_01ab: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_01b0: dup
+   IL_01b1: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_4
+   IL_01b6: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_01bb: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_01c0: pop
+   IL_01c1: ldloc.0
+   IL_01c2: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_01c7: ldstr "MENU_VARIANT_NOGRABBING"
+   IL_01cc: ldnull
+   IL_01cd: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_01d2: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_01d7: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_01dc: ldfld System.Boolean Celeste.Assists::NoGrabbing
+   IL_01e1: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_01e6: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_5
+   IL_01eb: dup
+   IL_01ec: brtrue.s IL_0205
+   IL_01ee: pop
+   IL_01ef: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_01f4: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_5(System.Boolean)
+   IL_01fa: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_01ff: dup
+   IL_0200: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_5
+   IL_0205: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_020a: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_020f: pop
+   IL_0210: ldloc.0
+   IL_0211: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_0216: ldstr "MENU_VARIANT_LOWFRICTION"
+   IL_021b: ldnull
+   IL_021c: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0221: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0226: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_022b: ldfld System.Boolean Celeste.Assists::LowFriction
+   IL_0230: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_0235: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_6
+   IL_023a: dup
+   IL_023b: brtrue.s IL_0254
+   IL_023d: pop
+   IL_023e: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_0243: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_6(System.Boolean)
+   IL_0249: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_024e: dup
+   IL_024f: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_6
+   IL_0254: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_0259: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_025e: pop
+   IL_025f: ldloc.0
+   IL_0260: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_0265: ldstr "MENU_VARIANT_SUPERDASHING"
+   IL_026a: ldnull
+   IL_026b: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0270: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0275: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_027a: ldfld System.Boolean Celeste.Assists::SuperDashing
+   IL_027f: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_0284: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_7
+   IL_0289: dup
+   IL_028a: brtrue.s IL_02a3
+   IL_028c: pop
+   IL_028d: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_0292: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_7(System.Boolean)
+   IL_0298: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_029d: dup
+   IL_029e: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_7
+   IL_02a3: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_02a8: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_02ad: pop
+   IL_02ae: ldloc.0
+   IL_02af: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_02b4: ldstr "MENU_VARIANT_HICCUPS"
+   IL_02b9: ldnull
+   IL_02ba: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_02bf: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_02c4: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_02c9: ldfld System.Boolean Celeste.Assists::Hiccups
+   IL_02ce: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_02d3: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_8
+   IL_02d8: dup
+   IL_02d9: brtrue.s IL_02f2
+   IL_02db: pop
+   IL_02dc: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_02e1: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_8(System.Boolean)
+   IL_02e7: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_02ec: dup
+   IL_02ed: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_8
+   IL_02f2: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_02f7: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_02fc: pop
+   IL_02fd: ldloc.0
+   IL_02fe: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_0303: ldstr "MENU_VARIANT_PLAYASBADELINE"
+   IL_0308: ldnull
+   IL_0309: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_030e: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0313: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0318: ldfld System.Boolean Celeste.Assists::PlayAsBadeline
+   IL_031d: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_0322: ldloc.0
+   IL_0323: ldftn System.Void Celeste.Level/<>c__DisplayClass154_0::<VariantMode>b__9(System.Boolean)
+   IL_0329: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_032e: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_0333: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0338: pop
+   IL_0339: ldloc.0
+   IL_033a: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_033f: ldstr "MENU_ASSIST_SUBTITLE"
+   IL_0344: ldnull
+   IL_0345: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_034a: ldc.i4.1
+   IL_034b: newobj System.Void Celeste.TextMenu/SubHeader::.ctor(System.String,System.Boolean)
+   IL_0350: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0355: pop
+   IL_0356: ldloc.0
+   IL_0357: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_035c: ldstr "MENU_ASSIST_INFINITE_STAMINA"
+   IL_0361: ldnull
+   IL_0362: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0367: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_036c: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0371: ldfld System.Boolean Celeste.Assists::InfiniteStamina
+   IL_0376: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_037b: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_10
+   IL_0380: dup
+   IL_0381: brtrue.s IL_039a
+   IL_0383: pop
+   IL_0384: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_0389: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_10(System.Boolean)
+   IL_038f: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0394: dup
+   IL_0395: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_10
+   IL_039a: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_039f: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_03a4: pop
+   IL_03a5: ldloc.0
+   IL_03a6: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_03ab: ldstr "MENU_ASSIST_AIR_DASHES"
+   IL_03b0: ldnull
+   IL_03b1: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_03b6: ldsfld System.Func`2<System.Int32,System.String> Celeste.Level/<>c::<>9__154_11
+   IL_03bb: dup
+   IL_03bc: brtrue.s IL_03d5
+   IL_03be: pop
+   IL_03bf: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_03c4: ldftn System.String Celeste.Level/<>c::<VariantMode>b__154_11(System.Int32)
+   IL_03ca: newobj System.Void System.Func`2<System.Int32,System.String>::.ctor(System.Object,System.IntPtr)
+   IL_03cf: dup
+   IL_03d0: stsfld System.Func`2<System.Int32,System.String> Celeste.Level/<>c::<>9__154_11
+   IL_03d5: ldc.i4.0
+   IL_03d6: ldc.i4.2
+   IL_03d7: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_03dc: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_03e1: ldfld Celeste.Assists/DashModes Celeste.Assists::DashMode
+   IL_03e6: newobj System.Void Celeste.TextMenu/Slider::.ctor(System.String,System.Func`2<System.Int32,System.String>,System.Int32,System.Int32,System.Int32)
+   IL_03eb: ldloc.0
+   IL_03ec: ldftn System.Void Celeste.Level/<>c__DisplayClass154_0::<VariantMode>b__12(System.Int32)
+   IL_03f2: newobj System.Void System.Action`1<System.Int32>::.ctor(System.Object,System.IntPtr)
+   IL_03f7: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Int32>::Change(System.Action`1<T>)
+   IL_03fc: dup
+   IL_03fd: stloc.1
+   IL_03fe: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0403: pop
+   IL_0404: ldarg.0
+   IL_0405: ldfld Celeste.Session Celeste.Level::Session
+   IL_040a: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_040f: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0414: brtrue.s IL_041d
+   IL_0416: ldloc.1
+   IL_0417: ldc.i4.1
+   IL_0418: stfld System.Boolean Celeste.TextMenu/Item::Disabled
+   IL_041d: ldloc.0
+   IL_041e: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_0423: ldstr "MENU_ASSIST_DASH_ASSIST"
+   IL_0428: ldnull
+   IL_0429: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_042e: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0433: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0438: ldfld System.Boolean Celeste.Assists::DashAssist
+   IL_043d: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_0442: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_13
+   IL_0447: dup
+   IL_0448: brtrue.s IL_0461
+   IL_044a: pop
+   IL_044b: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_0450: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_13(System.Boolean)
+   IL_0456: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_045b: dup
+   IL_045c: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_13
+   IL_0461: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_0466: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_046b: pop
+   IL_046c: ldloc.0
+   IL_046d: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_0472: ldstr "MENU_ASSIST_INVINCIBLE"
+   IL_0477: ldnull
+   IL_0478: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_047d: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0482: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0487: ldfld System.Boolean Celeste.Assists::Invincible
+   IL_048c: newobj System.Void Celeste.TextMenu/OnOff::.ctor(System.String,System.Boolean)
+   IL_0491: ldsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_14
+   IL_0496: dup
+   IL_0497: brtrue.s IL_04b0
+   IL_0499: pop
+   IL_049a: ldsfld Celeste.Level/<>c Celeste.Level/<>c::<>9
+   IL_049f: ldftn System.Void Celeste.Level/<>c::<VariantMode>b__154_14(System.Boolean)
+   IL_04a5: newobj System.Void System.Action`1<System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_04aa: dup
+   IL_04ab: stsfld System.Action`1<System.Boolean> Celeste.Level/<>c::<>9__154_14
+   IL_04b0: callvirt Celeste.TextMenu/Option`1<T> Celeste.TextMenu/Option`1<System.Boolean>::Change(System.Action`1<T>)
+   IL_04b5: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_04ba: pop
+   IL_04bb: ldloc.0
+   IL_04bc: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_04c1: ldloc.0
+   IL_04c2: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_04c7: ldloc.0
+   IL_04c8: ldftn System.Void Celeste.Level/<>c__DisplayClass154_0::<VariantMode>b__15()
+   IL_04ce: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_04d3: dup
+   IL_04d4: stloc.3
+   IL_04d5: stfld System.Action Celeste.TextMenu::OnCancel
+   IL_04da: ldloc.3
+   IL_04db: stfld System.Action Celeste.TextMenu::OnESC
+   IL_04e0: ldloc.0
+   IL_04e1: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_04e6: ldloc.0
+   IL_04e7: ldftn System.Void Celeste.Level/<>c__DisplayClass154_0::<VariantMode>b__16()
+   IL_04ed: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_04f2: stfld System.Action Celeste.TextMenu::OnPause
+   IL_04f7: ldarg.0
+   IL_04f8: ldloc.0
+   IL_04f9: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass154_0::menu
+   IL_04fe: call System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0503: ret

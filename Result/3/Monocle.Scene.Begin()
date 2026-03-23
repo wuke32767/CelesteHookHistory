@@ -1,0 +1,32 @@
+On: Celeste.Mod.SpeedrunTool.DeathStatistics.DeathStatisticsManager.SceneOnBegin(orig_Begin,Scene)
+On: Celeste.Mod.SpeedrunTool.SaveLoad.SaveSlotsManager.ClearStateWhenSwitchScene(orig_Begin,Scene)
+On: Celeste.Mod.HighFrameRateMod.HighFrameRateModule.SceneOnBegin(orig_Begin,Scene)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.Scene_Begin(orig_Begin,Scene)
+On: Celeste.Mod.MotionSmoothing.MotionSmoothingModule.SceneBeginHook(orig_Begin,Scene)
+On: Celeste.Mod.MotionSmoothing.MotionSmoothingInputHandler.SceneBeginHook(orig_Begin,Scene)
+On: Celeste.Mod.izumisQOL.UI.Indicator.OnSceneBegin(orig_Begin,Scene)
+IL: Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Scene_Begin(ILContext)
+ + IL_10000: ldc.r4 0 @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Scene_Begin(ILContext)
+ + IL_10001: stsfld System.Single Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule::ExtraTimeActive @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Scene_Begin(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.1
+   IL_0002: callvirt System.Void Monocle.Scene::set_Focused(System.Boolean)
+   IL_0007: ldarg.0
+   IL_0008: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_000d: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Entity> Monocle.EntityList::GetEnumerator()
+   IL_0012: stloc.0
+   IL_0013: br.s IL_0021
+   IL_0015: ldloc.0
+   IL_0016: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Entity>::get_Current()
+   IL_001b: ldarg.0
+   IL_001c: callvirt System.Void Monocle.Entity::SceneBegin(Monocle.Scene)
+   IL_0021: ldloc.0
+   IL_0022: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_0027: brtrue.s IL_0015
+   IL_0029: leave.s IL_0035
+   IL_002b: ldloc.0
+   IL_002c: brfalse.s IL_0034
+   IL_002e: ldloc.0
+   IL_002f: callvirt System.Void System.IDisposable::Dispose()
+   IL_0034: endfinally
+   IL_0035: ret

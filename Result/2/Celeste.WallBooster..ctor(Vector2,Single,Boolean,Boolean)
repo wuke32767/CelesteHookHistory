@@ -1,0 +1,74 @@
+On: Celeste.Mod.Aqua.Core.WallBoosterExtensions.WallBooster_Construct(orig_ctor_Vector2_float_bool_bool,WallBooster,Vector2,Single,Boolean,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0007: ldarg.0
+   IL_0008: ldsfld Monocle.BitTag Celeste.Tags::TransitionUpdate
+   IL_000d: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0012: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_0017: ldarg.0
+   IL_0018: ldc.i4 1999
+   IL_001d: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0022: ldarg.0
+   IL_0023: ldarg.s notCoreMode
+   IL_0025: stfld System.Boolean Celeste.WallBooster::notCoreMode
+   IL_002a: ldarg.3
+   IL_002b: brfalse.s IL_0051
+   IL_002d: ldarg.0
+   IL_002e: ldc.i4.m1
+   IL_002f: stfld Celeste.Facings Celeste.WallBooster::Facing
+   IL_0034: ldarg.0
+   IL_0035: ldc.r4 2
+   IL_003a: ldarg.2
+   IL_003b: ldc.r4 0
+   IL_0040: ldc.r4 0
+   IL_0045: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_004a: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_004f: br.s IL_0073
+   IL_0051: ldarg.0
+   IL_0052: ldc.i4.1
+   IL_0053: stfld Celeste.Facings Celeste.WallBooster::Facing
+   IL_0058: ldarg.0
+   IL_0059: ldc.r4 2
+   IL_005e: ldarg.2
+   IL_005f: ldc.r4 6
+   IL_0064: ldc.r4 0
+   IL_0069: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_006e: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0073: ldarg.0
+   IL_0074: ldarg.0
+   IL_0075: ldftn System.Void Celeste.WallBooster::OnChangeMode(Celeste.Session/CoreModes)
+   IL_007b: newobj System.Void System.Action`1<Celeste.Session/CoreModes>::.ctor(System.Object,System.IntPtr)
+   IL_0080: newobj System.Void Celeste.CoreModeListener::.ctor(System.Action`1<Celeste.Session/CoreModes>)
+   IL_0085: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_008a: ldarg.0
+   IL_008b: ldarg.0
+   IL_008c: newobj System.Void Celeste.StaticMover::.ctor()
+   IL_0091: dup
+   IL_0092: stloc.0
+   IL_0093: stfld Celeste.StaticMover Celeste.WallBooster::staticMover
+   IL_0098: ldloc.0
+   IL_0099: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_009e: ldarg.0
+   IL_009f: ldarg.0
+   IL_00a0: ldc.i4.0
+   IL_00a1: newobj System.Void Celeste.ClimbBlocker::.ctor(System.Boolean)
+   IL_00a6: dup
+   IL_00a7: stloc.1
+   IL_00a8: stfld Celeste.ClimbBlocker Celeste.WallBooster::climbBlocker
+   IL_00ad: ldloc.1
+   IL_00ae: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00b3: ldarg.0
+   IL_00b4: ldarg.0
+   IL_00b5: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_00ba: dup
+   IL_00bb: stloc.2
+   IL_00bc: stfld Celeste.SoundSource Celeste.WallBooster::idleSfx
+   IL_00c1: ldloc.2
+   IL_00c2: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00c7: ldarg.0
+   IL_00c8: ldarg.0
+   IL_00c9: ldarg.3
+   IL_00ca: callvirt System.Collections.Generic.List`1<Monocle.Sprite> Celeste.WallBooster::BuildSprite(System.Boolean)
+   IL_00cf: stfld System.Collections.Generic.List`1<Monocle.Sprite> Celeste.WallBooster::tiles
+   IL_00d4: ret

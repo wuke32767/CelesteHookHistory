@@ -1,0 +1,27 @@
+On: Celeste.Mod.SpeedrunTool.Other.AreaCompleteEnableTimer.RestoreTimer(orig_OnSceneTransition,Celeste,Scene,Scene)
+On: TAS.Tools.SyncChecker.On_Celeste_OnSceneTransition(orig_OnSceneTransition,Celeste,Scene,Scene)
+On: TAS.Tools.PlayTasAtLaunch.On_Celeste_OnScreenTransition(orig_OnSceneTransition,Celeste,Scene,Scene)
+   IL_0000: ldarg.1
+   IL_0001: isinst Celeste.OverworldLoader
+   IL_0006: brfalse.s IL_0010
+   IL_0008: ldarg.2
+   IL_0009: isinst Celeste.Overworld
+   IL_000e: brtrue.s IL_0018
+   IL_0010: ldarg.0
+   IL_0011: ldarg.1
+   IL_0012: ldarg.2
+   IL_0013: call System.Void Monocle.Engine::OnSceneTransition(Monocle.Scene,Monocle.Scene)
+   IL_0018: ldc.r4 1
+   IL_001d: stsfld System.Single Monocle.Engine::TimeRate
+   IL_0022: ldc.i4.0
+   IL_0023: call System.Void Celeste.Audio::set_PauseGameplaySfx(System.Boolean)
+   IL_0028: ldstr "fade"
+   IL_002d: ldc.r4 1
+   IL_0032: call System.Void Celeste.Audio::SetMusicParam(System.String,System.Single)
+   IL_0037: ldc.r4 0
+   IL_003c: call System.Void Celeste.Distort::set_Anxiety(System.Single)
+   IL_0041: ldc.r4 1
+   IL_0046: call System.Void Celeste.Distort::set_GameRate(System.Single)
+   IL_004b: ldc.r4 0
+   IL_0050: stsfld System.Single Celeste.Glitch::Value
+   IL_0055: ret

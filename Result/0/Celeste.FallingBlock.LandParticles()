@@ -1,0 +1,75 @@
+On: LuckyHelper.Modules.FallingBlockBlockFloatySpaceBlockModule.FallingBlockOnLandParticles(orig_LandParticles,FallingBlock)
+On: Celeste.Mod.FancyTileEntities.FancyFallingBlock.LandParticles(orig_LandParticles,FallingBlock)
+On: Celeste.Mod.VortexHelper.Misc.MiscHooks.FallingBlock_LandParticles(orig_LandParticles,FallingBlock)
+   IL_0000: ldc.i4.2
+   IL_0001: stloc.0
+   IL_0002: br IL_00c8
+   IL_0007: ldarg.0
+   IL_0008: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000d: ldarg.0
+   IL_000e: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_BottomLeft()
+   IL_0013: ldloc.0
+   IL_0014: conv.r4
+   IL_0015: ldc.r4 3
+   IL_001a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_001f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0024: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_0029: brfalse IL_00c4
+   IL_002e: ldarg.0
+   IL_002f: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0034: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_0039: ldsfld Monocle.ParticleType Celeste.FallingBlock::P_FallDustA
+   IL_003e: ldc.i4.1
+   IL_003f: ldarg.0
+   IL_0040: call System.Single Monocle.Entity::get_X()
+   IL_0045: ldloc.0
+   IL_0046: conv.r4
+   IL_0047: add
+   IL_0048: ldarg.0
+   IL_0049: call System.Single Monocle.Entity::get_Bottom()
+   IL_004e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0053: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0058: ldc.r4 4
+   IL_005d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0062: ldc.r4 -1.5707964
+   IL_0067: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_006c: ldloc.0
+   IL_006d: conv.r4
+   IL_006e: ldarg.0
+   IL_006f: call System.Single Monocle.Entity::get_Width()
+   IL_0074: ldc.r4 2
+   IL_0079: div
+   IL_007a: bge.un.s IL_0084
+   IL_007c: ldc.r4 3.1415927
+   IL_0081: stloc.1
+   IL_0082: br.s IL_008a
+   IL_0084: ldc.r4 0
+   IL_0089: stloc.1
+   IL_008a: ldarg.0
+   IL_008b: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0090: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_0095: ldsfld Monocle.ParticleType Celeste.FallingBlock::P_LandDust
+   IL_009a: ldc.i4.1
+   IL_009b: ldarg.0
+   IL_009c: call System.Single Monocle.Entity::get_X()
+   IL_00a1: ldloc.0
+   IL_00a2: conv.r4
+   IL_00a3: add
+   IL_00a4: ldarg.0
+   IL_00a5: call System.Single Monocle.Entity::get_Bottom()
+   IL_00aa: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00af: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00b4: ldc.r4 4
+   IL_00b9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00be: ldloc.1
+   IL_00bf: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00c4: ldloc.0
+   IL_00c5: ldc.i4.4
+   IL_00c6: add
+   IL_00c7: stloc.0
+   IL_00c8: ldloc.0
+   IL_00c9: conv.r4
+   IL_00ca: ldarg.0
+   IL_00cb: call System.Single Monocle.Entity::get_Width()
+   IL_00d0: ble IL_0007
+   IL_00d5: ret

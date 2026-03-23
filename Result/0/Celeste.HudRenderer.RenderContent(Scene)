@@ -1,0 +1,36 @@
+On: Celeste.Mod.WhatMod.WhatModModule.HudRenderer_RenderContent(orig_RenderContent,HudRenderer,Scene)
+   IL_0000: ldarg.1
+   IL_0001: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_0006: ldsfld Monocle.BitTag Celeste.Tags::HUD
+   IL_000b: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0010: callvirt System.Boolean Monocle.EntityList::HasVisibleEntities(System.Int32)
+   IL_0015: brtrue.s IL_0024
+   IL_0017: ldarg.0
+   IL_0018: ldfld System.Single Celeste.HudRenderer::BackgroundFade
+   IL_001d: ldc.r4 0
+   IL_0022: ble.un.s IL_0085
+   IL_0024: ldnull
+   IL_0025: ldnull
+   IL_0026: call System.Void Celeste.HiresRenderer::BeginRender(Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState)
+   IL_002b: ldarg.0
+   IL_002c: ldfld System.Single Celeste.HudRenderer::BackgroundFade
+   IL_0031: ldc.r4 0
+   IL_0036: ble.un.s IL_006b
+   IL_0038: ldc.r4 -1
+   IL_003d: ldc.r4 -1
+   IL_0042: ldc.r4 1922
+   IL_0047: ldc.r4 1082
+   IL_004c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0051: ldarg.0
+   IL_0052: ldfld System.Single Celeste.HudRenderer::BackgroundFade
+   IL_0057: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_005c: ldc.r4 0.7
+   IL_0061: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0066: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_006b: ldarg.1
+   IL_006c: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_0071: ldsfld Monocle.BitTag Celeste.Tags::HUD
+   IL_0076: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_007b: callvirt System.Void Monocle.EntityList::RenderOnly(System.Int32)
+   IL_0080: call System.Void Celeste.HiresRenderer::EndRender()
+   IL_0085: ret

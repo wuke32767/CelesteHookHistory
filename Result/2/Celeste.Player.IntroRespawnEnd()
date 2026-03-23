@@ -1,0 +1,18 @@
+On: ChroniaHelper.Cores.MapProcessor.AfterRespawn(orig_IntroRespawnEnd,Player)
+On: ChroniaHelper.Entities.SetFlagSequenceController.OnPlayerRespawned(orig_IntroRespawnEnd,Player)
+On: ChroniaHelper.Entities.SetFlagController.OnPlayerRespawned(orig_IntroRespawnEnd,Player)
+On: TAS.Input.Commands.ConsoleCommand.PlayerOnIntroRespawnEnd(orig_IntroRespawnEnd,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0007: ldarg.0
+   IL_0008: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_000d: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::deadOffset
+   IL_0012: ldarg.0
+   IL_0013: ldarg.0
+   IL_0014: ldfld Monocle.Tween Celeste.Player::respawnTween
+   IL_0019: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_001e: ldarg.0
+   IL_001f: ldnull
+   IL_0020: stfld Monocle.Tween Celeste.Player::respawnTween
+   IL_0025: ret

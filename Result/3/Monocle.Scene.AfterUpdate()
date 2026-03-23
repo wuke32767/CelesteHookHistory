@@ -1,0 +1,15 @@
+On: Celeste.Mod.MiscUtils.MiscUtilsModule.HookSceneAfterUpdate(orig_AfterUpdate,Scene)
+On: Bitsbolts.Components.AfterUpdateHook.OnSceneAfterUpdate(orig_AfterUpdate,Scene)
+On: Celeste.Mod.GhostModForTas.Recorder.GhostRecorderEntity.SceneOnAfterUpdate(orig_AfterUpdate,Scene)
+On: TAS.GameInfo.SceneOnAfterUpdate(orig_AfterUpdate,Scene)
+On: TAS.ExportRoomInfo.SceneOnAfterUpdate(orig_AfterUpdate,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldflda System.Action Monocle.Scene::OnEndOfFrame
+   IL_0006: ldnull
+   IL_0007: call T System.Threading.Interlocked::Exchange<System.Action>(T&,T)
+   IL_000c: dup
+   IL_000d: brtrue.s IL_0011
+   IL_000f: pop
+   IL_0010: ret
+   IL_0011: callvirt System.Void System.Action::Invoke()
+   IL_0016: ret

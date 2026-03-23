@@ -1,0 +1,136 @@
+On: Celeste.Mod.Randomizer.RandoModule.PoemColor(orig_ctor,Poem,String,Int32,Single)
+On: Celeste.Mod.CollabUtils2.CustomCrystalHeartHelper.customizePoemDisplay(orig_ctor,Poem,String,Int32,Single)
+On: AltSidesHelper.AltSidesHelperModule.SetPoemColour(orig_ctor,Poem,String,Int32,Single)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 1
+   IL_0006: stfld System.Single Celeste.Poem::Alpha
+   IL_000b: ldarg.0
+   IL_000c: ldc.r4 1
+   IL_0011: stfld System.Single Celeste.Poem::TextAlpha
+   IL_0016: ldarg.0
+   IL_0017: ldc.r4 1
+   IL_001c: stfld System.Single Celeste.Poem::ParticleSpeed
+   IL_0021: ldarg.0
+   IL_0022: ldc.i4.s 80
+   IL_0024: newarr Celeste.Poem/Particle
+   IL_0029: stfld Celeste.Poem/Particle[] Celeste.Poem::particles
+   IL_002e: ldarg.0
+   IL_002f: call System.Void Monocle.Entity::.ctor()
+   IL_0034: ldarg.1
+   IL_0035: brfalse.s IL_004d
+   IL_0037: ldarg.0
+   IL_0038: call Monocle.PixelFontSize Celeste.ActiveFont::get_FontSize()
+   IL_003d: ldarg.1
+   IL_003e: ldc.i4 1024
+   IL_0043: callvirt System.String Monocle.PixelFontSize::AutoNewline(System.String,System.Int32)
+   IL_0048: stfld System.String Celeste.Poem::text
+   IL_004d: ldarg.0
+   IL_004e: ldsfld Microsoft.Xna.Framework.Color[] Celeste.Poem::colors
+   IL_0053: ldarg.2
+   IL_0054: ldelem.any Microsoft.Xna.Framework.Color
+   IL_0059: callvirt System.Void Celeste.Poem::set_Color(Microsoft.Xna.Framework.Color)
+   IL_005e: ldarg.0
+   IL_005f: ldsfld Monocle.SpriteBank Celeste.GFX::GuiSpriteBank
+   IL_0064: ldstr "heartgem"
+   IL_0069: ldarg.2
+   IL_006a: box System.Int32
+   IL_006f: call System.String System.String::Concat(System.Object,System.Object)
+   IL_0074: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_0079: stfld Monocle.Sprite Celeste.Poem::Heart
+   IL_007e: ldarg.0
+   IL_007f: ldfld Monocle.Sprite Celeste.Poem::Heart
+   IL_0084: ldstr "spin"
+   IL_0089: ldc.i4.0
+   IL_008a: ldc.i4.0
+   IL_008b: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0090: ldarg.0
+   IL_0091: ldfld Monocle.Sprite Celeste.Poem::Heart
+   IL_0096: ldc.r4 1920
+   IL_009b: ldc.r4 1080
+   IL_00a0: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00a5: ldc.r4 0.5
+   IL_00aa: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00af: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_00b4: ldarg.0
+   IL_00b5: ldfld Monocle.Sprite Celeste.Poem::Heart
+   IL_00ba: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00bf: ldarg.3
+   IL_00c0: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00c5: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00ca: ldc.i4 1920
+   IL_00cf: call System.Int32 Monocle.Engine::get_ViewWidth()
+   IL_00d4: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_00d9: stloc.0
+   IL_00da: ldc.i4 1080
+   IL_00df: call System.Int32 Monocle.Engine::get_ViewHeight()
+   IL_00e4: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_00e9: stloc.1
+   IL_00ea: ldarg.0
+   IL_00eb: ldstr "poem-a"
+   IL_00f0: ldloc.0
+   IL_00f1: ldloc.1
+   IL_00f2: ldc.i4.0
+   IL_00f3: ldc.i4.1
+   IL_00f4: ldc.i4.0
+   IL_00f5: call Monocle.VirtualRenderTarget Monocle.VirtualContent::CreateRenderTarget(System.String,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32)
+   IL_00fa: stfld Monocle.VirtualRenderTarget Celeste.Poem::poem
+   IL_00ff: ldarg.0
+   IL_0100: ldstr "poem-b"
+   IL_0105: ldloc.0
+   IL_0106: ldc.i4.2
+   IL_0107: div
+   IL_0108: ldloc.1
+   IL_0109: ldc.i4.2
+   IL_010a: div
+   IL_010b: ldc.i4.0
+   IL_010c: ldc.i4.1
+   IL_010d: ldc.i4.0
+   IL_010e: call Monocle.VirtualRenderTarget Monocle.VirtualContent::CreateRenderTarget(System.String,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32)
+   IL_0113: stfld Monocle.VirtualRenderTarget Celeste.Poem::smoke
+   IL_0118: ldarg.0
+   IL_0119: ldstr "poem-c"
+   IL_011e: ldloc.0
+   IL_011f: ldc.i4.2
+   IL_0120: div
+   IL_0121: ldloc.1
+   IL_0122: ldc.i4.2
+   IL_0123: div
+   IL_0124: ldc.i4.0
+   IL_0125: ldc.i4.1
+   IL_0126: ldc.i4.0
+   IL_0127: call Monocle.VirtualRenderTarget Monocle.VirtualContent::CreateRenderTarget(System.String,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32)
+   IL_012c: stfld Monocle.VirtualRenderTarget Celeste.Poem::temp
+   IL_0131: ldarg.0
+   IL_0132: ldsfld Monocle.BitTag Celeste.Tags::HUD
+   IL_0137: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_013c: ldsfld Monocle.BitTag Celeste.Tags::FrozenUpdate
+   IL_0141: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0146: or
+   IL_0147: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_014c: ldarg.0
+   IL_014d: ldarg.0
+   IL_014e: ldftn System.Void Celeste.Poem::BeforeRender()
+   IL_0154: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0159: newobj System.Void Celeste.BeforeRenderHook::.ctor(System.Action)
+   IL_015e: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0163: ldc.i4.0
+   IL_0164: stloc.2
+   IL_0165: br.s IL_0186
+   IL_0167: ldarg.0
+   IL_0168: ldfld Celeste.Poem/Particle[] Celeste.Poem::particles
+   IL_016d: ldloc.2
+   IL_016e: ldelema Celeste.Poem/Particle
+   IL_0173: ldsfld System.Random Monocle.Calc::Random
+   IL_0178: call System.Single Monocle.Calc::NextFloat(System.Random)
+   IL_017d: call System.Void Celeste.Poem/Particle::Reset(System.Single)
+   IL_0182: ldloc.2
+   IL_0183: ldc.i4.1
+   IL_0184: add
+   IL_0185: stloc.2
+   IL_0186: ldloc.2
+   IL_0187: ldarg.0
+   IL_0188: ldfld Celeste.Poem/Particle[] Celeste.Poem::particles
+   IL_018d: ldlen
+   IL_018e: conv.i4
+   IL_018f: blt.s IL_0167
+   IL_0191: ret

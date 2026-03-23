@@ -1,0 +1,38 @@
+On: Celeste.Mod.BetterFreezeFrames.VanillaModule.Coroutine_Update(orig_Update,Coroutine)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Collections.IEnumerator Monocle.Coroutine::get_Current()
+   IL_0006: stloc.0
+   IL_0007: ldloc.0
+   IL_0008: brfalse.s IL_0034
+   IL_000a: ldloc.0
+   IL_000b: isinst Celeste.Mod.SwapImmediatelyExtension/Flattened
+   IL_0010: brtrue.s IL_0034
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Collections.Generic.Stack`1<System.Collections.IEnumerator> Monocle.Coroutine::enumerators
+   IL_0018: callvirt T System.Collections.Generic.Stack`1<System.Collections.IEnumerator>::Pop()
+   IL_001d: pop
+   IL_001e: ldarg.0
+   IL_001f: ldfld System.Collections.Generic.Stack`1<System.Collections.IEnumerator> Monocle.Coroutine::enumerators
+   IL_0024: ldloc.0
+   IL_0025: call Celeste.Mod.SwapImmediatelyExtension/Flattened Celeste.Mod.SwapImmediatelyExtension::SafeEnumerate(System.Collections.IEnumerator)
+   IL_002a: box Celeste.Mod.SwapImmediatelyExtension/Flattened
+   IL_002f: callvirt System.Void System.Collections.Generic.Stack`1<System.Collections.IEnumerator>::Push(T)
+   IL_0034: ldarg.0
+   IL_0035: callvirt System.Void Monocle.Coroutine::orig_Update()
+   IL_003a: ldarg.0
+   IL_003b: callvirt System.Collections.IEnumerator Monocle.Coroutine::get_Current()
+   IL_0040: dup
+   IL_0041: brtrue.s IL_0047
+   IL_0043: pop
+   IL_0044: ldnull
+   IL_0045: br.s IL_004c
+   IL_0047: callvirt System.Object System.Collections.IEnumerator::get_Current()
+   IL_004c: isinst System.Action`1<Monocle.Coroutine>
+   IL_0051: stloc.1
+   IL_0052: ldloc.1
+   IL_0053: brfalse.s IL_005e
+   IL_0055: ldloc.1
+   IL_0056: ldarg.0
+   IL_0057: callvirt System.Void System.Action`1<Monocle.Coroutine>::Invoke(T)
+   IL_005c: br.s IL_0000
+   IL_005e: ret

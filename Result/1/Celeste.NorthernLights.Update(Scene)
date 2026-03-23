@@ -1,0 +1,114 @@
+On: Celeste.Mod.Spirialis.TimeController.customNorthernLightsUpdate(orig_Update,NorthernLights,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Backdrop::Visible
+   IL_0006: brfalse IL_013b
+   IL_000b: ldarg.0
+   IL_000c: ldarg.0
+   IL_000d: ldfld System.Single Celeste.NorthernLights::timer
+   IL_0012: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0017: add
+   IL_0018: stfld System.Single Celeste.NorthernLights::timer
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.Collections.Generic.List`1<Celeste.NorthernLights/Strand> Celeste.NorthernLights::strands
+   IL_0023: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.NorthernLights/Strand>::GetEnumerator()
+   IL_0028: stloc.0
+   IL_0029: br IL_00db
+   IL_002e: ldloca.s V_0
+   IL_0030: call T System.Collections.Generic.List`1/Enumerator<Celeste.NorthernLights/Strand>::get_Current()
+   IL_0035: stloc.1
+   IL_0036: ldloc.1
+   IL_0037: dup
+   IL_0038: ldfld System.Single Celeste.NorthernLights/Strand::Percent
+   IL_003d: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0042: ldloc.1
+   IL_0043: ldfld System.Single Celeste.NorthernLights/Strand::Duration
+   IL_0048: div
+   IL_0049: add
+   IL_004a: stfld System.Single Celeste.NorthernLights/Strand::Percent
+   IL_004f: ldloc.1
+   IL_0050: ldloc.1
+   IL_0051: ldfld System.Single Celeste.NorthernLights/Strand::Alpha
+   IL_0056: ldloc.1
+   IL_0057: ldfld System.Single Celeste.NorthernLights/Strand::Percent
+   IL_005c: ldc.r4 1
+   IL_0061: blt.s IL_0066
+   IL_0063: ldc.i4.0
+   IL_0064: br.s IL_0067
+   IL_0066: ldc.i4.1
+   IL_0067: conv.r4
+   IL_0068: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_006d: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0072: stfld System.Single Celeste.NorthernLights/Strand::Alpha
+   IL_0077: ldloc.1
+   IL_0078: ldfld System.Single Celeste.NorthernLights/Strand::Alpha
+   IL_007d: ldc.r4 0
+   IL_0082: bgt.un.s IL_009c
+   IL_0084: ldloc.1
+   IL_0085: ldfld System.Single Celeste.NorthernLights/Strand::Percent
+   IL_008a: ldc.r4 1
+   IL_008f: blt.un.s IL_009c
+   IL_0091: ldloc.1
+   IL_0092: ldc.r4 0
+   IL_0097: callvirt System.Void Celeste.NorthernLights/Strand::Reset(System.Single)
+   IL_009c: ldloc.1
+   IL_009d: ldfld System.Collections.Generic.List`1<Celeste.NorthernLights/Node> Celeste.NorthernLights/Strand::Nodes
+   IL_00a2: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.NorthernLights/Node>::GetEnumerator()
+   IL_00a7: stloc.2
+   IL_00a8: br.s IL_00c2
+   IL_00aa: ldloca.s V_2
+   IL_00ac: call T System.Collections.Generic.List`1/Enumerator<Celeste.NorthernLights/Node>::get_Current()
+   IL_00b1: dup
+   IL_00b2: ldfld System.Single Celeste.NorthernLights/Node::SineOffset
+   IL_00b7: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00bc: add
+   IL_00bd: stfld System.Single Celeste.NorthernLights/Node::SineOffset
+   IL_00c2: ldloca.s V_2
+   IL_00c4: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.NorthernLights/Node>::MoveNext()
+   IL_00c9: brtrue.s IL_00aa
+   IL_00cb: leave.s IL_00db
+   IL_00cd: ldloca.s V_2
+   IL_00cf: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.NorthernLights/Node>
+   IL_00d5: callvirt System.Void System.IDisposable::Dispose()
+   IL_00da: endfinally
+   IL_00db: ldloca.s V_0
+   IL_00dd: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.NorthernLights/Strand>::MoveNext()
+   IL_00e2: brtrue IL_002e
+   IL_00e7: leave.s IL_00f7
+   IL_00e9: ldloca.s V_0
+   IL_00eb: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.NorthernLights/Strand>
+   IL_00f1: callvirt System.Void System.IDisposable::Dispose()
+   IL_00f6: endfinally
+   IL_00f7: ldc.i4.0
+   IL_00f8: stloc.3
+   IL_00f9: br.s IL_0130
+   IL_00fb: ldarg.0
+   IL_00fc: ldfld Celeste.NorthernLights/Particle[] Celeste.NorthernLights::particles
+   IL_0101: ldloc.3
+   IL_0102: ldelema Celeste.NorthernLights/Particle
+   IL_0107: ldflda Microsoft.Xna.Framework.Vector2 Celeste.NorthernLights/Particle::Position
+   IL_010c: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0111: dup
+   IL_0112: ldind.r4
+   IL_0113: ldarg.0
+   IL_0114: ldfld Celeste.NorthernLights/Particle[] Celeste.NorthernLights::particles
+   IL_0119: ldloc.3
+   IL_011a: ldelema Celeste.NorthernLights/Particle
+   IL_011f: ldfld System.Single Celeste.NorthernLights/Particle::Speed
+   IL_0124: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0129: mul
+   IL_012a: add
+   IL_012b: stind.r4
+   IL_012c: ldloc.3
+   IL_012d: ldc.i4.1
+   IL_012e: add
+   IL_012f: stloc.3
+   IL_0130: ldloc.3
+   IL_0131: ldarg.0
+   IL_0132: ldfld Celeste.NorthernLights/Particle[] Celeste.NorthernLights::particles
+   IL_0137: ldlen
+   IL_0138: conv.i4
+   IL_0139: blt.s IL_00fb
+   IL_013b: ldarg.0
+   IL_013c: ldarg.1
+   IL_013d: call System.Void Celeste.Backdrop::Update(Monocle.Scene)
+   IL_0142: ret

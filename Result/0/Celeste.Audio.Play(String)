@@ -1,0 +1,21 @@
+On: LuckyHelper.Triggers.AudioAdjustTrigger.AudioOnPlay_string(orig_Play_string,String)
+On: TAS.EverestInterop.SimplifiedGraphicsFeature.AudioOnPlay_string(orig_Play_string,String)
+On: Celeste.Mod.AdamsAddons.Triggers.ReplaceAudioTrigger.modPlayString(orig_Play_string,String)
+   IL_0000: ldarg.0
+   IL_0001: ldloca.s V_1
+   IL_0003: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector2>
+   IL_0009: ldloc.1
+   IL_000a: call FMOD.Studio.EventInstance Celeste.Audio::CreateInstance(System.String,System.Nullable`1<Microsoft.Xna.Framework.Vector2>)
+   IL_000f: stloc.0
+   IL_0010: ldloc.0
+   IL_0011: ldnull
+   IL_0012: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_0017: brfalse.s IL_0027
+   IL_0019: ldloc.0
+   IL_001a: callvirt FMOD.RESULT FMOD.Studio.EventInstance::start()
+   IL_001f: pop
+   IL_0020: ldloc.0
+   IL_0021: callvirt FMOD.RESULT FMOD.Studio.EventInstance::release()
+   IL_0026: pop
+   IL_0027: ldloc.0
+   IL_0028: ret

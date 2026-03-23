@@ -1,0 +1,17 @@
+On: Celeste.Mod.CollabUtils2.LobbyHelper.onRegisterPoemEntry(orig_RegisterPoemEntry,SaveData,String)
+   IL_0000: ldarg.1
+   IL_0001: callvirt System.String System.String::ToLower()
+   IL_0006: starg.s id
+   IL_0008: ldarg.0
+   IL_0009: callvirt System.Collections.Generic.List`1<System.String> Celeste.SaveData::get_Poem_Safe()
+   IL_000e: ldarg.1
+   IL_000f: callvirt System.Boolean System.Collections.Generic.List`1<System.String>::Contains(T)
+   IL_0014: brfalse.s IL_0018
+   IL_0016: ldc.i4.0
+   IL_0017: ret
+   IL_0018: ldarg.0
+   IL_0019: callvirt System.Collections.Generic.List`1<System.String> Celeste.SaveData::get_Poem_Safe()
+   IL_001e: ldarg.1
+   IL_001f: callvirt System.Void System.Collections.Generic.List`1<System.String>::Add(T)
+   IL_0024: ldc.i4.1
+   IL_0025: ret

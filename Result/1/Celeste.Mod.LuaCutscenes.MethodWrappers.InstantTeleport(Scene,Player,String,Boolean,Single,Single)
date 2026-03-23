@@ -1,0 +1,84 @@
+On: Celeste.Mod.Randomizer.RandoModule.LuaInstantTeleport(Action`6,Scene,Player,String,Boolean,Single,Single)
+   IL_0000: newobj System.Void Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.1
+   IL_0008: stfld Celeste.Player Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::player
+   IL_000d: ldloc.0
+   IL_000e: ldarg.2
+   IL_000f: stfld System.String Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::room
+   IL_0014: ldloc.0
+   IL_0015: ldarg.3
+   IL_0016: stfld System.Boolean Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::sameRelativePosition
+   IL_001b: ldloc.0
+   IL_001c: ldarg.s positionX
+   IL_001e: stfld System.Single Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::positionX
+   IL_0023: ldloc.0
+   IL_0024: ldarg.s positionY
+   IL_0026: stfld System.Single Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::positionY
+   IL_002b: nop
+   IL_002c: ldloc.0
+   IL_002d: ldarg.0
+   IL_002e: isinst Celeste.Level
+   IL_0033: stfld Celeste.Level Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::level
+   IL_0038: ldloc.0
+   IL_0039: ldfld Celeste.Level Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::level
+   IL_003e: ldnull
+   IL_003f: ceq
+   IL_0041: stloc.1
+   IL_0042: ldloc.1
+   IL_0043: brfalse.s IL_004b
+   IL_0045: nop
+   IL_0046: br IL_00e5
+   IL_004b: ldloc.0
+   IL_004c: ldfld System.String Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::room
+   IL_0051: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0056: stloc.2
+   IL_0057: ldloc.2
+   IL_0058: brfalse.s IL_00cb
+   IL_005a: nop
+   IL_005b: ldloc.0
+   IL_005c: ldfld System.Single Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::positionX
+   IL_0061: ldloc.0
+   IL_0062: ldfld System.Single Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::positionY
+   IL_0067: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_006c: ldloc.0
+   IL_006d: ldfld Celeste.Player Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::player
+   IL_0072: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0077: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_007c: stloc.3
+   IL_007d: ldloc.0
+   IL_007e: ldfld Celeste.Player Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::player
+   IL_0083: ldloc.0
+   IL_0084: ldfld System.Single Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::positionX
+   IL_0089: ldloc.0
+   IL_008a: ldfld System.Single Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::positionY
+   IL_008f: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0094: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0099: ldloc.0
+   IL_009a: ldfld Celeste.Level Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::level
+   IL_009f: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_00a4: dup
+   IL_00a5: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_00aa: ldloc.3
+   IL_00ab: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00b0: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
+   IL_00b5: nop
+   IL_00b6: ldloc.0
+   IL_00b7: ldfld Celeste.Player Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::player
+   IL_00bc: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_00c1: ldloc.3
+   IL_00c2: callvirt System.Void Celeste.PlayerHair::MoveHairBy(Microsoft.Xna.Framework.Vector2)
+   IL_00c7: nop
+   IL_00c8: nop
+   IL_00c9: br.s IL_00e5
+   IL_00cb: nop
+   IL_00cc: ldloc.0
+   IL_00cd: ldfld Celeste.Level Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::level
+   IL_00d2: ldloc.0
+   IL_00d3: ldftn System.Void Celeste.Mod.LuaCutscenes.MethodWrappers/<>c__DisplayClass14_0::<InstantTeleport>b__0()
+   IL_00d9: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_00de: callvirt System.Void Monocle.Scene::add_OnEndOfFrame(System.Action)
+   IL_00e3: nop
+   IL_00e4: nop
+   IL_00e5: ret

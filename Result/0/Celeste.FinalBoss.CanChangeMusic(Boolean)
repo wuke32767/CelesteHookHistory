@@ -1,0 +1,16 @@
+IL: ExtendedVariants.Variants.BadelineBossesEverywhere.modCanChangeMusic(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: ldfld Celeste.Session Celeste.Level::Session
+   IL_0010: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0015: call System.String Celeste.AreaKeyExt::GetLevelSet(Celeste.AreaKey)
+   IL_001a: ldstr "Celeste"
+   IL_001f: call System.Boolean System.String::op_Equality(System.String,System.String)
+ + IL_10000: call System.Boolean ExtendedVariants.Variants.BadelineBossesEverywhere::modVanillaBehaviorCheckForMusic(System.Boolean) @ ExtendedVariants.Variants.BadelineBossesEverywhere.modCanChangeMusic(ILContext)
+   IL_0024: brfalse.s IL_0028
+   IL_0026: ldarg.1
+   IL_0027: ret
+   IL_0028: ldarg.0
+   IL_0029: ldfld System.Boolean Celeste.FinalBoss::canChangeMusic
+   IL_002e: ret

@@ -1,0 +1,156 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedDecal() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: ldfld Celeste.FakeWall/Modes Celeste.FakeWall::mode
+   IL_0011: brtrue IL_01e4
+   IL_0016: ldarg.0
+   IL_0017: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_001c: isinst Celeste.Level
+   IL_0021: stloc.0
+   IL_0022: ldloc.0
+   IL_0023: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Level::get_ShakeVector()
+   IL_0028: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_002d: ldc.r4 0
+   IL_0032: bge.un.s IL_008c
+   IL_0034: ldloc.0
+   IL_0035: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_003a: callvirt System.Single Monocle.Camera::get_X()
+   IL_003f: ldloc.0
+   IL_0040: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0045: stloc.1
+   IL_0046: ldloca.s V_1
+   IL_0048: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_004d: conv.r4
+   IL_004e: bgt.un.s IL_008c
+   IL_0050: ldarg.0
+   IL_0051: call System.Single Monocle.Entity::get_X()
+   IL_0056: ldloc.0
+   IL_0057: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_005c: stloc.1
+   IL_005d: ldloca.s V_1
+   IL_005f: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0064: conv.r4
+   IL_0065: bgt.un.s IL_008c
+   IL_0067: ldarg.0
+   IL_0068: ldfld Monocle.TileGrid Celeste.FakeWall::tiles
+   IL_006d: ldarg.0
+   IL_006e: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0073: ldc.r4 -3
+   IL_0078: ldc.r4 0
+   IL_007d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0082: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0087: callvirt System.Void Monocle.TileGrid::RenderAt(Microsoft.Xna.Framework.Vector2)
+   IL_008c: ldloc.0
+   IL_008d: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Level::get_ShakeVector()
+   IL_0092: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0097: ldc.r4 0
+   IL_009c: ble.un.s IL_0103
+   IL_009e: ldloc.0
+   IL_009f: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_00a4: callvirt System.Single Monocle.Camera::get_X()
+   IL_00a9: ldc.r4 320
+   IL_00ae: add
+   IL_00af: ldloc.0
+   IL_00b0: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00b5: stloc.1
+   IL_00b6: ldloca.s V_1
+   IL_00b8: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_00bd: conv.r4
+   IL_00be: blt.un.s IL_0103
+   IL_00c0: ldarg.0
+   IL_00c1: call System.Single Monocle.Entity::get_X()
+   IL_00c6: ldarg.0
+   IL_00c7: call System.Single Monocle.Entity::get_Width()
+   IL_00cc: add
+   IL_00cd: ldloc.0
+   IL_00ce: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00d3: stloc.1
+   IL_00d4: ldloca.s V_1
+   IL_00d6: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_00db: conv.r4
+   IL_00dc: blt.un.s IL_0103
+   IL_00de: ldarg.0
+   IL_00df: ldfld Monocle.TileGrid Celeste.FakeWall::tiles
+   IL_00e4: ldarg.0
+   IL_00e5: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ea: ldc.r4 3
+   IL_00ef: ldc.r4 0
+   IL_00f4: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00f9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00fe: callvirt System.Void Monocle.TileGrid::RenderAt(Microsoft.Xna.Framework.Vector2)
+   IL_0103: ldloc.0
+   IL_0104: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Level::get_ShakeVector()
+   IL_0109: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_010e: ldc.r4 0
+   IL_0113: bge.un.s IL_016d
+   IL_0115: ldloc.0
+   IL_0116: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_011b: callvirt System.Single Monocle.Camera::get_Y()
+   IL_0120: ldloc.0
+   IL_0121: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0126: stloc.1
+   IL_0127: ldloca.s V_1
+   IL_0129: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_012e: conv.r4
+   IL_012f: bgt.un.s IL_016d
+   IL_0131: ldarg.0
+   IL_0132: call System.Single Monocle.Entity::get_Y()
+   IL_0137: ldloc.0
+   IL_0138: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_013d: stloc.1
+   IL_013e: ldloca.s V_1
+   IL_0140: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0145: conv.r4
+   IL_0146: bgt.un.s IL_016d
+   IL_0148: ldarg.0
+   IL_0149: ldfld Monocle.TileGrid Celeste.FakeWall::tiles
+   IL_014e: ldarg.0
+   IL_014f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0154: ldc.r4 0
+   IL_0159: ldc.r4 -3
+   IL_015e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0163: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0168: callvirt System.Void Monocle.TileGrid::RenderAt(Microsoft.Xna.Framework.Vector2)
+   IL_016d: ldloc.0
+   IL_016e: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Level::get_ShakeVector()
+   IL_0173: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0178: ldc.r4 0
+   IL_017d: ble.un.s IL_01e4
+   IL_017f: ldloc.0
+   IL_0180: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0185: callvirt System.Single Monocle.Camera::get_Y()
+   IL_018a: ldc.r4 180
+   IL_018f: add
+   IL_0190: ldloc.0
+   IL_0191: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0196: stloc.1
+   IL_0197: ldloca.s V_1
+   IL_0199: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_019e: conv.r4
+   IL_019f: blt.un.s IL_01e4
+   IL_01a1: ldarg.0
+   IL_01a2: call System.Single Monocle.Entity::get_Y()
+   IL_01a7: ldarg.0
+   IL_01a8: call System.Single Monocle.Entity::get_Height()
+   IL_01ad: add
+   IL_01ae: ldloc.0
+   IL_01af: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_01b4: stloc.1
+   IL_01b5: ldloca.s V_1
+   IL_01b7: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_01bc: conv.r4
+   IL_01bd: blt.un.s IL_01e4
+   IL_01bf: ldarg.0
+   IL_01c0: ldfld Monocle.TileGrid Celeste.FakeWall::tiles
+   IL_01c5: ldarg.0
+   IL_01c6: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_01cb: ldc.r4 0
+   IL_01d0: ldc.r4 3
+   IL_01d5: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01da: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01df: callvirt System.Void Monocle.TileGrid::RenderAt(Microsoft.Xna.Framework.Vector2)
+   IL_01e4: ldarg.0
+   IL_01e5: call System.Void Monocle.Entity::Render()
+   IL_01ea: ret

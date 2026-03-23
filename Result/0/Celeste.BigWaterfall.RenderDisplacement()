@@ -1,0 +1,17 @@
+On: Celeste.Mod.FewerVisualDistractions.Patches.AdditionalEffectTweaker.BigWaterfall_RenderDisplacement(orig_RenderDisplacement,BigWaterfall)
+   IL_0000: ldarg.0
+   IL_0001: callvirt Microsoft.Xna.Framework.Vector2 Celeste.BigWaterfall::get_RenderPosition()
+   IL_0006: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_000b: ldarg.0
+   IL_000c: call System.Single Monocle.Entity::get_Y()
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Single Celeste.BigWaterfall::width
+   IL_0017: ldarg.0
+   IL_0018: ldfld System.Single Celeste.BigWaterfall::height
+   IL_001d: ldc.r4 0.5
+   IL_0022: ldc.r4 0.5
+   IL_0027: ldc.r4 1
+   IL_002c: ldc.r4 1
+   IL_0031: newobj System.Void Microsoft.Xna.Framework.Color::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0036: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_003b: ret

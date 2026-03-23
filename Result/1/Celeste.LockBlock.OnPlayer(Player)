@@ -1,0 +1,36 @@
+On: Celeste.Mod.Randomizer.RandoModule.NoKeySkips(orig_OnPlayer,LockBlock,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.LockBlock::opening
+   IL_0006: brtrue.s IL_0065
+   IL_0008: ldarg.1
+   IL_0009: ldfld Celeste.Leader Celeste.Player::Leader
+   IL_000e: ldfld System.Collections.Generic.List`1<Celeste.Follower> Celeste.Leader::Followers
+   IL_0013: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Follower>::GetEnumerator()
+   IL_0018: stloc.0
+   IL_0019: br.s IL_004c
+   IL_001b: ldloca.s V_0
+   IL_001d: call T System.Collections.Generic.List`1/Enumerator<Celeste.Follower>::get_Current()
+   IL_0022: stloc.1
+   IL_0023: ldloc.1
+   IL_0024: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0029: isinst Celeste.Key
+   IL_002e: brfalse.s IL_004c
+   IL_0030: ldloc.1
+   IL_0031: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0036: isinst Celeste.Key
+   IL_003b: ldfld System.Boolean Celeste.Key::StartedUsing
+   IL_0040: brtrue.s IL_004c
+   IL_0042: ldarg.0
+   IL_0043: ldarg.1
+   IL_0044: ldloc.1
+   IL_0045: callvirt System.Void Celeste.LockBlock::TryOpen(Celeste.Player,Celeste.Follower)
+   IL_004a: leave.s IL_0065
+   IL_004c: ldloca.s V_0
+   IL_004e: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Follower>::MoveNext()
+   IL_0053: brtrue.s IL_001b
+   IL_0055: leave.s IL_0065
+   IL_0057: ldloca.s V_0
+   IL_0059: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Follower>
+   IL_005f: callvirt System.Void System.IDisposable::Dispose()
+   IL_0064: endfinally
+   IL_0065: ret

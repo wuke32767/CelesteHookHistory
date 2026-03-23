@@ -1,0 +1,34 @@
+On: Bitsbolts.Components.PreventWallGrab.OnClimbBlockerCheck(orig_Check_Scene_Entity,Scene,Entity)
+   IL_0000: ldarg.0
+   IL_0001: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0006: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.ClimbBlocker>()
+   IL_000b: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
+   IL_0010: stloc.0
+   IL_0011: br.s IL_003a
+   IL_0013: ldloca.s V_0
+   IL_0015: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
+   IL_001a: castclass Celeste.ClimbBlocker
+   IL_001f: stloc.1
+   IL_0020: ldloc.1
+   IL_0021: ldfld System.Boolean Celeste.ClimbBlocker::Blocking
+   IL_0026: brfalse.s IL_003a
+   IL_0028: ldarg.1
+   IL_0029: ldloc.1
+   IL_002a: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_002f: callvirt System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_0034: brfalse.s IL_003a
+   IL_0036: ldc.i4.1
+   IL_0037: stloc.2
+   IL_0038: leave.s IL_0055
+   IL_003a: ldloca.s V_0
+   IL_003c: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Component>::MoveNext()
+   IL_0041: brtrue.s IL_0013
+   IL_0043: leave.s IL_0053
+   IL_0045: ldloca.s V_0
+   IL_0047: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+   IL_004d: callvirt System.Void System.IDisposable::Dispose()
+   IL_0052: endfinally
+   IL_0053: ldc.i4.0
+   IL_0054: ret
+   IL_0055: ldloc.2
+   IL_0056: ret

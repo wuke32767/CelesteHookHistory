@@ -1,0 +1,24 @@
+On: VivHelper.Module__Extensions__Etc.TeleportV2Hooks.SpotlightWipe_ctor(orig_ctor,SpotlightWipe,Scene,Boolean,Action)
+On: Celeste.Mod.OzmasOddities.Controllers.SpotlightController.NewWipeCtor(orig_ctor,SpotlightWipe,Scene,Boolean,Action)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: ldarg.2
+   IL_0003: ldarg.3
+   IL_0004: call System.Void Celeste.ScreenWipe::.ctor(Monocle.Scene,System.Boolean,System.Action)
+   IL_0009: ldarg.0
+   IL_000a: ldc.r4 1.8
+   IL_000f: stfld System.Single Celeste.ScreenWipe::Duration
+   IL_0014: ldc.r4 0
+   IL_0019: stsfld System.Single Celeste.SpotlightWipe::Modifier
+   IL_001e: ldarg.2
+   IL_001f: brfalse.s IL_0032
+   IL_0021: ldarg.0
+   IL_0022: ldstr "event:/game/general/spotlight_intro"
+   IL_0027: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_002c: stfld FMOD.Studio.EventInstance Celeste.SpotlightWipe::sfx
+   IL_0031: ret
+   IL_0032: ldarg.0
+   IL_0033: ldstr "event:/game/general/spotlight_outro"
+   IL_0038: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_003d: stfld FMOD.Studio.EventInstance Celeste.SpotlightWipe::sfx
+   IL_0042: ret

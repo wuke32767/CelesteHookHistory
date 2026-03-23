@@ -1,0 +1,15 @@
+On: Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrushBlock_OnDashed(orig_OnDashed,CrushBlock,Player,Vector2)
+On: Celeste.Mod.Aqua.Core.CrushBlockExtensions.CrushBlock_OnDashed(orig_OnDashed,CrushBlock,Player,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.2
+   IL_0002: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_0007: callvirt System.Boolean Celeste.CrushBlock::CanActivate(Microsoft.Xna.Framework.Vector2)
+   IL_000c: brfalse.s IL_001c
+   IL_000e: ldarg.0
+   IL_000f: ldarg.2
+   IL_0010: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_0015: callvirt System.Void Celeste.CrushBlock::Attack(Microsoft.Xna.Framework.Vector2)
+   IL_001a: ldc.i4.0
+   IL_001b: ret
+   IL_001c: ldc.i4.1
+   IL_001d: ret

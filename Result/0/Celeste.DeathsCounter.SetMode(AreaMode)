@@ -1,0 +1,28 @@
+On: Celeste.Mod.JackalHelper.JackalModule.SetDeathsCounterIcon(orig_SetMode,DeathsCounter,AreaMode)
+On: AltSidesHelper.AltSidesHelperModule.SetDeathsCounterIcon(orig_SetMode,DeathsCounter,AreaMode)
+   IL_0000: ldarg.1
+   IL_0001: brtrue.s IL_001a
+   IL_0003: ldarg.0
+   IL_0004: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_0009: ldstr "collectables/skullBlue"
+   IL_000e: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0013: stfld Monocle.MTexture Celeste.DeathsCounter::icon
+   IL_0018: br.s IL_004a
+   IL_001a: ldarg.1
+   IL_001b: ldc.i4.1
+   IL_001c: bne.un.s IL_0035
+   IL_001e: ldarg.0
+   IL_001f: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_0024: ldstr "collectables/skullRed"
+   IL_0029: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_002e: stfld Monocle.MTexture Celeste.DeathsCounter::icon
+   IL_0033: br.s IL_004a
+   IL_0035: ldarg.0
+   IL_0036: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_003b: ldstr "collectables/skullGold"
+   IL_0040: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0045: stfld Monocle.MTexture Celeste.DeathsCounter::icon
+   IL_004a: ldarg.0
+   IL_004b: ldfld Monocle.Wiggler Celeste.DeathsCounter::iconWiggler
+   IL_0050: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0055: ret

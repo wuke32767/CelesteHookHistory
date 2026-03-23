@@ -1,0 +1,16 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_BoosterPlayerDied(orig_PlayerDied,Booster)
+On: .PL_VirtualRedir<Celeste.Booster::PlayerDied>?32071079(Booster)
+On: BrokemiaHelper.FakeBooster+<>c.<Forwarding>b__21_3(orig_PlayerDied,Booster)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Boolean Celeste.Booster::get_BoostingPlayer()
+   IL_0006: brfalse.s IL_0021
+   IL_0008: ldarg.0
+   IL_0009: callvirt System.Void Celeste.Booster::PlayerReleased()
+   IL_000e: ldarg.0
+   IL_000f: ldfld Monocle.Coroutine Celeste.Booster::dashRoutine
+   IL_0014: ldc.i4.0
+   IL_0015: stfld System.Boolean Monocle.Component::Active
+   IL_001a: ldarg.0
+   IL_001b: ldc.i4.0
+   IL_001c: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_0021: ret

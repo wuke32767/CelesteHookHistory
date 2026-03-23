@@ -1,0 +1,220 @@
+On: Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateOffSprites(orig_CreateSprites,CrystalStaticSpinner)
+IL: Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+IL: Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10000: ldarg.0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0001: call DynamicMethod!Initialize_HookBefore!System.Void TAS.Gameplay.SimplifiedGraphics::Initialize_HookBefore(Celeste.CrystalStaticSpinner) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Boolean Celeste.CrystalStaticSpinner::expanded
+   IL_000c: brtrue IL_02ab
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Int32 Celeste.CrystalStaticSpinner::randomSeed
+   IL_0017: call System.Void Monocle.Calc::PushRandom(System.Int32)
+   IL_001c: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0021: ldsfld System.Collections.Generic.Dictionary`2<Celeste.CrystalColor,System.String> Celeste.CrystalStaticSpinner::fgTextureLookup
+   IL_0026: ldarg.0
+   IL_0027: ldfld Celeste.CrystalColor Celeste.CrystalStaticSpinner::color
+ + IL_002c: ldarg.0 @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_002d: call Celeste.CrystalColor Celeste.Mod.DashToggleHelper.DashToggleHelperModule::DTSpinnerImage(Celeste.CrystalColor,Celeste.CrystalStaticSpinner) @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+   IL_0032: callvirt TValue System.Collections.Generic.Dictionary`2<Celeste.CrystalColor,System.String>::get_Item(TKey)
+   IL_0037: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_003c: stloc.0
+   IL_003d: ldsfld System.Random Monocle.Calc::Random
+   IL_0042: ldloc.0
+   IL_0043: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_0048: stloc.1
+   IL_0049: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+ + IL_004e: ldarg.0 @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_004f: call Microsoft.Xna.Framework.Color Celeste.Mod.DashToggleHelper.DashToggleHelperModule::DTSpinnerColor(Microsoft.Xna.Framework.Color,Celeste.CrystalStaticSpinner) @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+   IL_0054: stloc.2
+   IL_0055: ldarg.0
+   IL_0056: ldfld Celeste.CrystalColor Celeste.CrystalStaticSpinner::color
+   IL_005b: ldc.i4.3
+   IL_005c: bne.un.s IL_006b
+   IL_005e: ldarg.0
+   IL_005f: ldarg.0
+   IL_0060: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0065: callvirt Microsoft.Xna.Framework.Color Celeste.CrystalStaticSpinner::GetHue(Microsoft.Xna.Framework.Vector2)
+   IL_006a: stloc.2
+   IL_006b: ldarg.0
+   IL_006c: ldarg.0
+   IL_006d: call System.Single Monocle.Entity::get_X()
+   IL_0072: ldc.r4 4
+   IL_0077: sub
+   IL_0078: ldarg.0
+   IL_0079: call System.Single Monocle.Entity::get_Y()
+   IL_007e: ldc.r4 4
+   IL_0083: sub
+   IL_0084: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0089: callvirt System.Boolean Celeste.CrystalStaticSpinner::SolidCheck(Microsoft.Xna.Framework.Vector2)
+   IL_008e: brtrue.s IL_00bd
+   IL_0090: ldarg.0
+   IL_0091: ldloc.1
+   IL_0092: ldc.i4.0
+   IL_0093: ldc.i4.0
+   IL_0094: ldc.i4.s 14
+   IL_0096: ldc.i4.s 14
+   IL_0098: ldnull
+   IL_0099: callvirt Monocle.MTexture Monocle.MTexture::GetSubtexture(System.Int32,System.Int32,System.Int32,System.Int32,Monocle.MTexture)
+   IL_009e: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_00a3: ldc.r4 12
+   IL_00a8: ldc.r4 12
+   IL_00ad: callvirt Monocle.Image Monocle.Image::SetOrigin(System.Single,System.Single)
+   IL_00b2: ldloc.2
+   IL_00b3: callvirt Monocle.Image Monocle.Image::SetColor(Microsoft.Xna.Framework.Color)
+   IL_00b8: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00bd: ldarg.0
+   IL_00be: ldarg.0
+   IL_00bf: call System.Single Monocle.Entity::get_X()
+   IL_00c4: ldc.r4 4
+   IL_00c9: add
+   IL_00ca: ldarg.0
+   IL_00cb: call System.Single Monocle.Entity::get_Y()
+   IL_00d0: ldc.r4 4
+   IL_00d5: sub
+   IL_00d6: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00db: callvirt System.Boolean Celeste.CrystalStaticSpinner::SolidCheck(Microsoft.Xna.Framework.Vector2)
+   IL_00e0: brtrue.s IL_0110
+   IL_00e2: ldarg.0
+   IL_00e3: ldloc.1
+   IL_00e4: ldc.i4.s 10
+   IL_00e6: ldc.i4.0
+   IL_00e7: ldc.i4.s 14
+   IL_00e9: ldc.i4.s 14
+   IL_00eb: ldnull
+   IL_00ec: callvirt Monocle.MTexture Monocle.MTexture::GetSubtexture(System.Int32,System.Int32,System.Int32,System.Int32,Monocle.MTexture)
+   IL_00f1: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_00f6: ldc.r4 2
+   IL_00fb: ldc.r4 12
+   IL_0100: callvirt Monocle.Image Monocle.Image::SetOrigin(System.Single,System.Single)
+   IL_0105: ldloc.2
+   IL_0106: callvirt Monocle.Image Monocle.Image::SetColor(Microsoft.Xna.Framework.Color)
+   IL_010b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0110: ldarg.0
+   IL_0111: ldarg.0
+   IL_0112: call System.Single Monocle.Entity::get_X()
+   IL_0117: ldc.r4 4
+   IL_011c: add
+   IL_011d: ldarg.0
+   IL_011e: call System.Single Monocle.Entity::get_Y()
+   IL_0123: ldc.r4 4
+   IL_0128: add
+   IL_0129: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_012e: callvirt System.Boolean Celeste.CrystalStaticSpinner::SolidCheck(Microsoft.Xna.Framework.Vector2)
+   IL_0133: brtrue.s IL_0164
+   IL_0135: ldarg.0
+   IL_0136: ldloc.1
+   IL_0137: ldc.i4.s 10
+   IL_0139: ldc.i4.s 10
+   IL_013b: ldc.i4.s 14
+   IL_013d: ldc.i4.s 14
+   IL_013f: ldnull
+   IL_0140: callvirt Monocle.MTexture Monocle.MTexture::GetSubtexture(System.Int32,System.Int32,System.Int32,System.Int32,Monocle.MTexture)
+   IL_0145: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_014a: ldc.r4 2
+   IL_014f: ldc.r4 2
+   IL_0154: callvirt Monocle.Image Monocle.Image::SetOrigin(System.Single,System.Single)
+   IL_0159: ldloc.2
+   IL_015a: callvirt Monocle.Image Monocle.Image::SetColor(Microsoft.Xna.Framework.Color)
+   IL_015f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0164: ldarg.0
+   IL_0165: ldarg.0
+   IL_0166: call System.Single Monocle.Entity::get_X()
+   IL_016b: ldc.r4 4
+   IL_0170: sub
+   IL_0171: ldarg.0
+   IL_0172: call System.Single Monocle.Entity::get_Y()
+   IL_0177: ldc.r4 4
+   IL_017c: add
+   IL_017d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0182: callvirt System.Boolean Celeste.CrystalStaticSpinner::SolidCheck(Microsoft.Xna.Framework.Vector2)
+   IL_0187: brtrue.s IL_01b7
+   IL_0189: ldarg.0
+   IL_018a: ldloc.1
+   IL_018b: ldc.i4.0
+   IL_018c: ldc.i4.s 10
+   IL_018e: ldc.i4.s 14
+   IL_0190: ldc.i4.s 14
+   IL_0192: ldnull
+   IL_0193: callvirt Monocle.MTexture Monocle.MTexture::GetSubtexture(System.Int32,System.Int32,System.Int32,System.Int32,Monocle.MTexture)
+   IL_0198: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_019d: ldc.r4 12
+   IL_01a2: ldc.r4 2
+   IL_01a7: callvirt Monocle.Image Monocle.Image::SetOrigin(System.Single,System.Single)
+   IL_01ac: ldloc.2
+   IL_01ad: callvirt Monocle.Image Monocle.Image::SetColor(Microsoft.Xna.Framework.Color)
+   IL_01b2: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01b7: ldarg.0
+   IL_01b8: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_01bd: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_01c2: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.CrystalStaticSpinner>()
+   IL_01c7: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_01cc: stloc.3
+   IL_01cd: br IL_0261
+   IL_01d2: ldloca.s V_3
+   IL_01d4: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_01d9: castclass Celeste.CrystalStaticSpinner
+   IL_01de: stloc.s V_4
+   IL_01e0: ldloc.s V_4
+   IL_01e2: ldfld System.Int32 Celeste.CrystalStaticSpinner::ID
+   IL_01e7: ldarg.0
+   IL_01e8: ldfld System.Int32 Celeste.CrystalStaticSpinner::ID
+   IL_01ed: ble.s IL_0261
+   IL_01ef: ldloc.s V_4
+   IL_01f1: ldfld System.Boolean Celeste.CrystalStaticSpinner::AttachToSolid
+   IL_01f6: ldarg.0
+   IL_01f7: ldfld System.Boolean Celeste.CrystalStaticSpinner::AttachToSolid
+   IL_01fc: bne.un.s IL_0261
+   IL_01fe: ldloc.s V_4
+   IL_0200: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0205: ldarg.0
+   IL_0206: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_020b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0210: stloc.s V_5
+   IL_0212: ldloca.s V_5
+   IL_0214: call System.Single Microsoft.Xna.Framework.Vector2::LengthSquared()
+   IL_0219: ldc.r4 576
+   IL_021e: bge.un.s IL_0261
+ + IL_0220: ldloc V_4 @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_0224: call System.Boolean Celeste.Mod.DashToggleHelper.DashToggleHelperModule::isDTSpinner(Celeste.CrystalStaticSpinner) @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_0229: ldarg.0 @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_022a: call System.Boolean Celeste.Mod.DashToggleHelper.DashToggleHelperModule::isDTSpinner(Celeste.CrystalStaticSpinner) @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_022f: bne.un IL_0261 @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+   IL_0234: ldarg.0
+   IL_0235: ldarg.0
+   IL_0236: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_023b: ldloc.s V_4
+   IL_023d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0242: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0247: ldc.r4 2
+   IL_024c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0251: ldarg.0
+   IL_0252: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0257: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_025c: callvirt System.Void Celeste.CrystalStaticSpinner::AddSprite(Microsoft.Xna.Framework.Vector2)
+   IL_0261: ldloca.s V_3
+   IL_0263: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0268: brtrue IL_01d2
+   IL_026d: leave.s IL_027d
+   IL_026f: ldloca.s V_3
+   IL_0271: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0277: callvirt System.Void System.IDisposable::Dispose()
+   IL_027c: endfinally
+   IL_027d: ldarg.0
+   IL_027e: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0283: ldarg.0
+   IL_0284: ldarg.0
+   IL_0285: ldarg.0
+   IL_0286: ldfld Monocle.Entity Celeste.CrystalStaticSpinner::filler
+   IL_028b: newobj System.Void Celeste.CrystalStaticSpinner/Border::.ctor(Monocle.Entity,Monocle.Entity)
+   IL_0290: dup
+   IL_0291: stloc.s V_6
+   IL_0293: stfld Celeste.CrystalStaticSpinner/Border Celeste.CrystalStaticSpinner::border
+   IL_0298: ldloc.s V_6
+   IL_029a: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_029f: ldarg.0
+   IL_02a0: ldc.i4.1
+   IL_02a1: stfld System.Boolean Celeste.CrystalStaticSpinner::expanded
+   IL_02a6: call System.Void Monocle.Calc::PopRandom()
+ + IL_10001: call System.Void Celeste.Mod.TASHelper.Gameplay.Spinner.SimplifiedSpinner::CallNeedClearSprites() @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+   IL_02ab: ret

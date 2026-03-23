@@ -1,0 +1,58 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::SimplifiedWavedBlock() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_0010 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ldc.r4 0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000f: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0010: ldarg.2
+   IL_0011: ldc.r4 1
+   IL_0016: ble.s IL_0022
+   IL_0018: ldarg.2
+   IL_0019: ldarg.3
+   IL_001a: ldc.r4 1
+   IL_001f: sub
+   IL_0020: blt.un.s IL_0028
+   IL_0022: ldc.r4 0
+   IL_0027: ret
+   IL_0028: ldarg.0
+   IL_0029: ldfld Celeste.Mod.SpringCollab2020.Entities.MoveBlockBarrier Celeste.Mod.SpringCollab2020.Entities.MoveBlockBarrierRenderer/Edge::Parent
+   IL_002e: ldfld System.Single Celeste.SeekerBarrier::Solidify
+   IL_0033: ldc.r4 1
+   IL_0038: blt.un.s IL_0040
+   IL_003a: ldc.r4 0
+   IL_003f: ret
+   IL_0040: ldarg.1
+   IL_0041: ldarg.2
+   IL_0042: ldc.r4 0.25
+   IL_0047: mul
+   IL_0048: add
+   IL_0049: stloc.0
+   IL_004a: ldloc.0
+   IL_004b: conv.r8
+   IL_004c: call System.Double System.Math::Sin(System.Double)
+   IL_0051: ldc.r8 2
+   IL_005a: mul
+   IL_005b: ldloc.0
+   IL_005c: ldc.r4 0.25
+   IL_0061: mul
+   IL_0062: conv.r8
+   IL_0063: call System.Double System.Math::Sin(System.Double)
+   IL_0068: add
+   IL_0069: conv.r4
+   IL_006a: stloc.1
+   IL_006b: ldc.r4 1
+   IL_0070: ldloc.1
+   IL_0071: ldsfld Monocle.Ease/Easer Monocle.Ease::SineInOut
+   IL_0076: ldarg.2
+   IL_0077: ldarg.3
+   IL_0078: div
+   IL_0079: call System.Single Monocle.Calc::YoYo(System.Single)
+   IL_007e: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0083: mul
+   IL_0084: add
+   IL_0085: ldc.r4 1
+   IL_008a: ldarg.0
+   IL_008b: ldfld Celeste.Mod.SpringCollab2020.Entities.MoveBlockBarrier Celeste.Mod.SpringCollab2020.Entities.MoveBlockBarrierRenderer/Edge::Parent
+   IL_0090: ldfld System.Single Celeste.SeekerBarrier::Solidify
+   IL_0095: sub
+   IL_0096: mul
+   IL_0097: ret

@@ -1,0 +1,217 @@
+On: TAS.EverestInterop.DesyncFixer.IgnoreSetOccluderCrash(orig_SetOccluder,LightingRenderer,Vector3,Color,Vector2,Vector2,Vector2)
+   IL_0000: ldarg.s edgeA
+   IL_0002: ldarg.3
+   IL_0003: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0008: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Floor(Microsoft.Xna.Framework.Vector2)
+   IL_000d: stloc.0
+   IL_000e: ldarg.s edgeB
+   IL_0010: ldarg.3
+   IL_0011: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0016: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Floor(Microsoft.Xna.Framework.Vector2)
+   IL_001b: stloc.1
+   IL_001c: ldloc.0
+   IL_001d: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_0022: stloc.2
+   IL_0023: ldloc.1
+   IL_0024: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_0029: stloc.3
+   IL_002a: ldarg.0
+   IL_002b: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0030: stloc.s V_4
+   IL_0032: ldarg.0
+   IL_0033: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_003e: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0043: ldarg.1
+   IL_0044: ldloc.0
+   IL_0045: ldc.r4 0
+   IL_004a: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_004f: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Vector3::op_Addition(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3)
+   IL_0054: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_0059: ldarg.0
+   IL_005a: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_005f: ldarg.0
+   IL_0060: ldarg.0
+   IL_0061: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0066: stloc.s V_5
+   IL_0068: ldloc.s V_5
+   IL_006a: ldc.i4.1
+   IL_006b: add
+   IL_006c: stfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0071: ldloc.s V_5
+   IL_0073: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0078: ldarg.2
+   IL_0079: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
+   IL_007e: ldarg.0
+   IL_007f: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_0084: ldarg.0
+   IL_0085: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_008a: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_008f: ldarg.1
+   IL_0090: ldloc.1
+   IL_0091: ldc.r4 0
+   IL_0096: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_009b: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Vector3::op_Addition(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3)
+   IL_00a0: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_00a5: ldarg.0
+   IL_00a6: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_00ab: ldarg.0
+   IL_00ac: ldarg.0
+   IL_00ad: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_00b2: stloc.s V_5
+   IL_00b4: ldloc.s V_5
+   IL_00b6: ldc.i4.1
+   IL_00b7: add
+   IL_00b8: stfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_00bd: ldloc.s V_5
+   IL_00bf: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_00c4: ldarg.2
+   IL_00c5: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
+   IL_00ca: br IL_0193
+   IL_00cf: ldarg.0
+   IL_00d0: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_00db: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_00e0: ldarg.1
+   IL_00e1: ldloc.2
+   IL_00e2: ldc.r4 128
+   IL_00e7: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_00ec: ldc.r4 0
+   IL_00f1: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00f6: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Vector3::op_Addition(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3)
+   IL_00fb: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_0100: ldarg.0
+   IL_0101: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_0106: ldarg.0
+   IL_0107: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_010c: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0111: ldarg.2
+   IL_0112: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
+   IL_0117: ldarg.0
+   IL_0118: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_011d: ldarg.0
+   IL_011e: ldarg.0
+   IL_011f: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0124: stloc.s V_5
+   IL_0126: ldloc.s V_5
+   IL_0128: ldc.i4.1
+   IL_0129: add
+   IL_012a: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_012f: ldloc.s V_5
+   IL_0131: ldloc.s V_4
+   IL_0133: stelem.i4
+   IL_0134: ldarg.0
+   IL_0135: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_013a: ldarg.0
+   IL_013b: ldarg.0
+   IL_013c: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0141: stloc.s V_5
+   IL_0143: ldloc.s V_5
+   IL_0145: ldc.i4.1
+   IL_0146: add
+   IL_0147: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_014c: ldloc.s V_5
+   IL_014e: ldarg.0
+   IL_014f: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0154: stelem.i4
+   IL_0155: ldarg.0
+   IL_0156: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_015b: ldarg.0
+   IL_015c: ldarg.0
+   IL_015d: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0162: stloc.s V_5
+   IL_0164: ldloc.s V_5
+   IL_0166: ldc.i4.1
+   IL_0167: add
+   IL_0168: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_016d: ldloc.s V_5
+   IL_016f: ldarg.0
+   IL_0170: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0175: ldc.i4.1
+   IL_0176: add
+   IL_0177: stelem.i4
+   IL_0178: ldarg.0
+   IL_0179: ldarg.0
+   IL_017a: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_017f: ldc.i4.1
+   IL_0180: add
+   IL_0181: stfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0186: ldloc.2
+   IL_0187: ldloc.3
+   IL_0188: ldc.r4 0.7853982
+   IL_018d: call System.Single Monocle.Calc::AngleApproach(System.Single,System.Single,System.Single)
+   IL_0192: stloc.2
+   IL_0193: ldloc.2
+   IL_0194: ldloc.3
+   IL_0195: bne.un IL_00cf
+   IL_019a: ldarg.0
+   IL_019b: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_01a0: ldarg.0
+   IL_01a1: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_01a6: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_01ab: ldarg.1
+   IL_01ac: ldloc.2
+   IL_01ad: ldc.r4 128
+   IL_01b2: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_01b7: ldc.r4 0
+   IL_01bc: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01c1: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Vector3::op_Addition(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3)
+   IL_01c6: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_01cb: ldarg.0
+   IL_01cc: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_01d1: ldarg.0
+   IL_01d2: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_01d7: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_01dc: ldarg.2
+   IL_01dd: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
+   IL_01e2: ldarg.0
+   IL_01e3: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_01e8: ldarg.0
+   IL_01e9: ldarg.0
+   IL_01ea: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_01ef: stloc.s V_5
+   IL_01f1: ldloc.s V_5
+   IL_01f3: ldc.i4.1
+   IL_01f4: add
+   IL_01f5: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_01fa: ldloc.s V_5
+   IL_01fc: ldloc.s V_4
+   IL_01fe: stelem.i4
+   IL_01ff: ldarg.0
+   IL_0200: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_0205: ldarg.0
+   IL_0206: ldarg.0
+   IL_0207: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_020c: stloc.s V_5
+   IL_020e: ldloc.s V_5
+   IL_0210: ldc.i4.1
+   IL_0211: add
+   IL_0212: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0217: ldloc.s V_5
+   IL_0219: ldarg.0
+   IL_021a: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_021f: stelem.i4
+   IL_0220: ldarg.0
+   IL_0221: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_0226: ldarg.0
+   IL_0227: ldarg.0
+   IL_0228: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_022d: stloc.s V_5
+   IL_022f: ldloc.s V_5
+   IL_0231: ldc.i4.1
+   IL_0232: add
+   IL_0233: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0238: ldloc.s V_5
+   IL_023a: ldloc.s V_4
+   IL_023c: ldc.i4.1
+   IL_023d: add
+   IL_023e: stelem.i4
+   IL_023f: ldarg.0
+   IL_0240: ldarg.0
+   IL_0241: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0246: ldc.i4.1
+   IL_0247: add
+   IL_0248: stfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_024d: ret

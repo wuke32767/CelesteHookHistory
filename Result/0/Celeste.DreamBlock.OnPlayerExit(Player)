@@ -1,0 +1,75 @@
+On: .PL_VirtualRedir<Celeste.DreamBlock::OnPlayerExit>?64951086(DreamBlock,Player)
+On: Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock.DreamBlock_OnPlayerExit(orig_OnPlayerExit,DreamBlock,Player)
+   IL_0000: ldarg.1
+   IL_0001: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0006: ldarg.1
+   IL_0007: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_000c: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_0011: ldc.i4.s 16
+   IL_0013: ldnull
+   IL_0014: call System.Void Celeste.Dust::Burst(Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,Monocle.ParticleType)
+   IL_0019: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_001e: stloc.0
+   IL_001f: ldarg.0
+   IL_0020: ldarg.1
+   IL_0021: ldarg.0
+   IL_0022: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0027: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_002c: ldc.r4 4
+   IL_0031: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0036: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_003b: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_0040: brfalse.s IL_004d
+   IL_0042: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0047: stloc.0
+   IL_0048: br IL_00d6
+   IL_004d: ldarg.0
+   IL_004e: ldarg.1
+   IL_004f: ldarg.0
+   IL_0050: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0055: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_005a: ldc.r4 4
+   IL_005f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0064: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0069: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_006e: brfalse.s IL_007d
+   IL_0070: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0075: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_007a: stloc.0
+   IL_007b: br.s IL_00d6
+   IL_007d: ldarg.0
+   IL_007e: ldarg.1
+   IL_007f: ldarg.0
+   IL_0080: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0085: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_008a: ldc.r4 4
+   IL_008f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0094: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0099: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_009e: brfalse.s IL_00a8
+   IL_00a0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_00a5: stloc.0
+   IL_00a6: br.s IL_00d6
+   IL_00a8: ldarg.0
+   IL_00a9: ldarg.1
+   IL_00aa: ldarg.0
+   IL_00ab: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00b0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_00b5: ldc.r4 4
+   IL_00ba: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00bf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00c4: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_00c9: brfalse.s IL_00d6
+   IL_00cb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_00d0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_00d5: stloc.0
+   IL_00d6: ldloc.0
+   IL_00d7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_00dc: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00e1: pop
+   IL_00e2: ldarg.0
+   IL_00e3: ldfld System.Boolean Celeste.DreamBlock::oneUse
+   IL_00e8: brfalse.s IL_00f0
+   IL_00ea: ldarg.0
+   IL_00eb: callvirt System.Void Celeste.DreamBlock::OneUseDestroy()
+   IL_00f0: ret

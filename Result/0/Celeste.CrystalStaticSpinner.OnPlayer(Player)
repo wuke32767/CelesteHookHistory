@@ -1,0 +1,20 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomCrystalStaticSpinnerOnPlayer(orig_OnPlayer,CrystalStaticSpinner,Player)
+On: ChroniaHelper.Entities.TeraBlock.SpinnerCheck(orig_OnPlayer,CrystalStaticSpinner,Player)
+On: Celeste.Mod.TeraHelper.Entities.TeraBlock.SpinnerCheck(orig_OnPlayer,CrystalStaticSpinner,Player)
+IL: Celeste.Mod.GooberHelper.Options.Miscellaneous.AlwaysExplodeSpinners.makeSpinnerMaybeExplode(ILContext)
+ + IL_10000: ldarg.0 @ Celeste.Mod.GooberHelper.Options.Miscellaneous.AlwaysExplodeSpinners.makeSpinnerMaybeExplode(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.GooberHelper.Options.Miscellaneous.AlwaysExplodeSpinners::maybeDestroy(Monocle.Entity) @ Celeste.Mod.GooberHelper.Options.Miscellaneous.AlwaysExplodeSpinners.makeSpinnerMaybeExplode(ILContext)
+ + IL_10002: brfalse IL_0000 @ Celeste.Mod.GooberHelper.Options.Miscellaneous.AlwaysExplodeSpinners.makeSpinnerMaybeExplode(ILContext)
+ + IL_10003: ret @ Celeste.Mod.GooberHelper.Options.Miscellaneous.AlwaysExplodeSpinners.makeSpinnerMaybeExplode(ILContext)
+   IL_0000: ldarg.1
+   IL_0001: ldarg.1
+   IL_0002: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0007: ldarg.0
+   IL_0008: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0012: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_0017: ldc.i4.0
+   IL_0018: ldc.i4.1
+   IL_0019: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_001e: pop
+   IL_001f: ret

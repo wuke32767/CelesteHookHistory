@@ -1,0 +1,109 @@
+On: Celeste.Mod.MaxHelpingHand.Entities.SeekerBarrierColorController.hookSeekerBarrierParticlesAndWave(orig_Update,SeekerBarrier)
+IL: Celeste.Mod.CommunalHelper.Entities.PlayerSeekerBarrier.SeekerBarrier_Update(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Boolean Celeste.SeekerBarrier::Flashing
+   IL_0011: brfalse.s IL_004a
+   IL_0013: ldarg.0
+   IL_0014: ldarg.0
+   IL_0015: ldfld System.Single Celeste.SeekerBarrier::Flash
+   IL_001a: ldc.r4 0
+   IL_001f: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0024: ldc.r4 4
+   IL_0029: mul
+   IL_002a: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_002f: stfld System.Single Celeste.SeekerBarrier::Flash
+   IL_0034: ldarg.0
+   IL_0035: ldfld System.Single Celeste.SeekerBarrier::Flash
+   IL_003a: ldc.r4 0
+   IL_003f: bgt.un.s IL_0093
+   IL_0041: ldarg.0
+   IL_0042: ldc.i4.0
+   IL_0043: stfld System.Boolean Celeste.SeekerBarrier::Flashing
+   IL_0048: br.s IL_0093
+   IL_004a: ldarg.0
+   IL_004b: ldfld System.Single Celeste.SeekerBarrier::solidifyDelay
+   IL_0050: ldc.r4 0
+   IL_0055: ble.un.s IL_006b
+   IL_0057: ldarg.0
+   IL_0058: ldarg.0
+   IL_0059: ldfld System.Single Celeste.SeekerBarrier::solidifyDelay
+   IL_005e: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0063: sub
+   IL_0064: stfld System.Single Celeste.SeekerBarrier::solidifyDelay
+   IL_0069: br.s IL_0093
+   IL_006b: ldarg.0
+   IL_006c: ldfld System.Single Celeste.SeekerBarrier::Solidify
+   IL_0071: ldc.r4 0
+   IL_0076: ble.un.s IL_0093
+   IL_0078: ldarg.0
+   IL_0079: ldarg.0
+   IL_007a: ldfld System.Single Celeste.SeekerBarrier::Solidify
+   IL_007f: ldc.r4 0
+   IL_0084: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0089: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_008e: stfld System.Single Celeste.SeekerBarrier::Solidify
+   IL_0093: ldarg.0
+   IL_0094: ldfld System.Single[] Celeste.SeekerBarrier::speeds
+   IL_0099: ldlen
+   IL_009a: conv.i4
+   IL_009b: stloc.0
+   IL_009c: ldarg.0
+   IL_009d: call System.Single Monocle.Entity::get_Height()
+   IL_00a2: stloc.1
+   IL_00a3: ldc.i4.0
+   IL_00a4: stloc.2
+   IL_00a5: ldarg.0
+   IL_00a6: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.SeekerBarrier::particles
+   IL_00ab: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Count()
+   IL_00b0: stloc.3
+   IL_00b1: br.s IL_011d
+   IL_00b3: ldarg.0
+   IL_00b4: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.SeekerBarrier::particles
+   IL_00b9: ldloc.2
+   IL_00ba: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_00bf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_00c4: ldarg.0
+   IL_00c5: ldfld System.Single[] Celeste.SeekerBarrier::speeds
+   IL_00ca: ldloc.2
+   IL_00cb: ldloc.0
+   IL_00cc: rem
+   IL_00cd: ldelem.r4
+ + IL_00ce: ldarg.0 @ Celeste.Mod.CommunalHelper.Entities.PlayerSeekerBarrier.SeekerBarrier_Update(ILContext)
+ + IL_00cf: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Entities.PlayerSeekerBarrier.SeekerBarrier_Update(ILContext)
+ + IL_00d4: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Entities.PlayerSeekerBarrier.SeekerBarrier_Update(ILContext)
+ + IL_00d9: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.CommunalHelper.Entities.PlayerSeekerBarrier.SeekerBarrier_Update(ILContext)
+       => Invoke: Celeste.Mod.CommunalHelper.Entities.PlayerSeekerBarrier+<>c.<SeekerBarrier_Update>b__25_1(Single,SeekerBarrier)
+ + IL_00de: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.SeekerBarrier>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ Celeste.Mod.CommunalHelper.Entities.PlayerSeekerBarrier.SeekerBarrier_Update(ILContext)
+   IL_00e3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00e8: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00ed: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00f2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00f7: stloc.s V_4
+   IL_00f9: ldloca.s V_4
+   IL_00fb: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0100: dup
+   IL_0101: ldind.r4
+   IL_0102: ldloc.1
+   IL_0103: ldc.r4 1
+   IL_0108: sub
+   IL_0109: rem
+   IL_010a: stind.r4
+   IL_010b: ldarg.0
+   IL_010c: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.SeekerBarrier::particles
+   IL_0111: ldloc.2
+   IL_0112: ldloc.s V_4
+   IL_0114: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::set_Item(System.Int32,T)
+   IL_0119: ldloc.2
+   IL_011a: ldc.i4.1
+   IL_011b: add
+   IL_011c: stloc.2
+   IL_011d: ldloc.2
+   IL_011e: ldloc.3
+   IL_011f: blt.s IL_00b3
+   IL_0121: ldarg.0
+   IL_0122: call System.Void Celeste.Solid::Update()
+   IL_0127: ret

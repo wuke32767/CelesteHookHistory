@@ -1,0 +1,49 @@
+On: Celeste.Mod.SpeedrunTool.Other.VanillaBugFixer.SlashFxOnBurst(orig_Burst,Vector2,Single)
+   IL_0000: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0005: call Monocle.Pooler Monocle.Engine::get_Pooler()
+   IL_000a: callvirt T Monocle.Pooler::Create<Celeste.SlashFx>()
+   IL_000f: stloc.0
+   IL_0010: ldloc.0
+   IL_0011: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0016: ldloc.0
+   IL_0017: ldarg.0
+   IL_0018: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_001d: ldloc.0
+   IL_001e: ldarg.1
+   IL_001f: ldc.r4 1
+   IL_0024: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_0029: stfld Microsoft.Xna.Framework.Vector2 Celeste.SlashFx::Direction
+   IL_002e: ldloc.0
+   IL_002f: ldfld Monocle.Sprite Celeste.SlashFx::Sprite
+   IL_0034: ldstr "play"
+   IL_0039: ldc.i4.1
+   IL_003a: ldc.i4.0
+   IL_003b: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0040: ldloc.0
+   IL_0041: ldfld Monocle.Sprite Celeste.SlashFx::Sprite
+   IL_0046: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_004b: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0050: ldloc.0
+   IL_0051: ldfld Monocle.Sprite Celeste.SlashFx::Sprite
+   IL_0056: ldc.r4 0
+   IL_005b: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_0060: ldarg.1
+   IL_0061: ldc.r4 3.1415927
+   IL_0066: sub
+   IL_0067: call System.Single System.Math::Abs(System.Single)
+   IL_006c: ldc.r4 0.01
+   IL_0071: ble.un.s IL_007f
+   IL_0073: ldloc.0
+   IL_0074: ldfld Monocle.Sprite Celeste.SlashFx::Sprite
+   IL_0079: ldarg.1
+   IL_007a: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_007f: ldloc.0
+   IL_0080: ldloc.0
+   IL_0081: ldc.i4.1
+   IL_0082: dup
+   IL_0083: stloc.1
+   IL_0084: stfld System.Boolean Monocle.Entity::Active
+   IL_0089: ldloc.1
+   IL_008a: stfld System.Boolean Monocle.Entity::Visible
+   IL_008f: ldloc.0
+   IL_0090: ret

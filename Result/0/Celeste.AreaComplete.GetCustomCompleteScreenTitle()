@@ -1,0 +1,65 @@
+On: AltSidesHelper.AltSidesHelperModule.SetAltSideEndScreenTitle(orig_GetCustomCompleteScreenTitle,AreaComplete)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Session Celeste.AreaComplete::Session
+   IL_0006: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_000b: call Celeste.AreaData Celeste.AreaData::Get(Celeste.AreaKey)
+   IL_0010: dup
+   IL_0011: brtrue.s IL_0017
+   IL_0013: pop
+   IL_0014: ldnull
+   IL_0015: br.s IL_0034
+   IL_0017: ldfld Celeste.Mod.Meta.MapMeta Celeste.AreaData::Meta
+   IL_001c: dup
+   IL_001d: brtrue.s IL_0023
+   IL_001f: pop
+   IL_0020: ldnull
+   IL_0021: br.s IL_0034
+   IL_0023: callvirt Celeste.Mod.Meta.MapMetaCompleteScreen Celeste.Mod.Meta.MapMeta::get_CompleteScreen()
+   IL_0028: dup
+   IL_0029: brtrue.s IL_002f
+   IL_002b: pop
+   IL_002c: ldnull
+   IL_002d: br.s IL_0034
+   IL_002f: callvirt Celeste.Mod.Meta.MapMetaCompleteScreenTitle Celeste.Mod.Meta.MapMetaCompleteScreen::get_Title()
+   IL_0034: stloc.0
+   IL_0035: ldloc.0
+   IL_0036: brtrue.s IL_003a
+   IL_0038: ldnull
+   IL_0039: ret
+   IL_003a: ldnull
+   IL_003b: stloc.1
+   IL_003c: ldarg.0
+   IL_003d: ldfld Celeste.Session Celeste.AreaComplete::Session
+   IL_0042: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_0047: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_004c: stloc.2
+   IL_004d: ldloc.2
+   IL_004e: switch IL_0061,IL_0080,IL_0089
+   IL_005f: br.s IL_0090
+   IL_0061: ldarg.0
+   IL_0062: ldfld Celeste.Session Celeste.AreaComplete::Session
+   IL_0067: callvirt System.Boolean Celeste.Session::get_FullClear()
+   IL_006c: brfalse.s IL_0077
+   IL_006e: ldloc.0
+   IL_006f: callvirt System.String Celeste.Mod.Meta.MapMetaCompleteScreenTitle::get_FullClear()
+   IL_0074: stloc.1
+   IL_0075: br.s IL_0090
+   IL_0077: ldloc.0
+   IL_0078: callvirt System.String Celeste.Mod.Meta.MapMetaCompleteScreenTitle::get_ASide()
+   IL_007d: stloc.1
+   IL_007e: br.s IL_0090
+   IL_0080: ldloc.0
+   IL_0081: callvirt System.String Celeste.Mod.Meta.MapMetaCompleteScreenTitle::get_BSide()
+   IL_0086: stloc.1
+   IL_0087: br.s IL_0090
+   IL_0089: ldloc.0
+   IL_008a: callvirt System.String Celeste.Mod.Meta.MapMetaCompleteScreenTitle::get_CSide()
+   IL_008f: stloc.1
+   IL_0090: ldloc.1
+   IL_0091: brtrue.s IL_0095
+   IL_0093: ldnull
+   IL_0094: ret
+   IL_0095: ldloc.1
+   IL_0096: ldnull
+   IL_0097: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_009c: ret

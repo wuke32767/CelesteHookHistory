@@ -1,0 +1,34 @@
+On: Celeste.Mod.FewerVisualDistractions.Patches.FarewellTweaker.Backdrop_Update(orig_Update,Backdrop,Scene)
+   IL_0000: ldarg.1
+   IL_0001: isinst Celeste.Level
+   IL_0006: stloc.0
+   IL_0007: ldloc.0
+   IL_0008: callvirt System.Boolean Celeste.Level::get_Transitioning()
+   IL_000d: brfalse.s IL_0040
+   IL_000f: ldarg.0
+   IL_0010: ldfld System.Boolean Celeste.Backdrop::InstantIn
+   IL_0015: brfalse.s IL_0027
+   IL_0017: ldarg.0
+   IL_0018: ldloc.0
+   IL_0019: callvirt System.Boolean Celeste.Backdrop::IsVisible(Celeste.Level)
+   IL_001e: brfalse.s IL_0027
+   IL_0020: ldarg.0
+   IL_0021: ldc.i4.1
+   IL_0022: stfld System.Boolean Celeste.Backdrop::Visible
+   IL_0027: ldarg.0
+   IL_0028: ldfld System.Boolean Celeste.Backdrop::InstantOut
+   IL_002d: brfalse.s IL_004d
+   IL_002f: ldarg.0
+   IL_0030: ldloc.0
+   IL_0031: callvirt System.Boolean Celeste.Backdrop::IsVisible(Celeste.Level)
+   IL_0036: brtrue.s IL_004d
+   IL_0038: ldarg.0
+   IL_0039: ldc.i4.0
+   IL_003a: stfld System.Boolean Celeste.Backdrop::Visible
+   IL_003f: ret
+   IL_0040: ldarg.0
+   IL_0041: ldarg.0
+   IL_0042: ldloc.0
+   IL_0043: callvirt System.Boolean Celeste.Backdrop::IsVisible(Celeste.Level)
+   IL_0048: stfld System.Boolean Celeste.Backdrop::Visible
+   IL_004d: ret

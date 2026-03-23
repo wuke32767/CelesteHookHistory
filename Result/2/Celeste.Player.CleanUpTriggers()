@@ -1,0 +1,30 @@
+On: Bitsbolts.Components.NoCleanupTrigger.OnPlayerCleanUpTriggers(orig_CleanUpTriggers,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.HashSet`1<Celeste.Trigger> Celeste.Player::triggersInside
+   IL_0006: callvirt System.Int32 System.Collections.Generic.HashSet`1<Celeste.Trigger>::get_Count()
+   IL_000b: ldc.i4.0
+   IL_000c: ble.s IL_0054
+   IL_000e: ldarg.0
+   IL_000f: ldfld System.Collections.Generic.HashSet`1<Celeste.Trigger> Celeste.Player::triggersInside
+   IL_0014: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<Celeste.Trigger>::GetEnumerator()
+   IL_0019: stloc.0
+   IL_001a: br.s IL_0030
+   IL_001c: ldloca.s V_0
+   IL_001e: call T System.Collections.Generic.HashSet`1/Enumerator<Celeste.Trigger>::get_Current()
+   IL_0023: dup
+   IL_0024: ldarg.0
+   IL_0025: callvirt System.Void Celeste.Trigger::OnLeave(Celeste.Player)
+   IL_002a: ldc.i4.0
+   IL_002b: stfld System.Boolean Celeste.Trigger::Triggered
+   IL_0030: ldloca.s V_0
+   IL_0032: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<Celeste.Trigger>::MoveNext()
+   IL_0037: brtrue.s IL_001c
+   IL_0039: leave.s IL_0049
+   IL_003b: ldloca.s V_0
+   IL_003d: constrained. System.Collections.Generic.HashSet`1/Enumerator<Celeste.Trigger>
+   IL_0043: callvirt System.Void System.IDisposable::Dispose()
+   IL_0048: endfinally
+   IL_0049: ldarg.0
+   IL_004a: ldfld System.Collections.Generic.HashSet`1<Celeste.Trigger> Celeste.Player::triggersInside
+   IL_004f: callvirt System.Void System.Collections.Generic.HashSet`1<Celeste.Trigger>::Clear()
+   IL_0054: ret

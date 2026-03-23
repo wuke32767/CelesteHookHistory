@@ -1,0 +1,66 @@
+On: ChaosMode.ChaosModeModule.Player_StarFlyReturnToNormalHitbox(orig_StarFlyReturnToNormalHitbox,Player)
+On: Celeste.Mod.DJMapHelper.Entities.FeatherBarrier.PlayerOnStarFlyReturnToNormalHitbox(orig_StarFlyReturnToNormalHitbox,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld Monocle.Hitbox Celeste.Player::normalHitbox
+   IL_0007: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_000c: ldarg.0
+   IL_000d: ldarg.0
+   IL_000e: ldfld Monocle.Hitbox Celeste.Player::normalHurtbox
+   IL_0013: stfld Monocle.Hitbox Celeste.Player::hurtbox
+   IL_0018: ldarg.0
+   IL_0019: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>()
+   IL_001e: brfalse IL_00ab
+   IL_0023: ldarg.0
+   IL_0024: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0029: stloc.0
+   IL_002a: ldarg.0
+   IL_002b: ldarg.0
+   IL_002c: call System.Single Monocle.Entity::get_Y()
+   IL_0031: ldarg.0
+   IL_0032: ldfld Monocle.Hitbox Celeste.Player::normalHitbox
+   IL_0037: callvirt System.Single Monocle.Collider::get_Bottom()
+   IL_003c: ldarg.0
+   IL_003d: ldfld Monocle.Hitbox Celeste.Player::starFlyHitbox
+   IL_0042: callvirt System.Single Monocle.Collider::get_Bottom()
+   IL_0047: sub
+   IL_0048: sub
+   IL_0049: call System.Void Monocle.Entity::set_Y(System.Single)
+   IL_004e: ldarg.0
+   IL_004f: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>()
+   IL_0054: brfalse.s IL_005f
+   IL_0056: ldarg.0
+   IL_0057: ldloc.0
+   IL_0058: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_005d: br.s IL_0060
+   IL_005f: ret
+   IL_0060: ldarg.0
+   IL_0061: ldc.i4.1
+   IL_0062: callvirt System.Void Celeste.Player::set_Ducking(System.Boolean)
+   IL_0067: ldarg.0
+   IL_0068: ldarg.0
+   IL_0069: call System.Single Monocle.Entity::get_Y()
+   IL_006e: ldarg.0
+   IL_006f: ldfld Monocle.Hitbox Celeste.Player::duckHitbox
+   IL_0074: callvirt System.Single Monocle.Collider::get_Bottom()
+   IL_0079: ldarg.0
+   IL_007a: ldfld Monocle.Hitbox Celeste.Player::starFlyHitbox
+   IL_007f: callvirt System.Single Monocle.Collider::get_Bottom()
+   IL_0084: sub
+   IL_0085: sub
+   IL_0086: call System.Void Monocle.Entity::set_Y(System.Single)
+   IL_008b: ldarg.0
+   IL_008c: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>()
+   IL_0091: brfalse.s IL_009c
+   IL_0093: ldarg.0
+   IL_0094: ldloc.0
+   IL_0095: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_009a: br.s IL_009d
+   IL_009c: ret
+   IL_009d: ldarg.0
+   IL_009e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_00a3: ldc.i4.0
+   IL_00a4: ldc.i4.1
+   IL_00a5: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_00aa: pop
+   IL_00ab: ret

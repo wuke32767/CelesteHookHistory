@@ -1,0 +1,31 @@
+On: Celeste.Mod.RandomStuffHelper.DashBumper.OnUpdatePosition(orig_UpdatePosition,Bumper)
+On: Celeste.Mod.MaxHelpingHand.Entities.BumperNotCoreMode.onBumperWiggle(orig_UpdatePosition,Bumper)
+On: Celeste.Mod.WingedHelper.WingComponent.onBumperWiggle(orig_UpdatePosition,Bumper)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Bumper::anchor
+   IL_0007: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_000c: conv.r8
+   IL_000d: ldarg.0
+   IL_000e: ldfld Monocle.SineWave Celeste.Bumper::sine
+   IL_0013: callvirt System.Single Monocle.SineWave::get_Value()
+   IL_0018: conv.r8
+   IL_0019: ldc.r8 3
+   IL_0022: mul
+   IL_0023: add
+   IL_0024: conv.r4
+   IL_0025: ldarg.0
+   IL_0026: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Bumper::anchor
+   IL_002b: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0030: conv.r8
+   IL_0031: ldarg.0
+   IL_0032: ldfld Monocle.SineWave Celeste.Bumper::sine
+   IL_0037: callvirt System.Single Monocle.SineWave::get_ValueOverTwo()
+   IL_003c: conv.r8
+   IL_003d: ldc.r8 2
+   IL_0046: mul
+   IL_0047: add
+   IL_0048: conv.r4
+   IL_0049: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_004e: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0053: ret

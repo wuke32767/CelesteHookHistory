@@ -1,0 +1,480 @@
+On: Celeste.Mod.HardcoreMode.HMModule.On_OuiModOptions_CreateMenu(orig_CreateMenu,Boolean,EventInstance)
+   IL_0000: newobj System.Void Celeste.TextMenu::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldc.i4.1
+   IL_0008: callvirt System.Void Celeste.TextMenu::set_CompactWidthMode(System.Boolean)
+   IL_000d: ldloc.0
+   IL_000e: ldc.i4.1
+   IL_000f: callvirt System.Void Celeste.TextMenu::set_BatchMode(System.Boolean)
+   IL_0014: ldloc.0
+   IL_0015: ldstr "menu/everest"
+   IL_001a: newobj System.Void Celeste.TextMenuExt/HeaderImage::.ctor(System.String)
+   IL_001f: dup
+   IL_0020: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0025: callvirt System.Void Celeste.TextMenuExt/HeaderImage::set_ImageColor(Microsoft.Xna.Framework.Color)
+   IL_002a: dup
+   IL_002b: ldc.i4.1
+   IL_002c: callvirt System.Void Celeste.TextMenuExt/HeaderImage::set_ImageOutline(System.Boolean)
+   IL_0031: dup
+   IL_0032: ldc.r4 0.5
+   IL_0037: callvirt System.Void Celeste.TextMenuExt/HeaderImage::set_ImageScale(System.Single)
+   IL_003c: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0041: pop
+   IL_0042: ldarg.0
+   IL_0043: brtrue IL_04af
+   IL_0048: newobj System.Void Celeste.Mod.UI.OuiModOptions/<>c__DisplayClass9_0::.ctor()
+   IL_004d: stloc.2
+   IL_004e: ldloc.2
+   IL_004f: newobj System.Void System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata>::.ctor()
+   IL_0054: stfld System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.UI.OuiModOptions/<>c__DisplayClass9_0::missingDependencies
+   IL_0059: ldsfld System.Collections.Generic.List`1<System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>> Celeste.Mod.Everest/Loader::Delayed
+   IL_005e: stloc.3
+   IL_005f: ldc.i4.0
+   IL_0060: stloc.s V_4
+   IL_0062: ldloc.3
+   IL_0063: ldloca.s V_4
+   IL_0065: call System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
+   IL_006a: ldsfld System.Collections.Generic.List`1<System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>> Celeste.Mod.Everest/Loader::Delayed
+   IL_006f: callvirt System.Int32 System.Collections.Generic.List`1<System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>>::get_Count()
+   IL_0074: ldc.i4.0
+   IL_0075: bgt.s IL_0087
+   IL_0077: ldsfld System.Collections.Generic.HashSet`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.Everest/Loader::ModsWithAssemblyLoadFailures
+   IL_007c: callvirt System.Int32 System.Collections.Generic.HashSet`1<Celeste.Mod.EverestModuleMetadata>::get_Count()
+   IL_0081: ldc.i4.0
+   IL_0082: ble IL_033d
+   IL_0087: ldloc.0
+   IL_0088: ldstr "modoptions_coremodule_notloaded_a"
+   IL_008d: ldnull
+   IL_008e: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0093: ldnull
+   IL_0094: newobj System.Void Celeste.TextMenuExt/SubHeaderExt::.ctor(System.String,System.String)
+   IL_0099: dup
+   IL_009a: ldc.r4 0
+   IL_009f: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_HeightExtra(System.Single)
+   IL_00a4: dup
+   IL_00a5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_OrangeRed()
+   IL_00aa: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_TextColor(Microsoft.Xna.Framework.Color)
+   IL_00af: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_00b4: pop
+   IL_00b5: ldloc.0
+   IL_00b6: ldstr "modoptions_coremodule_notloaded_b"
+   IL_00bb: ldnull
+   IL_00bc: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_00c1: ldnull
+   IL_00c2: newobj System.Void Celeste.TextMenuExt/SubHeaderExt::.ctor(System.String,System.String)
+   IL_00c7: dup
+   IL_00c8: ldc.r4 0
+   IL_00cd: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_HeightExtra(System.Single)
+   IL_00d2: dup
+   IL_00d3: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_OrangeRed()
+   IL_00d8: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_TextColor(Microsoft.Xna.Framework.Color)
+   IL_00dd: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_00e2: pop
+   IL_00e3: ldsfld System.Collections.Generic.HashSet`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.Everest/Loader::ModsWithAssemblyLoadFailures
+   IL_00e8: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<Celeste.Mod.EverestModuleMetadata>::GetEnumerator()
+   IL_00ed: stloc.s V_5
+   IL_00ef: br IL_0182
+   IL_00f4: ldloca.s V_5
+   IL_00f6: call T System.Collections.Generic.HashSet`1/Enumerator<Celeste.Mod.EverestModuleMetadata>::get_Current()
+   IL_00fb: stloc.s V_6
+   IL_00fd: ldloc.0
+   IL_00fe: ldc.i4.8
+   IL_00ff: ldc.i4.3
+   IL_0100: newobj System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_0105: stloc.s V_7
+   IL_0107: ldloca.s V_7
+   IL_0109: ldloc.s V_6
+   IL_010b: callvirt System.String Celeste.Mod.EverestModuleMetadata::get_Name()
+   IL_0110: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_0115: ldloca.s V_7
+   IL_0117: ldstr " | v."
+   IL_011c: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0121: ldloca.s V_7
+   IL_0123: ldloc.s V_6
+   IL_0125: callvirt System.String Celeste.Mod.EverestModuleMetadata::get_VersionString()
+   IL_012a: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_012f: ldloca.s V_7
+   IL_0131: ldstr " ("
+   IL_0136: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_013b: ldloca.s V_7
+   IL_013d: ldstr "modoptions_coremodule_notloaded_asmloaderror"
+   IL_0142: ldnull
+   IL_0143: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_0148: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_014d: ldloca.s V_7
+   IL_014f: ldstr ")"
+   IL_0154: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0159: ldloca.s V_7
+   IL_015b: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_0160: ldnull
+   IL_0161: newobj System.Void Celeste.TextMenuExt/SubHeaderExt::.ctor(System.String,System.String)
+   IL_0166: dup
+   IL_0167: ldc.r4 0
+   IL_016c: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_HeightExtra(System.Single)
+   IL_0171: dup
+   IL_0172: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_PaleVioletRed()
+   IL_0177: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_TextColor(Microsoft.Xna.Framework.Color)
+   IL_017c: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0181: pop
+   IL_0182: ldloca.s V_5
+   IL_0184: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<Celeste.Mod.EverestModuleMetadata>::MoveNext()
+   IL_0189: brtrue IL_00f4
+   IL_018e: leave.s IL_019e
+   IL_0190: ldloca.s V_5
+   IL_0192: constrained. System.Collections.Generic.HashSet`1/Enumerator<Celeste.Mod.EverestModuleMetadata>
+   IL_0198: callvirt System.Void System.IDisposable::Dispose()
+   IL_019d: endfinally
+   IL_019e: ldsfld System.Collections.Generic.List`1<System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>> Celeste.Mod.Everest/Loader::Delayed
+   IL_01a3: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>>::GetEnumerator()
+   IL_01a8: stloc.s V_8
+   IL_01aa: br IL_031e
+   IL_01af: ldloca.s V_8
+   IL_01b1: call T System.Collections.Generic.List`1/Enumerator<System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>>::get_Current()
+   IL_01b6: stloc.s V_9
+   IL_01b8: ldstr ""
+   IL_01bd: stloc.s V_10
+   IL_01bf: ldloc.s V_9
+   IL_01c1: callvirt T1 System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>::get_Item1()
+   IL_01c6: callvirt System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.EverestModuleMetadata::get_Dependencies()
+   IL_01cb: brfalse IL_02d7
+   IL_01d0: ldloc.s V_9
+   IL_01d2: callvirt T1 System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>::get_Item1()
+   IL_01d7: callvirt System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.EverestModuleMetadata::get_Dependencies()
+   IL_01dc: ldsfld System.Predicate`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_3
+   IL_01e1: dup
+   IL_01e2: brtrue.s IL_01fb
+   IL_01e4: pop
+   IL_01e5: ldsfld Celeste.Mod.UI.OuiModOptions/<>c Celeste.Mod.UI.OuiModOptions/<>c::<>9
+   IL_01ea: ldftn System.Boolean Celeste.Mod.UI.OuiModOptions/<>c::<CreateMenu>b__9_3(Celeste.Mod.EverestModuleMetadata)
+   IL_01f0: newobj System.Void System.Predicate`1<Celeste.Mod.EverestModuleMetadata>::.ctor(System.Object,System.IntPtr)
+   IL_01f5: dup
+   IL_01f6: stsfld System.Predicate`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_3
+   IL_01fb: callvirt System.Collections.Generic.List`1<T> System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata>::FindAll(System.Predicate`1<T>)
+   IL_0200: stloc.s V_11
+   IL_0202: ldloc.s V_9
+   IL_0204: callvirt T1 System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>::get_Item1()
+   IL_0209: callvirt System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.EverestModuleMetadata::get_OptionalDependencies()
+   IL_020e: brfalse.s IL_024b
+   IL_0210: ldloc.s V_9
+   IL_0212: callvirt T1 System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>::get_Item1()
+   IL_0217: callvirt System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.EverestModuleMetadata::get_OptionalDependencies()
+   IL_021c: ldsfld System.Predicate`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_5
+   IL_0221: dup
+   IL_0222: brtrue.s IL_023b
+   IL_0224: pop
+   IL_0225: ldsfld Celeste.Mod.UI.OuiModOptions/<>c Celeste.Mod.UI.OuiModOptions/<>c::<>9
+   IL_022a: ldftn System.Boolean Celeste.Mod.UI.OuiModOptions/<>c::<CreateMenu>b__9_5(Celeste.Mod.EverestModuleMetadata)
+   IL_0230: newobj System.Void System.Predicate`1<Celeste.Mod.EverestModuleMetadata>::.ctor(System.Object,System.IntPtr)
+   IL_0235: dup
+   IL_0236: stsfld System.Predicate`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_5
+   IL_023b: callvirt System.Collections.Generic.List`1<T> System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata>::FindAll(System.Predicate`1<T>)
+   IL_0240: stloc.s V_12
+   IL_0242: ldloc.s V_11
+   IL_0244: ldloc.s V_12
+   IL_0246: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata>::AddRange(System.Collections.Generic.IEnumerable`1<T>)
+   IL_024b: ldloc.2
+   IL_024c: ldfld System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.UI.OuiModOptions/<>c__DisplayClass9_0::missingDependencies
+   IL_0251: ldloc.s V_11
+   IL_0253: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata>::AddRange(System.Collections.Generic.IEnumerable`1<T>)
+   IL_0258: ldloc.s V_11
+   IL_025a: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata>::get_Count()
+   IL_025f: brfalse.s IL_02d7
+   IL_0261: ldstr ", "
+   IL_0266: ldloc.s V_11
+   IL_0268: ldsfld System.Func`2<Celeste.Mod.EverestModuleMetadata,System.String> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_4
+   IL_026d: dup
+   IL_026e: brtrue.s IL_0287
+   IL_0270: pop
+   IL_0271: ldsfld Celeste.Mod.UI.OuiModOptions/<>c Celeste.Mod.UI.OuiModOptions/<>c::<>9
+   IL_0276: ldftn System.String Celeste.Mod.UI.OuiModOptions/<>c::<CreateMenu>b__9_4(Celeste.Mod.EverestModuleMetadata)
+   IL_027c: newobj System.Void System.Func`2<Celeste.Mod.EverestModuleMetadata,System.String>::.ctor(System.Object,System.IntPtr)
+   IL_0281: dup
+   IL_0282: stsfld System.Func`2<Celeste.Mod.EverestModuleMetadata,System.String> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_4
+   IL_0287: call System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::Select<Celeste.Mod.EverestModuleMetadata,System.String>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,TResult>)
+   IL_028c: call System.String System.String::Join(System.String,System.Collections.Generic.IEnumerable`1<System.String>)
+   IL_0291: stloc.s V_10
+   IL_0293: ldloc.s V_10
+   IL_0295: callvirt System.Int32 System.String::get_Length()
+   IL_029a: ldc.i4.s 40
+   IL_029c: ble.s IL_02b4
+   IL_029e: ldloc.s V_10
+   IL_02a0: ldc.i4.0
+   IL_02a1: ldc.i4.s 40
+   IL_02a3: callvirt System.String System.String::Substring(System.Int32,System.Int32)
+   IL_02a8: ldstr "..."
+   IL_02ad: call System.String System.String::Concat(System.String,System.String)
+   IL_02b2: stloc.s V_10
+   IL_02b4: ldstr " ("
+   IL_02b9: ldstr "modoptions_coremodule_notloaded_notfound"
+   IL_02be: ldnull
+   IL_02bf: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_02c4: ldloc.s V_10
+   IL_02c6: call System.String System.String::Format(System.String,System.Object)
+   IL_02cb: ldstr ")"
+   IL_02d0: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_02d5: stloc.s V_10
+   IL_02d7: ldloc.0
+   IL_02d8: ldloc.s V_9
+   IL_02da: callvirt T1 System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>::get_Item1()
+   IL_02df: callvirt System.String Celeste.Mod.EverestModuleMetadata::get_Name()
+   IL_02e4: ldstr " | v."
+   IL_02e9: ldloc.s V_9
+   IL_02eb: callvirt T1 System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>::get_Item1()
+   IL_02f0: callvirt System.String Celeste.Mod.EverestModuleMetadata::get_VersionString()
+   IL_02f5: ldloc.s V_10
+   IL_02f7: call System.String System.String::Concat(System.String,System.String,System.String,System.String)
+   IL_02fc: ldnull
+   IL_02fd: newobj System.Void Celeste.TextMenuExt/SubHeaderExt::.ctor(System.String,System.String)
+   IL_0302: dup
+   IL_0303: ldc.r4 0
+   IL_0308: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_HeightExtra(System.Single)
+   IL_030d: dup
+   IL_030e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_PaleVioletRed()
+   IL_0313: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_TextColor(Microsoft.Xna.Framework.Color)
+   IL_0318: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_031d: pop
+   IL_031e: ldloca.s V_8
+   IL_0320: call System.Boolean System.Collections.Generic.List`1/Enumerator<System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>>::MoveNext()
+   IL_0325: brtrue IL_01af
+   IL_032a: leave IL_041f
+   IL_032f: ldloca.s V_8
+   IL_0331: constrained. System.Collections.Generic.List`1/Enumerator<System.Tuple`2<Celeste.Mod.EverestModuleMetadata,System.Action>>
+   IL_0337: callvirt System.Void System.IDisposable::Dispose()
+   IL_033c: endfinally
+   IL_033d: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0342: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_WarnOnEverestYamlErrors()
+   IL_0347: brfalse IL_0412
+   IL_034c: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Mod.Everest/Loader::FilesWithMetadataLoadFailures
+   IL_0351: callvirt System.Int32 System.Collections.Generic.HashSet`1<System.String>::get_Count()
+   IL_0356: ldc.i4.0
+   IL_0357: ble IL_0412
+   IL_035c: ldloc.0
+   IL_035d: ldstr "modoptions_coremodule_yamlerrors"
+   IL_0362: ldnull
+   IL_0363: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0368: ldnull
+   IL_0369: newobj System.Void Celeste.TextMenuExt/SubHeaderExt::.ctor(System.String,System.String)
+   IL_036e: dup
+   IL_036f: ldc.r4 0
+   IL_0374: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_HeightExtra(System.Single)
+   IL_0379: dup
+   IL_037a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_OrangeRed()
+   IL_037f: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_TextColor(Microsoft.Xna.Framework.Color)
+   IL_0384: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0389: pop
+   IL_038a: ldloc.0
+   IL_038b: ldstr "modoptions_coremodule_notloaded_b"
+   IL_0390: ldnull
+   IL_0391: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0396: ldnull
+   IL_0397: newobj System.Void Celeste.TextMenuExt/SubHeaderExt::.ctor(System.String,System.String)
+   IL_039c: dup
+   IL_039d: ldc.r4 0
+   IL_03a2: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_HeightExtra(System.Single)
+   IL_03a7: dup
+   IL_03a8: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_OrangeRed()
+   IL_03ad: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_TextColor(Microsoft.Xna.Framework.Color)
+   IL_03b2: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_03b7: pop
+   IL_03b8: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Mod.Everest/Loader::FilesWithMetadataLoadFailures
+   IL_03bd: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<System.String>::GetEnumerator()
+   IL_03c2: stloc.s V_13
+   IL_03c4: br.s IL_03f9
+   IL_03c6: ldloca.s V_13
+   IL_03c8: call T System.Collections.Generic.HashSet`1/Enumerator<System.String>::get_Current()
+   IL_03cd: stloc.s V_14
+   IL_03cf: ldloc.0
+   IL_03d0: ldloc.s V_14
+   IL_03d2: call System.String System.IO.Path::GetFileName(System.String)
+   IL_03d7: ldnull
+   IL_03d8: newobj System.Void Celeste.TextMenuExt/SubHeaderExt::.ctor(System.String,System.String)
+   IL_03dd: dup
+   IL_03de: ldc.r4 0
+   IL_03e3: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_HeightExtra(System.Single)
+   IL_03e8: dup
+   IL_03e9: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_PaleVioletRed()
+   IL_03ee: callvirt System.Void Celeste.TextMenuExt/SubHeaderExt::set_TextColor(Microsoft.Xna.Framework.Color)
+   IL_03f3: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_03f8: pop
+   IL_03f9: ldloca.s V_13
+   IL_03fb: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<System.String>::MoveNext()
+   IL_0400: brtrue.s IL_03c6
+   IL_0402: leave.s IL_041f
+   IL_0404: ldloca.s V_13
+   IL_0406: constrained. System.Collections.Generic.HashSet`1/Enumerator<System.String>
+   IL_040c: callvirt System.Void System.IDisposable::Dispose()
+   IL_0411: endfinally
+   IL_0412: leave.s IL_041f
+   IL_0414: ldloc.s V_4
+   IL_0416: brfalse.s IL_041e
+   IL_0418: ldloc.3
+   IL_0419: call System.Void System.Threading.Monitor::Exit(System.Object)
+   IL_041e: endfinally
+   IL_041f: call System.Boolean Celeste.Mod.Everest/Updater::get_HasUpdate()
+   IL_0424: brfalse.s IL_047a
+   IL_0426: ldloc.0
+   IL_0427: ldstr "modoptions_coremodule_update"
+   IL_042c: ldnull
+   IL_042d: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0432: ldstr "((version))"
+   IL_0437: call Celeste.Mod.Everest/Updater/Entry Celeste.Mod.Everest/Updater::get_Newest()
+   IL_043c: ldflda System.Int32 Celeste.Mod.Everest/Updater/Entry::Build
+   IL_0441: call System.String System.Int32::ToString()
+   IL_0446: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_044b: newobj System.Void Celeste.TextMenu/Button::.ctor(System.String)
+   IL_0450: ldsfld System.Action Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_1
+   IL_0455: dup
+   IL_0456: brtrue.s IL_046f
+   IL_0458: pop
+   IL_0459: ldsfld Celeste.Mod.UI.OuiModOptions/<>c Celeste.Mod.UI.OuiModOptions/<>c::<>9
+   IL_045e: ldftn System.Void Celeste.Mod.UI.OuiModOptions/<>c::<CreateMenu>b__9_1()
+   IL_0464: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0469: dup
+   IL_046a: stsfld System.Action Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_1
+   IL_046f: callvirt Celeste.TextMenu/Item Celeste.TextMenu/Item::Pressed(System.Action)
+   IL_0474: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_0479: pop
+   IL_047a: ldloc.2
+   IL_047b: ldfld System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata> Celeste.Mod.UI.OuiModOptions/<>c__DisplayClass9_0::missingDependencies
+   IL_0480: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.Mod.EverestModuleMetadata>::get_Count()
+   IL_0485: brfalse.s IL_04af
+   IL_0487: ldloc.0
+   IL_0488: ldstr "modoptions_coremodule_downloaddeps"
+   IL_048d: ldnull
+   IL_048e: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0493: newobj System.Void Celeste.TextMenu/Button::.ctor(System.String)
+   IL_0498: ldloc.2
+   IL_0499: ldftn System.Void Celeste.Mod.UI.OuiModOptions/<>c__DisplayClass9_0::<CreateMenu>b__2()
+   IL_049f: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_04a4: callvirt Celeste.TextMenu/Item Celeste.TextMenu/Item::Pressed(System.Action)
+   IL_04a9: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_04ae: pop
+   IL_04af: ldsfld System.Collections.Generic.List`1<Celeste.Mod.EverestModule> Celeste.Mod.Everest::_Modules
+   IL_04b4: newobj System.Void System.Collections.Generic.List`1<Celeste.Mod.EverestModule>::.ctor(System.Collections.Generic.IEnumerable`1<T>)
+   IL_04b9: stloc.1
+   IL_04ba: ldloc.1
+   IL_04bb: ldc.i4.0
+   IL_04bc: callvirt T System.Collections.Generic.List`1<Celeste.Mod.EverestModule>::get_Item(System.Int32)
+   IL_04c1: pop
+   IL_04c2: ldloc.1
+   IL_04c3: ldsfld Celeste.Mod.Core.CoreModule Celeste.Mod.Core.CoreModule::Instance
+   IL_04c8: callvirt System.Boolean System.Collections.Generic.List`1<Celeste.Mod.EverestModule>::Remove(T)
+   IL_04cd: pop
+   IL_04ce: ldloc.1
+   IL_04cf: ldsfld System.Func`2<Celeste.Mod.EverestModule,System.String> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_0
+   IL_04d4: dup
+   IL_04d5: brtrue.s IL_04ee
+   IL_04d7: pop
+   IL_04d8: ldsfld Celeste.Mod.UI.OuiModOptions/<>c Celeste.Mod.UI.OuiModOptions/<>c::<>9
+   IL_04dd: ldftn System.String Celeste.Mod.UI.OuiModOptions/<>c::<CreateMenu>b__9_0(Celeste.Mod.EverestModule)
+   IL_04e3: newobj System.Void System.Func`2<Celeste.Mod.EverestModule,System.String>::.ctor(System.Object,System.IntPtr)
+   IL_04e8: dup
+   IL_04e9: stsfld System.Func`2<Celeste.Mod.EverestModule,System.String> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_0
+   IL_04ee: call System.Linq.IOrderedEnumerable`1<TSource> System.Linq.Enumerable::OrderBy<Celeste.Mod.EverestModule,System.String>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,TKey>)
+   IL_04f3: call System.Collections.Generic.List`1<TSource> System.Linq.Enumerable::ToList<Celeste.Mod.EverestModule>(System.Collections.Generic.IEnumerable`1<TSource>)
+   IL_04f8: stloc.1
+   IL_04f9: ldloc.1
+   IL_04fa: ldc.i4.0
+   IL_04fb: ldsfld Celeste.Mod.Core.CoreModule Celeste.Mod.Core.CoreModule::Instance
+   IL_0500: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.EverestModule>::Insert(System.Int32,T)
+   IL_0505: ldsfld System.Collections.Generic.List`1<System.String> Celeste.Mod.Everest/Loader::_ModOptionsOrder
+   IL_050a: brfalse IL_05d8
+   IL_050f: ldsfld System.Collections.Generic.List`1<System.String> Celeste.Mod.Everest/Loader::_ModOptionsOrder
+   IL_0514: callvirt System.Int32 System.Collections.Generic.List`1<System.String>::get_Count()
+   IL_0519: ldc.i4.0
+   IL_051a: ble IL_05d8
+   IL_051f: ldsfld System.Collections.Generic.List`1<System.String> Celeste.Mod.Everest/Loader::_ModOptionsOrder
+   IL_0524: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<System.String>::GetEnumerator()
+   IL_0529: stloc.s V_15
+   IL_052b: br IL_05bc
+   IL_0530: ldloca.s V_15
+   IL_0532: call T System.Collections.Generic.List`1/Enumerator<System.String>::get_Current()
+   IL_0537: stloc.s V_16
+   IL_0539: ldloc.s V_16
+   IL_053b: ldstr "Everest"
+   IL_0540: ldc.i4.3
+   IL_0541: callvirt System.Boolean System.String::Equals(System.String,System.StringComparison)
+   IL_0546: brfalse.s IL_0573
+   IL_0548: ldloc.1
+   IL_0549: ldsfld System.Predicate`1<Celeste.Mod.EverestModule> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_7
+   IL_054e: dup
+   IL_054f: brtrue.s IL_0568
+   IL_0551: pop
+   IL_0552: ldsfld Celeste.Mod.UI.OuiModOptions/<>c Celeste.Mod.UI.OuiModOptions/<>c::<>9
+   IL_0557: ldftn System.Boolean Celeste.Mod.UI.OuiModOptions/<>c::<CreateMenu>b__9_7(Celeste.Mod.EverestModule)
+   IL_055d: newobj System.Void System.Predicate`1<Celeste.Mod.EverestModule>::.ctor(System.Object,System.IntPtr)
+   IL_0562: dup
+   IL_0563: stsfld System.Predicate`1<Celeste.Mod.EverestModule> Celeste.Mod.UI.OuiModOptions/<>c::<>9__9_7
+   IL_0568: ldloc.0
+   IL_0569: ldarg.0
+   IL_056a: ldarg.1
+   IL_056b: call System.Boolean Celeste.Mod.UI.OuiModOptions::createModMenuSectionAndDelete(System.Collections.Generic.List`1<Celeste.Mod.EverestModule>,System.Predicate`1<Celeste.Mod.EverestModule>,Celeste.TextMenu,System.Boolean,FMOD.Studio.EventInstance)
+   IL_0570: pop
+   IL_0571: br.s IL_05bc
+   IL_0573: newobj System.Void Celeste.Mod.UI.OuiModOptions/<>c__DisplayClass9_2::.ctor()
+   IL_0578: stloc.s V_17
+   IL_057a: ldloc.s V_17
+   IL_057c: call System.String Celeste.Mod.Everest/Loader::get_PathMods()
+   IL_0581: ldloc.s V_16
+   IL_0583: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_0588: stfld System.String Celeste.Mod.UI.OuiModOptions/<>c__DisplayClass9_2::modPath
+   IL_058d: ldloc.1
+   IL_058e: ldloc.s V_17
+   IL_0590: ldftn System.Boolean Celeste.Mod.UI.OuiModOptions/<>c__DisplayClass9_2::<CreateMenu>b__8(Celeste.Mod.EverestModule)
+   IL_0596: newobj System.Void System.Predicate`1<Celeste.Mod.EverestModule>::.ctor(System.Object,System.IntPtr)
+   IL_059b: ldloc.0
+   IL_059c: ldarg.0
+   IL_059d: ldarg.1
+   IL_059e: call System.Boolean Celeste.Mod.UI.OuiModOptions::createModMenuSectionAndDelete(System.Collections.Generic.List`1<Celeste.Mod.EverestModule>,System.Predicate`1<Celeste.Mod.EverestModule>,Celeste.TextMenu,System.Boolean,FMOD.Studio.EventInstance)
+   IL_05a3: brtrue.s IL_05bc
+   IL_05a5: ldloc.1
+   IL_05a6: ldloc.s V_17
+   IL_05a8: ldftn System.Boolean Celeste.Mod.UI.OuiModOptions/<>c__DisplayClass9_2::<CreateMenu>b__9(Celeste.Mod.EverestModule)
+   IL_05ae: newobj System.Void System.Predicate`1<Celeste.Mod.EverestModule>::.ctor(System.Object,System.IntPtr)
+   IL_05b3: ldloc.0
+   IL_05b4: ldarg.0
+   IL_05b5: ldarg.1
+   IL_05b6: call System.Boolean Celeste.Mod.UI.OuiModOptions::createModMenuSectionAndDelete(System.Collections.Generic.List`1<Celeste.Mod.EverestModule>,System.Predicate`1<Celeste.Mod.EverestModule>,Celeste.TextMenu,System.Boolean,FMOD.Studio.EventInstance)
+   IL_05bb: pop
+   IL_05bc: ldloca.s V_15
+   IL_05be: call System.Boolean System.Collections.Generic.List`1/Enumerator<System.String>::MoveNext()
+   IL_05c3: brtrue IL_0530
+   IL_05c8: leave.s IL_05d8
+   IL_05ca: ldloca.s V_15
+   IL_05cc: constrained. System.Collections.Generic.List`1/Enumerator<System.String>
+   IL_05d2: callvirt System.Void System.IDisposable::Dispose()
+   IL_05d7: endfinally
+   IL_05d8: ldloc.1
+   IL_05d9: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.EverestModule>::GetEnumerator()
+   IL_05de: stloc.s V_18
+   IL_05e0: br.s IL_05f1
+   IL_05e2: ldloca.s V_18
+   IL_05e4: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::get_Current()
+   IL_05e9: ldloc.0
+   IL_05ea: ldarg.0
+   IL_05eb: ldarg.1
+   IL_05ec: callvirt System.Void Celeste.Mod.EverestModule::CreateModMenuSection(Celeste.TextMenu,System.Boolean,FMOD.Studio.EventInstance)
+   IL_05f1: ldloca.s V_18
+   IL_05f3: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::MoveNext()
+   IL_05f8: brtrue.s IL_05e2
+   IL_05fa: leave.s IL_060a
+   IL_05fc: ldloca.s V_18
+   IL_05fe: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>
+   IL_0604: callvirt System.Void System.IDisposable::Dispose()
+   IL_0609: endfinally
+   IL_060a: ldloc.0
+   IL_060b: callvirt System.Single Celeste.TextMenu::get_Height()
+   IL_0610: ldloc.0
+   IL_0611: callvirt System.Single Celeste.TextMenu::get_ScrollableMinSize()
+   IL_0616: ble.un.s IL_0629
+   IL_0618: ldloc.0
+   IL_0619: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_061e: ldloc.0
+   IL_061f: callvirt System.Single Celeste.TextMenu::get_ScrollTargetY()
+   IL_0624: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0629: ldloc.0
+   IL_062a: ldc.i4.0
+   IL_062b: callvirt System.Void Celeste.TextMenu::set_BatchMode(System.Boolean)
+   IL_0630: ldloc.0
+   IL_0631: ret

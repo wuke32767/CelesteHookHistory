@@ -1,0 +1,26 @@
+On: Celeste.Mod.Spirialis.TimePlayerSettings.CustomCreateTrail(orig_CreateTrail,Player)
+On: Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modCreateTrail(orig_CreateTrail,Player)
+On: Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.Player_CreateTrail(orig_CreateTrail,Player)
+On: ExtendedVariants.Variants.DashTrailAllTheTime.onCreateTrail(orig_CreateTrail,Player)
+   IL_0000: ldloca.s V_0
+   IL_0002: ldarg.0
+   IL_0003: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0008: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_000d: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0012: call System.Single System.Math::Abs(System.Single)
+   IL_0017: ldarg.0
+   IL_0018: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_001d: conv.r4
+   IL_001e: mul
+   IL_001f: ldarg.0
+   IL_0020: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0025: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_002a: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_002f: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0034: ldarg.0
+   IL_0035: ldloc.0
+   IL_0036: ldarg.0
+   IL_0037: callvirt Microsoft.Xna.Framework.Color Celeste.Player::GetCurrentTrailColor()
+   IL_003c: ldc.r4 1
+   IL_0041: call System.Void Celeste.TrailManager::Add(Monocle.Entity,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0046: ret

@@ -1,0 +1,12 @@
+On: FactoryHelper.FactoryHelperHooks.DashBlockRemoveAndFlagAsGone(orig_RemoveAndFlagAsGone,DashBlock)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::RemoveSelf()
+   IL_0006: ldarg.0
+   IL_0007: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_000c: ldfld Celeste.Session Celeste.Level::Session
+   IL_0011: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.Session::DoNotLoad
+   IL_0016: ldarg.0
+   IL_0017: ldfld Celeste.EntityID Celeste.DashBlock::id
+   IL_001c: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Add(T)
+   IL_0021: pop
+   IL_0022: ret

@@ -1,0 +1,75 @@
+On: Celeste.Mod.HardcoreMode.HMModule.On_OuiFileSelectSlot_Update(orig_Update,OuiFileSelectSlot)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.OuiFileSelectSlot::orig_Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker Celeste.OuiFileSelectSlot::newGameLevelSetPicker
+   IL_000c: brfalse IL_010b
+   IL_0011: ldarg.0
+   IL_0012: callvirt System.Boolean Celeste.OuiFileSelectSlot::get_selected()
+   IL_0017: brfalse IL_010b
+   IL_001c: ldarg.0
+   IL_001d: ldfld Celeste.OuiFileSelect Celeste.OuiFileSelectSlot::fileSelect
+   IL_0022: callvirt System.Boolean Celeste.Oui::get_Selected()
+   IL_0027: brfalse IL_010b
+   IL_002c: ldarg.0
+   IL_002d: ldfld Celeste.OuiFileSelect Celeste.OuiFileSelectSlot::fileSelect
+   IL_0032: ldfld System.Boolean Celeste.Oui::Focused
+   IL_0037: brfalse IL_010b
+   IL_003c: ldarg.0
+   IL_003d: ldfld System.Boolean Celeste.OuiFileSelectSlot::StartingGame
+   IL_0042: brtrue IL_010b
+   IL_0047: ldarg.0
+   IL_0048: ldfld Monocle.Tween Celeste.OuiFileSelectSlot::tween
+   IL_004d: brtrue IL_010b
+   IL_0052: ldarg.0
+   IL_0053: ldfld System.Single Celeste.OuiFileSelectSlot::inputDelay
+   IL_0058: ldc.r4 0
+   IL_005d: bgt.un IL_010b
+   IL_0062: ldarg.0
+   IL_0063: ldfld System.Boolean Celeste.OuiFileSelectSlot::StartingGame
+   IL_0068: brtrue IL_010b
+   IL_006d: ldarg.0
+   IL_006e: ldfld System.Boolean Celeste.OuiFileSelectSlot::deleting
+   IL_0073: brtrue IL_010b
+   IL_0078: ldarg.0
+   IL_0079: ldfld Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker Celeste.OuiFileSelectSlot::newGameLevelSetPicker
+   IL_007e: ldarg.0
+   IL_007f: ldfld System.Collections.Generic.List`1<Celeste.OuiFileSelectSlot/Button> Celeste.OuiFileSelectSlot::buttons
+   IL_0084: ldarg.0
+   IL_0085: ldfld System.Int32 Celeste.OuiFileSelectSlot::buttonIndex
+   IL_008a: callvirt T System.Collections.Generic.List`1<Celeste.OuiFileSelectSlot/Button>::get_Item(System.Int32)
+   IL_008f: ldarg.0
+   IL_0090: ldfld Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker Celeste.OuiFileSelectSlot::newGameLevelSetPicker
+   IL_0095: ceq
+   IL_0097: callvirt System.Void Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker::Update(System.Boolean)
+   IL_009c: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_00a1: ldc.i4 162
+   IL_00a6: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_00ab: brfalse.s IL_010b
+   IL_00ad: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_00b2: ldc.i4.s 83
+   IL_00b4: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_00b9: brfalse.s IL_010b
+   IL_00bb: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_00c0: ldarg.0
+   IL_00c1: ldfld Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker Celeste.OuiFileSelectSlot::newGameLevelSetPicker
+   IL_00c6: callvirt System.String Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker::get_NewGameLevelSet()
+   IL_00cb: callvirt System.Void Celeste.Mod.Core.CoreModuleSettings::set_DefaultStartingLevelSet(System.String)
+   IL_00d0: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_00d5: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Core.CoreModuleSettings::get_SaveDataFlush()
+   IL_00da: stloc.0
+   IL_00db: ldloca.s V_0
+   IL_00dd: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_00e2: brfalse.s IL_00f6
+   IL_00e4: ldsfld Celeste.Mod.Core.CoreModule Celeste.Mod.Core.CoreModule::Instance
+   IL_00e9: dup
+   IL_00ea: ldfld System.Int32 Celeste.Mod.EverestModule::ForceSaveDataFlush
+   IL_00ef: ldc.i4.1
+   IL_00f0: add
+   IL_00f1: stfld System.Int32 Celeste.Mod.EverestModule::ForceSaveDataFlush
+   IL_00f6: ldsfld Celeste.Mod.Core.CoreModule Celeste.Mod.Core.CoreModule::Instance
+   IL_00fb: callvirt System.Void Celeste.Mod.EverestModule::SaveSettings()
+   IL_0100: ldstr "event:/new_content/ui/rename_entry_accept_locked"
+   IL_0105: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_010a: pop
+   IL_010b: ret

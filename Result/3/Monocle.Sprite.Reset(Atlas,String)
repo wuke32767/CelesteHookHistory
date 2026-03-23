@@ -1,0 +1,32 @@
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: stfld Monocle.Atlas Monocle.Sprite::atlas
+   IL_0007: ldarg.0
+   IL_0008: ldarg.2
+   IL_0009: stfld System.String Monocle.Sprite::Path
+   IL_000e: ldarg.0
+   IL_000f: call System.StringComparer System.StringComparer::get_OrdinalIgnoreCase()
+   IL_0014: newobj System.Void System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation>::.ctor(System.Collections.Generic.IEqualityComparer`1<TKey>)
+   IL_0019: stfld System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation> Monocle.Sprite::animations
+   IL_001e: ldarg.0
+   IL_001f: ldnull
+   IL_0020: stfld Monocle.Sprite/Animation Monocle.Sprite::currentAnimation
+   IL_0025: ldarg.0
+   IL_0026: ldstr ""
+   IL_002b: callvirt System.Void Monocle.Sprite::set_CurrentAnimationID(System.String)
+   IL_0030: ldarg.0
+   IL_0031: ldnull
+   IL_0032: stfld System.Action`1<System.String> Monocle.Sprite::OnFinish
+   IL_0037: ldarg.0
+   IL_0038: ldnull
+   IL_0039: stfld System.Action`1<System.String> Monocle.Sprite::OnLoop
+   IL_003e: ldarg.0
+   IL_003f: ldnull
+   IL_0040: stfld System.Action`1<System.String> Monocle.Sprite::OnFrameChange
+   IL_0045: ldarg.0
+   IL_0046: ldnull
+   IL_0047: stfld System.Action`2<System.String,System.String> Monocle.Sprite::OnChange
+   IL_004c: ldarg.0
+   IL_004d: ldc.i4.0
+   IL_004e: callvirt System.Void Monocle.Sprite::set_Animating(System.Boolean)
+   IL_0053: ret

@@ -1,0 +1,24 @@
+On: Celeste.Mod.CNY2024Helper.DrivableCarLightModule.DrivableCar_Added_hook(DrivableCar_Added_orig,DrivableCar,Scene)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.1
+   IL_0003: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0008: nop
+   IL_0009: ldarg.0
+   IL_000a: ldarg.1
+   IL_000b: stfld Monocle.Scene Celeste.Mod.PandorasBox.DrivableCar::scene
+   IL_0010: ldarg.0
+   IL_0011: ldarg.1
+   IL_0012: isinst Celeste.Level
+   IL_0017: stfld Celeste.Level Celeste.Mod.PandorasBox.DrivableCar::level
+   IL_001c: ldarg.0
+   IL_001d: callvirt System.Boolean Celeste.Mod.PandorasBox.DrivableCar::get_alreadyAdded()
+   IL_0022: stloc.0
+   IL_0023: ldloc.0
+   IL_0024: brfalse.s IL_002f
+   IL_0026: nop
+   IL_0027: ldarg.0
+   IL_0028: call System.Void Monocle.Entity::RemoveSelf()
+   IL_002d: nop
+   IL_002e: nop
+   IL_002f: ret

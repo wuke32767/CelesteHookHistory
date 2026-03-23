@@ -1,0 +1,179 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.onReturnMapHintRender(orig_Render,ReturnMapHint)
+   IL_0000: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_0005: ldstr "checkpoint"
+   IL_000a: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_000f: stloc.0
+   IL_0010: ldstr "MENU_RETURN_INFO"
+   IL_0015: ldnull
+   IL_0016: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_001b: stloc.1
+   IL_001c: ldsfld Monocle.Atlas Celeste.MTN::Checkpoints
+   IL_0021: ldstr "polaroid"
+   IL_0026: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_002b: stloc.2
+   IL_002c: ldloc.1
+   IL_002d: call Microsoft.Xna.Framework.Vector2 Celeste.ActiveFont::Measure(System.String)
+   IL_0032: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0037: ldc.r4 0.75
+   IL_003c: mul
+   IL_003d: stloc.3
+   IL_003e: ldarg.0
+   IL_003f: ldfld Monocle.MTexture Celeste.ReturnMapHint::checkpoint
+   IL_0044: brfalse IL_0192
+   IL_0049: ldloc.2
+   IL_004a: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_004f: conv.r4
+   IL_0050: ldc.r4 0.25
+   IL_0055: mul
+   IL_0056: stloc.s V_4
+   IL_0058: ldloca.s V_5
+   IL_005a: ldc.r4 1920
+   IL_005f: ldloc.3
+   IL_0060: sub
+   IL_0061: ldloc.s V_4
+   IL_0063: sub
+   IL_0064: ldc.r4 64
+   IL_0069: sub
+   IL_006a: ldc.r4 2
+   IL_006f: div
+   IL_0070: ldc.r4 730
+   IL_0075: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_007a: ldc.r4 720
+   IL_007f: ldarg.0
+   IL_0080: ldfld Monocle.MTexture Celeste.ReturnMapHint::checkpoint
+   IL_0085: callvirt Microsoft.Xna.Framework.Rectangle Monocle.MTexture::get_ClipRect()
+   IL_008a: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_008f: conv.r4
+   IL_0090: div
+   IL_0091: stloc.s V_6
+   IL_0093: ldloc.1
+   IL_0094: ldloc.s V_5
+   IL_0096: ldloc.3
+   IL_0097: ldc.r4 2
+   IL_009c: div
+   IL_009d: ldc.r4 0
+   IL_00a2: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00a7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00ac: ldc.r4 0.5
+   IL_00b1: ldc.r4 0.5
+   IL_00b6: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00bb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00c0: ldc.r4 0.75
+   IL_00c5: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00ca: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_LightGray()
+   IL_00cf: ldc.r4 2
+   IL_00d4: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_00d9: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00de: ldloca.s V_5
+   IL_00e0: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00e5: dup
+   IL_00e6: ldind.r4
+   IL_00e7: ldloc.3
+   IL_00e8: ldc.r4 64
+   IL_00ed: add
+   IL_00ee: add
+   IL_00ef: stind.r4
+   IL_00f0: ldloc.2
+   IL_00f1: ldloc.s V_5
+   IL_00f3: ldloc.s V_4
+   IL_00f5: ldc.r4 2
+   IL_00fa: div
+   IL_00fb: ldc.r4 0
+   IL_0100: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0105: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_010a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_010f: ldc.r4 0.25
+   IL_0114: ldc.r4 0.1
+   IL_0119: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,System.Single)
+   IL_011e: ldarg.0
+   IL_011f: ldfld Monocle.MTexture Celeste.ReturnMapHint::checkpoint
+   IL_0124: ldloc.s V_5
+   IL_0126: ldloc.s V_4
+   IL_0128: ldc.r4 2
+   IL_012d: div
+   IL_012e: ldc.r4 0
+   IL_0133: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0138: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_013d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0142: ldc.r4 0.25
+   IL_0147: ldloc.s V_6
+   IL_0149: mul
+   IL_014a: ldc.r4 0.1
+   IL_014f: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,System.Single)
+   IL_0154: ldloc.0
+   IL_0155: ldloc.s V_5
+   IL_0157: ldloc.s V_4
+   IL_0159: ldc.r4 0.8
+   IL_015e: mul
+   IL_015f: ldloc.2
+   IL_0160: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_0165: conv.r4
+   IL_0166: ldc.r4 0.25
+   IL_016b: mul
+   IL_016c: ldc.r4 0.5
+   IL_0171: mul
+   IL_0172: ldc.r4 0.8
+   IL_0177: mul
+   IL_0178: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_017d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0182: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0187: ldc.r4 0.75
+   IL_018c: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0191: ret
+   IL_0192: ldloc.0
+   IL_0193: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_0198: conv.r4
+   IL_0199: ldc.r4 0.75
+   IL_019e: mul
+   IL_019f: stloc.s V_7
+   IL_01a1: ldloca.s V_8
+   IL_01a3: ldc.r4 1920
+   IL_01a8: ldloc.3
+   IL_01a9: sub
+   IL_01aa: ldloc.s V_7
+   IL_01ac: sub
+   IL_01ad: ldc.r4 64
+   IL_01b2: sub
+   IL_01b3: ldc.r4 2
+   IL_01b8: div
+   IL_01b9: ldc.r4 730
+   IL_01be: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01c3: ldloc.1
+   IL_01c4: ldloc.s V_8
+   IL_01c6: ldloc.3
+   IL_01c7: ldc.r4 2
+   IL_01cc: div
+   IL_01cd: ldc.r4 0
+   IL_01d2: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01d7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01dc: ldc.r4 0.5
+   IL_01e1: ldc.r4 0.5
+   IL_01e6: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01eb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_01f0: ldc.r4 0.75
+   IL_01f5: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01fa: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_LightGray()
+   IL_01ff: ldc.r4 2
+   IL_0204: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0209: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_020e: ldloca.s V_8
+   IL_0210: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0215: dup
+   IL_0216: ldind.r4
+   IL_0217: ldloc.3
+   IL_0218: ldc.r4 64
+   IL_021d: add
+   IL_021e: add
+   IL_021f: stind.r4
+   IL_0220: ldloc.0
+   IL_0221: ldloc.s V_8
+   IL_0223: ldloc.s V_7
+   IL_0225: ldc.r4 0.5
+   IL_022a: mul
+   IL_022b: ldc.r4 0
+   IL_0230: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0235: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_023a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_023f: ldc.r4 0.75
+   IL_0244: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0249: ret

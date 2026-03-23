@@ -1,0 +1,125 @@
+On: ExtendedVariants.UI.VanillaVariantOptions+IsaContainmentChamber+<>c.<hookIsaGrabBag>b__0_1(Action`2,Variant,Boolean)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: stloc.2
+   IL_0003: ldloc.2
+   IL_0004: stloc.1
+   IL_0005: ldloc.1
+   IL_0006: switch IL_003c,IL_0051,IL_0066,IL_007b,IL_0090,IL_00a5,IL_00d4,IL_00e9,IL_0179,IL_018b,IL_019d
+   IL_0037: br IL_01af
+   IL_003c: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0041: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0046: ldarg.1
+   IL_0047: stfld System.Boolean Celeste.Assists::Hiccups
+   IL_004c: br IL_01af
+   IL_0051: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0056: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_005b: ldarg.1
+   IL_005c: stfld System.Boolean Celeste.Assists::InfiniteStamina
+   IL_0061: br IL_01af
+   IL_0066: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_006b: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0070: ldarg.1
+   IL_0071: stfld System.Boolean Celeste.Assists::Invincible
+   IL_0076: br IL_01af
+   IL_007b: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0080: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0085: ldarg.1
+   IL_0086: stfld System.Boolean Celeste.Assists::InvisibleMotion
+   IL_008b: br IL_01af
+   IL_0090: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0095: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_009a: ldarg.1
+   IL_009b: stfld System.Boolean Celeste.Assists::LowFriction
+   IL_00a0: br IL_01af
+   IL_00a5: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00aa: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_00af: ldsfld Monocle.VirtualJoystick Celeste.Input::Aim
+   IL_00b4: ldsfld Monocle.VirtualIntegerAxis Celeste.Input::MoveX
+   IL_00b9: ldarg.1
+   IL_00ba: dup
+   IL_00bb: stloc.3
+   IL_00bc: stfld System.Boolean Monocle.VirtualIntegerAxis::Inverted
+   IL_00c1: ldloc.3
+   IL_00c2: dup
+   IL_00c3: stloc.3
+   IL_00c4: stfld System.Boolean Monocle.VirtualJoystick::InvertedX
+   IL_00c9: ldloc.3
+   IL_00ca: stfld System.Boolean Celeste.Assists::MirrorMode
+   IL_00cf: br IL_01af
+   IL_00d4: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00d9: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_00de: ldarg.1
+   IL_00df: stfld System.Boolean Celeste.Assists::NoGrabbing
+   IL_00e4: br IL_01af
+   IL_00e9: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00ee: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_00f3: ldfld System.Boolean Celeste.Assists::PlayAsBadeline
+   IL_00f8: stloc.0
+   IL_00f9: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00fe: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0103: ldarg.1
+   IL_0104: stfld System.Boolean Celeste.Assists::PlayAsBadeline
+   IL_0109: ldarg.1
+   IL_010a: ldloc.0
+   IL_010b: ceq
+   IL_010d: ldc.i4.0
+   IL_010e: ceq
+   IL_0110: stloc.s V_4
+   IL_0112: ldloc.s V_4
+   IL_0114: brfalse.s IL_0177
+   IL_0116: nop
+   IL_0117: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_011c: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0121: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0126: stloc.s V_5
+   IL_0128: ldloc.s V_5
+   IL_012a: ldnull
+   IL_012b: cgt.un
+   IL_012d: stloc.s V_6
+   IL_012f: ldloc.s V_6
+   IL_0131: brfalse.s IL_0176
+   IL_0133: nop
+   IL_0134: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0139: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_013e: ldfld System.Boolean Celeste.Assists::PlayAsBadeline
+   IL_0143: brtrue.s IL_014e
+   IL_0145: ldloc.s V_5
+   IL_0147: ldfld Celeste.PlayerSpriteMode Celeste.Player::DefaultSpriteMode
+   IL_014c: br.s IL_014f
+   IL_014e: ldc.i4.3
+   IL_014f: stloc.s V_7
+   IL_0151: ldloc.s V_5
+   IL_0153: ldfld System.Boolean Monocle.Entity::Active
+   IL_0158: stloc.s V_8
+   IL_015a: ldloc.s V_8
+   IL_015c: brfalse.s IL_016b
+   IL_015e: nop
+   IL_015f: ldloc.s V_5
+   IL_0161: ldloc.s V_7
+   IL_0163: callvirt System.Void Celeste.Player::ResetSpriteNextFrame(Celeste.PlayerSpriteMode)
+   IL_0168: nop
+   IL_0169: br.s IL_01af
+   IL_016b: ldloc.s V_5
+   IL_016d: ldloc.s V_7
+   IL_016f: callvirt System.Void Celeste.Player::ResetSprite(Celeste.PlayerSpriteMode)
+   IL_0174: nop
+   IL_0175: nop
+   IL_0176: nop
+   IL_0177: br.s IL_01af
+   IL_0179: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_017e: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0183: ldarg.1
+   IL_0184: stfld System.Boolean Celeste.Assists::SuperDashing
+   IL_0189: br.s IL_01af
+   IL_018b: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0190: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0195: ldarg.1
+   IL_0196: stfld System.Boolean Celeste.Assists::ThreeSixtyDashing
+   IL_019b: br.s IL_01af
+   IL_019d: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_01a2: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_01a7: ldarg.1
+   IL_01a8: stfld System.Boolean Celeste.Assists::DashAssist
+   IL_01ad: br.s IL_01af
+   IL_01af: ret

@@ -1,0 +1,78 @@
+On: ExtendedVariants.Variants.ScreenShakeIntensity.onRumbleTriggerRenderDisplacement(orig_RenderDisplacement,RumbleTrigger)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Single Celeste.RumbleTrigger::rumble
+   IL_0006: ldc.r4 0
+   IL_000b: ble.s IL_0019
+   IL_000d: ldsfld Celeste.Settings Celeste.Settings::Instance
+   IL_0012: ldfld Celeste.ScreenshakeAmount Celeste.Settings::ScreenShake
+   IL_0017: brtrue.s IL_001a
+   IL_0019: ret
+   IL_001a: ldarg.0
+   IL_001b: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0020: isinst Celeste.Level
+   IL_0025: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_002a: stloc.0
+   IL_002b: ldloc.0
+   IL_002c: callvirt System.Single Monocle.Camera::get_Left()
+   IL_0031: ldc.r4 8
+   IL_0036: div
+   IL_0037: conv.i4
+   IL_0038: ldc.i4.1
+   IL_0039: sub
+   IL_003a: ldloc.0
+   IL_003b: callvirt System.Single Monocle.Camera::get_Right()
+   IL_0040: ldc.r4 8
+   IL_0045: div
+   IL_0046: conv.i4
+   IL_0047: ldc.i4.1
+   IL_0048: add
+   IL_0049: stloc.1
+   IL_004a: stloc.2
+   IL_004b: br.s IL_00be
+   IL_004d: ldarg.0
+   IL_004e: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0053: ldfld System.Single Monocle.Scene::TimeActive
+   IL_0058: ldc.r4 60
+   IL_005d: mul
+   IL_005e: ldloc.2
+   IL_005f: conv.r4
+   IL_0060: ldc.r4 0.4
+   IL_0065: mul
+   IL_0066: add
+   IL_0067: conv.r8
+   IL_0068: call System.Double System.Math::Sin(System.Double)
+   IL_006d: conv.r4
+   IL_006e: ldc.r4 0.06
+   IL_0073: mul
+   IL_0074: ldarg.0
+   IL_0075: ldfld System.Single Celeste.RumbleTrigger::rumble
+   IL_007a: mul
+   IL_007b: stloc.3
+   IL_007c: ldloca.s V_4
+   IL_007e: ldc.r4 0.5
+   IL_0083: ldc.r4 0.5
+   IL_0088: ldloc.3
+   IL_0089: add
+   IL_008a: ldc.r4 0
+   IL_008f: ldc.r4 1
+   IL_0094: call System.Void Microsoft.Xna.Framework.Color::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0099: ldloc.2
+   IL_009a: ldc.i4.8
+   IL_009b: mul
+   IL_009c: conv.r4
+   IL_009d: ldloc.0
+   IL_009e: callvirt System.Single Monocle.Camera::get_Top()
+   IL_00a3: ldc.r4 2
+   IL_00a8: sub
+   IL_00a9: ldc.r4 8
+   IL_00ae: ldc.r4 184
+   IL_00b3: ldloc.s V_4
+   IL_00b5: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00ba: ldloc.2
+   IL_00bb: ldc.i4.1
+   IL_00bc: add
+   IL_00bd: stloc.2
+   IL_00be: ldloc.2
+   IL_00bf: ldloc.1
+   IL_00c0: ble.s IL_004d
+   IL_00c2: ret

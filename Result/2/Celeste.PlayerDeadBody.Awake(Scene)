@@ -1,0 +1,70 @@
+On: Celeste.Mod.HardcoreMode.HMModule.On_PlayerDeadBody_Awake(orig_Awake,PlayerDeadBody,Scene)
+On: BrokemiaHelper.TronState.PlayerDeadBody_Awake(orig_Awake,PlayerDeadBody,Scene)
+On: BrokemiaHelper.CaveWall.PlayerDeadBody_Awake(orig_Awake,PlayerDeadBody,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Awake(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldfld Microsoft.Xna.Framework.Vector2 Celeste.PlayerDeadBody::bounce
+   IL_000d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0012: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0017: brfalse IL_00e0
+   IL_001c: ldarg.0
+   IL_001d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.PlayerDeadBody::bounce
+   IL_0022: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0027: call System.Single System.Math::Abs(System.Single)
+   IL_002c: ldarg.0
+   IL_002d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.PlayerDeadBody::bounce
+   IL_0032: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0037: call System.Single System.Math::Abs(System.Single)
+   IL_003c: ble.un.s IL_0068
+   IL_003e: ldarg.0
+   IL_003f: ldfld Celeste.PlayerSprite Celeste.PlayerDeadBody::sprite
+   IL_0044: ldstr "deadside"
+   IL_0049: ldc.i4.0
+   IL_004a: ldc.i4.0
+   IL_004b: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0050: ldarg.0
+   IL_0051: ldarg.0
+   IL_0052: ldflda Microsoft.Xna.Framework.Vector2 Celeste.PlayerDeadBody::bounce
+   IL_0057: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_005c: call System.Int32 System.Math::Sign(System.Single)
+   IL_0061: neg
+   IL_0062: stfld Celeste.Facings Celeste.PlayerDeadBody::facing
+   IL_0067: ret
+   IL_0068: ldarg.0
+   IL_0069: ldarg.0
+   IL_006a: ldfld Microsoft.Xna.Framework.Vector2 Celeste.PlayerDeadBody::bounce
+   IL_006f: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_0074: ldarg.0
+   IL_0075: ldfld Celeste.Player Celeste.PlayerDeadBody::player
+   IL_007a: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_007f: neg
+   IL_0080: conv.r4
+   IL_0081: ldc.r4 0
+   IL_0086: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_008b: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_0090: ldc.r4 0.5
+   IL_0095: call System.Single Monocle.Calc::AngleApproach(System.Single,System.Single,System.Single)
+   IL_009a: ldc.r4 1
+   IL_009f: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_00a4: stfld Microsoft.Xna.Framework.Vector2 Celeste.PlayerDeadBody::bounce
+   IL_00a9: ldarg.0
+   IL_00aa: ldflda Microsoft.Xna.Framework.Vector2 Celeste.PlayerDeadBody::bounce
+   IL_00af: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00b4: ldc.r4 0
+   IL_00b9: bge.un.s IL_00ce
+   IL_00bb: ldarg.0
+   IL_00bc: ldfld Celeste.PlayerSprite Celeste.PlayerDeadBody::sprite
+   IL_00c1: ldstr "deadup"
+   IL_00c6: ldc.i4.0
+   IL_00c7: ldc.i4.0
+   IL_00c8: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_00cd: ret
+   IL_00ce: ldarg.0
+   IL_00cf: ldfld Celeste.PlayerSprite Celeste.PlayerDeadBody::sprite
+   IL_00d4: ldstr "deaddown"
+   IL_00d9: ldc.i4.0
+   IL_00da: ldc.i4.0
+   IL_00db: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_00e0: ret

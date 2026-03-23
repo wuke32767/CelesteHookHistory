@@ -1,0 +1,233 @@
+On: Celeste.Mod.XaphanHelper.Hooks.TilesetsSwap.onAutotilerGenerate(orig_Generate,Autotiler,VirtualMap`1,Int32,Int32,Int32,Int32,Boolean,Char,Behaviour)
+On: Celeste.Mod.auspicioushelper.PartialTiles.CapturingHook(orig_Generate,Autotiler,VirtualMap`1,Int32,Int32,Int32,Int32,Boolean,Char,Behaviour)
+IL: Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+   IL_0000: ldc.i4.8
+   IL_0001: ldc.i4.8
+   IL_0002: ldarg.s tilesX
+   IL_0004: ldarg.s tilesY
+   IL_0006: newobj System.Void Monocle.TileGrid::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_000b: stloc.0
+   IL_000c: ldarg.s tilesX
+   IL_000e: ldarg.s tilesY
+   IL_0010: ldsfld Celeste.AnimatedTilesBank Celeste.GFX::AnimatedTilesBank
+   IL_0015: newobj System.Void Celeste.AnimatedTiles::.ctor(System.Int32,System.Int32,Celeste.AnimatedTilesBank)
+   IL_001a: stloc.1
+   IL_001b: call Microsoft.Xna.Framework.Rectangle Microsoft.Xna.Framework.Rectangle::get_Empty()
+   IL_0020: stloc.2
+   IL_0021: ldarg.s forceSolid
+   IL_0023: brfalse.s IL_0032
+   IL_0025: ldloca.s V_2
+   IL_0027: ldarg.2
+   IL_0028: ldarg.3
+   IL_0029: ldarg.s tilesX
+   IL_002b: ldarg.s tilesY
+   IL_002d: call System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0032: ldarg.1
+   IL_0033: brfalse IL_013e
+   IL_0038: ldarg.2
+   IL_0039: stloc.3
+   IL_003a: br IL_012f
+   IL_003f: ldarg.3
+   IL_0040: stloc.s V_4
+   IL_0042: br IL_011f
+   IL_0047: ldarg.1
+   IL_0048: ldloc.3
+   IL_0049: ldloc.s V_4
+   IL_004b: callvirt System.Boolean Monocle.VirtualMap`1<System.Char>::AnyInSegmentAtTile(System.Int32,System.Int32)
+   IL_0050: brtrue.s IL_0061
+   IL_0052: ldloc.s V_4
+   IL_0054: ldc.i4.s 50
+   IL_0056: div
+   IL_0057: ldc.i4.s 50
+   IL_0059: mul
+   IL_005a: stloc.s V_4
+   IL_005c: br IL_0118
+   IL_0061: ldloc.3
+   IL_0062: stloc.s V_5
+   IL_0064: ldloc.3
+   IL_0065: ldc.i4.s 50
+   IL_0067: add
+   IL_0068: ldarg.2
+   IL_0069: ldarg.s tilesX
+   IL_006b: add
+   IL_006c: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0071: stloc.s V_6
+   IL_0073: br IL_010f
+   IL_0078: ldloc.s V_4
+   IL_007a: stloc.s V_7
+   IL_007c: ldloc.s V_4
+   IL_007e: ldc.i4.s 50
+   IL_0080: add
+   IL_0081: ldarg.3
+   IL_0082: ldarg.s tilesY
+   IL_0084: add
+   IL_0085: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_008a: stloc.s V_8
+   IL_008c: br.s IL_0100
+   IL_008e: ldarg.0
+   IL_008f: ldarg.1
+   IL_0090: ldloc.s V_5
+   IL_0092: ldloc.s V_7
+   IL_0094: ldloc.2
+   IL_0095: ldarg.s forceID
+   IL_0097: ldarg.s behaviour
+   IL_0099: callvirt Celeste.Autotiler/Tiles Celeste.Autotiler::TileHandler(Monocle.VirtualMap`1<System.Char>,System.Int32,System.Int32,Microsoft.Xna.Framework.Rectangle,System.Char,Celeste.Autotiler/Behaviour)
+   IL_009e: stloc.s V_9
+   IL_00a0: ldloc.s V_9
+   IL_00a2: brfalse.s IL_00fa
+   IL_00a4: ldloc.0
+   IL_00a5: ldfld Monocle.VirtualMap`1<Monocle.MTexture> Monocle.TileGrid::Tiles
+   IL_00aa: ldloc.s V_5
+   IL_00ac: ldarg.2
+   IL_00ad: sub
+   IL_00ae: ldloc.s V_7
+   IL_00b0: ldarg.3
+   IL_00b1: sub
+ + IL_10000: dup @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10001: ldloc V_5 @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10002: ldarg startX @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10003: sub @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10004: ldloc V_9 @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10005: call Monocle.MTexture Celeste.Mod.auspicioushelper.PartialTiles::HookChoose(System.Int32,System.Int32,Celeste.Autotiler/Tiles) @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10006: dup @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10007: brtrue IL_00c3 @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10008: pop @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+   IL_00b2: ldsfld System.Random Monocle.Calc::Random
+   IL_00b7: ldloc.s V_9
+   IL_00b9: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Autotiler/Tiles::Textures
+   IL_00be: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_00c3: callvirt System.Void Monocle.VirtualMap`1<Monocle.MTexture>::set_Item(System.Int32,System.Int32,T)
+   IL_00c8: ldloc.s V_9
+   IL_00ca: ldfld System.Boolean Celeste.Autotiler/Tiles::HasOverlays
+   IL_00cf: brfalse.s IL_00fa
+   IL_00d1: ldloc.1
+   IL_00d2: ldloc.s V_5
+   IL_00d4: ldarg.2
+   IL_00d5: sub
+   IL_00d6: ldloc.s V_7
+   IL_00d8: ldarg.3
+   IL_00d9: sub
+   IL_00da: ldsfld System.Random Monocle.Calc::Random
+   IL_00df: ldloc.s V_9
+   IL_00e1: ldfld System.Collections.Generic.List`1<System.String> Celeste.Autotiler/Tiles::OverlapSprites
+   IL_00e6: call T Monocle.Calc::Choose<System.String>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_00eb: ldc.r4 1
+   IL_00f0: ldc.r4 1
+   IL_00f5: callvirt System.Void Celeste.AnimatedTiles::Set(System.Int32,System.Int32,System.String,System.Single,System.Single)
+   IL_00fa: ldloc.s V_7
+   IL_00fc: ldc.i4.1
+   IL_00fd: add
+   IL_00fe: stloc.s V_7
+   IL_0100: ldloc.s V_7
+   IL_0102: ldloc.s V_8
+   IL_0104: blt IL_008e
+   IL_0109: ldloc.s V_5
+   IL_010b: ldc.i4.1
+   IL_010c: add
+   IL_010d: stloc.s V_5
+   IL_010f: ldloc.s V_5
+   IL_0111: ldloc.s V_6
+   IL_0113: blt IL_0078
+   IL_0118: ldloc.s V_4
+   IL_011a: ldc.i4.s 50
+   IL_011c: add
+   IL_011d: stloc.s V_4
+   IL_011f: ldloc.s V_4
+   IL_0121: ldarg.3
+   IL_0122: ldarg.s tilesY
+   IL_0124: add
+   IL_0125: blt IL_0047
+   IL_012a: ldloc.3
+   IL_012b: ldc.i4.s 50
+   IL_012d: add
+   IL_012e: stloc.3
+   IL_012f: ldloc.3
+   IL_0130: ldarg.2
+   IL_0131: ldarg.s tilesX
+   IL_0133: add
+   IL_0134: blt IL_003f
+   IL_0139: br IL_01d9
+   IL_013e: ldarg.2
+   IL_013f: stloc.s V_10
+   IL_0141: br IL_01ce
+   IL_0146: ldarg.3
+   IL_0147: stloc.s V_11
+   IL_0149: br.s IL_01bd
+   IL_014b: ldarg.0
+   IL_014c: ldnull
+   IL_014d: ldloc.s V_10
+   IL_014f: ldloc.s V_11
+   IL_0151: ldloc.2
+   IL_0152: ldarg.s forceID
+   IL_0154: ldarg.s behaviour
+   IL_0156: callvirt Celeste.Autotiler/Tiles Celeste.Autotiler::TileHandler(Monocle.VirtualMap`1<System.Char>,System.Int32,System.Int32,Microsoft.Xna.Framework.Rectangle,System.Char,Celeste.Autotiler/Behaviour)
+   IL_015b: stloc.s V_12
+   IL_015d: ldloc.s V_12
+   IL_015f: brfalse.s IL_01b7
+   IL_0161: ldloc.0
+   IL_0162: ldfld Monocle.VirtualMap`1<Monocle.MTexture> Monocle.TileGrid::Tiles
+   IL_0167: ldloc.s V_10
+   IL_0169: ldarg.2
+   IL_016a: sub
+   IL_016b: ldloc.s V_11
+   IL_016d: ldarg.3
+   IL_016e: sub
+ + IL_10009: dup @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_1000a: ldloc V_10 @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_1000b: ldarg startX @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_1000c: sub @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_1000d: ldloc V_12 @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_1000e: call Monocle.MTexture Celeste.Mod.auspicioushelper.PartialTiles::HookChoose(System.Int32,System.Int32,Celeste.Autotiler/Tiles) @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_1000f: dup @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10010: brtrue IL_0180 @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10011: pop @ Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+   IL_016f: ldsfld System.Random Monocle.Calc::Random
+   IL_0174: ldloc.s V_12
+   IL_0176: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Autotiler/Tiles::Textures
+   IL_017b: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_0180: callvirt System.Void Monocle.VirtualMap`1<Monocle.MTexture>::set_Item(System.Int32,System.Int32,T)
+   IL_0185: ldloc.s V_12
+   IL_0187: ldfld System.Boolean Celeste.Autotiler/Tiles::HasOverlays
+   IL_018c: brfalse.s IL_01b7
+   IL_018e: ldloc.1
+   IL_018f: ldloc.s V_10
+   IL_0191: ldarg.2
+   IL_0192: sub
+   IL_0193: ldloc.s V_11
+   IL_0195: ldarg.3
+   IL_0196: sub
+   IL_0197: ldsfld System.Random Monocle.Calc::Random
+   IL_019c: ldloc.s V_12
+   IL_019e: ldfld System.Collections.Generic.List`1<System.String> Celeste.Autotiler/Tiles::OverlapSprites
+   IL_01a3: call T Monocle.Calc::Choose<System.String>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_01a8: ldc.r4 1
+   IL_01ad: ldc.r4 1
+   IL_01b2: callvirt System.Void Celeste.AnimatedTiles::Set(System.Int32,System.Int32,System.String,System.Single,System.Single)
+   IL_01b7: ldloc.s V_11
+   IL_01b9: ldc.i4.1
+   IL_01ba: add
+   IL_01bb: stloc.s V_11
+   IL_01bd: ldloc.s V_11
+   IL_01bf: ldarg.3
+   IL_01c0: ldarg.s tilesY
+   IL_01c2: add
+   IL_01c3: blt IL_014b
+   IL_01c8: ldloc.s V_10
+   IL_01ca: ldc.i4.1
+   IL_01cb: add
+   IL_01cc: stloc.s V_10
+   IL_01ce: ldloc.s V_10
+   IL_01d0: ldarg.2
+   IL_01d1: ldarg.s tilesX
+   IL_01d3: add
+   IL_01d4: blt IL_0146
+   IL_01d9: ldloca.s V_13
+   IL_01db: initobj Celeste.Autotiler/Generated
+   IL_01e1: ldloca.s V_13
+   IL_01e3: ldloc.0
+   IL_01e4: stfld Monocle.TileGrid Celeste.Autotiler/Generated::TileGrid
+   IL_01e9: ldloca.s V_13
+   IL_01eb: ldloc.1
+   IL_01ec: stfld Celeste.AnimatedTiles Celeste.Autotiler/Generated::SpriteOverlay
+   IL_01f1: ldloc.s V_13
+   IL_01f3: ret

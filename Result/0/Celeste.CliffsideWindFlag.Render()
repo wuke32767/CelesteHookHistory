@@ -1,0 +1,59 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedDecal() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: call System.Void Monocle.Entity::Render()
+   IL_0011: ldc.i4.0
+   IL_0012: stloc.0
+   IL_0013: br.s IL_0078
+   IL_0015: ldarg.0
+   IL_0016: ldfld Celeste.CliffsideWindFlag/Segment[] Celeste.CliffsideWindFlag::segments
+   IL_001b: ldloc.0
+   IL_001c: ldelem.ref
+   IL_001d: stloc.1
+   IL_001e: ldloc.0
+   IL_001f: conv.r4
+   IL_0020: ldarg.0
+   IL_0021: ldfld Celeste.CliffsideWindFlag/Segment[] Celeste.CliffsideWindFlag::segments
+   IL_0026: ldlen
+   IL_0027: conv.i4
+   IL_0028: conv.r4
+   IL_0029: div
+   IL_002a: ldarg.0
+   IL_002b: ldloc.0
+   IL_002c: neg
+   IL_002d: conv.r4
+   IL_002e: ldc.r4 0.1
+   IL_0033: mul
+   IL_0034: ldarg.0
+   IL_0035: ldfld System.Single Celeste.CliffsideWindFlag::sine
+   IL_003a: add
+   IL_003b: callvirt System.Single Celeste.CliffsideWindFlag::Sin(System.Single)
+   IL_0040: mul
+   IL_0041: ldc.r4 2
+   IL_0046: mul
+   IL_0047: stloc.2
+   IL_0048: ldloc.1
+   IL_0049: ldfld Monocle.MTexture Celeste.CliffsideWindFlag/Segment::Texture
+   IL_004e: ldarg.0
+   IL_004f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0054: ldloc.1
+   IL_0055: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CliffsideWindFlag/Segment::Offset
+   IL_005a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_005f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0064: ldloc.2
+   IL_0065: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_006a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_006f: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2)
+   IL_0074: ldloc.0
+   IL_0075: ldc.i4.1
+   IL_0076: add
+   IL_0077: stloc.0
+   IL_0078: ldloc.0
+   IL_0079: ldarg.0
+   IL_007a: ldfld Celeste.CliffsideWindFlag/Segment[] Celeste.CliffsideWindFlag::segments
+   IL_007f: ldlen
+   IL_0080: conv.i4
+   IL_0081: blt.s IL_0015
+   IL_0083: ret

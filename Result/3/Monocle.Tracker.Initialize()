@@ -1,0 +1,62 @@
+On: Celeste.Mod.SpringCollab2020.Entities.FloatierSpaceBlock.InitializeTracker(orig_Initialize)
+On: BrokemiaHelper.FloatierSpaceBlock.InitializeTracker(orig_Initialize)
+On: BrokemiaHelper.BrokemiaHelperModule+<>c.<Load>b__16_0(orig_Initialize)
+On: Bitsbolts.Triggers.SkipFlingBird.TrackerInitialize(orig_Initialize)
+On: Bitsbolts.Triggers.SkipBadelineBoost.TrackerInitialize(orig_Initialize)
+On: Bitsbolts.LevelExt.TrackerInitialize(orig_Initialize)
+On: Celeste.Mod.MaxHelpingHand.Entities.RespawningBounceJellyfish.onTrackerInitialize(orig_Initialize)
+   IL_0000: call System.Type[] Monocle.Tracker::GetAllTypesUncached()
+   IL_0005: stsfld System.Type[] Monocle.Tracker::_temporaryAllTypes
+   IL_000a: call System.Void Monocle.Tracker::orig_Initialize()
+   IL_000f: ldsfld System.Int32 Monocle.Tracker::TrackedTypeVersion
+   IL_0014: stloc.0
+   IL_0015: ldsfld System.Type[] Monocle.Tracker::_temporaryAllTypes
+   IL_001a: stloc.1
+   IL_001b: ldc.i4.0
+   IL_001c: stloc.2
+   IL_001d: br.s IL_007a
+   IL_001f: ldloc.1
+   IL_0020: ldloc.2
+   IL_0021: ldelem.ref
+   IL_0022: stloc.3
+   IL_0023: ldloc.3
+   IL_0024: ldtoken Monocle.TrackedAsAttribute
+   IL_0029: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_002e: ldc.i4.0
+   IL_002f: callvirt System.Object[] System.Reflection.MemberInfo::GetCustomAttributes(System.Type,System.Boolean)
+   IL_0034: call System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::Cast<Monocle.TrackedAsAttribute>(System.Collections.IEnumerable)
+   IL_0039: callvirt System.Collections.Generic.IEnumerator`1<T> System.Collections.Generic.IEnumerable`1<Monocle.TrackedAsAttribute>::GetEnumerator()
+   IL_003e: stloc.s V_4
+   IL_0040: br.s IL_005f
+   IL_0042: ldloc.s V_4
+   IL_0044: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.TrackedAsAttribute>::get_Current()
+   IL_0049: stloc.s V_5
+   IL_004b: ldloc.3
+   IL_004c: ldloc.s V_5
+   IL_004e: ldfld System.Type Monocle.TrackedAsAttribute::TrackedAsType
+   IL_0053: ldloc.s V_5
+   IL_0055: ldfld System.Boolean Monocle.TrackedAsAttribute::Inherited
+   IL_005a: call System.Void Monocle.Tracker::AddTypeToTracker(System.Type,System.Type,System.Boolean)
+   IL_005f: ldloc.s V_4
+   IL_0061: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_0066: brtrue.s IL_0042
+   IL_0068: leave.s IL_0076
+   IL_006a: ldloc.s V_4
+   IL_006c: brfalse.s IL_0075
+   IL_006e: ldloc.s V_4
+   IL_0070: callvirt System.Void System.IDisposable::Dispose()
+   IL_0075: endfinally
+   IL_0076: ldloc.2
+   IL_0077: ldc.i4.1
+   IL_0078: add
+   IL_0079: stloc.2
+   IL_007a: ldloc.2
+   IL_007b: ldloc.1
+   IL_007c: ldlen
+   IL_007d: conv.i4
+   IL_007e: blt.s IL_001f
+   IL_0080: ldloc.0
+   IL_0081: stsfld System.Int32 Monocle.Tracker::TrackedTypeVersion
+   IL_0086: ldnull
+   IL_0087: stsfld System.Type[] Monocle.Tracker::_temporaryAllTypes
+   IL_008c: ret

@@ -1,0 +1,183 @@
+On: Celeste.Mod.PuzzleHelper.PuzzleHelper.modSinkingPlatformUpdate(orig_Update,SinkingPlatform)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Celeste.Platform::Update()
+   IL_0006: ldarg.0
+   IL_0007: call Celeste.Player Celeste.JumpThru::GetPlayerRider()
+   IL_000c: stloc.0
+   IL_000d: ldloc.0
+   IL_000e: brfalse IL_0093
+   IL_0013: ldarg.0
+   IL_0014: ldfld System.Single Celeste.SinkingPlatform::riseTimer
+   IL_0019: ldc.r4 0
+   IL_001e: bgt.un.s IL_0056
+   IL_0020: ldarg.0
+   IL_0021: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_0026: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_002b: ldarg.0
+   IL_002c: ldfld System.Single Celeste.SinkingPlatform::startY
+   IL_0031: bgt.un.s IL_0044
+   IL_0033: ldstr "event:/game/03_resort/platform_vert_start"
+   IL_0038: ldarg.0
+   IL_0039: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003e: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0043: pop
+   IL_0044: ldarg.0
+   IL_0045: ldfld Monocle.Shaker Celeste.SinkingPlatform::shaker
+   IL_004a: ldc.r4 0.15
+   IL_004f: ldc.i4.0
+   IL_0050: callvirt Monocle.Shaker Monocle.Shaker::ShakeFor(System.Single,System.Boolean)
+   IL_0055: pop
+   IL_0056: ldarg.0
+   IL_0057: ldc.r4 0.1
+   IL_005c: stfld System.Single Celeste.SinkingPlatform::riseTimer
+   IL_0061: ldarg.0
+   IL_0062: ldarg.0
+   IL_0063: ldfld System.Single Celeste.SinkingPlatform::speed
+   IL_0068: ldloc.0
+   IL_0069: callvirt System.Boolean Celeste.Player::get_Ducking()
+   IL_006e: brtrue.s IL_0077
+   IL_0070: ldc.r4 30
+   IL_0075: br.s IL_007c
+   IL_0077: ldc.r4 60
+   IL_007c: ldc.r4 400
+   IL_0081: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0086: mul
+   IL_0087: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_008c: stfld System.Single Celeste.SinkingPlatform::speed
+   IL_0091: br.s IL_00f6
+   IL_0093: ldarg.0
+   IL_0094: ldfld System.Single Celeste.SinkingPlatform::riseTimer
+   IL_0099: ldc.r4 0
+   IL_009e: ble.un.s IL_00d5
+   IL_00a0: ldarg.0
+   IL_00a1: ldarg.0
+   IL_00a2: ldfld System.Single Celeste.SinkingPlatform::riseTimer
+   IL_00a7: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00ac: sub
+   IL_00ad: stfld System.Single Celeste.SinkingPlatform::riseTimer
+   IL_00b2: ldarg.0
+   IL_00b3: ldarg.0
+   IL_00b4: ldfld System.Single Celeste.SinkingPlatform::speed
+   IL_00b9: ldc.r4 45
+   IL_00be: ldc.r4 600
+   IL_00c3: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00c8: mul
+   IL_00c9: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_00ce: stfld System.Single Celeste.SinkingPlatform::speed
+   IL_00d3: br.s IL_00f6
+   IL_00d5: ldarg.0
+   IL_00d6: ldarg.0
+   IL_00d7: ldfld System.Single Celeste.SinkingPlatform::speed
+   IL_00dc: ldc.r4 -50
+   IL_00e1: ldc.r4 400
+   IL_00e6: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00eb: mul
+   IL_00ec: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_00f1: stfld System.Single Celeste.SinkingPlatform::speed
+   IL_00f6: ldarg.0
+   IL_00f7: ldfld System.Single Celeste.SinkingPlatform::speed
+   IL_00fc: ldc.r4 0
+   IL_0101: ble.un IL_0178
+   IL_0106: ldarg.0
+   IL_0107: ldfld Celeste.SoundSource Celeste.SinkingPlatform::downSfx
+   IL_010c: callvirt System.Boolean Celeste.SoundSource::get_Playing()
+   IL_0111: brtrue.s IL_012a
+   IL_0113: ldarg.0
+   IL_0114: ldfld Celeste.SoundSource Celeste.SinkingPlatform::downSfx
+   IL_0119: ldstr "event:/game/03_resort/platform_vert_down_loop"
+   IL_011e: ldnull
+   IL_011f: ldc.r4 0
+   IL_0124: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)
+   IL_0129: pop
+   IL_012a: ldarg.0
+   IL_012b: ldfld Celeste.SoundSource Celeste.SinkingPlatform::downSfx
+   IL_0130: ldstr "ducking"
+   IL_0135: ldloc.0
+   IL_0136: brfalse.s IL_0140
+   IL_0138: ldloc.0
+   IL_0139: callvirt System.Boolean Celeste.Player::get_Ducking()
+   IL_013e: brtrue.s IL_0143
+   IL_0140: ldc.i4.0
+   IL_0141: br.s IL_0144
+   IL_0143: ldc.i4.1
+   IL_0144: conv.r4
+   IL_0145: callvirt Celeste.SoundSource Celeste.SoundSource::Param(System.String,System.Single)
+   IL_014a: pop
+   IL_014b: ldarg.0
+   IL_014c: ldfld Celeste.SoundSource Celeste.SinkingPlatform::upSfx
+   IL_0151: callvirt System.Boolean Celeste.SoundSource::get_Playing()
+   IL_0156: brfalse.s IL_0165
+   IL_0158: ldarg.0
+   IL_0159: ldfld Celeste.SoundSource Celeste.SinkingPlatform::upSfx
+   IL_015e: ldc.i4.1
+   IL_015f: callvirt Celeste.SoundSource Celeste.SoundSource::Stop(System.Boolean)
+   IL_0164: pop
+   IL_0165: ldarg.0
+   IL_0166: ldarg.0
+   IL_0167: ldfld System.Single Celeste.SinkingPlatform::speed
+   IL_016c: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0171: mul
+   IL_0172: call System.Void Celeste.Platform::MoveV(System.Single)
+   IL_0177: ret
+   IL_0178: ldarg.0
+   IL_0179: ldfld System.Single Celeste.SinkingPlatform::speed
+   IL_017e: ldc.r4 0
+   IL_0183: bge.un IL_0238
+   IL_0188: ldarg.0
+   IL_0189: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_018e: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0193: ldarg.0
+   IL_0194: ldfld System.Single Celeste.SinkingPlatform::startY
+   IL_0199: ble.un IL_0238
+   IL_019e: ldarg.0
+   IL_019f: ldfld Celeste.SoundSource Celeste.SinkingPlatform::upSfx
+   IL_01a4: callvirt System.Boolean Celeste.SoundSource::get_Playing()
+   IL_01a9: brtrue.s IL_01c2
+   IL_01ab: ldarg.0
+   IL_01ac: ldfld Celeste.SoundSource Celeste.SinkingPlatform::upSfx
+   IL_01b1: ldstr "event:/game/03_resort/platform_vert_up_loop"
+   IL_01b6: ldnull
+   IL_01b7: ldc.r4 0
+   IL_01bc: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)
+   IL_01c1: pop
+   IL_01c2: ldarg.0
+   IL_01c3: ldfld Celeste.SoundSource Celeste.SinkingPlatform::downSfx
+   IL_01c8: callvirt System.Boolean Celeste.SoundSource::get_Playing()
+   IL_01cd: brfalse.s IL_01dc
+   IL_01cf: ldarg.0
+   IL_01d0: ldfld Celeste.SoundSource Celeste.SinkingPlatform::downSfx
+   IL_01d5: ldc.i4.1
+   IL_01d6: callvirt Celeste.SoundSource Celeste.SoundSource::Stop(System.Boolean)
+   IL_01db: pop
+   IL_01dc: ldarg.0
+   IL_01dd: ldarg.0
+   IL_01de: ldfld System.Single Celeste.SinkingPlatform::startY
+   IL_01e3: ldarg.0
+   IL_01e4: ldfld System.Single Celeste.SinkingPlatform::speed
+   IL_01e9: neg
+   IL_01ea: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_01ef: mul
+   IL_01f0: call System.Void Celeste.Platform::MoveTowardsY(System.Single,System.Single)
+   IL_01f5: ldarg.0
+   IL_01f6: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_01fb: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0200: ldarg.0
+   IL_0201: ldfld System.Single Celeste.SinkingPlatform::startY
+   IL_0206: bgt.un.s IL_0238
+   IL_0208: ldarg.0
+   IL_0209: ldfld Celeste.SoundSource Celeste.SinkingPlatform::upSfx
+   IL_020e: ldc.i4.1
+   IL_020f: callvirt Celeste.SoundSource Celeste.SoundSource::Stop(System.Boolean)
+   IL_0214: pop
+   IL_0215: ldstr "event:/game/03_resort/platform_vert_end"
+   IL_021a: ldarg.0
+   IL_021b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0220: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0225: pop
+   IL_0226: ldarg.0
+   IL_0227: ldfld Monocle.Shaker Celeste.SinkingPlatform::shaker
+   IL_022c: ldc.r4 0.1
+   IL_0231: ldc.i4.0
+   IL_0232: callvirt Monocle.Shaker Monocle.Shaker::ShakeFor(System.Single,System.Boolean)
+   IL_0237: pop
+   IL_0238: ret

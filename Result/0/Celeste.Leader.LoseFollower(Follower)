@@ -1,0 +1,9 @@
+On: Celeste.Mod.CelesteRTDataProvider.CelesteRTDataProviderModule.Leader_LoseFollower(orig_LoseFollower,Leader,Follower)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.List`1<Celeste.Follower> Celeste.Leader::Followers
+   IL_0006: ldarg.1
+   IL_0007: callvirt System.Boolean System.Collections.Generic.List`1<Celeste.Follower>::Remove(T)
+   IL_000c: pop
+   IL_000d: ldarg.1
+   IL_000e: callvirt System.Void Celeste.Follower::OnLoseLeaderUtil()
+   IL_0013: ret

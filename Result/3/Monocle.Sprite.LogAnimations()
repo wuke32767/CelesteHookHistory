@@ -1,0 +1,57 @@
+   IL_0000: newobj System.Void System.Text.StringBuilder::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation> Monocle.Sprite::animations
+   IL_000c: callvirt System.Collections.Generic.Dictionary`2/Enumerator<TKey,TValue> System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation>::GetEnumerator()
+   IL_0011: stloc.1
+   IL_0012: br.s IL_0065
+   IL_0014: ldloca.s V_1
+   IL_0016: call System.Collections.Generic.KeyValuePair`2<TKey,TValue> System.Collections.Generic.Dictionary`2/Enumerator<System.String,Monocle.Sprite/Animation>::get_Current()
+   IL_001b: stloc.2
+   IL_001c: ldloca.s V_2
+   IL_001e: call TValue System.Collections.Generic.KeyValuePair`2<System.String,Monocle.Sprite/Animation>::get_Value()
+   IL_0023: stloc.3
+   IL_0024: ldloc.0
+   IL_0025: ldloca.s V_2
+   IL_0027: call TKey System.Collections.Generic.KeyValuePair`2<System.String,Monocle.Sprite/Animation>::get_Key()
+   IL_002c: callvirt System.Text.StringBuilder System.Text.StringBuilder::Append(System.String)
+   IL_0031: pop
+   IL_0032: ldloc.0
+   IL_0033: ldstr "
+{
+	"
+   IL_0038: callvirt System.Text.StringBuilder System.Text.StringBuilder::Append(System.String)
+   IL_003d: pop
+   IL_003e: ldloc.0
+   IL_003f: ldstr "
+	"
+   IL_0044: ldloc.3
+   IL_0045: ldfld Monocle.MTexture[] Monocle.Sprite/Animation::Frames
+   IL_004a: stloc.s V_4
+   IL_004c: ldloc.s V_4
+   IL_004e: call System.String System.String::Join(System.String,System.Object[])
+   IL_0053: callvirt System.Text.StringBuilder System.Text.StringBuilder::Append(System.String)
+   IL_0058: pop
+   IL_0059: ldloc.0
+   IL_005a: ldstr "
+}
+"
+   IL_005f: callvirt System.Text.StringBuilder System.Text.StringBuilder::Append(System.String)
+   IL_0064: pop
+   IL_0065: ldloca.s V_1
+   IL_0067: call System.Boolean System.Collections.Generic.Dictionary`2/Enumerator<System.String,Monocle.Sprite/Animation>::MoveNext()
+   IL_006c: brtrue.s IL_0014
+   IL_006e: leave.s IL_007e
+   IL_0070: ldloca.s V_1
+   IL_0072: constrained. System.Collections.Generic.Dictionary`2/Enumerator<System.String,Monocle.Sprite/Animation>
+   IL_0078: callvirt System.Void System.IDisposable::Dispose()
+   IL_007d: endfinally
+   IL_007e: ldc.i4.1
+   IL_007f: newarr System.Object
+   IL_0084: dup
+   IL_0085: ldc.i4.0
+   IL_0086: ldloc.0
+   IL_0087: callvirt System.String System.Object::ToString()
+   IL_008c: stelem.ref
+   IL_008d: call System.Void Monocle.Calc::Log(System.Object[])
+   IL_0092: ret

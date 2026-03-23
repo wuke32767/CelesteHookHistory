@@ -1,0 +1,97 @@
+   IL_0000: ldarg.2
+   IL_0001: brfalse.s IL_0007
+   IL_0003: ldarg.2
+   IL_0004: ldlen
+   IL_0005: brtrue.s IL_0026
+   IL_0007: ldarg.0
+   IL_0008: ldfld Monocle.Atlas Monocle.Sprite::atlas
+   IL_000d: ldarg.0
+   IL_000e: ldfld System.String Monocle.Sprite::Path
+   IL_0013: ldarg.1
+   IL_0014: call System.String System.String::Concat(System.String,System.String)
+   IL_0019: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_001e: callvirt T[] System.Collections.Generic.List`1<Monocle.MTexture>::ToArray()
+   IL_0023: stloc.0
+   IL_0024: br.s IL_0096
+   IL_0026: ldarg.0
+   IL_0027: ldfld System.String Monocle.Sprite::Path
+   IL_002c: ldarg.1
+   IL_002d: call System.String System.String::Concat(System.String,System.String)
+   IL_0032: stloc.1
+   IL_0033: ldarg.2
+   IL_0034: ldlen
+   IL_0035: conv.i4
+   IL_0036: newarr Monocle.MTexture
+   IL_003b: stloc.2
+   IL_003c: ldc.i4.0
+   IL_003d: stloc.3
+   IL_003e: br.s IL_008e
+   IL_0040: ldarg.0
+   IL_0041: ldfld Monocle.Atlas Monocle.Sprite::atlas
+   IL_0046: ldloc.1
+   IL_0047: ldarg.2
+   IL_0048: ldloc.3
+   IL_0049: ldelem.i4
+   IL_004a: callvirt Monocle.MTexture Monocle.Atlas::GetAtlasSubtexturesAt(System.String,System.Int32)
+   IL_004f: stloc.s V_4
+   IL_0051: ldloc.s V_4
+   IL_0053: brtrue.s IL_0085
+   IL_0055: ldc.i4.4
+   IL_0056: newarr System.Object
+   IL_005b: dup
+   IL_005c: ldc.i4.0
+   IL_005d: ldstr "Can't find sprite "
+   IL_0062: stelem.ref
+   IL_0063: dup
+   IL_0064: ldc.i4.1
+   IL_0065: ldloc.1
+   IL_0066: stelem.ref
+   IL_0067: dup
+   IL_0068: ldc.i4.2
+   IL_0069: ldstr " with index "
+   IL_006e: stelem.ref
+   IL_006f: dup
+   IL_0070: ldc.i4.3
+   IL_0071: ldarg.2
+   IL_0072: ldloc.3
+   IL_0073: ldelem.i4
+   IL_0074: box System.Int32
+   IL_0079: stelem.ref
+   IL_007a: call System.String System.String::Concat(System.Object[])
+   IL_007f: newobj System.Void System.Exception::.ctor(System.String)
+   IL_0084: throw
+   IL_0085: ldloc.2
+   IL_0086: ldloc.3
+   IL_0087: ldloc.s V_4
+   IL_0089: stelem.ref
+   IL_008a: ldloc.3
+   IL_008b: ldc.i4.1
+   IL_008c: add
+   IL_008d: stloc.3
+   IL_008e: ldloc.3
+   IL_008f: ldarg.2
+   IL_0090: ldlen
+   IL_0091: conv.i4
+   IL_0092: blt.s IL_0040
+   IL_0094: ldloc.2
+   IL_0095: stloc.0
+   IL_0096: ldarg.0
+   IL_0097: ldloc.0
+   IL_0098: ldc.i4.0
+   IL_0099: ldelem.ref
+   IL_009a: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_009f: ldarg.0
+   IL_00a0: ldfld System.Int32 Monocle.Sprite::width
+   IL_00a5: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_00aa: stfld System.Int32 Monocle.Sprite::width
+   IL_00af: ldarg.0
+   IL_00b0: ldloc.0
+   IL_00b1: ldc.i4.0
+   IL_00b2: ldelem.ref
+   IL_00b3: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_00b8: ldarg.0
+   IL_00b9: ldfld System.Int32 Monocle.Sprite::height
+   IL_00be: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_00c3: stfld System.Int32 Monocle.Sprite::height
+   IL_00c8: ldloc.0
+   IL_00c9: ret

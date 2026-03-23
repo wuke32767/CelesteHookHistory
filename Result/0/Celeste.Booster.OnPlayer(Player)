@@ -1,0 +1,62 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.WormholeBooster.BoosterOnPlayerHook(orig_OnPlayer,Booster,Player)
+On: Celeste.Mod.FemtoHelper.Entities.BoostingBoosterSorryIStoleFromCommunalHelper.Booster_OnPlayer(orig_OnPlayer,Booster,Player)
+On: ChroniaHelper.Entities.BoosterZipper.Booster_OnPlayer(orig_OnPlayer,Booster,Player)
+On: .PL_VirtualRedir<Celeste.Booster::OnPlayer>?57229224(Booster,Player)
+On: Celeste.Mod.DashlessHelper.DashlessModule.otherDir(orig_OnPlayer,Booster,Player)
+On: Celeste.Mod.CommunalHelper.Entities.StrawberryJam.WormholeBooster.BoosterOnPlayerHook(orig_OnPlayer,Booster,Player)
+On: Celeste.Mod.CommunalHelper.Entities.CustomBooster.Booster_OnPlayer(orig_OnPlayer,Booster,Player)
+On: Celeste.Mod.KyfexHelper.CloneDreamBooster.customOnPlayer(orig_OnPlayer,Booster,Player)
+On: Celeste.Mod.KyfexHelper.CloneBooster.customOnPlayer(orig_OnPlayer,Booster,Player)
+On: Celeste.Mod.AdamsAddons.Entities.Utils.Boostar.modOnPlayer(orig_OnPlayer,Booster,Player)
+On: Celeste.Mod.SelfishHelper.Entities.FreezeBooster+Hooks.Booster_OnPlayer(orig_OnPlayer,Booster,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Single Celeste.Booster::respawnTimer
+   IL_0006: ldc.r4 0
+   IL_000b: bgt.un IL_009f
+   IL_0010: ldarg.0
+   IL_0011: ldfld System.Single Celeste.Booster::cannotUseTimer
+   IL_0016: ldc.r4 0
+   IL_001b: bgt.un IL_009f
+   IL_0020: ldarg.0
+   IL_0021: callvirt System.Boolean Celeste.Booster::get_BoostingPlayer()
+   IL_0026: brtrue IL_009f
+   IL_002b: ldarg.0
+   IL_002c: ldc.r4 0.45
+   IL_0031: stfld System.Single Celeste.Booster::cannotUseTimer
+   IL_0036: ldarg.0
+   IL_0037: ldfld System.Boolean Celeste.Booster::red
+   IL_003c: brfalse.s IL_0047
+   IL_003e: ldarg.1
+   IL_003f: ldarg.0
+   IL_0040: callvirt System.Void Celeste.Player::RedBoost(Celeste.Booster)
+   IL_0045: br.s IL_004e
+   IL_0047: ldarg.1
+   IL_0048: ldarg.0
+   IL_0049: callvirt System.Void Celeste.Player::Boost(Celeste.Booster)
+   IL_004e: ldarg.0
+   IL_004f: ldfld System.Boolean Celeste.Booster::red
+   IL_0054: brtrue.s IL_005d
+   IL_0056: ldstr "event:/game/04_cliffside/greenbooster_enter"
+   IL_005b: br.s IL_0062
+   IL_005d: ldstr "event:/game/05_mirror_temple/redbooster_enter"
+   IL_0062: ldarg.0
+   IL_0063: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0068: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_006d: pop
+   IL_006e: ldarg.0
+   IL_006f: ldfld Monocle.Wiggler Celeste.Booster::wiggler
+   IL_0074: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0079: ldarg.0
+   IL_007a: ldfld Monocle.Sprite Celeste.Booster::sprite
+   IL_007f: ldstr "inside"
+   IL_0084: ldc.i4.0
+   IL_0085: ldc.i4.0
+   IL_0086: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_008b: ldarg.0
+   IL_008c: ldfld Monocle.Sprite Celeste.Booster::sprite
+   IL_0091: ldarg.1
+   IL_0092: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_0097: ldc.i4.m1
+   IL_0098: ceq
+   IL_009a: callvirt System.Void Monocle.GraphicsComponent::set_FlipX(System.Boolean)
+   IL_009f: ret

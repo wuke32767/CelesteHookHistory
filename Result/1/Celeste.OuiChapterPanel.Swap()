@@ -1,0 +1,19 @@
+On: Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.OnChapterPanelSwap(orig_Swap,OuiChapterPanel)
+On: Celeste.Mod.AurorasAdditions.AurorasAdditionsModule.OuiChapterPanel_Swap(orig_Swap,OuiChapterPanel)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: stfld System.Boolean Celeste.Oui::Focused
+   IL_0007: ldarg.0
+   IL_0008: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_000d: ldarg.0
+   IL_000e: ldfld System.Boolean Celeste.OuiChapterPanel::selectingMode
+   IL_0013: ldc.i4.0
+   IL_0014: ceq
+   IL_0016: stfld System.Boolean Celeste.Overworld::ShowInputUI
+   IL_001b: ldarg.0
+   IL_001c: ldarg.0
+   IL_001d: callvirt System.Collections.IEnumerator Celeste.OuiChapterPanel::SwapRoutine()
+   IL_0022: ldc.i4.1
+   IL_0023: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0028: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_002d: ret

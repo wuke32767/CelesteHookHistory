@@ -1,0 +1,20 @@
+On: Celeste.Mod.SpeedrunTool.Other.MuteInBackground.AudioOnUnload(orig_Unload)
+   IL_0000: call System.Boolean Celeste.Mod.Everest/Flags::get_IsHeadless()
+   IL_0005: brfalse.s IL_0008
+   IL_0007: ret
+   IL_0008: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_000d: ldnull
+   IL_000e: call System.Boolean FMOD.Studio.HandleBase::op_Equality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_0013: brfalse.s IL_0016
+   IL_0015: ret
+   IL_0016: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_001b: callvirt FMOD.RESULT FMOD.Studio.System::unloadAll()
+   IL_0020: pop
+   IL_0021: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0026: callvirt FMOD.RESULT FMOD.Studio.System::release()
+   IL_002b: pop
+   IL_002c: ldnull
+   IL_002d: stsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0032: ldc.i4.0
+   IL_0033: stsfld System.Boolean Celeste.Audio::ready
+   IL_0038: ret

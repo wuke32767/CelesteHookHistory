@@ -1,0 +1,75 @@
+IL: Celeste.Mod.MaxHelpingHand.Entities.Pico8FlagController.onPico8Berry(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: ldc.i4.0
+   IL_0003: call T Celeste.Pico8.Classic/ClassicObject::collide<Celeste.Pico8.Classic/player>(System.Int32,System.Int32)
+   IL_0008: stloc.0
+   IL_0009: ldloc.0
+   IL_000a: brfalse IL_0091
+   IL_000f: ldloc.0
+   IL_0010: ldarg.0
+   IL_0011: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0016: ldfld System.Int32 Celeste.Pico8.Classic::max_djump
+   IL_001b: stfld System.Int32 Celeste.Pico8.Classic/player::djump
+   IL_0020: ldarg.0
+   IL_0021: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0026: ldc.i4.s 20
+   IL_0028: stfld System.Int32 Celeste.Pico8.Classic::sfx_timer
+   IL_002d: ldarg.0
+   IL_002e: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0033: ldc.i4.s 13
+   IL_0035: callvirt System.Void Celeste.Pico8.Emulator::sfx(System.Int32)
+   IL_003a: ldarg.0
+   IL_003b: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0040: ldfld System.Collections.Generic.HashSet`1<System.Int32> Celeste.Pico8.Classic::got_fruit
+   IL_0045: ldc.i4.1
+   IL_0046: ldarg.0
+   IL_0047: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_004c: callvirt System.Int32 Celeste.Pico8.Classic::level_index()
+   IL_0051: add
+   IL_0052: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.Int32>::Add(T)
+   IL_0057: pop
+   IL_0058: ldarg.0
+   IL_0059: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_005e: newobj System.Void Celeste.Pico8.Classic/lifeup::.ctor()
+   IL_0063: ldarg.0
+   IL_0064: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_0069: ldarg.0
+   IL_006a: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_006f: ldloca.s V_1
+   IL_0071: initobj System.Nullable`1<System.Int32>
+   IL_0077: ldloc.1
+   IL_0078: callvirt T Celeste.Pico8.Classic::init_object<Celeste.Pico8.Classic/lifeup>(T,System.Single,System.Single,System.Nullable`1<System.Int32>)
+   IL_007d: pop
+   IL_007e: ldarg.0
+   IL_007f: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0084: ldarg.0
+   IL_0085: callvirt System.Void Celeste.Pico8.Classic::destroy_object(Celeste.Pico8.Classic/ClassicObject)
+   IL_008a: ldc.i4.6
+   IL_008b: ldc.i4.1
+ + IL_10000: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.Pico8FlagController.onPico8Berry(ILContext)
+ + IL_10001: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G @ Celeste.Mod.MaxHelpingHand.Entities.Pico8FlagController.onPico8Berry(ILContext)
+ + IL_10002: ldfld System.Collections.Generic.HashSet`1<System.Int32> Celeste.Pico8.Classic::got_fruit @ Celeste.Mod.MaxHelpingHand.Entities.Pico8FlagController.onPico8Berry(ILContext)
+ + IL_10003: call System.Void Celeste.Mod.MaxHelpingHand.Entities.Pico8FlagController::signalPico8BerryCount(System.Collections.Generic.HashSet`1<System.Int32>) @ Celeste.Mod.MaxHelpingHand.Entities.Pico8FlagController.onPico8Berry(ILContext)
+   IL_008c: call System.Void Celeste.Stats::Increment(Celeste.Stat,System.Int32)
+   IL_0091: ldarg.0
+   IL_0092: ldarg.0
+   IL_0093: ldfld System.Single Celeste.Pico8.Classic/fruit::off
+   IL_0098: ldc.r4 1
+   IL_009d: add
+   IL_009e: stfld System.Single Celeste.Pico8.Classic/fruit::off
+   IL_00a3: ldarg.0
+   IL_00a4: ldarg.0
+   IL_00a5: ldfld System.Single Celeste.Pico8.Classic/fruit::start
+   IL_00aa: ldarg.0
+   IL_00ab: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_00b0: ldarg.0
+   IL_00b1: ldfld System.Single Celeste.Pico8.Classic/fruit::off
+   IL_00b6: ldc.r4 40
+   IL_00bb: div
+   IL_00bc: callvirt System.Single Celeste.Pico8.Emulator::sin(System.Single)
+   IL_00c1: ldc.r4 2.5
+   IL_00c6: mul
+   IL_00c7: add
+   IL_00c8: stfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_00cd: ret

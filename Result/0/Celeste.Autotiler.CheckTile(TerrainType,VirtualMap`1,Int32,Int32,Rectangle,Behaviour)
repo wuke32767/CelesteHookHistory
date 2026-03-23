@@ -1,0 +1,78 @@
+On: Celeste.Mod.FancyTileEntities.Extensions.Autotiler_CheckTile(orig_CheckTile,Autotiler,Object,VirtualMap`1,Int32,Int32,Rectangle,Behaviour)
+   IL_0000: ldarga.s forceFill
+   IL_0002: ldarg.3
+   IL_0003: ldarg.s y
+   IL_0005: call System.Boolean Microsoft.Xna.Framework.Rectangle::Contains(System.Int32,System.Int32)
+   IL_000a: brfalse.s IL_000e
+   IL_000c: ldc.i4.1
+   IL_000d: ret
+   IL_000e: ldarg.2
+   IL_000f: brtrue.s IL_0019
+   IL_0011: ldarg.s behaviour
+   IL_0013: ldfld System.Boolean Celeste.Autotiler/Behaviour::EdgesExtend
+   IL_0018: ret
+   IL_0019: ldarg.3
+   IL_001a: ldc.i4.0
+   IL_001b: blt.s IL_0035
+   IL_001d: ldarg.s y
+   IL_001f: ldc.i4.0
+   IL_0020: blt.s IL_0035
+   IL_0022: ldarg.3
+   IL_0023: ldarg.2
+   IL_0024: ldfld System.Int32 Monocle.VirtualMap`1<System.Char>::Columns
+   IL_0029: bge.s IL_0035
+   IL_002b: ldarg.s y
+   IL_002d: ldarg.2
+   IL_002e: ldfld System.Int32 Monocle.VirtualMap`1<System.Char>::Rows
+   IL_0033: blt.s IL_007c
+   IL_0035: ldarg.s behaviour
+   IL_0037: ldfld System.Boolean Celeste.Autotiler/Behaviour::EdgesExtend
+   IL_003c: brtrue.s IL_0040
+   IL_003e: ldc.i4.0
+   IL_003f: ret
+   IL_0040: ldarg.2
+   IL_0041: ldarg.3
+   IL_0042: ldc.i4.0
+   IL_0043: ldarg.2
+   IL_0044: ldfld System.Int32 Monocle.VirtualMap`1<System.Char>::Columns
+   IL_0049: ldc.i4.1
+   IL_004a: sub
+   IL_004b: call System.Int32 Monocle.Calc::Clamp(System.Int32,System.Int32,System.Int32)
+   IL_0050: ldarg.s y
+   IL_0052: ldc.i4.0
+   IL_0053: ldarg.2
+   IL_0054: ldfld System.Int32 Monocle.VirtualMap`1<System.Char>::Rows
+   IL_0059: ldc.i4.1
+   IL_005a: sub
+   IL_005b: call System.Int32 Monocle.Calc::Clamp(System.Int32,System.Int32,System.Int32)
+   IL_0060: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0065: stloc.0
+   IL_0066: ldarg.0
+   IL_0067: ldloc.0
+   IL_0068: callvirt System.Boolean Celeste.Autotiler::IsEmpty(System.Char)
+   IL_006d: brtrue.s IL_007a
+   IL_006f: ldarg.1
+   IL_0070: ldloc.0
+   IL_0071: callvirt System.Boolean Celeste.Autotiler/TerrainType::Ignore(System.Char)
+   IL_0076: ldc.i4.0
+   IL_0077: ceq
+   IL_0079: ret
+   IL_007a: ldc.i4.0
+   IL_007b: ret
+   IL_007c: ldarg.2
+   IL_007d: ldarg.3
+   IL_007e: ldarg.s y
+   IL_0080: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0085: stloc.1
+   IL_0086: ldarg.0
+   IL_0087: ldloc.1
+   IL_0088: callvirt System.Boolean Celeste.Autotiler::IsEmpty(System.Char)
+   IL_008d: brtrue.s IL_009a
+   IL_008f: ldarg.1
+   IL_0090: ldloc.1
+   IL_0091: callvirt System.Boolean Celeste.Autotiler/TerrainType::Ignore(System.Char)
+   IL_0096: ldc.i4.0
+   IL_0097: ceq
+   IL_0099: ret
+   IL_009a: ldc.i4.0
+   IL_009b: ret

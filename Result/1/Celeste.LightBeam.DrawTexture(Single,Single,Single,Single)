@@ -1,0 +1,43 @@
+On: Celeste.Mod.hELPER.FlagControlledLightBeam.DrawTextureHook(orig_DrawTexture,LightBeam,Single,Single,Single,Single)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Single Celeste.LightBeam::Rotation
+   IL_0006: ldc.r4 1.5707964
+   IL_000b: add
+   IL_000c: stloc.0
+   IL_000d: ldarg.2
+   IL_000e: ldc.r4 1
+   IL_0013: blt.un.s IL_0083
+   IL_0015: ldarg.0
+   IL_0016: ldfld Monocle.MTexture Celeste.LightBeam::texture
+   IL_001b: ldarg.0
+   IL_001c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0021: ldarg.0
+   IL_0022: ldfld System.Single Celeste.LightBeam::Rotation
+   IL_0027: ldc.r4 1
+   IL_002c: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_0031: ldarg.1
+   IL_0032: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0037: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_003c: ldc.r4 0
+   IL_0041: ldc.r4 0.5
+   IL_0046: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_004b: ldarg.0
+   IL_004c: ldfld Microsoft.Xna.Framework.Color Celeste.LightBeam::color
+   IL_0051: ldarg.s a
+   IL_0053: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0058: ldarg.0
+   IL_0059: ldfld System.Single Celeste.LightBeam::alpha
+   IL_005e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0063: ldc.r4 1
+   IL_0068: ldarg.0
+   IL_0069: ldfld Monocle.MTexture Celeste.LightBeam::texture
+   IL_006e: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_0073: conv.r4
+   IL_0074: div
+   IL_0075: ldarg.3
+   IL_0076: mul
+   IL_0077: ldarg.2
+   IL_0078: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_007d: ldloc.0
+   IL_007e: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0083: ret

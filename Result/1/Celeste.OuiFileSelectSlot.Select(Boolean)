@@ -1,0 +1,61 @@
+On: Celeste.Mod.HardcoreMode.HMModule.On_OuiFileSelectSlot_Select(orig_Select,OuiFileSelectSlot,Boolean)
+   IL_0000: newobj System.Void Celeste.OuiFileSelectSlot/<>c__DisplayClass74_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.0
+   IL_0008: stfld Celeste.OuiFileSelectSlot Celeste.OuiFileSelectSlot/<>c__DisplayClass74_0::<>4__this
+   IL_000d: ldarg.0
+   IL_000e: ldc.i4.1
+   IL_000f: stfld System.Boolean Monocle.Entity::Visible
+   IL_0014: ldarg.0
+   IL_0015: ldc.i4.0
+   IL_0016: stfld System.Boolean Celeste.OuiFileSelectSlot::deleting
+   IL_001b: ldarg.0
+   IL_001c: ldc.i4.0
+   IL_001d: stfld System.Boolean Celeste.OuiFileSelectSlot::StartingGame
+   IL_0022: ldarg.0
+   IL_0023: ldc.i4.0
+   IL_0024: stfld System.Boolean Celeste.OuiFileSelectSlot::Renaming
+   IL_0029: ldarg.0
+   IL_002a: ldc.i4.0
+   IL_002b: stfld System.Boolean Celeste.OuiFileSelectSlot::Assisting
+   IL_0030: ldarg.0
+   IL_0031: callvirt System.Void Celeste.OuiFileSelectSlot::CreateButtons()
+   IL_0036: ldarg.0
+   IL_0037: callvirt Monocle.Sprite Celeste.OuiFileSelectSlot::get_Card()
+   IL_003c: ldstr "shine"
+   IL_0041: ldc.i4.0
+   IL_0042: ldc.i4.0
+   IL_0043: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0048: ldarg.0
+   IL_0049: callvirt Monocle.Sprite Celeste.OuiFileSelectSlot::get_Ticket()
+   IL_004e: ldstr "shine"
+   IL_0053: ldc.i4.0
+   IL_0054: ldc.i4.0
+   IL_0055: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_005a: ldloc.0
+   IL_005b: ldarg.0
+   IL_005c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0061: stfld Microsoft.Xna.Framework.Vector2 Celeste.OuiFileSelectSlot/<>c__DisplayClass74_0::from
+   IL_0066: ldarg.0
+   IL_0067: ldfld Monocle.Wiggler Celeste.OuiFileSelectSlot::wiggler
+   IL_006c: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0071: ldarg.1
+   IL_0072: brfalse.s IL_007b
+   IL_0074: ldarg.0
+   IL_0075: ldc.i4.0
+   IL_0076: stfld System.Int32 Celeste.OuiFileSelectSlot::buttonIndex
+   IL_007b: ldarg.0
+   IL_007c: ldc.i4.1
+   IL_007d: stfld System.Int32 Celeste.OuiFileSelectSlot::deleteIndex
+   IL_0082: ldarg.0
+   IL_0083: ldc.r4 0.1
+   IL_0088: stfld System.Single Celeste.OuiFileSelectSlot::inputDelay
+   IL_008d: ldarg.0
+   IL_008e: ldc.r4 0.25
+   IL_0093: ldloc.0
+   IL_0094: ldftn System.Void Celeste.OuiFileSelectSlot/<>c__DisplayClass74_0::<Select>b__0(Monocle.Tween)
+   IL_009a: newobj System.Void System.Action`1<Monocle.Tween>::.ctor(System.Object,System.IntPtr)
+   IL_009f: ldc.i4.0
+   IL_00a0: callvirt System.Void Celeste.OuiFileSelectSlot::StartTween(System.Single,System.Action`1<Monocle.Tween>,System.Boolean)
+   IL_00a5: ret

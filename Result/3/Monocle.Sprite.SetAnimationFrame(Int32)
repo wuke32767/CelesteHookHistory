@@ -1,0 +1,22 @@
+On: Celeste.Mod.SkinModHelper.SomePatches.SpriteSetAnimationFrameHook(orig_SetAnimationFrame,Sprite,Int32)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 0
+   IL_0006: stfld System.Single Monocle.Sprite::animationTimer
+   IL_000b: ldarg.0
+   IL_000c: ldarg.1
+   IL_000d: ldarg.0
+   IL_000e: ldfld Monocle.Sprite/Animation Monocle.Sprite::currentAnimation
+   IL_0013: ldfld Monocle.MTexture[] Monocle.Sprite/Animation::Frames
+   IL_0018: ldlen
+   IL_0019: conv.i4
+   IL_001a: rem
+   IL_001b: callvirt System.Void Monocle.Sprite::set_CurrentAnimationFrame(System.Int32)
+   IL_0020: ldarg.0
+   IL_0021: ldarg.0
+   IL_0022: ldfld Monocle.Sprite/Animation Monocle.Sprite::currentAnimation
+   IL_0027: ldfld Monocle.MTexture[] Monocle.Sprite/Animation::Frames
+   IL_002c: ldarg.0
+   IL_002d: callvirt System.Int32 Monocle.Sprite::get_CurrentAnimationFrame()
+   IL_0032: ldelem.ref
+   IL_0033: callvirt System.Void Monocle.Sprite::SetFrame(Monocle.MTexture)
+   IL_0038: ret

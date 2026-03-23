@@ -1,0 +1,22 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.monAreaDataHasMode(orig_HasMode,AreaData,AreaMode)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_0006: ldlen
+   IL_0007: conv.i4
+   IL_0008: ldarg.1
+   IL_0009: ble.s IL_0026
+   IL_000b: ldarg.0
+   IL_000c: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_0011: ldarg.1
+   IL_0012: ldelem.ref
+   IL_0013: brfalse.s IL_0026
+   IL_0015: ldarg.0
+   IL_0016: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_001b: ldarg.1
+   IL_001c: ldelem.ref
+   IL_001d: ldfld System.String Celeste.ModeProperties::Path
+   IL_0022: ldnull
+   IL_0023: cgt.un
+   IL_0025: ret
+   IL_0026: ldc.i4.0
+   IL_0027: ret

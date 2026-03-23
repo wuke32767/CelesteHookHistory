@@ -1,0 +1,62 @@
+On: Celeste.Mod.AdamsAddons.Entities.RegistryDecal.modMakeMirror(orig_MakeMirror_string_bool,Decal,String,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4 9500
+   IL_0006: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_000b: ldarg.2
+   IL_000c: brfalse.s IL_001c
+   IL_000e: ldarg.0
+   IL_000f: ldarg.1
+   IL_0010: ldarg.0
+   IL_0011: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Decal::GetMirrorOffset()
+   IL_0016: callvirt System.Void Celeste.Decal::MakeMirror(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_001b: ret
+   IL_001c: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0021: ldstr "mirrormasks/"
+   IL_0026: ldarg.1
+   IL_0027: call System.String System.String::Concat(System.String,System.String)
+   IL_002c: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0031: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.MTexture>::GetEnumerator()
+   IL_0036: stloc.0
+   IL_0037: br.s IL_00a0
+   IL_0039: newobj System.Void Celeste.Decal/<>c__DisplayClass24_0::.ctor()
+   IL_003e: stloc.1
+   IL_003f: ldloc.1
+   IL_0040: ldarg.0
+   IL_0041: stfld Celeste.Decal Celeste.Decal/<>c__DisplayClass24_0::<>4__this
+   IL_0046: ldloc.1
+   IL_0047: ldloca.s V_0
+   IL_0049: call T System.Collections.Generic.List`1/Enumerator<Monocle.MTexture>::get_Current()
+   IL_004e: stfld Monocle.MTexture Celeste.Decal/<>c__DisplayClass24_0::mask
+   IL_0053: newobj System.Void Celeste.Decal/<>c__DisplayClass24_1::.ctor()
+   IL_0058: stloc.2
+   IL_0059: ldloc.2
+   IL_005a: ldloc.1
+   IL_005b: stfld Celeste.Decal/<>c__DisplayClass24_0 Celeste.Decal/<>c__DisplayClass24_1::CS$<>8__locals1
+   IL_0060: ldloc.2
+   IL_0061: ldnull
+   IL_0062: newobj System.Void Celeste.MirrorSurface::.ctor(System.Action)
+   IL_0067: stfld Celeste.MirrorSurface Celeste.Decal/<>c__DisplayClass24_1::surface
+   IL_006c: ldloc.2
+   IL_006d: ldfld Celeste.MirrorSurface Celeste.Decal/<>c__DisplayClass24_1::surface
+   IL_0072: ldarg.0
+   IL_0073: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Decal::GetMirrorOffset()
+   IL_0078: callvirt System.Void Celeste.MirrorSurface::set_ReflectionOffset(Microsoft.Xna.Framework.Vector2)
+   IL_007d: ldloc.2
+   IL_007e: ldfld Celeste.MirrorSurface Celeste.Decal/<>c__DisplayClass24_1::surface
+   IL_0083: ldloc.2
+   IL_0084: ldftn System.Void Celeste.Decal/<>c__DisplayClass24_1::<MakeMirror>b__0()
+   IL_008a: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_008f: stfld System.Action Celeste.MirrorSurface::OnRender
+   IL_0094: ldarg.0
+   IL_0095: ldloc.2
+   IL_0096: ldfld Celeste.MirrorSurface Celeste.Decal/<>c__DisplayClass24_1::surface
+   IL_009b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00a0: ldloca.s V_0
+   IL_00a2: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.MTexture>::MoveNext()
+   IL_00a7: brtrue.s IL_0039
+   IL_00a9: leave.s IL_00b9
+   IL_00ab: ldloca.s V_0
+   IL_00ad: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.MTexture>
+   IL_00b3: callvirt System.Void System.IDisposable::Dispose()
+   IL_00b8: endfinally
+   IL_00b9: ret

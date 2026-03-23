@@ -1,0 +1,34 @@
+On: Celeste.Mod.StrawberryJam2021.Cutscenes.TasHelper.GamePadData_Rumble(orig_Rumble,GamePadData,Single,Single)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.DisableRumble::IsDisableRumble() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Single Monocle.MInput/GamePadData::rumbleTime
+   IL_0011: ldc.r4 0
+   IL_0016: ble.s IL_0033
+   IL_0018: ldarg.1
+   IL_0019: ldarg.0
+   IL_001a: ldfld System.Single Monocle.MInput/GamePadData::rumbleStrength
+   IL_001f: bgt.s IL_0033
+   IL_0021: ldarg.1
+   IL_0022: ldarg.0
+   IL_0023: ldfld System.Single Monocle.MInput/GamePadData::rumbleStrength
+   IL_0028: bne.un.s IL_004f
+   IL_002a: ldarg.2
+   IL_002b: ldarg.0
+   IL_002c: ldfld System.Single Monocle.MInput/GamePadData::rumbleTime
+   IL_0031: ble.un.s IL_004f
+   IL_0033: ldarg.0
+   IL_0034: ldfld Microsoft.Xna.Framework.PlayerIndex Monocle.MInput/GamePadData::PlayerIndex
+   IL_0039: ldarg.1
+   IL_003a: ldarg.1
+   IL_003b: call System.Boolean Microsoft.Xna.Framework.Input.GamePad::SetVibration(Microsoft.Xna.Framework.PlayerIndex,System.Single,System.Single)
+   IL_0040: pop
+   IL_0041: ldarg.0
+   IL_0042: ldarg.1
+   IL_0043: stfld System.Single Monocle.MInput/GamePadData::rumbleStrength
+   IL_0048: ldarg.0
+   IL_0049: ldarg.2
+   IL_004a: stfld System.Single Monocle.MInput/GamePadData::rumbleTime
+   IL_004f: ret

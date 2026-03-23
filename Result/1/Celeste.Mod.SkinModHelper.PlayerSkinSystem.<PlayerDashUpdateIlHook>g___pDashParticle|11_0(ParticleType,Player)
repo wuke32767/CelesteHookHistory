@@ -1,0 +1,36 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0007: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_000c: stloc.0
+   IL_000d: ldarg.1
+   IL_000e: call System.Int32 Celeste.Mod.SkinModHelper.PlayerSkinSystem::GetStartedDashingCount(Celeste.Player)
+   IL_0013: stloc.1
+   IL_0014: ldloc.0
+   IL_0015: ldc.i4.s 102
+   IL_0017: ldloc.1
+   IL_0018: ldloca.s V_2
+   IL_001a: callvirt System.Boolean Celeste.Mod.SkinModHelper.HairConfig::Safe_GetHairColor(System.Int32,System.Int32,Microsoft.Xna.Framework.Color&)
+   IL_001f: stloc.3
+   IL_0020: ldloc.3
+   IL_0021: brfalse.s IL_004a
+   IL_0023: nop
+   IL_0024: ldarg.0
+   IL_0025: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_002a: starg.s orig
+   IL_002c: ldarg.0
+   IL_002d: ldloc.2
+   IL_002e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0033: ldarg.0
+   IL_0034: ldloc.2
+   IL_0035: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_003a: ldc.r4 0.4
+   IL_003f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0044: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0049: nop
+   IL_004a: ldarg.0
+   IL_004b: stloc.s V_4
+   IL_004d: br.s IL_004f
+   IL_004f: ldloc.s V_4
+   IL_0051: ret

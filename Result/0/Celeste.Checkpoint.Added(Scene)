@@ -1,0 +1,101 @@
+On: LuckyHelper.Modules.FindLastCheckpointModule.CheckpointOnAdded(orig_Added,Checkpoint,Scene)
+On: Celeste.Mod.GoldenBerryImprovements.GoldenBerryImprovementsModule.newAdded(orig_Added,Checkpoint,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000d: isinst Celeste.Level
+   IL_0012: stloc.0
+   IL_0013: ldloc.0
+   IL_0014: ldfld Celeste.Session Celeste.Level::Session
+   IL_0019: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_001e: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0023: stloc.1
+   IL_0024: ldstr ""
+   IL_0029: stloc.2
+   IL_002a: ldarg.0
+   IL_002b: ldfld System.String Celeste.Checkpoint::bg
+   IL_0030: call System.Boolean System.String::IsNullOrWhiteSpace(System.String)
+   IL_0035: brfalse.s IL_004a
+   IL_0037: ldstr "objects/checkpoint/bg/"
+   IL_003c: ldloc.1
+   IL_003d: box System.Int32
+   IL_0042: call System.String System.String::Concat(System.Object,System.Object)
+   IL_0047: stloc.2
+   IL_0048: br.s IL_005b
+   IL_004a: ldstr "objects/checkpoint/bg/"
+   IL_004f: ldarg.0
+   IL_0050: ldfld System.String Celeste.Checkpoint::bg
+   IL_0055: call System.String System.String::Concat(System.String,System.String)
+   IL_005a: stloc.2
+   IL_005b: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0060: ldloc.2
+   IL_0061: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_0066: brfalse.s IL_009d
+   IL_0068: ldarg.0
+   IL_0069: ldarg.0
+   IL_006a: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_006f: ldloc.2
+   IL_0070: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0075: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_007a: dup
+   IL_007b: stloc.3
+   IL_007c: stfld Monocle.Image Celeste.Checkpoint::image
+   IL_0081: ldloc.3
+   IL_0082: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0087: ldarg.0
+   IL_0088: ldfld Monocle.Image Celeste.Checkpoint::image
+   IL_008d: ldc.r4 0.5
+   IL_0092: ldc.r4 1
+   IL_0097: callvirt Monocle.Image Monocle.Image::JustifyOrigin(System.Single,System.Single)
+   IL_009c: pop
+   IL_009d: ldarg.0
+   IL_009e: ldarg.0
+   IL_009f: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_00a4: ldstr "checkpoint_highlight"
+   IL_00a9: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_00ae: dup
+   IL_00af: stloc.s V_4
+   IL_00b1: stfld Monocle.Sprite Celeste.Checkpoint::sprite
+   IL_00b6: ldloc.s V_4
+   IL_00b8: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00bd: ldarg.0
+   IL_00be: ldfld Monocle.Sprite Celeste.Checkpoint::sprite
+   IL_00c3: ldstr "off"
+   IL_00c8: ldc.i4.0
+   IL_00c9: ldc.i4.0
+   IL_00ca: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_00cf: ldarg.0
+   IL_00d0: ldarg.0
+   IL_00d1: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_00d6: ldstr "checkpoint_flash"
+   IL_00db: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_00e0: dup
+   IL_00e1: stloc.s V_4
+   IL_00e3: stfld Monocle.Sprite Celeste.Checkpoint::flash
+   IL_00e8: ldloc.s V_4
+   IL_00ea: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00ef: ldarg.0
+   IL_00f0: ldfld Monocle.Sprite Celeste.Checkpoint::flash
+   IL_00f5: ldc.i4.0
+   IL_00f6: stfld System.Boolean Monocle.Component::Visible
+   IL_00fb: ldarg.0
+   IL_00fc: ldfld Monocle.Sprite Celeste.Checkpoint::flash
+   IL_0101: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0106: ldc.r4 0.6
+   IL_010b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0110: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0115: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_011a: ldloc.0
+   IL_011b: ldfld Celeste.Session Celeste.Level::Session
+   IL_0120: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0125: ldloc.0
+   IL_0126: ldfld Celeste.Session Celeste.Level::Session
+   IL_012b: ldfld System.String Celeste.Session::Level
+   IL_0130: callvirt System.Boolean Celeste.SaveData::HasCheckpoint(Celeste.AreaKey,System.String)
+   IL_0135: brfalse.s IL_013e
+   IL_0137: ldarg.0
+   IL_0138: ldc.i4.0
+   IL_0139: callvirt System.Void Celeste.Checkpoint::TurnOn(System.Boolean)
+   IL_013e: ret

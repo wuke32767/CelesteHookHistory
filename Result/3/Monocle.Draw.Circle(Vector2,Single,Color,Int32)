@@ -1,0 +1,71 @@
+On: Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.ModDrawCircle(orig_Circle_Vector2_float_Color_int,Vector2,Single,Color,Int32)
+On: HitboxFixer.HitboxFixerModule.modDrawCircle(orig_Circle_Vector2_float_Color_int,Vector2,Single,Color,Int32)
+On: Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.ModDrawCircle(orig_Circle_Vector2_float_Color_int,Vector2,Single,Color,Int32)
+On: TAS.EverestInterop.Hitboxes.HitboxFixer.ModDrawCircle(orig_Circle_Vector2_float_Color_int,Vector2,Single,Color,Int32)
+   IL_0000: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0005: ldarg.1
+   IL_0006: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_000b: stloc.0
+   IL_000c: ldloc.0
+   IL_000d: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Perpendicular(Microsoft.Xna.Framework.Vector2)
+   IL_0012: stloc.1
+   IL_0013: ldc.i4.1
+   IL_0014: stloc.2
+   IL_0015: br.s IL_008c
+   IL_0017: ldloc.2
+   IL_0018: conv.r4
+   IL_0019: ldc.r4 1.5707964
+   IL_001e: mul
+   IL_001f: ldarg.3
+   IL_0020: conv.r4
+   IL_0021: div
+   IL_0022: ldarg.1
+   IL_0023: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_0028: stloc.3
+   IL_0029: ldloc.3
+   IL_002a: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Perpendicular(Microsoft.Xna.Framework.Vector2)
+   IL_002f: stloc.s V_4
+   IL_0031: ldarg.0
+   IL_0032: ldloc.0
+   IL_0033: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0038: ldarg.0
+   IL_0039: ldloc.3
+   IL_003a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_003f: ldarg.2
+   IL_0040: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0045: ldarg.0
+   IL_0046: ldloc.0
+   IL_0047: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004c: ldarg.0
+   IL_004d: ldloc.3
+   IL_004e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0053: ldarg.2
+   IL_0054: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0059: ldarg.0
+   IL_005a: ldloc.1
+   IL_005b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0060: ldarg.0
+   IL_0061: ldloc.s V_4
+   IL_0063: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0068: ldarg.2
+   IL_0069: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_006e: ldarg.0
+   IL_006f: ldloc.1
+   IL_0070: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0075: ldarg.0
+   IL_0076: ldloc.s V_4
+   IL_0078: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_007d: ldarg.2
+   IL_007e: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0083: ldloc.3
+   IL_0084: stloc.0
+   IL_0085: ldloc.s V_4
+   IL_0087: stloc.1
+   IL_0088: ldloc.2
+   IL_0089: ldc.i4.1
+   IL_008a: add
+   IL_008b: stloc.2
+   IL_008c: ldloc.2
+   IL_008d: ldarg.3
+   IL_008e: ble.s IL_0017
+   IL_0090: ret

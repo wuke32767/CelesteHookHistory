@@ -1,0 +1,35 @@
+On: Celeste.Mod.MaxHelpingHand.Entities.RainbowSpinnerColorAreaController.getRainbowSpinnerHue(orig_GetHue,CrystalStaticSpinner,Vector2)
+On: Celeste.Mod.MaxHelpingHand.Entities.RainbowSpinnerColorController.getRainbowSpinnerHue(Func`3,CrystalStaticSpinner,Vector2)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.SimplifiedGraphics::<Initialize>g__OverwriteCrystalHue|5_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_001a @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ldc.i4 0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000f: ldc.i4 0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<Microsoft.Xna.Framework.Color>(System.Int32,System.Int32) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+        Reference: {R:255 G:255 B:255 A:255}
+ + IL_0019: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_001a: ldc.r4 280
+   IL_001f: stloc.0
+   IL_0020: ldarga.s position
+   IL_0022: call System.Single Microsoft.Xna.Framework.Vector2::Length()
+   IL_0027: ldarg.0
+   IL_0028: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_002d: ldfld System.Single Monocle.Scene::TimeActive
+   IL_0032: ldc.r4 50
+   IL_0037: mul
+   IL_0038: add
+   IL_0039: ldloc.0
+   IL_003a: rem
+   IL_003b: ldloc.0
+   IL_003c: div
+   IL_003d: stloc.1
+   IL_003e: ldc.r4 0.4
+   IL_0043: ldloc.1
+   IL_0044: call System.Single Monocle.Calc::YoYo(System.Single)
+   IL_0049: ldc.r4 0.4
+   IL_004e: mul
+   IL_004f: add
+   IL_0050: ldc.r4 0.4
+   IL_0055: ldc.r4 0.9
+   IL_005a: call Microsoft.Xna.Framework.Color Monocle.Calc::HsvToColor(System.Single,System.Single,System.Single)
+   IL_005f: ret

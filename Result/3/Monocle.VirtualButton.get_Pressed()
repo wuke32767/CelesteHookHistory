@@ -1,0 +1,83 @@
+On: Celeste.Mod.MaxHelpingHand.Entities.DisableControlsController.hookOnButton(Func`2,VirtualButton)
+   IL_0000: ldarg.0
+   IL_0001: ldflda System.Nullable`1<Microsoft.Xna.Framework.Input.Keys> Monocle.VirtualButton::DebugOverridePressed
+   IL_0006: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>::get_HasValue()
+   IL_000b: brfalse.s IL_0026
+   IL_000d: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0012: ldarg.0
+   IL_0013: ldflda System.Nullable`1<Microsoft.Xna.Framework.Input.Keys> Monocle.VirtualButton::DebugOverridePressed
+   IL_0018: call T System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>::get_Value()
+   IL_001d: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_0022: brfalse.s IL_0026
+   IL_0024: ldc.i4.1
+   IL_0025: ret
+   IL_0026: ldsfld System.Boolean Monocle.MInput::Disabled
+   IL_002b: brfalse.s IL_002f
+   IL_002d: ldc.i4.0
+   IL_002e: ret
+   IL_002f: ldarg.0
+   IL_0030: ldfld System.Boolean Monocle.VirtualButton::consumed
+   IL_0035: brfalse.s IL_0039
+   IL_0037: ldc.i4.0
+   IL_0038: ret
+   IL_0039: ldarg.0
+   IL_003a: ldfld System.Single Monocle.VirtualButton::bufferCounter
+   IL_003f: ldc.r4 0
+   IL_0044: bgt.s IL_004e
+   IL_0046: ldarg.0
+   IL_0047: callvirt System.Boolean Monocle.VirtualButton::get_Repeating()
+   IL_004c: brfalse.s IL_0063
+   IL_004e: ldarg.0
+   IL_004f: ldfld System.Boolean Monocle.VirtualButton::AutoConsumeBuffer
+   IL_0054: brfalse.s IL_0061
+   IL_0056: ldarg.0
+   IL_0057: ldc.r4 0
+   IL_005c: stfld System.Single Monocle.VirtualButton::bufferCounter
+   IL_0061: ldc.i4.1
+   IL_0062: ret
+   IL_0063: ldarg.0
+   IL_0064: ldfld Monocle.Binding Monocle.VirtualButton::Binding
+   IL_0069: ldarg.0
+   IL_006a: ldfld System.Int32 Monocle.VirtualButton::GamepadIndex
+   IL_006f: ldarg.0
+   IL_0070: ldfld System.Single Monocle.VirtualButton::Threshold
+   IL_0075: callvirt System.Boolean Monocle.Binding::Pressed(System.Int32,System.Single)
+   IL_007a: brfalse.s IL_0091
+   IL_007c: ldarg.0
+   IL_007d: ldfld System.Boolean Monocle.VirtualButton::AutoConsumeBuffer
+   IL_0082: brfalse.s IL_008f
+   IL_0084: ldarg.0
+   IL_0085: ldc.r4 0
+   IL_008a: stfld System.Single Monocle.VirtualButton::bufferCounter
+   IL_008f: ldc.i4.1
+   IL_0090: ret
+   IL_0091: ldarg.0
+   IL_0092: ldfld System.Collections.Generic.List`1<Monocle.VirtualButton/Node> Monocle.VirtualButton::Nodes
+   IL_0097: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.VirtualButton/Node>::GetEnumerator()
+   IL_009c: stloc.0
+   IL_009d: br.s IL_00c4
+   IL_009f: ldloca.s V_0
+   IL_00a1: call T System.Collections.Generic.List`1/Enumerator<Monocle.VirtualButton/Node>::get_Current()
+   IL_00a6: callvirt System.Boolean Monocle.VirtualButton/Node::get_Pressed()
+   IL_00ab: brfalse.s IL_00c4
+   IL_00ad: ldarg.0
+   IL_00ae: ldfld System.Boolean Monocle.VirtualButton::AutoConsumeBuffer
+   IL_00b3: brfalse.s IL_00c0
+   IL_00b5: ldarg.0
+   IL_00b6: ldc.r4 0
+   IL_00bb: stfld System.Single Monocle.VirtualButton::bufferCounter
+   IL_00c0: ldc.i4.1
+   IL_00c1: stloc.1
+   IL_00c2: leave.s IL_00df
+   IL_00c4: ldloca.s V_0
+   IL_00c6: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.VirtualButton/Node>::MoveNext()
+   IL_00cb: brtrue.s IL_009f
+   IL_00cd: leave.s IL_00dd
+   IL_00cf: ldloca.s V_0
+   IL_00d1: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.VirtualButton/Node>
+   IL_00d7: callvirt System.Void System.IDisposable::Dispose()
+   IL_00dc: endfinally
+   IL_00dd: ldc.i4.0
+   IL_00de: ret
+   IL_00df: ldloc.1
+   IL_00e0: ret

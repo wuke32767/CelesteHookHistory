@@ -1,0 +1,25 @@
+On: Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager.LevelExitOnCtor(orig_ctor,LevelExit,Mode,Session,HiresSnow)
+On: Celeste.Mod.SpeedrunTool.TeleportRoom.TeleportRoomUtils.LevelExitOnCtor(orig_ctor,LevelExit,Mode,Session,HiresSnow)
+On: Celeste.Mod.Randomizer.RandoModule.EndlessCantRestart(orig_ctor,LevelExit,Mode,Session,HiresSnow)
+On: Celeste.Mod.HardcoreMode.HMModule.On_LevelExit_ctor(orig_ctor,LevelExit,Mode,Session,HiresSnow)
+On: Celeste.Mod.EmoteMod.EmoteCancelModule.LevelExit(orig_ctor,LevelExit,Mode,Session,HiresSnow)
+On: ContortHelper.EffectsManager.OnLevelExitConstructor(orig_ctor,LevelExit,Mode,Session,HiresSnow)
+On: Celeste.Mod.CollabUtils2.UI.ReturnToLobbyHelper.onLevelExitConstructor(orig_ctor,LevelExit,Mode,Session,HiresSnow)
+On: Celeste.Mod.Vidcutter.VidcutterModule.OnRestart(orig_ctor,LevelExit,Mode,Session,HiresSnow)
+On: Celeste.Mod.GooberHelper.Entities.FluidSimulation.patch_LevelExit_ctor(orig_ctor,LevelExit,Mode,Session,HiresSnow)
+   IL_0000: ldarg.2
+   IL_0001: call Celeste.AreaData Celeste.AreaData::Get(Celeste.Session)
+   IL_0006: call System.Void Celeste.AreaDataExt::RestoreASideAreaData(Celeste.AreaData)
+   IL_000b: ldarg.0
+   IL_000c: ldarg.1
+   IL_000d: ldarg.2
+   IL_000e: ldarg.3
+   IL_000f: callvirt System.Void Celeste.LevelExit::orig_ctor(Celeste.LevelExit/Mode,Celeste.Session,Celeste.HiresSnow)
+   IL_0014: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0019: isinst Celeste.Level
+   IL_001e: ldarg.0
+   IL_001f: ldarg.1
+   IL_0020: ldarg.2
+   IL_0021: ldarg.3
+   IL_0022: call System.Void Celeste.Mod.Everest/Events/Level::Exit(Celeste.Level,Celeste.LevelExit,Celeste.LevelExit/Mode,Celeste.Session,Celeste.HiresSnow)
+   IL_0027: ret

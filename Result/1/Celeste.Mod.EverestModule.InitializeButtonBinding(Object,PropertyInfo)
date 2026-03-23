@@ -1,0 +1,101 @@
+On: Celeste.Mod.Spirialis.SpirialisModule.InitializeButtonBindingMultiple(orig_InitializeButtonBinding,EverestModule,Object,PropertyInfo)
+   IL_0000: ldarg.2
+   IL_0001: ldarg.1
+   IL_0002: callvirt System.Object System.Reflection.PropertyInfo::GetValue(System.Object)
+   IL_0007: isinst Celeste.Mod.ButtonBinding
+   IL_000c: stloc.0
+   IL_000d: ldloc.0
+   IL_000e: brtrue IL_00fa
+   IL_0013: newobj System.Void Celeste.Mod.ButtonBinding::.ctor()
+   IL_0018: stloc.0
+   IL_0019: ldarg.2
+   IL_001a: call T System.Reflection.CustomAttributeExtensions::GetCustomAttribute<Celeste.Mod.DefaultButtonBindingAttribute>(System.Reflection.MemberInfo)
+   IL_001f: stloc.1
+   IL_0020: ldloc.1
+   IL_0021: brfalse IL_00f2
+   IL_0026: ldloc.1
+   IL_0027: ldfld Microsoft.Xna.Framework.Input.Buttons Celeste.Mod.DefaultButtonBindingAttribute::Button
+   IL_002c: brfalse.s IL_0049
+   IL_002e: ldloc.0
+   IL_002f: callvirt Monocle.Binding Celeste.Mod.ButtonBinding::get_Binding()
+   IL_0034: ldc.i4.1
+   IL_0035: newarr Microsoft.Xna.Framework.Input.Buttons
+   IL_003a: dup
+   IL_003b: ldc.i4.0
+   IL_003c: ldloc.1
+   IL_003d: ldfld Microsoft.Xna.Framework.Input.Buttons Celeste.Mod.DefaultButtonBindingAttribute::Button
+   IL_0042: stelem.i4
+   IL_0043: callvirt System.Boolean Monocle.Binding::Add(Microsoft.Xna.Framework.Input.Buttons[])
+   IL_0048: pop
+   IL_0049: ldloc.1
+   IL_004a: ldfld Microsoft.Xna.Framework.Input.Keys Celeste.Mod.DefaultButtonBindingAttribute::Key
+   IL_004f: brfalse.s IL_006c
+   IL_0051: ldloc.0
+   IL_0052: callvirt Monocle.Binding Celeste.Mod.ButtonBinding::get_Binding()
+   IL_0057: ldc.i4.1
+   IL_0058: newarr Microsoft.Xna.Framework.Input.Keys
+   IL_005d: dup
+   IL_005e: ldc.i4.0
+   IL_005f: ldloc.1
+   IL_0060: ldfld Microsoft.Xna.Framework.Input.Keys Celeste.Mod.DefaultButtonBindingAttribute::Key
+   IL_0065: stelem.i4
+   IL_0066: callvirt System.Boolean Monocle.Binding::Add(Microsoft.Xna.Framework.Input.Keys[])
+   IL_006b: pop
+   IL_006c: ldloc.1
+   IL_006d: ldfld Microsoft.Xna.Framework.Input.Buttons[] Celeste.Mod.DefaultButtonBindingAttribute::Buttons
+   IL_0072: brfalse.s IL_00af
+   IL_0074: ldloc.0
+   IL_0075: callvirt Monocle.Binding Celeste.Mod.ButtonBinding::get_Binding()
+   IL_007a: ldloc.1
+   IL_007b: ldfld Microsoft.Xna.Framework.Input.Buttons[] Celeste.Mod.DefaultButtonBindingAttribute::Buttons
+   IL_0080: ldsfld System.Func`2<Microsoft.Xna.Framework.Input.Buttons,System.Boolean> Celeste.Mod.EverestModule/<>c::<>9__52_0
+   IL_0085: dup
+   IL_0086: brtrue.s IL_009f
+   IL_0088: pop
+   IL_0089: ldsfld Celeste.Mod.EverestModule/<>c Celeste.Mod.EverestModule/<>c::<>9
+   IL_008e: ldftn System.Boolean Celeste.Mod.EverestModule/<>c::<InitializeButtonBinding>b__52_0(Microsoft.Xna.Framework.Input.Buttons)
+   IL_0094: newobj System.Void System.Func`2<Microsoft.Xna.Framework.Input.Buttons,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0099: dup
+   IL_009a: stsfld System.Func`2<Microsoft.Xna.Framework.Input.Buttons,System.Boolean> Celeste.Mod.EverestModule/<>c::<>9__52_0
+   IL_009f: call System.Collections.Generic.IEnumerable`1<TSource> System.Linq.Enumerable::Where<Microsoft.Xna.Framework.Input.Buttons>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_00a4: call TSource[] System.Linq.Enumerable::ToArray<Microsoft.Xna.Framework.Input.Buttons>(System.Collections.Generic.IEnumerable`1<TSource>)
+   IL_00a9: callvirt System.Boolean Monocle.Binding::Add(Microsoft.Xna.Framework.Input.Buttons[])
+   IL_00ae: pop
+   IL_00af: ldloc.1
+   IL_00b0: ldfld Microsoft.Xna.Framework.Input.Keys[] Celeste.Mod.DefaultButtonBindingAttribute::Keys
+   IL_00b5: brfalse.s IL_00f2
+   IL_00b7: ldloc.0
+   IL_00b8: callvirt Monocle.Binding Celeste.Mod.ButtonBinding::get_Binding()
+   IL_00bd: ldloc.1
+   IL_00be: ldfld Microsoft.Xna.Framework.Input.Keys[] Celeste.Mod.DefaultButtonBindingAttribute::Keys
+   IL_00c3: ldsfld System.Func`2<Microsoft.Xna.Framework.Input.Keys,System.Boolean> Celeste.Mod.EverestModule/<>c::<>9__52_1
+   IL_00c8: dup
+   IL_00c9: brtrue.s IL_00e2
+   IL_00cb: pop
+   IL_00cc: ldsfld Celeste.Mod.EverestModule/<>c Celeste.Mod.EverestModule/<>c::<>9
+   IL_00d1: ldftn System.Boolean Celeste.Mod.EverestModule/<>c::<InitializeButtonBinding>b__52_1(Microsoft.Xna.Framework.Input.Keys)
+   IL_00d7: newobj System.Void System.Func`2<Microsoft.Xna.Framework.Input.Keys,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_00dc: dup
+   IL_00dd: stsfld System.Func`2<Microsoft.Xna.Framework.Input.Keys,System.Boolean> Celeste.Mod.EverestModule/<>c::<>9__52_1
+   IL_00e2: call System.Collections.Generic.IEnumerable`1<TSource> System.Linq.Enumerable::Where<Microsoft.Xna.Framework.Input.Keys>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_00e7: call TSource[] System.Linq.Enumerable::ToArray<Microsoft.Xna.Framework.Input.Keys>(System.Collections.Generic.IEnumerable`1<TSource>)
+   IL_00ec: callvirt System.Boolean Monocle.Binding::Add(Microsoft.Xna.Framework.Input.Keys[])
+   IL_00f1: pop
+   IL_00f2: ldarg.2
+   IL_00f3: ldarg.1
+   IL_00f4: ldloc.0
+   IL_00f5: callvirt System.Void System.Reflection.PropertyInfo::SetValue(System.Object,System.Object)
+   IL_00fa: ldloc.0
+   IL_00fb: ldloc.0
+   IL_00fc: callvirt Monocle.Binding Celeste.Mod.ButtonBinding::get_Binding()
+   IL_0101: call System.Int32 Celeste.Input::get_Gamepad()
+   IL_0106: ldc.r4 0.08
+   IL_010b: ldc.r4 0.2
+   IL_0110: newobj System.Void Monocle.VirtualButton::.ctor(Monocle.Binding,System.Int32,System.Single,System.Single)
+   IL_0115: castclass Monocle.VirtualButton
+   IL_011a: stfld Monocle.VirtualButton Celeste.Mod.ButtonBinding::Button
+   IL_011f: ldloc.0
+   IL_0120: ldfld Monocle.VirtualButton Celeste.Mod.ButtonBinding::Button
+   IL_0125: ldc.i4.1
+   IL_0126: stfld System.Boolean Monocle.VirtualButton::AutoConsumeBuffer
+   IL_012b: ret

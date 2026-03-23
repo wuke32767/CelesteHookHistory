@@ -1,0 +1,17 @@
+On: ChroniaHelper.Cores.MapProcessor.GlobalUpdate(orig_Update,Scene)
+On: ChroniaHelper.Utils.ChroniaSystem.ChroniaSystem.GlobalUpdate(orig_Update,Scene)
+On: ChroniaHelper.Utils.StopwatchSystem.Stopclock.GlobalUpdate(orig_Update,Scene)
+On: ChroniaHelper.Utils.StopwatchSystem.Stopclock.SessionUpdate(orig_Update,Scene)
+On: Celeste.Mod.Aqua.Rendering.RenderHook.Scene_Update(orig_Update,Scene)
+On: Celeste.Mod.KyfexHelper.InputSwapBlock.inputListeners(orig_Update,Scene)
+On: TAS.EverestInterop.AutoMute.SceneOnUpdate(orig_Update,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Monocle.Scene::Paused
+   IL_0006: brtrue.s IL_001e
+   IL_0008: ldarg.0
+   IL_0009: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_000e: callvirt System.Void Monocle.EntityList::Update()
+   IL_0013: ldarg.0
+   IL_0014: callvirt Monocle.RendererList Monocle.Scene::get_RendererList()
+   IL_0019: callvirt System.Void Monocle.RendererList::Update()
+   IL_001e: ret

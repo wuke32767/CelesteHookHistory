@@ -1,0 +1,250 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.CrystalBombBadelineBoss.On_Puffer_Explode(orig_Explode,Puffer)
+On: Celeste.Mod.StrawberryJam2021.Entities.ExplodingStrawberry.OnPufferExplode(orig_Explode,Puffer)
+On: Celeste.Mod.SpringCollab2020.Entities.FlagTouchSwitch.onPufferExplode(orig_Explode,Puffer)
+On: Celeste.Mod.FemtoHelper.FemtoModule.Puffer_SplodeKaizoHook(orig_Explode,Puffer)
+On: Celeste.Mod.OutbackHelper.OutbackModule.Puffer_Explode(orig_Explode,Puffer)
+On: Celeste.Mod.CommunalHelper.Entities.StrawberryJam.ExplodingStrawberry.OnPufferExplode(orig_Explode,Puffer)
+On: Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock.OnPufferExplode(orig_Explode,Puffer)
+On: ExtendedVariants.Variants.DontRefillDashOnGround.patchPufferExplode(orig_Explode,Puffer)
+On: Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch.onPufferExplode(orig_Explode,Puffer)
+On: Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onPufferExplode(orig_Explode,Puffer)
+On: Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.On_Explode(orig_Explode,Puffer)
+On: Celeste.Mod.GooberHelper.Entities.FluidSimulation.patch_Puffer_Explode(orig_Explode,Puffer)
+On: Celeste.Mod.SSMHelper.Entities.CrystalBombBadelineBoss.On_Puffer_Explode(orig_Explode,Puffer)
+IL: FrostHelper.DirectionalPuffer.Puffer_Explode(ILContext)
+IL: Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+IL: Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+IL: Celeste.Mod.SorbetHelper.Components.ExplodeHittable.IL_Puffer_Explode(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: ldarg.0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0001: call DynamicMethod!Initialize_HookBefore!System.Void TAS.EverestInterop.Hitboxes.HitboxOptimized::Initialize_HookBefore(Celeste.Puffer) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0006: ldarg.0
+   IL_0007: call Monocle.Collider Monocle.Entity::get_Collider()
+   IL_000c: stloc.0
+   IL_000d: ldarg.0
+   IL_000e: ldarg.0
+   IL_000f: ldfld Monocle.Circle Celeste.Puffer::pushRadius
+   IL_0014: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0019: ldstr "event:/new_content/game/10_farewell/puffer_splode"
+   IL_001e: ldarg.0
+   IL_001f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0024: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0029: pop
+   IL_002a: ldarg.0
+   IL_002b: ldfld Monocle.Sprite Celeste.Puffer::sprite
+   IL_0030: ldstr "explode"
+   IL_0035: ldc.i4.0
+   IL_0036: ldc.i4.0
+   IL_0037: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+ + IL_003c: ldarg.0 @ Celeste.Mod.SorbetHelper.Components.ExplodeHittable.IL_Puffer_Explode(ILContext)
+ + IL_003d: call System.Void Celeste.Mod.SorbetHelper.Components.ExplodeHittable::activateExplodeHittables(Monocle.Entity) @ Celeste.Mod.SorbetHelper.Components.ExplodeHittable.IL_Puffer_Explode(ILContext)
+   IL_0042: ldarg.0
+   IL_0043: call T Monocle.Entity::CollideFirst<Celeste.Player>()
+   IL_0048: stloc.1
+   IL_0049: ldloc.1
+   IL_004a: brfalse.s IL_00a4
+   IL_004c: ldarg.0
+   IL_004d: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0052: ldarg.0
+   IL_0053: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0058: ldloc.1
+   IL_0059: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_005e: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0063: brtrue.s IL_00a4
+ + IL_0065: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+ + IL_006a: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+ + IL_006f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Action>(System.Int32,System.Int32) @ Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+       => Invoke: Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer+<>c.<onPufferExplode>b__7_3()
+ + IL_0074: callvirt System.Void System.Action::Invoke() @ Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+   IL_0079: ldloc.1
+   IL_007a: ldarg.0
+   IL_007b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0080: ldc.i4.0
+   IL_0081: ldc.i4.1
+   IL_0082: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Player::ExplodeLaunch(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+ + IL_0087: ldarg.0 @ Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+ + IL_0088: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+ + IL_008d: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+ + IL_0092: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+       => Invoke: Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer+<>c.<onPufferExplode>b__7_5(Puffer)
+ + IL_0097: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Puffer>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
+   IL_009c: pop
+ + IL_009d: ldarg.0 @ FrostHelper.DirectionalPuffer.Puffer_Explode(ILContext)
+ + IL_009e: ldloc.1 @ FrostHelper.DirectionalPuffer.Puffer_Explode(ILContext)
+ + IL_009f: call System.Void FrostHelper.DirectionalPuffer::HandleCustomExplodeEvents(Celeste.Puffer,Celeste.Player) @ FrostHelper.DirectionalPuffer.Puffer_Explode(ILContext)
+   IL_00a4: ldarg.0
+   IL_00a5: call T Monocle.Entity::CollideFirst<Celeste.TheoCrystal>()
+   IL_00aa: stloc.2
+   IL_00ab: ldloc.2
+   IL_00ac: brfalse.s IL_00d3
+   IL_00ae: ldarg.0
+   IL_00af: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00b4: ldarg.0
+   IL_00b5: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ba: ldloc.2
+   IL_00bb: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_00c0: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00c5: brtrue.s IL_00d3
+   IL_00c7: ldloc.2
+   IL_00c8: ldarg.0
+   IL_00c9: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ce: callvirt System.Void Celeste.TheoCrystal::ExplodeLaunch(Microsoft.Xna.Framework.Vector2)
+   IL_00d3: ldarg.0
+ + IL_00d4: dup @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_00d5: call System.Void Celeste.Mod.auspicioushelper.TemplateTriggerModifier::ExplodeThing(Monocle.Entity) @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+   IL_00da: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00df: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_00e4: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.TempleCrackedBlock>()
+   IL_00e9: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_00ee: stloc.s V_4
+   IL_00f0: br.s IL_0117
+   IL_00f2: ldloca.s V_4
+   IL_00f4: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_00f9: castclass Celeste.TempleCrackedBlock
+   IL_00fe: stloc.s V_5
+   IL_0100: ldarg.0
+   IL_0101: ldloc.s V_5
+   IL_0103: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_0108: brfalse.s IL_0117
+   IL_010a: ldloc.s V_5
+   IL_010c: ldarg.0
+   IL_010d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0112: callvirt System.Void Celeste.TempleCrackedBlock::Break(Microsoft.Xna.Framework.Vector2)
+   IL_0117: ldloca.s V_4
+   IL_0119: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_011e: brtrue.s IL_00f2
+   IL_0120: leave.s IL_0130
+   IL_0122: ldloca.s V_4
+   IL_0124: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_012a: callvirt System.Void System.IDisposable::Dispose()
+   IL_012f: endfinally
+   IL_0130: ldarg.0
+   IL_0131: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0136: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_013b: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.TouchSwitch>()
+   IL_0140: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_0145: stloc.s V_4
+   IL_0147: br.s IL_0168
+   IL_0149: ldloca.s V_4
+   IL_014b: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_0150: castclass Celeste.TouchSwitch
+   IL_0155: stloc.s V_6
+   IL_0157: ldarg.0
+   IL_0158: ldloc.s V_6
+   IL_015a: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_015f: brfalse.s IL_0168
+   IL_0161: ldloc.s V_6
+   IL_0163: callvirt System.Void Celeste.TouchSwitch::TurnOn()
+   IL_0168: ldloca.s V_4
+   IL_016a: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_016f: brtrue.s IL_0149
+   IL_0171: leave.s IL_0181
+   IL_0173: ldloca.s V_4
+   IL_0175: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_017b: callvirt System.Void System.IDisposable::Dispose()
+   IL_0180: endfinally
+   IL_0181: ldarg.0
+   IL_0182: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0187: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_018c: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.FloatingDebris>()
+   IL_0191: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_0196: stloc.s V_4
+   IL_0198: br.s IL_01bf
+   IL_019a: ldloca.s V_4
+   IL_019c: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_01a1: castclass Celeste.FloatingDebris
+   IL_01a6: stloc.s V_7
+   IL_01a8: ldarg.0
+   IL_01a9: ldloc.s V_7
+   IL_01ab: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_01b0: brfalse.s IL_01bf
+   IL_01b2: ldloc.s V_7
+   IL_01b4: ldarg.0
+   IL_01b5: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_01ba: callvirt System.Void Celeste.FloatingDebris::OnExplode(Microsoft.Xna.Framework.Vector2)
+   IL_01bf: ldloca.s V_4
+   IL_01c1: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_01c6: brtrue.s IL_019a
+   IL_01c8: leave.s IL_01d8
+   IL_01ca: ldloca.s V_4
+   IL_01cc: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_01d2: callvirt System.Void System.IDisposable::Dispose()
+   IL_01d7: endfinally
+   IL_01d8: ldarg.0
+   IL_01d9: ldloc.0
+   IL_01da: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_01df: ldarg.0
+   IL_01e0: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_01e5: stloc.3
+   IL_01e6: ldloc.3
+   IL_01e7: ldc.r4 0.3
+   IL_01ec: callvirt System.Void Celeste.Level::Shake(System.Single)
+   IL_01f1: ldloc.3
+   IL_01f2: ldfld Celeste.DisplacementRenderer Celeste.Level::Displacement
+   IL_01f7: ldarg.0
+   IL_01f8: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_01fd: ldc.r4 0.4
+   IL_0202: ldc.r4 12
+   IL_0207: ldc.r4 36
+   IL_020c: ldc.r4 0.5
+   IL_0211: ldnull
+   IL_0212: ldnull
+   IL_0213: callvirt Celeste.DisplacementRenderer/Burst Celeste.DisplacementRenderer::AddBurst(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Single,System.Single,Monocle.Ease/Easer,Monocle.Ease/Easer)
+   IL_0218: pop
+   IL_0219: ldloc.3
+   IL_021a: ldfld Celeste.DisplacementRenderer Celeste.Level::Displacement
+   IL_021f: ldarg.0
+   IL_0220: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0225: ldc.r4 0.4
+   IL_022a: ldc.r4 24
+   IL_022f: ldc.r4 48
+   IL_0234: ldc.r4 0.5
+   IL_0239: ldnull
+   IL_023a: ldnull
+   IL_023b: callvirt Celeste.DisplacementRenderer/Burst Celeste.DisplacementRenderer::AddBurst(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Single,System.Single,Monocle.Ease/Easer,Monocle.Ease/Easer)
+   IL_0240: pop
+   IL_0241: ldloc.3
+   IL_0242: ldfld Celeste.DisplacementRenderer Celeste.Level::Displacement
+   IL_0247: ldarg.0
+   IL_0248: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_024d: ldc.r4 0.4
+   IL_0252: ldc.r4 36
+   IL_0257: ldc.r4 60
+   IL_025c: ldc.r4 0.5
+   IL_0261: ldnull
+   IL_0262: ldnull
+   IL_0263: callvirt Celeste.DisplacementRenderer/Burst Celeste.DisplacementRenderer::AddBurst(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Single,System.Single,Monocle.Ease/Easer,Monocle.Ease/Easer)
+   IL_0268: pop
+   IL_0269: ldc.r4 0
+   IL_026e: stloc.s V_8
+   IL_0270: br.s IL_02c8
+   IL_0272: ldarg.0
+   IL_0273: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0278: ldloc.s V_8
+   IL_027a: ldsfld System.Random Monocle.Calc::Random
+   IL_027f: ldc.r4 -0.034906585
+   IL_0284: ldc.r4 0.034906585
+   IL_0289: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_028e: add
+   IL_028f: ldsfld System.Random Monocle.Calc::Random
+   IL_0294: ldc.i4.s 12
+   IL_0296: ldc.i4.s 18
+   IL_0298: call System.Int32 Monocle.Calc::Range(System.Random,System.Int32,System.Int32)
+   IL_029d: conv.r4
+   IL_029e: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_02a3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02a8: stloc.s V_9
+   IL_02aa: ldloc.3
+   IL_02ab: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_02b0: ldsfld Monocle.ParticleType Celeste.Seeker::P_Regen
+   IL_02b5: ldloc.s V_9
+   IL_02b7: ldloc.s V_8
+   IL_02b9: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02be: ldloc.s V_8
+   IL_02c0: ldc.r4 0.17453292
+   IL_02c5: add
+   IL_02c6: stloc.s V_8
+   IL_02c8: ldloc.s V_8
+   IL_02ca: ldc.r4 6.2831855
+   IL_02cf: blt.s IL_0272
+   IL_02d1: ret

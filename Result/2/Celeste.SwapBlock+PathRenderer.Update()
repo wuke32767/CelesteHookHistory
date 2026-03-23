@@ -1,0 +1,12 @@
+On: Celeste.Mod.Spirialis.TimeSwapBlock.CustomPathUpdate(orig_Update,Entity)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Single Celeste.SwapBlock/PathRenderer::timer
+   IL_000d: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0012: ldc.r4 4
+   IL_0017: mul
+   IL_0018: add
+   IL_0019: stfld System.Single Celeste.SwapBlock/PathRenderer::timer
+   IL_001e: ret

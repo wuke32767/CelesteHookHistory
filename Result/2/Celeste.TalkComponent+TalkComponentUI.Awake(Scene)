@@ -1,0 +1,49 @@
+On: BrokemiaHelper.CaveWall.TalkComponentUI_Awake(orig_Awake,TalkComponentUI,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Awake(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_000d: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0012: dup
+   IL_0013: brtrue.s IL_0019
+   IL_0015: pop
+   IL_0016: ldnull
+   IL_0017: br.s IL_001e
+   IL_0019: call Monocle.Collider Monocle.Entity::get_Collider()
+   IL_001e: brfalse.s IL_004f
+   IL_0020: ldarg.0
+   IL_0021: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0026: ldarg.0
+   IL_0027: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_002c: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0031: callvirt Monocle.Collider Monocle.Entity::get_Collider()
+   IL_0036: callvirt Microsoft.Xna.Framework.Rectangle Monocle.Collider::get_Bounds()
+   IL_003b: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.FakeWall>(Microsoft.Xna.Framework.Rectangle)
+   IL_0040: brfalse.s IL_0084
+   IL_0042: ldarg.0
+   IL_0043: ldc.r4 0
+   IL_0048: stfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_004d: br.s IL_0084
+   IL_004f: ldarg.0
+   IL_0050: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_0055: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_005a: brfalse.s IL_0079
+   IL_005c: ldarg.0
+   IL_005d: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0062: ldarg.0
+   IL_0063: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_0068: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_006d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0072: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.FakeWall>(Microsoft.Xna.Framework.Vector2)
+   IL_0077: brfalse.s IL_0084
+   IL_0079: ldarg.0
+   IL_007a: ldc.r4 0
+   IL_007f: stfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_0084: ldarg.0
+   IL_0085: callvirt System.Boolean Celeste.TalkComponent/TalkComponentUI::get_Highlighted()
+   IL_008a: brfalse.s IL_0097
+   IL_008c: ldarg.0
+   IL_008d: ldc.r4 1
+   IL_0092: stfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_0097: ret

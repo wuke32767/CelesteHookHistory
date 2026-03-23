@@ -1,0 +1,10 @@
+On: TAS.Gameplay.Optimization.FastForwardOptimization.On_SoundEmitter_Update(orig_Update,SoundEmitter)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: callvirt Celeste.SoundSource Celeste.SoundEmitter::get_Source()
+   IL_000c: callvirt System.Boolean Celeste.SoundSource::get_Playing()
+   IL_0011: brtrue.s IL_0019
+   IL_0013: ldarg.0
+   IL_0014: call System.Void Monocle.Entity::RemoveSelf()
+   IL_0019: ret

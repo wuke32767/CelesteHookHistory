@@ -1,0 +1,29 @@
+On: ChroniaHelper.Entities.PlatformLineController.MP_Added_Modify(orig_Added,MovingPlatformLine,Scene)
+   IL_0000: ldarg.1
+   IL_0001: isinst Celeste.Level
+   IL_0006: ldfld Celeste.Session Celeste.Level::Session
+   IL_000b: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0010: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0015: ldc.i4.4
+   IL_0016: bne.un.s IL_003a
+   IL_0018: ldarg.0
+   IL_0019: ldstr "a4464a"
+   IL_001e: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0023: stfld Microsoft.Xna.Framework.Color Celeste.MovingPlatformLine::lineEdgeColor
+   IL_0028: ldarg.0
+   IL_0029: ldstr "86354e"
+   IL_002e: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0033: stfld Microsoft.Xna.Framework.Color Celeste.MovingPlatformLine::lineInnerColor
+   IL_0038: br.s IL_005a
+   IL_003a: ldarg.0
+   IL_003b: ldstr "2a1923"
+   IL_0040: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0045: stfld Microsoft.Xna.Framework.Color Celeste.MovingPlatformLine::lineEdgeColor
+   IL_004a: ldarg.0
+   IL_004b: ldstr "160b12"
+   IL_0050: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0055: stfld Microsoft.Xna.Framework.Color Celeste.MovingPlatformLine::lineInnerColor
+   IL_005a: ldarg.0
+   IL_005b: ldarg.1
+   IL_005c: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0061: ret

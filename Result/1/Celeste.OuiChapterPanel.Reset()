@@ -1,0 +1,239 @@
+On: ChroniaHelper.Settings.CustomClimbText.OnReset(orig_Reset,OuiChapterPanel)
+On: Celeste.Mod.XaphanHelper.XaphanModule.modOuiChapterPanelReset(orig_Reset,OuiChapterPanel)
+On: Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.OnChapterPanelReset(orig_Reset,OuiChapterPanel)
+On: AltSidesHelper.AltSidesHelperModule.CustomiseChapterPanel(orig_Reset,OuiChapterPanel)
+On: Celeste.Mod.MaxHelpingHand.Module.CustomChapterNumber.onChapterPanelReset(orig_Reset,OuiChapterPanel)
+   IL_0000: ldarg.0
+   IL_0001: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0006: ldfld Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_000b: stfld Celeste.AreaKey Celeste.OuiChapterPanel::Area
+   IL_0010: ldarg.0
+   IL_0011: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
+   IL_0016: ldarg.0
+   IL_0017: ldflda Celeste.AreaKey Celeste.OuiChapterPanel::Area
+   IL_001c: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0021: callvirt T System.Collections.Generic.List`1<Celeste.AreaData>::get_Item(System.Int32)
+   IL_0026: stfld Celeste.AreaData Celeste.OuiChapterPanel::Data
+   IL_002b: ldarg.0
+   IL_002c: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0031: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_0036: ldarg.0
+   IL_0037: ldflda Celeste.AreaKey Celeste.OuiChapterPanel::Area
+   IL_003c: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0041: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_0046: stfld Celeste.AreaStats Celeste.OuiChapterPanel::RealStats
+   IL_004b: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0050: ldfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_0055: brfalse.s IL_00ab
+   IL_0057: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_005c: ldfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_0061: ldfld Celeste.AreaStats Celeste.Session::OldStats
+   IL_0066: brfalse.s IL_00ab
+   IL_0068: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_006d: ldfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_0072: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_0077: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_007c: ldarg.0
+   IL_007d: ldflda Celeste.AreaKey Celeste.OuiChapterPanel::Area
+   IL_0082: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0087: bne.un.s IL_00ab
+   IL_0089: ldarg.0
+   IL_008a: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_008f: ldfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_0094: ldfld Celeste.AreaStats Celeste.Session::OldStats
+   IL_0099: stfld Celeste.AreaStats Celeste.OuiChapterPanel::DisplayedStats
+   IL_009e: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00a3: ldnull
+   IL_00a4: stfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_00a9: br.s IL_00b7
+   IL_00ab: ldarg.0
+   IL_00ac: ldarg.0
+   IL_00ad: ldfld Celeste.AreaStats Celeste.OuiChapterPanel::RealStats
+   IL_00b2: stfld Celeste.AreaStats Celeste.OuiChapterPanel::DisplayedStats
+   IL_00b7: ldarg.0
+   IL_00b8: ldarg.0
+   IL_00b9: callvirt System.Int32 Celeste.OuiChapterPanel::GetModeHeight()
+   IL_00be: conv.r4
+   IL_00bf: stfld System.Single Celeste.OuiChapterPanel::height
+   IL_00c4: ldarg.0
+   IL_00c5: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option> Celeste.OuiChapterPanel::modes
+   IL_00ca: callvirt System.Void System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option>::Clear()
+   IL_00cf: ldc.i4.0
+   IL_00d0: stloc.0
+   IL_00d1: ldarg.0
+   IL_00d2: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
+   IL_00d7: callvirt System.Boolean Celeste.AreaData::get_Interlude_Safe()
+   IL_00dc: brtrue.s IL_012b
+   IL_00de: ldarg.0
+   IL_00df: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
+   IL_00e4: ldc.i4.1
+   IL_00e5: callvirt System.Boolean Celeste.AreaData::HasMode(Celeste.AreaMode)
+   IL_00ea: brfalse.s IL_012b
+   IL_00ec: ldarg.0
+   IL_00ed: ldfld Celeste.AreaStats Celeste.OuiChapterPanel::DisplayedStats
+   IL_00f2: ldfld System.Boolean Celeste.AreaStats::Cassette
+   IL_00f7: brtrue.s IL_0129
+   IL_00f9: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00fe: ldfld System.Boolean Celeste.SaveData::DebugMode
+   IL_0103: brtrue.s IL_0111
+   IL_0105: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_010a: ldfld System.Boolean Celeste.SaveData::CheatMode
+   IL_010f: brfalse.s IL_012b
+   IL_0111: ldarg.0
+   IL_0112: ldfld Celeste.AreaStats Celeste.OuiChapterPanel::DisplayedStats
+   IL_0117: ldfld System.Boolean Celeste.AreaStats::Cassette
+   IL_011c: ldarg.0
+   IL_011d: ldfld Celeste.AreaStats Celeste.OuiChapterPanel::RealStats
+   IL_0122: ldfld System.Boolean Celeste.AreaStats::Cassette
+   IL_0127: bne.un.s IL_012b
+   IL_0129: ldc.i4.1
+   IL_012a: stloc.0
+   IL_012b: ldarg.0
+   IL_012c: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
+   IL_0131: callvirt System.Boolean Celeste.AreaData::get_Interlude_Safe()
+   IL_0136: brtrue.s IL_0160
+   IL_0138: ldarg.0
+   IL_0139: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
+   IL_013e: ldc.i4.2
+   IL_013f: callvirt System.Boolean Celeste.AreaData::HasMode(Celeste.AreaMode)
+   IL_0144: brfalse.s IL_0160
+   IL_0146: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_014b: callvirt System.Int32 Celeste.SaveData::get_UnlockedModes()
+   IL_0150: ldc.i4.3
+   IL_0151: blt.s IL_0160
+   IL_0153: ldsfld Celeste.Celeste/PlayModes Celeste.Celeste::PlayMode
+   IL_0158: ldc.i4.2
+   IL_0159: ceq
+   IL_015b: ldc.i4.0
+   IL_015c: ceq
+   IL_015e: br.s IL_0161
+   IL_0160: ldc.i4.0
+   IL_0161: ldarg.0
+   IL_0162: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option> Celeste.OuiChapterPanel::modes
+   IL_0167: newobj System.Void Celeste.OuiChapterPanel/Option::.ctor()
+   IL_016c: dup
+   IL_016d: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_0172: ldarg.0
+   IL_0173: ldstr "areaselect/tab"
+   IL_0178: call System.String Celeste.OuiChapterPanel::_ModAreaselectTexture(System.String)
+   IL_017d: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0182: stfld Monocle.MTexture Celeste.OuiChapterPanel/Option::Bg
+   IL_0187: dup
+   IL_0188: ldarg.0
+   IL_0189: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
+   IL_018e: callvirt System.Boolean Celeste.AreaData::get_Interlude_Safe()
+   IL_0193: brtrue.s IL_019c
+   IL_0195: ldstr "overworld_normal"
+   IL_019a: br.s IL_01a1
+   IL_019c: ldstr "FILE_BEGIN"
+   IL_01a1: ldnull
+   IL_01a2: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_01a7: callvirt System.String System.String::ToUpper()
+   IL_01ac: stfld System.String Celeste.OuiChapterPanel/Option::Label
+   IL_01b1: dup
+   IL_01b2: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_01b7: ldarg.0
+   IL_01b8: ldstr "menu/play"
+   IL_01bd: call System.String Celeste.OuiChapterPanel::_ModMenuTexture(System.String)
+   IL_01c2: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_01c7: stfld Monocle.MTexture Celeste.OuiChapterPanel/Option::Icon
+   IL_01cc: dup
+   IL_01cd: ldstr "A"
+   IL_01d2: stfld System.String Celeste.OuiChapterPanel/Option::ID
+   IL_01d7: callvirt System.Void System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option>::Add(T)
+   IL_01dc: ldloc.0
+   IL_01dd: brfalse.s IL_01e6
+   IL_01df: ldarg.0
+   IL_01e0: callvirt Celeste.OuiChapterPanel/Option Celeste.OuiChapterPanel::AddRemixButton()
+   IL_01e5: pop
+   IL_01e6: brfalse.s IL_024a
+   IL_01e8: ldarg.0
+   IL_01e9: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option> Celeste.OuiChapterPanel::modes
+   IL_01ee: newobj System.Void Celeste.OuiChapterPanel/Option::.ctor()
+   IL_01f3: dup
+   IL_01f4: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_01f9: ldarg.0
+   IL_01fa: ldstr "areaselect/tab"
+   IL_01ff: call System.String Celeste.OuiChapterPanel::_ModAreaselectTexture(System.String)
+   IL_0204: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0209: stfld Monocle.MTexture Celeste.OuiChapterPanel/Option::Bg
+   IL_020e: dup
+   IL_020f: ldstr "overworld_remix2"
+   IL_0214: ldnull
+   IL_0215: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_021a: stfld System.String Celeste.OuiChapterPanel/Option::Label
+   IL_021f: dup
+   IL_0220: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_0225: ldarg.0
+   IL_0226: ldstr "menu/rmx2"
+   IL_022b: call System.String Celeste.OuiChapterPanel::_ModMenuTexture(System.String)
+   IL_0230: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0235: stfld Monocle.MTexture Celeste.OuiChapterPanel/Option::Icon
+   IL_023a: dup
+   IL_023b: ldstr "C"
+   IL_0240: stfld System.String Celeste.OuiChapterPanel/Option::ID
+   IL_0245: callvirt System.Void System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option>::Add(T)
+   IL_024a: ldarg.0
+   IL_024b: ldc.i4.1
+   IL_024c: stfld System.Boolean Celeste.OuiChapterPanel::selectingMode
+   IL_0251: ldarg.0
+   IL_0252: ldc.i4.0
+   IL_0253: ldloca.s V_1
+   IL_0255: initobj System.Nullable`1<System.Boolean>
+   IL_025b: ldloc.1
+   IL_025c: ldloca.s V_1
+   IL_025e: initobj System.Nullable`1<System.Boolean>
+   IL_0264: ldloc.1
+   IL_0265: ldloca.s V_1
+   IL_0267: initobj System.Nullable`1<System.Boolean>
+   IL_026d: ldloc.1
+   IL_026e: callvirt System.Void Celeste.OuiChapterPanel::UpdateStats(System.Boolean,System.Nullable`1<System.Boolean>,System.Nullable`1<System.Boolean>,System.Nullable`1<System.Boolean>)
+   IL_0273: ldarg.0
+   IL_0274: ldc.i4.0
+   IL_0275: callvirt System.Void Celeste.OuiChapterPanel::SetStatsPosition(System.Boolean)
+   IL_027a: ldc.i4.0
+   IL_027b: stloc.2
+   IL_027c: br.s IL_02a0
+   IL_027e: ldarg.0
+   IL_027f: callvirt System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option> Celeste.OuiChapterPanel::get_options()
+   IL_0284: ldloc.2
+   IL_0285: callvirt T System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option>::get_Item(System.Int32)
+   IL_028a: ldloc.2
+   IL_028b: ldarg.0
+   IL_028c: callvirt System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option> Celeste.OuiChapterPanel::get_options()
+   IL_0291: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option>::get_Count()
+   IL_0296: ldc.i4.1
+   IL_0297: callvirt System.Void Celeste.OuiChapterPanel/Option::SlideTowards(System.Int32,System.Int32,System.Boolean)
+   IL_029c: ldloc.2
+   IL_029d: ldc.i4.1
+   IL_029e: add
+   IL_029f: stloc.2
+   IL_02a0: ldloc.2
+   IL_02a1: ldarg.0
+   IL_02a2: callvirt System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option> Celeste.OuiChapterPanel::get_options()
+   IL_02a7: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option>::get_Count()
+   IL_02ac: blt.s IL_027e
+   IL_02ae: ldarg.0
+   IL_02af: ldstr "area_chapter"
+   IL_02b4: ldnull
+   IL_02b5: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_02ba: ldstr "{x}"
+   IL_02bf: ldarg.0
+   IL_02c0: ldflda Celeste.AreaKey Celeste.OuiChapterPanel::Area
+   IL_02c5: call System.Int32 Celeste.AreaKey::get_ChapterIndex()
+   IL_02ca: stloc.3
+   IL_02cb: ldloca.s V_3
+   IL_02cd: call System.String System.Int32::ToString()
+   IL_02d2: ldc.i4.2
+   IL_02d3: callvirt System.String System.String::PadLeft(System.Int32)
+   IL_02d8: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_02dd: stfld System.String Celeste.OuiChapterPanel::chapter
+   IL_02e2: ldarg.0
+   IL_02e3: ldc.r4 440
+   IL_02e8: ldc.r4 120
+   IL_02ed: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_02f2: stfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel::contentOffset
+   IL_02f7: ldarg.0
+   IL_02f8: ldc.i4.1
+   IL_02f9: stfld System.Boolean Celeste.OuiChapterPanel::initialized
+   IL_02fe: ret

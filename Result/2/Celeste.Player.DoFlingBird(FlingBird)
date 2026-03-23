@@ -1,0 +1,25 @@
+On: Celeste.Mod.NerdHelper.Entities.NodedFlingBird.PlayerOnDoFlingBird(orig_DoFlingBird,Player,FlingBird)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Boolean Celeste.Player::get_Dead()
+   IL_0006: brtrue.s IL_003b
+   IL_0008: ldarg.0
+   IL_0009: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_000e: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_0013: ldc.i4.s 24
+   IL_0015: beq.s IL_003b
+   IL_0017: ldarg.0
+   IL_0018: ldarg.1
+   IL_0019: stfld Celeste.FlingBird Celeste.Player::flingBird
+   IL_001e: ldarg.0
+   IL_001f: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0024: ldc.i4.s 24
+   IL_0026: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_002b: ldarg.0
+   IL_002c: callvirt Celeste.Holdable Celeste.Player::get_Holding()
+   IL_0031: brfalse.s IL_0039
+   IL_0033: ldarg.0
+   IL_0034: callvirt System.Void Celeste.Player::Drop()
+   IL_0039: ldc.i4.1
+   IL_003a: ret
+   IL_003b: ldc.i4.0
+   IL_003c: ret

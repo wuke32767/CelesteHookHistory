@@ -1,0 +1,14 @@
+On: Celeste.Mod.GameHelper.Features.DebugMap.EntitySearch.OnMapEditorUpdate(orig_Update,MapEditor)
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_UsingMapEditor(orig_Update,MapEditor)
+On: Celeste.Mod.XaphanHelper.Hooks.DebugBlocker.onEditorMapEditorUpdate(orig_Update,MapEditor)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.Editor.MapEditor::MakeMapEditorBetter()
+   IL_0006: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_000b: ldc.i4.s 113
+   IL_000d: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_0012: brfalse.s IL_001a
+   IL_0014: ldarg.0
+   IL_0015: callvirt System.Void Celeste.Editor.MapEditor::CenterViewOnCurrentRespawn()
+   IL_001a: ldarg.0
+   IL_001b: callvirt System.Void Celeste.Editor.MapEditor::orig_Update()
+   IL_0020: ret

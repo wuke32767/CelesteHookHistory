@@ -1,0 +1,100 @@
+On: ChaosEnsues.Entry.Audio_GetEventDescription(orig_GetEventDescription,String)
+   IL_0000: call System.Boolean Celeste.Mod.Everest/Flags::get_IsHeadless()
+   IL_0005: brfalse.s IL_0012
+   IL_0007: ldsfld System.IntPtr System.IntPtr::Zero
+   IL_000c: newobj System.Void FMOD.Studio.EventDescription::.ctor(System.IntPtr)
+   IL_0011: ret
+   IL_0012: ldnull
+   IL_0013: stloc.0
+   IL_0014: ldarg.0
+   IL_0015: brfalse.s IL_0026
+   IL_0017: ldsfld System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.EventDescription> Celeste.Audio::cachedEventDescriptions
+   IL_001c: ldarg.0
+   IL_001d: ldloca.s V_0
+   IL_001f: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.EventDescription>::TryGetValue(TKey,TValue&)
+   IL_0024: brfalse.s IL_0028
+   IL_0026: ldloc.0
+   IL_0027: ret
+   IL_0028: ldsfld System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.EventDescription> Celeste.Audio::cachedModEvents
+   IL_002d: ldarg.0
+   IL_002e: ldloca.s V_0
+   IL_0030: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.EventDescription>::TryGetValue(TKey,TValue&)
+   IL_0035: brfalse.s IL_003b
+   IL_0037: ldc.i4.0
+   IL_0038: stloc.1
+   IL_0039: br.s IL_0071
+   IL_003b: ldarg.0
+   IL_003c: ldstr "guid://"
+   IL_0041: callvirt System.Boolean System.String::StartsWith(System.String)
+   IL_0046: brfalse.s IL_0063
+   IL_0048: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_004d: ldarg.0
+   IL_004e: ldc.i4.7
+   IL_004f: call System.ReadOnlySpan`1<System.Char> System.MemoryExtensions::AsSpan(System.String,System.Int32)
+   IL_0054: call System.Guid System.Guid::Parse(System.ReadOnlySpan`1<System.Char>)
+   IL_0059: ldloca.s V_0
+   IL_005b: callvirt FMOD.RESULT FMOD.Studio.System::getEventByID(System.Guid,FMOD.Studio.EventDescription&)
+   IL_0060: stloc.1
+   IL_0061: br.s IL_0071
+   IL_0063: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0068: ldarg.0
+   IL_0069: ldloca.s V_0
+   IL_006b: callvirt FMOD.RESULT FMOD.Studio.System::getEvent(System.String,FMOD.Studio.EventDescription&)
+   IL_0070: stloc.1
+   IL_0071: ldloc.1
+   IL_0072: brtrue.s IL_008c
+   IL_0074: ldloc.0
+   IL_0075: callvirt FMOD.RESULT FMOD.Studio.EventDescription::loadSampleData()
+   IL_007a: pop
+   IL_007b: ldsfld System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.EventDescription> Celeste.Audio::cachedEventDescriptions
+   IL_0080: ldarg.0
+   IL_0081: ldloc.0
+   IL_0082: callvirt System.Void System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.EventDescription>::Add(TKey,TValue)
+   IL_0087: br IL_0105
+   IL_008c: ldloc.1
+   IL_008d: ldc.i4.s 74
+   IL_008f: bne.un.s IL_00e8
+   IL_0091: ldarg.0
+   IL_0092: ldstr "null"
+   IL_0097: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_009c: brtrue.s IL_00ab
+   IL_009e: ldarg.0
+   IL_009f: ldstr "event:/none"
+   IL_00a4: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_00a9: brfalse.s IL_00af
+   IL_00ab: ldc.i4.1
+   IL_00ac: stloc.2
+   IL_00ad: br.s IL_00b1
+   IL_00af: ldc.i4.0
+   IL_00b0: stloc.2
+   IL_00b1: ldloc.2
+   IL_00b2: brtrue.s IL_0105
+   IL_00b4: ldstr "Audio"
+   IL_00b9: stloc.3
+   IL_00ba: ldloc.3
+   IL_00bb: ldc.i4.s 17
+   IL_00bd: ldc.i4.1
+   IL_00be: ldloc.3
+   IL_00bf: ldloca.s V_2
+   IL_00c1: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_00c6: stloc.s V_4
+   IL_00c8: ldloc.2
+   IL_00c9: brfalse.s IL_00df
+   IL_00cb: ldloca.s V_4
+   IL_00cd: ldstr "Event not found: "
+   IL_00d2: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_00d7: ldloca.s V_4
+   IL_00d9: ldarg.0
+   IL_00da: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_00df: ldloc.s V_4
+   IL_00e1: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_00e6: br.s IL_0105
+   IL_00e8: ldstr "FMOD getEvent failed: "
+   IL_00ed: ldloca.s V_1
+   IL_00ef: constrained. FMOD.RESULT
+   IL_00f5: callvirt System.String System.Object::ToString()
+   IL_00fa: call System.String System.String::Concat(System.String,System.String)
+   IL_00ff: newobj System.Void System.Exception::.ctor(System.String)
+   IL_0104: throw
+   IL_0105: ldloc.0
+   IL_0106: ret

@@ -1,0 +1,11 @@
+On: Celeste.Mod.GameHelper.Features.DebugMap.EntitySearch.OnUpdateMouse(orig_UpdateMouse,MapEditor)
+On: Celeste.Mod.GooberHelper.Settings.Root.DebugMapPhysicsUtils.MouseSmoother.patch_MapEditor_UpdateMouse(orig_UpdateMouse,MapEditor)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_0006: callvirt Microsoft.Xna.Framework.Vector2 Monocle.MInput/MouseData::get_Position()
+   IL_000b: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_0010: callvirt Microsoft.Xna.Framework.Matrix Monocle.Camera::get_Matrix()
+   IL_0015: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::Invert(Microsoft.Xna.Framework.Matrix)
+   IL_001a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::Transform(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Matrix)
+   IL_001f: stfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_0024: ret

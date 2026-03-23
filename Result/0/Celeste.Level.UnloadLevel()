@@ -1,0 +1,44 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.ClearParallaxDecalsDict(orig_UnloadLevel,Level)
+On: Celeste.Mod.LylyraHelper.Code.Triggers.DisableEntityPreservationTrigger.UnloadLevel(orig_UnloadLevel,Level)
+On: Celeste.Mod.XaphanHelper.Hooks.UnloadLevel.onLevelUnloadLevel(orig_UnloadLevel,Level)
+On: Celeste.Mod.DBBHelper.Mechanism.DBBCustomEntityManager.UnLoadCustomEntity(orig_UnloadLevel,Level)
+On: ContortHelper.EffectsManager.OnUnloadLevel(orig_UnloadLevel,Level)
+On: Bitsbolts.PassageExt.OnLevelUnloadLevel(orig_UnloadLevel,Level)
+On: Celeste.Mod.Aqua.Core.PresentationHook.Level_UnloadLevel(orig_UnloadLevel,Level)
+On: Celeste.Mod.Aqua.Core.LevelStates.Level_UnloadLevel(orig_UnloadLevel,Level)
+On: ExtendedVariants.Entities.Legacy.ExtendedVariantTrigger.onUnloadLevel(orig_UnloadLevel,Level)
+On: ExtendedVariants.Entities.ForMappers.AbstractExtendedVariantTriggerTeleportHandler.onUnloadLevel(orig_UnloadLevel,Level)
+On: Celeste.Mod.GooberHelper.Entities.FluidSimulation.patch_Level_UnloadLevel(orig_UnloadLevel,Level)
+On: TileLayoutAnchor.TileLayoutAnchorModule.RememberLastLevel(orig_UnloadLevel,Level)
+   IL_0000: ldarg.0
+   IL_0001: ldsfld Monocle.BitTag Celeste.Tags::Global
+   IL_0006: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_000b: call System.Collections.Generic.List`1<Monocle.Entity> Monocle.Scene::GetEntitiesExcludingTagMask(System.Int32)
+   IL_0010: stloc.0
+   IL_0011: ldarg.0
+   IL_0012: call Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0017: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.Textbox>()
+   IL_001c: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_0021: stloc.1
+   IL_0022: br.s IL_0033
+   IL_0024: ldloca.s V_1
+   IL_0026: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_002b: stloc.2
+   IL_002c: ldloc.0
+   IL_002d: ldloc.2
+   IL_002e: callvirt System.Void System.Collections.Generic.List`1<Monocle.Entity>::Add(T)
+   IL_0033: ldloca.s V_1
+   IL_0035: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_003a: brtrue.s IL_0024
+   IL_003c: leave.s IL_004c
+   IL_003e: ldloca.s V_1
+   IL_0040: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0046: callvirt System.Void System.IDisposable::Dispose()
+   IL_004b: endfinally
+   IL_004c: ldarg.0
+   IL_004d: ldloc.0
+   IL_004e: callvirt System.Void Celeste.Level::UnloadEntities(System.Collections.Generic.List`1<Monocle.Entity>)
+   IL_0053: ldarg.0
+   IL_0054: call Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_0059: callvirt System.Void Monocle.EntityList::UpdateLists()
+   IL_005e: ret

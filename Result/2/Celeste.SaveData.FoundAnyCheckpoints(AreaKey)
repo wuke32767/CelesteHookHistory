@@ -1,0 +1,49 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modSaveDataFoundAnyCheckpoints(orig_FoundAnyCheckpoints,SaveData,AreaKey)
+On: Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.OnSaveDataFoundAnyCheckpoints(orig_FoundAnyCheckpoints,SaveData,AreaKey)
+   IL_0000: ldsfld Celeste.Celeste/PlayModes Celeste.Celeste::PlayMode
+   IL_0005: ldc.i4.2
+   IL_0006: bne.un.s IL_000a
+   IL_0008: ldc.i4.0
+   IL_0009: ret
+   IL_000a: ldarg.0
+   IL_000b: ldfld System.Boolean Celeste.SaveData::DebugMode
+   IL_0010: brtrue.s IL_001a
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Boolean Celeste.SaveData::CheatMode
+   IL_0018: brfalse.s IL_004f
+   IL_001a: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
+   IL_001f: ldarg.1
+   IL_0020: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0025: callvirt T System.Collections.Generic.List`1<Celeste.AreaData>::get_Item(System.Int32)
+   IL_002a: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_002f: ldarg.1
+   IL_0030: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_0035: ldelem.ref
+   IL_0036: stloc.0
+   IL_0037: ldloc.0
+   IL_0038: brfalse.s IL_004d
+   IL_003a: ldloc.0
+   IL_003b: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_0040: brfalse.s IL_004d
+   IL_0042: ldloc.0
+   IL_0043: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_0048: ldlen
+   IL_0049: ldc.i4.0
+   IL_004a: cgt.un
+   IL_004c: ret
+   IL_004d: ldc.i4.0
+   IL_004e: ret
+   IL_004f: ldarg.0
+   IL_0050: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_0055: ldarg.1
+   IL_0056: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_005b: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_0060: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_0065: ldarg.1
+   IL_0066: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_006b: ldelem.ref
+   IL_006c: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.AreaModeStats::Checkpoints
+   IL_0071: callvirt System.Int32 System.Collections.Generic.HashSet`1<System.String>::get_Count()
+   IL_0076: ldc.i4.0
+   IL_0077: cgt
+   IL_0079: ret

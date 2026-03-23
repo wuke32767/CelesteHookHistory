@@ -1,0 +1,50 @@
+On: FrostHelper.Entities.WallBouncePresentation.WallbounceTutorialMachine.WaveDashTutorialMachine_OnInteract(orig_OnInteract,WaveDashTutorialMachine,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.WaveDashTutorialMachine::inCutscene
+   IL_0006: brtrue IL_008a
+   IL_000b: ldarg.0
+   IL_000c: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0011: isinst Celeste.Level
+   IL_0016: stloc.0
+   IL_0017: ldarg.0
+   IL_0018: ldfld FMOD.Studio.EventInstance Celeste.WaveDashTutorialMachine::usingSfx
+   IL_001d: ldnull
+   IL_001e: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_0023: brfalse.s IL_0046
+   IL_0025: ldarg.0
+   IL_0026: ldfld FMOD.Studio.EventInstance Celeste.WaveDashTutorialMachine::usingSfx
+   IL_002b: ldstr "end"
+   IL_0030: ldc.r4 1
+   IL_0035: call System.Void Celeste.Audio::SetParameter(FMOD.Studio.EventInstance,System.String,System.Single)
+   IL_003a: ldarg.0
+   IL_003b: ldfld FMOD.Studio.EventInstance Celeste.WaveDashTutorialMachine::usingSfx
+   IL_0040: ldc.i4.1
+   IL_0041: call System.Void Celeste.Audio::Stop(FMOD.Studio.EventInstance,System.Boolean)
+   IL_0046: ldarg.0
+   IL_0047: ldc.i4.1
+   IL_0048: stfld System.Boolean Celeste.WaveDashTutorialMachine::inCutscene
+   IL_004d: ldarg.0
+   IL_004e: ldloc.0
+   IL_004f: ldfld System.Single Celeste.Level::ZoomTarget
+   IL_0054: stfld System.Single Celeste.WaveDashTutorialMachine::interactStartZoom
+   IL_0059: ldloc.0
+   IL_005a: ldarg.0
+   IL_005b: ldftn System.Void Celeste.WaveDashTutorialMachine::SkipInteraction(Celeste.Level)
+   IL_0061: newobj System.Void System.Action`1<Celeste.Level>::.ctor(System.Object,System.IntPtr)
+   IL_0066: ldc.i4.1
+   IL_0067: ldc.i4.0
+   IL_0068: ldc.i4.0
+   IL_0069: callvirt System.Void Celeste.Level::StartCutscene(System.Action`1<Celeste.Level>,System.Boolean,System.Boolean,System.Boolean)
+   IL_006e: ldarg.0
+   IL_006f: ldarg.0
+   IL_0070: ldarg.0
+   IL_0071: ldarg.1
+   IL_0072: callvirt System.Collections.IEnumerator Celeste.WaveDashTutorialMachine::InteractRoutine(Celeste.Player)
+   IL_0077: ldc.i4.1
+   IL_0078: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_007d: dup
+   IL_007e: stloc.1
+   IL_007f: stfld Monocle.Coroutine Celeste.WaveDashTutorialMachine::routine
+   IL_0084: ldloc.1
+   IL_0085: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_008a: ret

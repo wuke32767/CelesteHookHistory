@@ -1,0 +1,40 @@
+On: PrismaticHelper.Entities.Panels.WorldPanels.SaveStartSession(orig_StartSession,SaveData,Session)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.SaveData_StartSession(orig_StartSession,SaveData,Session)
+On: Celeste.Mod.CollabUtils2.UI.ReturnToLobbyHelper.onSaveDataStartSession(orig_StartSession,SaveData,Session)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_0006: ldarg.0
+   IL_0007: ldarg.1
+   IL_0008: callvirt System.Void Celeste.SaveData::orig_StartSession(Celeste.Session)
+   IL_000d: ldarg.1
+   IL_000e: beq.s IL_0062
+   IL_0010: ldsfld System.Collections.Generic.List`1<Celeste.Mod.EverestModule> Celeste.Mod.Everest::_Modules
+   IL_0015: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.EverestModule>::GetEnumerator()
+   IL_001a: stloc.0
+   IL_001b: br.s IL_0049
+   IL_001d: ldloca.s V_0
+   IL_001f: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::get_Current()
+   IL_0024: stloc.1
+   IL_0025: ldloc.1
+   IL_0026: callvirt System.Boolean Celeste.Mod.EverestModule::get_SaveDataAsync()
+   IL_002b: brfalse.s IL_003c
+   IL_002d: ldloc.1
+   IL_002e: ldarg.0
+   IL_002f: ldfld System.Int32 Celeste.SaveData::FileSlot
+   IL_0034: ldnull
+   IL_0035: callvirt System.Void Celeste.Mod.EverestModule::DeserializeSession(System.Int32,System.Byte[])
+   IL_003a: br.s IL_0049
+   IL_003c: ldloc.1
+   IL_003d: ldarg.0
+   IL_003e: ldfld System.Int32 Celeste.SaveData::FileSlot
+   IL_0043: ldc.i4.1
+   IL_0044: callvirt System.Void Celeste.Mod.EverestModule::LoadSession(System.Int32,System.Boolean)
+   IL_0049: ldloca.s V_0
+   IL_004b: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::MoveNext()
+   IL_0050: brtrue.s IL_001d
+   IL_0052: leave.s IL_0062
+   IL_0054: ldloca.s V_0
+   IL_0056: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>
+   IL_005c: callvirt System.Void System.IDisposable::Dispose()
+   IL_0061: endfinally
+   IL_0062: ret

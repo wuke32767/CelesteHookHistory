@@ -1,0 +1,85 @@
+On: vitmod.TimeFadeTrigger.Trigger_GetPositionLerp(orig_GetPositionLerp,Trigger,Player,PositionModes)
+   IL_0000: ldarg.2
+   IL_0001: switch IL_0022,IL_00b0,IL_00f8,IL_006c,IL_008e,IL_0028,IL_004a
+   IL_0022: ldc.r4 1
+   IL_0027: ret
+   IL_0028: ldarg.1
+   IL_0029: callvirt System.Single Monocle.Entity::get_CenterX()
+   IL_002e: ldarg.0
+   IL_002f: call System.Single Monocle.Entity::get_Left()
+   IL_0034: ldarg.0
+   IL_0035: call System.Single Monocle.Entity::get_Right()
+   IL_003a: ldc.r4 0
+   IL_003f: ldc.r4 1
+   IL_0044: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0049: ret
+   IL_004a: ldarg.1
+   IL_004b: callvirt System.Single Monocle.Entity::get_CenterX()
+   IL_0050: ldarg.0
+   IL_0051: call System.Single Monocle.Entity::get_Right()
+   IL_0056: ldarg.0
+   IL_0057: call System.Single Monocle.Entity::get_Left()
+   IL_005c: ldc.r4 0
+   IL_0061: ldc.r4 1
+   IL_0066: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_006b: ret
+   IL_006c: ldarg.1
+   IL_006d: callvirt System.Single Monocle.Entity::get_CenterY()
+   IL_0072: ldarg.0
+   IL_0073: call System.Single Monocle.Entity::get_Top()
+   IL_0078: ldarg.0
+   IL_0079: call System.Single Monocle.Entity::get_Bottom()
+   IL_007e: ldc.r4 0
+   IL_0083: ldc.r4 1
+   IL_0088: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_008d: ret
+   IL_008e: ldarg.1
+   IL_008f: callvirt System.Single Monocle.Entity::get_CenterY()
+   IL_0094: ldarg.0
+   IL_0095: call System.Single Monocle.Entity::get_Bottom()
+   IL_009a: ldarg.0
+   IL_009b: call System.Single Monocle.Entity::get_Top()
+   IL_00a0: ldc.r4 0
+   IL_00a5: ldc.r4 1
+   IL_00aa: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_00af: ret
+   IL_00b0: ldarg.1
+   IL_00b1: callvirt System.Single Monocle.Entity::get_CenterX()
+   IL_00b6: ldarg.0
+   IL_00b7: call System.Single Monocle.Entity::get_Left()
+   IL_00bc: ldarg.0
+   IL_00bd: call System.Single Monocle.Entity::get_CenterX()
+   IL_00c2: ldc.r4 0
+   IL_00c7: ldc.r4 1
+   IL_00cc: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_00d1: ldarg.1
+   IL_00d2: callvirt System.Single Monocle.Entity::get_CenterX()
+   IL_00d7: ldarg.0
+   IL_00d8: call System.Single Monocle.Entity::get_Right()
+   IL_00dd: ldarg.0
+   IL_00de: call System.Single Monocle.Entity::get_CenterX()
+   IL_00e3: ldc.r4 0
+   IL_00e8: ldc.r4 1
+   IL_00ed: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_00f2: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_00f7: ret
+   IL_00f8: ldarg.1
+   IL_00f9: callvirt System.Single Monocle.Entity::get_CenterY()
+   IL_00fe: ldarg.0
+   IL_00ff: call System.Single Monocle.Entity::get_Top()
+   IL_0104: ldarg.0
+   IL_0105: call System.Single Monocle.Entity::get_CenterY()
+   IL_010a: ldc.r4 0
+   IL_010f: ldc.r4 1
+   IL_0114: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0119: ldarg.1
+   IL_011a: callvirt System.Single Monocle.Entity::get_CenterY()
+   IL_011f: ldarg.0
+   IL_0120: call System.Single Monocle.Entity::get_Bottom()
+   IL_0125: ldarg.0
+   IL_0126: call System.Single Monocle.Entity::get_CenterY()
+   IL_012b: ldc.r4 0
+   IL_0130: ldc.r4 1
+   IL_0135: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_013a: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_013f: ret

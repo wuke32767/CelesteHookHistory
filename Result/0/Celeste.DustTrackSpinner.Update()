@@ -1,0 +1,27 @@
+On: Celeste.Mod.SpinnySpinners.SpinnySpinnersModule.dustTrackSpinnerUpdate(orig_Update,DustTrackSpinner)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Celeste.TrackSpinner::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Boolean Celeste.TrackSpinner::Moving
+   IL_000c: brfalse.s IL_0058
+   IL_000e: ldarg.0
+   IL_000f: ldfld System.Single Celeste.TrackSpinner::PauseTimer
+   IL_0014: ldc.r4 0
+   IL_0019: bge.un.s IL_0058
+   IL_001b: ldarg.0
+   IL_001c: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0021: ldc.r4 0.02
+   IL_0026: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_002b: brfalse.s IL_0058
+   IL_002d: ldarg.0
+   IL_002e: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0033: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesBG
+   IL_0038: ldsfld Monocle.ParticleType Celeste.DustStaticSpinner::P_Move
+   IL_003d: ldc.i4.1
+   IL_003e: ldarg.0
+   IL_003f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0044: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0049: ldc.r4 4
+   IL_004e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0053: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0058: ret

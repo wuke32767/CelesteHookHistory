@@ -1,0 +1,31 @@
+IL: Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+   IL_0000: ldc.i4.s 86
+   IL_0002: call T ExtendedVariants.Variants.AbstractExtendedVariant::GetVariantValue<System.Boolean>(ExtendedVariants.Module.ExtendedVariantsModule/Variant)
+   IL_0007: brfalse.s IL_0052
+ + IL_10000: ldarg.0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.TASHelper.Gameplay.PlayerStateUtils::RecordUltraData(Celeste.Player) @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+   IL_0009: ldarg.0
+   IL_000a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_000f: ldarg.0
+   IL_0010: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_0015: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001a: call System.Int32 System.Math::Sign(System.Single)
+   IL_001f: conv.r4
+   IL_0020: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0025: ldarg.0
+   IL_0026: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_002b: ldc.r4 0
+   IL_0030: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0035: ldarg.0
+   IL_0036: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_003b: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0040: dup
+   IL_0041: ldind.r4
+   IL_0042: ldc.i4.s 107
+   IL_0044: call T ExtendedVariants.Variants.AbstractExtendedVariant::GetVariantValue<System.Single>(ExtendedVariants.Module.ExtendedVariantsModule/Variant)
+   IL_0049: mul
+   IL_004a: stind.r4
+   IL_004b: ldarg.0
+   IL_004c: ldc.i4.1
+   IL_004d: callvirt System.Void Celeste.Player::set_Ducking(System.Boolean)
+   IL_0052: ret

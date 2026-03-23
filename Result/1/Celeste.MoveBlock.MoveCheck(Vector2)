@@ -1,0 +1,133 @@
+On: Celeste.Mod.SpringCollab2020.Entities.MoveBlockBarrier.MoveBlock_MoveCheck(orig_MoveCheck,MoveBlock,Vector2)
+On: Celeste.Mod.CoopHelper.CoopHelperModule.OnMoveBlockMoveCheck(orig_MoveCheck,MoveBlock,Vector2)
+On: BrokemiaHelper.MoveBlockBarrier.MoveBlock_MoveCheck(orig_MoveCheck,MoveBlock,Vector2)
+   IL_0000: ldarg.1
+   IL_0001: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0006: ldc.r4 0
+   IL_000b: beq IL_0083
+   IL_0010: ldarg.0
+   IL_0011: ldarg.1
+   IL_0012: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0017: ldc.i4.0
+   IL_0018: ldnull
+   IL_0019: call System.Boolean Celeste.Platform::MoveHCollideSolids(System.Single,System.Boolean,System.Action`3<Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Celeste.Platform>)
+   IL_001e: brfalse.s IL_0081
+   IL_0020: ldc.i4.1
+   IL_0021: stloc.0
+   IL_0022: br.s IL_007b
+   IL_0024: ldc.i4.1
+   IL_0025: stloc.1
+   IL_0026: br.s IL_0073
+   IL_0028: ldloca.s V_2
+   IL_002a: ldarg.1
+   IL_002b: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0030: call System.Int32 System.Math::Sign(System.Single)
+   IL_0035: conv.r4
+   IL_0036: ldloc.0
+   IL_0037: ldloc.1
+   IL_0038: mul
+   IL_0039: conv.r4
+   IL_003a: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_003f: ldarg.0
+   IL_0040: ldarg.0
+   IL_0041: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0046: ldloc.2
+   IL_0047: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004c: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_0051: brtrue.s IL_006f
+   IL_0053: ldarg.0
+   IL_0054: ldloc.0
+   IL_0055: ldloc.1
+   IL_0056: mul
+   IL_0057: callvirt System.Void Celeste.Platform::MoveVExact(System.Int32)
+   IL_005c: ldarg.0
+   IL_005d: ldarg.1
+   IL_005e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0063: call System.Int32 System.Math::Sign(System.Single)
+   IL_0068: callvirt System.Void Celeste.Platform::MoveHExact(System.Int32)
+   IL_006d: ldc.i4.0
+   IL_006e: ret
+   IL_006f: ldloc.1
+   IL_0070: ldc.i4.2
+   IL_0071: sub
+   IL_0072: stloc.1
+   IL_0073: ldloc.1
+   IL_0074: ldc.i4.m1
+   IL_0075: bge.s IL_0028
+   IL_0077: ldloc.0
+   IL_0078: ldc.i4.1
+   IL_0079: add
+   IL_007a: stloc.0
+   IL_007b: ldloc.0
+   IL_007c: ldc.i4.3
+   IL_007d: ble.s IL_0024
+   IL_007f: ldc.i4.1
+   IL_0080: ret
+   IL_0081: ldc.i4.0
+   IL_0082: ret
+   IL_0083: ldarg.1
+   IL_0084: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0089: ldc.r4 0
+   IL_008e: beq IL_010d
+   IL_0093: ldarg.0
+   IL_0094: ldarg.1
+   IL_0095: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_009a: ldc.i4.0
+   IL_009b: ldnull
+   IL_009c: call System.Boolean Celeste.Platform::MoveVCollideSolids(System.Single,System.Boolean,System.Action`3<Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Celeste.Platform>)
+   IL_00a1: brfalse.s IL_010b
+   IL_00a3: ldc.i4.1
+   IL_00a4: stloc.3
+   IL_00a5: br.s IL_0105
+   IL_00a7: ldc.i4.1
+   IL_00a8: stloc.s V_4
+   IL_00aa: br.s IL_00fc
+   IL_00ac: ldloca.s V_5
+   IL_00ae: ldloc.3
+   IL_00af: ldloc.s V_4
+   IL_00b1: mul
+   IL_00b2: conv.r4
+   IL_00b3: ldarg.1
+   IL_00b4: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00b9: call System.Int32 System.Math::Sign(System.Single)
+   IL_00be: conv.r4
+   IL_00bf: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00c4: ldarg.0
+   IL_00c5: ldarg.0
+   IL_00c6: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00cb: ldloc.s V_5
+   IL_00cd: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00d2: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_00d7: brtrue.s IL_00f6
+   IL_00d9: ldarg.0
+   IL_00da: ldloc.3
+   IL_00db: ldloc.s V_4
+   IL_00dd: mul
+   IL_00de: callvirt System.Void Celeste.Platform::MoveHExact(System.Int32)
+   IL_00e3: ldarg.0
+   IL_00e4: ldarg.1
+   IL_00e5: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00ea: call System.Int32 System.Math::Sign(System.Single)
+   IL_00ef: callvirt System.Void Celeste.Platform::MoveVExact(System.Int32)
+   IL_00f4: ldc.i4.0
+   IL_00f5: ret
+   IL_00f6: ldloc.s V_4
+   IL_00f8: ldc.i4.2
+   IL_00f9: sub
+   IL_00fa: stloc.s V_4
+   IL_00fc: ldloc.s V_4
+   IL_00fe: ldc.i4.m1
+   IL_00ff: bge.s IL_00ac
+   IL_0101: ldloc.3
+   IL_0102: ldc.i4.1
+   IL_0103: add
+   IL_0104: stloc.3
+   IL_0105: ldloc.3
+   IL_0106: ldc.i4.3
+   IL_0107: ble.s IL_00a7
+   IL_0109: ldc.i4.1
+   IL_010a: ret
+   IL_010b: ldc.i4.0
+   IL_010c: ret
+   IL_010d: ldc.i4.0
+   IL_010e: ret

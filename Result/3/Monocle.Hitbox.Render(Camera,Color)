@@ -1,0 +1,15 @@
+On: HitboxFixer.HitboxFixerModule.modHitboxRender(orig_Render,Hitbox,Camera,Color)
+On: TAS.EverestInterop.Hitboxes.HitboxSimplified.ModHitbox(orig_Render,Hitbox,Camera,Color)
+On: TAS.Gameplay.Hitboxes.FinalBossHitbox.On_Hitbox_Render(orig_Render,Hitbox,Camera,Color)
+On: TAS.Gameplay.Hitboxes.ActualCollideHitbox.On_Hitbox_Render(orig_Render,Hitbox,Camera,Color)
+   IL_0000: ldarg.0
+   IL_0001: call System.Single Monocle.Collider::get_AbsoluteX()
+   IL_0006: ldarg.0
+   IL_0007: call System.Single Monocle.Collider::get_AbsoluteY()
+   IL_000c: ldarg.0
+   IL_000d: callvirt System.Single Monocle.Collider::get_Width()
+   IL_0012: ldarg.0
+   IL_0013: callvirt System.Single Monocle.Collider::get_Height()
+   IL_0018: ldarg.2
+   IL_0019: call System.Void Monocle.Draw::HollowRect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_001e: ret

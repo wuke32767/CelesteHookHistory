@@ -1,0 +1,19 @@
+On: Celeste.Mod.LollydesSJContributions.Entities.SineDustBunny.DustStyles_Get_Session(orig_Get_Session,Session)
+On: Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModule.DustStylesOnGet(orig_Get_Session,Session)
+On: TAS.EverestInterop.SimplifiedGraphicsFeature.DustStyles_Get_Session(orig_Get_Session,Session)
+   IL_0000: ldsfld System.Collections.Generic.Dictionary`2<System.Int32,Celeste.DustStyles/DustStyle> Celeste.DustStyles::Styles
+   IL_0005: ldarg.0
+   IL_0006: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_000b: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0010: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.Int32,Celeste.DustStyles/DustStyle>::ContainsKey(TKey)
+   IL_0015: brtrue.s IL_0023
+   IL_0017: ldsfld System.Collections.Generic.Dictionary`2<System.Int32,Celeste.DustStyles/DustStyle> Celeste.DustStyles::Styles
+   IL_001c: ldc.i4.3
+   IL_001d: callvirt TValue System.Collections.Generic.Dictionary`2<System.Int32,Celeste.DustStyles/DustStyle>::get_Item(TKey)
+   IL_0022: ret
+   IL_0023: ldsfld System.Collections.Generic.Dictionary`2<System.Int32,Celeste.DustStyles/DustStyle> Celeste.DustStyles::Styles
+   IL_0028: ldarg.0
+   IL_0029: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_002e: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0033: callvirt TValue System.Collections.Generic.Dictionary`2<System.Int32,Celeste.DustStyles/DustStyle>::get_Item(TKey)
+   IL_0038: ret

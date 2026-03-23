@@ -1,0 +1,13 @@
+On: ChroniaHelper.Entities.OmniZipWater.Player_SwimRiseCheck(orig_SwimRiseCheck,Player)
+On: Celeste.Mod.XaphanHelper.Entities.Liquid.onPlayerSwimRiseCheck(orig_SwimRiseCheck,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0007: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_000c: ldc.r4 -18
+   IL_0011: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0016: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_001b: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Water>(Microsoft.Xna.Framework.Vector2)
+   IL_0020: ldc.i4.0
+   IL_0021: ceq
+   IL_0023: ret

@@ -1,0 +1,38 @@
+On: Celeste.Mod.SpringCollab2020.Entities.SeekerCustomColors.modGotBouncedOn(orig_GotBouncedOn,Seeker,Entity)
+   IL_0000: ldc.r4 0.15
+   IL_0005: call System.Void Celeste.Celeste::Freeze(System.Single)
+   IL_000a: ldarg.0
+   IL_000b: ldarg.0
+   IL_000c: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0011: ldarg.1
+   IL_0012: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0017: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_001c: ldc.r4 200
+   IL_0021: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0026: stfld Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_002b: ldarg.0
+   IL_002c: ldfld Monocle.StateMachine Celeste.Seeker::State
+   IL_0031: ldc.i4.6
+   IL_0032: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_0037: ldarg.0
+   IL_0038: ldfld Monocle.Sprite Celeste.Seeker::sprite
+   IL_003d: ldc.r4 1.4
+   IL_0042: ldc.r4 0.6
+   IL_0047: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_004c: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0051: ldarg.0
+   IL_0052: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0057: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_005c: ldsfld Monocle.ParticleType Celeste.Seeker::P_Stomp
+   IL_0061: ldc.i4.8
+   IL_0062: ldarg.0
+   IL_0063: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0068: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_006d: ldc.r4 5
+   IL_0072: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0077: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_007c: ldc.r4 6
+   IL_0081: ldc.r4 3
+   IL_0086: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_008b: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0090: ret

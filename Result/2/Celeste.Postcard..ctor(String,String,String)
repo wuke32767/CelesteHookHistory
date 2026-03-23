@@ -1,0 +1,48 @@
+On: Celeste.Mod.SSMQoLMod.Modifications.SkipControllerHooks.On_Postcard_ctor(orig_ctor_string_string_string,Postcard,String,String,String)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 1
+   IL_0006: stfld System.Single Celeste.Postcard::alpha
+   IL_000b: ldarg.0
+   IL_000c: ldc.r4 1
+   IL_0011: stfld System.Single Celeste.Postcard::scale
+   IL_0016: ldarg.0
+   IL_0017: call System.Void Monocle.Entity::.ctor()
+   IL_001c: ldarg.0
+   IL_001d: ldc.i4.0
+   IL_001e: stfld System.Boolean Monocle.Entity::Visible
+   IL_0023: ldarg.0
+   IL_0024: ldsfld Monocle.BitTag Celeste.Tags::HUD
+   IL_0029: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_002e: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_0033: ldarg.0
+   IL_0034: ldarg.2
+   IL_0035: stfld System.String Celeste.Postcard::sfxEventIn
+   IL_003a: ldarg.0
+   IL_003b: ldarg.3
+   IL_003c: stfld System.String Celeste.Postcard::sfxEventOut
+   IL_0041: ldarg.0
+   IL_0042: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_0047: ldstr "postcard"
+   IL_004c: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0051: stfld Monocle.MTexture Celeste.Postcard::postcard
+   IL_0056: ldarg.0
+   IL_0057: ldarg.1
+   IL_0058: ldarg.0
+   IL_0059: ldfld Monocle.MTexture Celeste.Postcard::postcard
+   IL_005e: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_0063: ldc.i4.s 120
+   IL_0065: sub
+   IL_0066: conv.r4
+   IL_0067: ldc.r4 0.7
+   IL_006c: div
+   IL_006d: conv.i4
+   IL_006e: ldc.i4.m1
+   IL_006f: ldc.r4 1
+   IL_0074: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0079: ldc.r4 0.6
+   IL_007e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0083: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Color>::.ctor(T)
+   IL_0088: ldnull
+   IL_0089: call Celeste.FancyText/Text Celeste.FancyText::Parse(System.String,System.Int32,System.Int32,System.Single,System.Nullable`1<Microsoft.Xna.Framework.Color>,Celeste.Language)
+   IL_008e: stfld Celeste.FancyText/Text Celeste.Postcard::text
+   IL_0093: ret

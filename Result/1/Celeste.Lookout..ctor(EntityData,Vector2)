@@ -1,0 +1,106 @@
+On: Celeste.Mod.SSMQoLMod.Commands.RemoveLookoutsCommand.On_Lookout_ctor(orig_ctor,Lookout,EntityData,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldstr ""
+   IL_0006: stfld System.String Celeste.Lookout::animPrefix
+   IL_000b: ldarg.0
+   IL_000c: ldarg.1
+   IL_000d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.EntityData::Position
+   IL_0012: ldarg.2
+   IL_0013: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0018: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_001d: ldarg.0
+   IL_001e: ldc.i4 -8500
+   IL_0023: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0028: ldarg.0
+   IL_0029: ldarg.0
+   IL_002a: ldc.i4.s -24
+   IL_002c: ldc.i4.s -8
+   IL_002e: ldc.i4.s 48
+   IL_0030: ldc.i4.8
+   IL_0031: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0036: ldc.r4 -0.5
+   IL_003b: ldc.r4 -20
+   IL_0040: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0045: ldarg.0
+   IL_0046: ldftn System.Void Celeste.Lookout::Interact(Celeste.Player)
+   IL_004c: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_0051: ldnull
+   IL_0052: newobj System.Void Celeste.TalkComponent::.ctor(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2,System.Action`1<Celeste.Player>,Celeste.TalkComponent/HoverDisplay)
+   IL_0057: dup
+   IL_0058: stloc.2
+   IL_0059: stfld Celeste.TalkComponent Celeste.Lookout::talk
+   IL_005e: ldloc.2
+   IL_005f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0064: ldarg.0
+   IL_0065: ldfld Celeste.TalkComponent Celeste.Lookout::talk
+   IL_006a: ldc.i4.0
+   IL_006b: stfld System.Boolean Celeste.TalkComponent::PlayerMustBeFacing
+   IL_0070: ldarg.0
+   IL_0071: ldarg.1
+   IL_0072: ldstr "summit"
+   IL_0077: ldc.i4.0
+   IL_0078: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_007d: stfld System.Boolean Celeste.Lookout::summit
+   IL_0082: ldarg.0
+   IL_0083: ldarg.1
+   IL_0084: ldstr "onlyY"
+   IL_0089: ldc.i4.0
+   IL_008a: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_008f: stfld System.Boolean Celeste.Lookout::onlyY
+   IL_0094: ldarg.0
+   IL_0095: ldc.r4 4
+   IL_009a: ldc.r4 4
+   IL_009f: ldc.r4 -2
+   IL_00a4: ldc.r4 -4
+   IL_00a9: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_00ae: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_00b3: ldc.r4 -1
+   IL_00b8: ldc.r4 -11
+   IL_00bd: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00c2: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00c7: ldc.r4 0.8
+   IL_00cc: ldc.i4.s 16
+   IL_00ce: ldc.i4.s 24
+   IL_00d0: newobj System.Void Celeste.VertexLight::.ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,System.Int32,System.Int32)
+   IL_00d5: stloc.0
+   IL_00d6: ldarg.0
+   IL_00d7: ldloc.0
+   IL_00d8: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00dd: ldarg.0
+   IL_00de: ldloc.0
+   IL_00df: callvirt Monocle.Tween Celeste.VertexLight::CreatePulseTween()
+   IL_00e4: stfld Monocle.Tween Celeste.Lookout::lightTween
+   IL_00e9: ldarg.0
+   IL_00ea: ldarg.0
+   IL_00eb: ldfld Monocle.Tween Celeste.Lookout::lightTween
+   IL_00f0: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00f5: ldarg.0
+   IL_00f6: ldarg.0
+   IL_00f7: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_00fc: ldstr "lookout"
+   IL_0101: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_0106: dup
+   IL_0107: stloc.3
+   IL_0108: stfld Monocle.Sprite Celeste.Lookout::sprite
+   IL_010d: ldloc.3
+   IL_010e: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0113: ldarg.0
+   IL_0114: ldfld Monocle.Sprite Celeste.Lookout::sprite
+   IL_0119: ldarg.0
+   IL_011a: ldftn System.Void Celeste.Lookout::<.ctor>b__11_0(System.String)
+   IL_0120: newobj System.Void System.Action`1<System.String>::.ctor(System.Object,System.IntPtr)
+   IL_0125: stfld System.Action`1<System.String> Monocle.Sprite::OnFrameChange
+   IL_012a: ldarg.1
+   IL_012b: ldarg.2
+   IL_012c: callvirt Microsoft.Xna.Framework.Vector2[] Celeste.EntityData::NodesOffset(Microsoft.Xna.Framework.Vector2)
+   IL_0131: stloc.1
+   IL_0132: ldloc.1
+   IL_0133: brfalse.s IL_0145
+   IL_0135: ldloc.1
+   IL_0136: ldlen
+   IL_0137: brfalse.s IL_0145
+   IL_0139: ldarg.0
+   IL_013a: ldloc.1
+   IL_013b: newobj System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::.ctor(System.Collections.Generic.IEnumerable`1<T>)
+   IL_0140: stfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Lookout::nodes
+   IL_0145: ret

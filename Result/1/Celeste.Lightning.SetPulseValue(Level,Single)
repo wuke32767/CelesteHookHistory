@@ -1,0 +1,23 @@
+On: FrostHelper.ArbitraryShapeLightning.LightningOnSetPulseValue(orig_SetPulseValue,Level,Single)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.BloomRenderer Celeste.Level::Bloom
+   IL_0006: ldarg.0
+   IL_0007: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000c: callvirt T Monocle.Tracker::GetEntity<Celeste.LightningRenderer>()
+   IL_0011: stloc.0
+   IL_0012: ldc.r4 0
+   IL_0017: ldc.r4 0.075
+   IL_001c: ldarg.1
+   IL_001d: call System.Single Microsoft.Xna.Framework.MathHelper::Lerp(System.Single,System.Single,System.Single)
+   IL_0022: stsfld System.Single Celeste.Glitch::Value
+   IL_0027: ldc.r4 1
+   IL_002c: ldc.r4 1.2
+   IL_0031: ldarg.1
+   IL_0032: call System.Single Microsoft.Xna.Framework.MathHelper::Lerp(System.Single,System.Single,System.Single)
+   IL_0037: stfld System.Single Celeste.BloomRenderer::Strength
+   IL_003c: ldloc.0
+   IL_003d: ldarg.1
+   IL_003e: ldc.r4 0.2
+   IL_0043: mul
+   IL_0044: stfld System.Single Celeste.LightningRenderer::Fade
+   IL_0049: ret

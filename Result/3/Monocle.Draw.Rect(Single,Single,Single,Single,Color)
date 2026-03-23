@@ -1,0 +1,28 @@
+On: LuckyHelper.Components.ColorModifierComponent.DrawOnRect_float_float_float_float_Color(orig_Rect_float_float_float_float_Color,Single,Single,Single,Single,Color)
+   IL_0000: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0005: ldarg.0
+   IL_0006: conv.i4
+   IL_0007: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_000c: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0011: ldarg.1
+   IL_0012: conv.i4
+   IL_0013: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0018: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_001d: ldarg.2
+   IL_001e: conv.i4
+   IL_001f: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_0024: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0029: ldarg.3
+   IL_002a: conv.i4
+   IL_002b: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_0030: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0035: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_003a: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_003f: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0044: ldsfld Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0049: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_004e: callvirt Microsoft.Xna.Framework.Rectangle Monocle.MTexture::get_ClipRect()
+   IL_0053: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_0058: ldarg.s color
+   IL_005a: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Rectangle,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color)
+   IL_005f: ret

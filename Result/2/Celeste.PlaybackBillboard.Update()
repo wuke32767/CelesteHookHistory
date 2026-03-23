@@ -1,0 +1,15 @@
+On: Celeste.Mod.FewerVisualDistractions.Patches.FarewellTweaker.PlaybackBillboard_Update(orig_Update,PlaybackBillboard)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000c: ldc.r4 0.1
+   IL_0011: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_0016: brfalse.s IL_0026
+   IL_0018: ldarg.0
+   IL_0019: ldarg.0
+   IL_001a: ldfld System.UInt32 Celeste.PlaybackBillboard::Seed
+   IL_001f: ldc.i4.1
+   IL_0020: add
+   IL_0021: stfld System.UInt32 Celeste.PlaybackBillboard::Seed
+   IL_0026: ret

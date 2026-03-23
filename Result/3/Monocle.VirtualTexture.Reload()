@@ -1,0 +1,944 @@
+On: Celeste.Mod.CollabUtils2.LazyLoadingHandler.onTextureLazyLoadHook(orig_Reload,VirtualTexture)
+   IL_0000: newobj System.Void Monocle.VirtualTexture/<>c__DisplayClass50_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.0
+   IL_0008: stfld Monocle.VirtualTexture Monocle.VirtualTexture/<>c__DisplayClass50_0::<>4__this
+   IL_000d: call System.Boolean Celeste.Mod.Everest/Flags::get_IsHeadless()
+   IL_0012: brfalse.s IL_002c
+   IL_0014: ldarg.0
+   IL_0015: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_001a: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_001f: ldc.i4.1
+   IL_0020: ldc.i4.1
+   IL_0021: newobj System.Void Microsoft.Xna.Framework.Graphics.Texture2D::.ctor(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.Int32,System.Int32)
+   IL_0026: stfld Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::Texture
+   IL_002b: ret
+   IL_002c: ldloc.0
+   IL_002d: ldarg.0
+   IL_002e: ldfld System.Object Monocle.VirtualTexture::_Texture_QueuedLoadLock
+   IL_0033: stfld System.Object Monocle.VirtualTexture/<>c__DisplayClass50_0::queuedLoadLock
+   IL_0038: ldloc.0
+   IL_0039: ldfld System.Object Monocle.VirtualTexture/<>c__DisplayClass50_0::queuedLoadLock
+   IL_003e: brfalse.s IL_009a
+   IL_0040: ldarg.0
+   IL_0041: ldfld System.Boolean Monocle.VirtualTexture::_Texture_Reloading
+   IL_0046: brtrue.s IL_009a
+   IL_0048: ldloc.0
+   IL_0049: ldfld System.Object Monocle.VirtualTexture/<>c__DisplayClass50_0::queuedLoadLock
+   IL_004e: stloc.2
+   IL_004f: ldc.i4.0
+   IL_0050: stloc.3
+   IL_0051: ldloc.2
+   IL_0052: ldloca.s V_3
+   IL_0054: call System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
+   IL_0059: ldarg.0
+   IL_005a: ldfld System.Object Monocle.VirtualTexture::_Texture_QueuedLoadLock
+   IL_005f: ldloc.0
+   IL_0060: ldfld System.Object Monocle.VirtualTexture/<>c__DisplayClass50_0::queuedLoadLock
+   IL_0065: beq.s IL_006c
+   IL_0067: leave IL_08b9
+   IL_006c: call System.Boolean Celeste.Mod.MainThreadHelper::get_IsMainThread()
+   IL_0071: brfalse.s IL_007a
+   IL_0073: ldarg.0
+   IL_0074: ldnull
+   IL_0075: stfld System.Object Monocle.VirtualTexture::_Texture_QueuedLoadLock
+   IL_007a: leave.s IL_0086
+   IL_007c: ldloc.3
+   IL_007d: brfalse.s IL_0085
+   IL_007f: ldloc.2
+   IL_0080: call System.Void System.Threading.Monitor::Exit(System.Object)
+   IL_0085: endfinally
+   IL_0086: call System.Boolean Celeste.Mod.MainThreadHelper::get_IsMainThread()
+   IL_008b: brtrue.s IL_009a
+   IL_008d: ldarg.0
+   IL_008e: ldflda System.Threading.Tasks.ValueTask`1<Microsoft.Xna.Framework.Graphics.Texture2D> Monocle.VirtualTexture::_Texture_QueuedLoad
+   IL_0093: call TResult System.Threading.Tasks.ValueTask`1<Microsoft.Xna.Framework.Graphics.Texture2D>::get_Result()
+   IL_0098: pop
+   IL_0099: ret
+   IL_009a: ldsfld System.Boolean Monocle.VirtualTexture::ftlEnabled
+   IL_009f: brfalse IL_0134
+   IL_00a4: ldarg.0
+   IL_00a5: callvirt System.Boolean Monocle.VirtualTexture::get_CanPreload()
+   IL_00aa: brfalse IL_0134
+   IL_00af: ldarg.0
+   IL_00b0: ldfld Celeste.Mod.ModAsset Monocle.VirtualTexture::Metadata
+   IL_00b5: dup
+   IL_00b6: brtrue.s IL_00bc
+   IL_00b8: pop
+   IL_00b9: ldc.i4.1
+   IL_00ba: br.s IL_00c1
+   IL_00bc: callvirt System.Boolean Celeste.Mod.ModAsset::get_StreamAsync()
+   IL_00c1: brfalse.s IL_0134
+   IL_00c3: ldarg.0
+   IL_00c4: ldfld System.Boolean Monocle.VirtualTexture::_Texture_Reloading
+   IL_00c9: brtrue.s IL_0134
+   IL_00cb: ldarg.0
+   IL_00cc: ldfld System.Boolean Monocle.VirtualTexture::_Texture_Requesting
+   IL_00d1: brtrue.s IL_0134
+   IL_00d3: ldarg.0
+   IL_00d4: ldc.i4.1
+   IL_00d5: callvirt System.Boolean Monocle.VirtualTexture::Preload(System.Boolean)
+   IL_00da: brfalse.s IL_0134
+   IL_00dc: ldarg.0
+   IL_00dd: callvirt System.Void Monocle.VirtualTexture::CountFastTextureLoad()
+   IL_00e2: ldloc.0
+   IL_00e3: newobj System.Void System.Object::.ctor()
+   IL_00e8: dup
+   IL_00e9: stloc.s V_4
+   IL_00eb: stfld System.Object Monocle.VirtualTexture/<>c__DisplayClass50_0::queuedLoadLock
+   IL_00f0: ldloc.s V_4
+   IL_00f2: stloc.2
+   IL_00f3: ldc.i4.0
+   IL_00f4: stloc.3
+   IL_00f5: ldloc.2
+   IL_00f6: ldloca.s V_3
+   IL_00f8: call System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
+   IL_00fd: ldarg.0
+   IL_00fe: ldloc.0
+   IL_00ff: ldfld System.Object Monocle.VirtualTexture/<>c__DisplayClass50_0::queuedLoadLock
+   IL_0104: stfld System.Object Monocle.VirtualTexture::_Texture_QueuedLoadLock
+   IL_0109: ldarg.0
+   IL_010a: ldloc.0
+   IL_010b: ldftn Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture/<>c__DisplayClass50_0::<Reload>b__1()
+   IL_0111: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Object,System.IntPtr)
+   IL_0116: call System.Threading.Tasks.Task`1<TResult> System.Threading.Tasks.Task::Run<Microsoft.Xna.Framework.Graphics.Texture2D>(System.Func`1<TResult>)
+   IL_011b: newobj System.Void System.Threading.Tasks.ValueTask`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Threading.Tasks.Task`1<TResult>)
+   IL_0120: stfld System.Threading.Tasks.ValueTask`1<Microsoft.Xna.Framework.Graphics.Texture2D> Monocle.VirtualTexture::_Texture_QueuedLoad
+   IL_0125: leave IL_08b9
+   IL_012a: ldloc.3
+   IL_012b: brfalse.s IL_0133
+   IL_012d: ldloc.2
+   IL_012e: call System.Void System.Threading.Monitor::Exit(System.Object)
+   IL_0133: endfinally
+   IL_0134: ldarg.0
+   IL_0135: ldc.i4.0
+   IL_0136: stfld System.Boolean Monocle.VirtualTexture::_Texture_Reloading
+   IL_013b: ldarg.0
+   IL_013c: ldfld Celeste.Mod.ModAsset Monocle.VirtualTexture::Metadata
+   IL_0141: brfalse IL_027a
+   IL_0146: ldarg.0
+   IL_0147: ldfld Celeste.Mod.ModAsset Monocle.VirtualTexture::Metadata
+   IL_014c: callvirt System.Boolean Celeste.Mod.ModAsset::get_StreamAsync()
+   IL_0151: brtrue.s IL_015d
+   IL_0153: call System.Boolean Celeste.Mod.MainThreadHelper::get_IsMainThread()
+   IL_0158: brfalse IL_0261
+   IL_015d: ldarg.0
+   IL_015e: ldfld Celeste.Mod.ModAsset Monocle.VirtualTexture::Metadata
+   IL_0163: callvirt System.IO.Stream Celeste.Mod.ModAsset::get_Stream()
+   IL_0168: stloc.s V_5
+   IL_016a: ldloc.s V_5
+   IL_016c: brfalse IL_0230
+   IL_0171: ldloc.s V_5
+   IL_0173: stloc.s V_6
+   IL_0175: newobj System.Void Monocle.VirtualTexture/<>c__DisplayClass50_1::.ctor()
+   IL_017a: stloc.s V_7
+   IL_017c: ldc.i4.0
+   IL_017d: stloc.s V_8
+   IL_017f: ldarg.0
+   IL_0180: ldfld Celeste.Mod.ModAsset Monocle.VirtualTexture::Metadata
+   IL_0185: ldloca.s V_9
+   IL_0187: callvirt System.Boolean Celeste.Mod.ModAsset::TryGetMeta<Celeste.Mod.Meta.TextureMeta>(T&)
+   IL_018c: brfalse.s IL_0197
+   IL_018e: ldloc.s V_9
+   IL_0190: callvirt System.Boolean Celeste.Mod.Meta.TextureMeta::get_Premultiplied()
+   IL_0195: stloc.s V_8
+   IL_0197: ldloc.s V_8
+   IL_0199: brfalse.s IL_01c3
+   IL_019b: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_01a0: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_01a5: ldloc.s V_5
+   IL_01a7: ldloc.s V_7
+   IL_01a9: ldflda System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_1::w
+   IL_01ae: ldloc.s V_7
+   IL_01b0: ldflda System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_1::h
+   IL_01b5: ldloc.s V_7
+   IL_01b7: ldflda System.IntPtr Monocle.VirtualTexture/<>c__DisplayClass50_1::dataPtr
+   IL_01bc: call System.Void Celeste.Mod.ContentExtensions::LoadTextureRaw(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.IO.Stream,System.Int32&,System.Int32&,System.IntPtr&)
+   IL_01c1: br.s IL_01e9
+   IL_01c3: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_01c8: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_01cd: ldloc.s V_5
+   IL_01cf: ldloc.s V_7
+   IL_01d1: ldflda System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_1::w
+   IL_01d6: ldloc.s V_7
+   IL_01d8: ldflda System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_1::h
+   IL_01dd: ldloc.s V_7
+   IL_01df: ldflda System.IntPtr Monocle.VirtualTexture/<>c__DisplayClass50_1::dataPtr
+   IL_01e4: call System.Void Celeste.Mod.ContentExtensions::LoadTextureLazyPremultiply(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.IO.Stream,System.Int32&,System.Int32&,System.IntPtr&)
+   IL_01e9: ldloc.s V_5
+   IL_01eb: callvirt System.Void System.IO.Stream::Dispose()
+   IL_01f0: ldarg.0
+   IL_01f1: ldloc.s V_7
+   IL_01f3: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_1::w
+   IL_01f8: call System.Void Monocle.VirtualAsset::set_Width(System.Int32)
+   IL_01fd: ldarg.0
+   IL_01fe: ldloc.s V_7
+   IL_0200: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_1::h
+   IL_0205: call System.Void Monocle.VirtualAsset::set_Height(System.Int32)
+   IL_020a: ldarg.0
+   IL_020b: ldc.i4.0
+   IL_020c: ldloc.s V_7
+   IL_020e: ldftn Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture/<>c__DisplayClass50_1::<Reload>b__2()
+   IL_0214: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Object,System.IntPtr)
+   IL_0219: callvirt System.Boolean Monocle.VirtualTexture::Load(System.Boolean,System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>)
+   IL_021e: pop
+   IL_021f: leave IL_0890
+   IL_0224: ldloc.s V_6
+   IL_0226: brfalse.s IL_022f
+   IL_0228: ldloc.s V_6
+   IL_022a: callvirt System.Void System.IDisposable::Dispose()
+   IL_022f: endfinally
+   IL_0230: ldarg.0
+   IL_0231: ldfld Monocle.VirtualTexture Monocle.VirtualTexture::Fallback
+   IL_0236: brfalse IL_0890
+   IL_023b: ldarg.0
+   IL_023c: ldfld Monocle.VirtualTexture Monocle.VirtualTexture::Fallback
+   IL_0241: castclass Monocle.VirtualTexture
+   IL_0246: callvirt System.Void Monocle.VirtualAsset::Reload()
+   IL_024b: ldarg.0
+   IL_024c: ldarg.0
+   IL_024d: ldfld Monocle.VirtualTexture Monocle.VirtualTexture::Fallback
+   IL_0252: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0257: stfld Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::Texture
+   IL_025c: br IL_0890
+   IL_0261: ldarg.0
+   IL_0262: ldc.i4.1
+   IL_0263: ldloc.0
+   IL_0264: ldftn Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture/<>c__DisplayClass50_0::<Reload>b__0()
+   IL_026a: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Object,System.IntPtr)
+   IL_026f: callvirt System.Boolean Monocle.VirtualTexture::Load(System.Boolean,System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>)
+   IL_0274: pop
+   IL_0275: br IL_0890
+   IL_027a: ldarg.0
+   IL_027b: callvirt System.String Monocle.VirtualTexture::get_Path()
+   IL_0280: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0285: brfalse IL_0322
+   IL_028a: newobj System.Void Monocle.VirtualTexture/<>c__DisplayClass50_2::.ctor()
+   IL_028f: stloc.s V_10
+   IL_0291: ldloc.s V_10
+   IL_0293: ldloc.0
+   IL_0294: stfld Monocle.VirtualTexture/<>c__DisplayClass50_0 Monocle.VirtualTexture/<>c__DisplayClass50_2::CS$<>8__locals1
+   IL_0299: ldloc.s V_10
+   IL_029b: ldarg.0
+   IL_029c: call System.Int32 Monocle.VirtualAsset::get_Width()
+   IL_02a1: ldarg.0
+   IL_02a2: call System.Int32 Monocle.VirtualAsset::get_Height()
+   IL_02a7: mul
+   IL_02a8: newarr Microsoft.Xna.Framework.Color
+   IL_02ad: stfld Microsoft.Xna.Framework.Color[] Monocle.VirtualTexture/<>c__DisplayClass50_2::data
+   IL_02b2: ldloc.s V_10
+   IL_02b4: ldfld Microsoft.Xna.Framework.Color[] Monocle.VirtualTexture/<>c__DisplayClass50_2::data
+   IL_02b9: dup
+   IL_02ba: stloc.s V_12
+   IL_02bc: brfalse.s IL_02c4
+   IL_02be: ldloc.s V_12
+   IL_02c0: ldlen
+   IL_02c1: conv.i4
+   IL_02c2: brtrue.s IL_02ca
+   IL_02c4: ldc.i4.0
+   IL_02c5: conv.u
+   IL_02c6: stloc.s V_11
+   IL_02c8: br.s IL_02d5
+   IL_02ca: ldloc.s V_12
+   IL_02cc: ldc.i4.0
+   IL_02cd: ldelema Microsoft.Xna.Framework.Color
+   IL_02d2: conv.u
+   IL_02d3: stloc.s V_11
+   IL_02d5: ldc.i4.0
+   IL_02d6: stloc.s V_13
+   IL_02d8: br.s IL_02f8
+   IL_02da: ldloc.s V_11
+   IL_02dc: ldloc.s V_13
+   IL_02de: conv.i
+   IL_02df: sizeof Microsoft.Xna.Framework.Color
+   IL_02e5: mul
+   IL_02e6: add
+   IL_02e7: ldarg.0
+   IL_02e8: ldfld Microsoft.Xna.Framework.Color Monocle.VirtualTexture::color
+   IL_02ed: stobj Microsoft.Xna.Framework.Color
+   IL_02f2: ldloc.s V_13
+   IL_02f4: ldc.i4.1
+   IL_02f5: add
+   IL_02f6: stloc.s V_13
+   IL_02f8: ldloc.s V_13
+   IL_02fa: ldloc.s V_10
+   IL_02fc: ldfld Microsoft.Xna.Framework.Color[] Monocle.VirtualTexture/<>c__DisplayClass50_2::data
+   IL_0301: ldlen
+   IL_0302: conv.i4
+   IL_0303: blt.s IL_02da
+   IL_0305: ldnull
+   IL_0306: stloc.s V_12
+   IL_0308: ldarg.0
+   IL_0309: ldc.i4.0
+   IL_030a: ldloc.s V_10
+   IL_030c: ldftn Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture/<>c__DisplayClass50_2::<Reload>b__3()
+   IL_0312: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Object,System.IntPtr)
+   IL_0317: callvirt System.Boolean Monocle.VirtualTexture::Load(System.Boolean,System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>)
+   IL_031c: pop
+   IL_031d: br IL_0890
+   IL_0322: newobj System.Void Monocle.VirtualTexture/<>c__DisplayClass50_3::.ctor()
+   IL_0327: stloc.s V_14
+   IL_0329: ldloc.s V_14
+   IL_032b: ldc.i4.0
+   IL_032c: stfld System.Boolean Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferGC
+   IL_0331: ldloc.s V_14
+   IL_0333: ldnull
+   IL_0334: stfld System.Byte[] Monocle.VirtualTexture/<>c__DisplayClass50_3::buffer
+   IL_0339: ldloc.s V_14
+   IL_033b: ldsfld System.IntPtr System.IntPtr::Zero
+   IL_0340: stfld System.IntPtr Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferPtr
+   IL_0345: ldloc.s V_14
+   IL_0347: ldc.i4.0
+   IL_0348: stfld System.Boolean Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferStolen
+   IL_034d: ldarg.0
+   IL_034e: callvirt System.String Monocle.VirtualTexture::get_Path()
+   IL_0353: call System.String System.IO.Path::GetExtension(System.String)
+   IL_0358: stloc.s V_15
+   IL_035a: ldloc.s V_15
+   IL_035c: ldstr ".data"
+   IL_0361: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0366: brtrue.s IL_038f
+   IL_0368: ldloc.s V_15
+   IL_036a: ldstr ".png"
+   IL_036f: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0374: brtrue IL_075f
+   IL_0379: ldloc.s V_15
+   IL_037b: ldstr ".xnb"
+   IL_0380: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0385: brtrue IL_0866
+   IL_038a: br IL_087c
+   IL_038f: call System.String Monocle.Engine::get_ContentDirectory()
+   IL_0394: ldarg.0
+   IL_0395: callvirt System.String Monocle.VirtualTexture::get_Path()
+   IL_039a: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_039f: call System.IO.FileStream System.IO.File::OpenRead(System.String)
+   IL_03a4: stloc.s V_16
+   IL_03a6: ldsfld System.Byte[] Monocle.VirtualTexture::bytesSafe
+   IL_03ab: dup
+   IL_03ac: brtrue.s IL_03bf
+   IL_03ae: pop
+   IL_03af: ldc.i4 524288
+   IL_03b4: newarr System.Byte
+   IL_03b9: dup
+   IL_03ba: stsfld System.Byte[] Monocle.VirtualTexture::bytesSafe
+   IL_03bf: stloc.s V_17
+   IL_03c1: ldloc.s V_16
+   IL_03c3: ldloc.s V_17
+   IL_03c5: ldc.i4.0
+   IL_03c6: ldloc.s V_17
+   IL_03c8: ldlen
+   IL_03c9: conv.i4
+   IL_03ca: callvirt System.Int32 System.IO.Stream::Read(System.Byte[],System.Int32,System.Int32)
+   IL_03cf: pop
+   IL_03d0: ldc.i4.0
+   IL_03d1: stloc.s V_18
+   IL_03d3: ldloc.s V_14
+   IL_03d5: ldloc.s V_17
+   IL_03d7: ldloc.s V_18
+   IL_03d9: call System.Int32 System.BitConverter::ToInt32(System.Byte[],System.Int32)
+   IL_03de: stfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::w
+   IL_03e3: ldloc.s V_14
+   IL_03e5: ldloc.s V_17
+   IL_03e7: ldloc.s V_18
+   IL_03e9: ldc.i4.4
+   IL_03ea: add
+   IL_03eb: call System.Int32 System.BitConverter::ToInt32(System.Byte[],System.Int32)
+   IL_03f0: stfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::h
+   IL_03f5: ldloc.s V_17
+   IL_03f7: ldloc.s V_18
+   IL_03f9: ldc.i4.8
+   IL_03fa: add
+   IL_03fb: ldelem.u1
+   IL_03fc: ldc.i4.1
+   IL_03fd: ceq
+   IL_03ff: stloc.s V_19
+   IL_0401: ldloc.s V_18
+   IL_0403: ldc.i4.s 9
+   IL_0405: add
+   IL_0406: stloc.s V_18
+   IL_0408: ldarg.0
+   IL_0409: ldloc.s V_14
+   IL_040b: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::w
+   IL_0410: call System.Void Monocle.VirtualAsset::set_Width(System.Int32)
+   IL_0415: ldarg.0
+   IL_0416: ldloc.s V_14
+   IL_0418: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::h
+   IL_041d: call System.Void Monocle.VirtualAsset::set_Height(System.Int32)
+   IL_0422: ldloc.s V_14
+   IL_0424: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::w
+   IL_0429: ldloc.s V_14
+   IL_042b: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::h
+   IL_0430: mul
+   IL_0431: ldc.i4.4
+   IL_0432: mul
+   IL_0433: stloc.s V_20
+   IL_0435: ldloc.s V_20
+   IL_0437: ldc.i4 67108864
+   IL_043c: bne.un.s IL_047c
+   IL_043e: ldsfld System.Object Monocle.VirtualTexture::bufferLock
+   IL_0443: stloc.2
+   IL_0444: ldc.i4.0
+   IL_0445: stloc.3
+   IL_0446: ldloc.2
+   IL_0447: ldloca.s V_3
+   IL_0449: call System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
+   IL_044e: ldloc.s V_14
+   IL_0450: ldsfld System.Byte[] Monocle.VirtualTexture::bufferSafe
+   IL_0455: stfld System.Byte[] Monocle.VirtualTexture/<>c__DisplayClass50_3::buffer
+   IL_045a: ldnull
+   IL_045b: stsfld System.Byte[] Monocle.VirtualTexture::bufferSafe
+   IL_0460: ldloc.s V_14
+   IL_0462: ldc.i4.1
+   IL_0463: stfld System.Boolean Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferStolen
+   IL_0468: ldloc.s V_14
+   IL_046a: ldc.i4.1
+   IL_046b: stfld System.Boolean Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferGC
+   IL_0470: leave.s IL_047c
+   IL_0472: ldloc.3
+   IL_0473: brfalse.s IL_047b
+   IL_0475: ldloc.2
+   IL_0476: call System.Void System.Threading.Monitor::Exit(System.Object)
+   IL_047b: endfinally
+   IL_047c: ldloc.s V_14
+   IL_047e: ldfld System.Byte[] Monocle.VirtualTexture/<>c__DisplayClass50_3::buffer
+   IL_0483: brtrue.s IL_04bc
+   IL_0485: ldloc.s V_14
+   IL_0487: ldfld System.Boolean Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferGC
+   IL_048c: brfalse.s IL_049e
+   IL_048e: ldloc.s V_14
+   IL_0490: ldloc.s V_20
+   IL_0492: newarr System.Byte
+   IL_0497: stfld System.Byte[] Monocle.VirtualTexture/<>c__DisplayClass50_3::buffer
+   IL_049c: br.s IL_04b4
+   IL_049e: ldloc.s V_14
+   IL_04a0: ldnull
+   IL_04a1: stfld System.Byte[] Monocle.VirtualTexture/<>c__DisplayClass50_3::buffer
+   IL_04a6: ldloc.s V_14
+   IL_04a8: ldloc.s V_20
+   IL_04aa: call System.IntPtr System.Runtime.InteropServices.Marshal::AllocHGlobal(System.Int32)
+   IL_04af: stfld System.IntPtr Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferPtr
+   IL_04b4: ldloc.s V_14
+   IL_04b6: ldc.i4.0
+   IL_04b7: stfld System.Boolean Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferStolen
+   IL_04bc: nop
+   IL_04bd: ldloc.s V_17
+   IL_04bf: dup
+   IL_04c0: stloc.s V_22
+   IL_04c2: brfalse.s IL_04ca
+   IL_04c4: ldloc.s V_22
+   IL_04c6: ldlen
+   IL_04c7: conv.i4
+   IL_04c8: brtrue.s IL_04d0
+   IL_04ca: ldc.i4.0
+   IL_04cb: conv.u
+   IL_04cc: stloc.s V_21
+   IL_04ce: br.s IL_04db
+   IL_04d0: ldloc.s V_22
+   IL_04d2: ldc.i4.0
+   IL_04d3: ldelema System.Byte
+   IL_04d8: conv.u
+   IL_04d9: stloc.s V_21
+   IL_04db: nop
+   IL_04dc: ldloc.s V_14
+   IL_04de: ldfld System.Byte[] Monocle.VirtualTexture/<>c__DisplayClass50_3::buffer
+   IL_04e3: dup
+   IL_04e4: stloc.s V_24
+   IL_04e6: brfalse.s IL_04ee
+   IL_04e8: ldloc.s V_24
+   IL_04ea: ldlen
+   IL_04eb: conv.i4
+   IL_04ec: brtrue.s IL_04f4
+   IL_04ee: ldc.i4.0
+   IL_04ef: conv.u
+   IL_04f0: stloc.s V_23
+   IL_04f2: br.s IL_04ff
+   IL_04f4: ldloc.s V_24
+   IL_04f6: ldc.i4.0
+   IL_04f7: ldelema System.Byte
+   IL_04fc: conv.u
+   IL_04fd: stloc.s V_23
+   IL_04ff: ldloc.s V_14
+   IL_0501: ldfld System.Boolean Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferGC
+   IL_0506: brtrue.s IL_0511
+   IL_0508: ldloc.s V_14
+   IL_050a: ldfld System.IntPtr Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferPtr
+   IL_050f: br.s IL_0513
+   IL_0511: ldloc.s V_23
+   IL_0513: stloc.s V_25
+   IL_0515: ldloc.s V_25
+   IL_0517: stloc.s V_26
+   IL_0519: ldc.i4.0
+   IL_051a: stloc.s V_27
+   IL_051c: ldc.i4.0
+   IL_051d: stloc.s V_28
+   IL_051f: ldloc.s V_19
+   IL_0521: brfalse IL_0724
+   IL_0526: br IL_063c
+   IL_052b: ldloc.s V_21
+   IL_052d: ldloc.s V_18
+   IL_052f: add
+   IL_0530: ldind.u1
+   IL_0531: stloc.s V_29
+   IL_0533: ldloc.s V_21
+   IL_0535: ldloc.s V_18
+   IL_0537: ldc.i4.1
+   IL_0538: add
+   IL_0539: add
+   IL_053a: ldind.u1
+   IL_053b: stloc.s V_30
+   IL_053d: ldloc.s V_30
+   IL_053f: ldc.i4.0
+   IL_0540: ble.s IL_0586
+   IL_0542: ldloc.s V_25
+   IL_0544: ldloc.s V_27
+   IL_0546: conv.u
+   IL_0547: add
+   IL_0548: ldloc.s V_21
+   IL_054a: ldloc.s V_18
+   IL_054c: ldc.i4.4
+   IL_054d: add
+   IL_054e: add
+   IL_054f: ldind.u1
+   IL_0550: stind.i1
+   IL_0551: ldloc.s V_25
+   IL_0553: ldloc.s V_27
+   IL_0555: ldc.i4.1
+   IL_0556: add
+   IL_0557: conv.u
+   IL_0558: add
+   IL_0559: ldloc.s V_21
+   IL_055b: ldloc.s V_18
+   IL_055d: ldc.i4.3
+   IL_055e: add
+   IL_055f: add
+   IL_0560: ldind.u1
+   IL_0561: stind.i1
+   IL_0562: ldloc.s V_25
+   IL_0564: ldloc.s V_27
+   IL_0566: ldc.i4.2
+   IL_0567: add
+   IL_0568: conv.u
+   IL_0569: add
+   IL_056a: ldloc.s V_21
+   IL_056c: ldloc.s V_18
+   IL_056e: ldc.i4.2
+   IL_056f: add
+   IL_0570: add
+   IL_0571: ldind.u1
+   IL_0572: stind.i1
+   IL_0573: ldloc.s V_25
+   IL_0575: ldloc.s V_27
+   IL_0577: ldc.i4.3
+   IL_0578: add
+   IL_0579: conv.u
+   IL_057a: add
+   IL_057b: ldloc.s V_30
+   IL_057d: stind.i1
+   IL_057e: ldloc.s V_18
+   IL_0580: ldc.i4.5
+   IL_0581: add
+   IL_0582: stloc.s V_18
+   IL_0584: br.s IL_0598
+   IL_0586: ldloc.s V_26
+   IL_0588: ldloc.s V_28
+   IL_058a: conv.u8
+   IL_058b: ldc.i4.4
+   IL_058c: conv.i8
+   IL_058d: mul
+   IL_058e: conv.i
+   IL_058f: add
+   IL_0590: ldc.i4.0
+   IL_0591: stind.i4
+   IL_0592: ldloc.s V_18
+   IL_0594: ldc.i4.2
+   IL_0595: add
+   IL_0596: stloc.s V_18
+   IL_0598: ldloc.s V_29
+   IL_059a: ldc.i4.1
+   IL_059b: ble.un.s IL_05e5
+   IL_059d: ldloc.s V_30
+   IL_059f: brtrue.s IL_05b4
+   IL_05a1: ldloc.s V_25
+   IL_05a3: ldloc.s V_27
+   IL_05a5: conv.u
+   IL_05a6: add
+   IL_05a7: ldc.i4.4
+   IL_05a8: add
+   IL_05a9: ldc.i4.0
+   IL_05aa: ldloc.s V_29
+   IL_05ac: ldc.i4.4
+   IL_05ad: mul
+   IL_05ae: ldc.i4.4
+   IL_05af: sub
+   IL_05b0: initblk
+   IL_05b2: br.s IL_05e5
+   IL_05b4: ldloc.s V_28
+   IL_05b6: ldc.i4.1
+   IL_05b7: add
+   IL_05b8: stloc.s V_31
+   IL_05ba: ldloc.s V_28
+   IL_05bc: ldloc.s V_29
+   IL_05be: add
+   IL_05bf: stloc.s V_32
+   IL_05c1: br.s IL_05df
+   IL_05c3: ldloc.s V_26
+   IL_05c5: ldloc.s V_31
+   IL_05c7: conv.u8
+   IL_05c8: ldc.i4.4
+   IL_05c9: conv.i8
+   IL_05ca: mul
+   IL_05cb: conv.i
+   IL_05cc: add
+   IL_05cd: ldloc.s V_26
+   IL_05cf: ldloc.s V_28
+   IL_05d1: conv.u8
+   IL_05d2: ldc.i4.4
+   IL_05d3: conv.i8
+   IL_05d4: mul
+   IL_05d5: conv.i
+   IL_05d6: add
+   IL_05d7: ldind.i4
+   IL_05d8: stind.i4
+   IL_05d9: ldloc.s V_31
+   IL_05db: ldc.i4.1
+   IL_05dc: add
+   IL_05dd: stloc.s V_31
+   IL_05df: ldloc.s V_31
+   IL_05e1: ldloc.s V_32
+   IL_05e3: blt.un.s IL_05c3
+   IL_05e5: ldloc.s V_28
+   IL_05e7: ldloc.s V_29
+   IL_05e9: add
+   IL_05ea: stloc.s V_28
+   IL_05ec: ldloc.s V_28
+   IL_05ee: ldc.i4.4
+   IL_05ef: mul
+   IL_05f0: stloc.s V_27
+   IL_05f2: ldloc.s V_18
+   IL_05f4: ldloc.s V_17
+   IL_05f6: ldlen
+   IL_05f7: conv.i4
+   IL_05f8: ldc.i4.s 32
+   IL_05fa: sub
+   IL_05fb: ble.s IL_063c
+   IL_05fd: ldloc.s V_17
+   IL_05ff: ldlen
+   IL_0600: conv.i4
+   IL_0601: ldloc.s V_18
+   IL_0603: sub
+   IL_0604: stloc.s V_33
+   IL_0606: ldc.i4.0
+   IL_0607: stloc.s V_34
+   IL_0609: br.s IL_0620
+   IL_060b: ldloc.s V_21
+   IL_060d: ldloc.s V_34
+   IL_060f: add
+   IL_0610: ldloc.s V_21
+   IL_0612: ldloc.s V_18
+   IL_0614: ldloc.s V_34
+   IL_0616: add
+   IL_0617: add
+   IL_0618: ldind.u1
+   IL_0619: stind.i1
+   IL_061a: ldloc.s V_34
+   IL_061c: ldc.i4.1
+   IL_061d: add
+   IL_061e: stloc.s V_34
+   IL_0620: ldloc.s V_34
+   IL_0622: ldloc.s V_33
+   IL_0624: blt.s IL_060b
+   IL_0626: ldloc.s V_16
+   IL_0628: ldloc.s V_17
+   IL_062a: ldloc.s V_33
+   IL_062c: ldloc.s V_17
+   IL_062e: ldlen
+   IL_062f: conv.i4
+   IL_0630: ldloc.s V_33
+   IL_0632: sub
+   IL_0633: callvirt System.Int32 System.IO.Stream::Read(System.Byte[],System.Int32,System.Int32)
+   IL_0638: pop
+   IL_0639: ldc.i4.0
+   IL_063a: stloc.s V_18
+   IL_063c: ldloc.s V_27
+   IL_063e: conv.u8
+   IL_063f: ldloc.s V_20
+   IL_0641: conv.i8
+   IL_0642: blt IL_052b
+   IL_0647: leave IL_0745
+   IL_064c: ldloc.s V_21
+   IL_064e: ldloc.s V_18
+   IL_0650: add
+   IL_0651: ldind.u1
+   IL_0652: stloc.s V_35
+   IL_0654: ldloc.s V_25
+   IL_0656: ldloc.s V_27
+   IL_0658: conv.u
+   IL_0659: add
+   IL_065a: ldloc.s V_21
+   IL_065c: ldloc.s V_18
+   IL_065e: ldc.i4.3
+   IL_065f: add
+   IL_0660: add
+   IL_0661: ldind.u1
+   IL_0662: stind.i1
+   IL_0663: ldloc.s V_25
+   IL_0665: ldloc.s V_27
+   IL_0667: ldc.i4.1
+   IL_0668: add
+   IL_0669: conv.u
+   IL_066a: add
+   IL_066b: ldloc.s V_21
+   IL_066d: ldloc.s V_18
+   IL_066f: ldc.i4.2
+   IL_0670: add
+   IL_0671: add
+   IL_0672: ldind.u1
+   IL_0673: stind.i1
+   IL_0674: ldloc.s V_25
+   IL_0676: ldloc.s V_27
+   IL_0678: ldc.i4.2
+   IL_0679: add
+   IL_067a: conv.u
+   IL_067b: add
+   IL_067c: ldloc.s V_21
+   IL_067e: ldloc.s V_18
+   IL_0680: ldc.i4.1
+   IL_0681: add
+   IL_0682: add
+   IL_0683: ldind.u1
+   IL_0684: stind.i1
+   IL_0685: ldloc.s V_25
+   IL_0687: ldloc.s V_27
+   IL_0689: ldc.i4.3
+   IL_068a: add
+   IL_068b: conv.u
+   IL_068c: add
+   IL_068d: ldc.i4 255
+   IL_0692: stind.i1
+   IL_0693: ldloc.s V_18
+   IL_0695: ldc.i4.4
+   IL_0696: add
+   IL_0697: stloc.s V_18
+   IL_0699: ldloc.s V_35
+   IL_069b: ldc.i4.1
+   IL_069c: ble.un.s IL_06cf
+   IL_069e: ldloc.s V_28
+   IL_06a0: ldc.i4.1
+   IL_06a1: add
+   IL_06a2: stloc.s V_36
+   IL_06a4: ldloc.s V_28
+   IL_06a6: ldloc.s V_35
+   IL_06a8: add
+   IL_06a9: stloc.s V_37
+   IL_06ab: br.s IL_06c9
+   IL_06ad: ldloc.s V_26
+   IL_06af: ldloc.s V_36
+   IL_06b1: conv.u8
+   IL_06b2: ldc.i4.4
+   IL_06b3: conv.i8
+   IL_06b4: mul
+   IL_06b5: conv.i
+   IL_06b6: add
+   IL_06b7: ldloc.s V_26
+   IL_06b9: ldloc.s V_28
+   IL_06bb: conv.u8
+   IL_06bc: ldc.i4.4
+   IL_06bd: conv.i8
+   IL_06be: mul
+   IL_06bf: conv.i
+   IL_06c0: add
+   IL_06c1: ldind.i4
+   IL_06c2: stind.i4
+   IL_06c3: ldloc.s V_36
+   IL_06c5: ldc.i4.1
+   IL_06c6: add
+   IL_06c7: stloc.s V_36
+   IL_06c9: ldloc.s V_36
+   IL_06cb: ldloc.s V_37
+   IL_06cd: blt.un.s IL_06ad
+   IL_06cf: ldloc.s V_28
+   IL_06d1: ldloc.s V_35
+   IL_06d3: add
+   IL_06d4: stloc.s V_28
+   IL_06d6: ldloc.s V_28
+   IL_06d8: ldc.i4.4
+   IL_06d9: mul
+   IL_06da: stloc.s V_27
+   IL_06dc: ldloc.s V_18
+   IL_06de: ldc.i4 524256
+   IL_06e3: ble.s IL_0724
+   IL_06e5: ldloc.s V_17
+   IL_06e7: ldlen
+   IL_06e8: conv.i4
+   IL_06e9: ldloc.s V_18
+   IL_06eb: sub
+   IL_06ec: stloc.s V_38
+   IL_06ee: ldc.i4.0
+   IL_06ef: stloc.s V_39
+   IL_06f1: br.s IL_0708
+   IL_06f3: ldloc.s V_21
+   IL_06f5: ldloc.s V_39
+   IL_06f7: add
+   IL_06f8: ldloc.s V_21
+   IL_06fa: ldloc.s V_18
+   IL_06fc: ldloc.s V_39
+   IL_06fe: add
+   IL_06ff: add
+   IL_0700: ldind.u1
+   IL_0701: stind.i1
+   IL_0702: ldloc.s V_39
+   IL_0704: ldc.i4.1
+   IL_0705: add
+   IL_0706: stloc.s V_39
+   IL_0708: ldloc.s V_39
+   IL_070a: ldloc.s V_38
+   IL_070c: blt.s IL_06f3
+   IL_070e: ldloc.s V_16
+   IL_0710: ldloc.s V_17
+   IL_0712: ldloc.s V_38
+   IL_0714: ldloc.s V_17
+   IL_0716: ldlen
+   IL_0717: conv.i4
+   IL_0718: ldloc.s V_38
+   IL_071a: sub
+   IL_071b: callvirt System.Int32 System.IO.Stream::Read(System.Byte[],System.Int32,System.Int32)
+   IL_0720: pop
+   IL_0721: ldc.i4.0
+   IL_0722: stloc.s V_18
+   IL_0724: ldloc.s V_27
+   IL_0726: conv.u8
+   IL_0727: ldloc.s V_20
+   IL_0729: conv.i8
+   IL_072a: blt IL_064c
+   IL_072f: leave.s IL_0745
+   IL_0731: ldnull
+   IL_0732: stloc.s V_24
+   IL_0734: endfinally
+   IL_0735: ldnull
+   IL_0736: stloc.s V_22
+   IL_0738: endfinally
+   IL_0739: ldloc.s V_16
+   IL_073b: brfalse.s IL_0744
+   IL_073d: ldloc.s V_16
+   IL_073f: callvirt System.Void System.IDisposable::Dispose()
+   IL_0744: endfinally
+   IL_0745: ldarg.0
+   IL_0746: ldc.i4.0
+   IL_0747: ldloc.s V_14
+   IL_0749: ldftn Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture/<>c__DisplayClass50_3::<Reload>b__4()
+   IL_074f: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Object,System.IntPtr)
+   IL_0754: callvirt System.Boolean Monocle.VirtualTexture::Load(System.Boolean,System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>)
+   IL_0759: pop
+   IL_075a: br IL_0890
+   IL_075f: ldloc.s V_14
+   IL_0761: ldfld System.Boolean Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferGC
+   IL_0766: brfalse IL_07ea
+   IL_076b: call System.String Monocle.Engine::get_ContentDirectory()
+   IL_0770: ldarg.0
+   IL_0771: callvirt System.String Monocle.VirtualTexture::get_Path()
+   IL_0776: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_077b: call System.IO.FileStream System.IO.File::OpenRead(System.String)
+   IL_0780: stloc.s V_40
+   IL_0782: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_0787: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_078c: ldloc.s V_40
+   IL_078e: ldloc.s V_14
+   IL_0790: ldflda System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::w
+   IL_0795: ldloc.s V_14
+   IL_0797: ldflda System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::h
+   IL_079c: ldloc.s V_14
+   IL_079e: ldflda System.Byte[] Monocle.VirtualTexture/<>c__DisplayClass50_3::buffer
+   IL_07a3: call System.Void Celeste.Mod.ContentExtensions::LoadTextureLazyPremultiply(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.IO.Stream,System.Int32&,System.Int32&,System.Byte[]&)
+   IL_07a8: leave.s IL_07b6
+   IL_07aa: ldloc.s V_40
+   IL_07ac: brfalse.s IL_07b5
+   IL_07ae: ldloc.s V_40
+   IL_07b0: callvirt System.Void System.IDisposable::Dispose()
+   IL_07b5: endfinally
+   IL_07b6: ldarg.0
+   IL_07b7: ldloc.s V_14
+   IL_07b9: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::w
+   IL_07be: call System.Void Monocle.VirtualAsset::set_Width(System.Int32)
+   IL_07c3: ldarg.0
+   IL_07c4: ldloc.s V_14
+   IL_07c6: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::h
+   IL_07cb: call System.Void Monocle.VirtualAsset::set_Height(System.Int32)
+   IL_07d0: ldarg.0
+   IL_07d1: ldc.i4.0
+   IL_07d2: ldloc.s V_14
+   IL_07d4: ldftn Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture/<>c__DisplayClass50_3::<Reload>b__5()
+   IL_07da: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Object,System.IntPtr)
+   IL_07df: callvirt System.Boolean Monocle.VirtualTexture::Load(System.Boolean,System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>)
+   IL_07e4: pop
+   IL_07e5: br IL_0890
+   IL_07ea: call System.String Monocle.Engine::get_ContentDirectory()
+   IL_07ef: ldarg.0
+   IL_07f0: callvirt System.String Monocle.VirtualTexture::get_Path()
+   IL_07f5: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_07fa: call System.IO.FileStream System.IO.File::OpenRead(System.String)
+   IL_07ff: stloc.s V_41
+   IL_0801: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_0806: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_080b: ldloc.s V_41
+   IL_080d: ldloc.s V_14
+   IL_080f: ldflda System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::w
+   IL_0814: ldloc.s V_14
+   IL_0816: ldflda System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::h
+   IL_081b: ldloc.s V_14
+   IL_081d: ldflda System.IntPtr Monocle.VirtualTexture/<>c__DisplayClass50_3::bufferPtr
+   IL_0822: call System.Void Celeste.Mod.ContentExtensions::LoadTextureLazyPremultiply(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.IO.Stream,System.Int32&,System.Int32&,System.IntPtr&)
+   IL_0827: leave.s IL_0835
+   IL_0829: ldloc.s V_41
+   IL_082b: brfalse.s IL_0834
+   IL_082d: ldloc.s V_41
+   IL_082f: callvirt System.Void System.IDisposable::Dispose()
+   IL_0834: endfinally
+   IL_0835: ldarg.0
+   IL_0836: ldloc.s V_14
+   IL_0838: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::w
+   IL_083d: call System.Void Monocle.VirtualAsset::set_Width(System.Int32)
+   IL_0842: ldarg.0
+   IL_0843: ldloc.s V_14
+   IL_0845: ldfld System.Int32 Monocle.VirtualTexture/<>c__DisplayClass50_3::h
+   IL_084a: call System.Void Monocle.VirtualAsset::set_Height(System.Int32)
+   IL_084f: ldarg.0
+   IL_0850: ldc.i4.0
+   IL_0851: ldloc.s V_14
+   IL_0853: ldftn Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture/<>c__DisplayClass50_3::<Reload>b__6()
+   IL_0859: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Object,System.IntPtr)
+   IL_085e: callvirt System.Boolean Monocle.VirtualTexture::Load(System.Boolean,System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>)
+   IL_0863: pop
+   IL_0864: br.s IL_0890
+   IL_0866: ldarg.0
+   IL_0867: ldc.i4.1
+   IL_0868: ldloc.0
+   IL_0869: ldftn Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture/<>c__DisplayClass50_0::<Reload>b__7()
+   IL_086f: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Object,System.IntPtr)
+   IL_0874: callvirt System.Boolean Monocle.VirtualTexture::Load(System.Boolean,System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>)
+   IL_0879: pop
+   IL_087a: br.s IL_0890
+   IL_087c: ldarg.0
+   IL_087d: ldc.i4.1
+   IL_087e: ldloc.0
+   IL_087f: ldftn Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture/<>c__DisplayClass50_0::<Reload>b__8()
+   IL_0885: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>::.ctor(System.Object,System.IntPtr)
+   IL_088a: callvirt System.Boolean Monocle.VirtualTexture::Load(System.Boolean,System.Func`1<Microsoft.Xna.Framework.Graphics.Texture2D>)
+   IL_088f: pop
+   IL_0890: ldarg.0
+   IL_0891: ldfld Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::Texture
+   IL_0896: stloc.1
+   IL_0897: ldloc.1
+   IL_0898: brfalse.s IL_08b2
+   IL_089a: ldarg.0
+   IL_089b: ldloc.1
+   IL_089c: callvirt System.Int32 Microsoft.Xna.Framework.Graphics.Texture2D::get_Width()
+   IL_08a1: call System.Void Monocle.VirtualAsset::set_Width(System.Int32)
+   IL_08a6: ldarg.0
+   IL_08a7: ldloc.1
+   IL_08a8: callvirt System.Int32 Microsoft.Xna.Framework.Graphics.Texture2D::get_Height()
+   IL_08ad: call System.Void Monocle.VirtualAsset::set_Height(System.Int32)
+   IL_08b2: ldarg.0
+   IL_08b3: ldc.i4.0
+   IL_08b4: stfld System.Boolean Monocle.VirtualTexture::_Texture_Requesting
+   IL_08b9: ret

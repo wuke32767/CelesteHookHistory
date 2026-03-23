@@ -1,0 +1,52 @@
+On: AltSidesHelper.AltSidesHelperModule.HideAltSides(orig_Added,OuiChapterSelect,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: callvirt System.Void Celeste.OuiChapterSelect::orig_Added(Monocle.Scene)
+   IL_0007: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_000c: pop
+   IL_000d: ldarg.0
+   IL_000e: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_0013: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Count()
+   IL_0018: ldc.i4.1
+   IL_0019: sub
+   IL_001a: stloc.0
+   IL_001b: br.s IL_0079
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_0023: ldloc.0
+   IL_0024: callvirt T System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Item(System.Int32)
+   IL_0029: ldfld System.Int32 Celeste.OuiChapterSelectIcon::Area
+   IL_002e: call Celeste.AreaData Celeste.AreaData::Get(System.Int32)
+   IL_0033: dup
+   IL_0034: brtrue.s IL_003a
+   IL_0036: pop
+   IL_0037: ldnull
+   IL_0038: br.s IL_004b
+   IL_003a: ldfld Celeste.Mod.Meta.MapMeta Celeste.AreaData::Meta
+   IL_003f: dup
+   IL_0040: brtrue.s IL_0046
+   IL_0042: pop
+   IL_0043: ldnull
+   IL_0044: br.s IL_004b
+   IL_0046: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Parent()
+   IL_004b: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0050: brtrue.s IL_0075
+   IL_0052: ldarg.0
+   IL_0053: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_0058: ldloc.0
+   IL_0059: callvirt T System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Item(System.Int32)
+   IL_005e: ldc.i4.m1
+   IL_005f: stfld System.Int32 Celeste.OuiChapterSelectIcon::Area
+   IL_0064: ldarg.0
+   IL_0065: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_006a: ldloc.0
+   IL_006b: callvirt T System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Item(System.Int32)
+   IL_0070: callvirt System.Void Celeste.OuiChapterSelectIcon::Hide()
+   IL_0075: ldloc.0
+   IL_0076: ldc.i4.1
+   IL_0077: sub
+   IL_0078: stloc.0
+   IL_0079: ldloc.0
+   IL_007a: ldc.i4.m1
+   IL_007b: bgt.s IL_001d
+   IL_007d: ret

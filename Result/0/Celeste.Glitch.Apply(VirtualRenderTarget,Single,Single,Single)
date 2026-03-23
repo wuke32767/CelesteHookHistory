@@ -1,0 +1,128 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_GlitchEffectApply(orig_Apply,VirtualRenderTarget,Single,Single,Single)
+On: FrostHelper.ShaderImplementations.ShaderManager.Apply_HOOK(orig_Apply,VirtualRenderTarget,Single,Single,Single)
+On: FrostHelper.BetterShaderTrigger.Apply_HOOK(orig_Apply,VirtualRenderTarget,Single,Single,Single)
+On: ContortHelper.EffectsManager.Apply(orig_Apply,VirtualRenderTarget,Single,Single,Single)
+IL: ExtendedVariants.Variants.GlitchEffect.modGlitchApply(ILContext)
+IL: TAS.EverestInterop.Hitboxes.HitboxToggle.GlitchOnApply(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedDistort() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000b: call System.Boolean TAS.EverestInterop.Hitboxes.HitboxToggle::IsShowHitbox() @ TAS.EverestInterop.Hitboxes.HitboxToggle.GlitchOnApply(ILContext)
+ + IL_0010: brfalse IL_0016 @ TAS.EverestInterop.Hitboxes.HitboxToggle.GlitchOnApply(ILContext)
+ + IL_0015: ret @ TAS.EverestInterop.Hitboxes.HitboxToggle.GlitchOnApply(ILContext)
+   IL_0016: ldsfld System.Single Celeste.Glitch::Value
+ + IL_001b: call System.Single ExtendedVariants.Variants.GlitchEffect::modGlitchValue(System.Single) @ ExtendedVariants.Variants.GlitchEffect.modGlitchApply(ILContext)
+   IL_0020: ldc.r4 0
+   IL_0025: ble.un IL_01e7
+   IL_002a: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_002f: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_AllowGlitch()
+   IL_0034: brfalse IL_01e7
+   IL_0039: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxGlitch
+   IL_003e: stloc.0
+   IL_003f: ldloca.s V_1
+   IL_0041: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0046: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_004b: callvirt Microsoft.Xna.Framework.Graphics.Viewport Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Viewport()
+   IL_0050: stloc.3
+   IL_0051: ldloca.s V_3
+   IL_0053: call System.Int32 Microsoft.Xna.Framework.Graphics.Viewport::get_Width()
+   IL_0058: conv.r4
+   IL_0059: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_005e: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0063: callvirt Microsoft.Xna.Framework.Graphics.Viewport Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Viewport()
+   IL_0068: stloc.3
+   IL_0069: ldloca.s V_3
+   IL_006b: call System.Int32 Microsoft.Xna.Framework.Graphics.Viewport::get_Height()
+   IL_0070: conv.r4
+   IL_0071: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0076: ldloc.0
+   IL_0077: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_007c: ldstr "dimensions"
+   IL_0081: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0086: ldloc.1
+   IL_0087: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector2)
+   IL_008c: ldloc.0
+   IL_008d: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_0092: ldstr "amplitude"
+   IL_0097: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_009c: ldarg.3
+   IL_009d: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Single)
+   IL_00a2: ldloc.0
+   IL_00a3: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_00a8: ldstr "minimum"
+   IL_00ad: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_00b2: ldc.r4 -1
+   IL_00b7: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Single)
+   IL_00bc: ldloc.0
+   IL_00bd: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_00c2: ldstr "glitch"
+   IL_00c7: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_00cc: ldsfld System.Single Celeste.Glitch::Value
+ + IL_00d1: call System.Single ExtendedVariants.Variants.GlitchEffect::modGlitchValue(System.Single) @ ExtendedVariants.Variants.GlitchEffect.modGlitchApply(ILContext)
+   IL_00d6: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Single)
+   IL_00db: ldloc.0
+   IL_00dc: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_00e1: ldstr "timer"
+   IL_00e6: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_00eb: ldarg.1
+   IL_00ec: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Single)
+   IL_00f1: ldloc.0
+   IL_00f2: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_00f7: ldstr "seed"
+   IL_00fc: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0101: ldarg.2
+   IL_0102: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Single)
+   IL_0107: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::TempA
+   IL_010c: stloc.2
+   IL_010d: call Monocle.Engine Monocle.Engine::get_Instance()
+   IL_0112: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_0117: ldloc.2
+   IL_0118: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_011d: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTarget(Microsoft.Xna.Framework.Graphics.RenderTarget2D)
+   IL_0122: call Monocle.Engine Monocle.Engine::get_Instance()
+   IL_0127: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_012c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Transparent()
+   IL_0131: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::Clear(Microsoft.Xna.Framework.Color)
+   IL_0136: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_013b: ldc.i4.0
+   IL_013c: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_0141: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointClamp
+   IL_0146: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::Default
+   IL_014b: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
+   IL_0150: ldloc.0
+   IL_0151: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect)
+   IL_0156: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_015b: ldarg.0
+   IL_015c: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_0161: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0166: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_016b: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0170: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0175: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_017a: call Monocle.Engine Monocle.Engine::get_Instance()
+   IL_017f: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_0184: ldarg.0
+   IL_0185: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_018a: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTarget(Microsoft.Xna.Framework.Graphics.RenderTarget2D)
+   IL_018f: call Monocle.Engine Monocle.Engine::get_Instance()
+   IL_0194: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_0199: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Transparent()
+   IL_019e: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::Clear(Microsoft.Xna.Framework.Color)
+   IL_01a3: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_01a8: ldc.i4.0
+   IL_01a9: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_01ae: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointClamp
+   IL_01b3: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::Default
+   IL_01b8: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
+   IL_01bd: ldloc.0
+   IL_01be: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect)
+   IL_01c3: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_01c8: ldloc.2
+   IL_01c9: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_01ce: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_01d3: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_01d8: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_01dd: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_01e2: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_01e7: ret

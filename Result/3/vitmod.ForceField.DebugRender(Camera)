@@ -1,0 +1,66 @@
+On: TAS.EverestInterop.Hitboxes.HitboxFixer.AccurateForceFieldHitbox(orig_Entity_DebugRender,Entity,Camera)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.1
+   IL_0003: call System.Void Monocle.Entity::DebugRender(Monocle.Camera)
+   IL_0008: nop
+   IL_0009: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Red()
+   IL_000e: stloc.0
+   IL_000f: ldarg.0
+   IL_0010: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0015: ldc.i4.0
+   IL_0016: ceq
+   IL_0018: stloc.1
+   IL_0019: ldloc.1
+   IL_001a: brfalse.s IL_0028
+   IL_001c: ldloc.0
+   IL_001d: ldc.r4 0.5
+   IL_0022: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0027: stloc.0
+   IL_0028: ldc.i4.0
+   IL_0029: stloc.2
+   IL_002a: br.s IL_006d
+   IL_002c: nop
+   IL_002d: ldarg.0
+   IL_002e: ldfld Microsoft.Xna.Framework.Vector2[] vitmod.ForceField::nodes
+   IL_0033: ldloc.2
+   IL_0034: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_0039: stloc.3
+   IL_003a: ldarg.0
+   IL_003b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0040: stloc.s V_4
+   IL_0042: ldloc.2
+   IL_0043: ldc.i4.0
+   IL_0044: cgt
+   IL_0046: stloc.s V_5
+   IL_0048: ldloc.s V_5
+   IL_004a: brfalse.s IL_005e
+   IL_004c: nop
+   IL_004d: ldarg.0
+   IL_004e: ldfld Microsoft.Xna.Framework.Vector2[] vitmod.ForceField::nodes
+   IL_0053: ldloc.2
+   IL_0054: ldc.i4.1
+   IL_0055: sub
+   IL_0056: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_005b: stloc.s V_4
+   IL_005d: nop
+   IL_005e: ldloc.s V_4
+   IL_0060: ldloc.3
+   IL_0061: ldloc.0
+   IL_0062: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0067: nop
+   IL_0068: nop
+   IL_0069: ldloc.2
+   IL_006a: ldc.i4.1
+   IL_006b: add
+   IL_006c: stloc.2
+   IL_006d: ldloc.2
+   IL_006e: ldarg.0
+   IL_006f: ldfld Microsoft.Xna.Framework.Vector2[] vitmod.ForceField::nodes
+   IL_0074: ldlen
+   IL_0075: conv.i4
+   IL_0076: clt
+   IL_0078: stloc.s V_6
+   IL_007a: ldloc.s V_6
+   IL_007c: brtrue.s IL_002c
+   IL_007e: ret

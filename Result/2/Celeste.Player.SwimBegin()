@@ -1,0 +1,30 @@
+IL: Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
+IL: ExtendedVariants.Variants.Stamina.patchOutStamina(ILContext)
+IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_SwimBegin(ILContext)
+IL: Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0006: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_000b: ldc.r4 0
+   IL_0010: ble.un.s IL_0026
+   IL_0012: ldarg.0
+   IL_0013: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0018: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_001d: dup
+   IL_001e: ldind.r4
+   IL_001f: ldc.r4 0.5
+ + IL_10000: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming::overrideHalfSpeed(System.Single) @ Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_SwimBegin(ILContext)
+   IL_0024: mul
+   IL_0025: stind.r4
+   IL_0026: ldarg.0
+   IL_0027: ldc.r4 110
+ + IL_10001: ldarg.0 @ Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
+ + IL_10002: call System.Single Celeste.Mod.Microlith57Misc.Components.CappedStamina::ModMaxStamina(System.Single,Celeste.Player) @ Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
+ + IL_10003: call System.Single ExtendedVariants.Variants.Stamina::modStaminaAmount(System.Single) @ ExtendedVariants.Variants.Stamina.patchOutStamina(ILContext)
+ + IL_10004: ldc.i4 0 @ Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
+ + IL_10005: ldc.i4 0 @ Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
+ + IL_10006: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
+       => Invoke: Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay+<>c.<patchOutStamina>b__31_0(Single)
+ + IL_10007: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
+   IL_002c: stfld System.Single Celeste.Player::Stamina
+   IL_0031: ret

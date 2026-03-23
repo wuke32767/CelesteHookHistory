@@ -1,0 +1,62 @@
+On: TAS.EverestInterop.SimplifiedGraphicsFeature.AutotilerOnGetTile(orig_GetTile,Autotiler,VirtualMap`1,Int32,Int32,Rectangle,Char,Behaviour)
+   IL_0000: ldarga.s forceFill
+   IL_0002: ldarg.2
+   IL_0003: ldarg.3
+   IL_0004: call System.Boolean Microsoft.Xna.Framework.Rectangle::Contains(System.Int32,System.Int32)
+   IL_0009: brfalse.s IL_000e
+   IL_000b: ldarg.s forceID
+   IL_000d: ret
+   IL_000e: ldarg.1
+   IL_000f: brtrue.s IL_0020
+   IL_0011: ldarg.s behaviour
+   IL_0013: ldfld System.Boolean Celeste.Autotiler/Behaviour::EdgesExtend
+   IL_0018: brtrue.s IL_001d
+   IL_001a: ldc.i4.s 48
+   IL_001c: ret
+   IL_001d: ldarg.s forceID
+   IL_001f: ret
+   IL_0020: ldarg.2
+   IL_0021: ldc.i4.0
+   IL_0022: blt.s IL_003a
+   IL_0024: ldarg.3
+   IL_0025: ldc.i4.0
+   IL_0026: blt.s IL_003a
+   IL_0028: ldarg.2
+   IL_0029: ldarg.1
+   IL_002a: ldfld System.Int32 Monocle.VirtualMap`1<System.Char>::Columns
+   IL_002f: bge.s IL_003a
+   IL_0031: ldarg.3
+   IL_0032: ldarg.1
+   IL_0033: ldfld System.Int32 Monocle.VirtualMap`1<System.Char>::Rows
+   IL_0038: blt.s IL_006f
+   IL_003a: ldarg.s behaviour
+   IL_003c: ldfld System.Boolean Celeste.Autotiler/Behaviour::EdgesExtend
+   IL_0041: brtrue.s IL_0046
+   IL_0043: ldc.i4.s 48
+   IL_0045: ret
+   IL_0046: ldarg.2
+   IL_0047: ldc.i4.0
+   IL_0048: ldarg.1
+   IL_0049: ldfld System.Int32 Monocle.VirtualMap`1<System.Char>::Columns
+   IL_004e: ldc.i4.1
+   IL_004f: sub
+   IL_0050: call System.Int32 Monocle.Calc::Clamp(System.Int32,System.Int32,System.Int32)
+   IL_0055: stloc.0
+   IL_0056: ldarg.3
+   IL_0057: ldc.i4.0
+   IL_0058: ldarg.1
+   IL_0059: ldfld System.Int32 Monocle.VirtualMap`1<System.Char>::Rows
+   IL_005e: ldc.i4.1
+   IL_005f: sub
+   IL_0060: call System.Int32 Monocle.Calc::Clamp(System.Int32,System.Int32,System.Int32)
+   IL_0065: stloc.1
+   IL_0066: ldarg.1
+   IL_0067: ldloc.0
+   IL_0068: ldloc.1
+   IL_0069: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_006e: ret
+   IL_006f: ldarg.1
+   IL_0070: ldarg.2
+   IL_0071: ldarg.3
+   IL_0072: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0077: ret

@@ -1,0 +1,51 @@
+On: Celeste.Mod.Aqua.Core.FireBarrierExtensions.FireBarrier_Added(orig_Added,FireBarrier,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0007: ldarg.1
+   IL_0008: ldarg.0
+   IL_0009: ldarg.0
+   IL_000a: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000f: ldc.r4 2
+   IL_0014: ldc.r4 3
+   IL_0019: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_001e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0023: ldarg.0
+   IL_0024: call System.Single Monocle.Entity::get_Width()
+   IL_0029: ldc.r4 4
+   IL_002e: sub
+   IL_002f: ldarg.0
+   IL_0030: call System.Single Monocle.Entity::get_Height()
+   IL_0035: ldc.r4 5
+   IL_003a: sub
+   IL_003b: ldc.i4.0
+   IL_003c: newobj System.Void Celeste.Solid::.ctor(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Boolean)
+   IL_0041: dup
+   IL_0042: stloc.0
+   IL_0043: stfld Celeste.Solid Celeste.FireBarrier::solid
+   IL_0048: ldloc.0
+   IL_0049: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_004e: ldarg.0
+   IL_004f: ldarg.0
+   IL_0050: ldfld Celeste.Solid Celeste.FireBarrier::solid
+   IL_0055: ldarg.0
+   IL_0056: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_005b: callvirt Celeste.Session/CoreModes Celeste.Level::get_CoreMode()
+   IL_0060: ldc.i4.1
+   IL_0061: ceq
+   IL_0063: dup
+   IL_0064: stloc.1
+   IL_0065: stfld System.Boolean Monocle.Entity::Collidable
+   IL_006a: ldloc.1
+   IL_006b: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0070: ldarg.0
+   IL_0071: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0076: brfalse.s IL_008f
+   IL_0078: ldarg.0
+   IL_0079: ldfld Celeste.SoundSource Celeste.FireBarrier::idleSfx
+   IL_007e: ldstr "event:/env/local/09_core/lavagate_idle"
+   IL_0083: ldnull
+   IL_0084: ldc.r4 0
+   IL_0089: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)
+   IL_008e: pop
+   IL_008f: ret

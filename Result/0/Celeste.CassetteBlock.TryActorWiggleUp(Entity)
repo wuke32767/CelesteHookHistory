@@ -1,0 +1,80 @@
+On: VivHelper.Entities.CassetteTileEntity.CassetteBlock_TryActorWiggleUp(orig_TryActorWiggleUp,CassetteBlock,Entity)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.List`1<Celeste.CassetteBlock> Celeste.CassetteBlock::group
+   IL_0006: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.CassetteBlock>::GetEnumerator()
+   IL_000b: stloc.1
+   IL_000c: br.s IL_0044
+   IL_000e: ldloca.s V_1
+   IL_0010: call T System.Collections.Generic.List`1/Enumerator<Celeste.CassetteBlock>::get_Current()
+   IL_0015: stloc.2
+   IL_0016: ldloc.2
+   IL_0017: ldarg.0
+   IL_0018: beq.s IL_0044
+   IL_001a: ldloc.2
+   IL_001b: ldarg.1
+   IL_001c: ldloc.2
+   IL_001d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0022: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0027: ldc.r4 4
+   IL_002c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0031: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0036: callvirt System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_003b: brfalse.s IL_0044
+   IL_003d: ldc.i4.0
+   IL_003e: stloc.3
+   IL_003f: leave IL_00cb
+   IL_0044: ldloca.s V_1
+   IL_0046: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.CassetteBlock>::MoveNext()
+   IL_004b: brtrue.s IL_000e
+   IL_004d: leave.s IL_005d
+   IL_004f: ldloca.s V_1
+   IL_0051: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.CassetteBlock>
+   IL_0057: callvirt System.Void System.IDisposable::Dispose()
+   IL_005c: endfinally
+   IL_005d: ldarg.0
+   IL_005e: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0063: stloc.0
+   IL_0064: ldarg.0
+   IL_0065: ldc.i4.1
+   IL_0066: stfld System.Boolean Monocle.Entity::Collidable
+   IL_006b: ldc.i4.1
+   IL_006c: stloc.s V_4
+   IL_006e: br.s IL_00bd
+   IL_0070: ldarg.1
+   IL_0071: ldarg.1
+   IL_0072: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0077: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_007c: ldloc.s V_4
+   IL_007e: conv.r4
+   IL_007f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0084: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0089: callvirt System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_008e: brtrue.s IL_00b7
+   IL_0090: ldarg.1
+   IL_0091: dup
+   IL_0092: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0097: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_009c: ldloc.s V_4
+   IL_009e: conv.r4
+   IL_009f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00a4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a9: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ae: ldarg.0
+   IL_00af: ldloc.0
+   IL_00b0: stfld System.Boolean Monocle.Entity::Collidable
+   IL_00b5: ldc.i4.1
+   IL_00b6: ret
+   IL_00b7: ldloc.s V_4
+   IL_00b9: ldc.i4.1
+   IL_00ba: add
+   IL_00bb: stloc.s V_4
+   IL_00bd: ldloc.s V_4
+   IL_00bf: ldc.i4.4
+   IL_00c0: ble.s IL_0070
+   IL_00c2: ldarg.0
+   IL_00c3: ldloc.0
+   IL_00c4: stfld System.Boolean Monocle.Entity::Collidable
+   IL_00c9: ldc.i4.0
+   IL_00ca: ret
+   IL_00cb: ldloc.3
+   IL_00cc: ret

@@ -1,0 +1,72 @@
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.SaveData_AddStrawberry(orig_AddStrawberry_AreaKey_EntityID_bool,SaveData,AreaKey,EntityID,Boolean)
+On: Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.onSaveDataAddStrawberry(orig_AddStrawberry_AreaKey_EntityID_bool,SaveData,AreaKey,EntityID,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_0006: ldarg.1
+   IL_0007: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_000c: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_0011: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_0016: ldarg.1
+   IL_0017: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_001c: ldelem.ref
+   IL_001d: stloc.0
+   IL_001e: ldloc.0
+   IL_001f: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.AreaModeStats::Strawberries
+   IL_0024: ldarg.2
+   IL_0025: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Contains(T)
+   IL_002a: brtrue IL_00a9
+   IL_002f: ldloc.0
+   IL_0030: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.AreaModeStats::Strawberries
+   IL_0035: ldarg.2
+   IL_0036: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Add(T)
+   IL_003b: pop
+   IL_003c: ldloc.0
+   IL_003d: dup
+   IL_003e: ldfld System.Int32 Celeste.AreaModeStats::TotalStrawberries
+   IL_0043: ldc.i4.1
+   IL_0044: add
+   IL_0045: stfld System.Int32 Celeste.AreaModeStats::TotalStrawberries
+   IL_004a: ldarg.0
+   IL_004b: ldarg.0
+   IL_004c: callvirt System.Int32 Celeste.SaveData::get_TotalStrawberries_Safe()
+   IL_0051: ldc.i4.1
+   IL_0052: add
+   IL_0053: callvirt System.Void Celeste.SaveData::set_TotalStrawberries_Safe(System.Int32)
+   IL_0058: ldarg.3
+   IL_0059: brfalse.s IL_0069
+   IL_005b: ldarg.0
+   IL_005c: ldarg.0
+   IL_005d: ldfld System.Int32 Celeste.SaveData::TotalGoldenStrawberries
+   IL_0062: ldc.i4.1
+   IL_0063: add
+   IL_0064: stfld System.Int32 Celeste.SaveData::TotalGoldenStrawberries
+   IL_0069: ldarg.0
+   IL_006a: callvirt System.Int32 Celeste.SaveData::get_TotalStrawberries_Safe()
+   IL_006f: ldc.i4.s 30
+   IL_0071: blt.s IL_0079
+   IL_0073: ldc.i4.7
+   IL_0074: call System.Void Celeste.Achievements::Register(Celeste.Achievement)
+   IL_0079: ldarg.0
+   IL_007a: callvirt System.Int32 Celeste.SaveData::get_TotalStrawberries_Safe()
+   IL_007f: ldc.i4.s 80
+   IL_0081: blt.s IL_0089
+   IL_0083: ldc.i4.8
+   IL_0084: call System.Void Celeste.Achievements::Register(Celeste.Achievement)
+   IL_0089: ldarg.0
+   IL_008a: callvirt System.Int32 Celeste.SaveData::get_TotalStrawberries_Safe()
+   IL_008f: ldc.i4 175
+   IL_0094: blt.s IL_009d
+   IL_0096: ldc.i4.s 9
+   IL_0098: call System.Void Celeste.Achievements::Register(Celeste.Achievement)
+   IL_009d: ldc.i4.0
+   IL_009e: ldarg.0
+   IL_009f: callvirt System.Int32 Celeste.SaveData::get_TotalStrawberries_Safe()
+   IL_00a4: call System.Void Celeste.StatsForStadia::SetIfLarger(Celeste.StadiaStat,System.Int32)
+   IL_00a9: ldarg.3
+   IL_00aa: brtrue.s IL_00af
+   IL_00ac: ldc.i4.2
+   IL_00ad: br.s IL_00b0
+   IL_00af: ldc.i4.3
+   IL_00b0: ldc.i4.1
+   IL_00b1: call System.Void Celeste.Stats::Increment(Celeste.Stat,System.Int32)
+   IL_00b6: ret

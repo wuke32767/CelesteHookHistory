@@ -1,0 +1,36 @@
+On: Celeste.Mod.KoseiHelper.KoseiHelperModule.ClimbCheck(orig_ClimbBoundsCheck,Player,Int32)
+On: Celeste.Mod.XaphanHelper.Upgrades.PowerGrip.PlayerOnClimbBoundsCheck(orig_ClimbBoundsCheck,Player,Int32)
+On: Celeste.Mod.DJMapHelper.Triggers.ClimbBlockerTrigger.PlayerOnClimbBoundsCheck(orig_ClimbBoundsCheck,Player,Int32)
+   IL_0000: ldarg.0
+   IL_0001: call System.Single Monocle.Entity::get_Left()
+   IL_0006: ldarg.1
+   IL_0007: ldc.i4.2
+   IL_0008: mul
+   IL_0009: conv.r4
+   IL_000a: add
+   IL_000b: ldarg.0
+   IL_000c: ldfld Celeste.Level Celeste.Player::level
+   IL_0011: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0016: stloc.0
+   IL_0017: ldloca.s V_0
+   IL_0019: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_001e: conv.r4
+   IL_001f: blt.un.s IL_0043
+   IL_0021: ldarg.0
+   IL_0022: call System.Single Monocle.Entity::get_Right()
+   IL_0027: ldarg.1
+   IL_0028: ldc.i4.2
+   IL_0029: mul
+   IL_002a: conv.r4
+   IL_002b: add
+   IL_002c: ldarg.0
+   IL_002d: ldfld Celeste.Level Celeste.Player::level
+   IL_0032: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0037: stloc.0
+   IL_0038: ldloca.s V_0
+   IL_003a: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_003f: conv.r4
+   IL_0040: clt
+   IL_0042: ret
+   IL_0043: ldc.i4.0
+   IL_0044: ret

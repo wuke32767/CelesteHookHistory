@@ -1,0 +1,20 @@
+On: Celeste.Mod.Aqua.Core.PlayerStates.Player_SummitLaunchBegin(orig_SummitLaunchBegin,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 0
+   IL_0006: stfld System.Single Celeste.Player::wallBoostTimer
+   IL_000b: ldarg.0
+   IL_000c: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0011: ldstr "launch"
+   IL_0016: ldc.i4.0
+   IL_0017: ldc.i4.0
+   IL_0018: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_001d: ldarg.0
+   IL_001e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0023: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_0028: ldc.r4 240
+   IL_002d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0032: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0037: ldarg.0
+   IL_0038: ldc.r4 0.4
+   IL_003d: stfld System.Single Celeste.Player::summitLaunchParticleTimer
+   IL_0042: ret

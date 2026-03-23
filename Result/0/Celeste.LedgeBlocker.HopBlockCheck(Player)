@@ -1,0 +1,31 @@
+On: Celeste.Mod.AdamsAddons.Entities.Controllers.LedgeBlockerFixer.modHopBlockCheck(orig_HopBlockCheck,LedgeBlocker,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.LedgeBlocker::Blocking
+   IL_0006: brfalse.s IL_0053
+   IL_0008: ldarg.1
+   IL_0009: ldarg.0
+   IL_000a: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_000f: ldarg.1
+   IL_0010: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0015: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_001a: ldarg.1
+   IL_001b: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_0020: conv.r4
+   IL_0021: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0026: ldc.r4 8
+   IL_002b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0030: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0035: callvirt System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_003a: brfalse.s IL_0053
+   IL_003c: ldarg.0
+   IL_003d: ldfld System.Func`2<Celeste.Player,System.Boolean> Celeste.LedgeBlocker::BlockChecker
+   IL_0042: brfalse.s IL_0051
+   IL_0044: ldarg.0
+   IL_0045: ldfld System.Func`2<Celeste.Player,System.Boolean> Celeste.LedgeBlocker::BlockChecker
+   IL_004a: ldarg.1
+   IL_004b: callvirt TResult System.Func`2<Celeste.Player,System.Boolean>::Invoke(T)
+   IL_0050: ret
+   IL_0051: ldc.i4.1
+   IL_0052: ret
+   IL_0053: ldc.i4.0
+   IL_0054: ret

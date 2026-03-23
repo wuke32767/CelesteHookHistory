@@ -1,0 +1,41 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_SpinnerInView(orig_InView,CrystalStaticSpinner)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0010: stloc.0
+   IL_0011: ldarg.0
+   IL_0012: call System.Single Monocle.Entity::get_X()
+   IL_0017: ldloc.0
+   IL_0018: callvirt System.Single Monocle.Camera::get_X()
+   IL_001d: ldc.r4 16
+   IL_0022: sub
+   IL_0023: ble.un.s IL_006e
+   IL_0025: ldarg.0
+   IL_0026: call System.Single Monocle.Entity::get_Y()
+   IL_002b: ldloc.0
+   IL_002c: callvirt System.Single Monocle.Camera::get_Y()
+   IL_0031: ldc.r4 16
+   IL_0036: sub
+   IL_0037: ble.un.s IL_006e
+   IL_0039: ldarg.0
+   IL_003a: call System.Single Monocle.Entity::get_X()
+   IL_003f: ldloc.0
+   IL_0040: callvirt System.Single Monocle.Camera::get_X()
+   IL_0045: ldc.r4 320
+   IL_004a: add
+   IL_004b: ldc.r4 16
+   IL_0050: add
+   IL_0051: bge.un.s IL_006e
+   IL_0053: ldarg.0
+   IL_0054: call System.Single Monocle.Entity::get_Y()
+   IL_0059: ldloc.0
+   IL_005a: callvirt System.Single Monocle.Camera::get_Y()
+   IL_005f: ldc.r4 180
+   IL_0064: add
+   IL_0065: ldc.r4 16
+   IL_006a: add
+   IL_006b: clt
+   IL_006d: ret
+   IL_006e: ldc.i4.0
+   IL_006f: ret

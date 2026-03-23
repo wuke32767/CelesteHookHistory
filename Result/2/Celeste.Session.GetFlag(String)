@@ -1,0 +1,7 @@
+On: Bitsbolts.Entities.SaveDataFlagSync.OnSessionGetFlag(orig_GetFlag,Session,String)
+On: Celeste.Mod.auspicioushelper.ChannelState.Hook(orig_GetFlag,Session,String)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.Session::Flags
+   IL_0006: ldarg.1
+   IL_0007: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Contains(T)
+   IL_000c: ret

@@ -1,0 +1,239 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedHud() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0011: isinst Celeste.Level
+   IL_0016: callvirt System.Boolean Celeste.Level::get_FrozenOrPaused()
+   IL_001b: brtrue.s IL_002f
+   IL_001d: ldarg.0
+   IL_001e: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0023: isinst Celeste.Level
+   IL_0028: ldfld System.Boolean Celeste.Level::Completed
+   IL_002d: brfalse.s IL_0030
+   IL_002f: ret
+   IL_0030: ldarg.0
+   IL_0031: ldfld System.Single Celeste.MemorialText::index
+   IL_0036: ldc.r4 0
+   IL_003b: ble.un IL_02a3
+   IL_0040: ldarg.0
+   IL_0041: ldfld System.Single Celeste.MemorialText::alpha
+   IL_0046: ldc.r4 0
+   IL_004b: ble.un IL_02a3
+   IL_0050: ldarg.0
+   IL_0051: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0056: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_005b: stloc.0
+   IL_005c: ldloca.s V_1
+   IL_005e: ldarg.0
+   IL_005f: ldfld Celeste.Memorial Celeste.MemorialText::Memorial
+   IL_0064: callvirt System.Single Monocle.Entity::get_X()
+   IL_0069: ldloc.0
+   IL_006a: callvirt System.Single Monocle.Camera::get_X()
+   IL_006f: sub
+   IL_0070: ldc.r4 6
+   IL_0075: mul
+   IL_0076: ldarg.0
+   IL_0077: ldfld Celeste.Memorial Celeste.MemorialText::Memorial
+   IL_007c: callvirt System.Single Monocle.Entity::get_Y()
+   IL_0081: ldloc.0
+   IL_0082: callvirt System.Single Monocle.Camera::get_Y()
+   IL_0087: sub
+   IL_0088: ldc.r4 6
+   IL_008d: mul
+   IL_008e: ldc.r4 350
+   IL_0093: sub
+   IL_0094: call System.Single Celeste.ActiveFont::get_LineHeight()
+   IL_0099: ldc.r4 3.3
+   IL_009e: mul
+   IL_009f: sub
+   IL_00a0: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00a5: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00aa: brfalse.s IL_00d0
+   IL_00ac: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00b1: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_00b6: ldfld System.Boolean Celeste.Assists::MirrorMode
+   IL_00bb: brfalse.s IL_00d0
+   IL_00bd: ldloca.s V_1
+   IL_00bf: ldc.r4 1920
+   IL_00c4: ldloc.1
+   IL_00c5: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00ca: sub
+   IL_00cb: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00d0: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeInOut
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld System.Single Celeste.MemorialText::alpha
+   IL_00db: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_00e0: stloc.2
+   IL_00e1: ldarg.0
+   IL_00e2: ldfld System.String Celeste.MemorialText::message
+   IL_00e7: callvirt System.Int32 System.String::get_Length()
+   IL_00ec: conv.r4
+   IL_00ed: ldarg.0
+   IL_00ee: ldfld System.Single Celeste.MemorialText::index
+   IL_00f3: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_00f8: conv.i4
+   IL_00f9: stloc.3
+   IL_00fa: ldc.i4.0
+   IL_00fb: stloc.s V_4
+   IL_00fd: ldc.r4 64
+   IL_0102: ldc.r4 1
+   IL_0107: ldloc.2
+   IL_0108: sub
+   IL_0109: mul
+   IL_010a: stloc.s V_5
+   IL_010c: ldarg.0
+   IL_010d: ldc.i4.0
+   IL_010e: callvirt System.Int32 Celeste.MemorialText::CountToNewline(System.Int32)
+   IL_0113: stloc.s V_6
+   IL_0115: ldc.i4.0
+   IL_0116: stloc.s V_7
+   IL_0118: br IL_029b
+   IL_011d: ldarg.0
+   IL_011e: ldfld System.String Celeste.MemorialText::message
+   IL_0123: ldloc.s V_7
+   IL_0125: callvirt System.Char System.String::get_Chars(System.Int32)
+   IL_012a: stloc.s V_8
+   IL_012c: ldloc.s V_8
+   IL_012e: ldc.i4.s 10
+   IL_0130: bne.un.s IL_0156
+   IL_0132: ldc.i4.0
+   IL_0133: stloc.s V_4
+   IL_0135: ldarg.0
+   IL_0136: ldloc.s V_7
+   IL_0138: ldc.i4.1
+   IL_0139: add
+   IL_013a: callvirt System.Int32 Celeste.MemorialText::CountToNewline(System.Int32)
+   IL_013f: stloc.s V_6
+   IL_0141: ldloc.s V_5
+   IL_0143: call System.Single Celeste.ActiveFont::get_LineHeight()
+   IL_0148: ldc.r4 1.1
+   IL_014d: mul
+   IL_014e: add
+   IL_014f: stloc.s V_5
+   IL_0151: br IL_0295
+   IL_0156: ldc.r4 1
+   IL_015b: stloc.s V_9
+   IL_015d: ldloc.s V_6
+   IL_015f: neg
+   IL_0160: conv.r4
+   IL_0161: ldarg.0
+   IL_0162: ldfld System.Single Celeste.MemorialText::widestCharacter
+   IL_0167: mul
+   IL_0168: ldc.r4 2
+   IL_016d: div
+   IL_016e: ldloc.s V_4
+   IL_0170: conv.r4
+   IL_0171: ldc.r4 0.5
+   IL_0176: add
+   IL_0177: ldarg.0
+   IL_0178: ldfld System.Single Celeste.MemorialText::widestCharacter
+   IL_017d: mul
+   IL_017e: add
+   IL_017f: stloc.s V_10
+   IL_0181: ldc.r4 0
+   IL_0186: stloc.s V_11
+   IL_0188: ldarg.0
+   IL_0189: ldfld System.Boolean Celeste.MemorialText::Dreamy
+   IL_018e: brfalse IL_0250
+   IL_0193: ldloc.s V_8
+   IL_0195: ldc.i4.s 32
+   IL_0197: beq IL_0250
+   IL_019c: ldloc.s V_8
+   IL_019e: ldc.i4.s 45
+   IL_01a0: beq IL_0250
+   IL_01a5: ldloc.s V_8
+   IL_01a7: ldc.i4.s 10
+   IL_01a9: beq IL_0250
+   IL_01ae: ldarg.0
+   IL_01af: ldfld System.String Celeste.MemorialText::message
+   IL_01b4: ldloc.s V_7
+   IL_01b6: ldarg.0
+   IL_01b7: ldfld System.Single Celeste.MemorialText::timer
+   IL_01bc: ldc.r4 2
+   IL_01c1: mul
+   IL_01c2: ldloc.s V_7
+   IL_01c4: conv.r4
+   IL_01c5: ldc.r4 8
+   IL_01ca: div
+   IL_01cb: add
+   IL_01cc: conv.r8
+   IL_01cd: call System.Double System.Math::Sin(System.Double)
+   IL_01d2: ldc.r8 4
+   IL_01db: mul
+   IL_01dc: conv.i4
+   IL_01dd: add
+   IL_01de: ldarg.0
+   IL_01df: ldfld System.String Celeste.MemorialText::message
+   IL_01e4: callvirt System.Int32 System.String::get_Length()
+   IL_01e9: add
+   IL_01ea: ldarg.0
+   IL_01eb: ldfld System.String Celeste.MemorialText::message
+   IL_01f0: callvirt System.Int32 System.String::get_Length()
+   IL_01f5: rem
+   IL_01f6: callvirt System.Char System.String::get_Chars(System.Int32)
+   IL_01fb: stloc.s V_8
+   IL_01fd: ldarg.0
+   IL_01fe: ldfld System.Single Celeste.MemorialText::timer
+   IL_0203: ldc.r4 2
+   IL_0208: mul
+   IL_0209: ldloc.s V_7
+   IL_020b: conv.r4
+   IL_020c: ldc.r4 8
+   IL_0211: div
+   IL_0212: add
+   IL_0213: conv.r8
+   IL_0214: call System.Double System.Math::Sin(System.Double)
+   IL_0219: conv.r4
+   IL_021a: ldc.r4 8
+   IL_021f: mul
+   IL_0220: stloc.s V_11
+   IL_0222: ldarg.0
+   IL_0223: ldfld System.Single Celeste.MemorialText::timer
+   IL_0228: ldc.r4 4
+   IL_022d: mul
+   IL_022e: ldloc.s V_7
+   IL_0230: conv.r4
+   IL_0231: ldc.r4 16
+   IL_0236: div
+   IL_0237: add
+   IL_0238: conv.r8
+   IL_0239: call System.Double System.Math::Sin(System.Double)
+   IL_023e: ldc.r8 0
+   IL_0247: blt.s IL_024c
+   IL_0249: ldc.i4.1
+   IL_024a: br.s IL_024d
+   IL_024c: ldc.i4.m1
+   IL_024d: conv.r4
+   IL_024e: stloc.s V_9
+   IL_0250: ldloc.s V_8
+   IL_0252: ldloc.1
+   IL_0253: ldloc.s V_10
+   IL_0255: ldloc.s V_5
+   IL_0257: ldloc.s V_11
+   IL_0259: add
+   IL_025a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_025f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0264: ldc.r4 0.5
+   IL_0269: ldc.r4 1
+   IL_026e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0273: ldloc.s V_9
+   IL_0275: ldc.r4 1
+   IL_027a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_027f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0284: ldloc.2
+   IL_0285: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_028a: call System.Void Celeste.ActiveFont::Draw(System.Char,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_028f: ldloc.s V_4
+   IL_0291: ldc.i4.1
+   IL_0292: add
+   IL_0293: stloc.s V_4
+   IL_0295: ldloc.s V_7
+   IL_0297: ldc.i4.1
+   IL_0298: add
+   IL_0299: stloc.s V_7
+   IL_029b: ldloc.s V_7
+   IL_029d: ldloc.3
+   IL_029e: blt IL_011d
+   IL_02a3: ret

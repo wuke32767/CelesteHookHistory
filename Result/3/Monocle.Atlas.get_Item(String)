@@ -1,0 +1,40 @@
+On: LuckyHelper.Entities.Misc.AtlasPathReplacer.AtlasGetItemHook(Func`3,Atlas,String)
+IL: Celeste.Mod.SkinModHelper.SkinsSystem.ilAtlas_get_Item(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.MTexture> Monocle.Atlas::textures
+ + IL_10000: ldsfld Celeste.Mod.SkinModHelper.nonBankReskin Celeste.Mod.SkinModHelper.SkinsSystem::OtherSpriteSkins @ Celeste.Mod.SkinModHelper.SkinsSystem.ilAtlas_get_Item(ILContext)
+ + IL_10001: ldarg.0 @ Celeste.Mod.SkinModHelper.SkinsSystem.ilAtlas_get_Item(ILContext)
+   IL_0006: ldarg.1
+ + IL_10002: ldc.i4.0 @ Celeste.Mod.SkinModHelper.SkinsSystem.ilAtlas_get_Item(ILContext)
+ + IL_10003: call System.String Celeste.Mod.SkinModHelper.nonBankReskin::GetSkinWithPath(Monocle.Atlas,System.String,System.Boolean) @ Celeste.Mod.SkinModHelper.SkinsSystem.ilAtlas_get_Item(ILContext)
+   IL_0007: ldloca.s V_0
+   IL_0009: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Monocle.MTexture>::TryGetValue(TKey,TValue&)
+   IL_000e: brtrue.s IL_0054
+   IL_0010: ldstr "Atlas"
+   IL_0015: stloc.1
+   IL_0016: ldloc.1
+   IL_0017: ldc.i4.s 39
+   IL_0019: ldc.i4.2
+   IL_001a: ldloc.1
+   IL_001b: ldloca.s V_3
+   IL_001d: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0022: stloc.2
+   IL_0023: ldloc.3
+   IL_0024: brfalse.s IL_0047
+   IL_0026: ldloca.s V_2
+   IL_0028: ldstr "Requested texture that does not exist: "
+   IL_002d: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0032: ldloca.s V_2
+   IL_0034: ldarg.0
+   IL_0035: ldfld System.String Monocle.Atlas::RelativeDataPath
+   IL_003a: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_003f: ldloca.s V_2
+   IL_0041: ldarg.1
+   IL_0042: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0047: ldloc.2
+   IL_0048: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_004d: ldarg.0
+   IL_004e: callvirt Monocle.MTexture Monocle.Atlas::GetFallback()
+   IL_0053: ret
+   IL_0054: ldloc.0
+   IL_0055: ret

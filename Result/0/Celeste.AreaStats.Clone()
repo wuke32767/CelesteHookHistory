@@ -1,0 +1,35 @@
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.AreaStats_Clone(orig_Clone,AreaStats)
+   IL_0000: newobj System.Void Celeste.AreaStats::.ctor()
+   IL_0005: dup
+   IL_0006: ldarg.0
+   IL_0007: callvirt System.Int32 Celeste.AreaStats::get_ID_Safe()
+   IL_000c: callvirt System.Void Celeste.AreaStats::set_ID_Safe(System.Int32)
+   IL_0011: dup
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Boolean Celeste.AreaStats::Cassette
+   IL_0018: stfld System.Boolean Celeste.AreaStats::Cassette
+   IL_001d: stloc.0
+   IL_001e: ldc.i4.0
+   IL_001f: stloc.1
+   IL_0020: br.s IL_003b
+   IL_0022: ldloc.0
+   IL_0023: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_0028: ldloc.1
+   IL_0029: ldarg.0
+   IL_002a: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_002f: ldloc.1
+   IL_0030: ldelem.ref
+   IL_0031: callvirt Celeste.AreaModeStats Celeste.AreaModeStats::Clone()
+   IL_0036: stelem.ref
+   IL_0037: ldloc.1
+   IL_0038: ldc.i4.1
+   IL_0039: add
+   IL_003a: stloc.1
+   IL_003b: ldloc.1
+   IL_003c: ldarg.0
+   IL_003d: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_0042: ldlen
+   IL_0043: conv.i4
+   IL_0044: blt.s IL_0022
+   IL_0046: ldloc.0
+   IL_0047: ret

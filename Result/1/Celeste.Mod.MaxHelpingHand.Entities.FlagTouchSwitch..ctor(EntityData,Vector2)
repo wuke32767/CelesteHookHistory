@@ -1,0 +1,301 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.FloatingBubble.OnFlagTouchSwitchCtor(Action`3,FlagTouchSwitch,EntityData,Vector2)
+On: Celeste.Mod.BitsHelper.Entities.FloatingBubble.OnFlagTouchSwitchCtor(Action`3,FlagTouchSwitch,EntityData,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0006: ldstr "objects/touchswitch/container"
+   IL_000b: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0010: stfld Monocle.MTexture Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::border
+   IL_0015: ldarg.0
+   IL_0016: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_001b: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::pulse
+   IL_0020: ldarg.0
+   IL_0021: ldarg.1
+   IL_0022: ldfld Microsoft.Xna.Framework.Vector2 Celeste.EntityData::Position
+   IL_0027: ldarg.2
+   IL_0028: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_002d: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0032: ldarg.0
+   IL_0033: ldc.i4 2000
+   IL_0038: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_003d: ldarg.0
+   IL_003e: ldarg.1
+   IL_003f: ldfld System.Int32 Celeste.EntityData::ID
+   IL_0044: stfld System.Int32 Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::id
+   IL_0049: ldarg.0
+   IL_004a: ldarg.1
+   IL_004b: ldstr "flag"
+   IL_0050: ldstr ""
+   IL_0055: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_005a: stfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::flag
+   IL_005f: ldarg.0
+   IL_0060: ldarg.1
+   IL_0061: ldstr "persistent"
+   IL_0066: ldc.i4.0
+   IL_0067: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_006c: stfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::persistent
+   IL_0071: ldarg.0
+   IL_0072: ldarg.1
+   IL_0073: ldstr "inactiveColor"
+   IL_0078: ldstr "5FCDE4"
+   IL_007d: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_0082: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0087: stfld Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::inactiveColor
+   IL_008c: ldarg.0
+   IL_008d: ldarg.1
+   IL_008e: ldstr "activeColor"
+   IL_0093: ldstr "FFFFFF"
+   IL_0098: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_009d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_00a2: stfld Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::activeColor
+   IL_00a7: ldarg.0
+   IL_00a8: ldarg.1
+   IL_00a9: ldstr "finishColor"
+   IL_00ae: ldstr "F141DF"
+   IL_00b3: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_00b8: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_00bd: stfld Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::finishColor
+   IL_00c2: ldarg.0
+   IL_00c3: ldarg.1
+   IL_00c4: ldstr "hitSound"
+   IL_00c9: ldstr "event:/game/general/touchswitch_any"
+   IL_00ce: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_00d3: stfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::hitSound
+   IL_00d8: ldarg.0
+   IL_00d9: ldarg.1
+   IL_00da: ldstr "completeSoundFromSwitch"
+   IL_00df: ldstr "event:/game/general/touchswitch_last_cutoff"
+   IL_00e4: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_00e9: stfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::completeSoundFromSwitch
+   IL_00ee: ldarg.0
+   IL_00ef: ldarg.1
+   IL_00f0: ldstr "completeSoundFromScene"
+   IL_00f5: ldstr "event:/game/general/touchswitch_last_oneshot"
+   IL_00fa: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_00ff: stfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::completeSoundFromScene
+   IL_0104: ldarg.0
+   IL_0105: ldarg.1
+   IL_0106: ldstr "hideIfFlag"
+   IL_010b: ldstr ""
+   IL_0110: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_0115: stfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::hideIfFlag
+   IL_011a: ldarg.0
+   IL_011b: ldarg.1
+   IL_011c: ldstr "inverted"
+   IL_0121: ldc.i4.0
+   IL_0122: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_0127: stfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::inverted
+   IL_012c: ldarg.0
+   IL_012d: ldarg.1
+   IL_012e: ldstr "allowDisable"
+   IL_0133: ldc.i4.0
+   IL_0134: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_0139: stfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::allowDisable
+   IL_013e: ldarg.0
+   IL_013f: ldarg.1
+   IL_0140: ldstr "smoke"
+   IL_0145: ldc.i4.1
+   IL_0146: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_014b: stfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::smoke
+   IL_0150: ldarg.1
+   IL_0151: ldstr "borderTexture"
+   IL_0156: ldstr ""
+   IL_015b: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_0160: stloc.0
+   IL_0161: ldloc.0
+   IL_0162: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0167: brtrue.s IL_017a
+   IL_0169: ldarg.0
+   IL_016a: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_016f: ldloc.0
+   IL_0170: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0175: stfld Monocle.MTexture Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::border
+   IL_017a: ldarg.0
+   IL_017b: ldsfld Monocle.ParticleType Celeste.TouchSwitch::P_Fire
+   IL_0180: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0185: dup
+   IL_0186: ldarg.0
+   IL_0187: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::finishColor
+   IL_018c: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0191: stfld Monocle.ParticleType Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::P_RecoloredFire
+   IL_0196: ldarg.0
+   IL_0197: ldarg.1
+   IL_0198: callvirt System.Void Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::setUpCollision(Celeste.EntityData)
+   IL_019d: ldarg.1
+   IL_019e: ldstr "icon"
+   IL_01a3: ldstr "vanilla"
+   IL_01a8: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_01ad: stloc.1
+   IL_01ae: ldarg.1
+   IL_01af: ldstr "animationLength"
+   IL_01b4: ldstr "6"
+   IL_01b9: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_01be: ldloca.s V_2
+   IL_01c0: call System.Boolean System.Int32::TryParse(System.String,System.Int32&)
+   IL_01c5: brfalse.s IL_01db
+   IL_01c7: ldarg.0
+   IL_01c8: ldc.i4.0
+   IL_01c9: ldloc.2
+   IL_01ca: call System.Collections.Generic.IEnumerable`1<System.Int32> System.Linq.Enumerable::Range(System.Int32,System.Int32)
+   IL_01cf: call TSource[] System.Linq.Enumerable::ToArray<System.Int32>(System.Collections.Generic.IEnumerable`1<TSource>)
+   IL_01d4: stfld System.Int32[] Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::frames
+   IL_01d9: br.s IL_01f2
+   IL_01db: ldarg.0
+   IL_01dc: ldc.i4.6
+   IL_01dd: newarr System.Int32
+   IL_01e2: dup
+   IL_01e3: ldtoken <PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::CD9A54ED1F18BF97DB08914E280EA7349E11CA2C4885A4D8052552CEBA84208D
+   IL_01e8: call System.Void System.Runtime.CompilerServices.RuntimeHelpers::InitializeArray(System.Array,System.RuntimeFieldHandle)
+   IL_01ed: stfld System.Int32[] Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::frames
+   IL_01f2: ldarg.0
+   IL_01f3: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_01f8: ldloc.1
+   IL_01f9: ldstr "vanilla"
+   IL_01fe: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0203: brtrue.s IL_0217
+   IL_0205: ldstr "objects/MaxHelpingHand/flagTouchSwitch/"
+   IL_020a: ldloc.1
+   IL_020b: ldstr "/icon"
+   IL_0210: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0215: br.s IL_021c
+   IL_0217: ldstr "objects/touchswitch/icon"
+   IL_021c: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_0221: stfld Monocle.Sprite Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::icon
+   IL_0226: ldarg.0
+   IL_0227: ldarg.0
+   IL_0228: ldfld Monocle.Sprite Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::icon
+   IL_022d: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0232: ldarg.0
+   IL_0233: ldfld Monocle.Sprite Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::icon
+   IL_0238: ldstr "idle"
+   IL_023d: ldstr ""
+   IL_0242: ldc.r4 0
+   IL_0247: ldc.i4.1
+   IL_0248: newarr System.Int32
+   IL_024d: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single,System.Int32[])
+   IL_0252: ldarg.0
+   IL_0253: ldfld Monocle.Sprite Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::icon
+   IL_0258: ldstr "spin"
+   IL_025d: ldstr ""
+   IL_0262: ldc.r4 0.1
+   IL_0267: ldstr "spin"
+   IL_026c: ldc.r4 1
+   IL_0271: newobj System.Void Monocle.Chooser`1<System.String>::.ctor(T,System.Single)
+   IL_0276: ldarg.0
+   IL_0277: ldfld System.Int32[] Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::frames
+   IL_027c: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single,Monocle.Chooser`1<System.String>,System.Int32[])
+   IL_0281: ldarg.0
+   IL_0282: ldfld Monocle.Sprite Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::icon
+   IL_0287: ldstr "spin"
+   IL_028c: ldc.i4.0
+   IL_028d: ldc.i4.0
+   IL_028e: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0293: ldarg.0
+   IL_0294: ldfld Monocle.Sprite Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::icon
+   IL_0299: ldarg.0
+   IL_029a: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::inactiveColor
+   IL_029f: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_02a4: ldarg.0
+   IL_02a5: ldfld Monocle.Sprite Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::icon
+   IL_02aa: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_02af: pop
+   IL_02b0: ldarg.0
+   IL_02b1: ldfld Monocle.Sprite Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::icon
+   IL_02b6: ldarg.0
+   IL_02b7: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::get_IconPosition()
+   IL_02bc: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_02c1: ldarg.0
+   IL_02c2: ldarg.0
+   IL_02c3: ldc.r4 0
+   IL_02c8: ldc.r4 16
+   IL_02cd: newobj System.Void Celeste.BloomPoint::.ctor(System.Single,System.Single)
+   IL_02d2: dup
+   IL_02d3: stloc.s V_4
+   IL_02d5: stfld Celeste.BloomPoint Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::bloom
+   IL_02da: ldloc.s V_4
+   IL_02dc: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_02e1: ldarg.0
+   IL_02e2: ldfld Celeste.BloomPoint Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::bloom
+   IL_02e7: ldc.r4 0
+   IL_02ec: stfld System.Single Celeste.BloomPoint::Alpha
+   IL_02f1: ldarg.0
+   IL_02f2: ldfld Celeste.BloomPoint Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::bloom
+   IL_02f7: ldarg.0
+   IL_02f8: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::get_IconPosition()
+   IL_02fd: stfld Microsoft.Xna.Framework.Vector2 Celeste.BloomPoint::Position
+   IL_0302: ldarg.0
+   IL_0303: ldarg.0
+   IL_0304: ldc.r4 0.5
+   IL_0309: ldc.r4 4
+   IL_030e: ldarg.0
+   IL_030f: ldftn System.Void Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::<.ctor>b__47_0(System.Single)
+   IL_0315: newobj System.Void System.Action`1<System.Single>::.ctor(System.Object,System.IntPtr)
+   IL_031a: ldc.i4.0
+   IL_031b: ldc.i4.0
+   IL_031c: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_0321: dup
+   IL_0322: stloc.s V_5
+   IL_0324: stfld Monocle.Wiggler Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::wiggler
+   IL_0329: ldloc.s V_5
+   IL_032b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0330: ldarg.0
+   IL_0331: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0336: ldc.r4 0.8
+   IL_033b: ldc.i4.s 16
+   IL_033d: ldc.i4.s 32
+   IL_033f: newobj System.Void Celeste.VertexLight::.ctor(Microsoft.Xna.Framework.Color,System.Single,System.Int32,System.Int32)
+   IL_0344: dup
+   IL_0345: ldarg.0
+   IL_0346: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::get_IconPosition()
+   IL_034b: callvirt System.Void Celeste.VertexLight::set_Position(Microsoft.Xna.Framework.Vector2)
+   IL_0350: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0355: ldarg.0
+   IL_0356: ldarg.0
+   IL_0357: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_035c: dup
+   IL_035d: ldarg.0
+   IL_035e: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::get_IconPosition()
+   IL_0363: stfld Microsoft.Xna.Framework.Vector2 Celeste.SoundSource::Position
+   IL_0368: dup
+   IL_0369: stloc.s V_6
+   IL_036b: stfld Celeste.SoundSource Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::touchSfx
+   IL_0370: ldloc.s V_6
+   IL_0372: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0377: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_037c: isinst Celeste.Level
+   IL_0381: dup
+   IL_0382: brtrue.s IL_039b
+   IL_0384: pop
+   IL_0385: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_038a: isinst Celeste.LevelLoader
+   IL_038f: dup
+   IL_0390: brtrue.s IL_0396
+   IL_0392: pop
+   IL_0393: ldnull
+   IL_0394: br.s IL_039b
+   IL_0396: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_039b: stloc.3
+   IL_039c: ldloc.3
+   IL_039d: brtrue.s IL_03a0
+   IL_039f: ret
+   IL_03a0: ldloc.3
+   IL_03a1: ldarg.0
+   IL_03a2: ldfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::flag
+   IL_03a7: ldarg.0
+   IL_03a8: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::inverted
+   IL_03ad: call System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::isLegacyFlagMode(Celeste.Level,System.String,System.Boolean)
+   IL_03b2: brtrue.s IL_03df
+   IL_03b4: ldloc.3
+   IL_03b5: ldarg.0
+   IL_03b6: ldfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::flag
+   IL_03bb: ldarg.0
+   IL_03bc: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::inverted
+   IL_03c1: call System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::isFlagPersistent(Celeste.Level,System.String,System.Boolean)
+   IL_03c6: brtrue.s IL_03df
+   IL_03c8: ldloc.3
+   IL_03c9: ldfld Celeste.Session Celeste.Level::Session
+   IL_03ce: ldarg.0
+   IL_03cf: ldfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::flag
+   IL_03d4: ldarg.0
+   IL_03d5: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::inverted
+   IL_03da: callvirt System.Void Celeste.Session::SetFlag(System.String,System.Boolean)
+   IL_03df: ret

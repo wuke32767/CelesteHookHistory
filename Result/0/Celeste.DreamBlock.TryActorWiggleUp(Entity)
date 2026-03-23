@@ -1,0 +1,46 @@
+On: .PL_VirtualRedir<Celeste.DreamBlock::TryActorWiggleUp>?48110353(DreamBlock,Entity)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldc.i4.1
+   IL_0009: stfld System.Boolean Monocle.Entity::Collidable
+   IL_000e: ldc.i4.1
+   IL_000f: stloc.1
+   IL_0010: br.s IL_005b
+   IL_0012: ldarg.1
+   IL_0013: ldarg.1
+   IL_0014: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0019: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_001e: ldloc.1
+   IL_001f: conv.r4
+   IL_0020: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0025: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_002a: callvirt System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_002f: brtrue.s IL_0057
+   IL_0031: ldarg.1
+   IL_0032: dup
+   IL_0033: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0038: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_003d: ldloc.1
+   IL_003e: conv.r4
+   IL_003f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0044: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0049: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_004e: ldarg.0
+   IL_004f: ldloc.0
+   IL_0050: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0055: ldc.i4.1
+   IL_0056: ret
+   IL_0057: ldloc.1
+   IL_0058: ldc.i4.1
+   IL_0059: add
+   IL_005a: stloc.1
+   IL_005b: ldloc.1
+   IL_005c: ldc.i4.4
+   IL_005d: ble.s IL_0012
+   IL_005f: ldarg.0
+   IL_0060: ldloc.0
+   IL_0061: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0066: ldc.i4.0
+   IL_0067: ret

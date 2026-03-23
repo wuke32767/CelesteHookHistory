@@ -1,0 +1,24 @@
+On: Celeste.Mod.XaphanHelper.Upgrades.MegaBombs.onHoldableCheck(orig_Check,Holdable,Player)
+On: Celeste.Mod.XaphanHelper.Upgrades.Bombs.onHoldableCheck(orig_Check,Holdable,Player)
+On: Celeste.Mod.CommunalHelper.Components.DreamHoldable.Holdable_Check(orig_Check,Holdable,Player)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_0006: callvirt Monocle.Collider Monocle.Entity::get_Collider()
+   IL_000b: stloc.0
+   IL_000c: ldarg.0
+   IL_000d: ldfld Monocle.Collider Celeste.Holdable::PickupCollider
+   IL_0012: brfalse.s IL_0025
+   IL_0014: ldarg.0
+   IL_0015: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_001a: ldarg.0
+   IL_001b: ldfld Monocle.Collider Celeste.Holdable::PickupCollider
+   IL_0020: callvirt System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0025: ldarg.1
+   IL_0026: ldarg.0
+   IL_0027: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_002c: callvirt System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_0031: ldarg.0
+   IL_0032: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_0037: ldloc.0
+   IL_0038: callvirt System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_003d: ret

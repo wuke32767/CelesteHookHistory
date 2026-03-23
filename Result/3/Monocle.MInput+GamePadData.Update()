@@ -1,0 +1,45 @@
+On: ChaosEnsues.Entry.GamePadData_Update(orig_Update,GamePadData)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld Microsoft.Xna.Framework.Input.GamePadState Monocle.MInput/GamePadData::CurrentState
+   IL_0007: stfld Microsoft.Xna.Framework.Input.GamePadState Monocle.MInput/GamePadData::PreviousState
+   IL_000c: ldarg.0
+   IL_000d: ldarg.0
+   IL_000e: ldfld Microsoft.Xna.Framework.PlayerIndex Monocle.MInput/GamePadData::PlayerIndex
+   IL_0013: call Microsoft.Xna.Framework.Input.GamePadState Microsoft.Xna.Framework.Input.GamePad::GetState(Microsoft.Xna.Framework.PlayerIndex)
+   IL_0018: stfld Microsoft.Xna.Framework.Input.GamePadState Monocle.MInput/GamePadData::CurrentState
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.Boolean Monocle.MInput/GamePadData::Attached
+   IL_0023: brtrue.s IL_0038
+   IL_0025: ldarg.0
+   IL_0026: ldflda Microsoft.Xna.Framework.Input.GamePadState Monocle.MInput/GamePadData::CurrentState
+   IL_002b: call System.Boolean Microsoft.Xna.Framework.Input.GamePadState::get_IsConnected()
+   IL_0030: brfalse.s IL_0038
+   IL_0032: ldc.i4.1
+   IL_0033: stsfld System.Boolean Monocle.MInput::IsControllerFocused
+   IL_0038: ldarg.0
+   IL_0039: ldarg.0
+   IL_003a: ldflda Microsoft.Xna.Framework.Input.GamePadState Monocle.MInput/GamePadData::CurrentState
+   IL_003f: call System.Boolean Microsoft.Xna.Framework.Input.GamePadState::get_IsConnected()
+   IL_0044: stfld System.Boolean Monocle.MInput/GamePadData::Attached
+   IL_0049: ldarg.0
+   IL_004a: ldfld System.Single Monocle.MInput/GamePadData::rumbleTime
+   IL_004f: ldc.r4 0
+   IL_0054: ble.un.s IL_008b
+   IL_0056: ldarg.0
+   IL_0057: ldarg.0
+   IL_0058: ldfld System.Single Monocle.MInput/GamePadData::rumbleTime
+   IL_005d: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0062: sub
+   IL_0063: stfld System.Single Monocle.MInput/GamePadData::rumbleTime
+   IL_0068: ldarg.0
+   IL_0069: ldfld System.Single Monocle.MInput/GamePadData::rumbleTime
+   IL_006e: ldc.r4 0
+   IL_0073: bgt.un.s IL_008b
+   IL_0075: ldarg.0
+   IL_0076: ldfld Microsoft.Xna.Framework.PlayerIndex Monocle.MInput/GamePadData::PlayerIndex
+   IL_007b: ldc.r4 0
+   IL_0080: ldc.r4 0
+   IL_0085: call System.Boolean Microsoft.Xna.Framework.Input.GamePad::SetVibration(Microsoft.Xna.Framework.PlayerIndex,System.Single,System.Single)
+   IL_008a: pop
+   IL_008b: ret

@@ -1,0 +1,35 @@
+On: Celeste.Mod.DJMapHelper.Entities.ColorfulFlyFeather.FlyFeatherOnRespawn(orig_Respawn,FlyFeather)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0006: brtrue.s IL_006f
+   IL_0008: ldarg.0
+   IL_0009: ldfld Monocle.Image Celeste.FlyFeather::outline
+   IL_000e: ldc.i4.0
+   IL_000f: stfld System.Boolean Monocle.Component::Visible
+   IL_0014: ldarg.0
+   IL_0015: ldc.i4.1
+   IL_0016: stfld System.Boolean Monocle.Entity::Collidable
+   IL_001b: ldarg.0
+   IL_001c: ldfld Monocle.Sprite Celeste.FlyFeather::sprite
+   IL_0021: ldc.i4.1
+   IL_0022: stfld System.Boolean Monocle.Component::Visible
+   IL_0027: ldarg.0
+   IL_0028: ldfld Monocle.Wiggler Celeste.FlyFeather::wiggler
+   IL_002d: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0032: ldstr "event:/game/06_reflection/feather_reappear"
+   IL_0037: ldarg.0
+   IL_0038: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003d: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0042: pop
+   IL_0043: ldarg.0
+   IL_0044: ldfld Celeste.Level Celeste.FlyFeather::level
+   IL_0049: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_004e: ldsfld Monocle.ParticleType Celeste.FlyFeather::P_Respawn
+   IL_0053: ldc.i4.s 16
+   IL_0055: ldarg.0
+   IL_0056: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_005b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0060: ldc.r4 2
+   IL_0065: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_006a: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_006f: ret

@@ -1,0 +1,16 @@
+On: Celeste.Mod.Pico8MapLoader.Pico8MapLoaderModule.onPico8InMainMenu(orig_OnPico8,OuiMainMenu)
+   IL_0000: ldstr "event:/ui/main/button_select"
+   IL_0005: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_000a: pop
+   IL_000b: ldarg.0
+   IL_000c: ldc.i4.0
+   IL_000d: stfld System.Boolean Celeste.Oui::Focused
+   IL_0012: ldarg.0
+   IL_0013: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0018: ldc.i4.0
+   IL_0019: ldarg.0
+   IL_001a: ldftn System.Void Celeste.OuiMainMenu::<OnPico8>b__26_0()
+   IL_0020: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0025: newobj System.Void Celeste.FadeWipe::.ctor(Monocle.Scene,System.Boolean,System.Action)
+   IL_002a: pop
+   IL_002b: ret

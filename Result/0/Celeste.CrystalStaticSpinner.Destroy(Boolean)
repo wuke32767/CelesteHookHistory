@@ -1,0 +1,42 @@
+On: Celeste.Mod.JackalHelper.JackalModule.optimizeDestroy(orig_Destroy,CrystalStaticSpinner,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Boolean Celeste.CrystalStaticSpinner::InView()
+   IL_0006: brfalse.s IL_006c
+   IL_0008: ldstr "event:/game/06_reflection/fall_spike_smash"
+   IL_000d: ldarg.0
+   IL_000e: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0013: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0018: pop
+   IL_0019: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_001e: stloc.0
+   IL_001f: ldarg.0
+   IL_0020: ldfld Celeste.CrystalColor Celeste.CrystalStaticSpinner::color
+   IL_0025: ldc.i4.1
+   IL_0026: bne.un.s IL_0035
+   IL_0028: ldstr "ff4f4f"
+   IL_002d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0032: stloc.0
+   IL_0033: br.s IL_005e
+   IL_0035: ldarg.0
+   IL_0036: ldfld Celeste.CrystalColor Celeste.CrystalStaticSpinner::color
+   IL_003b: brtrue.s IL_004a
+   IL_003d: ldstr "639bff"
+   IL_0042: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0047: stloc.0
+   IL_0048: br.s IL_005e
+   IL_004a: ldarg.0
+   IL_004b: ldfld Celeste.CrystalColor Celeste.CrystalStaticSpinner::color
+   IL_0050: ldc.i4.2
+   IL_0051: bne.un.s IL_005e
+   IL_0053: ldstr "ff4fef"
+   IL_0058: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_005d: stloc.0
+   IL_005e: ldarg.0
+   IL_005f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0064: ldloc.0
+   IL_0065: ldarg.1
+   IL_0066: ldc.i4.8
+   IL_0067: call System.Void Celeste.CrystalDebris::Burst(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Boolean,System.Int32)
+   IL_006c: ldarg.0
+   IL_006d: call System.Void Monocle.Entity::RemoveSelf()
+   IL_0072: ret

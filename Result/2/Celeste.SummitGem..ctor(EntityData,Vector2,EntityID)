@@ -1,0 +1,109 @@
+On: Celeste.Mod.Randomizer.RandoModule.PatchNewGem(orig_ctor,SummitGem,EntityData,Vector2,EntityID)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: ldfld Microsoft.Xna.Framework.Vector2 Celeste.EntityData::Position
+   IL_0007: ldarg.2
+   IL_0008: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_000d: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0012: ldarg.0
+   IL_0013: ldarg.3
+   IL_0014: stfld Celeste.EntityID Celeste.SummitGem::GID
+   IL_0019: ldarg.0
+   IL_001a: ldarg.1
+   IL_001b: ldstr "gem"
+   IL_0020: ldc.i4.0
+   IL_0021: callvirt System.Int32 Celeste.EntityData::Int(System.String,System.Int32)
+   IL_0026: stfld System.Int32 Celeste.SummitGem::GemID
+   IL_002b: ldarg.0
+   IL_002c: ldc.r4 12
+   IL_0031: ldc.r4 12
+   IL_0036: ldc.r4 -6
+   IL_003b: ldc.r4 -6
+   IL_0040: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0045: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_004a: ldarg.0
+   IL_004b: ldarg.0
+   IL_004c: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0051: ldstr "collectables/summitgems/"
+   IL_0056: ldarg.0
+   IL_0057: ldfld System.Int32 Celeste.SummitGem::GemID
+   IL_005c: box System.Int32
+   IL_0061: ldstr "/gem"
+   IL_0066: call System.String System.String::Concat(System.Object,System.Object,System.Object)
+   IL_006b: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_0070: dup
+   IL_0071: stloc.0
+   IL_0072: stfld Monocle.Sprite Celeste.SummitGem::sprite
+   IL_0077: ldloc.0
+   IL_0078: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_007d: ldarg.0
+   IL_007e: ldfld Monocle.Sprite Celeste.SummitGem::sprite
+   IL_0083: ldstr "idle"
+   IL_0088: ldstr ""
+   IL_008d: ldc.r4 0.08
+   IL_0092: callvirt System.Void Monocle.Sprite::AddLoop(System.String,System.String,System.Single)
+   IL_0097: ldarg.0
+   IL_0098: ldfld Monocle.Sprite Celeste.SummitGem::sprite
+   IL_009d: ldstr "idle"
+   IL_00a2: ldc.i4.0
+   IL_00a3: ldc.i4.0
+   IL_00a4: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_00a9: ldarg.0
+   IL_00aa: ldfld Monocle.Sprite Celeste.SummitGem::sprite
+   IL_00af: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_00b4: pop
+   IL_00b5: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00ba: ldfld System.Boolean[] Celeste.SaveData::SummitGems
+   IL_00bf: brfalse.s IL_00ee
+   IL_00c1: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00c6: ldfld System.Boolean[] Celeste.SaveData::SummitGems
+   IL_00cb: ldarg.0
+   IL_00cc: ldfld System.Int32 Celeste.SummitGem::GemID
+   IL_00d1: ldelem.u1
+   IL_00d2: brfalse.s IL_00ee
+   IL_00d4: ldarg.0
+   IL_00d5: ldfld Monocle.Sprite Celeste.SummitGem::sprite
+   IL_00da: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00df: ldc.r4 0.5
+   IL_00e4: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00e9: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00ee: ldarg.0
+   IL_00ef: ldarg.0
+   IL_00f0: ldc.r4 0.5
+   IL_00f5: ldc.r4 4
+   IL_00fa: ldarg.0
+   IL_00fb: ldftn System.Void Celeste.SummitGem::<.ctor>b__9_0(System.Single)
+   IL_0101: newobj System.Void System.Action`1<System.Single>::.ctor(System.Object,System.IntPtr)
+   IL_0106: ldc.i4.0
+   IL_0107: ldc.i4.0
+   IL_0108: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_010d: dup
+   IL_010e: stloc.1
+   IL_010f: stfld Monocle.Wiggler Celeste.SummitGem::scaleWiggler
+   IL_0114: ldloc.1
+   IL_0115: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_011a: ldarg.0
+   IL_011b: ldc.r4 0.8
+   IL_0120: ldc.r4 2
+   IL_0125: ldnull
+   IL_0126: ldc.i4.0
+   IL_0127: ldc.i4.0
+   IL_0128: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_012d: stfld Monocle.Wiggler Celeste.SummitGem::moveWiggler
+   IL_0132: ldarg.0
+   IL_0133: ldfld Monocle.Wiggler Celeste.SummitGem::moveWiggler
+   IL_0138: ldc.i4.1
+   IL_0139: stfld System.Boolean Monocle.Wiggler::StartZero
+   IL_013e: ldarg.0
+   IL_013f: ldarg.0
+   IL_0140: ldfld Monocle.Wiggler Celeste.SummitGem::moveWiggler
+   IL_0145: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_014a: ldarg.0
+   IL_014b: ldarg.0
+   IL_014c: ldftn System.Void Celeste.SummitGem::OnPlayer(Celeste.Player)
+   IL_0152: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_0157: ldnull
+   IL_0158: ldnull
+   IL_0159: newobj System.Void Celeste.PlayerCollider::.ctor(System.Action`1<Celeste.Player>,Monocle.Collider,Monocle.Collider)
+   IL_015e: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0163: ret

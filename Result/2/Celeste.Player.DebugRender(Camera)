@@ -1,0 +1,20 @@
+On: TAS.EverestInterop.Hitboxes.HitboxNpc.PlayerOnDebugRender(orig_DebugRender,Player,Camera)
+On: TAS.Gameplay.Hitboxes.ActualCollideHitbox.On_Player_DebugRender(orig_DebugRender,Player,Camera)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::DebugRender(Monocle.Camera)
+   IL_0007: ldarg.0
+   IL_0008: call Monocle.Collider Monocle.Entity::get_Collider()
+   IL_000d: stloc.0
+   IL_000e: ldarg.0
+   IL_000f: ldarg.0
+   IL_0010: ldfld Monocle.Hitbox Celeste.Player::hurtbox
+   IL_0015: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_001a: ldarg.0
+   IL_001b: call Monocle.Collider Monocle.Entity::get_Collider()
+   IL_0020: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Lime()
+   IL_0025: call System.Void Monocle.Draw::HollowRect(Monocle.Collider,Microsoft.Xna.Framework.Color)
+   IL_002a: ldarg.0
+   IL_002b: ldloc.0
+   IL_002c: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0031: ret

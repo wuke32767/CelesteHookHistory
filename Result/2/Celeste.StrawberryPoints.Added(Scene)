@@ -1,0 +1,87 @@
+On: Celeste.Mod.ARandomizerMod.ARandomizerModModule.StrawberryCollected(orig_Added,StrawberryPoints,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.5
+   IL_0002: ldarg.0
+   IL_0003: ldfld System.Int32 Celeste.StrawberryPoints::index
+   IL_0008: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_000d: stfld System.Int32 Celeste.StrawberryPoints::index
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Int32 Celeste.StrawberryPoints::index
+   IL_0018: ldc.i4.5
+   IL_0019: blt.s IL_0022
+   IL_001b: ldc.i4.s 11
+   IL_001d: call System.Void Celeste.Achievements::Register(Celeste.Achievement)
+   IL_0022: ldarg.0
+   IL_0023: ldfld System.Boolean Celeste.StrawberryPoints::moonberry
+   IL_0028: brfalse.s IL_003e
+   IL_002a: ldarg.0
+   IL_002b: ldfld Monocle.Sprite Celeste.StrawberryPoints::sprite
+   IL_0030: ldstr "fade_wow"
+   IL_0035: ldc.i4.0
+   IL_0036: ldc.i4.0
+   IL_0037: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_003c: br.s IL_0060
+   IL_003e: ldarg.0
+   IL_003f: ldfld Monocle.Sprite Celeste.StrawberryPoints::sprite
+   IL_0044: ldstr "fade"
+   IL_0049: ldarg.0
+   IL_004a: ldfld System.Int32 Celeste.StrawberryPoints::index
+   IL_004f: box System.Int32
+   IL_0054: call System.String System.String::Concat(System.Object,System.Object)
+   IL_0059: ldc.i4.0
+   IL_005a: ldc.i4.0
+   IL_005b: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0060: ldarg.0
+   IL_0061: ldfld Monocle.Sprite Celeste.StrawberryPoints::sprite
+   IL_0066: ldarg.0
+   IL_0067: ldftn System.Void Celeste.StrawberryPoints::<Added>b__8_0(System.String)
+   IL_006d: newobj System.Void System.Action`1<System.String>::.ctor(System.Object,System.IntPtr)
+   IL_0072: stfld System.Action`1<System.String> Monocle.Sprite::OnFinish
+   IL_0077: ldarg.0
+   IL_0078: ldarg.1
+   IL_0079: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_007e: ldarg.0
+   IL_007f: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0084: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0089: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.StrawberryPoints>()
+   IL_008e: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_0093: stloc.0
+   IL_0094: br.s IL_00c0
+   IL_0096: ldloca.s V_0
+   IL_0098: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_009d: stloc.1
+   IL_009e: ldloc.1
+   IL_009f: ldarg.0
+   IL_00a0: beq.s IL_00c0
+   IL_00a2: ldloc.1
+   IL_00a3: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00a8: ldarg.0
+   IL_00a9: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ae: call System.Single Microsoft.Xna.Framework.Vector2::DistanceSquared(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00b3: ldc.r4 256
+   IL_00b8: bgt.un.s IL_00c0
+   IL_00ba: ldloc.1
+   IL_00bb: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_00c0: ldloca.s V_0
+   IL_00c2: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_00c7: brtrue.s IL_0096
+   IL_00c9: leave.s IL_00d9
+   IL_00cb: ldloca.s V_0
+   IL_00cd: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_00d3: callvirt System.Void System.IDisposable::Dispose()
+   IL_00d8: endfinally
+   IL_00d9: ldarg.0
+   IL_00da: ldarg.1
+   IL_00db: isinst Celeste.Level
+   IL_00e0: ldfld Celeste.DisplacementRenderer Celeste.Level::Displacement
+   IL_00e5: ldarg.0
+   IL_00e6: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00eb: ldc.r4 0.3
+   IL_00f0: ldc.r4 16
+   IL_00f5: ldc.r4 24
+   IL_00fa: ldc.r4 0.3
+   IL_00ff: ldnull
+   IL_0100: ldnull
+   IL_0101: callvirt Celeste.DisplacementRenderer/Burst Celeste.DisplacementRenderer::AddBurst(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Single,System.Single,Monocle.Ease/Easer,Monocle.Ease/Easer)
+   IL_0106: stfld Celeste.DisplacementRenderer/Burst Celeste.StrawberryPoints::burst
+   IL_010b: ret

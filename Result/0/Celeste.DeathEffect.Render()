@@ -1,0 +1,16 @@
+On: Celeste.Mod.SkinModHelper.SomePatches.DeathEffectRenderHook(orig_Render,DeathEffect)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_0006: brfalse.s IL_002f
+   IL_0008: ldarg.0
+   IL_0009: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_000e: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0013: ldarg.0
+   IL_0014: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DeathEffect::Position
+   IL_0019: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_001e: ldarg.0
+   IL_001f: ldfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
+   IL_0024: ldarg.0
+   IL_0025: ldfld System.Single Celeste.DeathEffect::Percent
+   IL_002a: call System.Void Celeste.DeathEffect::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_002f: ret

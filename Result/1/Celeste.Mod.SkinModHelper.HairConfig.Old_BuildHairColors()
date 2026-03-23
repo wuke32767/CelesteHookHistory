@@ -1,0 +1,101 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: newobj System.Void System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color>::.ctor()
+   IL_0007: ldloca.s V_0
+   IL_0009: ldc.i4.0
+   IL_000a: ldc.i4.s 100
+   IL_000c: call System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_0011: dup
+   IL_0012: ldloc.0
+   IL_0013: ldsfld Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.HairConfig::_ZeroDashesColor
+   IL_0018: callvirt System.Void System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color>::set_Item(TKey,TValue)
+   IL_001d: nop
+   IL_001e: ldloca.s V_1
+   IL_0020: ldc.i4.1
+   IL_0021: ldc.i4.s 100
+   IL_0023: call System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_0028: dup
+   IL_0029: ldloc.1
+   IL_002a: ldsfld Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.HairConfig::_OneDashesColor
+   IL_002f: callvirt System.Void System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color>::set_Item(TKey,TValue)
+   IL_0034: nop
+   IL_0035: ldloca.s V_2
+   IL_0037: ldc.i4.2
+   IL_0038: ldc.i4.s 100
+   IL_003a: call System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_003f: dup
+   IL_0040: ldloc.2
+   IL_0041: ldsfld Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.HairConfig::_TwoDashesColor
+   IL_0046: callvirt System.Void System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color>::set_Item(TKey,TValue)
+   IL_004b: nop
+   IL_004c: stfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color> Celeste.Mod.SkinModHelper.HairConfig::ActualHairColors
+   IL_0051: ldarg.0
+   IL_0052: ldfld System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor> Celeste.Mod.SkinModHelper.HairConfig::oldHairColors
+   IL_0057: ldnull
+   IL_0058: cgt.un
+   IL_005a: stloc.3
+   IL_005b: ldloc.3
+   IL_005c: brfalse IL_0103
+   IL_0061: nop
+   IL_0062: ldc.i4.0
+   IL_0063: stloc.s V_4
+   IL_0065: br IL_00ea
+   IL_006a: nop
+   IL_006b: ldarg.0
+   IL_006c: ldfld System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor> Celeste.Mod.SkinModHelper.HairConfig::oldHairColors
+   IL_0071: ldloc.s V_4
+   IL_0073: callvirt T System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor>::get_Item(System.Int32)
+   IL_0078: stloc.s V_5
+   IL_007a: ldloc.s V_5
+   IL_007c: callvirt System.Int32 Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor::get_Dashes()
+   IL_0081: ldc.i4.0
+   IL_0082: blt.s IL_0092
+   IL_0084: ldloc.s V_5
+   IL_0086: callvirt System.String Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor::get_Color()
+   IL_008b: call System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::RGB_IsMatch(System.String)
+   IL_0090: br.s IL_0093
+   IL_0092: ldc.i4.0
+   IL_0093: stloc.s V_6
+   IL_0095: ldloc.s V_6
+   IL_0097: brfalse.s IL_00e3
+   IL_0099: nop
+   IL_009a: ldarg.0
+   IL_009b: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color> Celeste.Mod.SkinModHelper.HairConfig::ActualHairColors
+   IL_00a0: ldloc.s V_5
+   IL_00a2: callvirt System.Int32 Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor::get_Dashes()
+   IL_00a7: ldc.i4.s 100
+   IL_00a9: newobj System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_00ae: ldloc.s V_5
+   IL_00b0: callvirt System.String Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor::get_Color()
+   IL_00b5: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_00ba: callvirt System.Void System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color>::set_Item(TKey,TValue)
+   IL_00bf: nop
+   IL_00c0: ldarg.0
+   IL_00c1: ldfld System.Int32 Celeste.Mod.SkinModHelper.HairConfig::_AttrDasheslimit
+   IL_00c6: ldloc.s V_5
+   IL_00c8: callvirt System.Int32 Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor::get_Dashes()
+   IL_00cd: clt
+   IL_00cf: stloc.s V_7
+   IL_00d1: ldloc.s V_7
+   IL_00d3: brfalse.s IL_00e2
+   IL_00d5: ldarg.0
+   IL_00d6: ldloc.s V_5
+   IL_00d8: callvirt System.Int32 Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor::get_Dashes()
+   IL_00dd: stfld System.Int32 Celeste.Mod.SkinModHelper.HairConfig::_AttrDasheslimit
+   IL_00e2: nop
+   IL_00e3: nop
+   IL_00e4: ldloc.s V_4
+   IL_00e6: ldc.i4.1
+   IL_00e7: add
+   IL_00e8: stloc.s V_4
+   IL_00ea: ldloc.s V_4
+   IL_00ec: ldarg.0
+   IL_00ed: ldfld System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor> Celeste.Mod.SkinModHelper.HairConfig::oldHairColors
+   IL_00f2: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.SkinModHelperOldConfig/HairColor>::get_Count()
+   IL_00f7: clt
+   IL_00f9: stloc.s V_8
+   IL_00fb: ldloc.s V_8
+   IL_00fd: brtrue IL_006a
+   IL_0102: nop
+   IL_0103: ret

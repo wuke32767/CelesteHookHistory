@@ -1,0 +1,92 @@
+On: Celeste.Mod.MaxHelpingHand.Entities.KevinBarrier.onKevinMoveHCheck(Func`3,Solid,Single)
+IL: Celeste.Mod.MaxHelpingHand.Entities.KevinBarrier.modKevinMoveCheck(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld Celeste.Level FrostHelper.CustomCrushBlock::_level
+   IL_0007: ldarg.1
+   IL_0008: ldc.i4.1
+   IL_0009: ldnull
+ + IL_10000: call System.Action`3<Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Celeste.Platform> Celeste.Mod.MaxHelpingHand.Entities.KevinBarrier::notifyKevinBarriers(System.Action`3<Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Celeste.Platform>) @ Celeste.Mod.MaxHelpingHand.Entities.KevinBarrier.modKevinMoveCheck(ILContext)
+   IL_000a: call System.Boolean Celeste.Platform::MoveHCollideSolidsAndBounds(Celeste.Level,System.Single,System.Boolean,System.Action`3<Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Celeste.Platform>)
+   IL_000f: brtrue.s IL_0013
+   IL_0011: ldc.i4.0
+   IL_0012: ret
+   IL_0013: ldarg.1
+   IL_0014: ldc.r4 0
+   IL_0019: bge.un.s IL_0039
+   IL_001b: ldarg.0
+   IL_001c: call System.Single Monocle.Entity::get_Left()
+   IL_0021: ldarg.0
+   IL_0022: ldfld Celeste.Level FrostHelper.CustomCrushBlock::_level
+   IL_0027: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_002c: stloc.0
+   IL_002d: ldloca.s V_0
+   IL_002f: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0034: conv.r4
+   IL_0035: bgt.un.s IL_0039
+   IL_0037: ldc.i4.1
+   IL_0038: ret
+   IL_0039: ldarg.1
+   IL_003a: ldc.r4 0
+   IL_003f: ble.un.s IL_005f
+   IL_0041: ldarg.0
+   IL_0042: call System.Single Monocle.Entity::get_Right()
+   IL_0047: ldarg.0
+   IL_0048: ldfld Celeste.Level FrostHelper.CustomCrushBlock::_level
+   IL_004d: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0052: stloc.0
+   IL_0053: ldloca.s V_0
+   IL_0055: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_005a: conv.r4
+   IL_005b: blt.un.s IL_005f
+   IL_005d: ldc.i4.1
+   IL_005e: ret
+   IL_005f: ldc.i4.1
+   IL_0060: stloc.1
+   IL_0061: br.s IL_00b0
+   IL_0063: ldc.i4.1
+   IL_0064: stloc.2
+   IL_0065: br.s IL_00a8
+   IL_0067: ldloca.s V_3
+   IL_0069: ldarg.1
+   IL_006a: call System.Int32 System.Math::Sign(System.Single)
+   IL_006f: conv.r4
+   IL_0070: ldloc.1
+   IL_0071: ldloc.2
+   IL_0072: mul
+   IL_0073: conv.r4
+   IL_0074: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0079: ldarg.0
+   IL_007a: ldarg.0
+   IL_007b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0080: ldloc.3
+   IL_0081: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0086: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_008b: brtrue.s IL_00a4
+   IL_008d: ldarg.0
+   IL_008e: ldloc.1
+   IL_008f: ldloc.2
+   IL_0090: mul
+   IL_0091: callvirt System.Void Celeste.Platform::MoveVExact(System.Int32)
+   IL_0096: ldarg.0
+   IL_0097: ldarg.1
+   IL_0098: call System.Int32 System.Math::Sign(System.Single)
+   IL_009d: callvirt System.Void Celeste.Platform::MoveHExact(System.Int32)
+   IL_00a2: ldc.i4.0
+   IL_00a3: ret
+   IL_00a4: ldloc.2
+   IL_00a5: ldc.i4.2
+   IL_00a6: sub
+   IL_00a7: stloc.2
+   IL_00a8: ldloc.2
+   IL_00a9: ldc.i4.m1
+   IL_00aa: bge.s IL_0067
+   IL_00ac: ldloc.1
+   IL_00ad: ldc.i4.1
+   IL_00ae: add
+   IL_00af: stloc.1
+   IL_00b0: ldloc.1
+   IL_00b1: ldc.i4.4
+   IL_00b2: ble.s IL_0063
+   IL_00b4: ldc.i4.1
+   IL_00b5: ret

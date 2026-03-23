@@ -1,0 +1,24 @@
+On: PrismaticHelper.Entities.Panels.StylegroundsPanelRenderer.OnBackdropRendererBeforeRender(orig_BeforeRender,BackdropRenderer,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.List`1<Celeste.Backdrop> Celeste.BackdropRenderer::Backdrops
+   IL_0006: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Backdrop>::GetEnumerator()
+   IL_000b: stloc.0
+   IL_000c: br.s IL_0025
+   IL_000e: ldloca.s V_0
+   IL_0010: call T System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>::get_Current()
+   IL_0015: stloc.1
+   IL_0016: ldloc.1
+   IL_0017: ldfld System.Boolean Celeste.Backdrop::Visible
+   IL_001c: brfalse.s IL_0025
+   IL_001e: ldloc.1
+   IL_001f: ldarg.1
+   IL_0020: callvirt System.Void Celeste.Backdrop::BeforeRender(Monocle.Scene)
+   IL_0025: ldloca.s V_0
+   IL_0027: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>::MoveNext()
+   IL_002c: brtrue.s IL_000e
+   IL_002e: leave.s IL_003e
+   IL_0030: ldloca.s V_0
+   IL_0032: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>
+   IL_0038: callvirt System.Void System.IDisposable::Dispose()
+   IL_003d: endfinally
+   IL_003e: ret

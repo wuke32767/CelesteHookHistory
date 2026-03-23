@@ -1,0 +1,102 @@
+On: Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.ModDrawHollowRect(orig_HollowRect_float_float_float_float_Color,Single,Single,Single,Single,Color)
+On: LuckyHelper.Components.ColorModifierComponent.DrawOnHollowRect_float_float_float_float_Color(orig_HollowRect_float_float_float_float_Color,Single,Single,Single,Single,Color)
+On: HitboxFixer.HitboxFixerModule.modDrawHollowRect(orig_HollowRect_float_float_float_float_Color,Single,Single,Single,Single,Color)
+On: Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.ModDrawHollowRect(orig_HollowRect_float_float_float_float_Color,Single,Single,Single,Single,Color)
+On: TAS.EverestInterop.Hitboxes.HitboxFixer.ModDrawHollowRect(orig_HollowRect_float_float_float_float_Color,Single,Single,Single,Single,Color)
+IL: TAS.EverestInterop.Hitboxes.HitboxSimplified.AvoidRedrawCorners(ILContext)
+   IL_0000: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0005: ldarg.0
+   IL_0006: conv.i4
+   IL_0007: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_000c: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0011: ldarg.1
+   IL_0012: conv.i4
+   IL_0013: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0018: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_001d: ldarg.2
+   IL_001e: conv.i4
+   IL_001f: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_0024: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0029: ldc.i4.1
+   IL_002a: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_002f: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0034: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_0039: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_003e: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0043: ldsfld Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0048: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_004d: callvirt Microsoft.Xna.Framework.Rectangle Monocle.MTexture::get_ClipRect()
+   IL_0052: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_0057: ldarg.s color
+   IL_0059: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Rectangle,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color)
+   IL_005e: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0063: ldflda System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0068: dup
+   IL_0069: ldind.i4
+   IL_006a: ldarg.3
+   IL_006b: conv.i4
+   IL_006c: ldc.i4.1
+   IL_006d: sub
+   IL_006e: add
+   IL_006f: stind.i4
+   IL_0070: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0075: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_007a: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_007f: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0084: ldsfld Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0089: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_008e: callvirt Microsoft.Xna.Framework.Rectangle Monocle.MTexture::get_ClipRect()
+   IL_0093: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_0098: ldarg.s color
+   IL_009a: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Rectangle,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color)
+   IL_009f: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_00a4: ldflda System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_00a9: dup
+   IL_00aa: ldind.i4
+   IL_00ab: ldarg.3
+   IL_00ac: conv.i4
+ - IL_00ad: ldc.i4.1 @ TAS.EverestInterop.Hitboxes.HitboxSimplified.AvoidRedrawCorners(ILContext)
+ + IL_10000: ldc.i4.2 @ TAS.EverestInterop.Hitboxes.HitboxSimplified.AvoidRedrawCorners(ILContext)
+   IL_00ae: sub
+   IL_00af: sub
+   IL_00b0: stind.i4
+   IL_00b1: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_00b6: ldc.i4.1
+   IL_00b7: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_00bc: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_00c1: ldarg.3
+   IL_00c2: conv.i4
+ + IL_10001: ldc.i4.2 @ TAS.EverestInterop.Hitboxes.HitboxSimplified.AvoidRedrawCorners(ILContext)
+ + IL_10002: sub @ TAS.EverestInterop.Hitboxes.HitboxSimplified.AvoidRedrawCorners(ILContext)
+   IL_00c3: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_00c8: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_00cd: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_00d2: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_00d7: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_00dc: ldsfld Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_00e1: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_00e6: callvirt Microsoft.Xna.Framework.Rectangle Monocle.MTexture::get_ClipRect()
+   IL_00eb: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_00f0: ldarg.s color
+   IL_00f2: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Rectangle,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color)
+   IL_00f7: ldsflda Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_00fc: ldflda System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0101: dup
+   IL_0102: ldind.i4
+   IL_0103: ldarg.2
+   IL_0104: conv.i4
+   IL_0105: ldc.i4.1
+   IL_0106: sub
+   IL_0107: add
+   IL_0108: stind.i4
+   IL_0109: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_010e: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_0113: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_0118: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_011d: ldsfld Microsoft.Xna.Framework.Rectangle Monocle.Draw::rect
+   IL_0122: ldsfld Monocle.MTexture Monocle.Draw::Pixel
+   IL_0127: callvirt Microsoft.Xna.Framework.Rectangle Monocle.MTexture::get_ClipRect()
+   IL_012c: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_0131: ldarg.s color
+   IL_0133: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Rectangle,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color)
+   IL_0138: ret

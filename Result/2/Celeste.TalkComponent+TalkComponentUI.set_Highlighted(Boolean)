@@ -1,0 +1,34 @@
+On: Celeste.Mod.SorbetHelper.Triggers.AlternateInteractPromptWrapper+TalkComponentAltUI.On_set_Highlighted(orig_set_Highlighted,TalkComponentUI,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.TalkComponent/TalkComponentUI::highlighted
+   IL_0006: ldarg.1
+   IL_0007: ceq
+   IL_0009: ldc.i4.0
+   IL_000a: ceq
+   IL_000c: ldarg.0
+   IL_000d: callvirt System.Boolean Celeste.TalkComponent/TalkComponentUI::get_Display()
+   IL_0012: and
+   IL_0013: brfalse.s IL_005d
+   IL_0015: ldarg.0
+   IL_0016: ldarg.1
+   IL_0017: stfld System.Boolean Celeste.TalkComponent/TalkComponentUI::highlighted
+   IL_001c: ldarg.0
+   IL_001d: ldfld System.Boolean Celeste.TalkComponent/TalkComponentUI::highlighted
+   IL_0022: brfalse.s IL_003c
+   IL_0024: ldarg.0
+   IL_0025: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_002a: ldfld Celeste.TalkComponent/HoverDisplay Celeste.TalkComponent::HoverUI
+   IL_002f: ldfld System.String Celeste.TalkComponent/HoverDisplay::SfxIn
+   IL_0034: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0039: pop
+   IL_003a: br.s IL_0052
+   IL_003c: ldarg.0
+   IL_003d: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_0042: ldfld Celeste.TalkComponent/HoverDisplay Celeste.TalkComponent::HoverUI
+   IL_0047: ldfld System.String Celeste.TalkComponent/HoverDisplay::SfxOut
+   IL_004c: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0051: pop
+   IL_0052: ldarg.0
+   IL_0053: ldfld Monocle.Wiggler Celeste.TalkComponent/TalkComponentUI::wiggler
+   IL_0058: callvirt System.Void Monocle.Wiggler::Start()
+   IL_005d: ret

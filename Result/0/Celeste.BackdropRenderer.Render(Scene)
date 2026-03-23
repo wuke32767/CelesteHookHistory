@@ -1,0 +1,143 @@
+On: PrismaticHelper.Entities.Panels.StylegroundsPanelRenderer.OnBackdropRendererRender(orig_Render,BackdropRenderer,Scene)
+On: Celeste.Mod.ProfilingTools.ProfilingUtils.BackdropRenderer_Render(orig_Render,BackdropRenderer,Scene)
+On: Celeste.Mod.FewerVisualDistractions.Patches.BackdropBlacklist.BackdropRenderer_Render(orig_Render,BackdropRenderer,Scene)
+IL: Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modBackdropRendererRender(ILContext)
+IL: Celeste.Mod.MaxHelpingHand.Entities.ParallaxFadeOutController.onBackdropRender(ILContext)
+IL: Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+IL: Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+IL: Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_BackdropRenderer_Render(ILContext)
+IL: Celeste.Mod.StyleMaskHelper.StylegroundLightingHandler.BackdropRenderer_Render(ILContext)
+IL: TAS.EverestInterop.SimplifiedGraphicsFeature.BackdropRenderer_Render(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::<BackdropRenderer_Render>g__IsNotSimplifiedBackdrop|30_0() @ TAS.EverestInterop.SimplifiedGraphicsFeature.BackdropRenderer_Render(ILContext)
+ + IL_10001: brtrue IL_10003 @ TAS.EverestInterop.SimplifiedGraphicsFeature.BackdropRenderer_Render(ILContext)
+ + IL_10002: ret @ TAS.EverestInterop.SimplifiedGraphicsFeature.BackdropRenderer_Render(ILContext)
+ + IL_10003: ldarg.0 @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10004: stsfld Celeste.BackdropRenderer Celeste.Mod.auspicioushelper.BackdropCapturer::currentRenderer @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+   IL_0000: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+ + IL_10005: dup @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10006: stsfld Microsoft.Xna.Framework.Graphics.BlendState Celeste.Mod.auspicioushelper.BackdropCapturer::currentBlendstate @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+   IL_0005: stloc.0
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Collections.Generic.List`1<Celeste.Backdrop> Celeste.BackdropRenderer::Backdrops
+   IL_000c: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Backdrop>::GetEnumerator()
+   IL_0011: stloc.1
+ + IL_10007: ldarg.1 @ Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_BackdropRenderer_Render(ILContext)
+ + IL_10008: call System.Collections.Generic.HashSet`1<Celeste.Backdrop> Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_BackdropRenderer_Render>g__getDepthRenderedBackdrops|29_3(Monocle.Scene) @ Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_BackdropRenderer_Render(ILContext)
+ + IL_10009: stloc V_4 @ Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_BackdropRenderer_Render(ILContext)
+   IL_0012: br IL_00b5
+   IL_0017: ldloca.s V_1
+   IL_0019: call T System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>::get_Current()
+   IL_001e: stloc.2
+   IL_001f: ldloc.2
+ + IL_1000a: dup @ Celeste.Mod.MaxHelpingHand.Entities.ParallaxFadeOutController.onBackdropRender(ILContext)
+ + IL_1000b: dup @ Celeste.Mod.StyleMaskHelper.StylegroundLightingHandler.BackdropRenderer_Render(ILContext)
+   IL_0020: ldfld System.Boolean Celeste.Backdrop::Visible
+ + IL_1000c: ldarg.0 @ Celeste.Mod.StyleMaskHelper.StylegroundLightingHandler.BackdropRenderer_Render(ILContext)
+ + IL_1000d: ldarg.1 @ Celeste.Mod.StyleMaskHelper.StylegroundLightingHandler.BackdropRenderer_Render(ILContext)
+ + IL_1000e: call System.Boolean Celeste.Mod.StyleMaskHelper.StylegroundLightingHandler::<BackdropRenderer_Render>g__drawStylegroundLighting|5_1(Celeste.Backdrop,System.Boolean,Celeste.BackdropRenderer,Monocle.Scene) @ Celeste.Mod.StyleMaskHelper.StylegroundLightingHandler.BackdropRenderer_Render(ILContext)
+ + IL_1000f: call System.Boolean Celeste.Mod.MaxHelpingHand.Entities.ParallaxFadeOutController::modIsVisible(Celeste.Backdrop,System.Boolean) @ Celeste.Mod.MaxHelpingHand.Entities.ParallaxFadeOutController.onBackdropRender(ILContext)
+ + IL_10010: ldloc.2 @ Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_BackdropRenderer_Render(ILContext)
+ + IL_10011: ldloc V_4 @ Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_BackdropRenderer_Render(ILContext)
+ + IL_10012: call System.Boolean Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_BackdropRenderer_Render>g__canRenderBackdrop|29_4(System.Boolean,Celeste.Backdrop,System.Collections.Generic.HashSet`1<Celeste.Backdrop>) @ Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_BackdropRenderer_Render(ILContext)
+   IL_0025: brfalse IL_00b5
+ + IL_10013: ldloc.2 @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10014: call System.Boolean Celeste.Mod.auspicioushelper.BackdropCapturer::SkipDelegate(Celeste.Backdrop) @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10015: brfalse IL_00b5 @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10016: ldloc V_2 @ Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modBackdropRendererRender(ILContext)
+ + IL_10017: ldc.i4 0 @ Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modBackdropRendererRender(ILContext)
+ + IL_10018: ldc.i4 0 @ Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modBackdropRendererRender(ILContext)
+ + IL_10019: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modBackdropRendererRender(ILContext)
+       => Invoke: Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule+<>c.<modBackdropRendererRender>b__6_0(Backdrop)
+ + IL_1001a: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Backdrop>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modBackdropRendererRender(ILContext)
+ + IL_1001b: brtrue.s IL_00b5 @ Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modBackdropRendererRender(ILContext)
+   IL_002a: ldloc.2
+   IL_002b: isinst Celeste.Parallax
+   IL_0030: stloc.3
+   IL_0031: ldloc.3
+   IL_0032: brfalse.s IL_0052
+   IL_0034: ldarg.0
+   IL_0035: ldfld System.Boolean Celeste.BackdropRenderer::usingLoopingSpritebatch
+   IL_003a: brfalse.s IL_0045
+   IL_003c: ldloc.3
+   IL_003d: ldfld Microsoft.Xna.Framework.Graphics.BlendState Celeste.Parallax::BlendState
+   IL_0042: ldloc.0
+   IL_0043: beq.s IL_0052
+   IL_0045: ldarg.0
+   IL_0046: callvirt System.Void Celeste.BackdropRenderer::EndSpritebatch()
+   IL_004b: ldloc.3
+   IL_004c: ldfld Microsoft.Xna.Framework.Graphics.BlendState Celeste.Parallax::BlendState
+ + IL_1001c: dup @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_1001d: stsfld Microsoft.Xna.Framework.Graphics.BlendState Celeste.Mod.auspicioushelper.BackdropCapturer::currentBlendstate @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+   IL_0051: stloc.0
+   IL_0052: ldloc.2
+   IL_0053: isinst Celeste.Parallax
+   IL_0058: brtrue.s IL_0070
+   IL_005a: ldloc.2
+   IL_005b: ldfld System.Boolean Celeste.Backdrop::UseSpritebatch
+   IL_0060: brfalse.s IL_0070
+   IL_0062: ldarg.0
+   IL_0063: ldfld System.Boolean Celeste.BackdropRenderer::usingLoopingSpritebatch
+   IL_0068: brfalse.s IL_0070
+   IL_006a: ldarg.0
+   IL_006b: callvirt System.Void Celeste.BackdropRenderer::EndSpritebatch()
+   IL_0070: ldloc.2
+   IL_0071: ldfld System.Boolean Celeste.Backdrop::UseSpritebatch
+   IL_0076: brfalse.s IL_0098
+   IL_0078: ldarg.0
+   IL_0079: ldfld System.Boolean Celeste.BackdropRenderer::usingSpritebatch
+   IL_007e: brtrue.s IL_0098
+   IL_0080: ldloc.2
+   IL_0081: isinst Celeste.Parallax
+   IL_0086: brfalse.s IL_0091
+   IL_0088: ldarg.0
+   IL_0089: ldloc.0
+   IL_008a: callvirt System.Void Celeste.BackdropRenderer::StartSpritebatchLooping(Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_008f: br.s IL_0098
+   IL_0091: ldarg.0
+   IL_0092: ldloc.0
+   IL_0093: callvirt System.Void Celeste.BackdropRenderer::StartSpritebatch(Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_0098: ldloc.2
+   IL_0099: ldfld System.Boolean Celeste.Backdrop::UseSpritebatch
+   IL_009e: brtrue.s IL_00ae
+   IL_00a0: ldarg.0
+   IL_00a1: ldfld System.Boolean Celeste.BackdropRenderer::usingSpritebatch
+   IL_00a6: brfalse.s IL_00ae
+   IL_00a8: ldarg.0
+   IL_00a9: callvirt System.Void Celeste.BackdropRenderer::EndSpritebatch()
+   IL_00ae: ldloc.2
+   IL_00af: ldarg.1
+ + IL_1001e: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_1001f: ldloc V_2 @ Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10020: call System.Void Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController::renderStylegroundStart(Celeste.BackdropRenderer,Celeste.Backdrop) @ Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+   IL_00b0: callvirt System.Void Celeste.Backdrop::Render(Monocle.Scene)
+ + IL_10021: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10022: ldloc V_2 @ Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10023: ldloc V_0 @ Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10024: call System.Void Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController::renderStylegroundEnd(Celeste.BackdropRenderer,Celeste.Backdrop,Microsoft.Xna.Framework.Graphics.BlendState) @ Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+   IL_00b5: ldloca.s V_1
+   IL_00b7: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>::MoveNext()
+   IL_00bc: brtrue IL_0017
+   IL_00c1: leave.s IL_00d1
+   IL_00c3: ldloca.s V_1
+   IL_00c5: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>
+   IL_00cb: callvirt System.Void System.IDisposable::Dispose()
+   IL_00d0: endfinally
+   IL_00d1: ldarg.0
+   IL_00d2: ldfld System.Single Celeste.BackdropRenderer::Fade
+   IL_00d7: ldc.r4 0
+   IL_00dc: ble.un.s IL_0108
+   IL_00de: ldc.r4 -10
+   IL_00e3: ldc.r4 -10
+   IL_00e8: ldc.r4 340
+   IL_00ed: ldc.r4 200
+   IL_00f2: ldarg.0
+   IL_00f3: ldfld Microsoft.Xna.Framework.Color Celeste.BackdropRenderer::FadeColor
+   IL_00f8: ldarg.0
+   IL_00f9: ldfld System.Single Celeste.BackdropRenderer::Fade
+   IL_00fe: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0103: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0108: ldarg.0
+   IL_0109: callvirt System.Void Celeste.BackdropRenderer::EndSpritebatch()
+ + IL_10025: ldnull @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10026: stsfld Celeste.BackdropRenderer Celeste.Mod.auspicioushelper.BackdropCapturer::currentRenderer @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+   IL_010e: ret

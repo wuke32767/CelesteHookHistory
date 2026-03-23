@@ -1,0 +1,33 @@
+On: Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerHairGetHairScaleHook(orig_GetHairScale,PlayerHair,Int32)
+On: Celeste.Mod.Aqua.Core.PlayerHairExtensions.PlayerHair_GetHairScale(orig_GetHairScale,PlayerHair,Int32)
+On: Celeste.Mod.Procedurline.PlayerManager.HairNodeScaleHook(orig_GetHairScale,PlayerHair,Int32)
+   IL_0000: ldc.r4 0.25
+   IL_0005: ldc.r4 1
+   IL_000a: ldarg.1
+   IL_000b: conv.r4
+   IL_000c: ldarg.0
+   IL_000d: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+   IL_0012: ldfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_0017: conv.r4
+   IL_0018: div
+   IL_0019: sub
+   IL_001a: ldc.r4 0.75
+   IL_001f: mul
+   IL_0020: add
+   IL_0021: stloc.0
+   IL_0022: ldarg.1
+   IL_0023: brfalse.s IL_0028
+   IL_0025: ldloc.0
+   IL_0026: br.s IL_002f
+   IL_0028: ldarg.0
+   IL_0029: ldfld Celeste.Facings Celeste.PlayerHair::Facing
+   IL_002e: conv.r4
+   IL_002f: ldarg.0
+   IL_0030: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+   IL_0035: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_003a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_003f: call System.Single System.Math::Abs(System.Single)
+   IL_0044: mul
+   IL_0045: ldloc.0
+   IL_0046: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_004b: ret

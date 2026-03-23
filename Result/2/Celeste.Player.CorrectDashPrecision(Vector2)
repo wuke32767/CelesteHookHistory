@@ -1,0 +1,40 @@
+On: Celeste.Mod.TechAnnouncer.TechAnnouncerModule.Player_CorrectDashPrecision(orig_CorrectDashPrecision,Player,Vector2)
+   IL_0000: ldarg.1
+   IL_0001: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0006: ldc.r4 0
+   IL_000b: beq.s IL_0040
+   IL_000d: ldarg.1
+   IL_000e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0013: call System.Single System.Math::Abs(System.Single)
+   IL_0018: ldc.r4 0.001
+   IL_001d: bge.un.s IL_0040
+   IL_001f: ldarga.s dir
+   IL_0021: ldc.r4 0
+   IL_0026: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_002b: ldarga.s dir
+   IL_002d: ldarg.1
+   IL_002e: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0033: call System.Int32 System.Math::Sign(System.Single)
+   IL_0038: conv.r4
+   IL_0039: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_003e: br.s IL_007e
+   IL_0040: ldarg.1
+   IL_0041: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0046: ldc.r4 0
+   IL_004b: beq.s IL_007e
+   IL_004d: ldarg.1
+   IL_004e: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0053: call System.Single System.Math::Abs(System.Single)
+   IL_0058: ldc.r4 0.001
+   IL_005d: bge.un.s IL_007e
+   IL_005f: ldarga.s dir
+   IL_0061: ldc.r4 0
+   IL_0066: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_006b: ldarga.s dir
+   IL_006d: ldarg.1
+   IL_006e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0073: call System.Int32 System.Math::Sign(System.Single)
+   IL_0078: conv.r4
+   IL_0079: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_007e: ldarg.1
+   IL_007f: ret

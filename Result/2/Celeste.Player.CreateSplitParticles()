@@ -1,0 +1,13 @@
+On: Celeste.Mod.SkinModHelper.ParticleModify.onPlayer_CreateSplitParticles(orig_CreateSplitParticles,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Level Celeste.Player::level
+   IL_0006: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_000b: ldsfld Monocle.ParticleType Celeste.Player::P_Split
+   IL_0010: ldc.i4.s 16
+   IL_0012: ldarg.0
+   IL_0013: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0018: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_001d: ldc.r4 6
+   IL_0022: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0027: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_002c: ret

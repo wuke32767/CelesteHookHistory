@@ -1,0 +1,68 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_LevelUpdateTime(orig_UpdateTime,Level)
+On: ChroniaHelper.Utils.StopwatchSystem.Stopclock.SessionPersistent(orig_UpdateTime,Level)
+On: ChroniaHelper.Entities.CustomTimer.Level_UpdateTime(orig_UpdateTime,Level)
+On: Celeste.Mod.ConsistencyTracker.ConsistencyTrackerModule.Level_UpdateTime(orig_UpdateTime,Level)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.Level_UpdateTime(orig_UpdateTime,Level)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Manager::IsLoading() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Boolean Celeste.Level::InCredits
+   IL_0011: brtrue IL_00b2
+   IL_0016: ldarg.0
+   IL_0017: ldfld Celeste.Session Celeste.Level::Session
+   IL_001c: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_0021: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0026: ldc.i4.8
+   IL_0027: beq IL_00b2
+   IL_002c: ldarg.0
+   IL_002d: ldfld System.Boolean Celeste.Level::TimerStopped
+   IL_0032: brtrue IL_00b2
+   IL_0037: call System.Single Monocle.Engine::get_RawDeltaTime()
+   IL_003c: conv.r8
+   IL_003d: call System.TimeSpan NETCoreifier.TimeSpanShims::FromSeconds(System.Double)
+   IL_0042: stloc.1
+   IL_0043: ldloca.s V_1
+   IL_0045: call System.Int64 System.TimeSpan::get_Ticks()
+   IL_004a: stloc.0
+   IL_004b: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0050: ldarg.0
+   IL_0051: ldfld Celeste.Session Celeste.Level::Session
+   IL_0056: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_005b: ldloc.0
+   IL_005c: callvirt System.Void Celeste.SaveData::AddTime(Celeste.AreaKey,System.Int64)
+   IL_0061: ldarg.0
+   IL_0062: ldfld System.Boolean Celeste.Level::TimerStarted
+   IL_0067: brtrue.s IL_008f
+   IL_0069: ldarg.0
+   IL_006a: ldfld System.Boolean Celeste.Level::InCutscene
+   IL_006f: brtrue.s IL_008f
+   IL_0071: ldarg.0
+   IL_0072: call Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0077: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_007c: stloc.2
+   IL_007d: ldloc.2
+   IL_007e: brfalse.s IL_008f
+   IL_0080: ldloc.2
+   IL_0081: callvirt System.Boolean Celeste.Player::get_TimePaused()
+   IL_0086: brtrue.s IL_008f
+   IL_0088: ldarg.0
+   IL_0089: ldc.i4.1
+   IL_008a: stfld System.Boolean Celeste.Level::TimerStarted
+   IL_008f: ldarg.0
+   IL_0090: ldfld System.Boolean Celeste.Level::Completed
+   IL_0095: brtrue.s IL_00b2
+   IL_0097: ldarg.0
+   IL_0098: ldfld System.Boolean Celeste.Level::TimerStarted
+   IL_009d: brfalse.s IL_00b2
+   IL_009f: ldarg.0
+   IL_00a0: ldfld Celeste.Session Celeste.Level::Session
+   IL_00a5: dup
+   IL_00a6: ldfld System.Int64 Celeste.Session::Time
+   IL_00ab: ldloc.0
+   IL_00ac: add
+   IL_00ad: stfld System.Int64 Celeste.Session::Time
+ + IL_00b2: call System.Void TAS.Input.Commands.MetadataCommands::<Load>g__StartFileTime|3_0() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_00b7: ret

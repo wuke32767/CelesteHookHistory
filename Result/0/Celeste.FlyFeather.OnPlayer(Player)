@@ -1,0 +1,92 @@
+On: Celeste.Mod.DJMapHelper.Entities.ColorfulFlyFeather.FlyFeatherOnPlayer(orig_OnPlayer,FlyFeather,Player)
+   IL_0000: ldarg.1
+   IL_0001: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Boolean Celeste.FlyFeather::shielded
+   IL_000d: brfalse.s IL_0073
+   IL_000f: ldarg.1
+   IL_0010: callvirt System.Boolean Celeste.Player::get_DashAttacking()
+   IL_0015: brtrue.s IL_0073
+   IL_0017: ldarg.1
+   IL_0018: ldarg.0
+   IL_0019: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_001e: callvirt System.Void Celeste.Player::PointBounce(Microsoft.Xna.Framework.Vector2)
+   IL_0023: ldarg.0
+   IL_0024: ldfld Monocle.Wiggler Celeste.FlyFeather::moveWiggle
+   IL_0029: callvirt System.Void Monocle.Wiggler::Start()
+   IL_002e: ldarg.0
+   IL_002f: ldfld Monocle.Wiggler Celeste.FlyFeather::shieldRadiusWiggle
+   IL_0034: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0039: ldarg.0
+   IL_003a: ldarg.0
+   IL_003b: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0040: ldarg.1
+   IL_0041: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0046: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0050: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0055: stfld Microsoft.Xna.Framework.Vector2 Celeste.FlyFeather::moveWiggleDir
+   IL_005a: ldstr "event:/game/06_reflection/feather_bubble_bounce"
+   IL_005f: ldarg.0
+   IL_0060: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0065: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_006a: pop
+   IL_006b: ldc.i4.1
+   IL_006c: ldc.i4.1
+   IL_006d: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0072: ret
+   IL_0073: ldarg.1
+   IL_0074: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0079: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_007e: ldc.i4.s 19
+   IL_0080: ceq
+   IL_0082: stloc.1
+   IL_0083: ldarg.1
+   IL_0084: callvirt System.Boolean Celeste.Player::StartStarFly()
+   IL_0089: brfalse IL_010d
+   IL_008e: ldloc.1
+   IL_008f: brtrue.s IL_00b3
+   IL_0091: ldarg.0
+   IL_0092: ldfld System.Boolean Celeste.FlyFeather::shielded
+   IL_0097: brtrue.s IL_00a0
+   IL_0099: ldstr "event:/game/06_reflection/feather_get"
+   IL_009e: br.s IL_00a5
+   IL_00a0: ldstr "event:/game/06_reflection/feather_bubble_get"
+   IL_00a5: ldarg.0
+   IL_00a6: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ab: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_00b0: pop
+   IL_00b1: br.s IL_00d3
+   IL_00b3: ldarg.0
+   IL_00b4: ldfld System.Boolean Celeste.FlyFeather::shielded
+   IL_00b9: brtrue.s IL_00c2
+   IL_00bb: ldstr "event:/game/06_reflection/feather_renew"
+   IL_00c0: br.s IL_00c7
+   IL_00c2: ldstr "event:/game/06_reflection/feather_bubble_renew"
+   IL_00c7: ldarg.0
+   IL_00c8: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00cd: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_00d2: pop
+   IL_00d3: ldarg.0
+   IL_00d4: ldc.i4.0
+   IL_00d5: stfld System.Boolean Monocle.Entity::Collidable
+   IL_00da: ldarg.0
+   IL_00db: ldarg.0
+   IL_00dc: ldarg.1
+   IL_00dd: ldloc.0
+   IL_00de: callvirt System.Collections.IEnumerator Celeste.FlyFeather::CollectRoutine(Celeste.Player,Microsoft.Xna.Framework.Vector2)
+   IL_00e3: ldc.i4.1
+   IL_00e4: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_00e9: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00ee: ldarg.0
+   IL_00ef: ldfld System.Boolean Celeste.FlyFeather::singleUse
+   IL_00f4: brtrue.s IL_010d
+   IL_00f6: ldarg.0
+   IL_00f7: ldfld Monocle.Image Celeste.FlyFeather::outline
+   IL_00fc: ldc.i4.1
+   IL_00fd: stfld System.Boolean Monocle.Component::Visible
+   IL_0102: ldarg.0
+   IL_0103: ldc.r4 3
+   IL_0108: stfld System.Single Celeste.FlyFeather::respawnTimer
+   IL_010d: ret

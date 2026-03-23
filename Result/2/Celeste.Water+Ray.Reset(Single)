@@ -1,0 +1,31 @@
+On: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.Mod_RayReset(orig_Reset,Ray,Single)
+   IL_0000: ldarg.0
+   IL_0001: ldsfld System.Random Monocle.Calc::Random
+   IL_0006: call System.Single Monocle.Calc::NextFloat(System.Random)
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Single Celeste.Water/Ray::MaxWidth
+   IL_0011: mul
+   IL_0012: stfld System.Single Celeste.Water/Ray::Position
+   IL_0017: ldarg.0
+   IL_0018: ldarg.1
+   IL_0019: stfld System.Single Celeste.Water/Ray::Percent
+   IL_001e: ldarg.0
+   IL_001f: ldsfld System.Random Monocle.Calc::Random
+   IL_0024: ldc.r4 2
+   IL_0029: ldc.r4 8
+   IL_002e: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_0033: stfld System.Single Celeste.Water/Ray::Duration
+   IL_0038: ldarg.0
+   IL_0039: ldsfld System.Random Monocle.Calc::Random
+   IL_003e: ldc.i4.2
+   IL_003f: ldc.i4.s 16
+   IL_0041: call System.Int32 Monocle.Calc::Range(System.Random,System.Int32,System.Int32)
+   IL_0046: conv.r4
+   IL_0047: stfld System.Single Celeste.Water/Ray::Width
+   IL_004c: ldarg.0
+   IL_004d: ldsfld System.Random Monocle.Calc::Random
+   IL_0052: ldc.r4 8
+   IL_0057: ldc.r4 128
+   IL_005c: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_0061: stfld System.Single Celeste.Water/Ray::Length
+   IL_0066: ret

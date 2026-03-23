@@ -1,0 +1,21 @@
+On: Celeste.Mod.FemtoHelper.Entities.ClutterShadowController.NoShadowClutterHook(orig_Render,ClutterBlockBase)
+   IL_0000: ldarg.0
+   IL_0001: call System.Single Monocle.Entity::get_X()
+   IL_0006: ldarg.0
+   IL_0007: call System.Single Monocle.Entity::get_Y()
+   IL_000c: ldarg.0
+   IL_000d: call System.Single Monocle.Entity::get_Width()
+   IL_0012: ldarg.0
+   IL_0013: call System.Single Monocle.Entity::get_Height()
+   IL_0018: ldarg.0
+   IL_0019: ldfld System.Boolean Celeste.ClutterBlockBase::enabled
+   IL_001e: brtrue.s IL_0023
+   IL_0020: ldc.i4.0
+   IL_0021: br.s IL_0024
+   IL_0023: ldc.i4.2
+   IL_0024: conv.r4
+   IL_0025: add
+   IL_0026: ldarg.0
+   IL_0027: ldfld Microsoft.Xna.Framework.Color Celeste.ClutterBlockBase::color
+   IL_002c: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0031: ret

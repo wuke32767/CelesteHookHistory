@@ -1,0 +1,42 @@
+On: VivHelper.VivHelperModule.LateInitialize(orig_Begin,GameLoader)
+On: LuckyHelper.Modules.NonConfilctContentLoaderHelper.GameLoaderOnBegin(orig_Begin,GameLoader)
+On: ChroniaHelper.ChroniaHelperModule.LateInitialize(orig_Begin,GameLoader)
+On: Celeste.Mod.SkinModHelper.LoaderHook.GameLoaderBeginHook(orig_Begin,GameLoader)
+On: Celeste.Mod.Randomizer.RandoModule.LateInitialize(orig_Begin,GameLoader)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.GameLoader::orig_Begin()
+   IL_0006: ldarg.0
+   IL_0007: ldfld Monocle.Entity Celeste.GameLoader::handler
+   IL_000c: callvirt Monocle.ComponentList Monocle.Entity::get_Components()
+   IL_0011: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Component> Monocle.ComponentList::GetEnumerator()
+   IL_0016: stloc.0
+   IL_0017: br.s IL_002e
+   IL_0019: ldloc.0
+   IL_001a: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Component>::get_Current()
+   IL_001f: castclass Monocle.Coroutine
+   IL_0024: stloc.1
+   IL_0025: ldarg.0
+   IL_0026: ldloc.1
+   IL_0027: stfld Monocle.Coroutine Celeste.GameLoader::introRoutine
+   IL_002c: leave.s IL_0042
+   IL_002e: ldloc.0
+   IL_002f: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_0034: brtrue.s IL_0019
+   IL_0036: leave.s IL_0042
+   IL_0038: ldloc.0
+   IL_0039: brfalse.s IL_0041
+   IL_003b: ldloc.0
+   IL_003c: callvirt System.Void System.IDisposable::Dispose()
+   IL_0041: endfinally
+   IL_0042: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0047: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_LaunchWithoutIntro()
+   IL_004c: brtrue.s IL_0055
+   IL_004e: call System.Boolean Celeste.Mod.Everest/Flags::get_IsHeadless()
+   IL_0053: brfalse.s IL_0064
+   IL_0055: ldarg.0
+   IL_0056: ldfld Monocle.Coroutine Celeste.GameLoader::introRoutine
+   IL_005b: brfalse.s IL_0064
+   IL_005d: ldarg.0
+   IL_005e: ldc.i4.1
+   IL_005f: stfld System.Boolean Celeste.GameLoader::skipped
+   IL_0064: ret

@@ -1,0 +1,227 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modOuiFileSelectShow(orig_Show,OuiFileSelectSlot)
+On: VanillaTweaks.VanillaTweaksHooks.OuiFileSelectSlot_Show(orig_Show,OuiFileSelectSlot)
+On: Celeste.Mod.FixedCornerboosting.CornerboostModule.UpdateShow(orig_Show,OuiFileSelectSlot)
+On: Celeste.Mod.CollabUtils2.LobbyHelper.onOuiFileSelectSlotShow(orig_Show,OuiFileSelectSlot)
+   IL_0000: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0005: stloc.0
+   IL_0006: ldarg.0
+   IL_0007: ldfld Celeste.SaveData Celeste.OuiFileSelectSlot::SaveData
+   IL_000c: stsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0011: ldarg.0
+   IL_0012: ldfld Celeste.SaveData Celeste.OuiFileSelectSlot::SaveData
+   IL_0017: dup
+   IL_0018: brtrue.s IL_001e
+   IL_001a: pop
+   IL_001b: ldnull
+   IL_001c: br.s IL_0023
+   IL_001e: callvirt Celeste.LevelSetStats Celeste.SaveData::get_LevelSetStats()
+   IL_0023: stloc.1
+   IL_0024: ldloc.1
+   IL_0025: brfalse IL_028d
+   IL_002a: ldarg.0
+   IL_002b: ldfld Celeste.StrawberriesCounter Celeste.OuiFileSelectSlot::Strawberries
+   IL_0030: stloc.2
+   IL_0031: ldloc.2
+   IL_0032: ldloc.1
+   IL_0033: callvirt System.Int32 Celeste.LevelSetStats::get_TotalStrawberries()
+   IL_0038: callvirt System.Void Celeste.StrawberriesCounter::set_Amount(System.Int32)
+   IL_003d: ldloc.2
+   IL_003e: ldloc.1
+   IL_003f: callvirt System.Int32 Celeste.LevelSetStats::get_MaxStrawberries()
+   IL_0044: callvirt System.Void Celeste.StrawberriesCounter::set_OutOf(System.Int32)
+   IL_0049: ldloc.2
+   IL_004a: ldloc.1
+   IL_004b: ldfld System.String Celeste.LevelSetStats::Name
+   IL_0050: ldstr "Celeste"
+   IL_0055: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_005a: brtrue.s IL_006a
+   IL_005c: ldloc.2
+   IL_005d: callvirt System.Int32 Celeste.StrawberriesCounter::get_OutOf()
+   IL_0062: ldc.i4.0
+   IL_0063: cgt
+   IL_0065: ldc.i4.0
+   IL_0066: ceq
+   IL_0068: br.s IL_006b
+   IL_006a: ldc.i4.1
+   IL_006b: callvirt System.Void Celeste.StrawberriesCounter::set_ShowOutOf(System.Boolean)
+   IL_0070: ldloc.2
+   IL_0071: ldc.i4.0
+   IL_0072: stfld System.Boolean Celeste.StrawberriesCounter::CanWiggle
+   IL_0077: ldloc.1
+   IL_0078: ldfld System.String Celeste.LevelSetStats::Name
+   IL_007d: ldstr "Celeste"
+   IL_0082: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0087: brfalse IL_010a
+   IL_008c: ldarg.0
+   IL_008d: ldc.i4 175
+   IL_0092: stfld System.Int32 Celeste.OuiFileSelectSlot::maxStrawberryCount
+   IL_0097: ldarg.0
+   IL_0098: ldc.i4.s 25
+   IL_009a: stfld System.Int32 Celeste.OuiFileSelectSlot::maxGoldenStrawberryCount
+   IL_009f: ldarg.0
+   IL_00a0: ldc.i4 202
+   IL_00a5: stfld System.Int32 Celeste.OuiFileSelectSlot::maxStrawberryCountIncludingUntracked
+   IL_00aa: ldarg.0
+   IL_00ab: ldc.i4.8
+   IL_00ac: stfld System.Int32 Celeste.OuiFileSelectSlot::maxCassettes
+   IL_00b1: ldarg.0
+   IL_00b2: ldc.i4.s 16
+   IL_00b4: stfld System.Int32 Celeste.OuiFileSelectSlot::maxCrystalHeartsExcludingCSides
+   IL_00b9: ldarg.0
+   IL_00ba: ldc.i4.s 24
+   IL_00bc: stfld System.Int32 Celeste.OuiFileSelectSlot::maxCrystalHearts
+   IL_00c1: ldarg.0
+   IL_00c2: ldarg.0
+   IL_00c3: ldfld Celeste.SaveData Celeste.OuiFileSelectSlot::SaveData
+   IL_00c8: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_00cd: ldc.i4.7
+   IL_00ce: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_00d3: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_00d8: ldc.i4.0
+   IL_00d9: ldelem.ref
+   IL_00da: ldfld System.Boolean Celeste.AreaModeStats::Completed
+   IL_00df: stfld System.Boolean Celeste.OuiFileSelectSlot::summitStamp
+   IL_00e4: ldarg.0
+   IL_00e5: ldarg.0
+   IL_00e6: ldfld Celeste.SaveData Celeste.OuiFileSelectSlot::SaveData
+   IL_00eb: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_00f0: ldc.i4.s 10
+   IL_00f2: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_00f7: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_00fc: ldc.i4.0
+   IL_00fd: ldelem.ref
+   IL_00fe: ldfld System.Boolean Celeste.AreaModeStats::Completed
+   IL_0103: stfld System.Boolean Celeste.OuiFileSelectSlot::farewellStamp
+   IL_0108: br.s IL_0170
+   IL_010a: ldarg.0
+   IL_010b: ldloc.1
+   IL_010c: callvirt System.Int32 Celeste.LevelSetStats::get_MaxStrawberries()
+   IL_0111: stfld System.Int32 Celeste.OuiFileSelectSlot::maxStrawberryCount
+   IL_0116: ldarg.0
+   IL_0117: ldloc.1
+   IL_0118: callvirt System.Int32 Celeste.LevelSetStats::get_MaxGoldenStrawberries()
+   IL_011d: stfld System.Int32 Celeste.OuiFileSelectSlot::maxGoldenStrawberryCount
+   IL_0122: ldarg.0
+   IL_0123: ldloc.1
+   IL_0124: callvirt System.Int32 Celeste.LevelSetStats::get_MaxStrawberriesIncludingUntracked()
+   IL_0129: stfld System.Int32 Celeste.OuiFileSelectSlot::maxStrawberryCountIncludingUntracked
+   IL_012e: ldarg.0
+   IL_012f: ldloc.1
+   IL_0130: callvirt System.Int32 Celeste.LevelSetStats::get_MaxCassettes()
+   IL_0135: stfld System.Int32 Celeste.OuiFileSelectSlot::maxCassettes
+   IL_013a: ldarg.0
+   IL_013b: ldloc.1
+   IL_013c: callvirt System.Int32 Celeste.LevelSetStats::get_MaxHeartGems()
+   IL_0141: stfld System.Int32 Celeste.OuiFileSelectSlot::maxCrystalHearts
+   IL_0146: ldarg.0
+   IL_0147: ldloc.1
+   IL_0148: callvirt System.Int32 Celeste.LevelSetStats::get_MaxHeartGemsExcludingCSides()
+   IL_014d: stfld System.Int32 Celeste.OuiFileSelectSlot::maxCrystalHeartsExcludingCSides
+   IL_0152: ldarg.0
+   IL_0153: ldloc.1
+   IL_0154: callvirt System.Int32 Celeste.LevelSetStats::get_TotalCompletions()
+   IL_0159: ldloc.1
+   IL_015a: callvirt System.Int32 Celeste.LevelSetStats::get_MaxCompletions()
+   IL_015f: clt
+   IL_0161: ldc.i4.0
+   IL_0162: ceq
+   IL_0164: stfld System.Boolean Celeste.OuiFileSelectSlot::summitStamp
+   IL_0169: ldarg.0
+   IL_016a: ldc.i4.0
+   IL_016b: stfld System.Boolean Celeste.OuiFileSelectSlot::farewellStamp
+   IL_0170: ldarg.0
+   IL_0171: ldloc.1
+   IL_0172: callvirt System.Int32 Celeste.LevelSetStats::get_TotalGoldenStrawberries()
+   IL_0177: stfld System.Int32 Celeste.OuiFileSelectSlot::totalGoldenStrawberries
+   IL_017c: ldarg.0
+   IL_017d: ldloc.1
+   IL_017e: callvirt System.Int32 Celeste.LevelSetStats::get_TotalHeartGems()
+   IL_0183: stfld System.Int32 Celeste.OuiFileSelectSlot::totalHeartGems
+   IL_0188: ldarg.0
+   IL_0189: ldloc.1
+   IL_018a: callvirt System.Int32 Celeste.LevelSetStats::get_TotalCassettes()
+   IL_018f: stfld System.Int32 Celeste.OuiFileSelectSlot::totalCassettes
+   IL_0194: ldarg.0
+   IL_0195: ldarg.0
+   IL_0196: ldfld Celeste.SaveData Celeste.OuiFileSelectSlot::SaveData
+   IL_019b: callvirt System.Int32 Celeste.SaveData::get_UnlockedAreas_Safe()
+   IL_01a0: stfld System.Int32 Celeste.OuiFileSelectSlot::FurthestArea
+   IL_01a5: ldarg.0
+   IL_01a6: ldfld System.Collections.Generic.List`1<System.Boolean> Celeste.OuiFileSelectSlot::Cassettes
+   IL_01ab: callvirt System.Void System.Collections.Generic.List`1<System.Boolean>::Clear()
+   IL_01b0: ldarg.0
+   IL_01b1: ldfld System.Collections.Generic.List`1<System.Boolean[]> Celeste.OuiFileSelectSlot::HeartGems
+   IL_01b6: callvirt System.Void System.Collections.Generic.List`1<System.Boolean[]>::Clear()
+   IL_01bb: ldarg.0
+   IL_01bc: ldfld Celeste.SaveData Celeste.OuiFileSelectSlot::SaveData
+   IL_01c1: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_01c6: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.AreaStats>::GetEnumerator()
+   IL_01cb: stloc.3
+   IL_01cc: br IL_0271
+   IL_01d1: ldloca.s V_3
+   IL_01d3: call T System.Collections.Generic.List`1/Enumerator<Celeste.AreaStats>::get_Current()
+   IL_01d8: stloc.s V_4
+   IL_01da: ldloc.s V_4
+   IL_01dc: callvirt System.Int32 Celeste.AreaStats::get_ID_Safe()
+   IL_01e1: ldarg.0
+   IL_01e2: ldfld Celeste.SaveData Celeste.OuiFileSelectSlot::SaveData
+   IL_01e7: callvirt System.Int32 Celeste.SaveData::get_UnlockedAreas_Safe()
+   IL_01ec: ble.s IL_01f3
+   IL_01ee: leave IL_028d
+   IL_01f3: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
+   IL_01f8: ldloc.s V_4
+   IL_01fa: callvirt System.Int32 Celeste.AreaStats::get_ID_Safe()
+   IL_01ff: callvirt T System.Collections.Generic.List`1<Celeste.AreaData>::get_Item(System.Int32)
+   IL_0204: callvirt System.Boolean Celeste.AreaData::get_Interlude_Safe()
+   IL_0209: brtrue.s IL_0271
+   IL_020b: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
+   IL_0210: ldloc.s V_4
+   IL_0212: callvirt System.Int32 Celeste.AreaStats::get_ID_Safe()
+   IL_0217: callvirt T System.Collections.Generic.List`1<Celeste.AreaData>::get_Item(System.Int32)
+   IL_021c: ldfld System.Boolean Celeste.AreaData::CanFullClear
+   IL_0221: brfalse.s IL_0271
+   IL_0223: ldc.i4.3
+   IL_0224: newarr System.Boolean
+   IL_0229: stloc.s V_5
+   IL_022b: ldc.i4.0
+   IL_022c: stloc.s V_6
+   IL_022e: br.s IL_024a
+   IL_0230: ldloc.s V_5
+   IL_0232: ldloc.s V_6
+   IL_0234: ldloc.s V_4
+   IL_0236: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_023b: ldloc.s V_6
+   IL_023d: ldelem.ref
+   IL_023e: ldfld System.Boolean Celeste.AreaModeStats::HeartGem
+   IL_0243: stelem.i1
+   IL_0244: ldloc.s V_6
+   IL_0246: ldc.i4.1
+   IL_0247: add
+   IL_0248: stloc.s V_6
+   IL_024a: ldloc.s V_6
+   IL_024c: ldloc.s V_5
+   IL_024e: ldlen
+   IL_024f: conv.i4
+   IL_0250: blt.s IL_0230
+   IL_0252: ldarg.0
+   IL_0253: ldfld System.Collections.Generic.List`1<System.Boolean> Celeste.OuiFileSelectSlot::Cassettes
+   IL_0258: ldloc.s V_4
+   IL_025a: ldfld System.Boolean Celeste.AreaStats::Cassette
+   IL_025f: callvirt System.Void System.Collections.Generic.List`1<System.Boolean>::Add(T)
+   IL_0264: ldarg.0
+   IL_0265: ldfld System.Collections.Generic.List`1<System.Boolean[]> Celeste.OuiFileSelectSlot::HeartGems
+   IL_026a: ldloc.s V_5
+   IL_026c: callvirt System.Void System.Collections.Generic.List`1<System.Boolean[]>::Add(T)
+   IL_0271: ldloca.s V_3
+   IL_0273: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.AreaStats>::MoveNext()
+   IL_0278: brtrue IL_01d1
+   IL_027d: leave.s IL_028d
+   IL_027f: ldloca.s V_3
+   IL_0281: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.AreaStats>
+   IL_0287: callvirt System.Void System.IDisposable::Dispose()
+   IL_028c: endfinally
+   IL_028d: ldloc.0
+   IL_028e: stsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0293: ldarg.0
+   IL_0294: callvirt System.Void Celeste.OuiFileSelectSlot::orig_Show()
+   IL_0299: ret

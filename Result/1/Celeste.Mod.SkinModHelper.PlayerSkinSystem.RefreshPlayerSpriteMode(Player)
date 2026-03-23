@@ -1,0 +1,32 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldfld Celeste.PlayerSpriteMode Celeste.Player::DefaultSpriteMode
+   IL_0007: ldc.i4.3
+   IL_0008: beq.s IL_0022
+   IL_000a: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_000f: dup
+   IL_0010: brtrue.s IL_0016
+   IL_0012: pop
+   IL_0013: ldc.i4.0
+   IL_0014: br.s IL_0020
+   IL_0016: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_001b: ldfld System.Boolean Celeste.Assists::PlayAsBadeline
+   IL_0020: br.s IL_0023
+   IL_0022: ldc.i4.1
+   IL_0023: stloc.0
+   IL_0024: ldloc.0
+   IL_0025: brfalse.s IL_0036
+   IL_0027: ldarg.0
+   IL_0028: ldc.i4.3
+   IL_0029: newobj System.Void System.Nullable`1<Celeste.PlayerSpriteMode>::.ctor(T)
+   IL_002e: call System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::SetPlayerSpriteMode(Celeste.Player,System.Nullable`1<Celeste.PlayerSpriteMode>)
+   IL_0033: nop
+   IL_0034: br.s IL_0046
+   IL_0036: ldarg.0
+   IL_0037: ldloca.s V_1
+   IL_0039: initobj System.Nullable`1<Celeste.PlayerSpriteMode>
+   IL_003f: ldloc.1
+   IL_0040: call System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::SetPlayerSpriteMode(Celeste.Player,System.Nullable`1<Celeste.PlayerSpriteMode>)
+   IL_0045: nop
+   IL_0046: ret

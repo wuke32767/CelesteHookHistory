@@ -1,0 +1,69 @@
+On: Celeste.Mod.AdamsAddons.Entities.RegistryDecal.modMakeStaticMover(orig_MakeStaticMover,Decal,Int32,Int32,Int32,Int32,Boolean)
+   IL_0000: newobj System.Void Celeste.Decal/<>c__DisplayClass38_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.0
+   IL_0008: stfld Celeste.Decal Celeste.Decal/<>c__DisplayClass38_0::<>4__this
+   IL_000d: ldloc.0
+   IL_000e: ldarg.1
+   IL_000f: stfld System.Int32 Celeste.Decal/<>c__DisplayClass38_0::x
+   IL_0014: ldloc.0
+   IL_0015: ldarg.2
+   IL_0016: stfld System.Int32 Celeste.Decal/<>c__DisplayClass38_0::y
+   IL_001b: ldloc.0
+   IL_001c: ldarg.3
+   IL_001d: stfld System.Int32 Celeste.Decal/<>c__DisplayClass38_0::w
+   IL_0022: ldloc.0
+   IL_0023: ldarg.s h
+   IL_0025: stfld System.Int32 Celeste.Decal/<>c__DisplayClass38_0::h
+   IL_002a: ldarg.0
+   IL_002b: newobj System.Void Celeste.StaticMover::.ctor()
+   IL_0030: dup
+   IL_0031: ldloc.0
+   IL_0032: ldftn System.Boolean Celeste.Decal/<>c__DisplayClass38_0::<MakeStaticMover>b__1(Celeste.Solid)
+   IL_0038: newobj System.Void System.Func`2<Celeste.Solid,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_003d: stfld System.Func`2<Celeste.Solid,System.Boolean> Celeste.StaticMover::SolidChecker
+   IL_0042: dup
+   IL_0043: ldloc.0
+   IL_0044: ldftn System.Void Celeste.Decal/<>c__DisplayClass38_0::<MakeStaticMover>b__2()
+   IL_004a: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_004f: stfld System.Action Celeste.StaticMover::OnDestroy
+   IL_0054: dup
+   IL_0055: ldloc.0
+   IL_0056: ldftn System.Void Celeste.Decal/<>c__DisplayClass38_0::<MakeStaticMover>b__3()
+   IL_005c: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0061: stfld System.Action Celeste.StaticMover::OnDisable
+   IL_0066: dup
+   IL_0067: ldloc.0
+   IL_0068: ldftn System.Void Celeste.Decal/<>c__DisplayClass38_0::<MakeStaticMover>b__4()
+   IL_006e: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0073: stfld System.Action Celeste.StaticMover::OnEnable
+   IL_0078: dup
+   IL_0079: ldloc.0
+   IL_007a: ldftn System.Void Celeste.Decal/<>c__DisplayClass38_0::<MakeStaticMover>b__5(Microsoft.Xna.Framework.Vector2)
+   IL_0080: newobj System.Void System.Action`1<Microsoft.Xna.Framework.Vector2>::.ctor(System.Object,System.IntPtr)
+   IL_0085: stfld System.Action`1<Microsoft.Xna.Framework.Vector2> Celeste.StaticMover::OnMove
+   IL_008a: dup
+   IL_008b: ldloc.0
+   IL_008c: ldftn System.Void Celeste.Decal/<>c__DisplayClass38_0::<MakeStaticMover>b__6(Microsoft.Xna.Framework.Vector2)
+   IL_0092: newobj System.Void System.Action`1<Microsoft.Xna.Framework.Vector2>::.ctor(System.Object,System.IntPtr)
+   IL_0097: stfld System.Action`1<Microsoft.Xna.Framework.Vector2> Celeste.StaticMover::OnShake
+   IL_009c: dup
+   IL_009d: ldloc.0
+   IL_009e: ldftn System.Void Celeste.Decal/<>c__DisplayClass38_0::<MakeStaticMover>b__7(Celeste.Platform)
+   IL_00a4: newobj System.Void System.Action`1<Celeste.Platform>::.ctor(System.Object,System.IntPtr)
+   IL_00a9: stfld System.Action`1<Celeste.Platform> Celeste.StaticMover::OnAttach
+   IL_00ae: stfld Celeste.StaticMover Celeste.Decal::staticMover
+   IL_00b3: ldarg.s jumpThrus
+   IL_00b5: brfalse.s IL_00ce
+   IL_00b7: ldarg.0
+   IL_00b8: ldfld Celeste.StaticMover Celeste.Decal::staticMover
+   IL_00bd: ldloc.0
+   IL_00be: ldftn System.Boolean Celeste.Decal/<>c__DisplayClass38_0::<MakeStaticMover>b__0(Celeste.JumpThru)
+   IL_00c4: newobj System.Void System.Func`2<Celeste.JumpThru,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_00c9: stfld System.Func`2<Celeste.JumpThru,System.Boolean> Celeste.StaticMover::JumpThruChecker
+   IL_00ce: ldarg.0
+   IL_00cf: ldarg.0
+   IL_00d0: ldfld Celeste.StaticMover Celeste.Decal::staticMover
+   IL_00d5: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00da: ret

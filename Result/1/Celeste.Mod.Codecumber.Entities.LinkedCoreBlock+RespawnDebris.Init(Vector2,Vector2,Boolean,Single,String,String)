@@ -1,0 +1,54 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: ldarg from @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0004: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0009: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_000e: ldarg.3
+   IL_000f: brtrue.s IL_0015
+   IL_0011: ldarg.s fireRubble
+   IL_0013: br.s IL_0017
+   IL_0015: ldarg.s iceRubble
+   IL_0017: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_001c: stloc.0
+   IL_001d: ldsfld System.Random Monocle.Calc::Random
+   IL_0022: ldloc.0
+   IL_0023: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_0028: stloc.1
+   IL_0029: ldarg.0
+   IL_002a: ldfld Monocle.Image Celeste.Mod.Codecumber.Entities.LinkedCoreBlock/RespawnDebris::sprite
+   IL_002f: brtrue.s IL_0054
+   IL_0031: ldarg.0
+   IL_0032: ldarg.0
+   IL_0033: ldloc.1
+   IL_0034: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_0039: dup
+   IL_003a: stloc.2
+   IL_003b: stfld Monocle.Image Celeste.Mod.Codecumber.Entities.LinkedCoreBlock/RespawnDebris::sprite
+   IL_0040: ldloc.2
+   IL_0041: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0046: ldarg.0
+   IL_0047: ldfld Monocle.Image Celeste.Mod.Codecumber.Entities.LinkedCoreBlock/RespawnDebris::sprite
+   IL_004c: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0051: pop
+   IL_0052: br.s IL_0060
+   IL_0054: ldarg.0
+   IL_0055: ldfld Monocle.Image Celeste.Mod.Codecumber.Entities.LinkedCoreBlock/RespawnDebris::sprite
+   IL_005a: ldloc.1
+   IL_005b: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_0060: ldarg.0
+   IL_0061: ldarg.1
+   IL_0062: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.Codecumber.Entities.LinkedCoreBlock/RespawnDebris::from
+   IL_0067: ldarg.0
+   IL_0068: ldarg.1
+   IL_0069: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_006e: ldarg.0
+   IL_006f: ldc.r4 0
+   IL_0074: stfld System.Single Celeste.Mod.Codecumber.Entities.LinkedCoreBlock/RespawnDebris::percent
+   IL_0079: ldarg.0
+   IL_007a: ldarg.2
+   IL_007b: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.Codecumber.Entities.LinkedCoreBlock/RespawnDebris::to
+   IL_0080: ldarg.0
+   IL_0081: ldarg.s duration
+   IL_0083: stfld System.Single Celeste.Mod.Codecumber.Entities.LinkedCoreBlock/RespawnDebris::duration
+   IL_0088: ldarg.0
+ + IL_0089: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_008e: ret

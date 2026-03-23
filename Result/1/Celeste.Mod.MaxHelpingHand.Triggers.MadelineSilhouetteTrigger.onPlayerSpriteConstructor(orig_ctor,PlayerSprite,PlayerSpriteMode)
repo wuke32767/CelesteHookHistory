@@ -1,0 +1,21 @@
+IL: ExtendedVariants.Variants.MadelineIsSilhouette.hookMadelineIsSilhouette(ILContext)
+   IL_0000: call Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule::get_Instance()
+   IL_0005: callvirt Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandSession Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule::get_Session()
+   IL_000a: callvirt System.Boolean Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandSession::get_MadelineIsSilhouette()
+ + IL_10000: call System.Boolean ExtendedVariants.Variants.MadelineIsSilhouette::applyMadelineIsSilhouette(System.Boolean) @ ExtendedVariants.Variants.MadelineIsSilhouette.hookMadelineIsSilhouette(ILContext)
+   IL_000f: brfalse.s IL_001f
+   IL_0011: ldarg.2
+   IL_0012: brfalse.s IL_001c
+   IL_0014: ldarg.2
+   IL_0015: ldc.i4.3
+   IL_0016: beq.s IL_001c
+   IL_0018: ldarg.2
+   IL_0019: ldc.i4.1
+   IL_001a: bne.un.s IL_001f
+   IL_001c: ldc.i4.4
+   IL_001d: starg.s mode
+   IL_001f: ldarg.0
+   IL_0020: ldarg.1
+   IL_0021: ldarg.2
+   IL_0022: callvirt System.Void On.Celeste.PlayerSprite/orig_ctor::Invoke(Celeste.PlayerSprite,Celeste.PlayerSpriteMode)
+   IL_0027: ret

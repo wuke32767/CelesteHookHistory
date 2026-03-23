@@ -1,0 +1,47 @@
+On: Celeste.Mod.SSMHelper.Entities.ForceLightningLoadController.On_Lightning_InView(orig_InView,Lightning)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0010: stloc.0
+   IL_0011: ldarg.0
+   IL_0012: call System.Single Monocle.Entity::get_X()
+   IL_0017: ldarg.0
+   IL_0018: call System.Single Monocle.Entity::get_Width()
+   IL_001d: add
+   IL_001e: ldloc.0
+   IL_001f: callvirt System.Single Monocle.Camera::get_X()
+   IL_0024: ldc.r4 16
+   IL_0029: sub
+   IL_002a: ble.un.s IL_007c
+   IL_002c: ldarg.0
+   IL_002d: call System.Single Monocle.Entity::get_Y()
+   IL_0032: ldarg.0
+   IL_0033: call System.Single Monocle.Entity::get_Height()
+   IL_0038: add
+   IL_0039: ldloc.0
+   IL_003a: callvirt System.Single Monocle.Camera::get_Y()
+   IL_003f: ldc.r4 16
+   IL_0044: sub
+   IL_0045: ble.un.s IL_007c
+   IL_0047: ldarg.0
+   IL_0048: call System.Single Monocle.Entity::get_X()
+   IL_004d: ldloc.0
+   IL_004e: callvirt System.Single Monocle.Camera::get_X()
+   IL_0053: ldc.r4 320
+   IL_0058: add
+   IL_0059: ldc.r4 16
+   IL_005e: add
+   IL_005f: bge.un.s IL_007c
+   IL_0061: ldarg.0
+   IL_0062: call System.Single Monocle.Entity::get_Y()
+   IL_0067: ldloc.0
+   IL_0068: callvirt System.Single Monocle.Camera::get_Y()
+   IL_006d: ldc.r4 180
+   IL_0072: add
+   IL_0073: ldc.r4 16
+   IL_0078: add
+   IL_0079: clt
+   IL_007b: ret
+   IL_007c: ldc.i4.0
+   IL_007d: ret

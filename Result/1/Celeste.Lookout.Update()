@@ -1,0 +1,49 @@
+On: Celeste.Mod.SkinModHelper.PlayerSkinSystem.LookoutUpdateHook_ColorGrade(orig_Update,Lookout)
+On: Celeste.Mod.XaphanHelper.Entities.Binocular.onLookoutUpdate(orig_Update,Lookout)
+On: Celeste.Mod.ErrandOfWednesday.ErrandOfWednesdayModule.lookout_stop(orig_Update,Lookout)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.TalkComponent Celeste.Lookout::talk
+   IL_0006: ldfld Celeste.TalkComponent/TalkComponentUI Celeste.TalkComponent::UI
+   IL_000b: brfalse.s IL_0026
+   IL_000d: ldarg.0
+   IL_000e: ldfld Celeste.TalkComponent Celeste.Lookout::talk
+   IL_0013: ldfld Celeste.TalkComponent/TalkComponentUI Celeste.TalkComponent::UI
+   IL_0018: ldarg.0
+   IL_0019: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>()
+   IL_001e: ldc.i4.0
+   IL_001f: ceq
+   IL_0021: stfld System.Boolean Monocle.Entity::Visible
+   IL_0026: ldarg.0
+   IL_0027: call System.Void Monocle.Entity::Update()
+   IL_002c: ldarg.0
+   IL_002d: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0032: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0037: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_003c: stloc.0
+   IL_003d: ldloc.0
+   IL_003e: brfalse.s IL_0081
+   IL_0040: ldarg.0
+   IL_0041: ldfld Monocle.Sprite Celeste.Lookout::sprite
+   IL_0046: ldarg.0
+   IL_0047: ldfld System.Boolean Celeste.Lookout::interacting
+   IL_004c: brtrue.s IL_0062
+   IL_004e: ldloc.0
+   IL_004f: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0054: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_0059: ldc.i4.s 11
+   IL_005b: ceq
+   IL_005d: ldc.i4.0
+   IL_005e: ceq
+   IL_0060: br.s IL_0063
+   IL_0062: ldc.i4.1
+   IL_0063: stfld System.Boolean Monocle.Component::Active
+   IL_0068: ldarg.0
+   IL_0069: ldfld Monocle.Sprite Celeste.Lookout::sprite
+   IL_006e: ldfld System.Boolean Monocle.Component::Active
+   IL_0073: brtrue.s IL_0081
+   IL_0075: ldarg.0
+   IL_0076: ldfld Monocle.Sprite Celeste.Lookout::sprite
+   IL_007b: ldc.i4.0
+   IL_007c: callvirt System.Void Monocle.Sprite::SetAnimationFrame(System.Int32)
+   IL_0081: nop
+   IL_0082: ret

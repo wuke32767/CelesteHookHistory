@@ -1,0 +1,143 @@
+On: LuckyHelper.Triggers.DisperseSpritesTrigger.TileGridOnGetClippedRenderTiles(orig_GetClippedRenderTiles,TileGrid)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_0006: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000b: ldarg.0
+   IL_000c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.TileGrid::Position
+   IL_0011: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0016: stloc.0
+   IL_0017: ldarg.0
+   IL_0018: ldfld Monocle.Camera Monocle.TileGrid::ClipCamera
+   IL_001d: brtrue.s IL_0051
+   IL_001f: ldarg.0
+   IL_0020: ldfld System.Int32 Monocle.TileGrid::VisualExtend
+   IL_0025: neg
+   IL_0026: stloc.1
+   IL_0027: ldarg.0
+   IL_0028: ldfld System.Int32 Monocle.TileGrid::VisualExtend
+   IL_002d: neg
+   IL_002e: stloc.2
+   IL_002f: ldarg.0
+   IL_0030: callvirt System.Int32 Monocle.TileGrid::get_TilesX()
+   IL_0035: ldarg.0
+   IL_0036: ldfld System.Int32 Monocle.TileGrid::VisualExtend
+   IL_003b: add
+   IL_003c: stloc.3
+   IL_003d: ldarg.0
+   IL_003e: callvirt System.Int32 Monocle.TileGrid::get_TilesY()
+   IL_0043: ldarg.0
+   IL_0044: ldfld System.Int32 Monocle.TileGrid::VisualExtend
+   IL_0049: add
+   IL_004a: stloc.s V_4
+   IL_004c: br IL_0126
+   IL_0051: ldarg.0
+   IL_0052: ldfld Monocle.Camera Monocle.TileGrid::ClipCamera
+   IL_0057: stloc.s V_5
+   IL_0059: ldc.r8 0
+   IL_0062: ldloc.s V_5
+   IL_0064: callvirt System.Single Monocle.Camera::get_Left()
+   IL_0069: ldloc.0
+   IL_006a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_006f: sub
+   IL_0070: ldarg.0
+   IL_0071: callvirt System.Int32 Monocle.TileGrid::get_TileWidth()
+   IL_0076: conv.r4
+   IL_0077: div
+   IL_0078: conv.r8
+   IL_0079: call System.Double System.Math::Floor(System.Double)
+   IL_007e: ldarg.0
+   IL_007f: ldfld System.Int32 Monocle.TileGrid::VisualExtend
+   IL_0084: conv.r8
+   IL_0085: sub
+   IL_0086: call System.Double System.Math::Max(System.Double,System.Double)
+   IL_008b: conv.i4
+   IL_008c: stloc.1
+   IL_008d: ldc.r8 0
+   IL_0096: ldloc.s V_5
+   IL_0098: callvirt System.Single Monocle.Camera::get_Top()
+   IL_009d: ldloc.0
+   IL_009e: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00a3: sub
+   IL_00a4: ldarg.0
+   IL_00a5: callvirt System.Int32 Monocle.TileGrid::get_TileHeight()
+   IL_00aa: conv.r4
+   IL_00ab: div
+   IL_00ac: conv.r8
+   IL_00ad: call System.Double System.Math::Floor(System.Double)
+   IL_00b2: ldarg.0
+   IL_00b3: ldfld System.Int32 Monocle.TileGrid::VisualExtend
+   IL_00b8: conv.r8
+   IL_00b9: sub
+   IL_00ba: call System.Double System.Math::Max(System.Double,System.Double)
+   IL_00bf: conv.i4
+   IL_00c0: stloc.2
+   IL_00c1: ldarg.0
+   IL_00c2: callvirt System.Int32 Monocle.TileGrid::get_TilesX()
+   IL_00c7: conv.r8
+   IL_00c8: ldloc.s V_5
+   IL_00ca: callvirt System.Single Monocle.Camera::get_Right()
+   IL_00cf: ldloc.0
+   IL_00d0: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00d5: sub
+   IL_00d6: ldarg.0
+   IL_00d7: callvirt System.Int32 Monocle.TileGrid::get_TileWidth()
+   IL_00dc: conv.r4
+   IL_00dd: div
+   IL_00de: conv.r8
+   IL_00df: call System.Double System.Math::Ceiling(System.Double)
+   IL_00e4: ldarg.0
+   IL_00e5: ldfld System.Int32 Monocle.TileGrid::VisualExtend
+   IL_00ea: conv.r8
+   IL_00eb: add
+   IL_00ec: call System.Double System.Math::Min(System.Double,System.Double)
+   IL_00f1: conv.i4
+   IL_00f2: stloc.3
+   IL_00f3: ldarg.0
+   IL_00f4: callvirt System.Int32 Monocle.TileGrid::get_TilesY()
+   IL_00f9: conv.r8
+   IL_00fa: ldloc.s V_5
+   IL_00fc: callvirt System.Single Monocle.Camera::get_Bottom()
+   IL_0101: ldloc.0
+   IL_0102: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0107: sub
+   IL_0108: ldarg.0
+   IL_0109: callvirt System.Int32 Monocle.TileGrid::get_TileHeight()
+   IL_010e: conv.r4
+   IL_010f: div
+   IL_0110: conv.r8
+   IL_0111: call System.Double System.Math::Ceiling(System.Double)
+   IL_0116: ldarg.0
+   IL_0117: ldfld System.Int32 Monocle.TileGrid::VisualExtend
+   IL_011c: conv.r8
+   IL_011d: add
+   IL_011e: call System.Double System.Math::Min(System.Double,System.Double)
+   IL_0123: conv.i4
+   IL_0124: stloc.s V_4
+   IL_0126: ldloc.1
+   IL_0127: ldc.i4.0
+   IL_0128: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_012d: stloc.1
+   IL_012e: ldloc.2
+   IL_012f: ldc.i4.0
+   IL_0130: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_0135: stloc.2
+   IL_0136: ldloc.3
+   IL_0137: ldarg.0
+   IL_0138: callvirt System.Int32 Monocle.TileGrid::get_TilesX()
+   IL_013d: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0142: stloc.3
+   IL_0143: ldloc.s V_4
+   IL_0145: ldarg.0
+   IL_0146: callvirt System.Int32 Monocle.TileGrid::get_TilesY()
+   IL_014b: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0150: stloc.s V_4
+   IL_0152: ldloc.1
+   IL_0153: ldloc.2
+   IL_0154: ldloc.3
+   IL_0155: ldloc.1
+   IL_0156: sub
+   IL_0157: ldloc.s V_4
+   IL_0159: ldloc.2
+   IL_015a: sub
+   IL_015b: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0160: ret

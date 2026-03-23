@@ -1,0 +1,30 @@
+On: Celeste.Mod.DialogConsole.DialogConsoleModule.DialogHasHook(orig_Has,String,Language)
+   IL_0000: ldarg.0
+   IL_0001: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0006: brfalse.s IL_000a
+   IL_0008: ldc.i4.0
+   IL_0009: ret
+   IL_000a: ldarg.0
+   IL_000b: call System.String Celeste.Mod.Extensions::DialogKeyify(System.String)
+   IL_0010: starg.s name
+   IL_0012: ldarg.1
+   IL_0013: brtrue.s IL_001c
+   IL_0015: ldsfld Celeste.Language Celeste.Dialog::Language
+   IL_001a: starg.s language
+   IL_001c: ldarg.1
+   IL_001d: ldfld System.Collections.Generic.Dictionary`2<System.String,System.String> Celeste.Language::Dialog
+   IL_0022: ldarg.0
+   IL_0023: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.String>::ContainsKey(TKey)
+   IL_0028: brtrue.s IL_0045
+   IL_002a: ldarg.1
+   IL_002b: ldsfld Celeste.Language Celeste.Dialog::FallbackLanguage
+   IL_0030: beq.s IL_0043
+   IL_0032: ldsfld Celeste.Language Celeste.Dialog::FallbackLanguage
+   IL_0037: ldfld System.Collections.Generic.Dictionary`2<System.String,System.String> Celeste.Language::Dialog
+   IL_003c: ldarg.0
+   IL_003d: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.String>::ContainsKey(TKey)
+   IL_0042: ret
+   IL_0043: ldc.i4.0
+   IL_0044: ret
+   IL_0045: ldc.i4.1
+   IL_0046: ret

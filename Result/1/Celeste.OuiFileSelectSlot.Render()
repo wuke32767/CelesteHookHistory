@@ -1,0 +1,76 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modOuiFileSelectSlotRender(orig_Render,OuiFileSelectSlot)
+On: Celeste.Mod.HideStats.HideStatsModule.hideFileTime(orig_Render,OuiFileSelectSlot)
+On: Celeste.Mod.HardcoreMode.HMModule.On_OuiFileSelectSlot_Render(orig_Render,OuiFileSelectSlot)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.OuiFileSelectSlot::orig_Render()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Single Celeste.OuiFileSelectSlot::selectedEase
+   IL_000c: ldc.r4 0
+   IL_0011: ble.un IL_00bb
+   IL_0016: ldarg.0
+   IL_0017: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_001c: ldc.r4 0
+   IL_0021: ldc.r4 -150
+   IL_0026: ldc.r4 350
+   IL_002b: ldarg.0
+   IL_002c: ldfld System.Single Celeste.OuiFileSelectSlot::selectedEase
+   IL_0031: mul
+   IL_0032: add
+   IL_0033: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0038: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_003d: stloc.0
+   IL_003e: call System.Single Celeste.ActiveFont::get_LineHeight()
+   IL_0043: stloc.1
+   IL_0044: ldc.i4.0
+   IL_0045: stloc.2
+   IL_0046: br.s IL_00ad
+   IL_0048: ldarg.0
+   IL_0049: ldfld System.Collections.Generic.List`1<Celeste.OuiFileSelectSlot/Button> Celeste.OuiFileSelectSlot::buttons
+   IL_004e: ldloc.2
+   IL_004f: callvirt T System.Collections.Generic.List`1<Celeste.OuiFileSelectSlot/Button>::get_Item(System.Int32)
+   IL_0054: stloc.3
+   IL_0055: ldloc.3
+   IL_0056: ldarg.0
+   IL_0057: ldfld Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker Celeste.OuiFileSelectSlot::newGameLevelSetPicker
+   IL_005c: bne.un.s IL_0090
+   IL_005e: ldarg.0
+   IL_005f: ldfld Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker Celeste.OuiFileSelectSlot::newGameLevelSetPicker
+   IL_0064: ldloc.0
+   IL_0065: ldarg.0
+   IL_0066: ldfld System.Int32 Celeste.OuiFileSelectSlot::buttonIndex
+   IL_006b: ldloc.2
+   IL_006c: bne.un.s IL_0079
+   IL_006e: ldarg.0
+   IL_006f: ldfld System.Boolean Celeste.OuiFileSelectSlot::deleting
+   IL_0074: ldc.i4.0
+   IL_0075: ceq
+   IL_0077: br.s IL_007a
+   IL_0079: ldc.i4.0
+   IL_007a: ldarg.0
+   IL_007b: ldfld Monocle.Wiggler Celeste.OuiFileSelectSlot::wiggler
+   IL_0080: callvirt System.Single Monocle.Wiggler::get_Value()
+   IL_0085: ldc.r4 8
+   IL_008a: mul
+   IL_008b: callvirt System.Void Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker::Render(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Single)
+   IL_0090: ldloca.s V_0
+   IL_0092: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0097: dup
+   IL_0098: ldind.r4
+   IL_0099: ldloc.1
+   IL_009a: ldloc.3
+   IL_009b: ldfld System.Single Celeste.OuiFileSelectSlot/Button::Scale
+   IL_00a0: mul
+   IL_00a1: ldc.r4 15
+   IL_00a6: add
+   IL_00a7: add
+   IL_00a8: stind.r4
+   IL_00a9: ldloc.2
+   IL_00aa: ldc.i4.1
+   IL_00ab: add
+   IL_00ac: stloc.2
+   IL_00ad: ldloc.2
+   IL_00ae: ldarg.0
+   IL_00af: ldfld System.Collections.Generic.List`1<Celeste.OuiFileSelectSlot/Button> Celeste.OuiFileSelectSlot::buttons
+   IL_00b4: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiFileSelectSlot/Button>::get_Count()
+   IL_00b9: blt.s IL_0048
+   IL_00bb: ret

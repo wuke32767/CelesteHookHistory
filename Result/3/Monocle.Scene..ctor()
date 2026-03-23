@@ -1,0 +1,30 @@
+On: Celeste.Mod.Aqua.Rendering.RenderHook.Scene_Construct(orig_ctor,Scene)
+On: Celeste.Mod.GooberHelper.Extensions.SceneExtensions.patch_Scene_ctor(orig_ctor,Scene)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void System.Object::.ctor()
+   IL_0006: ldarg.0
+   IL_0007: newobj System.Void Monocle.Tracker::.ctor()
+   IL_000c: callvirt System.Void Monocle.Scene::set_Tracker(Monocle.Tracker)
+   IL_0011: ldarg.0
+   IL_0012: ldarg.0
+   IL_0013: newobj System.Void Monocle.EntityList::.ctor(Monocle.Scene)
+   IL_0018: callvirt System.Void Monocle.Scene::set_Entities(Monocle.EntityList)
+   IL_001d: ldarg.0
+   IL_001e: newobj System.Void Monocle.TagLists::.ctor()
+   IL_0023: callvirt System.Void Monocle.Scene::set_TagLists(Monocle.TagLists)
+   IL_0028: ldarg.0
+   IL_0029: ldarg.0
+   IL_002a: newobj System.Void Monocle.RendererList::.ctor(Monocle.Scene)
+   IL_002f: callvirt System.Void Monocle.Scene::set_RendererList(Monocle.RendererList)
+   IL_0034: ldarg.0
+   IL_0035: newobj System.Void System.Collections.Generic.Dictionary`2<System.Int32,System.Double>::.ctor()
+   IL_003a: stfld System.Collections.Generic.Dictionary`2<System.Int32,System.Double> Monocle.Scene::actualDepthLookup
+   IL_003f: ldarg.0
+   IL_0040: newobj System.Void Monocle.Entity::.ctor()
+   IL_0045: callvirt System.Void Monocle.Scene::set_HelperEntity(Monocle.Entity)
+   IL_004a: ldarg.0
+   IL_004b: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_0050: ldarg.0
+   IL_0051: callvirt Monocle.Entity Monocle.Scene::get_HelperEntity()
+   IL_0056: callvirt System.Void Monocle.EntityList::Add(Monocle.Entity)
+   IL_005b: ret

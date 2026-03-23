@@ -1,0 +1,84 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_CassetteBlockManagerAwake(orig_Awake,CassetteBlockManager,Scene)
+   IL_0000: ldarg.1
+   IL_0001: call Celeste.AreaData Celeste.AreaData::Get(Monocle.Scene)
+   IL_0006: stloc.0
+   IL_0007: ldloc.0
+   IL_0008: ldfld System.String Celeste.AreaData::CassetteSong
+   IL_000d: ldstr "-"
+   IL_0012: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0017: brtrue.s IL_0026
+   IL_0019: ldloc.0
+   IL_001a: ldfld System.String Celeste.AreaData::CassetteSong
+   IL_001f: call System.Boolean System.String::IsNullOrWhiteSpace(System.String)
+   IL_0024: brfalse.s IL_002d
+   IL_0026: ldloc.0
+   IL_0027: ldnull
+   IL_0028: stfld System.String Celeste.AreaData::CassetteSong
+   IL_002d: ldarg.0
+   IL_002e: ldarg.1
+   IL_002f: callvirt System.Void Celeste.CassetteBlockManager::orig_Awake(Monocle.Scene)
+   IL_0034: ldarg.0
+   IL_0035: ldc.i4.4
+   IL_0036: stfld System.Int32 Celeste.CassetteBlockManager::beatsPerTick
+   IL_003b: ldarg.0
+   IL_003c: ldc.i4.2
+   IL_003d: stfld System.Int32 Celeste.CassetteBlockManager::ticksPerSwap
+   IL_0042: ldarg.0
+   IL_0043: ldc.i4 256
+   IL_0048: stfld System.Int32 Celeste.CassetteBlockManager::beatIndexMax
+   IL_004d: ldloc.0
+   IL_004e: ldfld Celeste.Mod.Meta.MapMeta Celeste.AreaData::Meta
+   IL_0053: dup
+   IL_0054: brtrue.s IL_005a
+   IL_0056: pop
+   IL_0057: ldnull
+   IL_0058: br.s IL_005f
+   IL_005a: callvirt Celeste.Mod.Meta.MapMetaCassetteModifier Celeste.Mod.Meta.MapMeta::get_CassetteModifier()
+   IL_005f: stloc.1
+   IL_0060: ldloc.1
+   IL_0061: brfalse IL_00e6
+   IL_0066: ldloc.1
+   IL_0067: callvirt System.Boolean Celeste.Mod.Meta.MapMetaCassetteModifier::get_OldBehavior()
+   IL_006c: brfalse.s IL_0086
+   IL_006e: ldarg.0
+   IL_006f: ldloc.1
+   IL_0070: callvirt System.Single Celeste.Mod.Meta.MapMetaCassetteModifier::get_TempoMult()
+   IL_0075: stfld System.Single Celeste.CassetteBlockManager::tempoMult
+   IL_007a: ldarg.0
+   IL_007b: ldloc.1
+   IL_007c: callvirt System.Int32 Celeste.Mod.Meta.MapMetaCassetteModifier::get_Blocks()
+   IL_0081: stfld System.Int32 Celeste.CassetteBlockManager::maxBeat
+   IL_0086: ldarg.0
+   IL_0087: ldloc.1
+   IL_0088: callvirt System.Int32 Celeste.Mod.Meta.MapMetaCassetteModifier::get_LeadBeats()
+   IL_008d: stfld System.Int32 Celeste.CassetteBlockManager::leadBeats
+   IL_0092: ldarg.0
+   IL_0093: ldloc.1
+   IL_0094: callvirt System.Int32 Celeste.Mod.Meta.MapMetaCassetteModifier::get_BeatsPerTick()
+   IL_0099: stfld System.Int32 Celeste.CassetteBlockManager::beatsPerTick
+   IL_009e: ldarg.0
+   IL_009f: ldloc.1
+   IL_00a0: callvirt System.Int32 Celeste.Mod.Meta.MapMetaCassetteModifier::get_TicksPerSwap()
+   IL_00a5: stfld System.Int32 Celeste.CassetteBlockManager::ticksPerSwap
+   IL_00aa: ldarg.0
+   IL_00ab: ldloc.1
+   IL_00ac: callvirt System.Int32 Celeste.Mod.Meta.MapMetaCassetteModifier::get_BeatsMax()
+   IL_00b1: stfld System.Int32 Celeste.CassetteBlockManager::beatIndexMax
+   IL_00b6: ldarg.0
+   IL_00b7: ldloc.1
+   IL_00b8: callvirt System.Int32 Celeste.Mod.Meta.MapMetaCassetteModifier::get_BeatIndexOffset()
+   IL_00bd: stfld System.Int32 Celeste.CassetteBlockManager::beatIndexOffset
+   IL_00c2: ldloc.1
+   IL_00c3: callvirt System.Boolean Celeste.Mod.Meta.MapMetaCassetteModifier::get_ActiveDuringTransitions()
+   IL_00c8: brfalse.s IL_00e6
+   IL_00ca: ldarg.0
+   IL_00cb: call T Monocle.Entity::Get<Celeste.TransitionListener>()
+   IL_00d0: stloc.2
+   IL_00d1: ldloc.2
+   IL_00d2: brfalse.s IL_00e6
+   IL_00d4: ldloc.2
+   IL_00d5: ldarg.0
+   IL_00d6: ldftn System.Void Celeste.CassetteBlockManager::<Awake>b__15_0(System.Single)
+   IL_00dc: newobj System.Void System.Action`1<System.Single>::.ctor(System.Object,System.IntPtr)
+   IL_00e1: stfld System.Action`1<System.Single> Celeste.TransitionListener::OnOut
+   IL_00e6: ret

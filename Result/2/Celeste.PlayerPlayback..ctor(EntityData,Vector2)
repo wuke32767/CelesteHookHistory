@@ -1,0 +1,46 @@
+On: Celeste.Mod.StrawberryJam2021.TogglePlaybackHandler.PlayerPlayback_ctor_EntityData_Vector2(orig_ctor_EntityData_Vector2,PlayerPlayback,EntityData,Vector2)
+   IL_0000: ldarg.1
+   IL_0001: ldstr "tutorial"
+   IL_0006: ldstr ""
+   IL_000b: callvirt System.String Celeste.EntityData::Attr(System.String,System.String)
+   IL_0010: stloc.0
+   IL_0011: ldsfld System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<Celeste.Player/ChaserState>> Celeste.PlaybackData::Tutorials
+   IL_0016: ldloc.0
+   IL_0017: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<Celeste.Player/ChaserState>>::ContainsKey(TKey)
+   IL_001c: brfalse.s IL_0027
+   IL_001e: ldarg.0
+   IL_001f: ldarg.1
+   IL_0020: ldarg.2
+   IL_0021: callvirt System.Void Celeste.PlayerPlayback::orig_ctor(Celeste.EntityData,Microsoft.Xna.Framework.Vector2)
+   IL_0026: ret
+   IL_0027: ldstr "postcard_missingtutorial"
+   IL_002c: ldnull
+   IL_002d: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_0032: ldstr "((tutorial))"
+   IL_0037: ldloc.0
+   IL_0038: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_003d: stsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_0042: ldstr "PlayerPlayback"
+   IL_0047: stloc.1
+   IL_0048: ldloc.1
+   IL_0049: ldc.i4.s 26
+   IL_004b: ldc.i4.1
+   IL_004c: ldloc.1
+   IL_004d: ldloca.s V_3
+   IL_004f: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0054: stloc.2
+   IL_0055: ldloc.3
+   IL_0056: brfalse.s IL_0078
+   IL_0058: ldloca.s V_2
+   IL_005a: ldstr "Failed to load tutorial '"
+   IL_005f: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0064: ldloca.s V_2
+   IL_0066: ldloc.0
+   IL_0067: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_006c: ldloca.s V_2
+   IL_006e: ldstr "'"
+   IL_0073: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0078: ldloc.2
+   IL_0079: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_007e: newobj System.Void System.Collections.Generic.KeyNotFoundException::.ctor()
+   IL_0083: throw

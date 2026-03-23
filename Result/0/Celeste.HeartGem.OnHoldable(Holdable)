@@ -1,0 +1,20 @@
+On: Celeste.Mod.aonHelper.Entities.ResizableHeart.HeartGem_OnHoldable(orig_OnHoldable,HeartGem,Holdable)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000b: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0010: stloc.0
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Boolean Celeste.HeartGem::collected
+   IL_0017: brtrue.s IL_0031
+   IL_0019: ldloc.0
+   IL_001a: brfalse.s IL_0031
+   IL_001c: ldarg.1
+   IL_001d: ldarg.0
+   IL_001e: ldfld Celeste.HoldableCollider Celeste.HeartGem::holdableCollider
+   IL_0023: callvirt System.Boolean Celeste.Holdable::Dangerous(Celeste.HoldableCollider)
+   IL_0028: brfalse.s IL_0031
+   IL_002a: ldarg.0
+   IL_002b: ldloc.0
+   IL_002c: callvirt System.Void Celeste.HeartGem::Collect(Celeste.Player)
+   IL_0031: ret

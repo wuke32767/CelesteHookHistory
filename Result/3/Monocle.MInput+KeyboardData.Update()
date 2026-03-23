@@ -1,0 +1,9 @@
+On: ChaosEnsues.Entry.KeyboardData_Update(orig_Update,KeyboardData)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld Microsoft.Xna.Framework.Input.KeyboardState Monocle.MInput/KeyboardData::CurrentState
+   IL_0007: stfld Microsoft.Xna.Framework.Input.KeyboardState Monocle.MInput/KeyboardData::PreviousState
+   IL_000c: ldarg.0
+   IL_000d: call Microsoft.Xna.Framework.Input.KeyboardState Microsoft.Xna.Framework.Input.Keyboard::GetState()
+   IL_0012: stfld Microsoft.Xna.Framework.Input.KeyboardState Monocle.MInput/KeyboardData::CurrentState
+   IL_0017: ret

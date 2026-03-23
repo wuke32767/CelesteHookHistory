@@ -1,0 +1,71 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_StartMapFromBeginning(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.CoopHelper.CoopHelperModule.OnLevelLoaderStart(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.SkinModHelper.LoaderHook.on_LevelLoader_StartLevel(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.CommunalHelper.DashStates.SeekerDash.LevelLoader_StartLevel(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.LevelLoader_StartLevel(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.CollabUtils2.UI.ReturnToLobbyHelper.onLevelLoaderStartLevel(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.MaxHelpingHand.Triggers.SetBloomStrengthTrigger.onLevelStart(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule.checkExtendedCameraDynamics(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule.checkZoomOutHelperPrototype(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.ARandomizerMod.ARandomizerModModule.LevelStarted(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.MaymayHelper.Hooks.LevelLoader_StartLevel(orig_StartLevel,LevelLoader)
+On: Celeste.Mod.MapInfoDisplay.MapInfoDisplayModule.OnLevelLoaderStart(orig_StartLevel,LevelLoader)
+On: CelesteDeathTracker.DeathTrackerModule+<>c.<Load>b__11_0(orig_StartLevel,LevelLoader)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.1
+   IL_0002: stfld System.Boolean Celeste.LevelLoader::started
+   IL_0007: ldarg.0
+   IL_0008: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_000d: ldfld Celeste.Session Celeste.Level::Session
+   IL_0012: stloc.0
+   IL_0013: ldarg.0
+   IL_0014: ldflda System.Nullable`1<Celeste.Player/IntroTypes> Celeste.LevelLoader::PlayerIntroTypeOverride
+   IL_0019: call System.Boolean System.Nullable`1<Celeste.Player/IntroTypes>::get_HasValue()
+   IL_001e: brfalse.s IL_002e
+   IL_0020: ldarg.0
+   IL_0021: ldflda System.Nullable`1<Celeste.Player/IntroTypes> Celeste.LevelLoader::PlayerIntroTypeOverride
+   IL_0026: call T System.Nullable`1<Celeste.Player/IntroTypes>::get_Value()
+   IL_002b: stloc.1
+   IL_002c: br.s IL_006d
+   IL_002e: ldloc.0
+   IL_002f: ldfld System.Boolean Celeste.Session::FirstLevel
+   IL_0034: brfalse.s IL_006b
+   IL_0036: ldloc.0
+   IL_0037: ldfld System.Boolean Celeste.Session::StartedFromBeginning
+   IL_003c: brfalse.s IL_006b
+   IL_003e: ldloc.0
+   IL_003f: ldfld System.Boolean Celeste.Session::JustStarted
+   IL_0044: brfalse.s IL_006b
+   IL_0046: ldloc.0
+   IL_0047: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_004c: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_0051: ldc.i4.2
+   IL_0052: bne.un.s IL_0058
+   IL_0054: ldc.i4.2
+   IL_0055: stloc.1
+   IL_0056: br.s IL_006d
+   IL_0058: ldarg.0
+   IL_0059: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_005e: call Celeste.AreaData Celeste.AreaData::Get(Monocle.Scene)
+   IL_0063: ldfld Celeste.Player/IntroTypes Celeste.AreaData::IntroType
+   IL_0068: stloc.1
+   IL_0069: br.s IL_006d
+   IL_006b: ldc.i4.1
+   IL_006c: stloc.1
+   IL_006d: ldarg.0
+   IL_006e: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0073: ldloc.1
+   IL_0074: ldc.i4.1
+   IL_0075: callvirt System.Void Celeste.Level::LoadLevel(Celeste.Player/IntroTypes,System.Boolean)
+   IL_007a: ldarg.0
+   IL_007b: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0080: ldfld Celeste.Session Celeste.Level::Session
+   IL_0085: ldc.i4.0
+   IL_0086: stfld System.Boolean Celeste.Session::JustStarted
+   IL_008b: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0090: ldarg.0
+   IL_0091: bne.un.s IL_009e
+   IL_0093: ldarg.0
+   IL_0094: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0099: call System.Void Monocle.Engine::set_Scene(Monocle.Scene)
+   IL_009e: ret

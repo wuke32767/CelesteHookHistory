@@ -1,0 +1,27 @@
+On: Celeste.Mod.AdamsAddons.Entities.RegistryDecal.modMakeSolid(orig_MakeSolid_float_float_float_float_int_bool_bool,Decal,Single,Single,Single,Single,Int32,Boolean,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0006: ldarg.1
+   IL_0007: ldarg.2
+   IL_0008: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_000d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0012: ldarg.3
+   IL_0013: ldarg.s h
+   IL_0015: ldarg.s safe
+   IL_0017: newobj System.Void Celeste.Solid::.ctor(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Boolean)
+   IL_001c: dup
+   IL_001d: ldarg.s blockWaterfalls
+   IL_001f: stfld System.Boolean Celeste.Platform::BlockWaterfalls
+   IL_0024: dup
+   IL_0025: ldarg.s surfaceSoundIndex
+   IL_0027: stfld System.Int32 Celeste.Platform::SurfaceSoundIndex
+   IL_002c: stloc.0
+   IL_002d: ldarg.0
+   IL_002e: ldfld System.Collections.Generic.List`1<Celeste.Solid> Celeste.Decal::solids
+   IL_0033: ldloc.0
+   IL_0034: callvirt System.Void System.Collections.Generic.List`1<Celeste.Solid>::Add(T)
+   IL_0039: ldarg.0
+   IL_003a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_003f: ldloc.0
+   IL_0040: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0045: ret

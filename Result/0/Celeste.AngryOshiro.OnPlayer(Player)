@@ -1,0 +1,33 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomOshiroOnPlayer(orig_OnPlayer,AngryOshiro,Player)
+On: Celeste.Mod.CommunalHelper.DashStates.SeekerDash.AngryOshiro_OnPlayer(orig_OnPlayer,AngryOshiro,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.StateMachine Celeste.AngryOshiro::state
+   IL_0006: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_000b: ldc.i4.5
+   IL_000c: beq.s IL_005d
+   IL_000e: ldarg.0
+   IL_000f: call System.Single Monocle.Entity::get_CenterX()
+   IL_0014: ldarg.1
+   IL_0015: callvirt System.Single Monocle.Entity::get_CenterX()
+   IL_001a: ldc.r4 4
+   IL_001f: add
+   IL_0020: blt.s IL_0039
+   IL_0022: ldarg.0
+   IL_0023: ldfld Monocle.Sprite Celeste.AngryOshiro::Sprite
+   IL_0028: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_002d: ldstr "respawn"
+   IL_0032: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_0037: brfalse.s IL_005d
+   IL_0039: ldarg.1
+   IL_003a: ldarg.1
+   IL_003b: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0040: ldarg.0
+   IL_0041: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0046: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0050: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0055: ldc.i4.0
+   IL_0056: ldc.i4.1
+   IL_0057: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_005c: pop
+   IL_005d: ret

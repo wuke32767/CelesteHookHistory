@@ -1,0 +1,85 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0011: isinst Celeste.Overworld
+   IL_0016: stloc.0
+   IL_0017: ldarg.0
+   IL_0018: ldc.r4 20
+   IL_001d: stfld System.Single Celeste.Snow3D::Range
+   IL_0022: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0027: brfalse.s IL_0073
+   IL_0029: ldloc.0
+   IL_002a: brfalse.s IL_0073
+   IL_002c: ldloc.0
+   IL_002d: callvirt System.Boolean Celeste.Overworld::IsCurrent<Celeste.OuiChapterPanel>()
+   IL_0032: brtrue.s IL_003c
+   IL_0034: ldloc.0
+   IL_0035: callvirt System.Boolean Celeste.Overworld::IsCurrent<Celeste.OuiChapterSelect>()
+   IL_003a: brfalse.s IL_0073
+   IL_003c: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0041: ldflda Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_0046: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_004b: stloc.3
+   IL_004c: ldloc.3
+   IL_004d: brfalse.s IL_0057
+   IL_004f: ldloc.3
+   IL_0050: ldc.i4.2
+   IL_0051: beq.s IL_0057
+   IL_0053: ldloc.3
+   IL_0054: ldc.i4.8
+   IL_0055: bne.un.s IL_0064
+   IL_0057: ldarg.0
+   IL_0058: ldc.r4 3
+   IL_005d: stfld System.Single Celeste.Snow3D::Range
+   IL_0062: br.s IL_0073
+   IL_0064: ldloc.3
+   IL_0065: ldc.i4.1
+   IL_0066: bne.un.s IL_0073
+   IL_0068: ldarg.0
+   IL_0069: ldc.r4 12
+   IL_006e: stfld System.Single Celeste.Snow3D::Range
+   IL_0073: ldc.r4 0.98174775
+   IL_0078: call System.Int32 Monocle.Engine::get_Width()
+   IL_007d: conv.r4
+   IL_007e: call System.Int32 Monocle.Engine::get_Height()
+   IL_0083: conv.r4
+   IL_0084: div
+   IL_0085: ldc.r4 0.1
+   IL_008a: ldarg.0
+   IL_008b: ldfld System.Single Celeste.Snow3D::Range
+   IL_0090: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreatePerspectiveFieldOfView(System.Single,System.Single,System.Single,System.Single)
+   IL_0095: stloc.1
+   IL_0096: ldarg.0
+   IL_0097: ldfld Celeste.MountainModel Celeste.Snow3D::Model
+   IL_009c: ldflda Celeste.MountainCamera Celeste.MountainModel::Camera
+   IL_00a1: ldfld Microsoft.Xna.Framework.Vector3 Celeste.MountainCamera::Position
+   IL_00a6: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Vector3::op_UnaryNegation(Microsoft.Xna.Framework.Vector3)
+   IL_00ab: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateTranslation(Microsoft.Xna.Framework.Vector3)
+   IL_00b0: ldarg.0
+   IL_00b1: ldfld Celeste.MountainModel Celeste.Snow3D::Model
+   IL_00b6: ldflda Celeste.MountainCamera Celeste.MountainModel::Camera
+   IL_00bb: ldfld Microsoft.Xna.Framework.Quaternion Celeste.MountainCamera::Rotation
+   IL_00c0: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateFromQuaternion(Microsoft.Xna.Framework.Quaternion)
+   IL_00c5: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_00ca: ldloc.1
+   IL_00cb: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_00d0: stloc.2
+   IL_00d1: ldarg.0
+   IL_00d2: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00d7: ldc.r4 0.05
+   IL_00dc: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_00e1: brfalse.s IL_00ef
+   IL_00e3: ldarg.0
+   IL_00e4: ldfld Microsoft.Xna.Framework.BoundingFrustum Celeste.Snow3D::LastFrustum
+   IL_00e9: ldloc.2
+   IL_00ea: callvirt System.Void Microsoft.Xna.Framework.BoundingFrustum::set_Matrix(Microsoft.Xna.Framework.Matrix)
+   IL_00ef: ldarg.0
+   IL_00f0: ldfld Microsoft.Xna.Framework.BoundingFrustum Celeste.Snow3D::Frustum
+   IL_00f5: ldloc.2
+   IL_00f6: callvirt System.Void Microsoft.Xna.Framework.BoundingFrustum::set_Matrix(Microsoft.Xna.Framework.Matrix)
+   IL_00fb: ldarg.0
+   IL_00fc: call System.Void Monocle.Entity::Update()
+   IL_0101: ret

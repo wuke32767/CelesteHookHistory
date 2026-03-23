@@ -1,0 +1,20 @@
+On: VanillaTweaks.VanillaTweaksHooks.OuiFileSelectSlot_EnterFirstArea(orig_EnterFirstArea,OuiFileSelectSlot)
+On: Celeste.Mod.SpeedrunTool.DeathStatistics.DeathStatisticsManager.OuiFileSelectSlotOnEnterFirstArea(orig_EnterFirstArea,OuiFileSelectSlot)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.OuiFileSelect Celeste.OuiFileSelectSlot::fileSelect
+   IL_0006: callvirt Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_000b: ldfld Celeste.Maddy3D Celeste.Overworld::Maddy
+   IL_0010: ldc.i4.1
+   IL_0011: stfld System.Boolean Celeste.Maddy3D::Disabled
+   IL_0016: ldarg.0
+   IL_0017: ldfld Celeste.OuiFileSelect Celeste.OuiFileSelectSlot::fileSelect
+   IL_001c: callvirt Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_0021: ldc.i4.0
+   IL_0022: stfld System.Boolean Celeste.Overworld::ShowInputUI
+   IL_0027: ldarg.0
+   IL_0028: ldarg.0
+   IL_0029: callvirt System.Collections.IEnumerator Celeste.OuiFileSelectSlot::EnterFirstAreaRoutine()
+   IL_002e: ldc.i4.1
+   IL_002f: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0034: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0039: ret

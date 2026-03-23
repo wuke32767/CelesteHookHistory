@@ -1,0 +1,771 @@
+On: TAS.EverestInterop.AreaCompleteInfo.CustomEndScreenInfo(Action`5,Single,String,String,String,String)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldc.r4 0
+   IL_0007: ble.un.s IL_0018
+   IL_0009: ldsfld Celeste.Settings Celeste.Settings::Instance
+   IL_000e: ldfld Celeste.SpeedrunType Celeste.Settings::SpeedrunClock
+   IL_0013: ldc.i4.0
+   IL_0014: cgt.un
+   IL_0016: br.s IL_0019
+   IL_0018: ldc.i4.0
+   IL_0019: stloc.2
+   IL_001a: ldloc.2
+   IL_001b: brfalse IL_0148
+   IL_0020: nop
+   IL_0021: ldsfld System.Boolean Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::HideVanillaTimer
+   IL_0026: ldc.i4.0
+   IL_0027: ceq
+   IL_0029: stloc.3
+   IL_002a: ldloc.3
+   IL_002b: brfalse IL_0139
+   IL_0030: nop
+   IL_0031: ldloca.s V_4
+   IL_0033: ldc.r4 80
+   IL_0038: ldc.r4 300
+   IL_003d: ldc.r4 1
+   IL_0042: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0047: ldarg.0
+   IL_0048: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_004d: sub
+   IL_004e: mul
+   IL_004f: sub
+   IL_0050: ldc.r4 1000
+   IL_0055: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_005a: ldsfld Celeste.Settings Celeste.Settings::Instance
+   IL_005f: ldfld Celeste.SpeedrunType Celeste.Settings::SpeedrunClock
+   IL_0064: ldc.i4.1
+   IL_0065: ceq
+   IL_0067: stloc.s V_5
+   IL_0069: ldloc.s V_5
+   IL_006b: brfalse.s IL_008a
+   IL_006d: nop
+   IL_006e: ldloc.s V_4
+   IL_0070: ldarg.1
+   IL_0071: ldc.r4 1
+   IL_0076: ldc.i4.1
+   IL_0077: ldc.i4.0
+   IL_0078: ldc.i4.0
+   IL_0079: ldc.r4 1
+   IL_007e: call System.Void Celeste.SpeedrunTimerDisplay::DrawTime(Microsoft.Xna.Framework.Vector2,System.String,System.Single,System.Boolean,System.Boolean,System.Boolean,System.Single)
+   IL_0083: nop
+   IL_0084: nop
+   IL_0085: br IL_0138
+   IL_008a: nop
+   IL_008b: ldloca.s V_4
+   IL_008d: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0092: dup
+   IL_0093: ldind.r4
+   IL_0094: ldc.r4 16
+   IL_0099: sub
+   IL_009a: stind.r4
+   IL_009b: ldloc.s V_4
+   IL_009d: ldarg.2
+   IL_009e: ldc.r4 1
+   IL_00a3: ldc.i4.1
+   IL_00a4: ldc.i4.0
+   IL_00a5: ldc.i4.0
+   IL_00a6: ldc.r4 1
+   IL_00ab: call System.Void Celeste.SpeedrunTimerDisplay::DrawTime(Microsoft.Xna.Framework.Vector2,System.String,System.Single,System.Boolean,System.Boolean,System.Boolean,System.Single)
+   IL_00b0: nop
+   IL_00b1: ldarg.3
+   IL_00b2: ldloc.s V_4
+   IL_00b4: ldc.r4 0
+   IL_00b9: ldc.r4 40
+   IL_00be: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00c3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00c8: ldc.r4 0
+   IL_00cd: ldc.r4 1
+   IL_00d2: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00d7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00dc: ldc.r4 0.6
+   IL_00e1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00e6: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00eb: ldc.r4 2
+   IL_00f0: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_00f5: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00fa: nop
+   IL_00fb: ldloc.s V_4
+   IL_00fd: ldarg.3
+   IL_00fe: call Microsoft.Xna.Framework.Vector2 Celeste.ActiveFont::Measure(System.String)
+   IL_0103: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0108: ldc.r4 0.6
+   IL_010d: mul
+   IL_010e: ldc.r4 8
+   IL_0113: add
+   IL_0114: ldc.r4 40
+   IL_0119: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_011e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0123: ldarg.1
+   IL_0124: ldc.r4 0.6
+   IL_0129: ldc.i4.1
+   IL_012a: ldc.i4.0
+   IL_012b: ldc.i4.0
+   IL_012c: ldc.r4 1
+   IL_0131: call System.Void Celeste.SpeedrunTimerDisplay::DrawTime(Microsoft.Xna.Framework.Vector2,System.String,System.Single,System.Boolean,System.Boolean,System.Boolean,System.Single)
+   IL_0136: nop
+   IL_0137: nop
+   IL_0138: nop
+   IL_0139: ldarg.s versionText
+   IL_013b: ldarg.0
+   IL_013c: ldc.r4 1
+   IL_0141: call System.Void Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::VersionNumberAndVariants(System.String,System.Single,System.Single)
+   IL_0146: nop
+   IL_0147: nop
+   IL_0148: ldloca.s V_0
+   IL_014a: call System.Int32 Monocle.Engine::get_Width()
+   IL_014f: ldc.i4.2
+   IL_0150: div
+   IL_0151: conv.r4
+   IL_0152: call System.Int32 Monocle.Engine::get_Height()
+   IL_0157: conv.r4
+   IL_0158: ldc.r4 30
+   IL_015d: sub
+   IL_015e: ldc.r4 300
+   IL_0163: ldc.r4 1
+   IL_0168: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_016d: ldarg.0
+   IL_016e: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0173: sub
+   IL_0174: mul
+   IL_0175: add
+   IL_0176: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_017b: ldsfld System.Boolean Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ShowTime
+   IL_0180: brtrue.s IL_0192
+   IL_0182: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::Strawberries
+   IL_0187: ldc.i4.m1
+   IL_0188: bne.un.s IL_0192
+   IL_018a: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MaxStrawberries
+   IL_018f: ldc.i4.m1
+   IL_0190: beq.s IL_0195
+   IL_0192: ldc.i4.0
+   IL_0193: br.s IL_0197
+   IL_0195: ldc.i4.s 50
+   IL_0197: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercent
+   IL_019c: ldc.r4 -1
+   IL_01a1: bne.un.s IL_01af
+   IL_01a3: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercent
+   IL_01a8: ldc.r4 -1
+   IL_01ad: beq.s IL_01b2
+   IL_01af: ldc.i4.0
+   IL_01b0: br.s IL_01b4
+   IL_01b2: ldc.i4.s 50
+   IL_01b4: add
+   IL_01b5: conv.r4
+   IL_01b6: stloc.1
+   IL_01b7: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::SubText1
+   IL_01bc: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_01c1: ldc.i4.0
+   IL_01c2: ceq
+   IL_01c4: stloc.s V_6
+   IL_01c6: ldloc.s V_6
+   IL_01c8: brfalse.s IL_021c
+   IL_01ca: nop
+   IL_01cb: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::SubText1
+   IL_01d0: ldnull
+   IL_01d1: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_01d6: ldloc.0
+   IL_01d7: ldc.r4 0
+   IL_01dc: ldc.r4 175
+   IL_01e1: ldloc.1
+   IL_01e2: sub
+   IL_01e3: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01e8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01ed: ldc.r4 0.5
+   IL_01f2: ldc.r4 1
+   IL_01f7: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01fc: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0201: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::SubText1Color
+   IL_0206: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_020b: ldc.r4 2
+   IL_0210: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0215: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_021a: nop
+   IL_021b: nop
+   IL_021c: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::SubText2
+   IL_0221: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0226: ldc.i4.0
+   IL_0227: ceq
+   IL_0229: stloc.s V_7
+   IL_022b: ldloc.s V_7
+   IL_022d: brfalse.s IL_028b
+   IL_022f: nop
+   IL_0230: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::SubText2
+   IL_0235: ldnull
+   IL_0236: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_023b: ldloc.0
+   IL_023c: ldc.r4 0
+   IL_0241: ldc.r4 125
+   IL_0246: ldloc.1
+   IL_0247: sub
+   IL_0248: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_024d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0252: ldc.r4 0.5
+   IL_0257: ldc.r4 1
+   IL_025c: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0261: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0266: ldc.r4 0.6
+   IL_026b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0270: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::SubText2Color
+   IL_0275: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_027a: ldc.r4 2
+   IL_027f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0284: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0289: nop
+   IL_028a: nop
+   IL_028b: ldsfld System.Boolean Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ShowTime
+   IL_0290: brtrue.s IL_02aa
+   IL_0292: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::Strawberries
+   IL_0297: ldc.i4.m1
+   IL_0298: beq.s IL_02a7
+   IL_029a: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MaxStrawberries
+   IL_029f: ldc.i4.m1
+   IL_02a0: ceq
+   IL_02a2: ldc.i4.0
+   IL_02a3: ceq
+   IL_02a5: br.s IL_02a8
+   IL_02a7: ldc.i4.0
+   IL_02a8: br.s IL_02ab
+   IL_02aa: ldc.i4.1
+   IL_02ab: stloc.s V_8
+   IL_02ad: ldloc.s V_8
+   IL_02af: brfalse IL_07f5
+   IL_02b4: nop
+   IL_02b5: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercent
+   IL_02ba: ldc.r4 -1
+   IL_02bf: bne.un.s IL_02cd
+   IL_02c1: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercent
+   IL_02c6: ldc.r4 -1
+   IL_02cb: beq.s IL_02d0
+   IL_02cd: ldc.i4.0
+   IL_02ce: br.s IL_02d2
+   IL_02d0: ldc.i4.s 50
+   IL_02d2: conv.r4
+   IL_02d3: stloc.s V_9
+   IL_02d5: ldsfld Monocle.Atlas Celeste.MTN::Journal
+   IL_02da: ldstr "time"
+   IL_02df: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_02e4: stloc.s V_10
+   IL_02e6: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ClearTime
+   IL_02eb: ldc.r4 1
+   IL_02f0: call System.Single Celeste.SpeedrunTimerDisplay::GetTimeWidth(System.String,System.Single)
+   IL_02f5: ldc.r4 0.8
+   IL_02fa: mul
+   IL_02fb: stloc.s V_11
+   IL_02fd: ldloc.s V_10
+   IL_02ff: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_0304: conv.r4
+   IL_0305: stloc.s V_12
+   IL_0307: ldloc.s V_12
+   IL_0309: ldloc.s V_11
+   IL_030b: add
+   IL_030c: stloc.s V_13
+   IL_030e: ldsfld Monocle.Atlas Celeste.MTN::Journal
+   IL_0313: ldstr "strawberry"
+   IL_0318: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_031d: stloc.s V_14
+   IL_031f: ldsflda System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::Strawberries
+   IL_0324: call System.String System.Int32::ToString()
+   IL_0329: ldstr "/"
+   IL_032e: ldsflda System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MaxStrawberries
+   IL_0333: call System.String System.Int32::ToString()
+   IL_0338: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_033d: stloc.s V_15
+   IL_033f: ldloc.s V_14
+   IL_0341: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_0346: conv.r4
+   IL_0347: stloc.s V_16
+   IL_0349: ldloc.s V_15
+   IL_034b: call Microsoft.Xna.Framework.Vector2 Celeste.ActiveFont::Measure(System.String)
+   IL_0350: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0355: ldc.r4 0.8
+   IL_035a: mul
+   IL_035b: stloc.s V_17
+   IL_035d: ldloc.s V_16
+   IL_035f: ldloc.s V_17
+   IL_0361: add
+   IL_0362: stloc.s V_18
+   IL_0364: ldloca.s V_19
+   IL_0366: ldc.r4 15
+   IL_036b: ldc.r4 0
+   IL_0370: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0375: ldsfld System.Boolean Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ShowTime
+   IL_037a: brfalse.s IL_038e
+   IL_037c: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::Strawberries
+   IL_0381: ldc.i4.m1
+   IL_0382: bne.un.s IL_038e
+   IL_0384: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MaxStrawberries
+   IL_0389: ldc.i4.m1
+   IL_038a: ceq
+   IL_038c: br.s IL_038f
+   IL_038e: ldc.i4.0
+   IL_038f: stloc.s V_20
+   IL_0391: ldloc.s V_20
+   IL_0393: brfalse IL_046e
+   IL_0398: nop
+   IL_0399: ldloca.s V_19
+   IL_039b: ldc.r4 2
+   IL_03a0: ldc.r4 0
+   IL_03a5: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_03aa: ldloc.s V_10
+   IL_03ac: ldloc.0
+   IL_03ad: ldc.r4 0
+   IL_03b2: ldc.r4 75
+   IL_03b7: ldloc.s V_9
+   IL_03b9: sub
+   IL_03ba: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_03bf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03c4: ldloc.s V_13
+   IL_03c6: ldc.r4 2
+   IL_03cb: div
+   IL_03cc: ldc.r4 0
+   IL_03d1: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_03d6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03db: ldloc.s V_12
+   IL_03dd: ldc.r4 2
+   IL_03e2: div
+   IL_03e3: ldc.r4 0
+   IL_03e8: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_03ed: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03f2: ldloc.s V_19
+   IL_03f4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03f9: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_03fe: ldc.r4 1
+   IL_0403: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0408: nop
+   IL_0409: ldloc.0
+   IL_040a: ldc.r4 0
+   IL_040f: ldc.r4 50
+   IL_0414: ldloc.s V_9
+   IL_0416: sub
+   IL_0417: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_041c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0421: ldloc.s V_13
+   IL_0423: ldc.r4 2
+   IL_0428: div
+   IL_0429: ldc.r4 0
+   IL_042e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0433: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0438: ldloc.s V_12
+   IL_043a: ldc.r4 0
+   IL_043f: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0444: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0449: ldloc.s V_19
+   IL_044b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0450: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ClearTime
+   IL_0455: ldc.r4 0.8
+   IL_045a: ldc.i4.1
+   IL_045b: ldc.i4.0
+   IL_045c: ldc.i4.0
+   IL_045d: ldc.r4 1
+   IL_0462: call System.Void Celeste.SpeedrunTimerDisplay::DrawTime(Microsoft.Xna.Framework.Vector2,System.String,System.Single,System.Boolean,System.Boolean,System.Boolean,System.Single)
+   IL_0467: nop
+   IL_0468: nop
+   IL_0469: br IL_07f4
+   IL_046e: ldsfld System.Boolean Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ShowTime
+   IL_0473: brtrue.s IL_048a
+   IL_0475: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::Strawberries
+   IL_047a: ldc.i4.m1
+   IL_047b: beq.s IL_048a
+   IL_047d: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MaxStrawberries
+   IL_0482: ldc.i4.m1
+   IL_0483: ceq
+   IL_0485: ldc.i4.0
+   IL_0486: ceq
+   IL_0488: br.s IL_048b
+   IL_048a: ldc.i4.0
+   IL_048b: stloc.s V_21
+   IL_048d: ldloc.s V_21
+   IL_048f: brfalse IL_05a4
+   IL_0494: nop
+   IL_0495: ldloca.s V_19
+   IL_0497: ldc.r4 4
+   IL_049c: ldc.r4 0
+   IL_04a1: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04a6: ldloc.s V_14
+   IL_04a8: ldloc.0
+   IL_04a9: ldc.r4 0
+   IL_04ae: ldc.r4 75
+   IL_04b3: ldloc.s V_9
+   IL_04b5: sub
+   IL_04b6: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04bb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04c0: ldloc.s V_18
+   IL_04c2: ldc.r4 2
+   IL_04c7: div
+   IL_04c8: ldc.r4 0
+   IL_04cd: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04d2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04d7: ldloc.s V_16
+   IL_04d9: ldc.r4 2
+   IL_04de: div
+   IL_04df: ldc.r4 0
+   IL_04e4: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04e9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04ee: ldloc.s V_19
+   IL_04f0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04f5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_04fa: ldc.r4 1
+   IL_04ff: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0504: nop
+   IL_0505: ldloc.s V_15
+   IL_0507: ldloc.0
+   IL_0508: ldc.r4 0
+   IL_050d: ldc.r4 75
+   IL_0512: ldloc.s V_9
+   IL_0514: sub
+   IL_0515: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_051a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_051f: ldloc.s V_18
+   IL_0521: ldc.r4 2
+   IL_0526: div
+   IL_0527: ldc.r4 0
+   IL_052c: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0531: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0536: ldloc.s V_16
+   IL_0538: ldc.r4 0
+   IL_053d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0542: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0547: ldloc.s V_19
+   IL_0549: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_054e: ldc.r4 0
+   IL_0553: ldc.r4 0.5
+   IL_0558: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_055d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0562: ldc.r4 0.8
+   IL_0567: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_056c: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::Strawberries
+   IL_0571: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MaxStrawberries
+   IL_0576: blt.s IL_0584
+   IL_0578: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::StrawberriesMaxColor
+   IL_057d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0582: br.s IL_058e
+   IL_0584: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::StrawberriesColor
+   IL_0589: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_058e: ldc.r4 2
+   IL_0593: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0598: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_059d: nop
+   IL_059e: nop
+   IL_059f: br IL_07f4
+   IL_05a4: ldsfld System.Boolean Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ShowTime
+   IL_05a9: brfalse.s IL_05c0
+   IL_05ab: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::Strawberries
+   IL_05b0: ldc.i4.m1
+   IL_05b1: beq.s IL_05c0
+   IL_05b3: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MaxStrawberries
+   IL_05b8: ldc.i4.m1
+   IL_05b9: ceq
+   IL_05bb: ldc.i4.0
+   IL_05bc: ceq
+   IL_05be: br.s IL_05c1
+   IL_05c0: ldc.i4.0
+   IL_05c1: stloc.s V_22
+   IL_05c3: ldloc.s V_22
+   IL_05c5: brfalse IL_07f4
+   IL_05ca: nop
+   IL_05cb: ldloca.s V_19
+   IL_05cd: ldc.r4 2
+   IL_05d2: ldc.r4 0
+   IL_05d7: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_05dc: ldloc.s V_10
+   IL_05de: ldloc.0
+   IL_05df: ldc.r4 250
+   IL_05e4: ldc.r4 0
+   IL_05e9: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_05ee: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_05f3: ldc.r4 0
+   IL_05f8: ldc.r4 75
+   IL_05fd: ldloc.s V_9
+   IL_05ff: sub
+   IL_0600: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0605: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_060a: ldloc.s V_13
+   IL_060c: ldc.r4 2
+   IL_0611: div
+   IL_0612: ldc.r4 0
+   IL_0617: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_061c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0621: ldloc.s V_12
+   IL_0623: ldc.r4 2
+   IL_0628: div
+   IL_0629: ldc.r4 0
+   IL_062e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0633: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0638: ldloc.s V_19
+   IL_063a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_063f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0644: ldc.r4 1
+   IL_0649: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_064e: nop
+   IL_064f: ldloc.0
+   IL_0650: ldc.r4 250
+   IL_0655: ldc.r4 0
+   IL_065a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_065f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0664: ldc.r4 0
+   IL_0669: ldc.r4 50
+   IL_066e: ldloc.s V_9
+   IL_0670: sub
+   IL_0671: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0676: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_067b: ldloc.s V_13
+   IL_067d: ldc.r4 2
+   IL_0682: div
+   IL_0683: ldc.r4 0
+   IL_0688: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_068d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0692: ldloc.s V_12
+   IL_0694: ldc.r4 0
+   IL_0699: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_069e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_06a3: ldloc.s V_19
+   IL_06a5: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_06aa: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ClearTime
+   IL_06af: ldc.r4 0.8
+   IL_06b4: ldc.i4.1
+   IL_06b5: ldc.i4.0
+   IL_06b6: ldc.i4.0
+   IL_06b7: ldc.r4 1
+   IL_06bc: call System.Void Celeste.SpeedrunTimerDisplay::DrawTime(Microsoft.Xna.Framework.Vector2,System.String,System.Single,System.Boolean,System.Boolean,System.Boolean,System.Single)
+   IL_06c1: nop
+   IL_06c2: ldloca.s V_19
+   IL_06c4: ldc.r4 4
+   IL_06c9: ldc.r4 0
+   IL_06ce: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_06d3: ldloc.s V_14
+   IL_06d5: ldloc.0
+   IL_06d6: ldc.r4 250
+   IL_06db: ldc.r4 0
+   IL_06e0: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_06e5: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_06ea: ldc.r4 0
+   IL_06ef: ldc.r4 75
+   IL_06f4: ldloc.s V_9
+   IL_06f6: sub
+   IL_06f7: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_06fc: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0701: ldloc.s V_18
+   IL_0703: ldc.r4 2
+   IL_0708: div
+   IL_0709: ldc.r4 0
+   IL_070e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0713: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0718: ldloc.s V_16
+   IL_071a: ldc.r4 2
+   IL_071f: div
+   IL_0720: ldc.r4 0
+   IL_0725: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_072a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_072f: ldloc.s V_19
+   IL_0731: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0736: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_073b: ldc.r4 1
+   IL_0740: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0745: nop
+   IL_0746: ldloc.s V_15
+   IL_0748: ldloc.0
+   IL_0749: ldc.r4 250
+   IL_074e: ldc.r4 0
+   IL_0753: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0758: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_075d: ldc.r4 0
+   IL_0762: ldc.r4 75
+   IL_0767: ldloc.s V_9
+   IL_0769: sub
+   IL_076a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_076f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0774: ldloc.s V_18
+   IL_0776: ldc.r4 2
+   IL_077b: div
+   IL_077c: ldc.r4 0
+   IL_0781: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0786: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_078b: ldloc.s V_16
+   IL_078d: ldc.r4 0
+   IL_0792: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0797: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_079c: ldloc.s V_19
+   IL_079e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_07a3: ldc.r4 0
+   IL_07a8: ldc.r4 0.5
+   IL_07ad: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_07b2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_07b7: ldc.r4 0.8
+   IL_07bc: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_07c1: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::Strawberries
+   IL_07c6: ldsfld System.Int32 Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MaxStrawberries
+   IL_07cb: blt.s IL_07d9
+   IL_07cd: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::StrawberriesMaxColor
+   IL_07d2: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_07d7: br.s IL_07e3
+   IL_07d9: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::StrawberriesColor
+   IL_07de: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_07e3: ldc.r4 2
+   IL_07e8: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_07ed: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_07f2: nop
+   IL_07f3: nop
+   IL_07f4: nop
+   IL_07f5: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercent
+   IL_07fa: ldc.r4 -1
+   IL_07ff: beq.s IL_080f
+   IL_0801: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercent
+   IL_0806: ldc.r4 -1
+   IL_080b: ceq
+   IL_080d: br.s IL_0810
+   IL_080f: ldc.i4.0
+   IL_0810: stloc.s V_23
+   IL_0812: ldloc.s V_23
+   IL_0814: brfalse IL_0895
+   IL_0819: nop
+   IL_081a: ldstr "XaphanHelper_UI_itemsCollected"
+   IL_081f: ldnull
+   IL_0820: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0825: ldstr " "
+   IL_082a: ldsflda System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercent
+   IL_082f: call System.String NETCoreifier.FloatFormattingShims::Float_ToString(System.Single&)
+   IL_0834: ldstr " %"
+   IL_0839: call System.String System.String::Concat(System.String,System.String,System.String,System.String)
+   IL_083e: ldloc.0
+   IL_083f: ldc.r4 0.5
+   IL_0844: ldc.r4 1
+   IL_0849: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_084e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0853: ldc.r4 0.8
+   IL_0858: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_085d: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercent
+   IL_0862: ldc.r4 100
+   IL_0867: blt.s IL_0875
+   IL_0869: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercentMaxColor
+   IL_086e: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0873: br.s IL_087f
+   IL_0875: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercentColor
+   IL_087a: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_087f: ldc.r4 2
+   IL_0884: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0889: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_088e: nop
+   IL_088f: nop
+   IL_0890: br IL_0a73
+   IL_0895: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercent
+   IL_089a: ldc.r4 -1
+   IL_089f: bne.un.s IL_08b2
+   IL_08a1: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercent
+   IL_08a6: ldc.r4 -1
+   IL_08ab: ceq
+   IL_08ad: ldc.i4.0
+   IL_08ae: ceq
+   IL_08b0: br.s IL_08b3
+   IL_08b2: ldc.i4.0
+   IL_08b3: stloc.s V_24
+   IL_08b5: ldloc.s V_24
+   IL_08b7: brfalse IL_0938
+   IL_08bc: nop
+   IL_08bd: ldstr "XaphanHelper_UI_mapExplored"
+   IL_08c2: ldnull
+   IL_08c3: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_08c8: ldstr " "
+   IL_08cd: ldsflda System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercent
+   IL_08d2: call System.String NETCoreifier.FloatFormattingShims::Float_ToString(System.Single&)
+   IL_08d7: ldstr " %"
+   IL_08dc: call System.String System.String::Concat(System.String,System.String,System.String,System.String)
+   IL_08e1: ldloc.0
+   IL_08e2: ldc.r4 0.5
+   IL_08e7: ldc.r4 1
+   IL_08ec: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_08f1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_08f6: ldc.r4 0.8
+   IL_08fb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0900: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercent
+   IL_0905: ldc.r4 100
+   IL_090a: blt.s IL_0918
+   IL_090c: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercentMaxColor
+   IL_0911: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0916: br.s IL_0922
+   IL_0918: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercentColor
+   IL_091d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0922: ldc.r4 2
+   IL_0927: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_092c: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0931: nop
+   IL_0932: nop
+   IL_0933: br IL_0a73
+   IL_0938: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercent
+   IL_093d: ldc.r4 -1
+   IL_0942: beq.s IL_0955
+   IL_0944: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercent
+   IL_0949: ldc.r4 -1
+   IL_094e: ceq
+   IL_0950: ldc.i4.0
+   IL_0951: ceq
+   IL_0953: br.s IL_0956
+   IL_0955: ldc.i4.0
+   IL_0956: stloc.s V_25
+   IL_0958: ldloc.s V_25
+   IL_095a: brfalse IL_0a73
+   IL_095f: nop
+   IL_0960: ldstr "XaphanHelper_UI_itemsCollected"
+   IL_0965: ldnull
+   IL_0966: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_096b: ldstr " "
+   IL_0970: ldsflda System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercent
+   IL_0975: call System.String NETCoreifier.FloatFormattingShims::Float_ToString(System.Single&)
+   IL_097a: ldstr " %"
+   IL_097f: call System.String System.String::Concat(System.String,System.String,System.String,System.String)
+   IL_0984: ldloc.0
+   IL_0985: ldc.r4 250
+   IL_098a: ldc.r4 0
+   IL_098f: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0994: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0999: ldc.r4 0.5
+   IL_099e: ldc.r4 1
+   IL_09a3: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_09a8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_09ad: ldc.r4 0.8
+   IL_09b2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_09b7: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercent
+   IL_09bc: ldc.r4 100
+   IL_09c1: blt.s IL_09cf
+   IL_09c3: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercentMaxColor
+   IL_09c8: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_09cd: br.s IL_09d9
+   IL_09cf: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::ItemPercentColor
+   IL_09d4: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_09d9: ldc.r4 2
+   IL_09de: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_09e3: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_09e8: nop
+   IL_09e9: ldstr "XaphanHelper_UI_mapExplored"
+   IL_09ee: ldnull
+   IL_09ef: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_09f4: ldstr " "
+   IL_09f9: ldsflda System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercent
+   IL_09fe: call System.String NETCoreifier.FloatFormattingShims::Float_ToString(System.Single&)
+   IL_0a03: ldstr " %"
+   IL_0a08: call System.String System.String::Concat(System.String,System.String,System.String,System.String)
+   IL_0a0d: ldloc.0
+   IL_0a0e: ldc.r4 250
+   IL_0a13: ldc.r4 0
+   IL_0a18: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0a1d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0a22: ldc.r4 0.5
+   IL_0a27: ldc.r4 1
+   IL_0a2c: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0a31: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0a36: ldc.r4 0.8
+   IL_0a3b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0a40: ldsfld System.Single Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercent
+   IL_0a45: ldc.r4 100
+   IL_0a4a: blt.s IL_0a58
+   IL_0a4c: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercentMaxColor
+   IL_0a51: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0a56: br.s IL_0a62
+   IL_0a58: ldsfld System.String Celeste.Mod.XaphanHelper.UI_Elements.CustomEndScreen::MapPercentColor
+   IL_0a5d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0a62: ldc.r4 2
+   IL_0a67: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0a6c: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0a71: nop
+   IL_0a72: nop
+   IL_0a73: ret

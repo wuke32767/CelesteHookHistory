@@ -1,0 +1,210 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.ResettingRefill.OnUpdateHair(orig_UpdateHair,Player,Boolean)
+On: Celeste.Mod.Spirialis.TimePlayerSettings.CustomUpdateHair(orig_UpdateHair,Player,Boolean)
+On: Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerUpdateHairHook(orig_UpdateHair,Player,Boolean)
+On: SkinModHelper.Module.SkinModHelperModule.PlayerUpdateHairHook(orig_UpdateHair,Player,Boolean)
+On: BrokemiaHelper.TronState.Player_UpdateHair(orig_UpdateHair,Player,Boolean)
+IL: Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+IL: Celeste.Mod.JungleHelper.Entities.EnforceSkinController.patchSpriteModeChecks(ILContext)
+IL: FrostHelper.CustomFeather.modFeatherState(ILContext)
+IL: Celeste.Mod.SkinModHelper.PlayerSkinSystem.ilPlayerUpdateHairHook(ILContext)
+IL: Celeste.Mod.SkinModHelper.PlayerSkinSystem.patch_SpriteMode_Badeline(ILContext)
+IL: ExtendedVariants.Variants.DashCount.modUpdateHair(ILContext)
+IL: Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite.onUpdateHair(ILContext)
+ + IL_10000: ldarg.0 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10001: ldc.i4 0 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10002: ldc.i4 0 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+       => Invoke: Celeste.Mod.Procedurline.PlayerManager+<>c__DisplayClass11_0.<HairColorAccessModifier>b__1(Player)
+ + IL_10004: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10005: stloc V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0006: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_000b: ldc.i4.s 19
+ + IL_10006: ldarg.0 @ FrostHelper.CustomFeather.modFeatherState(ILContext)
+ + IL_10007: call System.Int32 FrostHelper.FrostModule::GetFeatherState(System.Int32,Celeste.Player) @ FrostHelper.CustomFeather.modFeatherState(ILContext)
+   IL_000d: bne.un.s IL_002d
+   IL_000f: ldarg.0
+   IL_0010: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0015: ldarg.0
+   IL_0016: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_001b: ldfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0020: stfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_0025: ldc.i4.0
+   IL_0026: starg.s applyGravity
+   IL_0028: br IL_0146
+   IL_002d: ldarg.0
+   IL_002e: ldfld System.Int32 Celeste.Player::Dashes
+ + IL_10008: ldarg.0 @ Celeste.Mod.SkinModHelper.PlayerSkinSystem.ilPlayerUpdateHairHook(ILContext)
+ + IL_10009: call System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem::<ilPlayerUpdateHairHook>g__ZaroDashesFlash|8_0(System.Boolean,Celeste.Player) @ Celeste.Mod.SkinModHelper.PlayerSkinSystem.ilPlayerUpdateHairHook(ILContext)
+   IL_0033: brtrue IL_00b4
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Int32 Celeste.Player::Dashes
+   IL_003e: ldarg.0
+   IL_003f: callvirt System.Int32 Celeste.Player::get_MaxDashes()
+ + IL_1000a: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite.onUpdateHair(ILContext)
+ + IL_1000b: call System.Int32 Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite::modDashCount(System.Int32,Celeste.Player) @ Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite.onUpdateHair(ILContext)
+   IL_0044: bge.s IL_00b4
+   IL_0046: ldarg.0
+   IL_0047: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_004c: callvirt Celeste.PlayerSpriteMode Celeste.PlayerSprite::get_Mode()
+ + IL_1000c: ldarg.0 @ Celeste.Mod.SkinModHelper.PlayerSkinSystem.patch_SpriteMode_Badeline(ILContext)
+ + IL_1000d: call Celeste.PlayerSpriteMode Celeste.Mod.SkinModHelper.PlayerSkinSystem::_patchSpriteMode_Bad(Celeste.PlayerSpriteMode,Celeste.Player) @ Celeste.Mod.SkinModHelper.PlayerSkinSystem.patch_SpriteMode_Badeline(ILContext)
+ + IL_1000e: call Celeste.PlayerSpriteMode Celeste.Mod.JungleHelper.Entities.EnforceSkinController::masqueradeAsBadeline(Celeste.PlayerSpriteMode) @ Celeste.Mod.JungleHelper.Entities.EnforceSkinController.patchSpriteModeChecks(ILContext)
+   IL_0051: ldc.i4.3
+   IL_0052: bne.un.s IL_0084
+   IL_0054: ldarg.0
+   IL_0055: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_005a: ldarg.0
+   IL_005b: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0060: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_0065: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::UsedBadelineHairColor
+ + IL_1000f: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10010: call System.Boolean System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_HasValue() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10011: brfalse.s IL_006a @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10012: pop @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10013: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10014: call T System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_Value() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10015: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.Procedurline.PlayerHairColorData::BadelineUsedColor @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+   IL_006a: ldc.r4 6
+   IL_006f: call System.Single Monocle.Engine::get_DeltaTime()
+ + IL_10016: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite.onUpdateHair(ILContext)
+ + IL_10017: call System.Single Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite::modLerp(System.Single,Celeste.Player) @ Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite.onUpdateHair(ILContext)
+   IL_0074: mul
+   IL_0075: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_007a: stfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_007f: br IL_0146
+   IL_0084: ldarg.0
+   IL_0085: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_008a: ldarg.0
+   IL_008b: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0090: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_0095: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::UsedHairColor
+ + IL_10018: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10019: call System.Boolean System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_HasValue() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1001a: brfalse.s IL_009a @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1001b: pop @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1001c: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1001d: call T System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_Value() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1001e: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.Procedurline.PlayerHairColorData::UsedColor @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+   IL_009a: ldc.r4 6
+   IL_009f: call System.Single Monocle.Engine::get_DeltaTime()
+ + IL_1001f: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite.onUpdateHair(ILContext)
+ + IL_10020: call System.Single Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite::modLerp(System.Single,Celeste.Player) @ Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite.onUpdateHair(ILContext)
+   IL_00a4: mul
+   IL_00a5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_00aa: stfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_00af: br IL_0146
+   IL_00b4: ldarg.0
+   IL_00b5: ldfld System.Int32 Celeste.Player::lastDashes
+   IL_00ba: ldarg.0
+   IL_00bb: ldfld System.Int32 Celeste.Player::Dashes
+   IL_00c0: beq.s IL_00d5
+   IL_00c2: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::FlashHairColor
+ + IL_10021: ldarg.0 @ Celeste.Mod.SkinModHelper.PlayerSkinSystem.ilPlayerUpdateHairHook(ILContext)
+ + IL_10022: call System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::<ilPlayerUpdateHairHook>g__HairFlashing|8_1(Celeste.Player) @ Celeste.Mod.SkinModHelper.PlayerSkinSystem.ilPlayerUpdateHairHook(ILContext)
+   IL_00c7: stloc.0
+   IL_00c8: ldarg.0
+   IL_00c9: ldc.r4 0.12
+   IL_00ce: stfld System.Single Celeste.Player::hairFlashTimer
+   IL_00d3: br.s IL_013a
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld System.Single Celeste.Player::hairFlashTimer
+   IL_00db: ldc.r4 0
+   IL_00e0: ble.un.s IL_00fc
+   IL_00e2: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::FlashHairColor
+ + IL_10023: ldarg.0 @ Celeste.Mod.SkinModHelper.PlayerSkinSystem.ilPlayerUpdateHairHook(ILContext)
+ + IL_10024: call System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::<ilPlayerUpdateHairHook>g__HairFlashing|8_1(Celeste.Player) @ Celeste.Mod.SkinModHelper.PlayerSkinSystem.ilPlayerUpdateHairHook(ILContext)
+   IL_00e7: stloc.0
+   IL_00e8: ldarg.0
+   IL_00e9: ldarg.0
+   IL_00ea: ldfld System.Single Celeste.Player::hairFlashTimer
+   IL_00ef: call System.Single Monocle.Engine::get_DeltaTime()
+ + IL_10025: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite.onUpdateHair(ILContext)
+ + IL_10026: call System.Single Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite::modLerp(System.Single,Celeste.Player) @ Celeste.Mod.MaxHelpingHand.Entities.MadelineSprite.onUpdateHair(ILContext)
+   IL_00f4: sub
+   IL_00f5: stfld System.Single Celeste.Player::hairFlashTimer
+   IL_00fa: br.s IL_013a
+   IL_00fc: ldarg.0
+   IL_00fd: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0102: callvirt Celeste.PlayerSpriteMode Celeste.PlayerSprite::get_Mode()
+ + IL_10027: call Celeste.PlayerSpriteMode Celeste.Mod.JungleHelper.Entities.EnforceSkinController::masqueradeAsBadeline(Celeste.PlayerSpriteMode) @ Celeste.Mod.JungleHelper.Entities.EnforceSkinController.patchSpriteModeChecks(ILContext)
+   IL_0107: ldc.i4.3
+   IL_0108: bne.un.s IL_0123
+   IL_010a: ldarg.0
+   IL_010b: ldfld System.Int32 Celeste.Player::Dashes
+   IL_0110: ldc.i4.2
+ + IL_10028: blt.s IL_011b @ ExtendedVariants.Variants.DashCount.modUpdateHair(ILContext)
+ - IL_0111: bne.un.s IL_011b @ ExtendedVariants.Variants.DashCount.modUpdateHair(ILContext)
+   IL_0113: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::TwoDashesBadelineHairColor
+ + IL_10029: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1002a: call System.Boolean System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_HasValue() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1002b: brfalse.s IL_0118 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1002c: pop @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1002d: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1002e: call T System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_Value() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1002f: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.Procedurline.PlayerHairColorData::BadelineTwoDashesColor @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+   IL_0118: stloc.0
+   IL_0119: br.s IL_013a
+   IL_011b: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::NormalBadelineHairColor
+ + IL_10030: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10031: call System.Boolean System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_HasValue() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10032: brfalse.s IL_0120 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10033: pop @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10034: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10035: call T System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_Value() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10036: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.Procedurline.PlayerHairColorData::BadelineNormalColor @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+   IL_0120: stloc.0
+   IL_0121: br.s IL_013a
+   IL_0123: ldarg.0
+   IL_0124: ldfld System.Int32 Celeste.Player::Dashes
+   IL_0129: ldc.i4.2
+ + IL_10037: blt.s IL_0134 @ ExtendedVariants.Variants.DashCount.modUpdateHair(ILContext)
+ - IL_012a: bne.un.s IL_0134 @ ExtendedVariants.Variants.DashCount.modUpdateHair(ILContext)
+   IL_012c: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::TwoDashesHairColor
+ + IL_10038: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10039: call System.Boolean System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_HasValue() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1003a: brfalse.s IL_0131 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1003b: pop @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1003c: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1003d: call T System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_Value() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_1003e: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.Procedurline.PlayerHairColorData::TwoDashesColor @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+   IL_0131: stloc.0
+   IL_0132: br.s IL_013a
+   IL_0134: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::NormalHairColor
+ + IL_1003f: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10040: call System.Boolean System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_HasValue() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10041: brfalse.s IL_0139 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10042: pop @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10043: ldloca V_1 @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10044: call T System.Nullable`1<Celeste.Mod.Procedurline.PlayerHairColorData>::get_Value() @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+ + IL_10045: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.Procedurline.PlayerHairColorData::NormalColor @ Celeste.Mod.Procedurline.PlayerManager.HairColorAccessModifier(ILContext)
+   IL_0139: stloc.0
+   IL_013a: ldarg.0
+   IL_013b: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0140: ldloc.0
+   IL_0141: stfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_0146: ldarg.0
+   IL_0147: ldflda System.Nullable`1<Microsoft.Xna.Framework.Color> Celeste.Player::OverrideHairColor
+   IL_014c: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Color>::get_HasValue()
+   IL_0151: brfalse.s IL_0169
+   IL_0153: ldarg.0
+   IL_0154: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0159: ldarg.0
+   IL_015a: ldflda System.Nullable`1<Microsoft.Xna.Framework.Color> Celeste.Player::OverrideHairColor
+   IL_015f: call T System.Nullable`1<Microsoft.Xna.Framework.Color>::get_Value()
+   IL_0164: stfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_0169: ldarg.0
+   IL_016a: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_016f: ldarg.0
+   IL_0170: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_0175: stfld Celeste.Facings Celeste.PlayerHair::Facing
+   IL_017a: ldarg.0
+   IL_017b: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0180: ldarg.1
+   IL_0181: stfld System.Boolean Celeste.PlayerHair::SimulateMotion
+   IL_0186: ldarg.0
+   IL_0187: ldarg.0
+   IL_0188: ldfld System.Int32 Celeste.Player::Dashes
+   IL_018d: stfld System.Int32 Celeste.Player::lastDashes
+   IL_0192: ret

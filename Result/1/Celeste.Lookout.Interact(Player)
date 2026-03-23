@@ -1,0 +1,48 @@
+On: Celeste.Mod.FemtoHelper.Entities.Monopticon.MonopticonInteractHook(orig_Interact,Lookout,Player)
+On: Celeste.Mod.SkinModHelper.ObjectsHook.on_Lookout_Interact(orig_Interact,Lookout,Player)
+On: Celeste.Mod.SpeedrunTool.Other.LookoutBuilder.LookoutOnInteract(orig_Interact,Lookout,Player)
+On: Celeste.Mod.PandorasBox.CloneSpawner.Lookout_Interact(orig_Interact,Lookout,Player)
+On: ExtendedVariants.Variants.BadelineChasersEverywhere.onWatchtowerInteract(orig_Interact,Lookout,Player)
+IL: FrostHelper.Entities.TasWatchtower.LookoutOnInteract(ILContext)
+   IL_0000: ldarg.1
+   IL_0001: ldfld Celeste.PlayerSpriteMode Celeste.Player::DefaultSpriteMode
+   IL_0006: ldc.i4.3
+   IL_0007: beq.s IL_001a
+   IL_0009: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_000e: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0013: ldfld System.Boolean Celeste.Assists::PlayAsBadeline
+   IL_0018: brfalse.s IL_0027
+   IL_001a: ldarg.0
+   IL_001b: ldstr "badeline_"
+   IL_0020: stfld System.String Celeste.Lookout::animPrefix
+   IL_0025: br.s IL_0048
+   IL_0027: ldarg.1
+   IL_0028: ldfld Celeste.PlayerSpriteMode Celeste.Player::DefaultSpriteMode
+   IL_002d: ldc.i4.1
+   IL_002e: bne.un.s IL_003d
+   IL_0030: ldarg.0
+   IL_0031: ldstr "nobackpack_"
+   IL_0036: stfld System.String Celeste.Lookout::animPrefix
+   IL_003b: br.s IL_0048
+   IL_003d: ldarg.0
+   IL_003e: ldstr ""
+   IL_0043: stfld System.String Celeste.Lookout::animPrefix
+   IL_0048: ldarg.0
+   IL_0049: ldarg.1
+   IL_004a: callvirt System.Collections.IEnumerator Celeste.Lookout::LookRoutine(Celeste.Player)
+ + IL_10000: ldarg.0 @ FrostHelper.Entities.TasWatchtower.LookoutOnInteract(ILContext)
+ + IL_10001: ldarg.1 @ FrostHelper.Entities.TasWatchtower.LookoutOnInteract(ILContext)
+ + IL_10002: call System.Collections.IEnumerator FrostHelper.Entities.TasWatchtower::ChangeInteract(System.Collections.IEnumerator,Celeste.Lookout,Celeste.Player) @ FrostHelper.Entities.TasWatchtower.LookoutOnInteract(ILContext)
+   IL_004f: ldc.i4.1
+   IL_0050: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0055: stloc.0
+   IL_0056: ldloc.0
+   IL_0057: ldc.i4.1
+   IL_0058: stfld System.Boolean Monocle.Coroutine::RemoveOnComplete
+   IL_005d: ldarg.0
+   IL_005e: ldloc.0
+   IL_005f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0064: ldarg.0
+   IL_0065: ldc.i4.1
+   IL_0066: stfld System.Boolean Celeste.Lookout::interacting
+   IL_006b: ret

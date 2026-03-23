@@ -1,0 +1,107 @@
+On: Celeste.Mod.Randomizer.RandoModule.AllowClutterSwitchPress_ZeroDash(orig_Update,ClutterSwitch)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Celeste.Solid::Update()
+   IL_0006: ldarg.0
+   IL_0007: call System.Boolean Celeste.Solid::HasPlayerOnTop()
+   IL_000c: brfalse IL_00a0
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Single Celeste.ClutterSwitch::speedY
+   IL_0017: ldc.r4 0
+   IL_001c: bge.un.s IL_0029
+   IL_001e: ldarg.0
+   IL_001f: ldc.r4 0
+   IL_0024: stfld System.Single Celeste.ClutterSwitch::speedY
+   IL_0029: ldarg.0
+   IL_002a: ldarg.0
+   IL_002b: ldfld System.Single Celeste.ClutterSwitch::speedY
+   IL_0030: ldc.r4 70
+   IL_0035: ldc.r4 200
+   IL_003a: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_003f: mul
+   IL_0040: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0045: stfld System.Single Celeste.ClutterSwitch::speedY
+   IL_004a: ldarg.0
+   IL_004b: ldarg.0
+   IL_004c: ldfld System.Single Celeste.ClutterSwitch::atY
+   IL_0051: ldarg.0
+   IL_0052: ldfld System.Boolean Celeste.ClutterSwitch::pressed
+   IL_0057: brtrue.s IL_005c
+   IL_0059: ldc.i4.4
+   IL_005a: br.s IL_005d
+   IL_005c: ldc.i4.2
+   IL_005d: conv.r4
+   IL_005e: add
+   IL_005f: ldarg.0
+   IL_0060: ldfld System.Single Celeste.ClutterSwitch::speedY
+   IL_0065: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_006a: mul
+   IL_006b: call System.Void Celeste.Platform::MoveTowardsY(System.Single,System.Single)
+   IL_0070: ldarg.0
+   IL_0071: ldc.r4 1.2
+   IL_0076: stfld System.Single Celeste.ClutterSwitch::targetXScale
+   IL_007b: ldarg.0
+   IL_007c: ldfld System.Boolean Celeste.ClutterSwitch::playerWasOnTop
+   IL_0081: brtrue.s IL_0094
+   IL_0083: ldstr "event:/game/03_resort/clutterswitch_squish"
+   IL_0088: ldarg.0
+   IL_0089: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_008e: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0093: pop
+   IL_0094: ldarg.0
+   IL_0095: ldc.i4.1
+   IL_0096: stfld System.Boolean Celeste.ClutterSwitch::playerWasOnTop
+   IL_009b: br IL_011d
+   IL_00a0: ldarg.0
+   IL_00a1: ldfld System.Single Celeste.ClutterSwitch::speedY
+   IL_00a6: ldc.r4 0
+   IL_00ab: ble.un.s IL_00b8
+   IL_00ad: ldarg.0
+   IL_00ae: ldc.r4 0
+   IL_00b3: stfld System.Single Celeste.ClutterSwitch::speedY
+   IL_00b8: ldarg.0
+   IL_00b9: ldarg.0
+   IL_00ba: ldfld System.Single Celeste.ClutterSwitch::speedY
+   IL_00bf: ldc.r4 -150
+   IL_00c4: ldc.r4 200
+   IL_00c9: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00ce: mul
+   IL_00cf: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_00d4: stfld System.Single Celeste.ClutterSwitch::speedY
+   IL_00d9: ldarg.0
+   IL_00da: ldarg.0
+   IL_00db: ldfld System.Single Celeste.ClutterSwitch::atY
+   IL_00e0: ldarg.0
+   IL_00e1: ldfld System.Single Celeste.ClutterSwitch::speedY
+   IL_00e6: neg
+   IL_00e7: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00ec: mul
+   IL_00ed: call System.Void Celeste.Platform::MoveTowardsY(System.Single,System.Single)
+   IL_00f2: ldarg.0
+   IL_00f3: ldc.r4 1
+   IL_00f8: stfld System.Single Celeste.ClutterSwitch::targetXScale
+   IL_00fd: ldarg.0
+   IL_00fe: ldfld System.Boolean Celeste.ClutterSwitch::playerWasOnTop
+   IL_0103: brfalse.s IL_0116
+   IL_0105: ldstr "event:/game/03_resort/clutterswitch_return"
+   IL_010a: ldarg.0
+   IL_010b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0110: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0115: pop
+   IL_0116: ldarg.0
+   IL_0117: ldc.i4.0
+   IL_0118: stfld System.Boolean Celeste.ClutterSwitch::playerWasOnTop
+   IL_011d: ldarg.0
+   IL_011e: ldfld Monocle.Sprite Celeste.ClutterSwitch::sprite
+   IL_0123: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0128: ldarg.0
+   IL_0129: ldfld Monocle.Sprite Celeste.ClutterSwitch::sprite
+   IL_012e: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0133: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0138: ldarg.0
+   IL_0139: ldfld System.Single Celeste.ClutterSwitch::targetXScale
+   IL_013e: ldc.r4 0.8
+   IL_0143: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0148: mul
+   IL_0149: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_014e: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0153: ret

@@ -1,0 +1,41 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: newobj System.Void MonoMod.Cil.ILCursor::.ctor(MonoMod.Cil.ILContext)
+   IL_0007: stloc.0
+   IL_0008: nop
+   IL_0009: nop
+   IL_000a: br.s IL_002d
+   IL_000c: nop
+   IL_000d: ldloc.0
+   IL_000e: ldsfld Mono.Cecil.Cil.OpCode Mono.Cecil.Cil.OpCodes::Ldarg_0
+   IL_0013: callvirt MonoMod.Cil.ILCursor MonoMod.Cil.ILCursor::Emit(Mono.Cecil.Cil.OpCode)
+   IL_0018: pop
+   IL_0019: ldloc.0
+   IL_001a: ldnull
+   IL_001b: ldftn Monocle.ParticleType Celeste.Mod.SkinModHelper.PlayerSkinSystem::<PlayerDashUpdateIlHook>g___pDashParticle|11_0(Monocle.ParticleType,Celeste.Player)
+   IL_0021: newobj System.Void System.Func`3<Monocle.ParticleType,Celeste.Player,Monocle.ParticleType>::.ctor(System.Object,System.IntPtr)
+   IL_0026: callvirt System.Int32 MonoMod.Cil.ILCursor::EmitDelegate<System.Func`3<Monocle.ParticleType,Celeste.Player,Monocle.ParticleType>>(T)
+   IL_002b: pop
+   IL_002c: nop
+   IL_002d: ldloc.0
+   IL_002e: ldc.i4.2
+   IL_002f: ldc.i4.1
+   IL_0030: newarr System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>
+   IL_0035: dup
+   IL_0036: ldc.i4.0
+   IL_0037: ldsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__11_1
+   IL_003c: dup
+   IL_003d: brtrue.s IL_0056
+   IL_003f: pop
+   IL_0040: ldsfld Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9
+   IL_0045: ldftn System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<PlayerDashUpdateIlHook>b__11_1(Mono.Cecil.Cil.Instruction)
+   IL_004b: newobj System.Void System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0050: dup
+   IL_0051: stsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__11_1
+   IL_0056: stelem.ref
+   IL_0057: callvirt System.Boolean MonoMod.Cil.ILCursor::TryGotoNext(MonoMod.Cil.MoveType,System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>[])
+   IL_005c: stloc.1
+   IL_005d: ldloc.1
+   IL_005e: brtrue.s IL_000c
+   IL_0060: ret

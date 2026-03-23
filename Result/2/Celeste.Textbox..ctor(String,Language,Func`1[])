@@ -1,0 +1,165 @@
+On: PrismaticHelper.Cutscenes.ParserHooks.AddPhEvents(orig_ctor_string_Language_Func1Array,Textbox,String,Language,Func`1[])
+On: Celeste.Mod.Randomizer.RandoModule.RandomizeTextboxText(orig_ctor_string_Language_Func1Array,Textbox,String,Language,Func`1[])
+On: Celeste.Mod.OzmasOddities.Controllers.SnapshotController.ModDialogSnapshot(orig_ctor_string_Language_Func1Array,Textbox,String,Language,Func`1[])
+On: BrokemiaHelper.PersistentMiniTextbox.Textbox_ctor(orig_ctor_string_Language_Func1Array,Textbox,String,Language,Func`1[])
+IL: LuckyHelper.Modules.DefaultTextboxPathHook.TextboxOnctor_string_Language_Func1Array(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldsfld Monocle.Atlas Celeste.GFX::Portraits
+   IL_0006: ldstr "textbox/default"
+ + IL_10000: ldc.i4 0 @ LuckyHelper.Modules.DefaultTextboxPathHook.TextboxOnctor_string_Language_Func1Array(ILContext)
+ + IL_10001: ldc.i4 0 @ LuckyHelper.Modules.DefaultTextboxPathHook.TextboxOnctor_string_Language_Func1Array(ILContext)
+ + IL_10002: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ LuckyHelper.Modules.DefaultTextboxPathHook.TextboxOnctor_string_Language_Func1Array(ILContext)
+       => Invoke: LuckyHelper.Modules.DefaultTextboxPathHook+<>c.<HookDefaultTextboxPath>b__6_1(String)
+ + IL_10003: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ LuckyHelper.Modules.DefaultTextboxPathHook.TextboxOnctor_string_Language_Func1Array(ILContext)
+   IL_000b: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0010: stfld Monocle.MTexture Celeste.Textbox::textbox
+   IL_0015: ldarg.0
+   IL_0016: ldc.i4.1
+   IL_0017: stfld System.Boolean Celeste.Textbox::canSkip
+   IL_001c: ldarg.0
+   IL_001d: ldnull
+   IL_001e: ldnull
+   IL_001f: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_0024: stfld Monocle.Sprite Celeste.Textbox::portraitSprite
+   IL_0029: ldarg.0
+   IL_002a: ldc.r4 1.5
+   IL_002f: stfld System.Single Celeste.Textbox::portraitScale
+   IL_0034: ldarg.0
+   IL_0035: newobj System.Void System.Collections.Generic.Dictionary`2<System.String,Celeste.SoundSource>::.ctor()
+   IL_003a: stfld System.Collections.Generic.Dictionary`2<System.String,Celeste.SoundSource> Celeste.Textbox::talkers
+   IL_003f: ldarg.0
+   IL_0040: call System.Void Monocle.Entity::.ctor()
+   IL_0045: ldarg.0
+   IL_0046: ldsfld Monocle.BitTag Celeste.Tags::PauseUpdate
+   IL_004b: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0050: ldsfld Monocle.BitTag Celeste.Tags::HUD
+   IL_0055: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_005a: or
+   IL_005b: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_0060: ldarg.0
+   IL_0061: ldc.i4.1
+   IL_0062: callvirt System.Void Celeste.Textbox::set_Opened(System.Boolean)
+   IL_0067: ldarg.0
+   IL_0068: ldsfld Celeste.Language Celeste.Dialog::Language
+   IL_006d: callvirt Monocle.PixelFont Celeste.Language::get_Font()
+   IL_0072: stfld Monocle.PixelFont Celeste.Textbox::font
+   IL_0077: ldarg.0
+   IL_0078: ldsfld Celeste.Language Celeste.Dialog::Language
+   IL_007d: callvirt Monocle.PixelFontSize Celeste.Language::get_FontSize()
+   IL_0082: ldfld System.Int32 Monocle.PixelFontSize::LineHeight
+   IL_0087: ldc.i4.1
+   IL_0088: sub
+   IL_0089: conv.r4
+   IL_008a: stfld System.Single Celeste.Textbox::lineHeight
+   IL_008f: ldarg.0
+   IL_0090: ldfld Monocle.Sprite Celeste.Textbox::portraitSprite
+   IL_0095: ldc.i4.1
+   IL_0096: stfld System.Boolean Monocle.Sprite::UseRawDeltaTime
+   IL_009b: ldarg.0
+   IL_009c: ldarg.0
+   IL_009d: ldc.r4 0.4
+   IL_00a2: ldc.r4 4
+   IL_00a7: ldnull
+   IL_00a8: ldc.i4.0
+   IL_00a9: ldc.i4.0
+   IL_00aa: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_00af: dup
+   IL_00b0: stloc.0
+   IL_00b1: stfld Monocle.Wiggler Celeste.Textbox::portraitWiggle
+   IL_00b6: ldloc.0
+   IL_00b7: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00bc: ldarg.0
+   IL_00bd: ldarg.3
+   IL_00be: stfld System.Func`1<System.Collections.IEnumerator>[] Celeste.Textbox::events
+   IL_00c3: ldarg.0
+   IL_00c4: ldc.r4 240
+   IL_00c9: ldarg.0
+   IL_00ca: ldfld System.Single Celeste.Textbox::lineHeight
+   IL_00cf: div
+   IL_00d0: conv.i4
+   IL_00d1: stfld System.Int32 Celeste.Textbox::linesPerPage
+   IL_00d6: ldarg.0
+   IL_00d7: ldc.r4 272
+   IL_00dc: ldarg.0
+   IL_00dd: ldfld System.Single Celeste.Textbox::lineHeight
+   IL_00e2: ldarg.0
+   IL_00e3: ldfld System.Int32 Celeste.Textbox::linesPerPage
+   IL_00e8: conv.r4
+   IL_00e9: mul
+   IL_00ea: sub
+   IL_00eb: ldc.r4 2
+   IL_00f0: div
+   IL_00f1: stfld System.Single Celeste.Textbox::innerTextPadding
+   IL_00f6: ldarg.0
+   IL_00f7: ldc.r4 1688
+   IL_00fc: ldarg.0
+   IL_00fd: ldfld System.Single Celeste.Textbox::innerTextPadding
+   IL_0102: ldc.r4 2
+   IL_0107: mul
+   IL_0108: sub
+   IL_0109: stfld System.Single Celeste.Textbox::maxLineWidthNoPortrait
+   IL_010e: ldarg.0
+   IL_010f: ldarg.0
+   IL_0110: ldfld System.Single Celeste.Textbox::maxLineWidthNoPortrait
+   IL_0115: ldc.r4 240
+   IL_011a: sub
+   IL_011b: ldc.r4 32
+   IL_0120: sub
+   IL_0121: stfld System.Single Celeste.Textbox::maxLineWidth
+   IL_0126: ldarg.0
+   IL_0127: ldarg.1
+   IL_0128: ldarg.2
+   IL_0129: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_012e: ldarg.0
+   IL_012f: ldfld System.Single Celeste.Textbox::maxLineWidth
+   IL_0134: conv.i4
+   IL_0135: ldarg.0
+   IL_0136: ldfld System.Int32 Celeste.Textbox::linesPerPage
+   IL_013b: ldc.r4 0
+   IL_0140: ldloca.s V_1
+   IL_0142: initobj System.Nullable`1<Microsoft.Xna.Framework.Color>
+   IL_0148: ldloc.1
+   IL_0149: ldarg.2
+   IL_014a: call Celeste.FancyText/Text Celeste.FancyText::Parse(System.String,System.Int32,System.Int32,System.Single,System.Nullable`1<Microsoft.Xna.Framework.Color>,Celeste.Language)
+   IL_014f: stfld Celeste.FancyText/Text Celeste.Textbox::text
+   IL_0154: ldarg.0
+   IL_0155: ldc.i4.0
+   IL_0156: stfld System.Int32 Celeste.Textbox::index
+   IL_015b: ldarg.0
+   IL_015c: ldc.i4.0
+   IL_015d: callvirt System.Void Celeste.Textbox::set_Start(System.Int32)
+   IL_0162: ldarg.0
+   IL_0163: ldarg.0
+   IL_0164: callvirt System.Collections.IEnumerator Celeste.Textbox::SkipDialog()
+   IL_0169: ldc.i4.1
+   IL_016a: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_016f: stfld Monocle.Coroutine Celeste.Textbox::skipRoutine
+   IL_0174: ldarg.0
+   IL_0175: ldarg.0
+   IL_0176: callvirt System.Collections.IEnumerator Celeste.Textbox::RunRoutine()
+   IL_017b: ldc.i4.1
+   IL_017c: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0181: stfld Monocle.Coroutine Celeste.Textbox::runRoutine
+   IL_0186: ldarg.0
+   IL_0187: ldfld Monocle.Coroutine Celeste.Textbox::runRoutine
+   IL_018c: ldc.i4.1
+   IL_018d: stfld System.Boolean Monocle.Coroutine::UseRawDeltaTime
+   IL_0192: ldsfld FMOD.Studio.EventInstance Celeste.Level::DialogSnapshot
+   IL_0197: ldnull
+   IL_0198: call System.Boolean FMOD.Studio.HandleBase::op_Equality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_019d: brfalse.s IL_01af
+   IL_019f: ldstr "snapshot:/dialogue_in_progress"
+   IL_01a4: ldc.i4.0
+   IL_01a5: call FMOD.Studio.EventInstance Celeste.Audio::CreateSnapshot(System.String,System.Boolean)
+   IL_01aa: stsfld FMOD.Studio.EventInstance Celeste.Level::DialogSnapshot
+   IL_01af: ldsfld FMOD.Studio.EventInstance Celeste.Level::DialogSnapshot
+   IL_01b4: call System.Void Celeste.Audio::ResumeSnapshot(FMOD.Studio.EventInstance)
+   IL_01b9: ldarg.0
+   IL_01ba: ldarg.0
+   IL_01bb: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_01c0: dup
+   IL_01c1: stloc.2
+   IL_01c2: stfld Celeste.SoundSource Celeste.Textbox::phonestatic
+   IL_01c7: ldloc.2
+   IL_01c8: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01cd: ret

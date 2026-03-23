@@ -1,0 +1,35 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.onPlayerDeadBodyRender(orig_Render,PlayerDeadBody)
+On: SkinModHelper.Module.SkinModHelperModule.PlayerDeadBodyRenderHook(orig_Render,PlayerDeadBody)
+On: Celeste.Mod.KyfexHelper.PlayerCloneRenderer.renderTwice(Action`1,Entity)
+On: Celeste.Mod.GooberHelper.Options.GeneralHooks.PlayerRender.patch_PlayerDeadBody_Render(orig_Render,PlayerDeadBody)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.DeathEffect Celeste.PlayerDeadBody::deathEffect
+   IL_0006: brtrue.s IL_0054
+   IL_0008: ldarg.0
+   IL_0009: ldfld Celeste.PlayerSprite Celeste.PlayerDeadBody::sprite
+   IL_000e: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0013: ldarg.0
+   IL_0014: ldfld Celeste.Facings Celeste.PlayerDeadBody::facing
+   IL_0019: conv.r4
+   IL_001a: ldarg.0
+   IL_001b: ldfld System.Single Celeste.PlayerDeadBody::scale
+   IL_0020: mul
+   IL_0021: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0026: ldarg.0
+   IL_0027: ldfld Celeste.PlayerSprite Celeste.PlayerDeadBody::sprite
+   IL_002c: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0031: ldarg.0
+   IL_0032: ldfld System.Single Celeste.PlayerDeadBody::scale
+   IL_0037: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_003c: ldarg.0
+   IL_003d: ldfld Celeste.PlayerHair Celeste.PlayerDeadBody::hair
+   IL_0042: ldarg.0
+   IL_0043: ldfld Celeste.Facings Celeste.PlayerDeadBody::facing
+   IL_0048: stfld Celeste.Facings Celeste.PlayerHair::Facing
+   IL_004d: ldarg.0
+   IL_004e: call System.Void Monocle.Entity::Render()
+   IL_0053: ret
+   IL_0054: ldarg.0
+   IL_0055: ldfld Celeste.DeathEffect Celeste.PlayerDeadBody::deathEffect
+   IL_005a: callvirt System.Void Monocle.Component::Render()
+   IL_005f: ret

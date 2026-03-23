@@ -1,0 +1,42 @@
+On: Celeste.Mod.EndHelper.Integration.ImGuiHelperIntegration.Engine_Update_Hook(Action`3,orig_Update,Engine,GameTime)
+   IL_0000: ldsfld Celeste.Mod.ImGuiHelper.ImGuiManager Celeste.Mod.ImGuiHelper.ImGuiHelperModule::imGuiManager
+   IL_0005: dup
+   IL_0006: brtrue.s IL_000c
+   IL_0008: pop
+   IL_0009: ldc.i4.0
+   IL_000a: br.s IL_0011
+   IL_000c: callvirt System.Boolean Celeste.Mod.ImGuiHelper.ImGuiManager::get_WantCaptureKeyboard()
+   IL_0011: stloc.0
+   IL_0012: ldloc.0
+   IL_0013: stsfld System.Boolean Monocle.MInput::Disabled
+   IL_0018: ldloc.0
+   IL_0019: ldc.i4.0
+   IL_001a: ceq
+   IL_001c: stsfld System.Boolean Monocle.MInput::Active
+   IL_0021: call Monocle.Commands Monocle.Engine::get_Commands()
+   IL_0026: ldloc.0
+   IL_0027: ldc.i4.0
+   IL_0028: ceq
+   IL_002a: stfld System.Boolean Monocle.Commands::Enabled
+   IL_002f: ldarg.0
+   IL_0030: ldarg.1
+   IL_0031: ldarg.2
+   IL_0032: callvirt System.Void On.Monocle.Engine/orig_Update::Invoke(Monocle.Engine,Microsoft.Xna.Framework.GameTime)
+   IL_0037: call Celeste.Mod.ImGuiHelper.ImGuiHelperModuleSettings Celeste.Mod.ImGuiHelper.ImGuiHelperModule::get_Settings()
+   IL_003c: callvirt Celeste.Mod.ButtonBinding Celeste.Mod.ImGuiHelper.ImGuiHelperModuleSettings::get_ToggleMouseCursor()
+   IL_0041: callvirt System.Boolean Celeste.Mod.ButtonBinding::get_Pressed()
+   IL_0046: brfalse.s IL_005f
+   IL_0048: call Monocle.Engine Monocle.Engine::get_Instance()
+   IL_004d: call Monocle.Engine Monocle.Engine::get_Instance()
+   IL_0052: callvirt System.Boolean Microsoft.Xna.Framework.Game::get_IsMouseVisible()
+   IL_0057: ldc.i4.0
+   IL_0058: ceq
+   IL_005a: callvirt System.Void Microsoft.Xna.Framework.Game::set_IsMouseVisible(System.Boolean)
+   IL_005f: ldsfld Celeste.Mod.ImGuiHelper.ImGuiManager Celeste.Mod.ImGuiHelper.ImGuiHelperModule::imGuiManager
+   IL_0064: dup
+   IL_0065: brtrue.s IL_0069
+   IL_0067: pop
+   IL_0068: ret
+   IL_0069: ldarg.2
+   IL_006a: callvirt System.Void Celeste.Mod.ImGuiHelper.ImGuiManager::UpdateHandlers(Microsoft.Xna.Framework.GameTime)
+   IL_006f: ret

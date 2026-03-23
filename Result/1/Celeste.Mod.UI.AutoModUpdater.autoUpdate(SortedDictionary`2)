@@ -1,0 +1,356 @@
+On: Celeste.Mod.Private_Headful.Private_HeadfulModule+<>c.<Load>b__22_1(Action`2,Object,Object)
+   IL_0000: ldc.i4.1
+   IL_0001: stloc.0
+   IL_0002: call System.String Celeste.Mod.Everest::get_PathGame()
+   IL_0007: ldstr "mod-update.zip"
+   IL_000c: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_0011: stloc.1
+   IL_0012: ldc.i4.0
+   IL_0013: stloc.2
+   IL_0014: ldc.i4.0
+   IL_0015: stloc.3
+   IL_0016: ldarg.1
+   IL_0017: callvirt System.Collections.Generic.SortedDictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.SortedDictionary`2<Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata>::get_Keys()
+   IL_001c: callvirt System.Collections.Generic.SortedDictionary`2/KeyCollection/Enumerator<TKey,TValue> System.Collections.Generic.SortedDictionary`2/KeyCollection<Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata>::GetEnumerator()
+   IL_0021: stloc.s V_4
+   IL_0023: br IL_0382
+   IL_0028: ldloca.s V_4
+   IL_002a: call TKey System.Collections.Generic.SortedDictionary`2/KeyCollection/Enumerator<Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata>::get_Current()
+   IL_002f: stloc.s V_5
+   IL_0031: newobj System.Void Celeste.Mod.UI.AutoModUpdater/<>c__DisplayClass15_0::.ctor()
+   IL_0036: stloc.s V_6
+   IL_0038: ldloc.s V_6
+   IL_003a: ldarg.0
+   IL_003b: stfld Celeste.Mod.UI.AutoModUpdater Celeste.Mod.UI.AutoModUpdater/<>c__DisplayClass15_0::<>4__this
+   IL_0040: ldloc.s V_6
+   IL_0042: ldc.i4.6
+   IL_0043: ldc.i4.4
+   IL_0044: newobj System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_0049: stloc.s V_7
+   IL_004b: ldloca.s V_7
+   IL_004d: ldstr "["
+   IL_0052: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0057: ldloca.s V_7
+   IL_0059: ldloc.0
+   IL_005a: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(T)
+   IL_005f: ldloca.s V_7
+   IL_0061: ldstr "/"
+   IL_0066: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_006b: ldloca.s V_7
+   IL_006d: ldarg.1
+   IL_006e: callvirt System.Int32 System.Collections.Generic.SortedDictionary`2<Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata>::get_Count()
+   IL_0073: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(T)
+   IL_0078: ldloca.s V_7
+   IL_007a: ldstr "] "
+   IL_007f: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0084: ldloca.s V_7
+   IL_0086: ldstr "AUTOUPDATECHECKER_UPDATING"
+   IL_008b: ldnull
+   IL_008c: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0091: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_0096: ldloca.s V_7
+   IL_0098: ldstr " "
+   IL_009d: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_00a2: ldloca.s V_7
+   IL_00a4: ldloc.s V_5
+   IL_00a6: callvirt System.String Celeste.Mod.Helpers.ModUpdateInfo::get_Name()
+   IL_00ab: call System.String Celeste.Mod.Helpers.ModUpdaterHelper::FormatModName(System.String)
+   IL_00b0: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_00b5: ldloca.s V_7
+   IL_00b7: ldstr ":"
+   IL_00bc: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_00c1: ldloca.s V_7
+   IL_00c3: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_00c8: stfld System.String Celeste.Mod.UI.AutoModUpdater/<>c__DisplayClass15_0::progressString
+   IL_00cd: ldarg.0
+   IL_00ce: ldc.i4.1
+   IL_00cf: stfld System.Boolean Celeste.Mod.UI.AutoModUpdater::showCancel
+   IL_00d4: ldarg.0
+   IL_00d5: ldloc.s V_6
+   IL_00d7: ldfld System.String Celeste.Mod.UI.AutoModUpdater/<>c__DisplayClass15_0::progressString
+   IL_00dc: ldstr " "
+   IL_00e1: ldstr "AUTOUPDATECHECKER_DOWNLOADING"
+   IL_00e6: ldnull
+   IL_00e7: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_00ec: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_00f1: stfld System.String Celeste.Mod.UI.AutoModUpdater::modUpdatingMessage
+   IL_00f6: ldstr "AutoModUpdater"
+   IL_00fb: stloc.s V_10
+   IL_00fd: ldloc.s V_10
+   IL_00ff: ldc.i4.s 16
+   IL_0101: ldc.i4.2
+   IL_0102: ldloc.s V_10
+   IL_0104: ldloca.s V_12
+   IL_0106: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_010b: stloc.s V_11
+   IL_010d: ldloc.s V_12
+   IL_010f: brfalse.s IL_013f
+   IL_0111: ldloca.s V_11
+   IL_0113: ldstr "Downloading "
+   IL_0118: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_011d: ldloca.s V_11
+   IL_011f: ldloc.s V_5
+   IL_0121: callvirt System.String Celeste.Mod.Helpers.ModUpdateInfo::get_URL()
+   IL_0126: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted(System.String)
+   IL_012b: ldloca.s V_11
+   IL_012d: ldstr " to "
+   IL_0132: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_0137: ldloca.s V_11
+   IL_0139: ldloc.1
+   IL_013a: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted(System.String)
+   IL_013f: ldloc.s V_11
+   IL_0141: call System.Void Celeste.Mod.Logger::Verbose(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>)
+   IL_0146: ldloc.s V_6
+   IL_0148: ldftn System.Boolean Celeste.Mod.UI.AutoModUpdater/<>c__DisplayClass15_0::<autoUpdate>b__0(System.Int32,System.Int64,System.Int32)
+   IL_014e: newobj System.Void System.Func`4<System.Int32,System.Int64,System.Int32,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0153: stloc.s V_8
+   IL_0155: ldnull
+   IL_0156: stloc.s V_9
+   IL_0158: ldloc.s V_5
+   IL_015a: callvirt System.String Celeste.Mod.Helpers.ModUpdateInfo::get_URL()
+   IL_015f: call System.Collections.IEnumerable Celeste.Mod.Helpers.ModUpdaterHelper::GetAllMirrorUrls(System.String)
+   IL_0164: callvirt System.Collections.IEnumerator System.Collections.IEnumerable::GetEnumerator()
+   IL_0169: stloc.s V_13
+   IL_016b: br IL_0288
+   IL_0170: ldloc.s V_13
+   IL_0172: callvirt System.Object System.Collections.IEnumerator::get_Current()
+   IL_0177: castclass System.String
+   IL_017c: stloc.s V_14
+   IL_017e: ldnull
+   IL_017f: stloc.s V_9
+   IL_0181: ldstr "AutoModUpdater"
+   IL_0186: stloc.s V_10
+   IL_0188: ldloc.s V_10
+   IL_018a: ldc.i4.s 17
+   IL_018c: ldc.i4.1
+   IL_018d: ldloc.s V_10
+   IL_018f: ldloca.s V_12
+   IL_0191: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0196: stloc.s V_15
+   IL_0198: ldloc.s V_12
+   IL_019a: brfalse.s IL_01b1
+   IL_019c: ldloca.s V_15
+   IL_019e: ldstr "Downloading from "
+   IL_01a3: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_01a8: ldloca.s V_15
+   IL_01aa: ldloc.s V_14
+   IL_01ac: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_01b1: ldloc.s V_15
+   IL_01b3: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_01b8: ldloc.s V_14
+   IL_01ba: ldloc.1
+   IL_01bb: ldloc.s V_8
+   IL_01bd: call System.Void Celeste.Mod.Everest/Updater::DownloadFileWithProgress(System.String,System.String,System.Func`4<System.Int32,System.Int64,System.Int32,System.Boolean>)
+   IL_01c2: ldarg.0
+   IL_01c3: ldfld System.Boolean Celeste.Mod.UI.AutoModUpdater::skipUpdate
+   IL_01c8: brfalse.s IL_01cf
+   IL_01ca: leave IL_0294
+   IL_01cf: ldarg.0
+   IL_01d0: ldloc.s V_6
+   IL_01d2: ldfld System.String Celeste.Mod.UI.AutoModUpdater/<>c__DisplayClass15_0::progressString
+   IL_01d7: ldstr " "
+   IL_01dc: ldstr "AUTOUPDATECHECKER_VERIFYING"
+   IL_01e1: ldnull
+   IL_01e2: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_01e7: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_01ec: stfld System.String Celeste.Mod.UI.AutoModUpdater::modUpdatingMessage
+   IL_01f1: ldloc.s V_5
+   IL_01f3: ldloc.1
+   IL_01f4: call System.Void Celeste.Mod.Helpers.ModUpdaterHelper::VerifyChecksum(Celeste.Mod.Helpers.ModUpdateInfo,System.String)
+   IL_01f9: leave IL_0294
+   IL_01fe: isinst System.Exception
+   IL_0203: dup
+   IL_0204: brtrue.s IL_020a
+   IL_0206: pop
+   IL_0207: ldc.i4.0
+   IL_0208: br.s IL_0234
+   IL_020a: stloc.s V_16
+   IL_020c: ldloc.s V_16
+   IL_020e: isinst System.Net.WebException
+   IL_0213: brtrue.s IL_0227
+   IL_0215: ldloc.s V_16
+   IL_0217: isinst System.TimeoutException
+   IL_021c: brtrue.s IL_0227
+   IL_021e: ldloc.s V_16
+   IL_0220: isinst System.IO.IOException
+   IL_0225: brfalse.s IL_022c
+   IL_0227: ldc.i4.1
+   IL_0228: stloc.s V_12
+   IL_022a: br.s IL_022f
+   IL_022c: ldc.i4.0
+   IL_022d: stloc.s V_12
+   IL_022f: ldloc.s V_12
+   IL_0231: ldc.i4.0
+   IL_0232: cgt.un
+   IL_0234: endfilter
+   IL_0236: pop
+   IL_0237: ldloc.s V_16
+   IL_0239: stloc.s V_9
+   IL_023b: ldstr "AutoModUpdater"
+   IL_0240: stloc.s V_10
+   IL_0242: ldloc.s V_10
+   IL_0244: ldc.i4.s 44
+   IL_0246: ldc.i4.1
+   IL_0247: ldloc.s V_10
+   IL_0249: ldloca.s V_17
+   IL_024b: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0250: stloc.s V_15
+   IL_0252: ldloc.s V_17
+   IL_0254: brfalse.s IL_0277
+   IL_0256: ldloca.s V_15
+   IL_0258: ldstr "Download from "
+   IL_025d: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0262: ldloca.s V_15
+   IL_0264: ldloc.s V_14
+   IL_0266: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_026b: ldloca.s V_15
+   IL_026d: ldstr " failed, trying another mirror"
+   IL_0272: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0277: ldloc.s V_15
+   IL_0279: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_027e: ldloc.s V_16
+   IL_0280: ldnull
+   IL_0281: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_0286: leave.s IL_0288
+   IL_0288: ldloc.s V_13
+   IL_028a: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_028f: brtrue IL_0170
+   IL_0294: leave.s IL_02ab
+   IL_0296: ldloc.s V_13
+   IL_0298: isinst System.IDisposable
+   IL_029d: stloc.s V_18
+   IL_029f: ldloc.s V_18
+   IL_02a1: brfalse.s IL_02aa
+   IL_02a3: ldloc.s V_18
+   IL_02a5: callvirt System.Void System.IDisposable::Dispose()
+   IL_02aa: endfinally
+   IL_02ab: ldloc.s V_9
+   IL_02ad: brfalse.s IL_02b8
+   IL_02af: ldloc.1
+   IL_02b0: call System.Void Celeste.Mod.Helpers.ModUpdaterHelper::TryDelete(System.String)
+   IL_02b5: ldloc.s V_9
+   IL_02b7: throw
+   IL_02b8: ldarg.0
+   IL_02b9: ldc.i4.0
+   IL_02ba: stfld System.Boolean Celeste.Mod.UI.AutoModUpdater::showCancel
+   IL_02bf: ldarg.0
+   IL_02c0: ldfld System.Boolean Celeste.Mod.UI.AutoModUpdater::skipUpdate
+   IL_02c5: brfalse.s IL_02f0
+   IL_02c7: ldstr "AutoModUpdater"
+   IL_02cc: ldstr "Update was skipped"
+   IL_02d1: call System.Void Celeste.Mod.Logger::Verbose(System.String,System.String)
+   IL_02d6: ldloc.1
+   IL_02d7: call System.Void Celeste.Mod.Helpers.ModUpdaterHelper::TryDelete(System.String)
+   IL_02dc: ldloc.2
+   IL_02dd: brfalse.s IL_02e4
+   IL_02df: leave IL_039e
+   IL_02e4: ldarg.0
+   IL_02e5: ldc.i4.1
+   IL_02e6: stfld System.Boolean Celeste.Mod.UI.AutoModUpdater::shouldContinue
+   IL_02eb: leave IL_0421
+   IL_02f0: ldc.i4.1
+   IL_02f1: stloc.2
+   IL_02f2: ldarg.0
+   IL_02f3: ldloc.s V_6
+   IL_02f5: ldfld System.String Celeste.Mod.UI.AutoModUpdater/<>c__DisplayClass15_0::progressString
+   IL_02fa: ldstr " "
+   IL_02ff: ldstr "AUTOUPDATECHECKER_INSTALLING"
+   IL_0304: ldnull
+   IL_0305: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_030a: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_030f: stfld System.String Celeste.Mod.UI.AutoModUpdater::modUpdatingMessage
+   IL_0314: ldloc.s V_5
+   IL_0316: ldarg.1
+   IL_0317: ldloc.s V_5
+   IL_0319: callvirt TValue System.Collections.Generic.SortedDictionary`2<Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata>::get_Item(TKey)
+   IL_031e: ldloc.1
+   IL_031f: call System.Void Celeste.Mod.Helpers.ModUpdaterHelper::InstallModUpdate(Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata,System.String)
+   IL_0324: leave.s IL_037e
+   IL_0326: ldstr "AutoModUpdater"
+   IL_032b: stloc.s V_10
+   IL_032d: ldloc.s V_10
+   IL_032f: ldc.i4.s 16
+   IL_0331: ldc.i4.1
+   IL_0332: ldloc.s V_10
+   IL_0334: ldloca.s V_17
+   IL_0336: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_033b: stloc.s V_15
+   IL_033d: ldloc.s V_17
+   IL_033f: brfalse.s IL_0367
+   IL_0341: ldloca.s V_15
+   IL_0343: ldstr "Updating "
+   IL_0348: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_034d: ldloca.s V_15
+   IL_034f: ldloc.s V_5
+   IL_0351: callvirt System.String Celeste.Mod.Helpers.ModUpdateInfo::get_Name()
+   IL_0356: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_035b: ldloca.s V_15
+   IL_035d: ldstr " failed"
+   IL_0362: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0367: ldloc.s V_15
+   IL_0369: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_036e: ldnull
+   IL_036f: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_0374: ldc.i4.1
+   IL_0375: stloc.3
+   IL_0376: ldloc.1
+   IL_0377: call System.Void Celeste.Mod.Helpers.ModUpdaterHelper::TryDelete(System.String)
+   IL_037c: leave.s IL_039e
+   IL_037e: ldloc.0
+   IL_037f: ldc.i4.1
+   IL_0380: add
+   IL_0381: stloc.0
+   IL_0382: ldloca.s V_4
+   IL_0384: call System.Boolean System.Collections.Generic.SortedDictionary`2/KeyCollection/Enumerator<Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata>::MoveNext()
+   IL_0389: brtrue IL_0028
+   IL_038e: leave.s IL_039e
+   IL_0390: ldloca.s V_4
+   IL_0392: constrained. System.Collections.Generic.SortedDictionary`2/KeyCollection/Enumerator<Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata>
+   IL_0398: callvirt System.Void System.IDisposable::Dispose()
+   IL_039d: endfinally
+   IL_039e: ldarg.0
+   IL_039f: ldc.i4.0
+   IL_03a0: stfld System.Boolean Celeste.Mod.UI.AutoModUpdater::showCancel
+   IL_03a5: ldloc.3
+   IL_03a6: brtrue.s IL_03c9
+   IL_03a8: ldarg.0
+   IL_03a9: ldstr "DEPENDENCYDOWNLOADER_RESTARTING"
+   IL_03ae: ldnull
+   IL_03af: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_03b4: stfld System.String Celeste.Mod.UI.AutoModUpdater::modUpdatingMessage
+   IL_03b9: ldc.i4 1000
+   IL_03be: call System.Void System.Threading.Thread::Sleep(System.Int32)
+   IL_03c3: call System.Void Celeste.Mod.Everest::QuickFullRestart()
+   IL_03c8: ret
+   IL_03c9: ldarg.0
+   IL_03ca: ldstr "AUTOUPDATECHECKER_FAILED"
+   IL_03cf: ldnull
+   IL_03d0: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_03d5: stfld System.String Celeste.Mod.UI.AutoModUpdater::modUpdatingMessage
+   IL_03da: ldarg.0
+   IL_03db: ldc.i4.0
+   IL_03dc: stfld System.Boolean Celeste.Mod.UI.AutoModUpdater::cogwheelSpinning
+   IL_03e1: ldarg.0
+   IL_03e2: ldarg.0
+   IL_03e3: ldfld System.Single Monocle.Scene::RawTimeActive
+   IL_03e8: stfld System.Single Celeste.Mod.UI.AutoModUpdater::cogwheelStopTime
+   IL_03ed: ldloc.2
+   IL_03ee: brfalse.s IL_0409
+   IL_03f0: ldarg.0
+   IL_03f1: ldstr "AUTOUPDATECHECKER_REBOOT"
+   IL_03f6: ldnull
+   IL_03f7: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_03fc: stfld System.String Celeste.Mod.UI.AutoModUpdater::modUpdatingSubMessage
+   IL_0401: ldarg.0
+   IL_0402: ldc.i4.1
+   IL_0403: stfld System.Boolean Celeste.Mod.UI.AutoModUpdater::confirmToRestart
+   IL_0408: ret
+   IL_0409: ldarg.0
+   IL_040a: ldstr "AUTOUPDATECHECKER_CONTINUE"
+   IL_040f: ldnull
+   IL_0410: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0415: stfld System.String Celeste.Mod.UI.AutoModUpdater::modUpdatingSubMessage
+   IL_041a: ldarg.0
+   IL_041b: ldc.i4.1
+   IL_041c: stfld System.Boolean Celeste.Mod.UI.AutoModUpdater::confirmToContinue
+   IL_0421: ret

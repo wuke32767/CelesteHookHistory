@@ -1,0 +1,68 @@
+On: TAS.EverestInterop.SimplifiedGraphicsFeature.BoltOnRender(orig_Render,Object)
+On: Celeste.Mod.FewerVisualDistractions.Patches.FarewellTweaker.Bolt_Render(orig_Render,Object)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Single Celeste.LightningRenderer/Bolt::flash
+   IL_0006: ldc.r4 0
+   IL_000b: ble.un.s IL_005b
+   IL_000d: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0012: call System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_AllowLightning()
+   IL_0017: brfalse.s IL_005b
+   IL_0019: ldc.r4 0
+   IL_001e: ldc.r4 0
+   IL_0023: ldarg.0
+   IL_0024: ldfld System.Int32 Celeste.LightningRenderer/Bolt::width
+   IL_0029: conv.r4
+   IL_002a: ldarg.0
+   IL_002b: ldfld System.Int32 Celeste.LightningRenderer/Bolt::height
+   IL_0030: conv.r4
+   IL_0031: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0036: ldarg.0
+   IL_0037: ldfld System.Single Celeste.LightningRenderer/Bolt::flash
+   IL_003c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0041: ldc.r4 0.15
+   IL_0046: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_004b: ldarg.0
+   IL_004c: ldfld System.Single Celeste.LightningRenderer/Bolt::scale
+   IL_0051: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0056: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_005b: ldarg.0
+   IL_005c: ldfld System.Boolean Celeste.LightningRenderer/Bolt::visible
+   IL_0061: brfalse.s IL_00c2
+   IL_0063: ldc.i4.0
+   IL_0064: stloc.0
+   IL_0065: br.s IL_00b4
+   IL_0067: ldarg.0
+   IL_0068: ldfld System.UInt32 Celeste.LightningRenderer/Bolt::seed
+   IL_006d: ldarg.0
+   IL_006e: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.LightningRenderer/Bolt::nodes
+   IL_0073: ldloc.0
+   IL_0074: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_0079: ldarg.0
+   IL_007a: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.LightningRenderer/Bolt::nodes
+   IL_007f: ldloc.0
+   IL_0080: ldc.i4.1
+   IL_0081: add
+   IL_0082: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_0087: ldarg.0
+   IL_0088: ldfld System.Single Celeste.LightningRenderer/Bolt::size
+   IL_008d: ldarg.0
+   IL_008e: ldfld System.Single Celeste.LightningRenderer/Bolt::scale
+   IL_0093: mul
+   IL_0094: ldarg.0
+   IL_0095: ldfld System.Single Celeste.LightningRenderer/Bolt::gap
+   IL_009a: ldarg.0
+   IL_009b: ldfld Microsoft.Xna.Framework.Color Celeste.LightningRenderer/Bolt::color
+   IL_00a0: ldarg.0
+   IL_00a1: ldfld System.Single Celeste.LightningRenderer/Bolt::alpha
+   IL_00a6: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00ab: call System.Void Celeste.LightningRenderer::DrawFatLightning(System.UInt32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00b0: ldloc.0
+   IL_00b1: ldc.i4.2
+   IL_00b2: add
+   IL_00b3: stloc.0
+   IL_00b4: ldloc.0
+   IL_00b5: ldarg.0
+   IL_00b6: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.LightningRenderer/Bolt::nodes
+   IL_00bb: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Count()
+   IL_00c0: blt.s IL_0067
+   IL_00c2: ret

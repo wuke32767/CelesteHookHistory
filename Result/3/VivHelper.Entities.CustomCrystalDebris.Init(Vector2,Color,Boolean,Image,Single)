@@ -1,0 +1,85 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: ldarg position @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0004: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0009: nop
+   IL_000a: ldarg.0
+   IL_000b: ldarg.1
+   IL_000c: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0011: ldarg.0
+   IL_0012: ldfld Monocle.Image VivHelper.Entities.CustomCrystalDebris::image
+   IL_0017: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_001c: ldnull
+   IL_001d: cgt.un
+   IL_001f: stloc.0
+   IL_0020: ldloc.0
+   IL_0021: brfalse.s IL_0030
+   IL_0023: ldarg.0
+   IL_0024: ldarg.0
+   IL_0025: ldfld Monocle.Image VivHelper.Entities.CustomCrystalDebris::image
+   IL_002a: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_002f: nop
+   IL_0030: ldarg.0
+   IL_0031: ldarg.s i
+   IL_0033: stfld Monocle.Image VivHelper.Entities.CustomCrystalDebris::image
+   IL_0038: ldarg.0
+   IL_0039: ldfld Monocle.Image VivHelper.Entities.CustomCrystalDebris::image
+   IL_003e: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0043: pop
+   IL_0044: ldarg.0
+   IL_0045: ldarg.0
+   IL_0046: ldfld Monocle.Image VivHelper.Entities.CustomCrystalDebris::image
+   IL_004b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0050: nop
+   IL_0051: ldarg.0
+   IL_0052: ldfld Monocle.Image VivHelper.Entities.CustomCrystalDebris::image
+   IL_0057: ldarg.0
+   IL_0058: ldarg.2
+   IL_0059: dup
+   IL_005a: stloc.1
+   IL_005b: stfld Microsoft.Xna.Framework.Color VivHelper.Entities.CustomCrystalDebris::color
+   IL_0060: ldloc.1
+   IL_0061: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0066: ldarg.0
+   IL_0067: ldfld Monocle.Image VivHelper.Entities.CustomCrystalDebris::image
+   IL_006c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0071: ldarg.s scale
+   IL_0073: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0078: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_007d: ldarg.0
+   IL_007e: ldc.r4 0
+   IL_0083: stfld System.Single VivHelper.Entities.CustomCrystalDebris::percent
+   IL_0088: ldarg.0
+   IL_0089: ldarg.3
+   IL_008a: brtrue.s IL_00a2
+   IL_008c: ldsfld System.Random Monocle.Calc::Random
+   IL_0091: ldc.r4 1
+   IL_0096: ldc.r4 2
+   IL_009b: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_00a0: br.s IL_00b6
+   IL_00a2: ldsfld System.Random Monocle.Calc::Random
+   IL_00a7: ldc.r4 0.25
+   IL_00ac: ldc.r4 1
+   IL_00b1: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_00b6: stfld System.Single VivHelper.Entities.CustomCrystalDebris::duration
+   IL_00bb: ldarg.0
+   IL_00bc: ldsfld System.Random Monocle.Calc::Random
+   IL_00c1: call System.Single Monocle.Calc::NextAngle(System.Random)
+   IL_00c6: ldarg.3
+   IL_00c7: brtrue.s IL_00dc
+   IL_00c9: ldsfld System.Random Monocle.Calc::Random
+   IL_00ce: ldc.i4.s 60
+   IL_00d0: ldc.i4 160
+   IL_00d5: call System.Int32 Monocle.Calc::Range(System.Random,System.Int32,System.Int32)
+   IL_00da: br.s IL_00f0
+   IL_00dc: ldsfld System.Random Monocle.Calc::Random
+   IL_00e1: ldc.i4 200
+   IL_00e6: ldc.i4 240
+   IL_00eb: call System.Int32 Monocle.Calc::Range(System.Random,System.Int32,System.Int32)
+   IL_00f0: conv.r4
+   IL_00f1: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_00f6: stfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.CustomCrystalDebris::speed
+   IL_00fb: ldarg.0
+   IL_00fc: ldarg.3
+   IL_00fd: stfld System.Boolean VivHelper.Entities.CustomCrystalDebris::bossShatter
+ + IL_0102: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0107: ret

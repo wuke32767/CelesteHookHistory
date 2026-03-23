@@ -1,0 +1,41 @@
+On: Celeste.Mod.PandorasBox.CloneSpawner.DialogCutscene_OnEnd(orig_OnEnd,DialogCutscene,Level)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Player Celeste.Mod.Entities.DialogCutscene::player
+   IL_0006: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_000b: ldc.i4.0
+   IL_000c: stfld System.Boolean Monocle.StateMachine::Locked
+   IL_0011: ldarg.0
+   IL_0012: ldfld Celeste.Player Celeste.Mod.Entities.DialogCutscene::player
+   IL_0017: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_001c: ldc.i4.0
+   IL_001d: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_0022: ldarg.0
+   IL_0023: ldfld Celeste.Player Celeste.Mod.Entities.DialogCutscene::player
+   IL_0028: ldc.i4.0
+   IL_0029: stfld System.Boolean Celeste.Player::ForceCameraUpdate
+   IL_002e: ldarg.0
+   IL_002f: ldfld System.Boolean Celeste.CutsceneEntity::WasSkipped
+   IL_0034: brfalse.s IL_004c
+   IL_0036: ldarg.1
+   IL_0037: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_003c: ldarg.0
+   IL_003d: ldfld Celeste.Player Celeste.Mod.Entities.DialogCutscene::player
+   IL_0042: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Player::get_CameraTarget()
+   IL_0047: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
+   IL_004c: ldarg.0
+   IL_004d: ldfld System.Boolean Celeste.Mod.Entities.DialogCutscene::endLevel
+   IL_0052: brfalse.s IL_0076
+   IL_0054: ldarg.1
+   IL_0055: ldc.i4.1
+   IL_0056: ldc.i4.0
+   IL_0057: ldc.i4.0
+   IL_0058: callvirt Celeste.ScreenWipe Celeste.Level::CompleteArea(System.Boolean,System.Boolean,System.Boolean)
+   IL_005d: pop
+   IL_005e: ldarg.0
+   IL_005f: ldfld Celeste.Player Celeste.Mod.Entities.DialogCutscene::player
+   IL_0064: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0069: ldc.i4.s 11
+   IL_006b: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_0070: ldarg.0
+   IL_0071: call System.Void Monocle.Entity::RemoveSelf()
+   IL_0076: ret

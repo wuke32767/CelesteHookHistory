@@ -1,0 +1,28 @@
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.SaveData_AddDeath(orig_AddDeath,SaveData,AreaKey)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Int32 Celeste.SaveData::TotalDeaths
+   IL_0007: ldc.i4.1
+   IL_0008: add
+   IL_0009: stfld System.Int32 Celeste.SaveData::TotalDeaths
+   IL_000e: ldarg.0
+   IL_000f: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_0014: ldarg.1
+   IL_0015: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_001a: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_001f: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_0024: ldarg.1
+   IL_0025: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_002a: ldelem.ref
+   IL_002b: dup
+   IL_002c: ldfld System.Int32 Celeste.AreaModeStats::Deaths
+   IL_0031: ldc.i4.1
+   IL_0032: add
+   IL_0033: stfld System.Int32 Celeste.AreaModeStats::Deaths
+   IL_0038: ldc.i4.0
+   IL_0039: ldc.i4.1
+   IL_003a: call System.Void Celeste.Stats::Increment(Celeste.Stat,System.Int32)
+   IL_003f: ldc.i4.2
+   IL_0040: ldc.i4.1
+   IL_0041: call System.Void Celeste.StatsForStadia::Increment(Celeste.StadiaStat,System.Int32)
+   IL_0046: ret

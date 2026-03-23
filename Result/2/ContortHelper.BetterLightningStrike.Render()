@@ -1,0 +1,28 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedLightningStrike() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: nop
+   IL_000c: ldarg.0
+   IL_000d: call System.Void Monocle.Entity::Render()
+   IL_0012: nop
+   IL_0013: ldarg.0
+   IL_0014: ldfld System.Boolean ContortHelper.BetterLightningStrike::on
+   IL_0019: stloc.0
+   IL_001a: ldloc.0
+   IL_001b: brfalse.s IL_0047
+   IL_001d: ldarg.0
+   IL_001e: ldfld ContortHelper.BetterLightningStrike/Node ContortHelper.BetterLightningStrike::strike
+   IL_0023: ldarg.0
+   IL_0024: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0029: ldarg.0
+   IL_002a: ldfld System.Single ContortHelper.BetterLightningStrike::scale
+   IL_002f: ldarg.0
+   IL_0030: ldfld Microsoft.Xna.Framework.Color ContortHelper.BetterLightningStrike::color
+   IL_0035: ldarg.0
+   IL_0036: ldfld System.Single ContortHelper.BetterLightningStrike::colorAlpha
+   IL_003b: ldarg.0
+   IL_003c: ldfld System.Single ContortHelper.BetterLightningStrike::thicknessMultiplier
+   IL_0041: callvirt System.Void ContortHelper.BetterLightningStrike/Node::Render(Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Single)
+   IL_0046: nop
+   IL_0047: ret

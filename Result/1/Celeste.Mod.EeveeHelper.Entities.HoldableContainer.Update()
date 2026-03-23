@@ -1,0 +1,889 @@
+IL: Celeste.Mod.MaxHelpingHand.Entities.CustomSeekerBarrier.onHoldableContainerUpdate(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: call System.Void Celeste.Actor::Update()
+   IL_0007: nop
+   IL_0008: ldarg.0
+   IL_0009: ldarg.0
+   IL_000a: callvirt System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::get_HasGravity()
+   IL_000f: stfld System.Boolean Celeste.Actor::AllowPushing
+   IL_0014: ldarg.0
+   IL_0015: ldarg.0
+   IL_0016: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::destroyed
+   IL_001b: brtrue.s IL_0032
+   IL_001d: ldarg.0
+   IL_001e: ldfld Celeste.Mod.EeveeHelper.Components.EntityContainerMover Celeste.Mod.EeveeHelper.Entities.HoldableContainer::_Container
+   IL_0023: ldfld System.Collections.Generic.List`1<Celeste.Mod.EeveeHelper.Handlers.IEntityHandler> Celeste.Mod.EeveeHelper.Components.EntityContainer::Contained
+   IL_0028: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.Mod.EeveeHelper.Handlers.IEntityHandler>::get_Count()
+   IL_002d: ldc.i4.0
+   IL_002e: cgt
+   IL_0030: br.s IL_0033
+   IL_0032: ldc.i4.0
+   IL_0033: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_003e: brtrue.s IL_0055
+   IL_0040: ldarg.0
+   IL_0041: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::holdable
+   IL_0046: brfalse.s IL_0055
+   IL_0048: ldarg.0
+   IL_0049: ldfld Celeste.Holdable Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Hold
+   IL_004e: callvirt System.Boolean Celeste.Holdable::get_IsHeld()
+   IL_0053: br.s IL_0056
+   IL_0055: ldc.i4.0
+   IL_0056: stloc.0
+   IL_0057: ldloc.0
+   IL_0058: brfalse.s IL_0097
+   IL_005a: nop
+   IL_005b: ldarg.0
+   IL_005c: ldfld Celeste.Holdable Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Hold
+   IL_0061: callvirt Celeste.Player Celeste.Holdable::get_Holder()
+   IL_0066: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_006b: stloc.1
+   IL_006c: ldarg.0
+   IL_006d: ldfld Celeste.Holdable Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Hold
+   IL_0072: callvirt Celeste.Player Celeste.Holdable::get_Holder()
+   IL_0077: callvirt System.Void Celeste.Player::Drop()
+   IL_007c: nop
+   IL_007d: ldarg.0
+   IL_007e: ldloc.1
+   IL_007f: ldc.r4 0.5
+   IL_0084: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0089: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_008e: ldc.i4.1
+   IL_008f: ldc.i4.1
+   IL_0090: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0095: nop
+   IL_0096: nop
+   IL_0097: ldarg.0
+   IL_0098: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::destroyed
+   IL_009d: ldc.i4.0
+   IL_009e: ceq
+   IL_00a0: stloc.2
+   IL_00a1: ldloc.2
+   IL_00a2: brfalse IL_027e
+   IL_00a7: nop
+   IL_00a8: ldarg.0
+   IL_00a9: ldfld Celeste.Mod.EeveeHelper.Components.EntityContainerMover Celeste.Mod.EeveeHelper.Entities.HoldableContainer::_Container
+   IL_00ae: ldfld System.Collections.Generic.List`1<Celeste.Mod.EeveeHelper.Handlers.IEntityHandler> Celeste.Mod.EeveeHelper.Components.EntityContainer::Contained
+   IL_00b3: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.Mod.EeveeHelper.Handlers.IEntityHandler>::get_Count()
+   IL_00b8: ldc.i4.0
+   IL_00b9: ceq
+   IL_00bb: stloc.3
+   IL_00bc: ldloc.3
+   IL_00bd: brfalse.s IL_00c5
+   IL_00bf: nop
+   IL_00c0: br IL_0947
+   IL_00c5: ldarg.0
+   IL_00c6: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::wasDestroyed
+   IL_00cb: stloc.s V_4
+   IL_00cd: ldloc.s V_4
+   IL_00cf: brfalse IL_0144
+   IL_00d4: nop
+   IL_00d5: nop
+   IL_00d6: ldarg.0
+   IL_00d7: ldfld Celeste.Mod.EeveeHelper.Components.EntityContainerMover Celeste.Mod.EeveeHelper.Entities.HoldableContainer::_Container
+   IL_00dc: callvirt System.Collections.Generic.List`1<Monocle.Entity> Celeste.Mod.EeveeHelper.Components.EntityContainer::GetEntities()
+   IL_00e1: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_00e6: stloc.s V_5
+   IL_00e8: br.s IL_0124
+   IL_00ea: ldloca.s V_5
+   IL_00ec: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_00f1: stloc.s V_6
+   IL_00f3: nop
+   IL_00f4: ldarg.0
+   IL_00f5: ldfld System.Collections.Generic.Dictionary`2<Monocle.Entity,System.Boolean> Celeste.Mod.EeveeHelper.Entities.HoldableContainer::wasCollidable
+   IL_00fa: ldloc.s V_6
+   IL_00fc: callvirt System.Boolean System.Collections.Generic.Dictionary`2<Monocle.Entity,System.Boolean>::ContainsKey(TKey)
+   IL_0101: brfalse.s IL_0112
+   IL_0103: ldarg.0
+   IL_0104: ldfld System.Collections.Generic.Dictionary`2<Monocle.Entity,System.Boolean> Celeste.Mod.EeveeHelper.Entities.HoldableContainer::wasCollidable
+   IL_0109: ldloc.s V_6
+   IL_010b: callvirt TValue System.Collections.Generic.Dictionary`2<Monocle.Entity,System.Boolean>::get_Item(TKey)
+   IL_0110: br.s IL_0113
+   IL_0112: ldc.i4.0
+   IL_0113: stloc.s V_7
+   IL_0115: ldloc.s V_7
+   IL_0117: brfalse.s IL_0123
+   IL_0119: nop
+   IL_011a: ldloc.s V_6
+   IL_011c: ldc.i4.1
+   IL_011d: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0122: nop
+   IL_0123: nop
+   IL_0124: ldloca.s V_5
+   IL_0126: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_012b: brtrue.s IL_00ea
+   IL_012d: leave.s IL_013e
+   IL_012f: ldloca.s V_5
+   IL_0131: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0137: callvirt System.Void System.IDisposable::Dispose()
+   IL_013c: nop
+   IL_013d: endfinally
+   IL_013e: nop
+   IL_013f: br IL_024f
+   IL_0144: ldarg.0
+   IL_0145: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::destroyable
+   IL_014a: stloc.s V_8
+   IL_014c: ldloc.s V_8
+   IL_014e: brfalse IL_024f
+   IL_0153: nop
+   IL_0154: nop
+   IL_0155: ldarg.0
+   IL_0156: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_015b: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0160: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.SeekerBarrier>()
+   IL_0165: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_016a: stloc.s V_9
+   IL_016c: br IL_0231
+   IL_0171: ldloca.s V_9
+   IL_0173: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_0178: castclass Celeste.SeekerBarrier
+   IL_017d: stloc.s V_10
+   IL_017f: nop
+   IL_0180: ldloc.s V_10
+ + IL_10000: dup @ Celeste.Mod.MaxHelpingHand.Entities.CustomSeekerBarrier.onHoldableContainerUpdate(ILContext)
+ + IL_10001: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.CustomSeekerBarrier.onHoldableContainerUpdate(ILContext)
+   IL_0182: ldc.i4.1
+ + IL_10002: call System.Boolean Celeste.Mod.MaxHelpingHand.Entities.CustomSeekerBarrier::modHoldableCollideCondition(Monocle.Entity,Monocle.Entity,System.Boolean) @ Celeste.Mod.MaxHelpingHand.Entities.CustomSeekerBarrier.onHoldableContainerUpdate(ILContext)
+   IL_0183: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0188: ldarg.0
+   IL_0189: ldloc.s V_10
+   IL_018b: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_0190: brfalse.s IL_01a9
+   IL_0192: ldarg.0
+   IL_0193: ldfld Celeste.Mod.EeveeHelper.Components.EntityContainerMover Celeste.Mod.EeveeHelper.Entities.HoldableContainer::_Container
+   IL_0198: callvirt System.Collections.Generic.List`1<Monocle.Entity> Celeste.Mod.EeveeHelper.Components.EntityContainer::GetEntities()
+   IL_019d: ldloc.s V_10
+   IL_019f: callvirt System.Boolean System.Collections.Generic.List`1<Monocle.Entity>::Contains(T)
+   IL_01a4: ldc.i4.0
+   IL_01a5: ceq
+   IL_01a7: br.s IL_01aa
+   IL_01a9: ldc.i4.0
+   IL_01aa: stloc.s V_11
+   IL_01ac: ldloc.s V_10
+   IL_01ae: ldc.i4.0
+   IL_01af: stfld System.Boolean Monocle.Entity::Collidable
+   IL_01b4: ldloc.s V_11
+   IL_01b6: stloc.s V_12
+   IL_01b8: ldloc.s V_12
+   IL_01ba: brfalse.s IL_0230
+   IL_01bc: nop
+   IL_01bd: ldarg.0
+   IL_01be: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::holdable
+   IL_01c3: brfalse.s IL_01d2
+   IL_01c5: ldarg.0
+   IL_01c6: ldfld Celeste.Holdable Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Hold
+   IL_01cb: callvirt System.Boolean Celeste.Holdable::get_IsHeld()
+   IL_01d0: br.s IL_01d3
+   IL_01d2: ldc.i4.0
+   IL_01d3: stloc.s V_13
+   IL_01d5: ldloc.s V_13
+   IL_01d7: brfalse.s IL_0218
+   IL_01d9: nop
+   IL_01da: ldarg.0
+   IL_01db: ldfld Celeste.Holdable Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Hold
+   IL_01e0: callvirt Celeste.Player Celeste.Holdable::get_Holder()
+   IL_01e5: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_01ea: stloc.s V_14
+   IL_01ec: ldarg.0
+   IL_01ed: ldfld Celeste.Holdable Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Hold
+   IL_01f2: callvirt Celeste.Player Celeste.Holdable::get_Holder()
+   IL_01f7: callvirt System.Void Celeste.Player::Drop()
+   IL_01fc: nop
+   IL_01fd: ldarg.0
+   IL_01fe: ldloc.s V_14
+   IL_0200: ldc.r4 0.5
+   IL_0205: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_020a: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_020f: ldc.i4.1
+   IL_0210: ldc.i4.1
+   IL_0211: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0216: nop
+   IL_0217: nop
+   IL_0218: ldarg.0
+   IL_0219: ldarg.0
+   IL_021a: callvirt System.Collections.IEnumerator Celeste.Mod.EeveeHelper.Entities.HoldableContainer::DestroyRoutine()
+   IL_021f: ldc.i4.1
+   IL_0220: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0225: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_022a: nop
+   IL_022b: leave IL_0947
+   IL_0230: nop
+   IL_0231: ldloca.s V_9
+   IL_0233: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0238: brtrue IL_0171
+   IL_023d: leave.s IL_024e
+   IL_023f: ldloca.s V_9
+   IL_0241: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0247: callvirt System.Void System.IDisposable::Dispose()
+   IL_024c: nop
+   IL_024d: endfinally
+   IL_024e: nop
+   IL_024f: ldarg.0
+   IL_0250: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::tutorial
+   IL_0255: stloc.s V_15
+   IL_0257: ldloc.s V_15
+   IL_0259: brfalse.s IL_0271
+   IL_025b: nop
+   IL_025c: ldarg.0
+   IL_025d: ldfld Celeste.BirdTutorialGui Celeste.Mod.EeveeHelper.Entities.HoldableContainer::tutorialGui
+   IL_0262: ldarg.0
+   IL_0263: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::grabbedOnce
+   IL_0268: ldc.i4.0
+   IL_0269: ceq
+   IL_026b: stfld System.Boolean Celeste.BirdTutorialGui::Open
+   IL_0270: nop
+   IL_0271: ldarg.0
+   IL_0272: ldc.i4.0
+   IL_0273: stfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::wasDestroyed
+   IL_0278: nop
+   IL_0279: br IL_02f9
+   IL_027e: ldarg.0
+   IL_027f: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::wasDestroyed
+   IL_0284: ldc.i4.0
+   IL_0285: ceq
+   IL_0287: stloc.s V_16
+   IL_0289: ldloc.s V_16
+   IL_028b: brfalse.s IL_02f9
+   IL_028d: nop
+   IL_028e: ldarg.0
+   IL_028f: ldfld System.Collections.Generic.Dictionary`2<Monocle.Entity,System.Boolean> Celeste.Mod.EeveeHelper.Entities.HoldableContainer::wasCollidable
+   IL_0294: callvirt System.Void System.Collections.Generic.Dictionary`2<Monocle.Entity,System.Boolean>::Clear()
+   IL_0299: nop
+   IL_029a: nop
+   IL_029b: ldarg.0
+   IL_029c: ldfld Celeste.Mod.EeveeHelper.Components.EntityContainerMover Celeste.Mod.EeveeHelper.Entities.HoldableContainer::_Container
+   IL_02a1: callvirt System.Collections.Generic.List`1<Monocle.Entity> Celeste.Mod.EeveeHelper.Components.EntityContainer::GetEntities()
+   IL_02a6: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_02ab: stloc.s V_17
+   IL_02ad: br.s IL_02d7
+   IL_02af: ldloca.s V_17
+   IL_02b1: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_02b6: stloc.s V_18
+   IL_02b8: nop
+   IL_02b9: ldarg.0
+   IL_02ba: ldfld System.Collections.Generic.Dictionary`2<Monocle.Entity,System.Boolean> Celeste.Mod.EeveeHelper.Entities.HoldableContainer::wasCollidable
+   IL_02bf: ldloc.s V_18
+   IL_02c1: ldloc.s V_18
+   IL_02c3: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_02c8: callvirt System.Void System.Collections.Generic.Dictionary`2<Monocle.Entity,System.Boolean>::set_Item(TKey,TValue)
+   IL_02cd: nop
+   IL_02ce: ldloc.s V_18
+   IL_02d0: ldc.i4.0
+   IL_02d1: stfld System.Boolean Monocle.Entity::Collidable
+   IL_02d6: nop
+   IL_02d7: ldloca.s V_17
+   IL_02d9: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_02de: brtrue.s IL_02af
+   IL_02e0: leave.s IL_02f1
+   IL_02e2: ldloca.s V_17
+   IL_02e4: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_02ea: callvirt System.Void System.IDisposable::Dispose()
+   IL_02ef: nop
+   IL_02f0: endfinally
+   IL_02f1: ldarg.0
+   IL_02f2: ldc.i4.1
+   IL_02f3: stfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::wasDestroyed
+   IL_02f8: nop
+   IL_02f9: ldarg.0
+   IL_02fa: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::holdable
+   IL_02ff: brfalse.s IL_030e
+   IL_0301: ldarg.0
+   IL_0302: ldfld Celeste.Holdable Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Hold
+   IL_0307: callvirt System.Boolean Celeste.Holdable::get_IsHeld()
+   IL_030c: br.s IL_030f
+   IL_030e: ldc.i4.0
+   IL_030f: stloc.s V_19
+   IL_0311: ldloc.s V_19
+   IL_0313: brfalse.s IL_0369
+   IL_0315: nop
+   IL_0316: ldarg.0
+   IL_0317: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_031c: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::prevLiftSpeed
+   IL_0321: nop
+   IL_0322: ldarg.0
+   IL_0323: ldfld Celeste.Mod.EeveeHelper.Components.EntityContainerMover Celeste.Mod.EeveeHelper.Entities.HoldableContainer::_Container
+   IL_0328: callvirt System.Collections.Generic.List`1<Monocle.Entity> Celeste.Mod.EeveeHelper.Components.EntityContainer::GetEntities()
+   IL_032d: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_0332: stloc.s V_20
+   IL_0334: br.s IL_0349
+   IL_0336: ldloca.s V_20
+   IL_0338: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_033d: stloc.s V_21
+   IL_033f: nop
+   IL_0340: ldloc.s V_21
+   IL_0342: ldc.i4.0
+   IL_0343: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0348: nop
+   IL_0349: ldloca.s V_20
+   IL_034b: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0350: brtrue.s IL_0336
+   IL_0352: leave.s IL_0363
+   IL_0354: ldloca.s V_20
+   IL_0356: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_035c: callvirt System.Void System.IDisposable::Dispose()
+   IL_0361: nop
+   IL_0362: endfinally
+   IL_0363: nop
+   IL_0364: br IL_0935
+   IL_0369: newobj System.Void Celeste.Mod.EeveeHelper.Entities.HoldableContainer/<>c__DisplayClass38_0::.ctor()
+   IL_036e: stloc.s V_22
+   IL_0370: ldloc.s V_22
+   IL_0372: ldarg.0
+   IL_0373: stfld Celeste.Mod.EeveeHelper.Entities.HoldableContainer Celeste.Mod.EeveeHelper.Entities.HoldableContainer/<>c__DisplayClass38_0::<>4__this
+   IL_0378: nop
+   IL_0379: ldarg.0
+   IL_037a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_037f: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::holdTarget
+   IL_0384: ldarg.0
+   IL_0385: ldfld System.Single Celeste.Mod.EeveeHelper.Entities.HoldableContainer::highFrictionTimer
+   IL_038a: ldc.r4 0
+   IL_038f: cgt
+   IL_0391: stloc.s V_24
+   IL_0393: ldloc.s V_24
+   IL_0395: brfalse.s IL_03ab
+   IL_0397: nop
+   IL_0398: ldarg.0
+   IL_0399: ldarg.0
+   IL_039a: ldfld System.Single Celeste.Mod.EeveeHelper.Entities.HoldableContainer::highFrictionTimer
+   IL_039f: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_03a4: sub
+   IL_03a5: stfld System.Single Celeste.Mod.EeveeHelper.Entities.HoldableContainer::highFrictionTimer
+   IL_03aa: nop
+   IL_03ab: ldloc.s V_22
+   IL_03ad: ldarg.0
+   IL_03ae: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_03b3: stfld Celeste.Level Celeste.Mod.EeveeHelper.Entities.HoldableContainer/<>c__DisplayClass38_0::level
+   IL_03b8: ldnull
+   IL_03b9: stloc.s V_23
+   IL_03bb: ldarg.0
+   IL_03bc: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::holdable
+   IL_03c1: ldc.i4.0
+   IL_03c2: ceq
+   IL_03c4: stloc.s V_25
+   IL_03c6: ldloc.s V_25
+   IL_03c8: brfalse.s IL_0428
+   IL_03ca: nop
+   IL_03cb: nop
+   IL_03cc: ldarg.0
+   IL_03cd: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_03d2: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_03d7: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Entity> Monocle.EntityList::GetEnumerator()
+   IL_03dc: stloc.s V_26
+   IL_03de: br.s IL_040f
+   IL_03e0: ldloc.s V_26
+   IL_03e2: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Entity>::get_Current()
+   IL_03e7: stloc.s V_27
+   IL_03e9: nop
+   IL_03ea: ldloc.s V_27
+   IL_03ec: isinst Celeste.Spring
+   IL_03f1: stloc.s V_28
+   IL_03f3: ldloc.s V_28
+   IL_03f5: brfalse.s IL_0401
+   IL_03f7: ldarg.0
+   IL_03f8: ldloc.s V_27
+   IL_03fa: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_03ff: br.s IL_0402
+   IL_0401: ldc.i4.0
+   IL_0402: stloc.s V_29
+   IL_0404: ldloc.s V_29
+   IL_0406: brfalse.s IL_040e
+   IL_0408: nop
+   IL_0409: ldloc.s V_28
+   IL_040b: stloc.s V_23
+   IL_040d: nop
+   IL_040e: nop
+   IL_040f: ldloc.s V_26
+   IL_0411: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_0416: brtrue.s IL_03e0
+   IL_0418: leave.s IL_0427
+   IL_041a: ldloc.s V_26
+   IL_041c: brfalse.s IL_0426
+   IL_041e: ldloc.s V_26
+   IL_0420: callvirt System.Void System.IDisposable::Dispose()
+   IL_0425: nop
+   IL_0426: endfinally
+   IL_0427: nop
+   IL_0428: ldloc.s V_23
+   IL_042a: ldnull
+   IL_042b: cgt.un
+   IL_042d: stloc.s V_30
+   IL_042f: ldloc.s V_30
+   IL_0431: brfalse.s IL_044b
+   IL_0433: nop
+   IL_0434: ldarg.0
+   IL_0435: ldloc.s V_23
+   IL_0437: callvirt System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::HitSpring(Celeste.Spring)
+   IL_043c: pop
+   IL_043d: ldloc.s V_23
+   IL_043f: callvirt System.Void Celeste.Spring::BounceAnimate()
+   IL_0444: nop
+   IL_0445: nop
+   IL_0446: br IL_07b5
+   IL_044b: ldarg.0
+   IL_044c: ldc.i4.1
+   IL_044d: call System.Boolean Celeste.Actor::OnGround(System.Int32)
+   IL_0452: stloc.s V_31
+   IL_0454: ldloc.s V_31
+   IL_0456: brfalse IL_0619
+   IL_045b: nop
+   IL_045c: ldarg.0
+   IL_045d: ldarg.0
+   IL_045e: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0463: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0468: ldc.r4 3
+   IL_046d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0472: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0477: ldc.i4.1
+   IL_0478: call System.Boolean Celeste.Actor::OnGround(Microsoft.Xna.Framework.Vector2,System.Int32)
+   IL_047d: ldc.i4.0
+   IL_047e: ceq
+   IL_0480: stloc.s V_34
+   IL_0482: ldloc.s V_34
+   IL_0484: brfalse.s IL_0491
+   IL_0486: nop
+   IL_0487: ldc.r4 20
+   IL_048c: stloc.s V_32
+   IL_048e: nop
+   IL_048f: br.s IL_04cf
+   IL_0491: ldarg.0
+   IL_0492: ldarg.0
+   IL_0493: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0498: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_049d: ldc.r4 3
+   IL_04a2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_04a7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04ac: ldc.i4.1
+   IL_04ad: call System.Boolean Celeste.Actor::OnGround(Microsoft.Xna.Framework.Vector2,System.Int32)
+   IL_04b2: ldc.i4.0
+   IL_04b3: ceq
+   IL_04b5: stloc.s V_35
+   IL_04b7: ldloc.s V_35
+   IL_04b9: brfalse.s IL_04c6
+   IL_04bb: nop
+   IL_04bc: ldc.r4 -20
+   IL_04c1: stloc.s V_32
+   IL_04c3: nop
+   IL_04c4: br.s IL_04cf
+   IL_04c6: nop
+   IL_04c7: ldc.r4 0
+   IL_04cc: stloc.s V_32
+   IL_04ce: nop
+   IL_04cf: ldarg.0
+   IL_04d0: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_04d5: ldarg.0
+   IL_04d6: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_04db: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_04e0: ldloc.s V_32
+   IL_04e2: ldc.r4 800
+   IL_04e7: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_04ec: mul
+   IL_04ed: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_04f2: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_04f7: ldarg.0
+   IL_04f8: call Microsoft.Xna.Framework.Vector2 Celeste.Actor::get_LiftSpeed()
+   IL_04fd: stloc.s V_33
+   IL_04ff: ldloc.s V_33
+   IL_0501: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0506: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Equality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_050b: brfalse.s IL_051f
+   IL_050d: ldarg.0
+   IL_050e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::prevLiftSpeed
+   IL_0513: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0518: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_051d: br.s IL_0520
+   IL_051f: ldc.i4.0
+   IL_0520: stloc.s V_36
+   IL_0522: ldloc.s V_36
+   IL_0524: brfalse IL_05ce
+   IL_0529: nop
+   IL_052a: ldarg.0
+   IL_052b: ldarg.0
+   IL_052c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::prevLiftSpeed
+   IL_0531: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0536: ldarg.0
+   IL_0537: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_053c: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::prevLiftSpeed
+   IL_0541: ldarg.0
+   IL_0542: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0547: ldarg.0
+   IL_0548: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_054d: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0552: ldc.r4 0.6
+   IL_0557: mul
+   IL_0558: ldc.r4 0
+   IL_055d: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_0562: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0567: ldarg.0
+   IL_0568: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_056d: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0572: ldc.r4 0
+   IL_0577: beq.s IL_058d
+   IL_0579: ldarg.0
+   IL_057a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_057f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0584: ldc.r4 0
+   IL_0589: ceq
+   IL_058b: br.s IL_058e
+   IL_058d: ldc.i4.0
+   IL_058e: stloc.s V_37
+   IL_0590: ldloc.s V_37
+   IL_0592: brfalse.s IL_05a6
+   IL_0594: nop
+   IL_0595: ldarg.0
+   IL_0596: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_059b: ldc.r4 -60
+   IL_05a0: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_05a5: nop
+   IL_05a6: ldarg.0
+   IL_05a7: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_05ac: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_05b1: ldc.r4 0
+   IL_05b6: clt
+   IL_05b8: stloc.s V_38
+   IL_05ba: ldloc.s V_38
+   IL_05bc: brfalse.s IL_05cb
+   IL_05be: nop
+   IL_05bf: ldarg.0
+   IL_05c0: ldc.r4 0.15
+   IL_05c5: stfld System.Single Celeste.Mod.EeveeHelper.Entities.HoldableContainer::noGravityTimer
+   IL_05ca: nop
+   IL_05cb: nop
+   IL_05cc: br.s IL_0613
+   IL_05ce: nop
+   IL_05cf: ldarg.0
+   IL_05d0: ldloc.s V_33
+   IL_05d2: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::prevLiftSpeed
+   IL_05d7: ldloc.s V_33
+   IL_05d9: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_05de: ldc.r4 0
+   IL_05e3: bge.un.s IL_05f9
+   IL_05e5: ldarg.0
+   IL_05e6: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_05eb: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_05f0: ldc.r4 0
+   IL_05f5: clt
+   IL_05f7: br.s IL_05fa
+   IL_05f9: ldc.i4.0
+   IL_05fa: stloc.s V_39
+   IL_05fc: ldloc.s V_39
+   IL_05fe: brfalse.s IL_0612
+   IL_0600: nop
+   IL_0601: ldarg.0
+   IL_0602: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0607: ldc.r4 0
+   IL_060c: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0611: nop
+   IL_0612: nop
+   IL_0613: nop
+   IL_0614: br IL_07b5
+   IL_0619: ldarg.0
+   IL_061a: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::holdable
+   IL_061f: brfalse.s IL_062e
+   IL_0621: ldarg.0
+   IL_0622: ldfld Celeste.Holdable Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Hold
+   IL_0627: callvirt System.Boolean Celeste.Holdable::get_ShouldHaveGravity()
+   IL_062c: br.s IL_062f
+   IL_062e: ldc.i4.1
+   IL_062f: stloc.s V_40
+   IL_0631: ldloc.s V_40
+   IL_0633: brfalse IL_07b5
+   IL_0638: nop
+   IL_0639: ldarg.0
+   IL_063a: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::slowFall
+   IL_063f: ldc.i4.0
+   IL_0640: ceq
+   IL_0642: stloc.s V_43
+   IL_0644: ldloc.s V_43
+   IL_0646: brfalse.s IL_06ad
+   IL_0648: nop
+   IL_0649: ldc.r4 800
+   IL_064e: stloc.s V_42
+   IL_0650: ldarg.0
+   IL_0651: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0656: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_065b: call System.Single System.Math::Abs(System.Single)
+   IL_0660: ldc.r4 30
+   IL_0665: cgt.un
+   IL_0667: ldc.i4.0
+   IL_0668: ceq
+   IL_066a: stloc.s V_44
+   IL_066c: ldloc.s V_44
+   IL_066e: brfalse.s IL_067c
+   IL_0670: nop
+   IL_0671: ldloc.s V_42
+   IL_0673: ldc.r4 0.5
+   IL_0678: mul
+   IL_0679: stloc.s V_42
+   IL_067b: nop
+   IL_067c: ldc.r4 350
+   IL_0681: stloc.s V_41
+   IL_0683: ldarg.0
+   IL_0684: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0689: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_068e: ldc.r4 0
+   IL_0693: clt
+   IL_0695: stloc.s V_45
+   IL_0697: ldloc.s V_45
+   IL_0699: brfalse.s IL_06a7
+   IL_069b: nop
+   IL_069c: ldloc.s V_41
+   IL_069e: ldc.r4 0.5
+   IL_06a3: mul
+   IL_06a4: stloc.s V_41
+   IL_06a6: nop
+   IL_06a7: nop
+   IL_06a8: br IL_072a
+   IL_06ad: nop
+   IL_06ae: ldc.r4 200
+   IL_06b3: stloc.s V_42
+   IL_06b5: ldarg.0
+   IL_06b6: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_06bb: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_06c0: ldc.r4 -30
+   IL_06c5: clt.un
+   IL_06c7: ldc.i4.0
+   IL_06c8: ceq
+   IL_06ca: stloc.s V_46
+   IL_06cc: ldloc.s V_46
+   IL_06ce: brfalse.s IL_06dc
+   IL_06d0: nop
+   IL_06d1: ldloc.s V_42
+   IL_06d3: ldc.r4 0.5
+   IL_06d8: mul
+   IL_06d9: stloc.s V_42
+   IL_06db: nop
+   IL_06dc: ldarg.0
+   IL_06dd: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_06e2: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_06e7: ldc.r4 0
+   IL_06ec: clt
+   IL_06ee: stloc.s V_47
+   IL_06f0: ldloc.s V_47
+   IL_06f2: brfalse.s IL_06ff
+   IL_06f4: nop
+   IL_06f5: ldc.r4 40
+   IL_06fa: stloc.s V_41
+   IL_06fc: nop
+   IL_06fd: br.s IL_0729
+   IL_06ff: ldarg.0
+   IL_0700: ldfld System.Single Celeste.Mod.EeveeHelper.Entities.HoldableContainer::highFrictionTimer
+   IL_0705: ldc.r4 0
+   IL_070a: cgt.un
+   IL_070c: ldc.i4.0
+   IL_070d: ceq
+   IL_070f: stloc.s V_48
+   IL_0711: ldloc.s V_48
+   IL_0713: brfalse.s IL_0720
+   IL_0715: nop
+   IL_0716: ldc.r4 40
+   IL_071b: stloc.s V_41
+   IL_071d: nop
+   IL_071e: br.s IL_0729
+   IL_0720: nop
+   IL_0721: ldc.r4 10
+   IL_0726: stloc.s V_41
+   IL_0728: nop
+   IL_0729: nop
+   IL_072a: ldarg.0
+   IL_072b: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0730: ldarg.0
+   IL_0731: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0736: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_073b: ldc.r4 0
+   IL_0740: ldloc.s V_41
+   IL_0742: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0747: mul
+   IL_0748: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_074d: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0752: ldarg.0
+   IL_0753: ldfld System.Single Celeste.Mod.EeveeHelper.Entities.HoldableContainer::noGravityTimer
+   IL_0758: ldc.r4 0
+   IL_075d: cgt
+   IL_075f: stloc.s V_49
+   IL_0761: ldloc.s V_49
+   IL_0763: brfalse.s IL_077b
+   IL_0765: nop
+   IL_0766: ldarg.0
+   IL_0767: ldarg.0
+   IL_0768: ldfld System.Single Celeste.Mod.EeveeHelper.Entities.HoldableContainer::noGravityTimer
+   IL_076d: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0772: sub
+   IL_0773: stfld System.Single Celeste.Mod.EeveeHelper.Entities.HoldableContainer::noGravityTimer
+   IL_0778: nop
+   IL_0779: br.s IL_07b4
+   IL_077b: nop
+   IL_077c: ldarg.0
+   IL_077d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0782: ldarg.0
+   IL_0783: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0788: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_078d: ldarg.0
+   IL_078e: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::slowFall
+   IL_0793: brtrue.s IL_079c
+   IL_0795: ldc.r4 200
+   IL_079a: br.s IL_07a1
+   IL_079c: ldc.r4 30
+   IL_07a1: ldloc.s V_42
+   IL_07a3: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_07a8: mul
+   IL_07a9: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_07ae: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_07b3: nop
+   IL_07b4: nop
+   IL_07b5: ldarg.0
+   IL_07b6: callvirt System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::get_HasGravity()
+   IL_07bb: ldc.i4.0
+   IL_07bc: ceq
+   IL_07be: stloc.s V_50
+   IL_07c0: ldloc.s V_50
+   IL_07c2: brfalse.s IL_07d6
+   IL_07c4: nop
+   IL_07c5: ldarg.0
+   IL_07c6: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_07cb: ldc.r4 0
+   IL_07d0: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_07d5: nop
+   IL_07d6: ldarg.0
+   IL_07d7: ldarg.0
+   IL_07d8: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_07dd: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_07e2: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_07e7: mul
+   IL_07e8: ldarg.0
+   IL_07e9: ldftn System.Void Celeste.Mod.EeveeHelper.Entities.HoldableContainer::OnCollideH(Celeste.CollisionData)
+   IL_07ef: newobj System.Void Celeste.Collision::.ctor(System.Object,System.IntPtr)
+   IL_07f4: ldnull
+   IL_07f5: call System.Boolean Celeste.Actor::MoveH(System.Single,Celeste.Collision,Celeste.Solid)
+   IL_07fa: pop
+   IL_07fb: ldarg.0
+   IL_07fc: ldarg.0
+   IL_07fd: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0802: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0807: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_080c: mul
+   IL_080d: ldarg.0
+   IL_080e: ldftn System.Void Celeste.Mod.EeveeHelper.Entities.HoldableContainer::OnCollideV(Celeste.CollisionData)
+   IL_0814: newobj System.Void Celeste.Collision::.ctor(System.Object,System.IntPtr)
+   IL_0819: ldnull
+   IL_081a: call System.Boolean Celeste.Actor::MoveV(System.Single,Celeste.Collision,Celeste.Solid)
+   IL_081f: pop
+   IL_0820: ldarg.0
+   IL_0821: call System.Single Monocle.Entity::get_Left()
+   IL_0826: ldloc.s V_22
+   IL_0828: ldfld Celeste.Level Celeste.Mod.EeveeHelper.Entities.HoldableContainer/<>c__DisplayClass38_0::level
+   IL_082d: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0832: stloc.s V_52
+   IL_0834: ldloca.s V_52
+   IL_0836: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_083b: conv.r4
+   IL_083c: clt
+   IL_083e: stloc.s V_51
+   IL_0840: ldloc.s V_51
+   IL_0842: brfalse.s IL_087a
+   IL_0844: nop
+   IL_0845: ldarg.0
+   IL_0846: ldfld Celeste.Mod.EeveeHelper.Components.EntityContainerMover Celeste.Mod.EeveeHelper.Entities.HoldableContainer::_Container
+   IL_084b: ldloc.s V_22
+   IL_084d: ldftn System.Void Celeste.Mod.EeveeHelper.Entities.HoldableContainer/<>c__DisplayClass38_0::<Update>b__0()
+   IL_0853: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0858: ldnull
+   IL_0859: ldc.i4.0
+   IL_085a: callvirt System.Void Celeste.Mod.EeveeHelper.Components.EntityContainerMover::DoMoveAction(System.Action,System.Func`3<Monocle.Entity,Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Vector2>>,System.Boolean)
+   IL_085f: nop
+   IL_0860: ldarg.0
+   IL_0861: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_0866: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_086b: dup
+   IL_086c: ldind.r4
+   IL_086d: ldc.r4 -0.4
+   IL_0872: mul
+   IL_0873: stind.r4
+   IL_0874: nop
+   IL_0875: br IL_0934
+   IL_087a: ldarg.0
+   IL_087b: call System.Single Monocle.Entity::get_Top()
+   IL_0880: ldloc.s V_22
+   IL_0882: ldfld Celeste.Level Celeste.Mod.EeveeHelper.Entities.HoldableContainer/<>c__DisplayClass38_0::level
+   IL_0887: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_088c: stloc.s V_52
+   IL_088e: ldloca.s V_52
+   IL_0890: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0895: ldc.i4.4
+   IL_0896: sub
+   IL_0897: conv.r4
+   IL_0898: clt
+   IL_089a: stloc.s V_53
+   IL_089c: ldloc.s V_53
+   IL_089e: brfalse.s IL_08cf
+   IL_08a0: nop
+   IL_08a1: ldarg.0
+   IL_08a2: ldfld Celeste.Mod.EeveeHelper.Components.EntityContainerMover Celeste.Mod.EeveeHelper.Entities.HoldableContainer::_Container
+   IL_08a7: ldloc.s V_22
+   IL_08a9: ldftn System.Void Celeste.Mod.EeveeHelper.Entities.HoldableContainer/<>c__DisplayClass38_0::<Update>b__1()
+   IL_08af: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_08b4: ldnull
+   IL_08b5: ldc.i4.0
+   IL_08b6: callvirt System.Void Celeste.Mod.EeveeHelper.Components.EntityContainerMover::DoMoveAction(System.Action,System.Func`3<Monocle.Entity,Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Vector2>>,System.Boolean)
+   IL_08bb: nop
+   IL_08bc: ldarg.0
+   IL_08bd: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Speed
+   IL_08c2: ldc.r4 0
+   IL_08c7: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_08cc: nop
+   IL_08cd: br.s IL_0934
+   IL_08cf: ldarg.0
+   IL_08d0: call System.Single Monocle.Entity::get_Top()
+   IL_08d5: ldloc.s V_22
+   IL_08d7: ldfld Celeste.Level Celeste.Mod.EeveeHelper.Entities.HoldableContainer/<>c__DisplayClass38_0::level
+   IL_08dc: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_08e1: stloc.s V_52
+   IL_08e3: ldloca.s V_52
+   IL_08e5: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_08ea: conv.r4
+   IL_08eb: cgt
+   IL_08ed: stloc.s V_54
+   IL_08ef: ldloc.s V_54
+   IL_08f1: brfalse.s IL_0934
+   IL_08f3: nop
+   IL_08f4: ldarg.0
+   IL_08f5: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::respawn
+   IL_08fa: ldc.i4.0
+   IL_08fb: ceq
+   IL_08fd: stloc.s V_55
+   IL_08ff: ldloc.s V_55
+   IL_0901: brfalse.s IL_090e
+   IL_0903: nop
+   IL_0904: ldarg.0
+   IL_0905: call System.Void Monocle.Entity::RemoveSelf()
+   IL_090a: nop
+   IL_090b: nop
+   IL_090c: br.s IL_0932
+   IL_090e: ldarg.0
+   IL_090f: ldfld System.Boolean Celeste.Mod.EeveeHelper.Entities.HoldableContainer::destroyed
+   IL_0914: ldc.i4.0
+   IL_0915: ceq
+   IL_0917: stloc.s V_56
+   IL_0919: ldloc.s V_56
+   IL_091b: brfalse.s IL_0932
+   IL_091d: nop
+   IL_091e: ldarg.0
+   IL_091f: ldarg.0
+   IL_0920: callvirt System.Collections.IEnumerator Celeste.Mod.EeveeHelper.Entities.HoldableContainer::DestroyRoutine()
+   IL_0925: ldc.i4.1
+   IL_0926: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_092b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0930: nop
+   IL_0931: nop
+   IL_0932: br.s IL_0947
+   IL_0934: nop
+   IL_0935: ldarg.0
+   IL_0936: ldfld Celeste.Holdable Celeste.Mod.EeveeHelper.Entities.HoldableContainer::Hold
+   IL_093b: dup
+   IL_093c: brtrue.s IL_0941
+   IL_093e: pop
+   IL_093f: br.s IL_0947
+   IL_0941: callvirt System.Void Celeste.Holdable::CheckAgainstColliders()
+   IL_0946: nop
+   IL_0947: ret

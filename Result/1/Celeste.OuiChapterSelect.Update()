@@ -1,0 +1,258 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modOuiChapterSelectUpdate(orig_Update,OuiChapterSelect)
+On: Celeste.Mod.HardcoreMode.HMModule.On_OuiChapterSelect_Update(orig_Update,OuiChapterSelect)
+On: Celeste.Mod.AchievementHelper.AchievementHelperModule.OuiChapterSelect_Update(orig_Update,OuiChapterSelect)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Microsoft.Xna.Framework.Input.KeyboardState Celeste.OuiChapterSelect::_keys
+   IL_0006: pop
+   IL_0007: call Microsoft.Xna.Framework.Input.KeyboardState Microsoft.Xna.Framework.Input.Keyboard::GetState()
+   IL_000c: stloc.0
+   IL_000d: ldarg.0
+   IL_000e: ldloc.0
+   IL_000f: stfld Microsoft.Xna.Framework.Input.KeyboardState Celeste.OuiChapterSelect::_keys
+   IL_0014: ldarg.0
+   IL_0015: ldfld System.Boolean Celeste.Oui::Focused
+   IL_001a: brfalse IL_00d5
+   IL_001f: ldarg.0
+   IL_0020: ldfld System.Boolean Celeste.OuiChapterSelect::disableInput
+   IL_0025: brtrue IL_00d5
+   IL_002a: ldarg.0
+   IL_002b: ldfld System.Boolean Celeste.OuiChapterSelect::display
+   IL_0030: brfalse IL_00d5
+   IL_0035: ldsfld Monocle.VirtualButton Celeste.Input::Pause
+   IL_003a: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_003f: brtrue.s IL_004d
+   IL_0041: ldsfld Monocle.VirtualButton Celeste.Input::ESC
+   IL_0046: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_004b: brfalse.s IL_008b
+   IL_004d: ldarg.0
+   IL_004e: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_0053: ldfld Celeste.Maddy3D Celeste.Overworld::Maddy
+   IL_0058: ldc.i4.1
+   IL_0059: callvirt System.Void Celeste.Maddy3D::Hide(System.Boolean)
+   IL_005e: ldstr "event:/ui/main/button_select"
+   IL_0063: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0068: pop
+   IL_0069: ldstr "event:/ui/main/whoosh_large_in"
+   IL_006e: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0073: pop
+   IL_0074: ldarg.0
+   IL_0075: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_007a: callvirt T Celeste.Overworld::Goto<Celeste.Mod.UI.OuiMapList>()
+   IL_007f: ldarg.0
+   IL_0080: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_0085: stfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.Mod.UI.OuiMapList::OuiIcons
+   IL_008a: ret
+   IL_008b: ldsfld Monocle.VirtualButton Celeste.Input::QuickRestart
+   IL_0090: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_0095: brfalse.s IL_00d5
+   IL_0097: ldarg.0
+   IL_0098: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_009d: ldfld Celeste.Maddy3D Celeste.Overworld::Maddy
+   IL_00a2: ldc.i4.1
+   IL_00a3: callvirt System.Void Celeste.Maddy3D::Hide(System.Boolean)
+   IL_00a8: ldstr "event:/ui/main/button_select"
+   IL_00ad: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_00b2: pop
+   IL_00b3: ldstr "event:/ui/main/whoosh_large_in"
+   IL_00b8: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_00bd: pop
+   IL_00be: ldarg.0
+   IL_00bf: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_00c4: callvirt T Celeste.Overworld::Goto<Celeste.Mod.UI.OuiMapSearch>()
+   IL_00c9: ldarg.0
+   IL_00ca: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_00cf: stfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.Mod.UI.OuiMapSearch::OuiIcons
+   IL_00d4: ret
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld System.Boolean Celeste.Oui::Focused
+   IL_00db: brfalse IL_023b
+   IL_00e0: ldarg.0
+   IL_00e1: ldfld System.Boolean Celeste.OuiChapterSelect::display
+   IL_00e6: brfalse IL_023b
+   IL_00eb: ldarg.0
+   IL_00ec: ldfld System.Boolean Celeste.OuiChapterSelect::disableInput
+   IL_00f1: brtrue IL_023b
+   IL_00f6: ldarg.0
+   IL_00f7: ldfld System.Single Celeste.OuiChapterSelect::inputDelay
+   IL_00fc: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0101: bgt.un IL_023b
+   IL_0106: ldsfld Monocle.VirtualButton Celeste.Input::MenuUp
+   IL_010b: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_0110: brfalse.s IL_013a
+   IL_0112: ldstr "event:/ui/world_map/chapter/pane_contract"
+   IL_0117: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_011c: pop
+   IL_011d: ldstr "event:/ui/world_map/icon/roll_left"
+   IL_0122: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0127: pop
+   IL_0128: ldarg.0
+   IL_0129: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_012e: callvirt T Celeste.Overworld::Goto<Celeste.Mod.UI.OuiHelper_ChapterSelect_LevelSet>()
+   IL_0133: ldc.i4.m1
+   IL_0134: stfld System.Int32 Celeste.Mod.UI.OuiHelper_ChapterSelect_LevelSet::Direction
+   IL_0139: ret
+   IL_013a: ldsfld Monocle.VirtualButton Celeste.Input::MenuDown
+   IL_013f: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_0144: brfalse.s IL_016e
+   IL_0146: ldstr "event:/ui/world_map/chapter/pane_expand"
+   IL_014b: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0150: pop
+   IL_0151: ldstr "event:/ui/world_map/icon/roll_right"
+   IL_0156: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_015b: pop
+   IL_015c: ldarg.0
+   IL_015d: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_0162: callvirt T Celeste.Overworld::Goto<Celeste.Mod.UI.OuiHelper_ChapterSelect_LevelSet>()
+   IL_0167: ldc.i4.1
+   IL_0168: stfld System.Int32 Celeste.Mod.UI.OuiHelper_ChapterSelect_LevelSet::Direction
+   IL_016d: ret
+   IL_016e: ldarg.0
+   IL_016f: ldloca.s V_1
+   IL_0171: ldloca.s V_2
+   IL_0173: callvirt System.Void Celeste.OuiChapterSelect::GetMinMaxArea(System.Int32&,System.Int32&)
+   IL_0178: ldarg.0
+   IL_0179: callvirt System.Int32 Celeste.OuiChapterSelect::get_area()
+   IL_017e: ldloc.1
+   IL_017f: bge.s IL_018a
+   IL_0181: ldarg.0
+   IL_0182: ldloc.1
+   IL_0183: callvirt System.Void Celeste.OuiChapterSelect::set_area(System.Int32)
+   IL_0188: br.s IL_01cd
+   IL_018a: ldarg.0
+   IL_018b: callvirt System.Int32 Celeste.OuiChapterSelect::get_area()
+   IL_0190: ldloc.2
+   IL_0191: ble.s IL_01ac
+   IL_0193: ldarg.0
+   IL_0194: ldloc.2
+   IL_0195: callvirt System.Void Celeste.OuiChapterSelect::set_area(System.Int32)
+   IL_019a: br.s IL_01ac
+   IL_019c: ldarg.0
+   IL_019d: callvirt System.Int32 Celeste.OuiChapterSelect::get_area()
+   IL_01a2: stloc.3
+   IL_01a3: ldarg.0
+   IL_01a4: ldloc.3
+   IL_01a5: ldc.i4.1
+   IL_01a6: sub
+   IL_01a7: callvirt System.Void Celeste.OuiChapterSelect::set_area(System.Int32)
+   IL_01ac: ldarg.0
+   IL_01ad: callvirt System.Int32 Celeste.OuiChapterSelect::get_area()
+   IL_01b2: ldc.i4.0
+   IL_01b3: ble.s IL_01cd
+   IL_01b5: ldarg.0
+   IL_01b6: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_01bb: ldarg.0
+   IL_01bc: callvirt System.Int32 Celeste.OuiChapterSelect::get_area()
+   IL_01c1: callvirt T System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Item(System.Int32)
+   IL_01c6: callvirt System.Boolean Celeste.OuiChapterSelectIcon::get_IsHidden()
+   IL_01cb: brtrue.s IL_019c
+   IL_01cd: ldsfld Monocle.VirtualButton Celeste.Input::MenuLeft
+   IL_01d2: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_01d7: brfalse.s IL_01ff
+   IL_01d9: ldarg.0
+   IL_01da: callvirt System.Int32 Celeste.OuiChapterSelect::get_area()
+   IL_01df: ldc.i4.1
+   IL_01e0: sub
+   IL_01e1: ldc.i4.0
+   IL_01e2: blt.s IL_01fe
+   IL_01e4: ldarg.0
+   IL_01e5: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_01ea: ldarg.0
+   IL_01eb: callvirt System.Int32 Celeste.OuiChapterSelect::get_area()
+   IL_01f0: ldc.i4.1
+   IL_01f1: sub
+   IL_01f2: callvirt T System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Item(System.Int32)
+   IL_01f7: callvirt System.Boolean Celeste.OuiChapterSelectIcon::get_IsHidden()
+   IL_01fc: brfalse.s IL_01ff
+   IL_01fe: ret
+   IL_01ff: ldsfld Monocle.VirtualButton Celeste.Input::MenuRight
+   IL_0204: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_0209: brfalse.s IL_023b
+   IL_020b: ldarg.0
+   IL_020c: callvirt System.Int32 Celeste.OuiChapterSelect::get_area()
+   IL_0211: ldc.i4.1
+   IL_0212: add
+   IL_0213: ldarg.0
+   IL_0214: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_0219: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Count()
+   IL_021e: bge.s IL_023a
+   IL_0220: ldarg.0
+   IL_0221: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_0226: ldarg.0
+   IL_0227: callvirt System.Int32 Celeste.OuiChapterSelect::get_area()
+   IL_022c: ldc.i4.1
+   IL_022d: add
+   IL_022e: callvirt T System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Item(System.Int32)
+   IL_0233: callvirt System.Boolean Celeste.OuiChapterSelectIcon::get_IsHidden()
+   IL_0238: brfalse.s IL_023b
+   IL_023a: ret
+   IL_023b: ldarg.0
+   IL_023c: callvirt System.Void Celeste.OuiChapterSelect::orig_Update()
+   IL_0241: ldarg.0
+   IL_0242: ldfld System.Boolean Celeste.Oui::Focused
+   IL_0247: brfalse.s IL_0257
+   IL_0249: ldarg.0
+   IL_024a: ldfld System.Boolean Celeste.OuiChapterSelect::display
+   IL_024f: brfalse.s IL_0257
+   IL_0251: ldarg.0
+   IL_0252: callvirt System.Void Celeste.OuiChapterSelect::updateScarf()
+   IL_0257: ldarg.0
+   IL_0258: ldarg.0
+   IL_0259: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
+   IL_025e: ldarg.0
+   IL_025f: ldfld System.Boolean Celeste.OuiChapterSelect::display
+   IL_0264: brfalse.s IL_0276
+   IL_0266: ldarg.0
+   IL_0267: ldfld System.Boolean Celeste.OuiChapterSelect::disableInput
+   IL_026c: brtrue.s IL_0276
+   IL_026e: ldarg.0
+   IL_026f: ldfld System.Boolean Celeste.Oui::Focused
+   IL_0274: brtrue.s IL_027d
+   IL_0276: ldc.r4 0
+   IL_027b: br.s IL_0282
+   IL_027d: ldc.r4 1
+   IL_0282: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0287: ldc.r4 4
+   IL_028c: mul
+   IL_028d: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0292: stfld System.Single Celeste.OuiChapterSelect::maplistEase
+   IL_0297: ldarg.0
+   IL_0298: ldarg.0
+   IL_0299: ldfld System.Single Celeste.OuiChapterSelect::searchEase
+   IL_029e: ldarg.0
+   IL_029f: ldfld System.Boolean Celeste.OuiChapterSelect::display
+   IL_02a4: brfalse.s IL_02b6
+   IL_02a6: ldarg.0
+   IL_02a7: ldfld System.Boolean Celeste.OuiChapterSelect::disableInput
+   IL_02ac: brtrue.s IL_02b6
+   IL_02ae: ldarg.0
+   IL_02af: ldfld System.Boolean Celeste.Oui::Focused
+   IL_02b4: brtrue.s IL_02bd
+   IL_02b6: ldc.r4 0
+   IL_02bb: br.s IL_02c2
+   IL_02bd: ldc.r4 1
+   IL_02c2: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_02c7: ldc.r4 4
+   IL_02cc: mul
+   IL_02cd: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_02d2: stfld System.Single Celeste.OuiChapterSelect::searchEase
+   IL_02d7: ldarg.0
+   IL_02d8: ldarg.0
+   IL_02d9: ldfld System.Single Celeste.OuiChapterSelect::levelsetEase
+   IL_02de: ldarg.0
+   IL_02df: ldfld System.Boolean Celeste.OuiChapterSelect::display
+   IL_02e4: brfalse.s IL_02f6
+   IL_02e6: ldarg.0
+   IL_02e7: ldfld System.Boolean Celeste.OuiChapterSelect::disableInput
+   IL_02ec: brtrue.s IL_02f6
+   IL_02ee: ldarg.0
+   IL_02ef: ldfld System.Boolean Celeste.Oui::Focused
+   IL_02f4: brtrue.s IL_02fd
+   IL_02f6: ldc.r4 0
+   IL_02fb: br.s IL_0302
+   IL_02fd: ldc.r4 1
+   IL_0302: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0307: ldc.r4 4
+   IL_030c: mul
+   IL_030d: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0312: stfld System.Single Celeste.OuiChapterSelect::levelsetEase
+   IL_0317: ret

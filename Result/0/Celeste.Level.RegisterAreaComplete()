@@ -1,0 +1,74 @@
+On: Celeste.Mod.XaphanHelper.Hooks.MergedChaptersGoldenStrawberry.onLevelRegisterAreaComplete(orig_RegisterAreaComplete,Level)
+On: Celeste.Mod.SpeedrunTool.Other.AreaCompleteEnableTimer.EnableTimer(orig_RegisterAreaComplete,Level)
+On: Celeste.Mod.Vidcutter.VidcutterModule.OnComplete(orig_RegisterAreaComplete,Level)
+On: Celeste.Mod.KyfexHelper.CompleteWithoutEndTrigger.onLevelEnd(orig_RegisterAreaComplete,Level)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Level::Completed
+   IL_0006: brtrue IL_00de
+   IL_000b: ldarg.0
+   IL_000c: call Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0011: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0016: stloc.0
+   IL_0017: ldloc.0
+   IL_0018: brfalse IL_00c1
+   IL_001d: newobj System.Void System.Collections.Generic.List`1<Celeste.Mod.IStrawberry>::.ctor()
+   IL_0022: stloc.1
+   IL_0023: call System.Collections.ObjectModel.ReadOnlyCollection`1<System.Type> Celeste.Mod.StrawberryRegistry::GetBerryTypes()
+   IL_0028: stloc.2
+   IL_0029: ldloc.0
+   IL_002a: ldfld Celeste.Leader Celeste.Player::Leader
+   IL_002f: ldfld System.Collections.Generic.List`1<Celeste.Follower> Celeste.Leader::Followers
+   IL_0034: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Follower>::GetEnumerator()
+   IL_0039: stloc.3
+   IL_003a: br.s IL_0079
+   IL_003c: ldloca.s V_3
+   IL_003e: call T System.Collections.Generic.List`1/Enumerator<Celeste.Follower>::get_Current()
+   IL_0043: stloc.s V_4
+   IL_0045: ldloc.2
+   IL_0046: ldloc.s V_4
+   IL_0048: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_004d: callvirt System.Type System.Object::GetType()
+   IL_0052: callvirt System.Boolean System.Collections.ObjectModel.ReadOnlyCollection`1<System.Type>::Contains(T)
+   IL_0057: brfalse.s IL_0079
+   IL_0059: ldloc.s V_4
+   IL_005b: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0060: isinst Celeste.Mod.IStrawberry
+   IL_0065: brfalse.s IL_0079
+   IL_0067: ldloc.1
+   IL_0068: ldloc.s V_4
+   IL_006a: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_006f: isinst Celeste.Mod.IStrawberry
+   IL_0074: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.IStrawberry>::Add(T)
+   IL_0079: ldloca.s V_3
+   IL_007b: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Follower>::MoveNext()
+   IL_0080: brtrue.s IL_003c
+   IL_0082: leave.s IL_0092
+   IL_0084: ldloca.s V_3
+   IL_0086: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Follower>
+   IL_008c: callvirt System.Void System.IDisposable::Dispose()
+   IL_0091: endfinally
+   IL_0092: ldloc.1
+   IL_0093: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.IStrawberry>::GetEnumerator()
+   IL_0098: stloc.s V_5
+   IL_009a: br.s IL_00a8
+   IL_009c: ldloca.s V_5
+   IL_009e: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.IStrawberry>::get_Current()
+   IL_00a3: callvirt System.Void Celeste.Mod.IStrawberry::OnCollect()
+   IL_00a8: ldloca.s V_5
+   IL_00aa: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.IStrawberry>::MoveNext()
+   IL_00af: brtrue.s IL_009c
+   IL_00b1: leave.s IL_00c1
+   IL_00b3: ldloca.s V_5
+   IL_00b5: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.IStrawberry>
+   IL_00bb: callvirt System.Void System.IDisposable::Dispose()
+   IL_00c0: endfinally
+   IL_00c1: ldarg.0
+   IL_00c2: ldc.i4.1
+   IL_00c3: stfld System.Boolean Celeste.Level::Completed
+   IL_00c8: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00cd: ldarg.0
+   IL_00ce: ldfld Celeste.Session Celeste.Level::Session
+   IL_00d3: callvirt System.Void Celeste.SaveData::RegisterCompletion(Celeste.Session)
+   IL_00d8: ldarg.0
+   IL_00d9: call System.Void Celeste.Mod.Everest/Events/Level::Complete(Celeste.Level)
+   IL_00de: ret

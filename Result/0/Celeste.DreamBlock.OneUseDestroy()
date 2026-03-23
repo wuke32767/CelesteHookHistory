@@ -1,0 +1,17 @@
+On: FrostHelper.CustomDreamBlockV2.DreamBlockOnOneUseDestroy(orig_OneUseDestroy,DreamBlock)
+On: .PL_VirtualRedir<Celeste.DreamBlock::OneUseDestroy>?38378265(DreamBlock)
+On: BrokemiaHelper.BrokemiaHelperModule.DreamBlock_OneUseDestroy(orig_OneUseDestroy,DreamBlock)
+On: Celeste.Mod.CommunalHelper.Entities.CustomDreamBlock.DreamBlock_OneUseDestroy(orig_OneUseDestroy,DreamBlock)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldc.i4.0
+   IL_0003: dup
+   IL_0004: stloc.0
+   IL_0005: stfld System.Boolean Monocle.Entity::Visible
+   IL_000a: ldloc.0
+   IL_000b: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0010: ldarg.0
+   IL_0011: call System.Void Celeste.Platform::DisableStaticMovers()
+   IL_0016: ldarg.0
+   IL_0017: call System.Void Monocle.Entity::RemoveSelf()
+   IL_001c: ret

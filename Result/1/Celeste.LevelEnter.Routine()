@@ -1,0 +1,120 @@
+On: Celeste.Mod.GravityHelper.Hooks.LevelEnterHooks.LevelEnter_Routine(orig_Routine,LevelEnter)
+On: Celeste.Mod.XaphanHelper.XaphanModule.modLevelEnterRoutine(orig_Routine,LevelEnter)
+On: VanillaTweaks.VanillaTweaksHooks.LevelEnter_Routine(orig_Routine,LevelEnter)
+On: Celeste.Mod.JungleHelper.Entities.EnforceSkinController.addSkinWarningPostcard(orig_Routine,LevelEnter)
+On: AltSidesHelper.AltSidesHelperModule.AddAltSideRemixTitle(orig_Routine,LevelEnter)
+   IL_0000: ldsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_0005: brfalse.s IL_001d
+   IL_0007: ldsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_000c: stloc.s V_5
+   IL_000e: ldnull
+   IL_000f: stsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_0014: ldarg.0
+   IL_0015: ldloc.s V_5
+   IL_0017: callvirt System.Collections.IEnumerator Celeste.LevelEnter::ErrorRoutine(System.String)
+   IL_001c: ret
+   IL_001d: ldarg.0
+   IL_001e: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_0023: call Celeste.AreaData Celeste.AreaData::Get(Celeste.Session)
+   IL_0028: brtrue.s IL_0079
+   IL_002a: ldstr "LevelEnter"
+   IL_002f: ldstr "Failed to find map"
+   IL_0034: call System.Void Celeste.Mod.Logger::Warn(System.String,System.String)
+   IL_0039: ldarg.0
+   IL_003a: ldstr "postcard_levelgone"
+   IL_003f: ldnull
+   IL_0040: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_0045: ldstr "((player))"
+   IL_004a: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_004f: ldfld System.String Celeste.SaveData::Name
+   IL_0054: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0059: ldstr "((sid))"
+   IL_005e: ldarg.0
+   IL_005f: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_0064: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0069: call System.String Celeste.AreaKeyExt::GetSID(Celeste.AreaKey)
+   IL_006e: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0073: callvirt System.Collections.IEnumerator Celeste.LevelEnter::ErrorRoutine(System.String)
+   IL_0078: ret
+   IL_0079: ldarg.0
+   IL_007a: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_007f: call Celeste.AreaData Celeste.AreaData::Get(Celeste.Session)
+   IL_0084: stloc.0
+   IL_0085: ldloc.0
+   IL_0086: ldfld Celeste.Mod.Meta.MapMeta Celeste.AreaData::Meta
+   IL_008b: stloc.1
+   IL_008c: ldstr ""
+   IL_0091: stloc.2
+   IL_0092: ldc.i4.0
+   IL_0093: stloc.3
+   IL_0094: ldarg.0
+   IL_0095: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_009a: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_009f: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_00a4: ldc.i4.1
+   IL_00a5: bne.un.s IL_00b1
+   IL_00a7: ldstr "_b"
+   IL_00ac: stloc.2
+   IL_00ad: ldc.i4.1
+   IL_00ae: stloc.3
+   IL_00af: br.s IL_00cc
+   IL_00b1: ldarg.0
+   IL_00b2: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_00b7: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_00bc: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_00c1: ldc.i4.2
+   IL_00c2: bne.un.s IL_00cc
+   IL_00c4: ldstr "_c"
+   IL_00c9: stloc.2
+   IL_00ca: ldc.i4.2
+   IL_00cb: stloc.3
+   IL_00cc: ldloc.0
+   IL_00cd: ldfld System.String Celeste.AreaData::Name
+   IL_00d2: ldloc.2
+   IL_00d3: ldstr "_postcard"
+   IL_00d8: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_00dd: stloc.s V_4
+   IL_00df: ldloc.1
+   IL_00e0: brfalse IL_0164
+   IL_00e5: ldloc.0
+   IL_00e6: callvirt System.String Celeste.AreaData::get_LevelSet()
+   IL_00eb: ldstr "Celeste"
+   IL_00f0: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_00f5: brfalse.s IL_0164
+   IL_00f7: ldloc.s V_4
+   IL_00f9: ldnull
+   IL_00fa: call System.Boolean Celeste.Dialog::Has(System.String,Celeste.Language)
+   IL_00ff: brfalse.s IL_0164
+   IL_0101: ldarg.0
+   IL_0102: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_0107: ldfld System.Boolean Celeste.Session::StartedFromBeginning
+   IL_010c: brfalse.s IL_0164
+   IL_010e: ldarg.0
+   IL_010f: ldfld System.Boolean Celeste.LevelEnter::fromSaveData
+   IL_0114: brtrue.s IL_0164
+   IL_0116: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_011b: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_0120: ldarg.0
+   IL_0121: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_0126: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_012b: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0130: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_0135: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_013a: ldloc.3
+   IL_013b: ldelem.ref
+   IL_013c: ldfld System.Boolean Celeste.AreaModeStats::Completed
+   IL_0141: brfalse.s IL_014f
+   IL_0143: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0148: ldfld System.Boolean Celeste.SaveData::DebugMode
+   IL_014d: brfalse.s IL_0164
+   IL_014f: ldarg.0
+   IL_0150: ldloc.s V_4
+   IL_0152: ldnull
+   IL_0153: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_0158: ldloc.1
+   IL_0159: callvirt System.String Celeste.Mod.Meta.MapMeta::get_PostcardSoundID()
+   IL_015e: callvirt System.Collections.IEnumerator Celeste.LevelEnter::EnterWithPostcardRoutine(System.String,System.String)
+   IL_0163: ret
+   IL_0164: ldarg.0
+   IL_0165: callvirt System.Collections.IEnumerator Celeste.LevelEnter::orig_Routine()
+   IL_016a: ret

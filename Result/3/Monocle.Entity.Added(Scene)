@@ -1,0 +1,34 @@
+On: LuckyHelper.Components.ColorModifierComponent.EntityOnAdded(orig_Added,Entity,Scene)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.Entity_Added(orig_Added,Entity,Scene)
+On: Bitsbolts.ModCompat.OnEntityAdded(orig_Added,Entity,Scene)
+On: Celeste.Mod.Aqua.Core.EntityExtensions.Entity_Added(orig_Added,Entity,Scene)
+On: Celeste.Mod.Kelper.Entities.Loader.Entity_Added(orig_Added,Entity,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: callvirt System.Void Monocle.Entity::set_Scene(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: callvirt Monocle.ComponentList Monocle.Entity::get_Components()
+   IL_000d: brfalse.s IL_003d
+   IL_000f: ldarg.0
+   IL_0010: callvirt Monocle.ComponentList Monocle.Entity::get_Components()
+   IL_0015: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Component> Monocle.ComponentList::GetEnumerator()
+   IL_001a: stloc.0
+   IL_001b: br.s IL_0029
+   IL_001d: ldloc.0
+   IL_001e: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Component>::get_Current()
+   IL_0023: ldarg.1
+   IL_0024: callvirt System.Void Monocle.Component::EntityAdded(Monocle.Scene)
+   IL_0029: ldloc.0
+   IL_002a: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_002f: brtrue.s IL_001d
+   IL_0031: leave.s IL_003d
+   IL_0033: ldloc.0
+   IL_0034: brfalse.s IL_003c
+   IL_0036: ldloc.0
+   IL_0037: callvirt System.Void System.IDisposable::Dispose()
+   IL_003c: endfinally
+   IL_003d: ldarg.0
+   IL_003e: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0043: ldarg.0
+   IL_0044: callvirt System.Void Monocle.Scene::SetActualDepth(Monocle.Entity)
+   IL_0049: ret

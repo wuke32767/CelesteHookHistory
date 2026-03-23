@@ -1,0 +1,30 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedClutteredEntity() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: call Monocle.ComponentList Monocle.Entity::get_Components()
+   IL_0011: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Component> Monocle.ComponentList::GetEnumerator()
+   IL_0016: stloc.0
+   IL_0017: br.s IL_002f
+   IL_0019: ldloc.0
+   IL_001a: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Component>::get_Current()
+   IL_001f: isinst Monocle.Image
+   IL_0024: stloc.1
+   IL_0025: ldloc.1
+   IL_0026: brfalse.s IL_002f
+   IL_0028: ldloc.1
+   IL_0029: ldc.i4.1
+   IL_002a: callvirt System.Void Monocle.GraphicsComponent::DrawOutline(System.Int32)
+   IL_002f: ldloc.0
+   IL_0030: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_0035: brtrue.s IL_0019
+   IL_0037: leave.s IL_0043
+   IL_0039: ldloc.0
+   IL_003a: brfalse.s IL_0042
+   IL_003c: ldloc.0
+   IL_003d: callvirt System.Void System.IDisposable::Dispose()
+   IL_0042: endfinally
+   IL_0043: ldarg.0
+   IL_0044: call System.Void Monocle.Entity::Render()
+   IL_0049: ret

@@ -1,0 +1,35 @@
+On: VivHelper.Entities.EntityMuterComponent.SoundSource_Update(orig_Update,SoundSource)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.SoundSource::UpdateSfxPosition()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Boolean Celeste.SoundSource::isOneshot
+   IL_000c: brfalse.s IL_0056
+   IL_000e: ldarg.0
+   IL_000f: ldfld FMOD.Studio.EventInstance Celeste.SoundSource::instance
+   IL_0014: ldnull
+   IL_0015: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_001a: brfalse.s IL_0056
+   IL_001c: ldarg.0
+   IL_001d: ldfld FMOD.Studio.EventInstance Celeste.SoundSource::instance
+   IL_0022: ldloca.s V_0
+   IL_0024: callvirt FMOD.RESULT FMOD.Studio.EventInstance::getPlaybackState(FMOD.Studio.PLAYBACK_STATE&)
+   IL_0029: pop
+   IL_002a: ldloc.0
+   IL_002b: ldc.i4.2
+   IL_002c: bne.un.s IL_0056
+   IL_002e: ldarg.0
+   IL_002f: ldfld FMOD.Studio.EventInstance Celeste.SoundSource::instance
+   IL_0034: callvirt FMOD.RESULT FMOD.Studio.EventInstance::release()
+   IL_0039: pop
+   IL_003a: ldarg.0
+   IL_003b: ldnull
+   IL_003c: stfld FMOD.Studio.EventInstance Celeste.SoundSource::instance
+   IL_0041: ldarg.0
+   IL_0042: ldc.i4.0
+   IL_0043: callvirt System.Void Celeste.SoundSource::set_Playing(System.Boolean)
+   IL_0048: ldarg.0
+   IL_0049: ldfld System.Boolean Celeste.SoundSource::RemoveOnOneshotEnd
+   IL_004e: brfalse.s IL_0056
+   IL_0050: ldarg.0
+   IL_0051: call System.Void Monocle.Component::RemoveSelf()
+   IL_0056: ret

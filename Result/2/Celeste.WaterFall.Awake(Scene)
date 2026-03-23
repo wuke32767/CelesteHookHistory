@@ -1,0 +1,149 @@
+On: Celeste.Mod.Spirialis.TimeController.waterfallAwake(orig_Awake,WaterFall,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Awake(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000d: isinst Celeste.Level
+   IL_0012: stloc.0
+   IL_0013: ldc.i4.0
+   IL_0014: stloc.1
+   IL_0015: ldarg.0
+   IL_0016: ldc.r4 8
+   IL_001b: stfld System.Single Celeste.WaterFall::height
+   IL_0020: br.s IL_003b
+   IL_0022: ldarg.0
+   IL_0023: ldarg.0
+   IL_0024: ldfld System.Single Celeste.WaterFall::height
+   IL_0029: ldc.r4 8
+   IL_002e: add
+   IL_002f: stfld System.Single Celeste.WaterFall::height
+   IL_0034: ldarg.0
+   IL_0035: ldnull
+   IL_0036: stfld Celeste.Solid Celeste.WaterFall::solid
+   IL_003b: ldarg.0
+   IL_003c: call System.Single Monocle.Entity::get_Y()
+   IL_0041: ldarg.0
+   IL_0042: ldfld System.Single Celeste.WaterFall::height
+   IL_0047: add
+   IL_0048: ldloc.0
+   IL_0049: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_004e: stloc.2
+   IL_004f: ldloca.s V_2
+   IL_0051: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0056: conv.r4
+   IL_0057: bge.un.s IL_00d2
+   IL_0059: ldarg.0
+   IL_005a: ldarg.0
+   IL_005b: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0060: ldarg.0
+   IL_0061: call System.Single Monocle.Entity::get_X()
+   IL_0066: conv.i4
+   IL_0067: ldarg.0
+   IL_0068: call System.Single Monocle.Entity::get_Y()
+   IL_006d: ldarg.0
+   IL_006e: ldfld System.Single Celeste.WaterFall::height
+   IL_0073: add
+   IL_0074: conv.i4
+   IL_0075: ldc.i4.8
+   IL_0076: ldc.i4.8
+   IL_0077: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_007c: callvirt T Monocle.Scene::CollideFirst<Celeste.Water>(Microsoft.Xna.Framework.Rectangle)
+   IL_0081: dup
+   IL_0082: stloc.3
+   IL_0083: stfld Celeste.Water Celeste.WaterFall::water
+   IL_0088: ldloc.3
+   IL_0089: brtrue.s IL_00d2
+   IL_008b: ldarg.0
+   IL_008c: ldarg.0
+   IL_008d: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0092: ldarg.0
+   IL_0093: call System.Single Monocle.Entity::get_X()
+   IL_0098: conv.i4
+   IL_0099: ldarg.0
+   IL_009a: call System.Single Monocle.Entity::get_Y()
+   IL_009f: ldarg.0
+   IL_00a0: ldfld System.Single Celeste.WaterFall::height
+   IL_00a5: add
+   IL_00a6: conv.i4
+   IL_00a7: ldc.i4.8
+   IL_00a8: ldc.i4.8
+   IL_00a9: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_00ae: callvirt T Monocle.Scene::CollideFirst<Celeste.Solid>(Microsoft.Xna.Framework.Rectangle)
+   IL_00b3: dup
+   IL_00b4: stloc.s V_4
+   IL_00b6: stfld Celeste.Solid Celeste.WaterFall::solid
+   IL_00bb: ldloc.s V_4
+   IL_00bd: brfalse IL_0022
+   IL_00c2: ldarg.0
+   IL_00c3: ldfld Celeste.Solid Celeste.WaterFall::solid
+   IL_00c8: ldfld System.Boolean Celeste.Platform::BlockWaterfalls
+   IL_00cd: brfalse IL_0022
+   IL_00d2: ldarg.0
+   IL_00d3: ldfld Celeste.Water Celeste.WaterFall::water
+   IL_00d8: brfalse.s IL_0106
+   IL_00da: ldarg.0
+   IL_00db: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00e0: ldarg.0
+   IL_00e1: call System.Single Monocle.Entity::get_X()
+   IL_00e6: conv.i4
+   IL_00e7: ldarg.0
+   IL_00e8: call System.Single Monocle.Entity::get_Y()
+   IL_00ed: ldarg.0
+   IL_00ee: ldfld System.Single Celeste.WaterFall::height
+   IL_00f3: add
+   IL_00f4: conv.i4
+   IL_00f5: ldc.i4.8
+   IL_00f6: ldc.i4.s 16
+   IL_00f8: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_00fd: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Rectangle)
+   IL_0102: brtrue.s IL_0106
+   IL_0104: ldc.i4.1
+   IL_0105: stloc.1
+   IL_0106: ldarg.0
+   IL_0107: ldarg.0
+   IL_0108: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_010d: dup
+   IL_010e: stloc.s V_5
+   IL_0110: stfld Celeste.SoundSource Celeste.WaterFall::loopingSfx
+   IL_0115: ldloc.s V_5
+   IL_0117: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_011c: ldarg.0
+   IL_011d: ldfld Celeste.SoundSource Celeste.WaterFall::loopingSfx
+   IL_0122: ldstr "event:/env/local/waterfall_small_main"
+   IL_0127: ldnull
+   IL_0128: ldc.r4 0
+   IL_012d: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)
+   IL_0132: pop
+   IL_0133: ldarg.0
+   IL_0134: ldarg.0
+   IL_0135: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_013a: dup
+   IL_013b: stloc.s V_5
+   IL_013d: stfld Celeste.SoundSource Celeste.WaterFall::enteringSfx
+   IL_0142: ldloc.s V_5
+   IL_0144: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0149: ldarg.0
+   IL_014a: ldfld Celeste.SoundSource Celeste.WaterFall::enteringSfx
+   IL_014f: ldloc.1
+   IL_0150: brtrue.s IL_0159
+   IL_0152: ldstr "event:/env/local/waterfall_small_in_shallow"
+   IL_0157: br.s IL_015e
+   IL_0159: ldstr "event:/env/local/waterfall_small_in_deep"
+   IL_015e: ldnull
+   IL_015f: ldc.r4 0
+   IL_0164: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)
+   IL_0169: pop
+   IL_016a: ldarg.0
+   IL_016b: ldfld Celeste.SoundSource Celeste.WaterFall::enteringSfx
+   IL_0170: ldflda Microsoft.Xna.Framework.Vector2 Celeste.SoundSource::Position
+   IL_0175: ldarg.0
+   IL_0176: ldfld System.Single Celeste.WaterFall::height
+   IL_017b: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0180: ldarg.0
+   IL_0181: ldarg.0
+   IL_0182: ldftn System.Void Celeste.WaterFall::RenderDisplacement()
+   IL_0188: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_018d: newobj System.Void Celeste.DisplacementRenderHook::.ctor(System.Action)
+   IL_0192: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0197: ret

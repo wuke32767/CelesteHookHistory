@@ -1,0 +1,17 @@
+On: Celeste.Mod.CommunalHelper.Components.DreamSprite.Entity_set_Depth(Action`2,Entity,Int32)
+On: Celeste.Mod.SorbetHelper.Components.DepthAdheringDisplacementRenderHook.On_Entity_set_Depth(Action`2,Entity,Int32)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Int32 Monocle.Entity::depth
+   IL_0006: ldarg.1
+   IL_0007: beq.s IL_0024
+   IL_0009: ldarg.0
+   IL_000a: ldarg.1
+   IL_000b: stfld System.Int32 Monocle.Entity::depth
+   IL_0010: ldarg.0
+   IL_0011: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0016: brfalse.s IL_0024
+   IL_0018: ldarg.0
+   IL_0019: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_001e: ldarg.0
+   IL_001f: callvirt System.Void Monocle.Scene::SetActualDepth(Monocle.Entity)
+   IL_0024: ret

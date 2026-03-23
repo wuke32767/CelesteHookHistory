@@ -1,0 +1,52 @@
+On: LuckyHelper.Entities.Misc.AtlasPathReplacer.AtlasOnGetAtlasSubtextures(orig_GetAtlasSubtextures,Atlas,String)
+On: Celeste.Mod.SkinModHelper.SkinsSystem.GetAtlasSubtexturesHook(orig_GetAtlasSubtextures,Atlas,String)
+   IL_0000: ldarg.0
+   IL_0001: ldnull
+   IL_0002: callvirt System.Void Monocle.Atlas::PushFallback(Monocle.MTexture)
+   IL_0007: ldarg.0
+   IL_0008: ldarg.1
+   IL_0009: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::orig_GetAtlasSubtextures(System.String)
+   IL_000e: stloc.0
+   IL_000f: ldarg.0
+   IL_0010: callvirt Monocle.MTexture Monocle.Atlas::PopFallback()
+   IL_0015: pop
+   IL_0016: ldloc.0
+   IL_0017: brfalse.s IL_0021
+   IL_0019: ldloc.0
+   IL_001a: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.MTexture>::get_Count()
+   IL_001f: brtrue.s IL_0076
+   IL_0021: ldstr "Atlas"
+   IL_0026: stloc.2
+   IL_0027: ldloc.2
+   IL_0028: ldc.i4.s 49
+   IL_002a: ldc.i4.2
+   IL_002b: ldloc.2
+   IL_002c: ldloca.s V_4
+   IL_002e: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0033: stloc.3
+   IL_0034: ldloc.s V_4
+   IL_0036: brfalse.s IL_0059
+   IL_0038: ldloca.s V_3
+   IL_003a: ldstr "Requested atlas subtextures but none were found: "
+   IL_003f: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0044: ldloca.s V_3
+   IL_0046: ldarg.0
+   IL_0047: ldfld System.String Monocle.Atlas::RelativeDataPath
+   IL_004c: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0051: ldloca.s V_3
+   IL_0053: ldarg.1
+   IL_0054: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0059: ldloc.3
+   IL_005a: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_005f: ldarg.0
+   IL_0060: callvirt Monocle.MTexture Monocle.Atlas::GetFallback()
+   IL_0065: stloc.1
+   IL_0066: ldloc.1
+   IL_0067: brfalse.s IL_0076
+   IL_0069: newobj System.Void System.Collections.Generic.List`1<Monocle.MTexture>::.ctor()
+   IL_006e: dup
+   IL_006f: ldloc.1
+   IL_0070: callvirt System.Void System.Collections.Generic.List`1<Monocle.MTexture>::Add(T)
+   IL_0075: ret
+   IL_0076: ldloc.0
+   IL_0077: ret

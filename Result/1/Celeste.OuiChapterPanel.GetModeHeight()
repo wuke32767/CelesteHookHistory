@@ -1,0 +1,44 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modOuiChapterPanelGetModeHeight(orig_GetModeHeight,OuiChapterPanel)
+On: Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.OnChapterPanelGetModeHeight(orig_GetModeHeight,OuiChapterPanel)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.AreaStats Celeste.OuiChapterPanel::RealStats
+   IL_0006: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_000b: ldarg.0
+   IL_000c: ldflda Celeste.AreaKey Celeste.OuiChapterPanel::Area
+   IL_0011: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_0016: ldelem.ref
+   IL_0017: stloc.0
+   IL_0018: ldloc.0
+   IL_0019: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.AreaModeStats::Strawberries
+   IL_001e: callvirt System.Int32 System.Collections.Generic.HashSet`1<Celeste.EntityID>::get_Count()
+   IL_0023: ldc.i4.0
+   IL_0024: cgt
+   IL_0026: ldc.i4.0
+   IL_0027: ceq
+   IL_0029: stloc.1
+   IL_002a: ldarg.0
+   IL_002b: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
+   IL_0030: callvirt System.Boolean Celeste.AreaData::get_Interlude_Safe()
+   IL_0035: brtrue.s IL_005f
+   IL_0037: ldloc.0
+   IL_0038: ldfld System.Int32 Celeste.AreaModeStats::Deaths
+   IL_003d: ldc.i4.0
+   IL_003e: ble.s IL_004d
+   IL_0040: ldarg.0
+   IL_0041: ldflda Celeste.AreaKey Celeste.OuiChapterPanel::Area
+   IL_0046: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_004b: brtrue.s IL_005d
+   IL_004d: ldloc.0
+   IL_004e: ldfld System.Boolean Celeste.AreaModeStats::Completed
+   IL_0053: brtrue.s IL_005d
+   IL_0055: ldloc.0
+   IL_0056: ldfld System.Boolean Celeste.AreaModeStats::HeartGem
+   IL_005b: brfalse.s IL_005f
+   IL_005d: ldc.i4.0
+   IL_005e: stloc.1
+   IL_005f: ldloc.1
+   IL_0060: brtrue.s IL_0068
+   IL_0062: ldc.i4 540
+   IL_0067: ret
+   IL_0068: ldc.i4 300
+   IL_006d: ret

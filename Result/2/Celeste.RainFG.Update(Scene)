@@ -1,0 +1,75 @@
+On: Celeste.Mod.StrawberryJam2021.Triggers.RainDensityTrigger.modRainUpdate(orig_Update,RainFG,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Celeste.Backdrop::Update(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldarg.1
+   IL_0009: isinst Celeste.Level
+   IL_000e: call System.Boolean Celeste.Backdrop::IsVisible(Celeste.Level)
+   IL_0013: stloc.0
+   IL_0014: ldarg.1
+   IL_0015: isinst Celeste.Level
+   IL_001a: ldloc.0
+   IL_001b: stfld System.Boolean Celeste.Level::Raining
+   IL_0020: ldarg.0
+   IL_0021: ldarg.0
+   IL_0022: ldfld System.Single Celeste.RainFG::visibleFade
+   IL_0027: ldloc.0
+   IL_0028: brtrue.s IL_002d
+   IL_002a: ldc.i4.0
+   IL_002b: br.s IL_002e
+   IL_002d: ldc.i4.1
+   IL_002e: conv.r4
+   IL_002f: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0034: ldloc.0
+   IL_0035: brtrue.s IL_003e
+   IL_0037: ldc.r4 0.25
+   IL_003c: br.s IL_0043
+   IL_003e: ldc.r4 10
+   IL_0043: mul
+   IL_0044: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0049: stfld System.Single Celeste.RainFG::visibleFade
+   IL_004e: ldarg.0
+   IL_004f: ldfld Celeste.Backdrop/Fader Celeste.Backdrop::FadeX
+   IL_0054: brfalse.s IL_007d
+   IL_0056: ldarg.0
+   IL_0057: ldarg.0
+   IL_0058: ldfld Celeste.Backdrop/Fader Celeste.Backdrop::FadeX
+   IL_005d: ldarg.1
+   IL_005e: isinst Celeste.Level
+   IL_0063: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0068: callvirt System.Single Monocle.Camera::get_X()
+   IL_006d: ldc.r4 160
+   IL_0072: add
+   IL_0073: callvirt System.Single Celeste.Backdrop/Fader::Value(System.Single)
+   IL_0078: stfld System.Single Celeste.RainFG::linearFade
+   IL_007d: ldc.i4.0
+   IL_007e: stloc.1
+   IL_007f: br.s IL_00c1
+   IL_0081: ldarg.0
+   IL_0082: ldfld Celeste.RainFG/Particle[] Celeste.RainFG::particles
+   IL_0087: ldloc.1
+   IL_0088: ldelema Celeste.RainFG/Particle
+   IL_008d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.RainFG/Particle::Position
+   IL_0092: dup
+   IL_0093: ldobj Microsoft.Xna.Framework.Vector2
+   IL_0098: ldarg.0
+   IL_0099: ldfld Celeste.RainFG/Particle[] Celeste.RainFG::particles
+   IL_009e: ldloc.1
+   IL_009f: ldelema Celeste.RainFG/Particle
+   IL_00a4: ldfld Microsoft.Xna.Framework.Vector2 Celeste.RainFG/Particle::Speed
+   IL_00a9: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00ae: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00b3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00b8: stobj Microsoft.Xna.Framework.Vector2
+   IL_00bd: ldloc.1
+   IL_00be: ldc.i4.1
+   IL_00bf: add
+   IL_00c0: stloc.1
+   IL_00c1: ldloc.1
+   IL_00c2: ldarg.0
+   IL_00c3: ldfld Celeste.RainFG/Particle[] Celeste.RainFG::particles
+   IL_00c8: ldlen
+   IL_00c9: conv.i4
+   IL_00ca: blt.s IL_0081
+   IL_00cc: ret

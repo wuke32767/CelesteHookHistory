@@ -1,0 +1,18 @@
+On: Celeste.Mod.TASRecorder.VideoCapture.On_GraphicsDevice_SetRenderTarget(orig_GraphicsDevice_SetRenderTarget,GraphicsDevice,RenderTarget2D)
+   IL_0000: ldarg.1
+   IL_0001: brtrue.s IL_000b
+   IL_0003: ldarg.0
+   IL_0004: ldnull
+   IL_0005: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTargets(Microsoft.Xna.Framework.Graphics.RenderTargetBinding[])
+   IL_000a: ret
+   IL_000b: ldarg.0
+   IL_000c: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::singleTargetCache
+   IL_0011: ldc.i4.0
+   IL_0012: ldarg.1
+   IL_0013: newobj System.Void Microsoft.Xna.Framework.Graphics.RenderTargetBinding::.ctor(Microsoft.Xna.Framework.Graphics.RenderTarget2D)
+   IL_0018: stelem.any Microsoft.Xna.Framework.Graphics.RenderTargetBinding
+   IL_001d: ldarg.0
+   IL_001e: ldarg.0
+   IL_001f: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::singleTargetCache
+   IL_0024: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTargets(Microsoft.Xna.Framework.Graphics.RenderTargetBinding[])
+   IL_0029: ret

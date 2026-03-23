@@ -1,0 +1,105 @@
+On: Celeste.Mod.FewerVisualDistractions.Patches.ParallaxTweaker.DreamBlock_PutInside(orig_PutInside,DreamBlock,Vector2)
+   IL_0000: ldarg.1
+   IL_0001: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0006: ldarg.0
+   IL_0007: call System.Single Monocle.Entity::get_Right()
+   IL_000c: ble.un.s IL_003d
+   IL_000e: ldarga.s pos
+   IL_0010: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0015: dup
+   IL_0016: ldind.r4
+   IL_0017: ldarg.1
+   IL_0018: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001d: ldarg.0
+   IL_001e: call System.Single Monocle.Entity::get_Right()
+   IL_0023: sub
+   IL_0024: ldarg.0
+   IL_0025: call System.Single Monocle.Entity::get_Width()
+   IL_002a: div
+   IL_002b: conv.r8
+   IL_002c: call System.Double System.Math::Ceiling(System.Double)
+   IL_0031: conv.r4
+   IL_0032: ldarg.0
+   IL_0033: call System.Single Monocle.Entity::get_Width()
+   IL_0038: mul
+   IL_0039: sub
+   IL_003a: stind.r4
+   IL_003b: br.s IL_0078
+   IL_003d: ldarg.1
+   IL_003e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0043: ldarg.0
+   IL_0044: call System.Single Monocle.Entity::get_Left()
+   IL_0049: bge.un.s IL_0078
+   IL_004b: ldarga.s pos
+   IL_004d: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0052: dup
+   IL_0053: ldind.r4
+   IL_0054: ldarg.0
+   IL_0055: call System.Single Monocle.Entity::get_Left()
+   IL_005a: ldarg.1
+   IL_005b: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0060: sub
+   IL_0061: ldarg.0
+   IL_0062: call System.Single Monocle.Entity::get_Width()
+   IL_0067: div
+   IL_0068: conv.r8
+   IL_0069: call System.Double System.Math::Ceiling(System.Double)
+   IL_006e: conv.r4
+   IL_006f: ldarg.0
+   IL_0070: call System.Single Monocle.Entity::get_Width()
+   IL_0075: mul
+   IL_0076: add
+   IL_0077: stind.r4
+   IL_0078: ldarg.1
+   IL_0079: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_007e: ldarg.0
+   IL_007f: call System.Single Monocle.Entity::get_Bottom()
+   IL_0084: ble.un.s IL_00b5
+   IL_0086: ldarga.s pos
+   IL_0088: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_008d: dup
+   IL_008e: ldind.r4
+   IL_008f: ldarg.1
+   IL_0090: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0095: ldarg.0
+   IL_0096: call System.Single Monocle.Entity::get_Bottom()
+   IL_009b: sub
+   IL_009c: ldarg.0
+   IL_009d: call System.Single Monocle.Entity::get_Height()
+   IL_00a2: div
+   IL_00a3: conv.r8
+   IL_00a4: call System.Double System.Math::Ceiling(System.Double)
+   IL_00a9: conv.r4
+   IL_00aa: ldarg.0
+   IL_00ab: call System.Single Monocle.Entity::get_Height()
+   IL_00b0: mul
+   IL_00b1: sub
+   IL_00b2: stind.r4
+   IL_00b3: br.s IL_00f0
+   IL_00b5: ldarg.1
+   IL_00b6: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00bb: ldarg.0
+   IL_00bc: call System.Single Monocle.Entity::get_Top()
+   IL_00c1: bge.un.s IL_00f0
+   IL_00c3: ldarga.s pos
+   IL_00c5: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00ca: dup
+   IL_00cb: ldind.r4
+   IL_00cc: ldarg.0
+   IL_00cd: call System.Single Monocle.Entity::get_Top()
+   IL_00d2: ldarg.1
+   IL_00d3: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00d8: sub
+   IL_00d9: ldarg.0
+   IL_00da: call System.Single Monocle.Entity::get_Height()
+   IL_00df: div
+   IL_00e0: conv.r8
+   IL_00e1: call System.Double System.Math::Ceiling(System.Double)
+   IL_00e6: conv.r4
+   IL_00e7: ldarg.0
+   IL_00e8: call System.Single Monocle.Entity::get_Height()
+   IL_00ed: mul
+   IL_00ee: add
+   IL_00ef: stind.r4
+   IL_00f0: ldarg.1
+   IL_00f1: ret

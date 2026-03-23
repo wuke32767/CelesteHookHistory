@@ -1,0 +1,24 @@
+On: Celeste.Mod.XaphanHelper.Entities.Drone.OnHoldableUpdate(orig_Update,Holdable)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Component::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Single Celeste.Holdable::cannotHoldTimer
+   IL_000c: ldc.r4 0
+   IL_0011: ble.un.s IL_0025
+   IL_0013: ldarg.0
+   IL_0014: ldarg.0
+   IL_0015: ldfld System.Single Celeste.Holdable::cannotHoldTimer
+   IL_001a: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_001f: sub
+   IL_0020: stfld System.Single Celeste.Holdable::cannotHoldTimer
+   IL_0025: ldarg.0
+   IL_0026: ldfld System.Single Celeste.Holdable::gravityTimer
+   IL_002b: ldc.r4 0
+   IL_0030: ble.un.s IL_0044
+   IL_0032: ldarg.0
+   IL_0033: ldarg.0
+   IL_0034: ldfld System.Single Celeste.Holdable::gravityTimer
+   IL_0039: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_003e: sub
+   IL_003f: stfld System.Single Celeste.Holdable::gravityTimer
+   IL_0044: ret

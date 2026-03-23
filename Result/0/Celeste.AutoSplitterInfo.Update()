@@ -1,0 +1,10 @@
+On: Celeste.Mod.Randomizer.RandoModule.MainThreadHook(orig_Update,AutoSplitterInfo)
+IL: Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager.OverwriteAutosplitterChapterTime(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: callvirt System.Void Celeste.AutoSplitterInfo::orig_Update()
+   IL_0011: call System.Void Celeste.Mod.AutoSplitter::Update()
+   IL_0016: ret

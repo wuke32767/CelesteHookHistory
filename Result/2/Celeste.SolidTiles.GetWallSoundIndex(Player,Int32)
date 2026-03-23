@@ -1,0 +1,45 @@
+On: Celeste.Mod.CommunalHelper.Entities.AbstractPanel.Platform_GetWallSoundIndex(Func`4,Platform,Player,Int32)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0007: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_000c: ldarg.2
+   IL_000d: conv.r4
+   IL_000e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0013: ldc.r4 8
+   IL_0018: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_001d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0022: callvirt System.Int32 Celeste.SolidTiles::SurfaceSoundIndexAt(Microsoft.Xna.Framework.Vector2)
+   IL_0027: stloc.0
+   IL_0028: ldloc.0
+   IL_0029: ldc.i4.0
+   IL_002a: bge.s IL_004c
+   IL_002c: ldarg.0
+   IL_002d: ldarg.1
+   IL_002e: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0033: ldarg.2
+   IL_0034: ldc.i4.8
+   IL_0035: mul
+   IL_0036: conv.r4
+   IL_0037: ldc.r4 -6
+   IL_003c: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0041: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0046: callvirt System.Int32 Celeste.SolidTiles::SurfaceSoundIndexAt(Microsoft.Xna.Framework.Vector2)
+   IL_004b: stloc.0
+   IL_004c: ldloc.0
+   IL_004d: ldc.i4.0
+   IL_004e: bge.s IL_0070
+   IL_0050: ldarg.0
+   IL_0051: ldarg.1
+   IL_0052: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0057: ldarg.2
+   IL_0058: ldc.i4.8
+   IL_0059: mul
+   IL_005a: conv.r4
+   IL_005b: ldc.r4 6
+   IL_0060: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0065: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_006a: callvirt System.Int32 Celeste.SolidTiles::SurfaceSoundIndexAt(Microsoft.Xna.Framework.Vector2)
+   IL_006f: stloc.0
+   IL_0070: ldloc.0
+   IL_0071: ret

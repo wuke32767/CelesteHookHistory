@@ -1,0 +1,71 @@
+On: Celeste.Mod.SeekerBoing.SeekerBoingModule.boing2(orig_OnHoldable,Seeker,Holdable)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.StateMachine Celeste.Seeker::State
+   IL_0006: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_000b: ldc.i4.6
+   IL_000c: beq.s IL_0061
+   IL_000e: ldarg.1
+   IL_000f: ldarg.0
+   IL_0010: ldfld Celeste.HoldableCollider Celeste.Seeker::theo
+   IL_0015: callvirt System.Boolean Celeste.Holdable::Dangerous(Celeste.HoldableCollider)
+   IL_001a: brfalse.s IL_0061
+   IL_001c: ldarg.1
+   IL_001d: ldarg.0
+   IL_001e: callvirt System.Void Celeste.Holdable::HitSeeker(Celeste.Seeker)
+   IL_0023: ldarg.0
+   IL_0024: ldfld Monocle.StateMachine Celeste.Seeker::State
+   IL_0029: ldc.i4.4
+   IL_002a: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_002f: ldarg.0
+   IL_0030: ldarg.0
+   IL_0031: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0036: ldarg.1
+   IL_0037: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_003c: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0041: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0046: ldc.r4 120
+   IL_004b: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0050: stfld Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_0055: ldarg.0
+   IL_0056: ldfld Monocle.Wiggler Celeste.Seeker::scaleWiggler
+   IL_005b: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0060: ret
+   IL_0061: ldarg.0
+   IL_0062: ldfld Monocle.StateMachine Celeste.Seeker::State
+   IL_0067: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_006c: ldc.i4.3
+   IL_006d: beq.s IL_007d
+   IL_006f: ldarg.0
+   IL_0070: ldfld Monocle.StateMachine Celeste.Seeker::State
+   IL_0075: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_007a: ldc.i4.5
+   IL_007b: bne.un.s IL_00de
+   IL_007d: ldarg.1
+   IL_007e: callvirt System.Boolean Celeste.Holdable::get_IsHeld()
+   IL_0083: brfalse.s IL_00de
+   IL_0085: ldarg.1
+   IL_0086: ldarg.0
+   IL_0087: ldfld Celeste.HoldableCollider Celeste.Seeker::theo
+   IL_008c: ldarg.0
+   IL_008d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_0092: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0097: call System.Int32 System.Math::Sign(System.Single)
+   IL_009c: callvirt System.Void Celeste.Holdable::Swat(Celeste.HoldableCollider,System.Int32)
+   IL_00a1: ldarg.0
+   IL_00a2: ldfld Monocle.StateMachine Celeste.Seeker::State
+   IL_00a7: ldc.i4.4
+   IL_00a8: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_00ad: ldarg.0
+   IL_00ae: ldarg.0
+   IL_00af: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_00b4: ldarg.1
+   IL_00b5: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00ba: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_00bf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00c4: ldc.r4 120
+   IL_00c9: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00ce: stfld Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_00d3: ldarg.0
+   IL_00d4: ldfld Monocle.Wiggler Celeste.Seeker::scaleWiggler
+   IL_00d9: callvirt System.Void Monocle.Wiggler::Start()
+   IL_00de: ret

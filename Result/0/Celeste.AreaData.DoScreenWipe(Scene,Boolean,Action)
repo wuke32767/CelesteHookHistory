@@ -1,0 +1,17 @@
+On: Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.AreaData_DoScreenWipe(orig_DoScreenWipe,AreaData,Scene,Boolean,Action)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Action`3<Monocle.Scene,System.Boolean,System.Action> Celeste.AreaData::Wipe
+   IL_0006: brtrue.s IL_0012
+   IL_0008: ldarg.1
+   IL_0009: ldarg.2
+   IL_000a: ldarg.3
+   IL_000b: newobj System.Void Celeste.WindWipe::.ctor(Monocle.Scene,System.Boolean,System.Action)
+   IL_0010: pop
+   IL_0011: ret
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Action`3<Monocle.Scene,System.Boolean,System.Action> Celeste.AreaData::Wipe
+   IL_0018: ldarg.1
+   IL_0019: ldarg.2
+   IL_001a: ldarg.3
+   IL_001b: callvirt System.Void System.Action`3<Monocle.Scene,System.Boolean,System.Action>::Invoke(T1,T2,T3)
+   IL_0020: ret

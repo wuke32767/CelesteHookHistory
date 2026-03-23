@@ -1,0 +1,88 @@
+On: Celeste.Mod.CollabUtils2.UI.SpeedBerryPBInChapterPanel.modOuiChapterPanelConstructor(orig_ctor,OuiChapterPanel)
+   IL_0000: ldarg.0
+   IL_0001: ldstr ""
+   IL_0006: stfld System.String Celeste.OuiChapterPanel::chapter
+   IL_000b: ldarg.0
+   IL_000c: ldc.i4.1
+   IL_000d: stfld System.Boolean Celeste.OuiChapterPanel::selectingMode
+   IL_0012: ldarg.0
+   IL_0013: newobj System.Void Monocle.MTexture::.ctor()
+   IL_0018: stfld Monocle.MTexture Celeste.OuiChapterPanel::card
+   IL_001d: ldarg.0
+   IL_001e: ldc.i4.1
+   IL_001f: ldc.i4.0
+   IL_0020: ldc.i4.0
+   IL_0021: ldc.i4.1
+   IL_0022: newobj System.Void Celeste.StrawberriesCounter::.ctor(System.Boolean,System.Int32,System.Int32,System.Boolean)
+   IL_0027: stfld Celeste.StrawberriesCounter Celeste.OuiChapterPanel::strawberries
+   IL_002c: ldarg.0
+   IL_002d: ldc.i4.0
+   IL_002e: ldc.i4.1
+   IL_002f: ldc.i4.0
+   IL_0030: ldc.i4.0
+   IL_0031: newobj System.Void Celeste.DeathsCounter::.ctor(Celeste.AreaMode,System.Boolean,System.Int32,System.Int32)
+   IL_0036: stfld Celeste.DeathsCounter Celeste.OuiChapterPanel::deaths
+   IL_003b: ldarg.0
+   IL_003c: ldc.i4.0
+   IL_003d: ldc.i4.0
+   IL_003e: newobj System.Void Celeste.HeartGemDisplay::.ctor(System.Int32,System.Boolean)
+   IL_0043: stfld Celeste.HeartGemDisplay Celeste.OuiChapterPanel::heart
+   IL_0048: ldarg.0
+   IL_0049: newobj System.Void System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option>::.ctor()
+   IL_004e: stfld System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option> Celeste.OuiChapterPanel::modes
+   IL_0053: ldarg.0
+   IL_0054: newobj System.Void System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option>::.ctor()
+   IL_0059: stfld System.Collections.Generic.List`1<Celeste.OuiChapterPanel/Option> Celeste.OuiChapterPanel::checkpoints
+   IL_005e: ldarg.0
+   IL_005f: call System.Void Celeste.Oui::.ctor()
+   IL_0064: ldarg.0
+   IL_0065: ldarg.0
+   IL_0066: ldfld Celeste.StrawberriesCounter Celeste.OuiChapterPanel::strawberries
+   IL_006b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0070: ldarg.0
+   IL_0071: ldarg.0
+   IL_0072: ldfld Celeste.DeathsCounter Celeste.OuiChapterPanel::deaths
+   IL_0077: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_007c: ldarg.0
+   IL_007d: ldarg.0
+   IL_007e: ldfld Celeste.HeartGemDisplay Celeste.OuiChapterPanel::heart
+   IL_0083: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0088: ldarg.0
+   IL_0089: ldfld Celeste.DeathsCounter Celeste.OuiChapterPanel::deaths
+   IL_008e: ldc.i4.0
+   IL_008f: stfld System.Boolean Celeste.DeathsCounter::CanWiggle
+   IL_0094: ldarg.0
+   IL_0095: ldfld Celeste.StrawberriesCounter Celeste.OuiChapterPanel::strawberries
+   IL_009a: ldc.i4.0
+   IL_009b: stfld System.Boolean Celeste.StrawberriesCounter::CanWiggle
+   IL_00a0: ldarg.0
+   IL_00a1: ldfld Celeste.StrawberriesCounter Celeste.OuiChapterPanel::strawberries
+   IL_00a6: ldc.i4.1
+   IL_00a7: stfld System.Boolean Celeste.StrawberriesCounter::OverworldSfx
+   IL_00ac: ldarg.0
+   IL_00ad: ldarg.0
+   IL_00ae: ldc.r4 0.4
+   IL_00b3: ldc.r4 4
+   IL_00b8: ldnull
+   IL_00b9: ldc.i4.0
+   IL_00ba: ldc.i4.0
+   IL_00bb: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_00c0: dup
+   IL_00c1: stloc.0
+   IL_00c2: stfld Monocle.Wiggler Celeste.OuiChapterPanel::wiggler
+   IL_00c7: ldloc.0
+   IL_00c8: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00cd: ldarg.0
+   IL_00ce: ldarg.0
+   IL_00cf: ldc.r4 0.4
+   IL_00d4: ldc.r4 4
+   IL_00d9: ldnull
+   IL_00da: ldc.i4.0
+   IL_00db: ldc.i4.0
+   IL_00dc: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_00e1: dup
+   IL_00e2: stloc.0
+   IL_00e3: stfld Monocle.Wiggler Celeste.OuiChapterPanel::modeAppearWiggler
+   IL_00e8: ldloc.0
+   IL_00e9: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00ee: ret

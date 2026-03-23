@@ -1,0 +1,36 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.onSessionRestart(orig_Restart,Session,String)
+On: GoldenTrainer.GoldenTrainerModule.OnSessionRestart(orig_Restart,Session,String)
+On: Celeste.Mod.CollabUtils2.Entities.GoldenBerryPlayerRespawnPoint.onSessionRestart(orig_Restart,Session,String)
+On: Bitsbolts.Entities.LoaderRespawn.OnSessionRestart(orig_Restart,Session,String)
+On: ExtendedVariants.Variants.AllStrawberriesAreGoldens.onSessionRestart(orig_Restart,Session,String)
+On: Celeste.Mod.ShroomHelper.ShroomHelperModule.Session_Restart(orig_Restart,Session,String)
+On: Celeste.Mod.CherryHelper.CherryHelper.handleSF2(orig_Restart,Session,String)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.String Celeste.Session::StartCheckpoint
+   IL_000c: ldarg.0
+   IL_000d: ldfld Celeste.AreaStats Celeste.Session::OldStats
+   IL_0012: newobj System.Void Celeste.Session::.ctor(Celeste.AreaKey,System.String,Celeste.AreaStats)
+   IL_0017: dup
+   IL_0018: ldarg.0
+   IL_0019: ldfld System.Boolean Celeste.Session::UnlockedCSide
+   IL_001e: stfld System.Boolean Celeste.Session::UnlockedCSide
+   IL_0023: stloc.0
+   IL_0024: ldarg.1
+   IL_0025: brfalse.s IL_004d
+   IL_0027: ldloc.0
+   IL_0028: ldarg.1
+   IL_0029: stfld System.String Celeste.Session::Level
+   IL_002e: ldarg.1
+   IL_002f: ldarg.0
+   IL_0030: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_0035: callvirt Celeste.LevelData Celeste.MapData::StartLevel()
+   IL_003a: ldfld System.String Celeste.LevelData::Name
+   IL_003f: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_0044: brfalse.s IL_004d
+   IL_0046: ldloc.0
+   IL_0047: ldc.i4.0
+   IL_0048: stfld System.Boolean Celeste.Session::StartedFromBeginning
+   IL_004d: ldloc.0
+   IL_004e: ret

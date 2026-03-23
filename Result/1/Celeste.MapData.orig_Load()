@@ -1,0 +1,492 @@
+On: Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModMapDataLoad(Action`1,MapData)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.String Celeste.MapData::get_Filepath()
+   IL_0006: call System.Boolean Celeste.Mod.Helpers.FileProxy::Exists(System.String)
+   IL_000b: brtrue.s IL_000e
+   IL_000d: ret
+   IL_000e: ldarg.0
+   IL_000f: newobj System.Void System.Collections.Generic.List`1<Celeste.EntityData>::.ctor()
+   IL_0014: stfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::Strawberries
+   IL_0019: ldarg.0
+   IL_001a: callvirt System.String Celeste.MapData::get_Filepath()
+   IL_001f: call Celeste.BinaryPacker/Element Celeste.BinaryPacker::FromBinary(System.String)
+   IL_0024: ldarg.0
+   IL_0025: call Celeste.BinaryPacker/Element Celeste.MapData::_Process(Celeste.BinaryPacker/Element,Celeste.MapData)
+   IL_002a: dup
+   IL_002b: ldfld System.String Celeste.BinaryPacker/Element::Package
+   IL_0030: ldarg.0
+   IL_0031: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_0036: ldfld System.String Celeste.ModeProperties::Path
+   IL_003b: callvirt System.Boolean System.String::Equals(System.String)
+   IL_0040: brtrue.s IL_004d
+   IL_0042: ldstr "Corrupted Level Data"
+   IL_0047: newobj System.Void System.Exception::.ctor(System.String)
+   IL_004c: pop
+   IL_004d: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_0052: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.BinaryPacker/Element>::GetEnumerator()
+   IL_0057: stloc.0
+   IL_0058: br IL_026c
+   IL_005d: ldloca.s V_0
+   IL_005f: call T System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::get_Current()
+   IL_0064: stloc.1
+   IL_0065: ldloc.1
+   IL_0066: ldfld System.String Celeste.BinaryPacker/Element::Name
+   IL_006b: ldstr "levels"
+   IL_0070: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0075: brfalse IL_00f9
+   IL_007a: ldarg.0
+   IL_007b: newobj System.Void System.Collections.Generic.List`1<Celeste.LevelData>::.ctor()
+   IL_0080: stfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_0085: ldloc.1
+   IL_0086: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_008b: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.BinaryPacker/Element>::GetEnumerator()
+   IL_0090: stloc.2
+   IL_0091: br.s IL_00dd
+   IL_0093: ldloca.s V_2
+   IL_0095: call T System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::get_Current()
+   IL_009a: newobj System.Void Celeste.LevelData::.ctor(Celeste.BinaryPacker/Element)
+   IL_009f: stloc.3
+   IL_00a0: ldarg.0
+   IL_00a1: ldarg.0
+   IL_00a2: ldfld System.Int32 Celeste.MapData::DetectedStrawberries
+   IL_00a7: ldloc.3
+   IL_00a8: ldfld System.Int32 Celeste.LevelData::Strawberries
+   IL_00ad: add
+   IL_00ae: stfld System.Int32 Celeste.MapData::DetectedStrawberries
+   IL_00b3: ldloc.3
+   IL_00b4: ldfld System.Boolean Celeste.LevelData::HasGem
+   IL_00b9: brfalse.s IL_00c2
+   IL_00bb: ldarg.0
+   IL_00bc: ldc.i4.1
+   IL_00bd: stfld System.Boolean Celeste.MapData::DetectedRemixNotes
+   IL_00c2: ldloc.3
+   IL_00c3: ldfld System.Boolean Celeste.LevelData::HasHeartGem
+   IL_00c8: brfalse.s IL_00d1
+   IL_00ca: ldarg.0
+   IL_00cb: ldc.i4.1
+   IL_00cc: stfld System.Boolean Celeste.MapData::DetectedHeartGem
+   IL_00d1: ldarg.0
+   IL_00d2: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_00d7: ldloc.3
+   IL_00d8: callvirt System.Void System.Collections.Generic.List`1<Celeste.LevelData>::Add(T)
+   IL_00dd: ldloca.s V_2
+   IL_00df: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::MoveNext()
+   IL_00e4: brtrue.s IL_0093
+   IL_00e6: leave IL_026c
+   IL_00eb: ldloca.s V_2
+   IL_00ed: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>
+   IL_00f3: callvirt System.Void System.IDisposable::Dispose()
+   IL_00f8: endfinally
+   IL_00f9: ldloc.1
+   IL_00fa: ldfld System.String Celeste.BinaryPacker/Element::Name
+   IL_00ff: ldstr "Filler"
+   IL_0104: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0109: brfalse IL_01bf
+   IL_010e: ldarg.0
+   IL_010f: newobj System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::.ctor()
+   IL_0114: stfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.MapData::Filler
+   IL_0119: ldloc.1
+   IL_011a: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_011f: brfalse IL_026c
+   IL_0124: ldloc.1
+   IL_0125: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_012a: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.BinaryPacker/Element>::GetEnumerator()
+   IL_012f: stloc.2
+   IL_0130: br.s IL_01a3
+   IL_0132: ldloca.s V_2
+   IL_0134: call T System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::get_Current()
+   IL_0139: stloc.s V_4
+   IL_013b: ldarg.0
+   IL_013c: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.MapData::Filler
+   IL_0141: ldloc.s V_4
+   IL_0143: ldfld System.Collections.Generic.Dictionary`2<System.String,System.Object> Celeste.BinaryPacker/Element::Attributes
+   IL_0148: ldstr "x"
+   IL_014d: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,System.Object>::get_Item(TKey)
+   IL_0152: unbox.any System.Int32
+   IL_0157: ldloc.s V_4
+   IL_0159: ldfld System.Collections.Generic.Dictionary`2<System.String,System.Object> Celeste.BinaryPacker/Element::Attributes
+   IL_015e: ldstr "y"
+   IL_0163: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,System.Object>::get_Item(TKey)
+   IL_0168: unbox.any System.Int32
+   IL_016d: ldloc.s V_4
+   IL_016f: ldfld System.Collections.Generic.Dictionary`2<System.String,System.Object> Celeste.BinaryPacker/Element::Attributes
+   IL_0174: ldstr "w"
+   IL_0179: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,System.Object>::get_Item(TKey)
+   IL_017e: unbox.any System.Int32
+   IL_0183: ldloc.s V_4
+   IL_0185: ldfld System.Collections.Generic.Dictionary`2<System.String,System.Object> Celeste.BinaryPacker/Element::Attributes
+   IL_018a: ldstr "h"
+   IL_018f: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,System.Object>::get_Item(TKey)
+   IL_0194: unbox.any System.Int32
+   IL_0199: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_019e: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::Add(T)
+   IL_01a3: ldloca.s V_2
+   IL_01a5: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::MoveNext()
+   IL_01aa: brtrue.s IL_0132
+   IL_01ac: leave IL_026c
+   IL_01b1: ldloca.s V_2
+   IL_01b3: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>
+   IL_01b9: callvirt System.Void System.IDisposable::Dispose()
+   IL_01be: endfinally
+   IL_01bf: ldloc.1
+   IL_01c0: ldfld System.String Celeste.BinaryPacker/Element::Name
+   IL_01c5: ldstr "Style"
+   IL_01ca: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_01cf: brfalse IL_026c
+   IL_01d4: ldloc.1
+   IL_01d5: ldstr "color"
+   IL_01da: callvirt System.Boolean Celeste.BinaryPacker/Element::HasAttr(System.String)
+   IL_01df: brfalse.s IL_01fc
+   IL_01e1: ldarg.0
+   IL_01e2: ldloc.1
+   IL_01e3: ldstr "color"
+   IL_01e8: ldstr ""
+   IL_01ed: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_01f2: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_01f7: stfld Microsoft.Xna.Framework.Color Celeste.MapData::BackgroundColor
+   IL_01fc: ldloc.1
+   IL_01fd: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_0202: brfalse.s IL_026c
+   IL_0204: ldloc.1
+   IL_0205: ldfld System.Collections.Generic.List`1<Celeste.BinaryPacker/Element> Celeste.BinaryPacker/Element::Children
+   IL_020a: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.BinaryPacker/Element>::GetEnumerator()
+   IL_020f: stloc.2
+   IL_0210: br.s IL_0253
+   IL_0212: ldloca.s V_2
+   IL_0214: call T System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::get_Current()
+   IL_0219: stloc.s V_5
+   IL_021b: ldloc.s V_5
+   IL_021d: ldfld System.String Celeste.BinaryPacker/Element::Name
+   IL_0222: ldstr "Backgrounds"
+   IL_0227: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_022c: brfalse.s IL_0238
+   IL_022e: ldarg.0
+   IL_022f: ldloc.s V_5
+   IL_0231: stfld Celeste.BinaryPacker/Element Celeste.MapData::Background
+   IL_0236: br.s IL_0253
+   IL_0238: ldloc.s V_5
+   IL_023a: ldfld System.String Celeste.BinaryPacker/Element::Name
+   IL_023f: ldstr "Foregrounds"
+   IL_0244: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0249: brfalse.s IL_0253
+   IL_024b: ldarg.0
+   IL_024c: ldloc.s V_5
+   IL_024e: stfld Celeste.BinaryPacker/Element Celeste.MapData::Foreground
+   IL_0253: ldloca.s V_2
+   IL_0255: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::MoveNext()
+   IL_025a: brtrue.s IL_0212
+   IL_025c: leave.s IL_026c
+   IL_025e: ldloca.s V_2
+   IL_0260: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>
+   IL_0266: callvirt System.Void System.IDisposable::Dispose()
+   IL_026b: endfinally
+   IL_026c: ldloca.s V_0
+   IL_026e: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>::MoveNext()
+   IL_0273: brtrue IL_005d
+   IL_0278: leave.s IL_0288
+   IL_027a: ldloca.s V_0
+   IL_027c: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.BinaryPacker/Element>
+   IL_0282: callvirt System.Void System.IDisposable::Dispose()
+   IL_0287: endfinally
+   IL_0288: ldarg.0
+   IL_0289: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_028e: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.LevelData>::GetEnumerator()
+   IL_0293: stloc.s V_6
+   IL_0295: br IL_030f
+   IL_029a: ldloca.s V_6
+   IL_029c: call T System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::get_Current()
+   IL_02a1: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.LevelData::Entities
+   IL_02a6: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.EntityData>::GetEnumerator()
+   IL_02ab: stloc.s V_7
+   IL_02ad: br.s IL_02f6
+   IL_02af: ldloca.s V_7
+   IL_02b1: call T System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::get_Current()
+   IL_02b6: stloc.s V_8
+   IL_02b8: ldloc.s V_8
+   IL_02ba: ldfld System.String Celeste.EntityData::Name
+   IL_02bf: nop
+   IL_02c0: call System.Boolean Celeste.Mod.StrawberryRegistry::TrackableContains(System.String)
+   IL_02c5: brfalse.s IL_02d6
+   IL_02c7: ldarg.0
+   IL_02c8: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::Strawberries
+   IL_02cd: ldloc.s V_8
+   IL_02cf: callvirt System.Void System.Collections.Generic.List`1<Celeste.EntityData>::Add(T)
+   IL_02d4: br.s IL_02f6
+   IL_02d6: ldloc.s V_8
+   IL_02d8: ldfld System.String Celeste.EntityData::Name
+   IL_02dd: ldstr "goldenBerry"
+   IL_02e2: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_02e7: brfalse.s IL_02f6
+   IL_02e9: ldarg.0
+   IL_02ea: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::Goldenberries
+   IL_02ef: ldloc.s V_8
+   IL_02f1: callvirt System.Void System.Collections.Generic.List`1<Celeste.EntityData>::Add(T)
+   IL_02f6: ldloca.s V_7
+   IL_02f8: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::MoveNext()
+   IL_02fd: brtrue.s IL_02af
+   IL_02ff: leave.s IL_030f
+   IL_0301: ldloca.s V_7
+   IL_0303: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>
+   IL_0309: callvirt System.Void System.IDisposable::Dispose()
+   IL_030e: endfinally
+   IL_030f: ldloca.s V_6
+   IL_0311: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::MoveNext()
+   IL_0316: brtrue IL_029a
+   IL_031b: leave.s IL_032b
+   IL_031d: ldloca.s V_6
+   IL_031f: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>
+   IL_0325: callvirt System.Void System.IDisposable::Dispose()
+   IL_032a: endfinally
+   IL_032b: ldc.i4 2147483647
+   IL_0330: stloc.s V_9
+   IL_0332: ldc.i4 2147483647
+   IL_0337: stloc.s V_10
+   IL_0339: ldc.i4 -2147483648
+   IL_033e: stloc.s V_11
+   IL_0340: ldc.i4 -2147483648
+   IL_0345: stloc.s V_12
+   IL_0347: ldarg.0
+   IL_0348: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_034d: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.LevelData>::GetEnumerator()
+   IL_0352: stloc.s V_6
+   IL_0354: br IL_03da
+   IL_0359: ldloca.s V_6
+   IL_035b: call T System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::get_Current()
+   IL_0360: stloc.s V_14
+   IL_0362: ldloc.s V_14
+   IL_0364: ldflda Microsoft.Xna.Framework.Rectangle Celeste.LevelData::Bounds
+   IL_0369: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_036e: ldloc.s V_9
+   IL_0370: bge.s IL_0380
+   IL_0372: ldloc.s V_14
+   IL_0374: ldflda Microsoft.Xna.Framework.Rectangle Celeste.LevelData::Bounds
+   IL_0379: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_037e: stloc.s V_9
+   IL_0380: ldloc.s V_14
+   IL_0382: ldflda Microsoft.Xna.Framework.Rectangle Celeste.LevelData::Bounds
+   IL_0387: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_038c: ldloc.s V_10
+   IL_038e: bge.s IL_039e
+   IL_0390: ldloc.s V_14
+   IL_0392: ldflda Microsoft.Xna.Framework.Rectangle Celeste.LevelData::Bounds
+   IL_0397: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_039c: stloc.s V_10
+   IL_039e: ldloc.s V_14
+   IL_03a0: ldflda Microsoft.Xna.Framework.Rectangle Celeste.LevelData::Bounds
+   IL_03a5: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_03aa: ldloc.s V_11
+   IL_03ac: ble.s IL_03bc
+   IL_03ae: ldloc.s V_14
+   IL_03b0: ldflda Microsoft.Xna.Framework.Rectangle Celeste.LevelData::Bounds
+   IL_03b5: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_03ba: stloc.s V_11
+   IL_03bc: ldloc.s V_14
+   IL_03be: ldflda Microsoft.Xna.Framework.Rectangle Celeste.LevelData::Bounds
+   IL_03c3: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_03c8: ldloc.s V_12
+   IL_03ca: ble.s IL_03da
+   IL_03cc: ldloc.s V_14
+   IL_03ce: ldflda Microsoft.Xna.Framework.Rectangle Celeste.LevelData::Bounds
+   IL_03d3: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_03d8: stloc.s V_12
+   IL_03da: ldloca.s V_6
+   IL_03dc: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::MoveNext()
+   IL_03e1: brtrue IL_0359
+   IL_03e6: leave.s IL_03f6
+   IL_03e8: ldloca.s V_6
+   IL_03ea: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>
+   IL_03f0: callvirt System.Void System.IDisposable::Dispose()
+   IL_03f5: endfinally
+   IL_03f6: ldarg.0
+   IL_03f7: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.MapData::Filler
+   IL_03fc: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::GetEnumerator()
+   IL_0401: stloc.s V_15
+   IL_0403: br.s IL_045e
+   IL_0405: ldloca.s V_15
+   IL_0407: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::get_Current()
+   IL_040c: stloc.s V_16
+   IL_040e: ldloca.s V_16
+   IL_0410: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0415: ldloc.s V_9
+   IL_0417: bge.s IL_0422
+   IL_0419: ldloca.s V_16
+   IL_041b: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0420: stloc.s V_9
+   IL_0422: ldloca.s V_16
+   IL_0424: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0429: ldloc.s V_10
+   IL_042b: bge.s IL_0436
+   IL_042d: ldloca.s V_16
+   IL_042f: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0434: stloc.s V_10
+   IL_0436: ldloca.s V_16
+   IL_0438: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_043d: ldloc.s V_11
+   IL_043f: ble.s IL_044a
+   IL_0441: ldloca.s V_16
+   IL_0443: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0448: stloc.s V_11
+   IL_044a: ldloca.s V_16
+   IL_044c: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0451: ldloc.s V_12
+   IL_0453: ble.s IL_045e
+   IL_0455: ldloca.s V_16
+   IL_0457: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_045c: stloc.s V_12
+   IL_045e: ldloca.s V_15
+   IL_0460: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::MoveNext()
+   IL_0465: brtrue.s IL_0405
+   IL_0467: leave.s IL_0477
+   IL_0469: ldloca.s V_15
+   IL_046b: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>
+   IL_0471: callvirt System.Void System.IDisposable::Dispose()
+   IL_0476: endfinally
+   IL_0477: ldc.i4.s 64
+   IL_0479: stloc.s V_13
+   IL_047b: ldarg.0
+   IL_047c: ldloc.s V_9
+   IL_047e: ldloc.s V_13
+   IL_0480: sub
+   IL_0481: ldloc.s V_10
+   IL_0483: ldloc.s V_13
+   IL_0485: sub
+   IL_0486: ldloc.s V_11
+   IL_0488: ldloc.s V_9
+   IL_048a: sub
+   IL_048b: ldloc.s V_13
+   IL_048d: ldc.i4.2
+   IL_048e: mul
+   IL_048f: add
+   IL_0490: ldloc.s V_12
+   IL_0492: ldloc.s V_10
+   IL_0494: sub
+   IL_0495: ldloc.s V_13
+   IL_0497: ldc.i4.2
+   IL_0498: mul
+   IL_0499: add
+   IL_049a: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_049f: stfld Microsoft.Xna.Framework.Rectangle Celeste.MapData::Bounds
+   IL_04a4: ldarg.0
+   IL_04a5: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_04aa: ldc.i4.0
+   IL_04ab: stfld System.Int32 Celeste.ModeProperties::TotalStrawberries
+   IL_04b0: ldarg.0
+   IL_04b1: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_04b6: ldc.i4.0
+   IL_04b7: stfld System.Int32 Celeste.ModeProperties::StartStrawberries
+   IL_04bc: ldarg.0
+   IL_04bd: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_04c2: ldc.i4.s 10
+   IL_04c4: ldc.i4.s 25
+   IL_04c6: newobj System.Void Celeste.EntityData[0...,0...]::.ctor(System.Int32,System.Int32)
+   IL_04cb: stfld Celeste.EntityData[0...,0...] Celeste.ModeProperties::StrawberriesByCheckpoint
+   IL_04d0: ldc.i4.0
+   IL_04d1: stloc.s V_17
+   IL_04d3: br.s IL_04ff
+   IL_04d5: ldarg.0
+   IL_04d6: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_04db: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_04e0: ldloc.s V_17
+   IL_04e2: ldelem.ref
+   IL_04e3: brfalse.s IL_04f9
+   IL_04e5: ldarg.0
+   IL_04e6: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_04eb: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_04f0: ldloc.s V_17
+   IL_04f2: ldelem.ref
+   IL_04f3: ldc.i4.0
+   IL_04f4: stfld System.Int32 Celeste.CheckpointData::Strawberries
+   IL_04f9: ldloc.s V_17
+   IL_04fb: ldc.i4.1
+   IL_04fc: add
+   IL_04fd: stloc.s V_17
+   IL_04ff: ldarg.0
+   IL_0500: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_0505: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_050a: brfalse.s IL_051d
+   IL_050c: ldloc.s V_17
+   IL_050e: ldarg.0
+   IL_050f: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_0514: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_0519: ldlen
+   IL_051a: conv.i4
+   IL_051b: blt.s IL_04d5
+   IL_051d: ldarg.0
+   IL_051e: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::Strawberries
+   IL_0523: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.EntityData>::GetEnumerator()
+   IL_0528: stloc.s V_7
+   IL_052a: br IL_05ea
+   IL_052f: ldloca.s V_7
+   IL_0531: call T System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::get_Current()
+   IL_0536: stloc.s V_18
+   IL_0538: ldloc.s V_18
+   IL_053a: ldstr "moon"
+   IL_053f: ldc.i4.0
+   IL_0540: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_0545: brtrue IL_05ea
+   IL_054a: ldloc.s V_18
+   IL_054c: ldstr "checkpointID"
+   IL_0551: ldc.i4.0
+   IL_0552: callvirt System.Int32 Celeste.EntityData::Int(System.String,System.Int32)
+   IL_0557: stloc.s V_19
+   IL_0559: ldloc.s V_18
+   IL_055b: ldstr "order"
+   IL_0560: ldc.i4.0
+   IL_0561: callvirt System.Int32 Celeste.EntityData::Int(System.String,System.Int32)
+   IL_0566: stloc.s V_20
+   IL_0568: ldarg.0
+   IL_0569: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_056e: ldflda Celeste.EntityData[0...,0...] Celeste.ModeProperties::StrawberriesByCheckpoint
+   IL_0573: ldloc.s V_19
+   IL_0575: ldloc.s V_20
+   IL_0577: call Celeste.EntityData Celeste.MapData::_GrowAndGet(Celeste.EntityData[0...,0...]&,System.Int32,System.Int32)
+   IL_057c: brtrue.s IL_0594
+   IL_057e: ldarg.0
+   IL_057f: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_0584: ldfld Celeste.EntityData[0...,0...] Celeste.ModeProperties::StrawberriesByCheckpoint
+   IL_0589: ldloc.s V_19
+   IL_058b: ldloc.s V_20
+   IL_058d: ldloc.s V_18
+   IL_058f: call System.Void Celeste.EntityData[0...,0...]::Set(System.Int32,System.Int32,Celeste.EntityData)
+   IL_0594: ldloc.s V_19
+   IL_0596: brtrue.s IL_05ad
+   IL_0598: ldarg.0
+   IL_0599: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_059e: dup
+   IL_059f: ldfld System.Int32 Celeste.ModeProperties::StartStrawberries
+   IL_05a4: ldc.i4.1
+   IL_05a5: add
+   IL_05a6: stfld System.Int32 Celeste.ModeProperties::StartStrawberries
+   IL_05ab: br.s IL_05d7
+   IL_05ad: ldarg.0
+   IL_05ae: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_05b3: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_05b8: brfalse.s IL_05d7
+   IL_05ba: ldarg.0
+   IL_05bb: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_05c0: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_05c5: ldloc.s V_19
+   IL_05c7: ldc.i4.1
+   IL_05c8: sub
+   IL_05c9: ldelem.ref
+   IL_05ca: dup
+   IL_05cb: ldfld System.Int32 Celeste.CheckpointData::Strawberries
+   IL_05d0: ldc.i4.1
+   IL_05d1: add
+   IL_05d2: stfld System.Int32 Celeste.CheckpointData::Strawberries
+   IL_05d7: ldarg.0
+   IL_05d8: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_05dd: dup
+   IL_05de: ldfld System.Int32 Celeste.ModeProperties::TotalStrawberries
+   IL_05e3: ldc.i4.1
+   IL_05e4: add
+   IL_05e5: stfld System.Int32 Celeste.ModeProperties::TotalStrawberries
+   IL_05ea: ldloca.s V_7
+   IL_05ec: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::MoveNext()
+   IL_05f1: brtrue IL_052f
+   IL_05f6: leave.s IL_0606
+   IL_05f8: ldloca.s V_7
+   IL_05fa: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>
+   IL_0600: callvirt System.Void System.IDisposable::Dispose()
+   IL_0605: endfinally
+   IL_0606: ret

@@ -1,0 +1,47 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.WonkyCassetteBlock.NewCheckForSame(orig_CheckForSame,CassetteBlock,Single,Single)
+On: ChroniaHelper.Entities.CounterCassetteBlock.CheckForSameOverride(orig_CheckForSame,CassetteBlock,Single,Single)
+On: Celeste.Mod.CommunalHelper.Entities.CustomCassetteBlock.CassetteBlock_CheckForSame(orig_CheckForSame,CassetteBlock,Single,Single)
+On: Celeste.Mod.QuantumMechanics.Entities.WonkyCassetteBlock.NewCheckForSame(orig_CheckForSame,CassetteBlock,Single,Single)
+On: Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CheckForSameOverride(orig_CheckForSame,CassetteBlock,Single,Single)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000b: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.CassetteBlock>()
+   IL_0010: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_0015: stloc.0
+   IL_0016: br.s IL_004f
+   IL_0018: ldloca.s V_0
+   IL_001a: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_001f: castclass Celeste.CassetteBlock
+   IL_0024: stloc.1
+   IL_0025: ldloc.1
+   IL_0026: ldfld System.Int32 Celeste.CassetteBlock::Index
+   IL_002b: ldarg.0
+   IL_002c: ldfld System.Int32 Celeste.CassetteBlock::Index
+   IL_0031: bne.un.s IL_004f
+   IL_0033: ldloc.1
+   IL_0034: callvirt Monocle.Collider Monocle.Entity::get_Collider()
+   IL_0039: ldarg.1
+   IL_003a: conv.i4
+   IL_003b: ldarg.2
+   IL_003c: conv.i4
+   IL_003d: ldc.i4.8
+   IL_003e: ldc.i4.8
+   IL_003f: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0044: callvirt System.Boolean Monocle.Collider::Collide(Microsoft.Xna.Framework.Rectangle)
+   IL_0049: brfalse.s IL_004f
+   IL_004b: ldc.i4.1
+   IL_004c: stloc.2
+   IL_004d: leave.s IL_006a
+   IL_004f: ldloca.s V_0
+   IL_0051: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0056: brtrue.s IL_0018
+   IL_0058: leave.s IL_0068
+   IL_005a: ldloca.s V_0
+   IL_005c: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0062: callvirt System.Void System.IDisposable::Dispose()
+   IL_0067: endfinally
+   IL_0068: ldc.i4.0
+   IL_0069: ret
+   IL_006a: ldloc.2
+   IL_006b: ret

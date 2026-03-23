@@ -1,0 +1,50 @@
+On: Celeste.Mod.ImGuiHelper.ImGuiHelperModule.Commands_HandleChar(orig_HandleChar,Commands,Char)
+   IL_0000: newobj System.Void Monocle.Commands/<>c__DisplayClass29_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Boolean Monocle.Commands::Open
+   IL_000c: brtrue.s IL_000f
+   IL_000e: ret
+   IL_000f: ldarg.1
+   IL_0010: call System.Boolean System.Char::IsControl(System.Char)
+   IL_0015: brfalse.s IL_0018
+   IL_0017: ret
+   IL_0018: ldloc.0
+   IL_0019: call Microsoft.Xna.Framework.Input.KeyboardState Microsoft.Xna.Framework.Input.Keyboard::GetState()
+   IL_001e: stfld Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands/<>c__DisplayClass29_0::keyboardState
+   IL_0023: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0028: callvirt Celeste.Mod.ButtonBinding Celeste.Mod.Core.CoreModuleSettings::get_ToggleDebugConsole()
+   IL_002d: callvirt System.Collections.Generic.List`1<Microsoft.Xna.Framework.Input.Keys> Celeste.Mod.ButtonBinding::get_Keys()
+   IL_0032: ldloc.0
+   IL_0033: ldftn System.Boolean Monocle.Commands/<>c__DisplayClass29_0::<HandleChar>b__0(Microsoft.Xna.Framework.Input.Keys)
+   IL_0039: newobj System.Void System.Func`2<Microsoft.Xna.Framework.Input.Keys,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_003e: call System.Boolean System.Linq.Enumerable::Any<Microsoft.Xna.Framework.Input.Keys>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_0043: brfalse.s IL_0046
+   IL_0045: ret
+   IL_0046: ldarg.0
+   IL_0047: ldarg.0
+   IL_0048: ldfld System.String Monocle.Commands::currentText
+   IL_004d: ldc.i4.0
+   IL_004e: ldarg.0
+   IL_004f: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_0054: callvirt System.String System.String::Substring(System.Int32,System.Int32)
+   IL_0059: call System.ReadOnlySpan`1<System.Char> System.String::op_Implicit(System.String)
+   IL_005e: ldarg.1
+   IL_005f: stloc.1
+   IL_0060: ldloca.s V_1
+   IL_0062: newobj System.Void System.ReadOnlySpan`1<System.Char>::.ctor(T&)
+   IL_0067: ldarg.0
+   IL_0068: ldfld System.String Monocle.Commands::currentText
+   IL_006d: ldarg.0
+   IL_006e: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_0073: callvirt System.String System.String::Substring(System.Int32)
+   IL_0078: call System.ReadOnlySpan`1<System.Char> System.String::op_Implicit(System.String)
+   IL_007d: call System.String System.String::Concat(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>)
+   IL_0082: stfld System.String Monocle.Commands::currentText
+   IL_0087: ldarg.0
+   IL_0088: ldarg.0
+   IL_0089: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_008e: ldc.i4.1
+   IL_008f: add
+   IL_0090: stfld System.Int32 Monocle.Commands::charIndex
+   IL_0095: ret

@@ -1,0 +1,88 @@
+IL: Celeste.Mod.SkinModHelper.ParticleModify.ilParticleEmitter_Simulate(ILContext)
+   IL_0000: ldarg.1
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Single Monocle.ParticleEmitter::Interval
+   IL_0007: div
+   IL_0008: stloc.0
+   IL_0009: ldc.i4.0
+   IL_000a: stloc.1
+   IL_000b: br IL_00d6
+   IL_0010: ldc.i4.0
+   IL_0011: stloc.2
+   IL_0012: br IL_00c6
+   IL_0017: ldloca.s V_3
+   IL_0019: initobj Monocle.Particle
+   IL_001f: ldarg.0
+   IL_0020: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_0025: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_002a: ldarg.0
+   IL_002b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleEmitter::Position
+   IL_0030: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0035: ldsfld System.Random Monocle.Calc::Random
+   IL_003a: ldarg.0
+   IL_003b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleEmitter::Range
+   IL_0040: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_0045: ldarg.0
+   IL_0046: ldfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleEmitter::Range
+   IL_004b: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Range(System.Random,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0050: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0055: stloc.s V_4
+   IL_0057: ldarg.0
+   IL_0058: ldflda System.Nullable`1<System.Single> Monocle.ParticleEmitter::Direction
+   IL_005d: call System.Boolean System.Nullable`1<System.Single>::get_HasValue()
+   IL_0062: brfalse.s IL_0081
+   IL_0064: ldarg.0
+   IL_0065: ldfld Monocle.ParticleType Monocle.ParticleEmitter::Type
+ + IL_10000: call Monocle.ParticleType Celeste.Mod.SkinModHelper.ParticleModify::<ilParticleEmitter_Simulate>g___|11_0(Monocle.ParticleType) @ Celeste.Mod.SkinModHelper.ParticleModify.ilParticleEmitter_Simulate(ILContext)
+   IL_006a: ldloca.s V_3
+   IL_006c: ldloc.s V_4
+   IL_006e: ldarg.0
+   IL_006f: ldflda System.Nullable`1<System.Single> Monocle.ParticleEmitter::Direction
+   IL_0074: call T System.Nullable`1<System.Single>::get_Value()
+   IL_0079: callvirt Monocle.Particle Monocle.ParticleType::Create(Monocle.Particle&,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_007e: stloc.3
+   IL_007f: br.s IL_0091
+   IL_0081: ldarg.0
+   IL_0082: ldfld Monocle.ParticleType Monocle.ParticleEmitter::Type
+ + IL_10001: call Monocle.ParticleType Celeste.Mod.SkinModHelper.ParticleModify::<ilParticleEmitter_Simulate>g___|11_0(Monocle.ParticleType) @ Celeste.Mod.SkinModHelper.ParticleModify.ilParticleEmitter_Simulate(ILContext)
+   IL_0087: ldloca.s V_3
+   IL_0089: ldloc.s V_4
+   IL_008b: callvirt Monocle.Particle Monocle.ParticleType::Create(Monocle.Particle&,Microsoft.Xna.Framework.Vector2)
+   IL_0090: stloc.3
+   IL_0091: ldloca.s V_3
+   IL_0093: ldarg.0
+   IL_0094: ldfld Monocle.Entity Monocle.ParticleEmitter::Track
+   IL_0099: stfld Monocle.Entity Monocle.Particle::Track
+   IL_009e: ldarg.1
+   IL_009f: ldarg.0
+   IL_00a0: ldfld System.Single Monocle.ParticleEmitter::Interval
+   IL_00a5: ldloc.1
+   IL_00a6: conv.r4
+   IL_00a7: mul
+   IL_00a8: sub
+   IL_00a9: stloc.s V_5
+   IL_00ab: ldloca.s V_3
+   IL_00ad: ldloc.s V_5
+   IL_00af: call System.Boolean Monocle.Particle::SimulateFor(System.Single)
+   IL_00b4: brfalse.s IL_00c2
+   IL_00b6: ldarg.0
+   IL_00b7: ldfld Monocle.ParticleSystem Monocle.ParticleEmitter::System
+   IL_00bc: ldloc.3
+   IL_00bd: callvirt System.Void Monocle.ParticleSystem::Add(Monocle.Particle)
+   IL_00c2: ldloc.2
+   IL_00c3: ldc.i4.1
+   IL_00c4: add
+   IL_00c5: stloc.2
+   IL_00c6: ldloc.2
+   IL_00c7: ldarg.0
+   IL_00c8: ldfld System.Int32 Monocle.ParticleEmitter::Amount
+   IL_00cd: blt IL_0017
+   IL_00d2: ldloc.1
+   IL_00d3: ldc.i4.1
+   IL_00d4: add
+   IL_00d5: stloc.1
+   IL_00d6: ldloc.1
+   IL_00d7: conv.r4
+   IL_00d8: ldloc.0
+   IL_00d9: blt IL_0010
+   IL_00de: ret

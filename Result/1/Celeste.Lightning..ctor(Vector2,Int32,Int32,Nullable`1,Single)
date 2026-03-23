@@ -1,0 +1,49 @@
+On: Celeste.Mod.Aqua.Core.LightningExtensions.Lightning_Construct(orig_ctor_Vector2_int_int_Nullable1_float,Lightning,Vector2,Int32,Int32,Nullable`1,Single)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0007: ldarg.0
+   IL_0008: ldarg.2
+   IL_0009: stfld System.Int32 Celeste.Lightning::VisualWidth
+   IL_000e: ldarg.0
+   IL_000f: ldarg.3
+   IL_0010: stfld System.Int32 Celeste.Lightning::VisualHeight
+   IL_0015: ldarg.0
+   IL_0016: ldarg.2
+   IL_0017: ldc.i4.2
+   IL_0018: sub
+   IL_0019: conv.r4
+   IL_001a: ldarg.3
+   IL_001b: ldc.i4.2
+   IL_001c: sub
+   IL_001d: conv.r4
+   IL_001e: ldc.r4 1
+   IL_0023: ldc.r4 1
+   IL_0028: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_002d: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0032: ldarg.0
+   IL_0033: ldarg.0
+   IL_0034: ldftn System.Void Celeste.Lightning::OnPlayer(Celeste.Player)
+   IL_003a: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_003f: ldnull
+   IL_0040: ldnull
+   IL_0041: newobj System.Void Celeste.PlayerCollider::.ctor(System.Action`1<Celeste.Player>,Monocle.Collider,Monocle.Collider)
+   IL_0046: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_004b: ldarga.s node
+   IL_004d: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Vector2>::get_HasValue()
+   IL_0052: brfalse.s IL_0070
+   IL_0054: ldarg.0
+   IL_0055: ldarg.0
+   IL_0056: ldarg.1
+   IL_0057: ldarga.s node
+   IL_0059: call T System.Nullable`1<Microsoft.Xna.Framework.Vector2>::get_Value()
+   IL_005e: ldarg.s moveTime
+   IL_0060: callvirt System.Collections.IEnumerator Celeste.Lightning::MoveRoutine(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0065: ldc.i4.1
+   IL_0066: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_006b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0070: ldarg.0
+   IL_0071: ldsfld System.Random Monocle.Calc::Random
+   IL_0076: call System.Single Monocle.Calc::NextFloat(System.Random)
+   IL_007b: stfld System.Single Celeste.Lightning::toggleOffset
+   IL_0080: ret

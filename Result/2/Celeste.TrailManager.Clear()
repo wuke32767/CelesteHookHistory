@@ -1,0 +1,31 @@
+On: TileLayoutAnchor.TileLayoutAnchorModule.PreserveTrail(orig_Clear)
+   IL_0000: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0005: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000a: callvirt T Monocle.Tracker::GetEntity<Celeste.TrailManager>()
+   IL_000f: stloc.0
+   IL_0010: ldloc.0
+   IL_0011: brfalse.s IL_003d
+   IL_0013: ldc.i4.0
+   IL_0014: stloc.1
+   IL_0015: br.s IL_0032
+   IL_0017: ldloc.0
+   IL_0018: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_001d: ldloc.1
+   IL_001e: ldelem.ref
+   IL_001f: brfalse.s IL_002e
+   IL_0021: ldloc.0
+   IL_0022: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_0027: ldloc.1
+   IL_0028: ldelem.ref
+   IL_0029: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_002e: ldloc.1
+   IL_002f: ldc.i4.1
+   IL_0030: add
+   IL_0031: stloc.1
+   IL_0032: ldloc.1
+   IL_0033: ldloc.0
+   IL_0034: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_0039: ldlen
+   IL_003a: conv.i4
+   IL_003b: blt.s IL_0017
+   IL_003d: ret

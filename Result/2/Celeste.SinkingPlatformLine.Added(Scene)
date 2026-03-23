@@ -1,0 +1,21 @@
+On: ChroniaHelper.Entities.PlatformLineController.SP_Added_Modify(orig_Added,SinkingPlatformLine,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldarg.0
+   IL_0009: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_000e: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0013: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_0018: conv.r4
+   IL_0019: ldarg.0
+   IL_001a: call System.Single Monocle.Entity::get_Y()
+   IL_001f: ldarg.0
+   IL_0020: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0025: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_002a: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_002f: conv.r4
+   IL_0030: sub
+   IL_0031: sub
+   IL_0032: stfld System.Single Celeste.SinkingPlatformLine::height
+   IL_0037: ret

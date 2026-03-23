@@ -1,0 +1,42 @@
+On: ChroniaHelper.Entities.TeraCrushBlock.TeraCanActivate(orig_CanActivate,CrushBlock,Vector2)
+On: Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraCanActivate(orig_CanActivate,CrushBlock,Vector2)
+On: Celeste.Mod.CommunalHelper.Entities.ChainedKevin.CrushBlock_CanActivate(orig_CanActivate,CrushBlock,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.CrushBlock::giant
+   IL_0006: brfalse.s IL_0017
+   IL_0008: ldarg.1
+   IL_0009: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_000e: ldc.r4 0
+   IL_0013: bgt.un.s IL_0017
+   IL_0015: ldc.i4.0
+   IL_0016: ret
+   IL_0017: ldarg.0
+   IL_0018: ldfld System.Boolean Celeste.CrushBlock::canActivate
+   IL_001d: brfalse.s IL_005d
+   IL_001f: ldarg.0
+   IL_0020: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CrushBlock::crushDir
+   IL_0025: ldarg.1
+   IL_0026: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_002b: brfalse.s IL_005d
+   IL_002d: ldarg.1
+   IL_002e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0033: ldc.r4 0
+   IL_0038: beq.s IL_0044
+   IL_003a: ldarg.0
+   IL_003b: ldfld System.Boolean Celeste.CrushBlock::canMoveHorizontally
+   IL_0040: brtrue.s IL_0044
+   IL_0042: ldc.i4.0
+   IL_0043: ret
+   IL_0044: ldarg.1
+   IL_0045: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_004a: ldc.r4 0
+   IL_004f: beq.s IL_005b
+   IL_0051: ldarg.0
+   IL_0052: ldfld System.Boolean Celeste.CrushBlock::canMoveVertically
+   IL_0057: brtrue.s IL_005b
+   IL_0059: ldc.i4.0
+   IL_005a: ret
+   IL_005b: ldc.i4.1
+   IL_005c: ret
+   IL_005d: ldc.i4.0
+   IL_005e: ret

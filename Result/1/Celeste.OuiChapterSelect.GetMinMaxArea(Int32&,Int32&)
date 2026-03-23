@@ -1,0 +1,80 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modOuiChapterSelectGetMinMaxArea(orig_GetMinMaxArea,OuiChapterSelect,Int32&,Int32&)
+   IL_0000: newobj System.Void Celeste.OuiChapterSelect/<>c__DisplayClass23_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_000c: callvirt Celeste.LevelSetStats Celeste.SaveData::get_LevelSetStats()
+   IL_0011: callvirt System.Int32 Celeste.LevelSetStats::get_AreaOffset()
+   IL_0016: stfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaOffsRaw
+   IL_001b: ldloc.0
+   IL_001c: ldloc.0
+   IL_001d: ldfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaOffsRaw
+   IL_0022: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0027: callvirt System.Int32 Celeste.SaveData::get_UnlockedAreas_Safe()
+   IL_002c: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_0031: stfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaMaxRaw
+   IL_0036: ldarg.1
+   IL_0037: ldarg.0
+   IL_0038: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_003d: ldloc.0
+   IL_003e: ldftn System.Boolean Celeste.OuiChapterSelect/<>c__DisplayClass23_0::<GetMinMaxArea>b__0(Celeste.OuiChapterSelectIcon)
+   IL_0044: newobj System.Void System.Predicate`1<Celeste.OuiChapterSelectIcon>::.ctor(System.Object,System.IntPtr)
+   IL_0049: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::FindIndex(System.Predicate`1<T>)
+   IL_004e: stind.i4
+   IL_004f: ldarg.1
+   IL_0050: ldind.i4
+   IL_0051: ldc.i4.m1
+   IL_0052: bne.un.s IL_006d
+   IL_0054: ldloc.0
+   IL_0055: ldfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaOffsRaw
+   IL_005a: ldc.i4.1
+   IL_005b: add
+   IL_005c: stloc.1
+   IL_005d: ldloc.0
+   IL_005e: ldloc.1
+   IL_005f: stfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaOffsRaw
+   IL_0064: ldloc.1
+   IL_0065: ldloc.0
+   IL_0066: ldfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaMaxRaw
+   IL_006b: blt.s IL_0036
+   IL_006d: ldarg.1
+   IL_006e: ldind.i4
+   IL_006f: ldc.i4.m1
+   IL_0070: bne.un.s IL_007a
+   IL_0072: ldarg.1
+   IL_0073: ldloc.0
+   IL_0074: ldfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaOffsRaw
+   IL_0079: stind.i4
+   IL_007a: ldarg.2
+   IL_007b: ldarg.0
+   IL_007c: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.OuiChapterSelect::icons
+   IL_0081: ldloc.0
+   IL_0082: ldftn System.Boolean Celeste.OuiChapterSelect/<>c__DisplayClass23_0::<GetMinMaxArea>b__1(Celeste.OuiChapterSelectIcon)
+   IL_0088: newobj System.Void System.Predicate`1<Celeste.OuiChapterSelectIcon>::.ctor(System.Object,System.IntPtr)
+   IL_008d: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::FindLastIndex(System.Predicate`1<T>)
+   IL_0092: stind.i4
+   IL_0093: ldarg.2
+   IL_0094: ldind.i4
+   IL_0095: ldc.i4.m1
+   IL_0096: bne.un.s IL_00b1
+   IL_0098: ldloc.0
+   IL_0099: ldfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaMaxRaw
+   IL_009e: ldc.i4.1
+   IL_009f: sub
+   IL_00a0: stloc.1
+   IL_00a1: ldloc.0
+   IL_00a2: ldloc.1
+   IL_00a3: stfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaMaxRaw
+   IL_00a8: ldloc.1
+   IL_00a9: ldloc.0
+   IL_00aa: ldfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaOffsRaw
+   IL_00af: blt.s IL_007a
+   IL_00b1: ldarg.2
+   IL_00b2: ldind.i4
+   IL_00b3: ldc.i4.m1
+   IL_00b4: bne.un.s IL_00be
+   IL_00b6: ldarg.2
+   IL_00b7: ldloc.0
+   IL_00b8: ldfld System.Int32 Celeste.OuiChapterSelect/<>c__DisplayClass23_0::areaMaxRaw
+   IL_00bd: stind.i4
+   IL_00be: ret

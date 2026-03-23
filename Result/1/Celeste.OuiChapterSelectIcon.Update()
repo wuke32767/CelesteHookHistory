@@ -1,0 +1,103 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modOuiChapterSelectIconUpdate(orig_Update,OuiChapterSelectIcon)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.OuiChapterSelectIcon::orig_Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Boolean Celeste.OuiChapterSelectIcon::hidden
+   IL_000c: brtrue.s IL_001d
+   IL_000e: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0013: brfalse.s IL_001d
+   IL_0015: ldarg.0
+   IL_0016: ldfld System.Boolean Celeste.OuiChapterSelectIcon::isAnimated
+   IL_001b: brtrue.s IL_001e
+   IL_001d: ret
+   IL_001e: ldarg.0
+   IL_001f: ldarg.0
+   IL_0020: ldfld System.Single Celeste.OuiChapterSelectIcon::FrontFrameTimer
+   IL_0025: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_002a: sub
+   IL_002b: stfld System.Single Celeste.OuiChapterSelectIcon::FrontFrameTimer
+   IL_0030: br.s IL_008c
+   IL_0032: ldarg.0
+   IL_0033: ldarg.0
+   IL_0034: ldfld System.Single Celeste.OuiChapterSelectIcon::FrontFrameTimer
+   IL_0039: ldc.r4 1
+   IL_003e: ldarg.0
+   IL_003f: ldfld System.Single Celeste.OuiChapterSelectIcon::FrontFPS
+   IL_0044: div
+   IL_0045: add
+   IL_0046: stfld System.Single Celeste.OuiChapterSelectIcon::FrontFrameTimer
+   IL_004b: ldarg.0
+   IL_004c: ldarg.0
+   IL_004d: ldfld System.Int32 Celeste.OuiChapterSelectIcon::FrontFrame
+   IL_0052: ldc.i4.1
+   IL_0053: add
+   IL_0054: stfld System.Int32 Celeste.OuiChapterSelectIcon::FrontFrame
+   IL_0059: ldarg.0
+   IL_005a: ldarg.0
+   IL_005b: ldfld System.Int32 Celeste.OuiChapterSelectIcon::FrontFrame
+   IL_0060: ldarg.0
+   IL_0061: ldfld System.Int32[] Celeste.OuiChapterSelectIcon::FrontOrder
+   IL_0066: ldlen
+   IL_0067: conv.i4
+   IL_0068: rem
+   IL_0069: stfld System.Int32 Celeste.OuiChapterSelectIcon::FrontFrame
+   IL_006e: ldarg.0
+   IL_006f: ldarg.0
+   IL_0070: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.OuiChapterSelectIcon::FrontTextures
+   IL_0075: ldarg.0
+   IL_0076: ldfld System.Int32[] Celeste.OuiChapterSelectIcon::FrontOrder
+   IL_007b: ldarg.0
+   IL_007c: ldfld System.Int32 Celeste.OuiChapterSelectIcon::FrontFrame
+   IL_0081: ldelem.i4
+   IL_0082: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_0087: stfld Monocle.MTexture Celeste.OuiChapterSelectIcon::front
+   IL_008c: ldarg.0
+   IL_008d: ldfld System.Single Celeste.OuiChapterSelectIcon::FrontFrameTimer
+   IL_0092: ldc.r4 0
+   IL_0097: blt.s IL_0032
+   IL_0099: ldarg.0
+   IL_009a: ldarg.0
+   IL_009b: ldfld System.Single Celeste.OuiChapterSelectIcon::BackFrameTimer
+   IL_00a0: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00a5: sub
+   IL_00a6: stfld System.Single Celeste.OuiChapterSelectIcon::BackFrameTimer
+   IL_00ab: br.s IL_0107
+   IL_00ad: ldarg.0
+   IL_00ae: ldarg.0
+   IL_00af: ldfld System.Single Celeste.OuiChapterSelectIcon::BackFrameTimer
+   IL_00b4: ldc.r4 1
+   IL_00b9: ldarg.0
+   IL_00ba: ldfld System.Single Celeste.OuiChapterSelectIcon::BackFPS
+   IL_00bf: div
+   IL_00c0: add
+   IL_00c1: stfld System.Single Celeste.OuiChapterSelectIcon::BackFrameTimer
+   IL_00c6: ldarg.0
+   IL_00c7: ldarg.0
+   IL_00c8: ldfld System.Int32 Celeste.OuiChapterSelectIcon::BackFrame
+   IL_00cd: ldc.i4.1
+   IL_00ce: add
+   IL_00cf: stfld System.Int32 Celeste.OuiChapterSelectIcon::BackFrame
+   IL_00d4: ldarg.0
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld System.Int32 Celeste.OuiChapterSelectIcon::BackFrame
+   IL_00db: ldarg.0
+   IL_00dc: ldfld System.Int32[] Celeste.OuiChapterSelectIcon::BackOrder
+   IL_00e1: ldlen
+   IL_00e2: conv.i4
+   IL_00e3: rem
+   IL_00e4: stfld System.Int32 Celeste.OuiChapterSelectIcon::BackFrame
+   IL_00e9: ldarg.0
+   IL_00ea: ldarg.0
+   IL_00eb: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.OuiChapterSelectIcon::BackTextures
+   IL_00f0: ldarg.0
+   IL_00f1: ldfld System.Int32[] Celeste.OuiChapterSelectIcon::BackOrder
+   IL_00f6: ldarg.0
+   IL_00f7: ldfld System.Int32 Celeste.OuiChapterSelectIcon::BackFrame
+   IL_00fc: ldelem.i4
+   IL_00fd: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_0102: stfld Monocle.MTexture Celeste.OuiChapterSelectIcon::back
+   IL_0107: ldarg.0
+   IL_0108: ldfld System.Single Celeste.OuiChapterSelectIcon::BackFrameTimer
+   IL_010d: ldc.r4 0
+   IL_0112: blt.s IL_00ad
+   IL_0114: ret

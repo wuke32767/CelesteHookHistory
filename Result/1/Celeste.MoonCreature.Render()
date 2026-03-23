@@ -1,0 +1,70 @@
+On: Celeste.Mod.FewerVisualDistractions.Patches.FarewellTweaker.MoonCreature_Render(orig_Render,MoonCreature)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldarg.0
+   IL_0009: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000e: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Floor(Microsoft.Xna.Framework.Vector2)
+   IL_0013: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0018: ldarg.0
+   IL_0019: ldfld Celeste.MoonCreature/TrailNode[] Celeste.MoonCreature::trail
+   IL_001e: ldlen
+   IL_001f: conv.i4
+   IL_0020: ldc.i4.1
+   IL_0021: sub
+   IL_0022: stloc.1
+   IL_0023: br.s IL_0091
+   IL_0025: ldarg.0
+   IL_0026: ldfld Celeste.MoonCreature/TrailNode[] Celeste.MoonCreature::trail
+   IL_002b: ldloc.1
+   IL_002c: ldelema Celeste.MoonCreature/TrailNode
+   IL_0031: ldfld Microsoft.Xna.Framework.Vector2 Celeste.MoonCreature/TrailNode::Position
+   IL_0036: stloc.2
+   IL_0037: ldloc.1
+   IL_0038: conv.r4
+   IL_0039: ldc.r4 0
+   IL_003e: ldarg.0
+   IL_003f: ldfld Celeste.MoonCreature/TrailNode[] Celeste.MoonCreature::trail
+   IL_0044: ldlen
+   IL_0045: conv.i4
+   IL_0046: ldc.i4.1
+   IL_0047: sub
+   IL_0048: conv.r4
+   IL_0049: ldc.r4 3
+   IL_004e: ldc.r4 1
+   IL_0053: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0058: stloc.3
+   IL_0059: ldloc.2
+   IL_005a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_005f: ldloc.3
+   IL_0060: ldc.r4 2
+   IL_0065: div
+   IL_0066: sub
+   IL_0067: ldloc.2
+   IL_0068: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_006d: ldloc.3
+   IL_006e: ldc.r4 2
+   IL_0073: div
+   IL_0074: sub
+   IL_0075: ldloc.3
+   IL_0076: ldloc.3
+   IL_0077: ldarg.0
+   IL_0078: ldfld Celeste.MoonCreature/TrailNode[] Celeste.MoonCreature::trail
+   IL_007d: ldloc.1
+   IL_007e: ldelema Celeste.MoonCreature/TrailNode
+   IL_0083: ldfld Microsoft.Xna.Framework.Color Celeste.MoonCreature/TrailNode::Color
+   IL_0088: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_008d: ldloc.1
+   IL_008e: ldc.i4.1
+   IL_008f: sub
+   IL_0090: stloc.1
+   IL_0091: ldloc.1
+   IL_0092: ldc.i4.0
+   IL_0093: bge.s IL_0025
+   IL_0095: ldarg.0
+   IL_0096: call System.Void Monocle.Entity::Render()
+   IL_009b: ldarg.0
+   IL_009c: ldloc.0
+   IL_009d: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00a2: ret

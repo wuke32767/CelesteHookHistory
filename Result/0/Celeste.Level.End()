@@ -1,0 +1,94 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.ClearParallaxDecalsDict(orig_End,Level)
+On: Celeste.Mod.EeveeHelper.Entities.RoomChest.Level_End(orig_End,Level)
+On: ChroniaHelper.Cores.MapProcessor.OnLevelEnd(orig_End,Level)
+On: ChroniaHelper.Cores.GeneralMouseEntity.OnLevelEnd(orig_End,Level)
+On: ChroniaHelper.Utils.ChroniaSystem.ChroniaSystem.OnLevelEnd(orig_End,Level)
+On: ChroniaHelper.Entities.HUDController.LevelEnd(orig_End,Level)
+On: ChroniaHelper.Settings.Displayers.OnLevelEnd(orig_End,Level)
+On: Celeste.Mod.ConsistencyTracker.ConsistencyTrackerModule.LevelOnEnd(orig_End,Level)
+On: Celeste.Mod.SpeedrunTool.RoomTimer.EndPoint.LevelOnEnd(orig_End,Level)
+On: Celeste.Mod.SpeedrunTool.SaveLoad.StateManager.LevelOnEnd(orig_End,Level)
+On: Celeste.Mod.DJMapHelper.Triggers.ChangeSpinnerColorTrigger.LevelOnEnd(orig_End,Level)
+On: Celeste.Mod.DBBHelper.Mechanism.DBBGlobalSettingManager.Adjust_SpecialLight_InGameGlobalSettings_WhenEnd(orig_End,Level)
+On: Celeste.Mod.DBBHelper.Mechanism.DBBGlobalSettingManager.Adjust_ColorCorrection_GlobalSettings_WhenEnd(orig_End,Level)
+On: Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.EndGameplayBuffers(orig_End,Level)
+On: Celeste.Mod.DBBHelper.Mechanism.DBBCustomEntityManager.EndCustomEntity(orig_End,Level)
+On: Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.onLevelEnd(orig_End,Level)
+On: Celeste.Mod.Aqua.Core.LevelStates.Level_End(orig_End,Level)
+On: ExtendedVariants.Module.ExtendedVariantsModule.onLevelEnd(orig_End,Level)
+On: ExtendedVariants.VariantRandomizer.onLevelEnd(orig_End,Level)
+On: ExtendedVariants.Variants.LiftboostProtection.onLevelEnd(orig_End,Level)
+On: ExtendedVariants.LeakPreventionHack.onLevelEnd(orig_End,Level)
+On: Celeste.Mod.MaxHelpingHand.Entities.MovingFlagTouchSwitch.onLevelEnd(orig_End,Level)
+On: Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_End(orig_End,Level)
+On: vitmod.VitModule.Level_End(orig_End,Level)
+On: Celeste.Mod.auspicioushelper.MaterialPipe.SceneEnd(orig_End,Level)
+On: Celeste.Mod.FunctionalZoomOut.FunctionalZoomOutModule.On_Level_End(orig_End,Level)
+On: Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.OnLevelEnd(orig_End,Level)
+On: TAS.EverestInterop.Hitboxes.HitboxSimplified.LevelOnEnd(orig_End,Level)
+On: TAS.Gameplay.Hitboxes.ActualCollideHitbox.On_Level_End(orig_End,Level)
+On: TAS.InfoHUD.InfoWatchEntity.On_Level_End(orig_End,Level)
+On: TAS.Input.Commands.ConsoleCommand.LevelOnEnd(orig_End,Level)
+On: Celeste.Mod.izumisQOL.NoClipModule.OnLevelEnd(orig_End,Level)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.Level::orig_End()
+   IL_0006: call Monocle.Scene Monocle.Engine::get_NextScene()
+   IL_000b: stloc.0
+   IL_000c: ldloc.0
+   IL_000d: isinst Celeste.LevelLoader
+   IL_0012: brtrue.s IL_0024
+   IL_0014: ldloc.0
+   IL_0015: isinst Celeste.Pico8.Emulator
+   IL_001a: brtrue.s IL_0024
+   IL_001c: ldloc.0
+   IL_001d: isinst Celeste.OverworldReflectionsFall
+   IL_0022: brfalse.s IL_0028
+   IL_0024: ldc.i4.1
+   IL_0025: stloc.1
+   IL_0026: br.s IL_002a
+   IL_0028: ldc.i4.0
+   IL_0029: stloc.1
+   IL_002a: ldloc.1
+   IL_002b: brtrue.s IL_004b
+   IL_002d: ldsfld Monocle.Atlas Celeste.GFX::Portraits
+   IL_0032: ldstr "Graphics"
+   IL_0037: ldstr "Portraits.xml"
+   IL_003c: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_0041: newobj System.Void Monocle.SpriteBank::.ctor(Monocle.Atlas,System.String)
+   IL_0046: stsfld Monocle.SpriteBank Celeste.GFX::PortraitsSpriteBank
+   IL_004b: ldloc.0
+   IL_004c: isinst Celeste.Pico8.Emulator
+   IL_0051: brtrue.s IL_005b
+   IL_0053: ldloc.0
+   IL_0054: isinst Celeste.OverworldReflectionsFall
+   IL_0059: brfalse.s IL_005f
+   IL_005b: ldc.i4.1
+   IL_005c: stloc.1
+   IL_005d: br.s IL_0061
+   IL_005f: ldc.i4.0
+   IL_0060: stloc.1
+   IL_0061: ldloc.1
+   IL_0062: brtrue.s IL_00a6
+   IL_0064: ldarg.0
+   IL_0065: call Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_006a: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Entity> Monocle.EntityList::GetEnumerator()
+   IL_006f: stloc.2
+   IL_0070: br.s IL_0082
+   IL_0072: ldloc.2
+   IL_0073: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Entity>::get_Current()
+   IL_0078: castclass Monocle.Entity
+   IL_007d: callvirt System.Void Monocle.Entity::DissociateFromScene()
+   IL_0082: ldloc.2
+   IL_0083: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_0088: brtrue.s IL_0072
+   IL_008a: leave.s IL_0096
+   IL_008c: ldloc.2
+   IL_008d: brfalse.s IL_0095
+   IL_008f: ldloc.2
+   IL_0090: callvirt System.Void System.IDisposable::Dispose()
+   IL_0095: endfinally
+   IL_0096: ldarg.0
+   IL_0097: call Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_009c: castclass Monocle.EntityList
+   IL_00a1: callvirt System.Void Monocle.EntityList::ClearEntities()
+   IL_00a6: ret

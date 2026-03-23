@@ -1,0 +1,61 @@
+IL: Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.LightingRendererCtorHook(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0006: stfld Microsoft.Xna.Framework.Color Celeste.LightingRenderer::BaseColor
+   IL_000b: ldarg.0
+   IL_000c: ldc.r4 0.1
+   IL_0011: stfld System.Single Celeste.LightingRenderer::Alpha
+   IL_0016: ldarg.0
+   IL_0017: ldc.i4 11520
+ + IL_10000: call System.Int32 Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetArraySize(System.Int32) @ Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.LightingRendererCtorHook(ILContext)
+   IL_001c: newarr Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0021: stfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_0026: ldarg.0
+   IL_0027: ldc.i4 384
+ + IL_10001: call System.Int32 Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetArraySize(System.Int32) @ Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.LightingRendererCtorHook(ILContext)
+   IL_002c: newarr Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_0031: stfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_0036: ldarg.0
+   IL_0037: ldc.i4 11520
+ + IL_10002: call System.Int32 Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetArraySize(System.Int32) @ Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.LightingRendererCtorHook(ILContext)
+   IL_003c: newarr System.Int32
+   IL_0041: stfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_0046: ldarg.0
+   IL_0047: ldc.r4 1
+   IL_004c: stfld System.Single Celeste.LightingRenderer::nonSpotlightAlphaMultiplier
+   IL_0051: ldarg.0
+   IL_0052: ldc.i4.s 20
+   IL_0054: newarr Microsoft.Xna.Framework.Vector3
+   IL_0059: stfld Microsoft.Xna.Framework.Vector3[] Celeste.LightingRenderer::angles
+   IL_005e: ldarg.0
+   IL_005f: call System.Void Monocle.Renderer::.ctor()
+   IL_0064: ldarg.0
+   IL_0065: ldc.i4.s 64
+ + IL_10003: call System.Int32 Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetArraySize(System.Int32) @ Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.LightingRendererCtorHook(ILContext)
+   IL_0067: newarr Celeste.VertexLight
+   IL_006c: stfld Celeste.VertexLight[] Celeste.LightingRenderer::lights
+   IL_0071: ldc.i4.0
+   IL_0072: stloc.0
+   IL_0073: br.s IL_00a7
+   IL_0075: ldarg.0
+   IL_0076: ldfld Microsoft.Xna.Framework.Vector3[] Celeste.LightingRenderer::angles
+   IL_007b: ldloc.0
+   IL_007c: ldloc.0
+   IL_007d: conv.r4
+   IL_007e: ldc.r4 20
+   IL_0083: div
+   IL_0084: ldc.r4 6.2831855
+   IL_0089: mul
+   IL_008a: ldc.r4 1
+   IL_008f: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_0094: ldc.r4 0
+   IL_0099: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_009e: stelem.any Microsoft.Xna.Framework.Vector3
+   IL_00a3: ldloc.0
+   IL_00a4: ldc.i4.1
+   IL_00a5: add
+   IL_00a6: stloc.0
+   IL_00a7: ldloc.0
+   IL_00a8: ldc.i4.s 20
+   IL_00aa: blt.s IL_0075
+   IL_00ac: ret

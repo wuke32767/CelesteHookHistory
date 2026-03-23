@@ -1,0 +1,40 @@
+On: AltLevelsHelper.Entry.Spikes_OnDisable(orig_OnDisable,Spikes)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldc.i4.0
+   IL_0003: dup
+   IL_0004: stloc.0
+   IL_0005: stfld System.Boolean Monocle.Entity::Collidable
+   IL_000a: ldloc.0
+   IL_000b: stfld System.Boolean Monocle.Entity::Active
+   IL_0010: ldarg.0
+   IL_0011: ldfld System.Boolean Celeste.Spikes::VisibleWhenDisabled
+   IL_0016: brfalse.s IL_0055
+   IL_0018: ldarg.0
+   IL_0019: call Monocle.ComponentList Monocle.Entity::get_Components()
+   IL_001e: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Component> Monocle.ComponentList::GetEnumerator()
+   IL_0023: stloc.1
+   IL_0024: br.s IL_0041
+   IL_0026: ldloc.1
+   IL_0027: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Component>::get_Current()
+   IL_002c: isinst Monocle.Image
+   IL_0031: stloc.2
+   IL_0032: ldloc.2
+   IL_0033: brfalse.s IL_0041
+   IL_0035: ldloc.2
+   IL_0036: ldarg.0
+   IL_0037: ldfld Microsoft.Xna.Framework.Color Celeste.Spikes::DisabledColor
+   IL_003c: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0041: ldloc.1
+   IL_0042: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_0047: brtrue.s IL_0026
+   IL_0049: leave.s IL_005c
+   IL_004b: ldloc.1
+   IL_004c: brfalse.s IL_0054
+   IL_004e: ldloc.1
+   IL_004f: callvirt System.Void System.IDisposable::Dispose()
+   IL_0054: endfinally
+   IL_0055: ldarg.0
+   IL_0056: ldc.i4.0
+   IL_0057: stfld System.Boolean Monocle.Entity::Visible
+   IL_005c: ret

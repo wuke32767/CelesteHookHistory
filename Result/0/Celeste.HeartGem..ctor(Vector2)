@@ -1,0 +1,26 @@
+On: Celeste.Mod.Aqua.Core.HeartGemExtensions.HeartGem_Construct(orig_ctor_Vector2,HeartGem,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.1
+   IL_0002: stfld System.Boolean Celeste.HeartGem::autoPulse
+   IL_0007: ldarg.0
+   IL_0008: newobj System.Void System.Collections.Generic.List`1<Celeste.InvisibleBarrier>::.ctor()
+   IL_000d: stfld System.Collections.Generic.List`1<Celeste.InvisibleBarrier> Celeste.HeartGem::walls
+   IL_0012: ldarg.0
+   IL_0013: ldarg.1
+   IL_0014: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0019: ldarg.0
+   IL_001a: ldarg.0
+   IL_001b: ldarg.0
+   IL_001c: ldftn System.Void Celeste.HeartGem::OnHoldable(Celeste.Holdable)
+   IL_0022: newobj System.Void System.Action`1<Celeste.Holdable>::.ctor(System.Object,System.IntPtr)
+   IL_0027: ldnull
+   IL_0028: newobj System.Void Celeste.HoldableCollider::.ctor(System.Action`1<Celeste.Holdable>,Monocle.Collider)
+   IL_002d: dup
+   IL_002e: stloc.0
+   IL_002f: stfld Celeste.HoldableCollider Celeste.HeartGem::holdableCollider
+   IL_0034: ldloc.0
+   IL_0035: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_003a: ldarg.0
+   IL_003b: newobj System.Void Celeste.MirrorReflection::.ctor()
+   IL_0040: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0045: ret

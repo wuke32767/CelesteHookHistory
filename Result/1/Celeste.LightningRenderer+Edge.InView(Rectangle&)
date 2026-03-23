@@ -1,0 +1,48 @@
+On: Celeste.Mod.SSMHelper.Entities.ForceLightningLoadController.On_Edge_InView(orig_InView,Object,Rectangle&)
+   IL_0000: ldarg.1
+   IL_0001: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0006: conv.r4
+   IL_0007: ldarg.0
+   IL_0008: ldfld Celeste.Lightning Celeste.LightningRenderer/Edge::Parent
+   IL_000d: callvirt System.Single Monocle.Entity::get_X()
+   IL_0012: ldarg.0
+   IL_0013: ldflda Microsoft.Xna.Framework.Vector2 Celeste.LightningRenderer/Edge::Max
+   IL_0018: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001d: add
+   IL_001e: bge.un.s IL_0081
+   IL_0020: ldarg.1
+   IL_0021: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0026: conv.r4
+   IL_0027: ldarg.0
+   IL_0028: ldfld Celeste.Lightning Celeste.LightningRenderer/Edge::Parent
+   IL_002d: callvirt System.Single Monocle.Entity::get_X()
+   IL_0032: ldarg.0
+   IL_0033: ldflda Microsoft.Xna.Framework.Vector2 Celeste.LightningRenderer/Edge::Min
+   IL_0038: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_003d: add
+   IL_003e: ble.un.s IL_0081
+   IL_0040: ldarg.1
+   IL_0041: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0046: conv.r4
+   IL_0047: ldarg.0
+   IL_0048: ldfld Celeste.Lightning Celeste.LightningRenderer/Edge::Parent
+   IL_004d: callvirt System.Single Monocle.Entity::get_Y()
+   IL_0052: ldarg.0
+   IL_0053: ldflda Microsoft.Xna.Framework.Vector2 Celeste.LightningRenderer/Edge::Max
+   IL_0058: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_005d: add
+   IL_005e: bge.un.s IL_0081
+   IL_0060: ldarg.1
+   IL_0061: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0066: conv.r4
+   IL_0067: ldarg.0
+   IL_0068: ldfld Celeste.Lightning Celeste.LightningRenderer/Edge::Parent
+   IL_006d: callvirt System.Single Monocle.Entity::get_Y()
+   IL_0072: ldarg.0
+   IL_0073: ldflda Microsoft.Xna.Framework.Vector2 Celeste.LightningRenderer/Edge::Min
+   IL_0078: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_007d: add
+   IL_007e: cgt
+   IL_0080: ret
+   IL_0081: ldc.i4.0
+   IL_0082: ret

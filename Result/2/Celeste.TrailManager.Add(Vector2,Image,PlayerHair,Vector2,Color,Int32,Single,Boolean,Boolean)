@@ -1,0 +1,62 @@
+On: Celeste.Mod.SkinModHelper.TrailRecolor.onTrailManager_Add_V2IV2CIFBB(orig_Add_Vector2_Image_PlayerHair_Vector2_Color_int_float_bool_bool,Vector2,Image,PlayerHair,Vector2,Color,Int32,Single,Boolean,Boolean)
+On: Celeste.Mod.GooberHelper.Options.GeneralHooks.PlayerRender.patch_TrailManager_Add_Vector2_Image_PlayerHair_Vector2_Color_int_float_bool_bool(orig_Add_Vector2_Image_PlayerHair_Vector2_Color_int_float_bool_bool,Vector2,Image,PlayerHair,Vector2,Color,Int32,Single,Boolean,Boolean)
+   IL_0000: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0005: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000a: callvirt T Monocle.Tracker::GetEntity<Celeste.TrailManager>()
+   IL_000f: stloc.0
+   IL_0010: ldloc.0
+   IL_0011: brtrue.s IL_0024
+   IL_0013: newobj System.Void Celeste.TrailManager::.ctor()
+   IL_0018: stloc.0
+   IL_0019: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_001e: ldloc.0
+   IL_001f: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0024: ldc.i4.0
+   IL_0025: stloc.1
+   IL_0026: br.s IL_0074
+   IL_0028: ldloc.0
+   IL_0029: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_002e: ldloc.1
+   IL_002f: ldelem.ref
+   IL_0030: brtrue.s IL_0070
+   IL_0032: call Monocle.Pooler Monocle.Engine::get_Pooler()
+   IL_0037: callvirt T Monocle.Pooler::Create<Celeste.TrailManager/Snapshot>()
+   IL_003c: stloc.2
+   IL_003d: ldloc.2
+   IL_003e: ldloc.0
+   IL_003f: ldloc.1
+   IL_0040: ldarg.0
+   IL_0041: ldarg.1
+   IL_0042: ldarg.2
+   IL_0043: ldarg.3
+   IL_0044: ldarg.s color
+   IL_0046: ldarg.s duration
+   IL_0048: ldarg.s depth
+   IL_004a: ldarg.s frozenUpdate
+   IL_004c: ldarg.s useRawDeltaTime
+   IL_004e: callvirt System.Void Celeste.TrailManager/Snapshot::Init(Celeste.TrailManager,System.Int32,Microsoft.Xna.Framework.Vector2,Monocle.Image,Celeste.PlayerHair,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,System.Int32,System.Boolean,System.Boolean)
+   IL_0053: ldloc.0
+   IL_0054: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_0059: ldloc.1
+   IL_005a: ldloc.2
+   IL_005b: stelem.ref
+   IL_005c: ldloc.0
+   IL_005d: ldc.i4.1
+   IL_005e: stfld System.Boolean Celeste.TrailManager::dirty
+   IL_0063: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0068: ldloc.2
+   IL_0069: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_006e: ldloc.2
+   IL_006f: ret
+   IL_0070: ldloc.1
+   IL_0071: ldc.i4.1
+   IL_0072: add
+   IL_0073: stloc.1
+   IL_0074: ldloc.1
+   IL_0075: ldloc.0
+   IL_0076: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_007b: ldlen
+   IL_007c: conv.i4
+   IL_007d: blt.s IL_0028
+   IL_007f: ldnull
+   IL_0080: ret

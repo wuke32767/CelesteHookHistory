@@ -1,0 +1,48 @@
+On: VivHelper.Entities.SpawnPointHooks.Player_Added(orig_Added,Player,Scene)
+On: Celeste.Mod.SpringCollab2020.Triggers.MadelineSilhouetteTrigger.onPlayerAdded(orig_Added,Player,Scene)
+On: Celeste.Mod.GameHelper.Entities.FlagCollectBerry.OnPlayerAdded(orig_Added,Player,Scene)
+On: Celeste.Mod.FemtoHelper.Entities.RotateDashRefill.RotateDashAddComponent(orig_Added,Player,Scene)
+On: Celeste.Mod.XaphanHelper.Entities.FakePlayer.OnPlayerAdded(orig_Added,Player,Scene)
+On: Celeste.Mod.ShrimpHelper.PlayerExt.Player_Added(orig_Added,Player,Scene)
+On: Celeste.Mod.Randomizer.RandoModule.DontMoveOnWakeup(orig_Added,Player,Scene)
+On: SSUnlimited.RandomDeath.RandomDeathModule.PlayerAdded(orig_Added,Player,Scene)
+On: Celeste.Mod.PandorasBox.Entities.ClearPipeInteractions.PlayerInteraction.Player_Added(orig_Added,Player,Scene)
+On: Celeste.Mod.PandorasBox.CloneSpawner.Player_Added(orig_Added,Player,Scene)
+On: Celeste.Mod.DJMapHelper.Entities.BadelineProtector.PlayerOnAdded(orig_Added,Player,Scene)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.Player_Added(orig_Added,Player,Scene)
+On: Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.Player_Added(orig_Added,Player,Scene)
+On: Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.Player_Added(orig_Added,Player,Scene)
+On: Celeste.Mod.Aqua.Core.PlayerStates.Player_Added(orig_Added,Player,Scene)
+On: ExtendedVariants.Variants.DashCount.modAdded(orig_Added,Player,Scene)
+On: ExtendedVariants.Variants.RegularHiccups.onPlayerAdded(orig_Added,Player,Scene)
+On: ExtendedVariants.Variants.RestoreDashesOnRespawn.onPlayerSpawn(orig_Added,Player,Scene)
+On: ExtendedVariants.Variants.BufferableGrab.Player_Added(orig_Added,Player,Scene)
+On: Celeste.Mod.BitsHelper.BlowBubble.Player_Added(orig_Added,Player,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldflda System.Nullable`1<Celeste.Player/IntroTypes> Celeste.Player::OverrideIntroType
+   IL_0006: call System.Boolean System.Nullable`1<Celeste.Player/IntroTypes>::get_HasValue()
+   IL_000b: brfalse.s IL_002a
+   IL_000d: ldarg.0
+   IL_000e: ldarg.0
+   IL_000f: ldflda System.Nullable`1<Celeste.Player/IntroTypes> Celeste.Player::OverrideIntroType
+   IL_0014: call T System.Nullable`1<Celeste.Player/IntroTypes>::get_Value()
+   IL_0019: stfld Celeste.Player/IntroTypes Celeste.Player::IntroType
+   IL_001e: ldarg.0
+   IL_001f: ldflda System.Nullable`1<Celeste.Player/IntroTypes> Celeste.Player::OverrideIntroType
+   IL_0024: initobj System.Nullable`1<Celeste.Player/IntroTypes>
+   IL_002a: ldarg.0
+   IL_002b: ldarg.1
+   IL_002c: callvirt System.Void Celeste.Player::orig_Added(Monocle.Scene)
+   IL_0031: ldarg.0
+   IL_0032: ldc.i4 2147483647
+   IL_0037: stfld System.Int32 Celeste.Player::framesAlive
+   IL_003c: ldarg.0
+   IL_003d: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0042: isinst Celeste.Level
+   IL_0047: brfalse.s IL_0050
+   IL_0049: ldarg.0
+   IL_004a: ldc.i4.0
+   IL_004b: stfld System.Int32 Celeste.Player::framesAlive
+   IL_0050: ldarg.0
+   IL_0051: call System.Void Celeste.Mod.Everest/Events/Player::Spawn(Celeste.Player)
+   IL_0056: ret

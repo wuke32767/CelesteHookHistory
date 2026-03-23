@@ -1,0 +1,184 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_0011 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ldarg.0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000b: call DynamicMethod!Initialize_EstableshedNodes!System.Void TAS.Gameplay.Optimization.FastForwardOptimization::Initialize_EstableshedNodes(Celeste.DustGraphic) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0010: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0011: ldarg.0
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Single Celeste.DustGraphic::timer
+   IL_0018: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_001d: ldc.r4 0.6
+   IL_0022: mul
+   IL_0023: add
+   IL_0024: stfld System.Single Celeste.DustGraphic::timer
+   IL_0029: ldarg.0
+   IL_002a: callvirt System.Boolean Celeste.DustGraphic::get_InView()
+   IL_002f: stloc.0
+   IL_0030: ldarg.0
+   IL_0031: ldfld System.Single Celeste.DustGraphic::shakeTimer
+   IL_0036: ldc.r4 0
+   IL_003b: ble.un.s IL_008b
+   IL_003d: ldarg.0
+   IL_003e: ldarg.0
+   IL_003f: ldfld System.Single Celeste.DustGraphic::shakeTimer
+   IL_0044: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0049: sub
+   IL_004a: stfld System.Single Celeste.DustGraphic::shakeTimer
+   IL_004f: ldarg.0
+   IL_0050: ldfld System.Single Celeste.DustGraphic::shakeTimer
+   IL_0055: ldc.r4 0
+   IL_005a: bgt.un.s IL_0069
+   IL_005c: ldarg.0
+   IL_005d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0062: stfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::shakeValue
+   IL_0067: br.s IL_008b
+   IL_0069: ldarg.0
+   IL_006a: call Monocle.Scene Monocle.Component::get_Scene()
+   IL_006f: ldc.r4 0.05
+   IL_0074: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_0079: brfalse.s IL_008b
+   IL_007b: ldarg.0
+   IL_007c: ldsfld System.Random Monocle.Calc::Random
+   IL_0081: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::ShakeVector(System.Random)
+   IL_0086: stfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::shakeValue
+   IL_008b: ldarg.0
+   IL_008c: ldfld System.Boolean Celeste.DustGraphic::eyesExist
+   IL_0091: brfalse IL_01c4
+   IL_0096: ldarg.0
+   IL_0097: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_009c: ldarg.0
+   IL_009d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeTargetDirection
+   IL_00a2: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a7: ldloc.0
+   IL_00a8: and
+   IL_00a9: brfalse IL_0128
+   IL_00ae: ldarg.0
+   IL_00af: ldfld System.Boolean Celeste.DustGraphic::eyesMoveByRotation
+   IL_00b4: brtrue.s IL_00da
+   IL_00b6: ldarg.0
+   IL_00b7: ldarg.0
+   IL_00b8: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_00bd: ldarg.0
+   IL_00be: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeTargetDirection
+   IL_00c3: ldc.r4 12
+   IL_00c8: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00cd: mul
+   IL_00ce: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00d3: stfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_00d8: br.s IL_0128
+   IL_00da: ldarg.0
+   IL_00db: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_00e0: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_00e5: stloc.1
+   IL_00e6: ldarg.0
+   IL_00e7: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeTargetDirection
+   IL_00ec: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_00f1: stloc.2
+   IL_00f2: ldloc.1
+   IL_00f3: ldloc.2
+   IL_00f4: ldc.r4 8
+   IL_00f9: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00fe: mul
+   IL_00ff: call System.Single Monocle.Calc::AngleApproach(System.Single,System.Single,System.Single)
+   IL_0104: stloc.1
+   IL_0105: ldloc.1
+   IL_0106: ldloc.2
+   IL_0107: bne.un.s IL_0117
+   IL_0109: ldarg.0
+   IL_010a: ldarg.0
+   IL_010b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeTargetDirection
+   IL_0110: stfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_0115: br.s IL_0128
+   IL_0117: ldarg.0
+   IL_0118: ldloc.1
+   IL_0119: ldc.r4 1
+   IL_011e: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_0123: stfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_0128: ldarg.0
+   IL_0129: ldfld System.Boolean Celeste.DustGraphic::eyesFollowPlayer
+   IL_012e: ldloc.0
+   IL_012f: and
+   IL_0130: brfalse IL_01b1
+   IL_0135: ldarg.0
+   IL_0136: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_013b: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0140: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0145: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_014a: stloc.3
+   IL_014b: ldloc.3
+   IL_014c: brfalse.s IL_01b1
+   IL_014e: ldloc.3
+   IL_014f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0154: ldarg.0
+   IL_0155: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_015a: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_015f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0164: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_0169: stloc.s V_4
+   IL_016b: ldarg.0
+   IL_016c: ldfld System.Boolean Celeste.DustGraphic::eyesMoveByRotation
+   IL_0171: brfalse.s IL_01a9
+   IL_0173: ldloc.s V_4
+   IL_0175: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_017a: stloc.s V_5
+   IL_017c: ldarg.0
+   IL_017d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::eyeLookRange
+   IL_0182: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_0187: stloc.s V_6
+   IL_0189: ldarg.0
+   IL_018a: ldloc.s V_6
+   IL_018c: ldloc.s V_5
+   IL_018e: ldc.r4 0.7853982
+   IL_0193: call System.Single Monocle.Calc::AngleApproach(System.Single,System.Single,System.Single)
+   IL_0198: ldc.r4 1
+   IL_019d: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_01a2: stfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeTargetDirection
+   IL_01a7: br.s IL_01b1
+   IL_01a9: ldarg.0
+   IL_01aa: ldloc.s V_4
+   IL_01ac: stfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeTargetDirection
+   IL_01b1: ldarg.0
+   IL_01b2: ldfld Monocle.Coroutine Celeste.DustGraphic::blink
+   IL_01b7: brfalse.s IL_01c4
+   IL_01b9: ldarg.0
+   IL_01ba: ldfld Monocle.Coroutine Celeste.DustGraphic::blink
+   IL_01bf: callvirt System.Void Monocle.Component::Update()
+   IL_01c4: ldarg.0
+   IL_01c5: ldfld System.Collections.Generic.List`1<Celeste.DustGraphic/Node> Celeste.DustGraphic::nodes
+   IL_01ca: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.DustGraphic/Node>::get_Count()
+   IL_01cf: ldc.i4.0
+   IL_01d0: bgt.s IL_01ee
+   IL_01d2: ldarg.0
+   IL_01d3: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_01d8: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_01dd: brfalse.s IL_01ee
+   IL_01df: ldarg.0
+   IL_01e0: callvirt System.Boolean Celeste.DustGraphic::get_Estableshed()
+   IL_01e5: brtrue.s IL_01ee
+   IL_01e7: ldarg.0
+   IL_01e8: callvirt System.Void Celeste.DustGraphic::AddDustNodesIfInCamera()
+   IL_01ed: ret
+   IL_01ee: ldarg.0
+   IL_01ef: ldfld System.Collections.Generic.List`1<Celeste.DustGraphic/Node> Celeste.DustGraphic::nodes
+   IL_01f4: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.DustGraphic/Node>::GetEnumerator()
+   IL_01f9: stloc.s V_7
+   IL_01fb: br.s IL_021b
+   IL_01fd: ldloca.s V_7
+   IL_01ff: call T System.Collections.Generic.List`1/Enumerator<Celeste.DustGraphic/Node>::get_Current()
+   IL_0204: dup
+   IL_0205: ldfld System.Single Celeste.DustGraphic/Node::Rotation
+   IL_020a: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_020f: ldc.r4 0.5
+   IL_0214: mul
+   IL_0215: add
+   IL_0216: stfld System.Single Celeste.DustGraphic/Node::Rotation
+   IL_021b: ldloca.s V_7
+   IL_021d: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.DustGraphic/Node>::MoveNext()
+   IL_0222: brtrue.s IL_01fd
+   IL_0224: leave.s IL_0234
+   IL_0226: ldloca.s V_7
+   IL_0228: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.DustGraphic/Node>
+   IL_022e: callvirt System.Void System.IDisposable::Dispose()
+   IL_0233: endfinally
+   IL_0234: ret

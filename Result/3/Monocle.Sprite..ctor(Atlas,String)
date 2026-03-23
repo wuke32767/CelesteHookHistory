@@ -1,0 +1,22 @@
+On: Celeste.Mod.SkinModHelper.SkinsSystem.SpriteCtorAtlasStringHook(orig_ctor_Atlas_string,Sprite,Atlas,String)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 1
+   IL_0006: stfld System.Single Monocle.Sprite::Rate
+   IL_000b: ldarg.0
+   IL_000c: ldnull
+   IL_000d: ldc.i4.1
+   IL_000e: call System.Void Monocle.Image::.ctor(Monocle.MTexture,System.Boolean)
+   IL_0013: ldarg.0
+   IL_0014: ldarg.1
+   IL_0015: stfld Monocle.Atlas Monocle.Sprite::atlas
+   IL_001a: ldarg.0
+   IL_001b: ldarg.2
+   IL_001c: stfld System.String Monocle.Sprite::Path
+   IL_0021: ldarg.0
+   IL_0022: call System.StringComparer System.StringComparer::get_OrdinalIgnoreCase()
+   IL_0027: newobj System.Void System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation>::.ctor(System.Collections.Generic.IEqualityComparer`1<TKey>)
+   IL_002c: stfld System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation> Monocle.Sprite::animations
+   IL_0031: ldarg.0
+   IL_0032: ldstr ""
+   IL_0037: callvirt System.Void Monocle.Sprite::set_CurrentAnimationID(System.String)
+   IL_003c: ret

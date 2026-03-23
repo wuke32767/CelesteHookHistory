@@ -1,0 +1,38 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.WonkyCassetteBlock.CassetteBlock_SetImage(orig_SetImage,CassetteBlock,Single,Single,Int32,Int32)
+On: ChroniaHelper.Entities.CounterCassetteBlock.SetImageOverride(orig_SetImage,CassetteBlock,Single,Single,Int32,Int32)
+On: Celeste.Mod.CommunalHelper.Entities.CustomCassetteBlock.CassetteBlock_SetImage(orig_SetImage,CassetteBlock,Single,Single,Int32,Int32)
+On: Celeste.Mod.QuantumMechanics.Entities.WonkyCassetteBlock.CassetteBlock_SetImage(orig_SetImage,CassetteBlock,Single,Single,Int32,Int32)
+On: Celeste.Mod.DashToggleHelper.DashToggleHelperModule.SetImageOverride(orig_SetImage,CassetteBlock,Single,Single,Int32,Int32)
+   IL_0000: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0005: ldstr "objects/cassetteblock/pressed"
+   IL_000a: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_000f: stloc.0
+   IL_0010: ldarg.0
+   IL_0011: ldfld System.Collections.Generic.List`1<Monocle.Image> Celeste.CassetteBlock::pressed
+   IL_0016: ldarg.0
+   IL_0017: ldarg.1
+   IL_0018: ldarg.2
+   IL_0019: ldarg.3
+   IL_001a: ldarg.s ty
+   IL_001c: ldloc.0
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.Int32 Celeste.CassetteBlock::Index
+   IL_0023: ldloc.0
+   IL_0024: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.MTexture>::get_Count()
+   IL_0029: rem
+   IL_002a: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_002f: callvirt Monocle.Image Celeste.CassetteBlock::CreateImage(System.Single,System.Single,System.Int32,System.Int32,Monocle.MTexture)
+   IL_0034: callvirt System.Void System.Collections.Generic.List`1<Monocle.Image>::Add(T)
+   IL_0039: ldarg.0
+   IL_003a: ldfld System.Collections.Generic.List`1<Monocle.Image> Celeste.CassetteBlock::solid
+   IL_003f: ldarg.0
+   IL_0040: ldarg.1
+   IL_0041: ldarg.2
+   IL_0042: ldarg.3
+   IL_0043: ldarg.s ty
+   IL_0045: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_004a: ldstr "objects/cassetteblock/solid"
+   IL_004f: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0054: callvirt Monocle.Image Celeste.CassetteBlock::CreateImage(System.Single,System.Single,System.Int32,System.Int32,Monocle.MTexture)
+   IL_0059: callvirt System.Void System.Collections.Generic.List`1<Monocle.Image>::Add(T)
+   IL_005e: ret

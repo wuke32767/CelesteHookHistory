@@ -1,0 +1,39 @@
+On: Celeste.Mod.JungleHelper.Entities.Lantern.onPlayerRemoved(orig_Removed,Player,Scene)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.Player_Removed(orig_Removed,Player,Scene)
+On: Bitsbolts.Components.NoCleanupTrigger.OnPlayerRemoved(orig_Removed,Player,Scene)
+On: Celeste.Mod.Aqua.Core.PlayerStates.Player_Removed(orig_Removed,Player,Scene)
+On: vitmod.TriggerBeam.Player_Removed(orig_Removed,Player,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Removed(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldnull
+   IL_0009: stfld Celeste.Level Celeste.Player::level
+   IL_000e: ldarg.0
+   IL_000f: ldfld FMOD.Studio.EventInstance Celeste.Player::conveyorLoopSfx
+   IL_0014: ldc.i4.1
+   IL_0015: call System.Void Celeste.Audio::Stop(FMOD.Studio.EventInstance,System.Boolean)
+   IL_001a: ldarg.0
+   IL_001b: ldfld System.Collections.Generic.HashSet`1<Celeste.Trigger> Celeste.Player::triggersInside
+   IL_0020: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<Celeste.Trigger>::GetEnumerator()
+   IL_0025: stloc.0
+   IL_0026: br.s IL_003c
+   IL_0028: ldloca.s V_0
+   IL_002a: call T System.Collections.Generic.HashSet`1/Enumerator<Celeste.Trigger>::get_Current()
+   IL_002f: dup
+   IL_0030: ldc.i4.0
+   IL_0031: stfld System.Boolean Celeste.Trigger::Triggered
+   IL_0036: ldarg.0
+   IL_0037: callvirt System.Void Celeste.Trigger::OnLeave(Celeste.Player)
+   IL_003c: ldloca.s V_0
+   IL_003e: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<Celeste.Trigger>::MoveNext()
+   IL_0043: brtrue.s IL_0028
+   IL_0045: leave.s IL_0055
+   IL_0047: ldloca.s V_0
+   IL_0049: constrained. System.Collections.Generic.HashSet`1/Enumerator<Celeste.Trigger>
+   IL_004f: callvirt System.Void System.IDisposable::Dispose()
+   IL_0054: endfinally
+   IL_0055: ldarg.0
+   IL_0056: ldfld System.Collections.Generic.HashSet`1<Celeste.Trigger> Celeste.Player::triggersInside
+   IL_005b: callvirt System.Void System.Collections.Generic.HashSet`1<Celeste.Trigger>::Clear()
+   IL_0060: ret

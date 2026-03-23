@@ -1,0 +1,108 @@
+IL: TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.CenterCamera::DisableZoomLevelVariant() @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10001: brfalse IL_0000 @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10002: ldarg.1 @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10003: ret @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+   IL_0000: ldc.i4.s 66
+   IL_0002: call T ExtendedVariants.Variants.AbstractExtendedVariant::GetVariantValue<System.Single>(ExtendedVariants.Module.ExtendedVariantsModule/Variant)
+   IL_0007: ldc.r4 1
+   IL_000c: bne.un.s IL_0010
+   IL_000e: ldarg.1
+   IL_000f: ret
+   IL_0010: call System.Int32 ExtendedVariants.Module.ExtendedVariantsModule::get_GameplayWidth()
+   IL_0015: conv.r4
+   IL_0016: call System.Int32 ExtendedVariants.Module.ExtendedVariantsModule::get_GameplayHeight()
+   IL_001b: conv.r4
+   IL_001c: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0021: ldc.i4.s 66
+   IL_0023: call T ExtendedVariants.Variants.AbstractExtendedVariant::GetVariantValue<System.Single>(ExtendedVariants.Module.ExtendedVariantsModule/Variant)
+   IL_0028: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_002d: call System.Int32 ExtendedVariants.Module.ExtendedVariantsModule::get_GameplayWidth()
+   IL_0032: conv.r4
+   IL_0033: call System.Int32 ExtendedVariants.Module.ExtendedVariantsModule::get_GameplayHeight()
+   IL_0038: conv.r4
+   IL_0039: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_003e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0043: stloc.0
+   IL_0044: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0049: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_004e: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0053: stloc.1
+   IL_0054: ldc.i4.s 66
+   IL_0056: call T ExtendedVariants.Variants.AbstractExtendedVariant::GetVariantValue<System.Single>(ExtendedVariants.Module.ExtendedVariantsModule/Variant)
+   IL_005b: ldc.r4 1
+   IL_0060: ble.un IL_0103
+   IL_0065: ldloc.1
+   IL_0066: brfalse IL_0103
+   IL_006b: ldloc.0
+   IL_006c: ldloc.1
+   IL_006d: callvirt System.Single Monocle.Entity::get_CenterX()
+   IL_0072: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0077: isinst Celeste.Level
+   IL_007c: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0081: stloc.2
+   IL_0082: ldloca.s V_2
+   IL_0084: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0089: conv.r4
+   IL_008a: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_008f: isinst Celeste.Level
+   IL_0094: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0099: stloc.2
+   IL_009a: ldloca.s V_2
+   IL_009c: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_00a1: conv.r4
+   IL_00a2: ldc.r4 0
+   IL_00a7: ldc.r4 1
+   IL_00ac: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_00b1: ldloc.1
+   IL_00b2: callvirt System.Single Monocle.Entity::get_CenterY()
+   IL_00b7: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_00bc: isinst Celeste.Level
+   IL_00c1: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00c6: stloc.2
+   IL_00c7: ldloca.s V_2
+   IL_00c9: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_00ce: conv.r4
+   IL_00cf: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_00d4: isinst Celeste.Level
+   IL_00d9: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00de: stloc.2
+   IL_00df: ldloca.s V_2
+   IL_00e1: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_00e6: conv.r4
+   IL_00e7: ldc.r4 0
+   IL_00ec: ldc.r4 1
+   IL_00f1: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_00f6: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00fb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0100: stloc.0
+   IL_0101: br.s IL_010f
+   IL_0103: ldloc.0
+   IL_0104: ldc.r4 0.5
+   IL_0109: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_010e: stloc.0
+   IL_010f: ldloc.1
+   IL_0110: brfalse.s IL_011a
+   IL_0112: ldloc.1
+   IL_0113: callvirt System.Boolean Celeste.Player::get_Dead()
+   IL_0118: brfalse.s IL_0122
+   IL_011a: ldsfld Microsoft.Xna.Framework.Vector2 ExtendedVariants.Variants.ZoomLevel::previousDiff
+   IL_011f: stloc.0
+   IL_0120: br.s IL_0151
+   IL_0122: ldsfld System.Single ExtendedVariants.Variants.ZoomLevel::transitionPercent
+   IL_0127: ldc.r4 1
+   IL_012c: bne.un.s IL_0136
+   IL_012e: ldloc.0
+   IL_012f: stsfld Microsoft.Xna.Framework.Vector2 ExtendedVariants.Variants.ZoomLevel::previousDiff
+   IL_0134: br.s IL_0151
+   IL_0136: ldsfld Microsoft.Xna.Framework.Vector2 ExtendedVariants.Variants.ZoomLevel::previousDiff
+   IL_013b: ldloc.0
+   IL_013c: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0141: ldsfld System.Single ExtendedVariants.Variants.ZoomLevel::transitionPercent
+   IL_0146: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_014b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::Lerp(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0150: stloc.0
+   IL_0151: ldarg.1
+   IL_0152: ldloc.0
+   IL_0153: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0158: ret

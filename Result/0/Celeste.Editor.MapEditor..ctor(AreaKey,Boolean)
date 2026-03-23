@@ -1,0 +1,53 @@
+On: VivHelper.Entities.SpawnPointHooks.MapEditor_ctor(orig_ctor,MapEditor,AreaKey,Boolean)
+On: Celeste.Mod.KoseiHelper.Entities.DebugMapController.MapEditorCtor(orig_ctor,MapEditor,AreaKey,Boolean)
+On: Celeste.Mod.XaphanHelper.Hooks.DebugBlocker.onEditorMapEditorCtor(orig_ctor,MapEditor,AreaKey,Boolean)
+On: Celeste.Mod.ConsistencyTracker.Utility.DebugMapUtil.MapEditor_ctor(orig_ctor,MapEditor,AreaKey,Boolean)
+On: Celeste.Mod.ConsistencyTracker.ConsistencyTrackerModule.MapEditorOnCtor(orig_ctor,MapEditor,AreaKey,Boolean)
+On: Celeste.Mod.Randomizer.RandoModule.MarkSessionUnclean(orig_ctor,MapEditor,AreaKey,Boolean)
+On: Celeste.Mod.GooberHelper.Settings.Root.DebugMapPhysicsUtils.MapEditorHooks.patch_MapEditor_ctor(orig_ctor,MapEditor,AreaKey,Boolean)
+   IL_0000: ldsfld Celeste.AreaKey Celeste.Editor.MapEditor::area
+   IL_0005: stloc.0
+   IL_0006: ldarg.0
+   IL_0007: ldarg.1
+   IL_0008: ldarg.2
+   IL_0009: callvirt System.Void Celeste.Editor.MapEditor::orig_ctor(Celeste.AreaKey,System.Boolean)
+   IL_000e: ldarg.0
+   IL_000f: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0014: isinst Celeste.Level
+   IL_0019: dup
+   IL_001a: brtrue.s IL_0020
+   IL_001c: pop
+   IL_001d: ldnull
+   IL_001e: br.s IL_0025
+   IL_0020: ldfld Celeste.Session Celeste.Level::Session
+   IL_0025: dup
+   IL_0026: brtrue.s IL_003a
+   IL_0028: pop
+   IL_0029: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_002e: dup
+   IL_002f: brtrue.s IL_0035
+   IL_0031: pop
+   IL_0032: ldnull
+   IL_0033: br.s IL_003a
+   IL_0035: ldfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_003a: stfld Celeste.Session Celeste.Editor.MapEditor::CurrentSession
+   IL_003f: ldarg.0
+   IL_0040: ldfld Celeste.Session Celeste.Editor.MapEditor::CurrentSession
+   IL_0045: brfalse.s IL_005a
+   IL_0047: ldarg.0
+   IL_0048: ldfld Celeste.Session Celeste.Editor.MapEditor::CurrentSession
+   IL_004d: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0052: ldarg.1
+   IL_0053: call System.Boolean Celeste.AreaKey::op_Inequality(Celeste.AreaKey,Celeste.AreaKey)
+   IL_0058: brfalse.s IL_0062
+   IL_005a: ldarg.0
+   IL_005b: ldnull
+   IL_005c: stfld Celeste.Session Celeste.Editor.MapEditor::CurrentSession
+   IL_0061: ret
+   IL_0062: ldloc.0
+   IL_0063: ldarg.1
+   IL_0064: call System.Boolean Celeste.AreaKey::op_Inequality(Celeste.AreaKey,Celeste.AreaKey)
+   IL_0069: brfalse.s IL_0071
+   IL_006b: ldarg.0
+   IL_006c: callvirt System.Void Celeste.Editor.MapEditor::CenterViewOnCurrentRespawn()
+   IL_0071: ret

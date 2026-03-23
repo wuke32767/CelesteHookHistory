@@ -1,0 +1,12 @@
+On: Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier.PlayerOnWindMove(orig_WindMove,Player,Vector2)
+On: Celeste.Mod.DJMapHelper.Entities.FeatherBarrier.PlayerOnWindMove(orig_WindMove,Player,Vector2)
+On: Celeste.Mod.Aqua.Core.PlayerStates.Player_WindMove(orig_WindMove,Player,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0006: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_000b: ldc.i4.s 22
+   IL_000d: beq.s IL_0016
+   IL_000f: ldarg.0
+   IL_0010: ldarg.1
+   IL_0011: callvirt System.Void Celeste.Player::orig_WindMove(Microsoft.Xna.Framework.Vector2)
+   IL_0016: ret

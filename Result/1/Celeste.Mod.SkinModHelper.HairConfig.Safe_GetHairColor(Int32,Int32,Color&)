@@ -1,0 +1,96 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color> Celeste.Mod.SkinModHelper.HairConfig::ActualHairColors
+   IL_0007: brfalse.s IL_0014
+   IL_0009: ldarg.0
+   IL_000a: ldfld System.Boolean Celeste.Mod.SkinModHelper.HairConfig::ColorsActive
+   IL_000f: ldc.i4.0
+   IL_0010: ceq
+   IL_0012: br.s IL_0015
+   IL_0014: ldc.i4.1
+   IL_0015: stloc.0
+   IL_0016: ldloc.0
+   IL_0017: brfalse.s IL_0028
+   IL_0019: nop
+   IL_001a: ldarg.3
+   IL_001b: initobj Microsoft.Xna.Framework.Color
+   IL_0021: ldc.i4.0
+   IL_0022: stloc.1
+   IL_0023: br IL_00d6
+   IL_0028: ldarg.0
+   IL_0029: ldfld System.Int32 Celeste.Mod.SkinModHelper.HairConfig::_AttrDasheslimit
+   IL_002e: ldarg.2
+   IL_002f: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0034: starg.s dashes
+   IL_0036: nop
+   IL_0037: ldarg.0
+   IL_0038: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color> Celeste.Mod.SkinModHelper.HairConfig::ActualHairColors
+   IL_003d: ldarg.2
+   IL_003e: ldc.i4.s 100
+   IL_0040: newobj System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_0045: ldarg.3
+   IL_0046: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color>::TryGetValue(TKey,TValue&)
+   IL_004b: stloc.2
+   IL_004c: ldloc.2
+   IL_004d: brfalse.s IL_00ba
+   IL_004f: nop
+   IL_0050: ldarg.1
+   IL_0051: ldc.i4.s 100
+   IL_0053: bge.s IL_0081
+   IL_0055: ldarg.0
+   IL_0056: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color> Celeste.Mod.SkinModHelper.HairConfig::ActualHairColors
+   IL_005b: ldarg.2
+   IL_005c: ldarg.1
+   IL_005d: ldarg.0
+   IL_005e: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.HairConfig::attached
+   IL_0063: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_0068: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_006d: ldfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_0072: sub
+   IL_0073: newobj System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_0078: ldloca.s V_3
+   IL_007a: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color>::TryGetValue(TKey,TValue&)
+   IL_007f: brtrue.s IL_0097
+   IL_0081: ldarg.0
+   IL_0082: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color> Celeste.Mod.SkinModHelper.HairConfig::ActualHairColors
+   IL_0087: ldarg.2
+   IL_0088: ldarg.1
+   IL_0089: newobj System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_008e: ldloca.s V_3
+   IL_0090: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color>::TryGetValue(TKey,TValue&)
+   IL_0095: br.s IL_0098
+   IL_0097: ldc.i4.1
+   IL_0098: stloc.s V_4
+   IL_009a: ldloc.s V_4
+   IL_009c: brfalse.s IL_00a7
+   IL_009e: nop
+   IL_009f: ldarg.3
+   IL_00a0: ldloc.3
+   IL_00a1: stobj Microsoft.Xna.Framework.Color
+   IL_00a6: nop
+   IL_00a7: ldarg.3
+   IL_00a8: ldobj Microsoft.Xna.Framework.Color
+   IL_00ad: ldsfld Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.HairConfig::C_EmptyS
+   IL_00b2: call System.Boolean Microsoft.Xna.Framework.Color::op_Inequality(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_00b7: stloc.1
+   IL_00b8: br.s IL_00d6
+   IL_00ba: ldarg.2
+   IL_00bb: ldc.i4.2
+   IL_00bc: cgt
+   IL_00be: ldc.i4.0
+   IL_00bf: ceq
+   IL_00c1: stloc.s V_5
+   IL_00c3: ldloc.s V_5
+   IL_00c5: brfalse.s IL_00cc
+   IL_00c7: nop
+   IL_00c8: ldc.i4.0
+   IL_00c9: stloc.1
+   IL_00ca: br.s IL_00d6
+   IL_00cc: ldarg.2
+   IL_00cd: ldc.i4.1
+   IL_00ce: sub
+   IL_00cf: starg.s dashes
+   IL_00d1: br IL_0036
+   IL_00d6: ldloc.1
+   IL_00d7: ret

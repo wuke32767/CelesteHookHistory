@@ -1,0 +1,53 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: ldarg position @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0004: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0009: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_000e: ldarg.2
+   IL_000f: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0014: stloc.0
+   IL_0015: ldsfld System.Random Monocle.Calc::Random
+   IL_001a: ldloc.0
+   IL_001b: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_0020: stloc.1
+   IL_0021: ldarg.0
+   IL_0022: ldfld Monocle.Image Celeste.Mod.SaladimHelper.Entities.DirtBounceBlock/FallingDebris::Sprite
+   IL_0027: brtrue.s IL_004c
+   IL_0029: ldarg.0
+   IL_002a: ldarg.0
+   IL_002b: ldloc.1
+   IL_002c: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_0031: dup
+   IL_0032: stloc.2
+   IL_0033: stfld Monocle.Image Celeste.Mod.SaladimHelper.Entities.DirtBounceBlock/FallingDebris::Sprite
+   IL_0038: ldloc.2
+   IL_0039: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_003e: ldarg.0
+   IL_003f: ldfld Monocle.Image Celeste.Mod.SaladimHelper.Entities.DirtBounceBlock/FallingDebris::Sprite
+   IL_0044: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0049: pop
+   IL_004a: br.s IL_0058
+   IL_004c: ldarg.0
+   IL_004d: ldfld Monocle.Image Celeste.Mod.SaladimHelper.Entities.DirtBounceBlock/FallingDebris::Sprite
+   IL_0052: ldloc.1
+   IL_0053: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_0058: ldarg.0
+   IL_0059: ldarg.1
+   IL_005a: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_005f: ldarg.0
+   IL_0060: ldc.r4 0
+   IL_0065: stfld System.Single Celeste.Mod.SaladimHelper.Entities.DirtBounceBlock/FallingDebris::Percent
+   IL_006a: ldarg.0
+   IL_006b: ldsfld System.Random Monocle.Calc::Random
+   IL_0070: ldc.i4.2
+   IL_0071: ldc.i4.3
+   IL_0072: call System.Int32 Monocle.Calc::Range(System.Random,System.Int32,System.Int32)
+   IL_0077: conv.r4
+   IL_0078: stfld System.Single Celeste.Mod.SaladimHelper.Entities.DirtBounceBlock/FallingDebris::Duration
+   IL_007d: ldarg.3
+   IL_007e: brfalse.s IL_0087
+   IL_0080: ldarg.3
+   IL_0081: ldarg.0
+   IL_0082: callvirt System.Void System.Action`1<Celeste.Mod.SaladimHelper.Entities.DirtBounceBlock/FallingDebris>::Invoke(T)
+   IL_0087: ldarg.0
+ + IL_0088: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_008d: ret

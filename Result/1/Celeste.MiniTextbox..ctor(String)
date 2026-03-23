@@ -1,0 +1,30 @@
+On: Celeste.Mod.OzmasOddities.Controllers.SnapshotController.ModMiniDialogSnapshot(orig_ctor,MiniTextbox,String)
+On: BrokemiaHelper.PersistentMiniTextbox.MiniTextbox_ctor(orig_ctor,MiniTextbox,String)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: callvirt System.Void Celeste.MiniTextbox::orig_ctor(System.String)
+   IL_0007: ldarg.0
+   IL_0008: ldfld Celeste.FancyText/Text Celeste.MiniTextbox::text
+   IL_000d: ldfld System.Collections.Generic.List`1<Celeste.FancyText/Node> Celeste.FancyText/Text::Nodes
+   IL_0012: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.FancyText/Node>::GetEnumerator()
+   IL_0017: stloc.0
+   IL_0018: br.s IL_0036
+   IL_001a: ldloca.s V_0
+   IL_001c: call T System.Collections.Generic.List`1/Enumerator<Celeste.FancyText/Node>::get_Current()
+   IL_0021: isinst Celeste.FancyText/Anchor
+   IL_0026: stloc.1
+   IL_0027: ldloc.1
+   IL_0028: brfalse.s IL_0036
+   IL_002a: ldarg.0
+   IL_002b: ldloc.1
+   IL_002c: ldfld Celeste.FancyText/Anchors Celeste.FancyText/Anchor::Position
+   IL_0031: stfld Celeste.FancyText/Anchors Celeste.MiniTextbox::anchor
+   IL_0036: ldloca.s V_0
+   IL_0038: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.FancyText/Node>::MoveNext()
+   IL_003d: brtrue.s IL_001a
+   IL_003f: leave.s IL_004f
+   IL_0041: ldloca.s V_0
+   IL_0043: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.FancyText/Node>
+   IL_0049: callvirt System.Void System.IDisposable::Dispose()
+   IL_004e: endfinally
+   IL_004f: ret

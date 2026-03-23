@@ -1,0 +1,25 @@
+On: Celeste.Mod.XaphanHelper.Entities.EtherealBlock.onDreamBlockFootstepRipple(orig_FootstepRipple,DreamBlock,Vector2)
+On: Celeste.Mod.CommunalHelper.Entities.ConnectedDreamBlock.DreamBlock_FootstepRipple(orig_FootstepRipple,DreamBlock,Vector2)
+On: Celeste.Mod.ReverseHelper.Entities.DreamifierRenderer_Grid.DreamBlock_FootstepRipple(orig_FootstepRipple,DreamBlock,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.DreamBlock::playerHasDreamDash
+   IL_0006: brfalse.s IL_0046
+   IL_0008: ldarg.0
+   IL_0009: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000e: isinst Celeste.Level
+   IL_0013: ldfld Celeste.DisplacementRenderer Celeste.Level::Displacement
+   IL_0018: ldarg.1
+   IL_0019: ldc.r4 0.5
+   IL_001e: ldc.r4 0
+   IL_0023: ldc.r4 40
+   IL_0028: ldc.r4 1
+   IL_002d: ldnull
+   IL_002e: ldnull
+   IL_002f: callvirt Celeste.DisplacementRenderer/Burst Celeste.DisplacementRenderer::AddBurst(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Single,System.Single,Monocle.Ease/Easer,Monocle.Ease/Easer)
+   IL_0034: dup
+   IL_0035: ldarg.0
+   IL_0036: call Monocle.Collider Monocle.Entity::get_Collider()
+   IL_003b: stfld Monocle.Collider Celeste.DisplacementRenderer/Burst::WorldClipCollider
+   IL_0040: ldc.i4.1
+   IL_0041: stfld System.Int32 Celeste.DisplacementRenderer/Burst::WorldClipPadding
+   IL_0046: ret

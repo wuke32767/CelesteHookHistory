@@ -1,0 +1,24 @@
+On: Celeste.Mod.TASRecorder.OuiSetupHWAccel.On_OuiOOBE_GotoTitleScreen(orig_OuiOOBE_GotoTitleScreen,OuiOOBE)
+   IL_0000: ldarg.0
+   IL_0001: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_0006: callvirt T Celeste.Overworld::Goto<Celeste.OuiTitleScreen>()
+   IL_000b: dup
+   IL_000c: ldarg.0
+   IL_000d: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_0012: ldc.i4.0
+   IL_0013: callvirt System.Boolean Celeste.Oui::IsStart(Celeste.Overworld,Celeste.Overworld/StartMode)
+   IL_0018: pop
+   IL_0019: dup
+   IL_001a: ldarg.0
+   IL_001b: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_0020: ldc.i4.5
+   IL_0021: callvirt System.Boolean Celeste.Oui::IsStart(Celeste.Overworld,Celeste.Overworld/StartMode)
+   IL_0026: pop
+   IL_0027: dup
+   IL_0028: newobj System.Void MonoMod.Utils.DynData`1<Celeste.OuiTitleScreen>::.ctor(TTarget)
+   IL_002d: ldstr "alpha"
+   IL_0032: ldc.r4 0
+   IL_0037: callvirt System.Void MonoMod.Utils.DynData`1<Celeste.OuiTitleScreen>::Set<System.Single>(System.String,T)
+   IL_003c: ldc.i4.1
+   IL_003d: stfld System.Boolean Monocle.Entity::Visible
+   IL_0042: ret

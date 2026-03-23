@@ -1,0 +1,60 @@
+On: Celeste.Mod.auspicioushelper.MaterialPipe.GameplayRender(orig_Render,GameplayRenderer,Scene)
+IL: Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+IL: Celeste.Mod.StrawberryTool.Feature.Detector.DetectorUtils.GameplayRendererOnRender(ILContext)
+IL: Celeste.Mod.VidPlayer.GameplayHudRenderer.ILGameplayRenderer(ILContext)
+IL: Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+IL: TAS.EverestInterop.HideGameplay.GameplayRenderer_Render(ILContext)
+IL: TAS.EverestInterop.Hitboxes.HitboxFixer.GameplayRendererOnRender(ILContext)
+IL: TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
+   IL_0000: call System.Void Celeste.GameplayRenderer::Begin()
+ + IL_10000: call System.Boolean TAS.EverestInterop.HideGameplay::IsHideGamePlay() @ TAS.EverestInterop.HideGameplay.GameplayRenderer_Render(ILContext)
+ + IL_10001: brtrue IL_0025 @ TAS.EverestInterop.HideGameplay.GameplayRenderer_Render(ILContext)
+   IL_0005: ldarg.1
+   IL_0006: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_000b: ldsfld Monocle.BitTag Celeste.Tags::HUD
+   IL_0010: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0015: ldsfld Monocle.BitTag Celeste.TagsExt::SubHUD
+   IL_001a: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_001f: or
+ + IL_10002: ldc.i4 0 @ Celeste.Mod.StrawberryTool.Feature.Detector.DetectorUtils.GameplayRendererOnRender(ILContext)
+ + IL_10003: ldc.i4 0 @ Celeste.Mod.StrawberryTool.Feature.Detector.DetectorUtils.GameplayRendererOnRender(ILContext)
+ + IL_10004: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Int32>>(System.Int32,System.Int32) @ Celeste.Mod.StrawberryTool.Feature.Detector.DetectorUtils.GameplayRendererOnRender(ILContext)
+       => Invoke: Celeste.Mod.StrawberryTool.Feature.Detector.DetectorUtils+<>c.<GameplayRendererOnRender>b__8_3()
+ + IL_10005: callvirt TResult System.Func`1<System.Int32>::Invoke() @ Celeste.Mod.StrawberryTool.Feature.Detector.DetectorUtils.GameplayRendererOnRender(ILContext)
+ + IL_10006: or @ Celeste.Mod.StrawberryTool.Feature.Detector.DetectorUtils.GameplayRendererOnRender(ILContext)
+ + IL_10007: ldsfld Monocle.BitTag Celeste.Mod.VidPlayer.GameplayHudRenderer::GameplayHud @ Celeste.Mod.VidPlayer.GameplayHudRenderer.ILGameplayRenderer(ILContext)
+ + IL_10008: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag) @ Celeste.Mod.VidPlayer.GameplayHudRenderer.ILGameplayRenderer(ILContext)
+ + IL_10009: or @ Celeste.Mod.VidPlayer.GameplayHudRenderer.ILGameplayRenderer(ILContext)
+   IL_0020: callvirt System.Void Monocle.EntityList::RenderExcept(System.Int32)
+   IL_0025: ldsfld System.Boolean Celeste.GameplayRenderer::RenderDebug
+ - IL_002a: brtrue.s IL_0038 @ TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
+   IL_002c: call Monocle.Commands Monocle.Engine::get_Commands()
+   IL_0031: ldfld System.Boolean Monocle.Commands::Open
+ + IL_1000a: or @ TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
+ + IL_1000b: call System.Boolean TAS.EverestInterop.Hitboxes.HitboxToggle::IsShowHitbox(System.Boolean) @ TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
+   IL_0036: brfalse.s IL_1000f
+   IL_0038: ldarg.1
+   IL_0039: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_003e: ldarg.0
+   IL_003f: ldfld Monocle.Camera Celeste.GameplayRenderer::Camera
+ + IL_1000c: call System.Void TAS.EverestInterop.Hitboxes.HitboxFixer::SetDrawingHitboxesTrue() @ TAS.EverestInterop.Hitboxes.HitboxFixer.GameplayRendererOnRender(ILContext)
+   IL_0044: callvirt System.Void Monocle.EntityList::DebugRender(Monocle.Camera)
+ + IL_1000d: call System.Void TAS.EverestInterop.Hitboxes.HitboxFixer::SetDrawingHitboxesFalse() @ TAS.EverestInterop.Hitboxes.HitboxFixer.GameplayRendererOnRender(ILContext)
+ + IL_1000e: br IL_10016 @ Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_1000f: ldarg.0 @ Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_10010: ldarg.1 @ Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_10011: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_10012: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_10013: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+       => Invoke: Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger+<>c.<PatchGameplayRendererRender>b__12_1(GameplayRenderer,Scene)
+ + IL_10014: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<Celeste.GameplayRenderer,Monocle.Scene>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_10015: br IL_0049 @ Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_10016: ldarg.0 @ Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_10017: ldarg.1 @ Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_10018: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_10019: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+ + IL_1001a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+       => Invoke: Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger+<>c.<PatchGameplayRendererRender>b__12_1(GameplayRenderer,Scene)
+ + IL_1001b: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<Celeste.GameplayRenderer,Monocle.Scene>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
+   IL_0049: call System.Void Celeste.GameplayRenderer::End()
+   IL_004e: ret

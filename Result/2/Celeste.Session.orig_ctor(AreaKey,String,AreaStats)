@@ -1,0 +1,161 @@
+On: Celeste.Mod.CollabUtils2.CollabModule.onNewSession(orig_ctor_AreaKey_string_AreaStats,Session,AreaKey,String,AreaStats)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.Session::.ctor()
+   IL_0006: ldarg.0
+   IL_0007: ldarg.1
+   IL_0008: stfld Celeste.AreaKey Celeste.Session::Area
+   IL_000d: ldarg.0
+   IL_000e: ldarg.2
+   IL_000f: stfld System.String Celeste.Session::StartCheckpoint
+   IL_0014: ldarg.0
+   IL_0015: ldarg.0
+   IL_0016: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_001b: ldfld Celeste.AreaData Celeste.MapData::Data
+   IL_0020: ldfld System.String Celeste.AreaData::ColorGrade
+   IL_0025: stfld System.String Celeste.Session::ColorGrade
+   IL_002a: ldarg.0
+   IL_002b: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
+   IL_0030: ldarg.1
+   IL_0031: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0036: callvirt T System.Collections.Generic.List`1<Celeste.AreaData>::get_Item(System.Int32)
+   IL_003b: ldfld System.Boolean Celeste.AreaData::Dreaming
+   IL_0040: stfld System.Boolean Celeste.Session::Dreaming
+   IL_0045: ldarg.0
+   IL_0046: ldarg.1
+   IL_0047: ldarg.2
+   IL_0048: call Celeste.PlayerInventory Celeste.AreaData::GetCheckpointInventory(Celeste.AreaKey,System.String)
+   IL_004d: stfld Celeste.PlayerInventory Celeste.Session::Inventory
+   IL_0052: ldarg.0
+   IL_0053: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
+   IL_0058: ldarg.1
+   IL_0059: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_005e: callvirt T System.Collections.Generic.List`1<Celeste.AreaData>::get_Item(System.Int32)
+   IL_0063: ldfld Celeste.Session/CoreModes Celeste.AreaData::CoreMode
+   IL_0068: stfld Celeste.Session/CoreModes Celeste.Session::CoreMode
+   IL_006d: ldarg.0
+   IL_006e: ldc.i4.1
+   IL_006f: stfld System.Boolean Celeste.Session::FirstLevel
+   IL_0074: ldarg.0
+   IL_0075: ldarg.0
+   IL_0076: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_007b: ldfld Celeste.ModeProperties Celeste.MapData::ModeData
+   IL_0080: ldfld Celeste.AudioState Celeste.ModeProperties::AudioState
+   IL_0085: callvirt Celeste.AudioState Celeste.AudioState::Clone()
+   IL_008a: stfld Celeste.AudioState Celeste.Session::Audio
+   IL_008f: ldarg.0
+   IL_0090: ldfld System.String Celeste.Session::StartCheckpoint
+   IL_0095: brtrue.s IL_00c9
+   IL_0097: ldarg.0
+   IL_0098: ldarg.0
+   IL_0099: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_009e: callvirt Celeste.LevelData Celeste.MapData::StartLevel()
+   IL_00a3: dup
+   IL_00a4: brtrue.s IL_00aa
+   IL_00a6: pop
+   IL_00a7: ldnull
+   IL_00a8: br.s IL_00af
+   IL_00aa: ldfld System.String Celeste.LevelData::Name
+   IL_00af: dup
+   IL_00b0: brtrue.s IL_00b8
+   IL_00b2: pop
+   IL_00b3: ldstr ""
+   IL_00b8: stfld System.String Celeste.Session::Level
+   IL_00bd: ldarg.0
+   IL_00be: ldc.i4.1
+   IL_00bf: stfld System.Boolean Celeste.Session::StartedFromBeginning
+   IL_00c4: br IL_019b
+   IL_00c9: ldarg.0
+   IL_00ca: ldarg.0
+   IL_00cb: ldfld System.String Celeste.Session::StartCheckpoint
+   IL_00d0: stfld System.String Celeste.Session::Level
+   IL_00d5: ldarg.0
+   IL_00d6: ldc.i4.0
+   IL_00d7: stfld System.Boolean Celeste.Session::StartedFromBeginning
+   IL_00dc: ldarg.0
+   IL_00dd: ldarg.1
+   IL_00de: ldarg.2
+   IL_00df: call System.Boolean Celeste.AreaData::GetCheckpointDreaming(Celeste.AreaKey,System.String)
+   IL_00e4: stfld System.Boolean Celeste.Session::Dreaming
+   IL_00e9: ldarg.0
+   IL_00ea: ldarg.1
+   IL_00eb: ldarg.2
+   IL_00ec: call Celeste.Session/CoreModes Celeste.AreaData::GetCheckpointCoreMode(Celeste.AreaKey,System.String)
+   IL_00f1: stfld Celeste.Session/CoreModes Celeste.Session::CoreMode
+   IL_00f6: ldarg.1
+   IL_00f7: ldarg.2
+   IL_00f8: call Celeste.AudioState Celeste.AreaData::GetCheckpointAudioState(Celeste.AreaKey,System.String)
+   IL_00fd: stloc.0
+   IL_00fe: ldloc.0
+   IL_00ff: brfalse.s IL_013d
+   IL_0101: ldloc.0
+   IL_0102: ldfld Celeste.AudioTrackState Celeste.AudioState::Music
+   IL_0107: brfalse.s IL_011f
+   IL_0109: ldarg.0
+   IL_010a: ldfld Celeste.AudioState Celeste.Session::Audio
+   IL_010f: ldloc.0
+   IL_0110: ldfld Celeste.AudioTrackState Celeste.AudioState::Music
+   IL_0115: callvirt Celeste.AudioTrackState Celeste.AudioTrackState::Clone()
+   IL_011a: stfld Celeste.AudioTrackState Celeste.AudioState::Music
+   IL_011f: ldloc.0
+   IL_0120: ldfld Celeste.AudioTrackState Celeste.AudioState::Ambience
+   IL_0125: brfalse.s IL_013d
+   IL_0127: ldarg.0
+   IL_0128: ldfld Celeste.AudioState Celeste.Session::Audio
+   IL_012d: ldloc.0
+   IL_012e: ldfld Celeste.AudioTrackState Celeste.AudioState::Ambience
+   IL_0133: callvirt Celeste.AudioTrackState Celeste.AudioTrackState::Clone()
+   IL_0138: stfld Celeste.AudioTrackState Celeste.AudioState::Ambience
+   IL_013d: ldarg.1
+   IL_013e: ldarg.2
+   IL_013f: call System.String Celeste.AreaData::GetCheckpointColorGrading(Celeste.AreaKey,System.String)
+   IL_0144: stloc.1
+   IL_0145: ldloc.1
+   IL_0146: brfalse.s IL_014f
+   IL_0148: ldarg.0
+   IL_0149: ldloc.1
+   IL_014a: stfld System.String Celeste.Session::ColorGrade
+   IL_014f: ldarg.1
+   IL_0150: ldarg.2
+   IL_0151: call Celeste.CheckpointData Celeste.AreaData::GetCheckpoint(Celeste.AreaKey,System.String)
+   IL_0156: stloc.2
+   IL_0157: ldloc.2
+   IL_0158: brfalse.s IL_019b
+   IL_015a: ldloc.2
+   IL_015b: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.CheckpointData::Flags
+   IL_0160: brfalse.s IL_019b
+   IL_0162: ldloc.2
+   IL_0163: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.CheckpointData::Flags
+   IL_0168: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<System.String>::GetEnumerator()
+   IL_016d: stloc.3
+   IL_016e: br.s IL_0182
+   IL_0170: ldloca.s V_3
+   IL_0172: call T System.Collections.Generic.HashSet`1/Enumerator<System.String>::get_Current()
+   IL_0177: stloc.s V_4
+   IL_0179: ldarg.0
+   IL_017a: ldloc.s V_4
+   IL_017c: ldc.i4.1
+   IL_017d: callvirt System.Void Celeste.Session::SetFlag(System.String,System.Boolean)
+   IL_0182: ldloca.s V_3
+   IL_0184: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<System.String>::MoveNext()
+   IL_0189: brtrue.s IL_0170
+   IL_018b: leave.s IL_019b
+   IL_018d: ldloca.s V_3
+   IL_018f: constrained. System.Collections.Generic.HashSet`1/Enumerator<System.String>
+   IL_0195: callvirt System.Void System.IDisposable::Dispose()
+   IL_019a: endfinally
+   IL_019b: ldarg.3
+   IL_019c: brfalse.s IL_01a6
+   IL_019e: ldarg.0
+   IL_019f: ldarg.3
+   IL_01a0: stfld Celeste.AreaStats Celeste.Session::OldStats
+   IL_01a5: ret
+   IL_01a6: ldarg.0
+   IL_01a7: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_01ac: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_01b1: ldarg.0
+   IL_01b2: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_01b7: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_01bc: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_01c1: callvirt Celeste.AreaStats Celeste.AreaStats::Clone()
+   IL_01c6: stfld Celeste.AreaStats Celeste.Session::OldStats
+   IL_01cb: ret

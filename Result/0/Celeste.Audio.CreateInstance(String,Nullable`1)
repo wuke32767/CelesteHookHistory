@@ -1,0 +1,30 @@
+On: VivHelper.Entities.EntityMuterComponent.Audio_CreateInstance(orig_CreateInstance,String,Nullable`1)
+On: Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.On_Audio_CreateInstance(orig_CreateInstance,String,Nullable`1)
+   IL_0000: ldarg.0
+   IL_0001: call FMOD.Studio.EventDescription Celeste.Audio::GetEventDescription(System.String)
+   IL_0006: stloc.0
+   IL_0007: ldloc.0
+   IL_0008: ldnull
+   IL_0009: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_000e: brfalse.s IL_003d
+   IL_0010: ldloc.0
+   IL_0011: ldloca.s V_1
+   IL_0013: callvirt FMOD.RESULT FMOD.Studio.EventDescription::createInstance(FMOD.Studio.EventInstance&)
+   IL_0018: pop
+   IL_0019: ldloc.0
+   IL_001a: ldloca.s V_2
+   IL_001c: callvirt FMOD.RESULT FMOD.Studio.EventDescription::is3D(System.Boolean&)
+   IL_0021: pop
+   IL_0022: ldloc.2
+   IL_0023: brfalse.s IL_003b
+   IL_0025: ldarga.s position
+   IL_0027: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Vector2>::get_HasValue()
+   IL_002c: brfalse.s IL_003b
+   IL_002e: ldloc.1
+   IL_002f: ldarga.s position
+   IL_0031: call T System.Nullable`1<Microsoft.Xna.Framework.Vector2>::get_Value()
+   IL_0036: call System.Void Celeste.Audio::Position(FMOD.Studio.EventInstance,Microsoft.Xna.Framework.Vector2)
+   IL_003b: ldloc.1
+   IL_003c: ret
+   IL_003d: ldnull
+   IL_003e: ret

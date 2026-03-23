@@ -1,0 +1,57 @@
+On: Celeste.Mod.GooberHelper.Settings.Categories.MouseJoystick.MouseJoystick.patch_Binding_Axis(orig_Axis,Binding,Int32,Single)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Input.Keys> Monocle.Binding::Keyboard
+   IL_0006: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Input.Keys>::GetEnumerator()
+   IL_000b: stloc.0
+   IL_000c: br.s IL_002e
+   IL_000e: ldloca.s V_0
+   IL_0010: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Input.Keys>::get_Current()
+   IL_0015: stloc.1
+   IL_0016: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_001b: ldloc.1
+   IL_001c: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_0021: brfalse.s IL_002e
+   IL_0023: ldc.r4 1
+   IL_0028: stloc.2
+   IL_0029: leave IL_009c
+   IL_002e: ldloca.s V_0
+   IL_0030: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Input.Keys>::MoveNext()
+   IL_0035: brtrue.s IL_000e
+   IL_0037: leave.s IL_0047
+   IL_0039: ldloca.s V_0
+   IL_003b: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Input.Keys>
+   IL_0041: callvirt System.Void System.IDisposable::Dispose()
+   IL_0046: endfinally
+   IL_0047: ldarg.0
+   IL_0048: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Input.Buttons> Monocle.Binding::Controller
+   IL_004d: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Input.Buttons>::GetEnumerator()
+   IL_0052: stloc.3
+   IL_0053: br.s IL_007d
+   IL_0055: ldloca.s V_3
+   IL_0057: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Input.Buttons>::get_Current()
+   IL_005c: stloc.s V_4
+   IL_005e: call Monocle.MInput/GamePadData[] Monocle.MInput::get_GamePads()
+   IL_0063: ldarg.1
+   IL_0064: ldelem.ref
+   IL_0065: ldloc.s V_4
+   IL_0067: ldarg.2
+   IL_0068: callvirt System.Single Monocle.MInput/GamePadData::Axis(Microsoft.Xna.Framework.Input.Buttons,System.Single)
+   IL_006d: stloc.s V_5
+   IL_006f: ldloc.s V_5
+   IL_0071: ldc.r4 0
+   IL_0076: beq.s IL_007d
+   IL_0078: ldloc.s V_5
+   IL_007a: stloc.2
+   IL_007b: leave.s IL_009c
+   IL_007d: ldloca.s V_3
+   IL_007f: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Input.Buttons>::MoveNext()
+   IL_0084: brtrue.s IL_0055
+   IL_0086: leave.s IL_0096
+   IL_0088: ldloca.s V_3
+   IL_008a: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Input.Buttons>
+   IL_0090: callvirt System.Void System.IDisposable::Dispose()
+   IL_0095: endfinally
+   IL_0096: ldc.r4 0
+   IL_009b: ret
+   IL_009c: ldloc.2
+   IL_009d: ret

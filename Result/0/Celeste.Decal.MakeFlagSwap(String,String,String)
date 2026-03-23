@@ -1,0 +1,25 @@
+On: Celeste.Mod.AdamsAddons.Entities.RegistryDecal.modMakeFlagSwap(orig_MakeFlagSwap,Decal,String,String,String)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldarg.1
+   IL_0003: ldarg.2
+   IL_0004: brtrue.s IL_000d
+   IL_0006: newobj System.Void System.Collections.Generic.List`1<Monocle.MTexture>::.ctor()
+   IL_000b: br.s IL_0018
+   IL_000d: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0012: ldarg.2
+   IL_0013: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0018: ldarg.3
+   IL_0019: brtrue.s IL_0022
+   IL_001b: newobj System.Void System.Collections.Generic.List`1<Monocle.MTexture>::.ctor()
+   IL_0020: br.s IL_002d
+   IL_0022: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0027: ldarg.3
+   IL_0028: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_002d: newobj System.Void Celeste.Decal/FlagSwapImage::.ctor(System.String,System.Collections.Generic.List`1<Monocle.MTexture>,System.Collections.Generic.List`1<Monocle.MTexture>)
+   IL_0032: dup
+   IL_0033: stloc.0
+   IL_0034: stfld Monocle.Component Celeste.Decal::image
+   IL_0039: ldloc.0
+   IL_003a: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_003f: ret

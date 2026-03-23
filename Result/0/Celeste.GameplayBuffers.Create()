@@ -1,0 +1,61 @@
+On: Celeste.Mod.StrawberryJam2021.StylegroundMasks.BloomMask.GameplayBuffers_Create(orig_Create)
+On: Celeste.Mod.StrawberryJam2021.Entities.DarkMatterHooks.onGameplayBuffersCreate(orig_Create)
+On: ExtendedVariants.Variants.BlurLevel.onGameplayBuffersCreate(orig_Create)
+On: ExtendedVariants.Variants.BackgroundBlurLevel.onGameplayBuffersCreate(orig_Create)
+On: ExtendedVariants.Variants.BackgroundBrightness.onGameplayBuffersCreate(orig_Create)
+On: ExtendedVariants.Variants.ForegroundEffectOpacity.onGameplayBuffersCreate(orig_Create)
+On: Celeste.Mod.StyleMaskHelper.Entities.BloomMask.GameplayBuffers_Create(orig_Create)
+On: Celeste.Mod.StyleMaskHelper.StylegroundLightingHandler.GameplayBuffers_Create(orig_Create)
+IL: Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.GameplayBuffersCreateHook(ILContext)
+   IL_0000: call System.Void Celeste.GameplayBuffers::Unload()
+   IL_0005: ldc.i4 320
+   IL_000a: ldc.i4 180
+   IL_000f: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_0014: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Gameplay
+   IL_0019: ldc.i4 320
+   IL_001e: ldc.i4 180
+   IL_0023: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_0028: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Level
+   IL_002d: ldc.i4 320
+   IL_0032: ldc.i4 180
+   IL_0037: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_003c: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::ResortDust
+   IL_0041: ldc.i4 320
+   IL_0046: ldc.i4 180
+   IL_004b: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_0050: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Light
+   IL_0055: ldc.i4 320
+   IL_005a: ldc.i4 180
+   IL_005f: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_0064: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Displacement
+   IL_0069: ldc.i4 1024
+ + IL_10000: call System.Int32 Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetLightBufferSize(System.Int32) @ Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.GameplayBuffersCreateHook(ILContext)
+   IL_006e: ldc.i4 1024
+ + IL_10001: call System.Int32 Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetLightBufferSize(System.Int32) @ Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.GameplayBuffersCreateHook(ILContext)
+   IL_0073: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_0078: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::LightBuffer
+   IL_007d: ldc.i4 384
+   IL_0082: ldc.i4 244
+   IL_0087: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_008c: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::MirrorSources
+   IL_0091: ldc.i4 384
+   IL_0096: ldc.i4 244
+   IL_009b: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_00a0: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::MirrorMasks
+   IL_00a5: ldc.i4 512
+   IL_00aa: ldc.i4 512
+   IL_00af: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_00b4: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::SpeedRings
+   IL_00b9: ldc.i4 160
+   IL_00be: ldc.i4 160
+   IL_00c3: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_00c8: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Lightning
+   IL_00cd: ldc.i4 320
+   IL_00d2: ldc.i4 180
+   IL_00d7: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_00dc: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::TempA
+   IL_00e1: ldc.i4 320
+   IL_00e6: ldc.i4 180
+   IL_00eb: call Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Create(System.Int32,System.Int32)
+   IL_00f0: stsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::TempB
+   IL_00f5: ret

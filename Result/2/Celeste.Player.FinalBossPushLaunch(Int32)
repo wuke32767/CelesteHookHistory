@@ -1,0 +1,44 @@
+On: Celeste.Mod.SpringCollab2020.Triggers.BadelineBounceDirectionTrigger.onPlayerBadelinePushLaunch(orig_FinalBossPushLaunch,Player,Int32)
+On: Celeste.Mod.GooberHelper.Options.Physics.Entities.BadelineBossSpeedPreservation.patch_Player_FinalBossPushLaunch(orig_FinalBossPushLaunch,Player,Int32)
+   IL_0000: ldarg.0
+   IL_0001: ldflda System.Nullable`1<System.Single> Celeste.Player::launchApproachX
+   IL_0006: initobj System.Nullable`1<System.Single>
+   IL_000c: ldarg.0
+   IL_000d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0012: ldc.r4 0.9
+   IL_0017: ldarg.1
+   IL_0018: conv.r4
+   IL_0019: mul
+   IL_001a: ldc.r4 280
+   IL_001f: mul
+   IL_0020: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0025: ldarg.0
+   IL_0026: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_002b: ldc.r4 -150
+   IL_0030: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0035: ldarg.0
+   IL_0036: ldc.i4.1
+   IL_0037: stfld System.Boolean Celeste.Player::AutoJump
+   IL_003c: ldc.i4.2
+   IL_003d: ldc.i4.1
+   IL_003e: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0043: ldarg.0
+   IL_0044: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0049: ldarg.0
+   IL_004a: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_004f: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_0054: call Celeste.SlashFx Celeste.SlashFx::Burst(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0059: pop
+   IL_005a: ldarg.0
+   IL_005b: callvirt System.Boolean Celeste.Player::RefillDash()
+   IL_0060: pop
+   IL_0061: ldarg.0
+   IL_0062: callvirt System.Void Celeste.Player::RefillStamina()
+   IL_0067: ldarg.0
+   IL_0068: ldc.r4 0.28
+   IL_006d: stfld System.Single Celeste.Player::dashCooldownTimer
+   IL_0072: ldarg.0
+   IL_0073: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0078: ldc.i4.7
+   IL_0079: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_007e: ret

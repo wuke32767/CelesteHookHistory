@@ -1,0 +1,13 @@
+On: Celeste.Mod.JackalHelper.JackalModule.SafeLava(orig_OnPlayer,FireBarrier,Player)
+   IL_0000: ldarg.1
+   IL_0001: ldarg.1
+   IL_0002: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0007: ldarg.0
+   IL_0008: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_000d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0012: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_0017: ldc.i4.0
+   IL_0018: ldc.i4.1
+   IL_0019: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_001e: pop
+   IL_001f: ret

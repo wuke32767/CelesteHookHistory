@@ -1,0 +1,18 @@
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation> Monocle.Sprite::animations
+   IL_0006: ldarg.1
+   IL_0007: newobj System.Void Monocle.Sprite/Animation::.ctor()
+   IL_000c: dup
+   IL_000d: ldarg.3
+   IL_000e: stfld System.Single Monocle.Sprite/Animation::Delay
+   IL_0013: dup
+   IL_0014: ldarg.0
+   IL_0015: ldarg.2
+   IL_0016: ldnull
+   IL_0017: callvirt Monocle.MTexture[] Monocle.Sprite::GetFrames(System.String,System.Int32[])
+   IL_001c: stfld Monocle.MTexture[] Monocle.Sprite/Animation::Frames
+   IL_0021: dup
+   IL_0022: ldnull
+   IL_0023: stfld Monocle.Chooser`1<System.String> Monocle.Sprite/Animation::Goto
+   IL_0028: callvirt System.Void System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation>::set_Item(TKey,TValue)
+   IL_002d: ret

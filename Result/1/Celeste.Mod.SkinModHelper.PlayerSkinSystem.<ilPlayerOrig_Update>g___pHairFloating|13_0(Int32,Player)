@@ -1,0 +1,28 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.1
+   IL_0001: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0006: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_000b: callvirt System.Nullable`1<System.Int32> Celeste.Mod.SkinModHelper.HairConfig::get_HairFloatingDashCount()
+   IL_0010: stloc.1
+   IL_0011: ldloca.s V_1
+   IL_0013: call System.Boolean System.Nullable`1<System.Int32>::get_HasValue()
+   IL_0018: brfalse.s IL_0024
+   IL_001a: ldloca.s V_1
+   IL_001c: call T System.Nullable`1<System.Int32>::GetValueOrDefault()
+   IL_0021: stloc.0
+   IL_0022: br.s IL_0027
+   IL_0024: ldarg.0
+   IL_0025: br.s IL_003e
+   IL_0027: ldloc.0
+   IL_0028: ldc.i4.0
+   IL_0029: blt.s IL_003d
+   IL_002b: ldarg.1
+   IL_002c: ldfld System.Int32 Celeste.Player::Dashes
+   IL_0031: ldc.i4.0
+   IL_0032: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_0037: ldloc.0
+   IL_0038: blt.s IL_003d
+   IL_003a: ldc.i4.2
+   IL_003b: br.s IL_003e
+   IL_003d: ldc.i4.0
+   IL_003e: ret

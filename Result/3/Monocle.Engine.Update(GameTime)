@@ -1,0 +1,273 @@
+On: Celeste.Mod.MotionSmoothing.FrameUncap.UpdateEveryNTicks.EngineUpdateHook(orig_Update,Engine,GameTime)
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_EngineUpdate(orig_Update,Engine,GameTime)
+On: Celeste.Mod.viddiesToolbox.ViddiesToolboxModule.Engine_Update(orig_Update,Engine,GameTime)
+On: Celeste.Mod.ConsistencyTracker.PhysicsLog.PhysicsLogger.Engine_Update(orig_Update,Engine,GameTime)
+On: Celeste.Mod.SpeedrunTool.Other.BetterMapEditor.EngineOnUpdate(orig_Update,Engine,GameTime)
+On: Celeste.Mod.ErrandOfWednesday.ErrandOfWednesdayModule.Update(orig_Update,Engine,GameTime)
+On: Celeste.Mod.Aqua.Core.PresentationHook.Engine_Update(orig_Update,Engine,GameTime)
+On: Celeste.Mod.Procedurline.GlobalManager.EngineUpdateHook(orig_Update,Engine,GameTime)
+On: Celeste.Mod.SpeedrunTool.Other.RespawnRestartSpeed.RespawnSpeed(orig_Update,Engine,GameTime)
+On: ExtendedVariants.Variants.NoFreezeFrames.onEngineUpdate(orig_Update,Engine,GameTime)
+On: Celeste.Mod.Vidcutter.VidcutterModule.OnUpdate(orig_Update,Engine,GameTime)
+On: Celeste.Mod.ILHookDebugger.ILHookDebuggerModule.Engine_Update(orig_Update,Engine,GameTime)
+On: Celeste.Mod.VidPlayer.VidPlayerModule.EngineOnUpdate(orig_Update,Engine,GameTime)
+On: TAS.GameInfo.EngineOnUpdate(orig_Update,Engine,GameTime)
+On: TAS.ExportGameInfo.EngineOnUpdate(orig_Update,Engine,GameTime)
+On: Celeste.Mod.izumisQOL.Hooks.Update(orig_Update,Engine,GameTime)
+On: Celeste.Mod.ImGuiHelper.ImGuiHelperModule.Engine_Update(orig_Update,Engine,GameTime)
+On: Celeste.Mod.GrabModeKeybind.GrabModeKeybindModule.modEngineUpdate(orig_Update,Engine,GameTime)
+On: Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.Engine_Update(orig_Update,Engine,GameTime)
+On: Celeste.Mod.BounceHelper.BounceHelperModule.modEngineUpdate(orig_Update,Engine,GameTime)
+IL: Celeste.Mod.TASHelper.Predictor.PredictorCore.ILEngineUpdate(ILContext)
+IL: TAS.Playback.Core.IL_Engine_Update(ILContext)
+IL: Celeste.Mod.CommunalHelper.Entities.AbstractInputController.Engine_Update(ILContext)
+IL: Celeste.Mod.CommunalHelper.Entities.StrawberryJam.GrabTempleGate.Engine_Update(ILContext)
+IL: Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI.IL_Engine_Update(ILContext)
+IL: ChroniaHelper.Entities.AbstractInputController.Engine_Update(ILContext)
+IL: Celeste.Mod.EeveeHelper.Components.FreezeUpdateHook.Engine_Update(ILContext)
+IL: Celeste.Mod.LollydesSJContributions.Entities.PocketUmbrellaController.Engine_Update(ILContext)
+IL: VivHelper.VivHelperModule.Engine_Update(ILContext)
+IL: Celeste.Mod.StrawberryJam2021.Entities.PocketUmbrellaController.Engine_Update(ILContext)
+IL: Celeste.Mod.StrawberryJam2021.Entities.WonkyCassetteBlockController.Engine_Update(ILContext)
+IL: Celeste.Mod.StrawberryJam2021.Entities.GrabTempleGate.Engine_Update(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+IL: Celeste.Mod.TASHelper.Gameplay.CassetteBlockHelper.ILEngineUpdate(ILContext)
+IL: Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+IL: vitmod.TriggerTrigger.Engine_Update(ILContext)
+IL: Celeste.Mod.QuantumMechanics.Entities.WonkyCassetteBlockController.Engine_Update(ILContext)
+IL: Celeste.Mod.GhostModForTas.Utils.Attributes.AttributeUtils.ILEngineFreeze(ILContext)
+IL: Celeste.Mod.GhostModForTas.Recorder.GhostRecorder+<>c.<Initialize>b__29_0(ILContext)
+IL: Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+   IL_0000: ldarg.1
+   IL_0001: callvirt System.TimeSpan Microsoft.Xna.Framework.GameTime::get_ElapsedGameTime()
+   IL_0006: stloc.0
+   IL_0007: ldloca.s V_0
+   IL_0009: call System.Double System.TimeSpan::get_TotalSeconds()
+   IL_000e: conv.r4
+   IL_000f: call System.Void Monocle.Engine::set_RawDeltaTime(System.Single)
+   IL_0014: ldarg.0
+   IL_0015: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_001a: call System.Single Monocle.Engine::GetTimeRateComponentMultiplier(Monocle.Scene)
+   IL_001f: stloc V_3
+   IL_0023: ldsfld System.Single Monocle.Engine::TimeRate
+   IL_0028: ldsfld System.Single Monocle.Engine::TimeRateB
+   IL_002d: mul
+   IL_002e: ldloc V_3
+   IL_0032: mul
+   IL_0033: stsfld System.Single Monocle.Engine::EffectiveTimeRate
+   IL_0038: call System.Single Monocle.Engine::get_RawDeltaTime()
+   IL_003d: ldsfld System.Single Monocle.Engine::TimeRate
+   IL_0042: mul
+   IL_0043: ldsfld System.Single Monocle.Engine::TimeRateB
+   IL_0048: mul
+   IL_0049: ldloc V_3
+   IL_004d: mul
+   IL_004e: call System.Void Monocle.Engine::set_DeltaTime(System.Single)
+   IL_0053: call System.UInt64 Monocle.Engine::get_FrameCounter()
+   IL_0058: ldc.i4.1
+   IL_0059: conv.i8
+   IL_005a: add
+   IL_005b: call System.Void Monocle.Engine::set_FrameCounter(System.UInt64)
+   IL_0060: call System.Void Monocle.MInput::Update()
+ + IL_0065: call System.Void Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI::Update() @ Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI.IL_Engine_Update(ILContext)
+ + IL_006a: call System.Boolean Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI::IsPaused() @ Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI.IL_Engine_Update(ILContext)
+ + IL_006f: brfalse IL_0075 @ Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI.IL_Engine_Update(ILContext)
+ + IL_10000: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10001: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10002: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Action>(System.Int32,System.Int32) @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+       => Invoke: Celeste.Mod.TASHelper.Predictor.PredictorCore+<>c.<Initialize>b__21_0()
+ + IL_10003: callvirt System.Void System.Action::Invoke() @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_0074: ret @ Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI.IL_Engine_Update(ILContext)
+ + IL_0075: call System.Boolean TAS.Playback.Core::IsPaused() @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_007a: brfalse IL_0080 @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_10004: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10005: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10006: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Action>(System.Int32,System.Int32) @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+       => Invoke: Celeste.Mod.TASHelper.Predictor.PredictorCore+<>c.<Initialize>b__21_0()
+ + IL_10007: callvirt System.Void System.Action::Invoke() @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_007f: ret @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_0080: call T[] System.Array::Empty<System.Object>() @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_0085: call System.Void TAS.Utils.AttributeUtils::Invoke<TAS.Gameplay.Events/PreEngineUpdate>(System.Object[]) @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_008a: call System.Void Celeste.Mod.TASHelper.Predictor.PredictorCore::AfterMInputUpdate() @ Celeste.Mod.TASHelper.Predictor.PredictorCore.ILEngineUpdate(ILContext)
+   IL_008f: ldsfld System.Boolean Monocle.Engine::ExitOnEscapeKeypress
+   IL_0094: brfalse.s IL_00b5
+   IL_0096: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_009b: ldc.i4.s 27
+   IL_009d: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_00a2: brfalse.s IL_00b5
+   IL_00a4: ldarg.0
+   IL_00a5: call System.Void Microsoft.Xna.Framework.Game::Exit()
+ + IL_00aa: call T[] System.Array::Empty<System.Object>() @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_00af: call System.Void TAS.Utils.AttributeUtils::Invoke<TAS.Gameplay.Events/PostEngineUpdate>(System.Object[]) @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_10008: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10009: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_1000a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Action>(System.Int32,System.Int32) @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+       => Invoke: Celeste.Mod.TASHelper.Predictor.PredictorCore+<>c.<Initialize>b__21_0()
+ + IL_1000b: callvirt System.Void System.Action::Invoke() @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+   IL_00b4: ret
+   IL_00b5: ldsfld System.Action Monocle.Engine::OverloadGameLoop
+   IL_00ba: brfalse.s IL_10010
+   IL_00bc: ldsfld System.Action Monocle.Engine::OverloadGameLoop
+   IL_00c1: callvirt System.Void System.Action::Invoke()
+   IL_00c6: ldarg.0
+   IL_00c7: ldarg.1
+   IL_00c8: call System.Void Microsoft.Xna.Framework.Game::Update(Microsoft.Xna.Framework.GameTime)
+ + IL_00cd: call T[] System.Array::Empty<System.Object>() @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_00d2: call System.Void TAS.Utils.AttributeUtils::Invoke<TAS.Gameplay.Events/PostEngineUpdate>(System.Object[]) @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_1000c: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_1000d: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_1000e: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Action>(System.Int32,System.Int32) @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+       => Invoke: Celeste.Mod.TASHelper.Predictor.PredictorCore+<>c.<Initialize>b__21_0()
+ + IL_1000f: callvirt System.Void System.Action::Invoke() @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+   IL_00d7: ret
+ + IL_10010: call System.Void Celeste.Mod.GhostModForTas.Recorder.GhostRecorder::IncreaseRTATimer() @ Celeste.Mod.GhostModForTas.Recorder.GhostRecorder+<>c.<Initialize>b__29_0(ILContext)
+   IL_00d8: ldsfld System.Boolean Monocle.Engine::DashAssistFreeze
+   IL_00dd: brfalse IL_015e
+   IL_00e2: ldsfld Monocle.VirtualButton Celeste.Input::Dash
+   IL_00e7: callvirt System.Boolean Monocle.VirtualButton::get_Check()
+   IL_00ec: brtrue.s IL_00f5
+   IL_00ee: ldsfld System.Boolean Monocle.Engine::DashAssistFreezePress
+   IL_00f3: brtrue.s IL_0158
+   IL_00f5: ldsfld Monocle.VirtualButton Celeste.Input::Dash
+   IL_00fa: callvirt System.Boolean Monocle.VirtualButton::get_Check()
+   IL_00ff: brfalse.s IL_0107
+   IL_0101: ldc.i4.1
+   IL_0102: stsfld System.Boolean Monocle.Engine::DashAssistFreezePress
+   IL_0107: ldarg.0
+   IL_0108: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_010d: brfalse.s IL_015e
+   IL_010f: ldarg.0
+   IL_0110: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_0115: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_011a: callvirt T Monocle.Tracker::GetEntity<Celeste.PlayerDashAssist>()
+   IL_011f: stloc.1
+   IL_0120: ldloc.1
+   IL_0121: brfalse.s IL_0129
+   IL_0123: ldloc.1
+   IL_0124: callvirt System.Void Monocle.Entity::Update()
+   IL_0129: ldarg.0
+   IL_012a: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_012f: isinst Celeste.Level
+   IL_0134: brfalse.s IL_0146
+   IL_0136: ldarg.0
+   IL_0137: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_013c: isinst Celeste.Level
+   IL_0141: callvirt System.Void Celeste.Level::UpdateTime()
+   IL_0146: ldarg.0
+   IL_0147: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_014c: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_0151: callvirt System.Void Monocle.EntityList::UpdateLists()
+   IL_0156: br.s IL_015e
+   IL_0158: ldc.i4.0
+   IL_0159: stsfld System.Boolean Monocle.Engine::DashAssistFreeze
+   IL_015e: ldsfld System.Boolean Monocle.Engine::DashAssistFreeze
+   IL_0163: brtrue.s IL_01de
+ + IL_0165: call System.Void Celeste.Mod.LollydesSJContributions.Entities.PocketUmbrellaController::frozen_update() @ Celeste.Mod.LollydesSJContributions.Entities.PocketUmbrellaController.Engine_Update(ILContext)
+ + IL_016a: call System.Void Celeste.Mod.StrawberryJam2021.Entities.PocketUmbrellaController::frozen_update() @ Celeste.Mod.StrawberryJam2021.Entities.PocketUmbrellaController.Engine_Update(ILContext)
+   IL_016f: ldsfld System.Single Monocle.Engine::FreezeTimer
+   IL_0174: ldc.r4 0
+   IL_0179: ble.un.s IL_01b5
+ + IL_10011: call System.Void Celeste.Mod.GhostModForTas.Utils.Attributes.AttributeUtils::InvokeFreezeUpdate() @ Celeste.Mod.GhostModForTas.Utils.Attributes.AttributeUtils.ILEngineFreeze(ILContext)
+ + IL_017b: call System.Void Celeste.Mod.CommunalHelper.Entities.AbstractInputController::UpdateControllers() @ Celeste.Mod.CommunalHelper.Entities.AbstractInputController.Engine_Update(ILContext)
+ + IL_0180: call System.Void Celeste.Mod.CommunalHelper.Entities.StrawberryJam.GrabTempleGate::UpdateAll() @ Celeste.Mod.CommunalHelper.Entities.StrawberryJam.GrabTempleGate.Engine_Update(ILContext)
+ + IL_0185: call System.Void ChroniaHelper.Entities.AbstractInputController::UpdateControllers() @ ChroniaHelper.Entities.AbstractInputController.Engine_Update(ILContext)
+ + IL_018a: call System.Void Celeste.Mod.EeveeHelper.Components.FreezeUpdateHook::UpdateFreezeUpdateHooks() @ Celeste.Mod.EeveeHelper.Components.FreezeUpdateHook.Engine_Update(ILContext)
+ + IL_018f: call System.Void Celeste.Mod.StrawberryJam2021.Entities.WonkyCassetteBlockController::FreezeUpdate() @ Celeste.Mod.StrawberryJam2021.Entities.WonkyCassetteBlockController.Engine_Update(ILContext)
+ + IL_0194: call System.Void Celeste.Mod.StrawberryJam2021.Entities.GrabTempleGate::UpdateAll() @ Celeste.Mod.StrawberryJam2021.Entities.GrabTempleGate.Engine_Update(ILContext)
+ + IL_10012: call System.Void Celeste.Mod.TASHelper.Gameplay.CassetteBlockHelper::SJ_AdvanceCasstteBlockVisualizer() @ Celeste.Mod.TASHelper.Gameplay.CassetteBlockHelper.ILEngineUpdate(ILContext)
+ + IL_10013: call System.Void vitmod.TriggerTrigger::UpdateFreezeInput() @ vitmod.TriggerTrigger.Engine_Update(ILContext)
+ + IL_10014: call System.Void Celeste.Mod.QuantumMechanics.Entities.WonkyCassetteBlockController::FreezeUpdate() @ Celeste.Mod.QuantumMechanics.Entities.WonkyCassetteBlockController.Engine_Update(ILContext)
+   IL_0199: ldsfld System.Single Monocle.Engine::FreezeTimer
+   IL_019e: call System.Single Monocle.Engine::get_RawDeltaTime()
+   IL_01a3: sub
+   IL_01a4: ldc.r4 0
+   IL_01a9: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_01ae: stsfld System.Single Monocle.Engine::FreezeTimer
+ + IL_10015: call System.Single Monocle.Engine::get_DeltaTime() @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10016: ldsfld System.Single Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule::ExtraTimeActive @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10017: add @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10018: stsfld System.Single Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule::ExtraTimeActive @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10019: ldc.i4 1 @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_1001a: stsfld System.Boolean Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule::FreezeUpdating @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_1001b: ldarg.0 @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_1001c: ldfld Monocle.Scene Monocle.Engine::scene @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_1001d: dup @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_1001e: call Monocle.RendererList Monocle.Scene::get_RendererList() @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_1001f: call System.Void Monocle.RendererList::Update() @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10020: call System.Void Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule::FreezeUpdate(Monocle.Scene) @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10021: ldc.i4 0 @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10022: stsfld System.Boolean Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule::FreezeUpdating @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+   IL_01b3: br.s IL_01de
+   IL_01b5: ldarg.0
+   IL_01b6: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_01bb: brfalse.s IL_01de
+   IL_01bd: ldarg.0
+   IL_01be: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_01c3: callvirt System.Void Monocle.Scene::BeforeUpdate()
+ + IL_10023: call System.Single Monocle.Engine::get_DeltaTime() @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10024: ldsfld System.Single Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule::ExtraTimeActive @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10025: add @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+ + IL_10026: stsfld System.Single Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule::ExtraTimeActive @ Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule.Engine_Update(ILContext)
+   IL_01c8: ldarg.0
+   IL_01c9: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_01ce: callvirt System.Void Monocle.Scene::Update()
+   IL_01d3: ldarg.0
+   IL_01d4: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_01d9: callvirt System.Void Monocle.Scene::AfterUpdate()
+   IL_01de: call Monocle.Commands Monocle.Engine::get_Commands()
+   IL_01e3: ldfld System.Boolean Monocle.Commands::Open
+   IL_01e8: brfalse.s IL_01f6
+   IL_01ea: call Monocle.Commands Monocle.Engine::get_Commands()
+   IL_01ef: callvirt System.Void Monocle.Commands::UpdateOpen()
+   IL_01f4: br.s IL_0220
+   IL_01f6: call Monocle.Commands Monocle.Engine::get_Commands()
+   IL_01fb: ldfld System.Boolean Monocle.Commands::Enabled
+ + IL_0200: ldc.i4 0 @ VivHelper.VivHelperModule.Engine_Update(ILContext)
+ + IL_0205: ldc.i4 0 @ VivHelper.VivHelperModule.Engine_Update(ILContext)
+ + IL_020a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ VivHelper.VivHelperModule.Engine_Update(ILContext)
+       => Invoke: VivHelper.VivHelperModule+<>c.<Engine_Update>b__111_0(Boolean)
+ + IL_020f: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,System.Boolean>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ VivHelper.VivHelperModule.Engine_Update(ILContext)
+   IL_0214: brfalse.s IL_0220
+   IL_0216: call Monocle.Commands Monocle.Engine::get_Commands()
+   IL_021b: callvirt System.Void Monocle.Commands::UpdateClosed()
+ + IL_0220: call System.Void TAS.EverestInterop.StudioUpdateBanner::Update() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0225: ldarg.0
+   IL_0226: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_022b: ldarg.0
+   IL_022c: ldfld Monocle.Scene Monocle.Engine::nextScene
+   IL_0231: beq.s IL_0279
+   IL_0233: ldarg.0
+   IL_0234: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_0239: stloc.2
+   IL_023a: ldarg.0
+   IL_023b: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_0240: brfalse.s IL_024d
+   IL_0242: ldarg.0
+   IL_0243: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_0248: callvirt System.Void Monocle.Scene::End()
+   IL_024d: ldarg.0
+   IL_024e: ldarg.0
+   IL_024f: ldfld Monocle.Scene Monocle.Engine::nextScene
+   IL_0254: stfld Monocle.Scene Monocle.Engine::scene
+   IL_0259: ldarg.0
+   IL_025a: ldloc.2
+   IL_025b: ldarg.0
+   IL_025c: ldfld Monocle.Scene Monocle.Engine::nextScene
+   IL_0261: callvirt System.Void Monocle.Engine::OnSceneTransition(Monocle.Scene,Monocle.Scene)
+   IL_0266: ldarg.0
+   IL_0267: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_026c: brfalse.s IL_0279
+   IL_026e: ldarg.0
+   IL_026f: ldfld Monocle.Scene Monocle.Engine::scene
+   IL_0274: callvirt System.Void Monocle.Scene::Begin()
+   IL_0279: ldarg.0
+   IL_027a: ldarg.1
+   IL_027b: call System.Void Microsoft.Xna.Framework.Game::Update(Microsoft.Xna.Framework.GameTime)
+ + IL_0280: call T[] System.Array::Empty<System.Object>() @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_0285: call System.Void TAS.Utils.AttributeUtils::Invoke<TAS.Gameplay.Events/PostEngineUpdate>(System.Object[]) @ TAS.Playback.Core.IL_Engine_Update(ILContext)
+ + IL_10027: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10028: ldc.i4 0 @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10029: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Action>(System.Int32,System.Int32) @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+       => Invoke: Celeste.Mod.TASHelper.Predictor.PredictorCore+<>c.<Initialize>b__21_0()
+ + IL_1002a: callvirt System.Void System.Action::Invoke() @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+   IL_028a: ret

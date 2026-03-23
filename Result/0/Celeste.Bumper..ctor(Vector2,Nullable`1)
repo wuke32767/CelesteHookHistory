@@ -1,0 +1,141 @@
+On: Celeste.Mod.Aqua.Core.BumperExtensions.Bumper_Construct(orig_ctor_Vector2_Nullable1,Bumper,Vector2,Nullable`1)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0007: ldarg.0
+   IL_0008: ldc.r4 12
+   IL_000d: ldc.r4 0
+   IL_0012: ldc.r4 0
+   IL_0017: newobj System.Void Monocle.Circle::.ctor(System.Single,System.Single,System.Single)
+   IL_001c: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0021: ldarg.0
+   IL_0022: ldarg.0
+   IL_0023: ldftn System.Void Celeste.Bumper::OnPlayer(Celeste.Player)
+   IL_0029: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_002e: ldnull
+   IL_002f: ldnull
+   IL_0030: newobj System.Void Celeste.PlayerCollider::.ctor(System.Action`1<Celeste.Player>,Monocle.Collider,Monocle.Collider)
+   IL_0035: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_003a: ldarg.0
+   IL_003b: ldarg.0
+   IL_003c: ldc.r4 0.44
+   IL_0041: ldc.r4 0
+   IL_0046: newobj System.Void Monocle.SineWave::.ctor(System.Single,System.Single)
+   IL_004b: callvirt Monocle.SineWave Monocle.SineWave::Randomize()
+   IL_0050: dup
+   IL_0051: stloc.0
+   IL_0052: stfld Monocle.SineWave Celeste.Bumper::sine
+   IL_0057: ldloc.0
+   IL_0058: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_005d: ldarg.0
+   IL_005e: ldarg.0
+   IL_005f: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_0064: ldstr "bumper"
+   IL_0069: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_006e: dup
+   IL_006f: stloc.1
+   IL_0070: stfld Monocle.Sprite Celeste.Bumper::sprite
+   IL_0075: ldloc.1
+   IL_0076: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_007b: ldarg.0
+   IL_007c: ldarg.0
+   IL_007d: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_0082: ldstr "bumper_evil"
+   IL_0087: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_008c: dup
+   IL_008d: stloc.1
+   IL_008e: stfld Monocle.Sprite Celeste.Bumper::spriteEvil
+   IL_0093: ldloc.1
+   IL_0094: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0099: ldarg.0
+   IL_009a: ldfld Monocle.Sprite Celeste.Bumper::spriteEvil
+   IL_009f: ldc.i4.0
+   IL_00a0: stfld System.Boolean Monocle.Component::Visible
+   IL_00a5: ldarg.0
+   IL_00a6: ldarg.0
+   IL_00a7: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Teal()
+   IL_00ac: ldc.r4 1
+   IL_00b1: ldc.i4.s 16
+   IL_00b3: ldc.i4.s 32
+   IL_00b5: newobj System.Void Celeste.VertexLight::.ctor(Microsoft.Xna.Framework.Color,System.Single,System.Int32,System.Int32)
+   IL_00ba: dup
+   IL_00bb: stloc.2
+   IL_00bc: stfld Celeste.VertexLight Celeste.Bumper::light
+   IL_00c1: ldloc.2
+   IL_00c2: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00c7: ldarg.0
+   IL_00c8: ldarg.0
+   IL_00c9: ldc.r4 0.5
+   IL_00ce: ldc.r4 16
+   IL_00d3: newobj System.Void Celeste.BloomPoint::.ctor(System.Single,System.Single)
+   IL_00d8: dup
+   IL_00d9: stloc.3
+   IL_00da: stfld Celeste.BloomPoint Celeste.Bumper::bloom
+   IL_00df: ldloc.3
+   IL_00e0: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00e5: ldarg.0
+   IL_00e6: ldarg.2
+   IL_00e7: stfld System.Nullable`1<Microsoft.Xna.Framework.Vector2> Celeste.Bumper::node
+   IL_00ec: ldarg.0
+   IL_00ed: ldarg.0
+   IL_00ee: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00f3: stfld Microsoft.Xna.Framework.Vector2 Celeste.Bumper::anchor
+   IL_00f8: ldarga.s node
+   IL_00fa: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Vector2>::get_HasValue()
+   IL_00ff: brfalse.s IL_016d
+   IL_0101: newobj System.Void Celeste.Bumper/<>c__DisplayClass19_0::.ctor()
+   IL_0106: stloc.s V_4
+   IL_0108: ldloc.s V_4
+   IL_010a: ldarg.0
+   IL_010b: stfld Celeste.Bumper Celeste.Bumper/<>c__DisplayClass19_0::<>4__this
+   IL_0110: ldloc.s V_4
+   IL_0112: ldarg.0
+   IL_0113: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0118: stfld Microsoft.Xna.Framework.Vector2 Celeste.Bumper/<>c__DisplayClass19_0::start
+   IL_011d: ldloc.s V_4
+   IL_011f: ldarga.s node
+   IL_0121: call T System.Nullable`1<Microsoft.Xna.Framework.Vector2>::get_Value()
+   IL_0126: stfld Microsoft.Xna.Framework.Vector2 Celeste.Bumper/<>c__DisplayClass19_0::end
+   IL_012b: ldc.i4.2
+   IL_012c: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeInOut
+   IL_0131: ldc.r4 1.8181819
+   IL_0136: ldc.i4.1
+   IL_0137: call Monocle.Tween Monocle.Tween::Create(Monocle.Tween/TweenMode,Monocle.Ease/Easer,System.Single,System.Boolean)
+   IL_013c: stloc.s V_5
+   IL_013e: ldloc.s V_5
+   IL_0140: ldloc.s V_4
+   IL_0142: ldftn System.Void Celeste.Bumper/<>c__DisplayClass19_0::<.ctor>b__1(Monocle.Tween)
+   IL_0148: newobj System.Void System.Action`1<Monocle.Tween>::.ctor(System.Object,System.IntPtr)
+   IL_014d: stfld System.Action`1<Monocle.Tween> Monocle.Tween::OnUpdate
+   IL_0152: ldloc.s V_5
+   IL_0154: ldarg.0
+   IL_0155: ldftn System.Void Celeste.Bumper::<.ctor>b__19_2(Monocle.Tween)
+   IL_015b: newobj System.Void System.Action`1<Monocle.Tween>::.ctor(System.Object,System.IntPtr)
+   IL_0160: stfld System.Action`1<Monocle.Tween> Monocle.Tween::OnComplete
+   IL_0165: ldarg.0
+   IL_0166: ldloc.s V_5
+   IL_0168: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_016d: ldarg.0
+   IL_016e: callvirt System.Void Celeste.Bumper::UpdatePosition()
+   IL_0173: ldarg.0
+   IL_0174: ldarg.0
+   IL_0175: ldc.r4 1.2
+   IL_017a: ldc.r4 2
+   IL_017f: ldarg.0
+   IL_0180: ldftn System.Void Celeste.Bumper::<.ctor>b__19_0(System.Single)
+   IL_0186: newobj System.Void System.Action`1<System.Single>::.ctor(System.Object,System.IntPtr)
+   IL_018b: ldc.i4.0
+   IL_018c: ldc.i4.0
+   IL_018d: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_0192: dup
+   IL_0193: stloc.s V_6
+   IL_0195: stfld Monocle.Wiggler Celeste.Bumper::hitWiggler
+   IL_019a: ldloc.s V_6
+   IL_019c: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01a1: ldarg.0
+   IL_01a2: ldarg.0
+   IL_01a3: ldftn System.Void Celeste.Bumper::OnChangeMode(Celeste.Session/CoreModes)
+   IL_01a9: newobj System.Void System.Action`1<Celeste.Session/CoreModes>::.ctor(System.Object,System.IntPtr)
+   IL_01ae: newobj System.Void Celeste.CoreModeListener::.ctor(System.Action`1<Celeste.Session/CoreModes>)
+   IL_01b3: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01b8: ret

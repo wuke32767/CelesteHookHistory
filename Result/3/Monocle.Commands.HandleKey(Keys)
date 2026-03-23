@@ -1,0 +1,534 @@
+On: Celeste.Mod.DebugConsole.DebugConsole.HandleDebugKeystroke(orig_HandleKey,Commands,Keys)
+   IL_0000: ldarg.1
+   IL_0001: ldc.i4.s 27
+   IL_0003: beq.s IL_001c
+   IL_0005: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_000a: callvirt Celeste.Mod.ButtonBinding Celeste.Mod.Core.CoreModuleSettings::get_ToggleDebugConsole()
+   IL_000f: callvirt System.Collections.Generic.List`1<Microsoft.Xna.Framework.Input.Keys> Celeste.Mod.ButtonBinding::get_Keys()
+   IL_0014: ldarg.1
+   IL_0015: callvirt System.Boolean System.Collections.Generic.List`1<Microsoft.Xna.Framework.Input.Keys>::Contains(T)
+   IL_001a: brfalse.s IL_003d
+   IL_001c: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0021: ldarg.0
+   IL_0022: ldfld Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::currentState
+   IL_0027: stfld Microsoft.Xna.Framework.Input.KeyboardState Monocle.MInput/KeyboardData::CurrentState
+   IL_002c: ldarg.0
+   IL_002d: ldarg.0
+   IL_002e: ldc.i4.0
+   IL_002f: dup
+   IL_0030: stloc.3
+   IL_0031: stfld System.Boolean Monocle.Commands::canOpen
+   IL_0036: ldloc.3
+   IL_0037: stfld System.Boolean Monocle.Commands::Open
+   IL_003c: ret
+   IL_003d: ldarg.0
+   IL_003e: ldc.i4.1
+   IL_003f: stfld System.Boolean Monocle.Commands::underscore
+   IL_0044: ldarg.0
+   IL_0045: ldc.r4 0
+   IL_004a: stfld System.Single Monocle.Commands::underscoreCounter
+   IL_004f: ldarg.0
+   IL_0050: ldflda Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::currentState
+   IL_0055: ldc.i4 160
+   IL_005a: call Microsoft.Xna.Framework.Input.KeyState Microsoft.Xna.Framework.Input.KeyboardState::get_Item(Microsoft.Xna.Framework.Input.Keys)
+   IL_005f: ldc.i4.1
+   IL_0060: beq.s IL_0077
+   IL_0062: ldarg.0
+   IL_0063: ldflda Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::currentState
+   IL_0068: ldc.i4 161
+   IL_006d: call Microsoft.Xna.Framework.Input.KeyState Microsoft.Xna.Framework.Input.KeyboardState::get_Item(Microsoft.Xna.Framework.Input.Keys)
+   IL_0072: ldc.i4.1
+   IL_0073: ceq
+   IL_0075: br.s IL_0078
+   IL_0077: ldc.i4.1
+   IL_0078: stloc.0
+   IL_0079: ldarg.0
+   IL_007a: ldflda Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::currentState
+   IL_007f: ldc.i4 162
+   IL_0084: call Microsoft.Xna.Framework.Input.KeyState Microsoft.Xna.Framework.Input.KeyboardState::get_Item(Microsoft.Xna.Framework.Input.Keys)
+   IL_0089: ldc.i4.1
+   IL_008a: beq.s IL_00a1
+   IL_008c: ldarg.0
+   IL_008d: ldflda Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::currentState
+   IL_0092: ldc.i4 163
+   IL_0097: call Microsoft.Xna.Framework.Input.KeyState Microsoft.Xna.Framework.Input.KeyboardState::get_Item(Microsoft.Xna.Framework.Input.Keys)
+   IL_009c: ldc.i4.1
+   IL_009d: ceq
+   IL_009f: br.s IL_00a2
+   IL_00a1: ldc.i4.1
+   IL_00a2: stloc.1
+   IL_00a3: ldarg.1
+   IL_00a4: ldc.i4.s 9
+   IL_00a6: beq.s IL_00b9
+   IL_00a8: ldarg.1
+   IL_00a9: ldc.i4 160
+   IL_00ae: sub
+   IL_00af: ldc.i4.5
+   IL_00b0: ble.un.s IL_00b9
+   IL_00b2: ldarg.0
+   IL_00b3: ldc.i4.m1
+   IL_00b4: stfld System.Int32 Monocle.Commands::tabIndex
+   IL_00b9: ldarg.1
+   IL_00ba: ldc.i4.s 13
+   IL_00bc: beq.s IL_0102
+   IL_00be: ldarg.0
+   IL_00bf: ldflda System.Nullable`1<Microsoft.Xna.Framework.Input.Keys> Monocle.Commands::repeatKey
+   IL_00c4: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>::get_HasValue()
+   IL_00c9: brfalse.s IL_00eb
+   IL_00cb: ldarg.0
+   IL_00cc: ldfld System.Nullable`1<Microsoft.Xna.Framework.Input.Keys> Monocle.Commands::repeatKey
+   IL_00d1: stloc.s V_4
+   IL_00d3: ldarg.1
+   IL_00d4: stloc.s V_5
+   IL_00d6: ldloca.s V_4
+   IL_00d8: call T System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>::GetValueOrDefault()
+   IL_00dd: ldloc.s V_5
+   IL_00df: ceq
+   IL_00e1: ldloca.s V_4
+   IL_00e3: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>::get_HasValue()
+   IL_00e8: and
+   IL_00e9: brtrue.s IL_0102
+   IL_00eb: ldarg.0
+   IL_00ec: ldarg.1
+   IL_00ed: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>::.ctor(T)
+   IL_00f2: stfld System.Nullable`1<Microsoft.Xna.Framework.Input.Keys> Monocle.Commands::repeatKey
+   IL_00f7: ldarg.0
+   IL_00f8: ldc.r4 0
+   IL_00fd: stfld System.Single Monocle.Commands::repeatCounter
+   IL_0102: ldarg.1
+   IL_0103: ldc.i4.s 13
+   IL_0105: bgt.s IL_011c
+   IL_0107: ldarg.1
+   IL_0108: ldc.i4.8
+   IL_0109: beq IL_037d
+   IL_010e: ldarg.1
+   IL_010f: ldc.i4.s 9
+   IL_0111: beq IL_01a4
+   IL_0116: ldarg.1
+   IL_0117: ldc.i4.s 13
+   IL_0119: beq.s IL_0177
+   IL_011b: ret
+   IL_011c: ldarg.1
+   IL_011d: ldc.i4.s 67
+   IL_011f: bgt.s IL_0163
+   IL_0121: ldarg.1
+   IL_0122: ldc.i4.s 35
+   IL_0124: sub
+   IL_0125: switch IL_046b,IL_0446,IL_0327,IL_0488,IL_0327,IL_0488,IL_05ca,IL_05ca,IL_05ca,IL_05ca,IL_05ca,IL_03e6
+   IL_015a: ldarg.1
+   IL_015b: ldc.i4.s 67
+   IL_015d: beq IL_051a
+   IL_0162: ret
+   IL_0163: ldarg.1
+   IL_0164: ldc.i4.s 86
+   IL_0166: beq IL_053d
+   IL_016b: ldarg.1
+   IL_016c: ldc.i4.s 112
+   IL_016e: sub
+   IL_016f: ldc.i4.s 11
+   IL_0171: ble.un IL_05c0
+   IL_0176: ret
+   IL_0177: ldarg.0
+   IL_0178: ldfld System.String Monocle.Commands::currentText
+   IL_017d: callvirt System.Int32 System.String::get_Length()
+   IL_0182: ldc.i4.0
+   IL_0183: ble.s IL_018b
+   IL_0185: ldarg.0
+   IL_0186: callvirt System.Void Monocle.Commands::EnterCommand()
+   IL_018b: ldarg.0
+   IL_018c: ldarg.0
+   IL_018d: ldfld System.String Monocle.Commands::currentText
+   IL_0192: callvirt System.Int32 System.String::get_Length()
+   IL_0197: stfld System.Int32 Monocle.Commands::charIndex
+   IL_019c: ldarg.0
+   IL_019d: ldc.i4.m1
+   IL_019e: stfld System.Int32 Monocle.Commands::seekIndex
+   IL_01a3: ret
+   IL_01a4: ldarg.0
+   IL_01a5: ldfld System.Int32 Monocle.Commands::tabIndex
+   IL_01aa: ldc.i4.m1
+   IL_01ab: bne.un IL_02ac
+   IL_01b0: ldarg.0
+   IL_01b1: ldfld System.String Monocle.Commands::currentText
+   IL_01b6: ldstr "load "
+   IL_01bb: callvirt System.Boolean System.String::StartsWith(System.String)
+   IL_01c0: brtrue.s IL_01e6
+   IL_01c2: ldarg.0
+   IL_01c3: ldfld System.String Monocle.Commands::currentText
+   IL_01c8: ldstr "hard "
+   IL_01cd: callvirt System.Boolean System.String::StartsWith(System.String)
+   IL_01d2: brtrue.s IL_01e6
+   IL_01d4: ldarg.0
+   IL_01d5: ldfld System.String Monocle.Commands::currentText
+   IL_01da: ldstr "rmx2 "
+   IL_01df: callvirt System.Boolean System.String::StartsWith(System.String)
+   IL_01e4: brfalse.s IL_025b
+   IL_01e6: newobj System.Void Monocle.Commands/<>c__DisplayClass28_0::.ctor()
+   IL_01eb: stloc.s V_9
+   IL_01ed: ldarg.0
+   IL_01ee: ldarg.0
+   IL_01ef: ldfld System.String Monocle.Commands::currentText
+   IL_01f4: ldc.i4.0
+   IL_01f5: ldc.i4.5
+   IL_01f6: callvirt System.String System.String::Substring(System.Int32,System.Int32)
+   IL_01fb: stfld System.String Monocle.Commands::tabPrefix
+   IL_0200: ldloc.s V_9
+   IL_0202: ldarg.0
+   IL_0203: ldfld System.String Monocle.Commands::currentText
+   IL_0208: ldc.i4.5
+   IL_0209: callvirt System.String System.String::Substring(System.Int32)
+   IL_020e: stfld System.String Monocle.Commands/<>c__DisplayClass28_0::startOfSid
+   IL_0213: ldarg.0
+   IL_0214: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
+   IL_0219: ldsfld System.Func`2<Celeste.AreaData,System.String> Monocle.Commands/<>c::<>9__28_1
+   IL_021e: dup
+   IL_021f: brtrue.s IL_0238
+   IL_0221: pop
+   IL_0222: ldsfld Monocle.Commands/<>c Monocle.Commands/<>c::<>9
+   IL_0227: ldftn System.String Monocle.Commands/<>c::<HandleKey>b__28_1(Celeste.AreaData)
+   IL_022d: newobj System.Void System.Func`2<Celeste.AreaData,System.String>::.ctor(System.Object,System.IntPtr)
+   IL_0232: dup
+   IL_0233: stsfld System.Func`2<Celeste.AreaData,System.String> Monocle.Commands/<>c::<>9__28_1
+   IL_0238: call System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::Select<Celeste.AreaData,System.String>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,TResult>)
+   IL_023d: ldloc.s V_9
+   IL_023f: ldftn System.Boolean Monocle.Commands/<>c__DisplayClass28_0::<HandleKey>b__2(System.String)
+   IL_0245: newobj System.Void System.Func`2<System.String,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_024a: call System.Collections.Generic.IEnumerable`1<TSource> System.Linq.Enumerable::Where<System.String>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_024f: call TSource[] System.Linq.Enumerable::ToArray<System.String>(System.Collections.Generic.IEnumerable`1<TSource>)
+   IL_0254: stfld System.String[] Monocle.Commands::tabResults
+   IL_0259: br.s IL_0288
+   IL_025b: ldarg.0
+   IL_025c: ldstr ""
+   IL_0261: stfld System.String Monocle.Commands::tabPrefix
+   IL_0266: ldarg.0
+   IL_0267: ldarg.0
+   IL_0268: ldfld System.Collections.Generic.List`1<System.String> Monocle.Commands::sorted
+   IL_026d: ldarg.0
+   IL_026e: ldftn System.Boolean Monocle.Commands::<HandleKey>b__28_0(System.String)
+   IL_0274: newobj System.Void System.Func`2<System.String,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0279: call System.Collections.Generic.IEnumerable`1<TSource> System.Linq.Enumerable::Where<System.String>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_027e: call TSource[] System.Linq.Enumerable::ToArray<System.String>(System.Collections.Generic.IEnumerable`1<TSource>)
+   IL_0283: stfld System.String[] Monocle.Commands::tabResults
+   IL_0288: ldarg.0
+   IL_0289: ldfld System.String[] Monocle.Commands::tabResults
+   IL_028e: ldlen
+   IL_028f: brfalse IL_05ca
+   IL_0294: ldarg.0
+   IL_0295: ldloc.0
+   IL_0296: brtrue.s IL_029b
+   IL_0298: ldc.i4.0
+   IL_0299: br.s IL_02a5
+   IL_029b: ldarg.0
+   IL_029c: ldfld System.String[] Monocle.Commands::tabResults
+   IL_02a1: ldlen
+   IL_02a2: conv.i4
+   IL_02a3: ldc.i4.1
+   IL_02a4: sub
+   IL_02a5: stfld System.Int32 Monocle.Commands::tabIndex
+   IL_02aa: br.s IL_02f7
+   IL_02ac: ldloc.0
+   IL_02ad: brtrue.s IL_02b2
+   IL_02af: ldc.i4.1
+   IL_02b0: br.s IL_02b3
+   IL_02b2: ldc.i4.m1
+   IL_02b3: stloc.s V_10
+   IL_02b5: ldarg.0
+   IL_02b6: ldarg.0
+   IL_02b7: ldfld System.Int32 Monocle.Commands::tabIndex
+   IL_02bc: ldloc.s V_10
+   IL_02be: add
+   IL_02bf: stfld System.Int32 Monocle.Commands::tabIndex
+   IL_02c4: ldarg.0
+   IL_02c5: ldfld System.Int32 Monocle.Commands::tabIndex
+   IL_02ca: ldc.i4.0
+   IL_02cb: bge.s IL_02e2
+   IL_02cd: ldarg.0
+   IL_02ce: ldarg.0
+   IL_02cf: ldfld System.Int32 Monocle.Commands::tabIndex
+   IL_02d4: ldarg.0
+   IL_02d5: ldfld System.String[] Monocle.Commands::tabResults
+   IL_02da: ldlen
+   IL_02db: conv.i4
+   IL_02dc: add
+   IL_02dd: stfld System.Int32 Monocle.Commands::tabIndex
+   IL_02e2: ldarg.0
+   IL_02e3: ldarg.0
+   IL_02e4: ldfld System.Int32 Monocle.Commands::tabIndex
+   IL_02e9: ldarg.0
+   IL_02ea: ldfld System.String[] Monocle.Commands::tabResults
+   IL_02ef: ldlen
+   IL_02f0: conv.i4
+   IL_02f1: rem
+   IL_02f2: stfld System.Int32 Monocle.Commands::tabIndex
+   IL_02f7: ldarg.0
+   IL_02f8: ldarg.0
+   IL_02f9: ldfld System.String Monocle.Commands::tabPrefix
+   IL_02fe: ldarg.0
+   IL_02ff: ldfld System.String[] Monocle.Commands::tabResults
+   IL_0304: ldarg.0
+   IL_0305: ldfld System.Int32 Monocle.Commands::tabIndex
+   IL_030a: ldelem.ref
+   IL_030b: call System.String System.String::Concat(System.String,System.String)
+   IL_0310: stfld System.String Monocle.Commands::currentText
+   IL_0315: ldarg.0
+   IL_0316: ldarg.0
+   IL_0317: ldfld System.String Monocle.Commands::currentText
+   IL_031c: callvirt System.Int32 System.String::get_Length()
+   IL_0321: stfld System.Int32 Monocle.Commands::charIndex
+   IL_0326: ret
+   IL_0327: ldarg.1
+   IL_0328: ldc.i4.s 37
+   IL_032a: beq.s IL_032f
+   IL_032c: ldc.i4.1
+   IL_032d: br.s IL_0330
+   IL_032f: ldc.i4.m1
+   IL_0330: stloc.s V_6
+   IL_0332: ldarg.0
+   IL_0333: ldarg.0
+   IL_0334: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_0339: ldloc.s V_6
+   IL_033b: add
+   IL_033c: ldc.i4.0
+   IL_033d: ldarg.0
+   IL_033e: ldfld System.String Monocle.Commands::currentText
+   IL_0343: callvirt System.Int32 System.String::get_Length()
+   IL_0348: call System.Int32 Monocle.Calc::Clamp(System.Int32,System.Int32,System.Int32)
+   IL_034d: stfld System.Int32 Monocle.Commands::charIndex
+   IL_0352: br.s IL_0363
+   IL_0354: ldarg.0
+   IL_0355: ldarg.0
+   IL_0356: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_035b: ldloc.s V_6
+   IL_035d: add
+   IL_035e: stfld System.Int32 Monocle.Commands::charIndex
+   IL_0363: ldloc.1
+   IL_0364: brfalse IL_05ca
+   IL_0369: ldarg.0
+   IL_036a: ldarg.0
+   IL_036b: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_0370: ldloc.s V_6
+   IL_0372: ldc.i4.1
+   IL_0373: ceq
+   IL_0375: callvirt System.Boolean Monocle.Commands::IsWordBoundary(System.Int32,System.Boolean)
+   IL_037a: brfalse.s IL_0354
+   IL_037c: ret
+   IL_037d: ldarg.0
+   IL_037e: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_0383: brfalse IL_05ca
+   IL_0388: ldarg.0
+   IL_0389: ldarg.0
+   IL_038a: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_038f: ldc.i4.1
+   IL_0390: sub
+   IL_0391: ldc.i4.0
+   IL_0392: callvirt System.Boolean Monocle.Commands::IsWordBoundary(System.Int32,System.Boolean)
+   IL_0397: stloc.2
+   IL_0398: ldarg.0
+   IL_0399: ldarg.0
+   IL_039a: ldfld System.String Monocle.Commands::currentText
+   IL_039f: ldc.i4.0
+   IL_03a0: ldarg.0
+   IL_03a1: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_03a6: ldc.i4.1
+   IL_03a7: sub
+   IL_03a8: ldc.i4.0
+   IL_03a9: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_03ae: callvirt System.String System.String::Substring(System.Int32,System.Int32)
+   IL_03b3: ldarg.0
+   IL_03b4: ldfld System.String Monocle.Commands::currentText
+   IL_03b9: ldarg.0
+   IL_03ba: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_03bf: callvirt System.String System.String::Substring(System.Int32)
+   IL_03c4: call System.String System.String::Concat(System.String,System.String)
+   IL_03c9: stfld System.String Monocle.Commands::currentText
+   IL_03ce: ldarg.0
+   IL_03cf: ldarg.0
+   IL_03d0: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_03d5: ldc.i4.1
+   IL_03d6: sub
+   IL_03d7: stfld System.Int32 Monocle.Commands::charIndex
+   IL_03dc: ldloc.1
+   IL_03dd: brfalse IL_05ca
+   IL_03e2: ldloc.2
+   IL_03e3: brfalse.s IL_037d
+   IL_03e5: ret
+   IL_03e6: ldarg.0
+   IL_03e7: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_03ec: ldarg.0
+   IL_03ed: ldfld System.String Monocle.Commands::currentText
+   IL_03f2: callvirt System.Int32 System.String::get_Length()
+   IL_03f7: beq IL_05ca
+   IL_03fc: ldarg.0
+   IL_03fd: ldarg.0
+   IL_03fe: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_0403: ldc.i4.1
+   IL_0404: add
+   IL_0405: ldc.i4.1
+   IL_0406: callvirt System.Boolean Monocle.Commands::IsWordBoundary(System.Int32,System.Boolean)
+   IL_040b: stloc.2
+   IL_040c: ldarg.0
+   IL_040d: ldarg.0
+   IL_040e: ldfld System.String Monocle.Commands::currentText
+   IL_0413: ldc.i4.0
+   IL_0414: ldarg.0
+   IL_0415: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_041a: callvirt System.String System.String::Substring(System.Int32,System.Int32)
+   IL_041f: ldarg.0
+   IL_0420: ldfld System.String Monocle.Commands::currentText
+   IL_0425: ldarg.0
+   IL_0426: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_042b: ldc.i4.1
+   IL_042c: add
+   IL_042d: callvirt System.String System.String::Substring(System.Int32)
+   IL_0432: call System.String System.String::Concat(System.String,System.String)
+   IL_0437: stfld System.String Monocle.Commands::currentText
+   IL_043c: ldloc.1
+   IL_043d: brfalse IL_05ca
+   IL_0442: ldloc.2
+   IL_0443: brfalse.s IL_03e6
+   IL_0445: ret
+   IL_0446: ldloc.1
+   IL_0447: brfalse.s IL_0463
+   IL_0449: ldarg.0
+   IL_044a: ldarg.0
+   IL_044b: ldfld System.Collections.Generic.List`1<Monocle.Commands/Line> Monocle.Commands::drawCommands
+   IL_0450: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.Commands/Line>::get_Count()
+   IL_0455: ldc.i4.1
+   IL_0456: sub
+   IL_0457: ldc.i4.0
+   IL_0458: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_045d: stfld System.Int32 Monocle.Commands::firstLineIndexToDraw
+   IL_0462: ret
+   IL_0463: ldarg.0
+   IL_0464: ldc.i4.0
+   IL_0465: stfld System.Int32 Monocle.Commands::charIndex
+   IL_046a: ret
+   IL_046b: ldloc.1
+   IL_046c: brfalse.s IL_0476
+   IL_046e: ldarg.0
+   IL_046f: ldc.i4.0
+   IL_0470: stfld System.Int32 Monocle.Commands::firstLineIndexToDraw
+   IL_0475: ret
+   IL_0476: ldarg.0
+   IL_0477: ldarg.0
+   IL_0478: ldfld System.String Monocle.Commands::currentText
+   IL_047d: callvirt System.Int32 System.String::get_Length()
+   IL_0482: stfld System.Int32 Monocle.Commands::charIndex
+   IL_0487: ret
+   IL_0488: ldarg.1
+   IL_0489: ldc.i4.s 38
+   IL_048b: beq.s IL_0490
+   IL_048d: ldc.i4.m1
+   IL_048e: br.s IL_0491
+   IL_0490: ldc.i4.1
+   IL_0491: stloc.s V_7
+   IL_0493: ldloc.1
+   IL_0494: brfalse.s IL_04bf
+   IL_0496: ldarg.0
+   IL_0497: ldarg.0
+   IL_0498: ldfld System.Int32 Monocle.Commands::firstLineIndexToDraw
+   IL_049d: ldloc.s V_7
+   IL_049f: add
+   IL_04a0: ldc.i4.0
+   IL_04a1: ldarg.0
+   IL_04a2: ldfld System.Collections.Generic.List`1<Monocle.Commands/Line> Monocle.Commands::drawCommands
+   IL_04a7: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.Commands/Line>::get_Count()
+   IL_04ac: ldc.i4.1
+   IL_04ad: sub
+   IL_04ae: ldc.i4.0
+   IL_04af: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_04b4: call System.Int32 Monocle.Calc::Clamp(System.Int32,System.Int32,System.Int32)
+   IL_04b9: stfld System.Int32 Monocle.Commands::firstLineIndexToDraw
+   IL_04be: ret
+   IL_04bf: ldarg.0
+   IL_04c0: ldarg.0
+   IL_04c1: ldfld System.Int32 Monocle.Commands::seekIndex
+   IL_04c6: ldloc.s V_7
+   IL_04c8: add
+   IL_04c9: ldc.i4.m1
+   IL_04ca: ldarg.0
+   IL_04cb: ldfld System.Collections.Generic.List`1<System.String> Monocle.Commands::commandHistory
+   IL_04d0: callvirt System.Int32 System.Collections.Generic.List`1<System.String>::get_Count()
+   IL_04d5: ldc.i4.1
+   IL_04d6: sub
+   IL_04d7: call System.Int32 Monocle.Calc::Clamp(System.Int32,System.Int32,System.Int32)
+   IL_04dc: stfld System.Int32 Monocle.Commands::seekIndex
+   IL_04e1: ldarg.0
+   IL_04e2: ldarg.0
+   IL_04e3: ldfld System.Int32 Monocle.Commands::seekIndex
+   IL_04e8: ldc.i4.m1
+   IL_04e9: beq.s IL_04fe
+   IL_04eb: ldarg.0
+   IL_04ec: ldfld System.Collections.Generic.List`1<System.String> Monocle.Commands::commandHistory
+   IL_04f1: ldarg.0
+   IL_04f2: ldfld System.Int32 Monocle.Commands::seekIndex
+   IL_04f7: callvirt T System.Collections.Generic.List`1<System.String>::get_Item(System.Int32)
+   IL_04fc: br.s IL_0503
+   IL_04fe: ldstr ""
+   IL_0503: stfld System.String Monocle.Commands::currentText
+   IL_0508: ldarg.0
+   IL_0509: ldarg.0
+   IL_050a: ldfld System.String Monocle.Commands::currentText
+   IL_050f: callvirt System.Int32 System.String::get_Length()
+   IL_0514: stfld System.Int32 Monocle.Commands::charIndex
+   IL_0519: ret
+   IL_051a: ldloc.1
+   IL_051b: brfalse IL_05ca
+   IL_0520: ldarg.0
+   IL_0521: ldfld System.String Monocle.Commands::currentText
+   IL_0526: callvirt System.Int32 System.String::get_Length()
+   IL_052b: ldc.i4.0
+   IL_052c: ble IL_05ca
+   IL_0531: ldarg.0
+   IL_0532: ldfld System.String Monocle.Commands::currentText
+   IL_0537: call System.Void Celeste.Mod.TextInput::SetClipboardText(System.String)
+   IL_053c: ret
+   IL_053d: ldloc.1
+   IL_053e: brfalse IL_05ca
+   IL_0543: call System.String Celeste.Mod.TextInput::GetClipboardText()
+   IL_0548: stloc.s V_8
+   IL_054a: ldloc.s V_8
+   IL_054c: brfalse.s IL_05ca
+   IL_054e: ldloc.s V_8
+   IL_0550: callvirt System.Int32 System.String::get_Length()
+   IL_0555: ldc.i4.0
+   IL_0556: ble.s IL_05ca
+   IL_0558: ldloc.s V_8
+   IL_055a: ldstr "
+"
+   IL_055f: ldstr " "
+   IL_0564: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0569: stloc.s V_8
+   IL_056b: ldarg.0
+   IL_056c: ldarg.0
+   IL_056d: ldfld System.String Monocle.Commands::currentText
+   IL_0572: ldc.i4.0
+   IL_0573: ldarg.0
+   IL_0574: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_0579: callvirt System.String System.String::Substring(System.Int32,System.Int32)
+   IL_057e: ldloc.s V_8
+   IL_0580: ldarg.0
+   IL_0581: ldfld System.String Monocle.Commands::currentText
+   IL_0586: ldarg.0
+   IL_0587: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_058c: callvirt System.String System.String::Substring(System.Int32)
+   IL_0591: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0596: stfld System.String Monocle.Commands::currentText
+   IL_059b: ldarg.0
+   IL_059c: ldarg.0
+   IL_059d: ldfld System.Int32 Monocle.Commands::charIndex
+   IL_05a2: ldloc.s V_8
+   IL_05a4: callvirt System.Int32 System.String::get_Length()
+   IL_05a9: add
+   IL_05aa: ldarg.0
+   IL_05ab: ldfld System.String Monocle.Commands::currentText
+   IL_05b0: callvirt System.Int32 System.String::get_Length()
+   IL_05b5: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_05ba: stfld System.Int32 Monocle.Commands::charIndex
+   IL_05bf: ret
+   IL_05c0: ldarg.0
+   IL_05c1: ldarg.1
+   IL_05c2: ldc.i4.s 112
+   IL_05c4: sub
+   IL_05c5: callvirt System.Void Monocle.Commands::ExecuteFunctionKeyAction(System.Int32)
+   IL_05ca: ret

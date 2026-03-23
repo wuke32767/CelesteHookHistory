@@ -1,0 +1,15 @@
+On: Celeste.Mod.SkinModHelper.SomePatches.EmptyBlocks_0_boolen()
+   IL_0000: nop
+   IL_0001: call SkinModHelper.Module.SkinModHelperSettings SkinModHelper.Module.SkinModHelperModule::get_Settings()
+   IL_0006: callvirt System.String SkinModHelper.Module.SkinModHelperSettings::get_SelectedSkinMod()
+   IL_000b: brfalse.s IL_0023
+   IL_000d: call SkinModHelper.Module.SkinModHelperSettings SkinModHelper.Module.SkinModHelperModule::get_Settings()
+   IL_0012: callvirt System.String SkinModHelper.Module.SkinModHelperSettings::get_SelectedSkinMod()
+   IL_0017: ldsfld System.String SkinModHelper.Module.SkinModHelperModule::DEFAULT
+   IL_001c: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_0021: br.s IL_0024
+   IL_0023: ldc.i4.0
+   IL_0024: stloc.0
+   IL_0025: br.s IL_0027
+   IL_0027: ldloc.0
+   IL_0028: ret

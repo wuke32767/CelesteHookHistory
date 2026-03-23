@@ -1,0 +1,52 @@
+On: TAS.EverestInterop.SimplifiedGraphicsFeature.Decal_Render(orig_Render,Decal)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Boolean Celeste.Decal::parallax
+   IL_000d: brfalse.s IL_0063
+   IL_000f: ldarg.0
+   IL_0010: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0015: isinst Celeste.Level
+   IL_001a: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_001f: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_0024: ldc.r4 160
+   IL_0029: ldc.r4 90
+   IL_002e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0033: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0038: stloc.1
+   IL_0039: ldarg.0
+   IL_003a: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003f: ldloc.1
+   IL_0040: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0045: ldarg.0
+   IL_0046: ldfld System.Single Celeste.Decal::parallaxAmount
+   IL_004b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0050: stloc.2
+   IL_0051: ldarg.0
+   IL_0052: ldarg.0
+   IL_0053: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0058: ldloc.2
+   IL_0059: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_005e: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0063: ldarg.0
+   IL_0064: ldfld Monocle.SineWave Celeste.Decal::wave
+   IL_0069: brfalse.s IL_008b
+   IL_006b: ldarg.0
+   IL_006c: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0071: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0076: dup
+   IL_0077: ldind.r4
+   IL_0078: ldarg.0
+   IL_0079: ldfld Monocle.SineWave Celeste.Decal::wave
+   IL_007e: callvirt System.Single Monocle.SineWave::get_Value()
+   IL_0083: ldc.r4 4
+   IL_0088: mul
+   IL_0089: add
+   IL_008a: stind.r4
+   IL_008b: ldarg.0
+   IL_008c: call System.Void Monocle.Entity::Render()
+   IL_0091: ldarg.0
+   IL_0092: ldloc.0
+   IL_0093: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0098: ret

@@ -1,0 +1,32 @@
+On: Celeste.Mod.JungleHelper.Entities.EnforceSkinController.levelChangePlayAsBadeline(orig_ChangePlayAsBadeline,Object,Boolean)
+   IL_0000: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0005: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_000a: ldarg.1
+   IL_000b: stfld System.Boolean Celeste.Assists::PlayAsBadeline
+   IL_0010: ldarg.0
+   IL_0011: ldfld Celeste.Level Celeste.Level/<>c__DisplayClass154_0::<>4__this
+   IL_0016: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_001b: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0020: stloc.0
+   IL_0021: ldloc.0
+   IL_0022: brfalse.s IL_0056
+   IL_0024: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0029: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_002e: ldfld System.Boolean Celeste.Assists::PlayAsBadeline
+   IL_0033: brtrue.s IL_003d
+   IL_0035: ldloc.0
+   IL_0036: ldfld Celeste.PlayerSpriteMode Celeste.Player::DefaultSpriteMode
+   IL_003b: br.s IL_003e
+   IL_003d: ldc.i4.3
+   IL_003e: stloc.1
+   IL_003f: ldloc.0
+   IL_0040: ldfld System.Boolean Monocle.Entity::Active
+   IL_0045: brfalse.s IL_004f
+   IL_0047: ldloc.0
+   IL_0048: ldloc.1
+   IL_0049: callvirt System.Void Celeste.Player::ResetSpriteNextFrame(Celeste.PlayerSpriteMode)
+   IL_004e: ret
+   IL_004f: ldloc.0
+   IL_0050: ldloc.1
+   IL_0051: callvirt System.Void Celeste.Player::ResetSprite(Celeste.PlayerSpriteMode)
+   IL_0056: ret

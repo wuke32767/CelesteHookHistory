@@ -1,0 +1,97 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0007: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
+   IL_000c: stloc.0
+   IL_000d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Red()
+   IL_0012: box Microsoft.Xna.Framework.Color
+   IL_0017: stloc.1
+   IL_0018: ldloc.0
+   IL_0019: callvirt System.String Celeste.Mod.SkinModHelper.CharacterConfig::get_LowStaminaFlashColor()
+   IL_001e: call System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::RGB_IsMatch(System.String)
+   IL_0023: stloc.2
+   IL_0024: ldloc.2
+   IL_0025: brfalse.s IL_007b
+   IL_0027: nop
+   IL_0028: ldloc.0
+   IL_0029: callvirt System.String Celeste.Mod.SkinModHelper.CharacterConfig::get_LowStaminaFlashColor()
+   IL_002e: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0033: dup
+   IL_0034: starg.s color
+   IL_0036: box Microsoft.Xna.Framework.Color
+   IL_003b: stloc.1
+   IL_003c: ldloc.0
+   IL_003d: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.SkinModHelper.CharacterConfig::get_SilhouetteMode()
+   IL_0042: stloc.s V_4
+   IL_0044: ldc.i4.1
+   IL_0045: stloc.s V_5
+   IL_0047: ldloca.s V_4
+   IL_0049: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_004e: ldloc.s V_5
+   IL_0050: ceq
+   IL_0052: ldloca.s V_4
+   IL_0054: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0059: and
+   IL_005a: stloc.3
+   IL_005b: ldloc.3
+   IL_005c: brfalse.s IL_0078
+   IL_005e: nop
+   IL_005f: ldarg.1
+   IL_0060: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0065: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_006a: ldarg.0
+   IL_006b: box Microsoft.Xna.Framework.Color
+   IL_0070: call Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.SkinsSystem::ColorBlend(Microsoft.Xna.Framework.Color,System.Object)
+   IL_0075: starg.s color
+   IL_0077: nop
+   IL_0078: nop
+   IL_0079: br.s IL_00bf
+   IL_007b: ldloc.0
+   IL_007c: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.SkinModHelper.CharacterConfig::get_SilhouetteMode()
+   IL_0081: stloc.s V_4
+   IL_0083: ldc.i4.1
+   IL_0084: stloc.s V_5
+   IL_0086: ldloca.s V_4
+   IL_0088: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_008d: ldloc.s V_5
+   IL_008f: ceq
+   IL_0091: ldloca.s V_4
+   IL_0093: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0098: and
+   IL_0099: stloc.s V_6
+   IL_009b: ldloc.s V_6
+   IL_009d: brfalse.s IL_00bf
+   IL_009f: nop
+   IL_00a0: ldarg.1
+   IL_00a1: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_00a6: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_00ab: ldc.r4 0.4
+   IL_00b0: box System.Single
+   IL_00b5: dup
+   IL_00b6: stloc.1
+   IL_00b7: call Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.SkinsSystem::ColorBlend(Microsoft.Xna.Framework.Color,System.Object)
+   IL_00bc: starg.s color
+   IL_00be: nop
+   IL_00bf: ldloc.0
+   IL_00c0: callvirt System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::get_LowStaminaFlashHair()
+   IL_00c5: stloc.s V_7
+   IL_00c7: ldloc.s V_7
+   IL_00c9: brfalse.s IL_00e8
+   IL_00cb: nop
+   IL_00cc: ldarg.1
+   IL_00cd: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_00d2: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_00d7: ldloc.1
+   IL_00d8: dup
+   IL_00d9: brtrue.s IL_00e2
+   IL_00db: pop
+   IL_00dc: ldarg.0
+   IL_00dd: box Microsoft.Xna.Framework.Color
+   IL_00e2: stfld System.Object Celeste.Mod.SkinModHelper.HairConfig::HairColorGrading
+   IL_00e7: nop
+   IL_00e8: ldarg.0
+   IL_00e9: stloc.s V_8
+   IL_00eb: br.s IL_00ed
+   IL_00ed: ldloc.s V_8
+   IL_00ef: ret

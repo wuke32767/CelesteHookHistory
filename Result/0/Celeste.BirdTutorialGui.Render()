@@ -1,0 +1,468 @@
+IL: Celeste.Mod.Aqua.Core.BirdTutorialGUIHook.BirdTutorialGui_ILRender(ILContext)
+IL: Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedHud() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0011: isinst Celeste.Level
+   IL_0016: stloc.0
+ + IL_0017: br IL_0024 @ Celeste.Mod.Aqua.Core.BirdTutorialGUIHook.BirdTutorialGui_ILRender(ILContext)
+   IL_001c: ldloc.0
+   IL_001d: callvirt System.Boolean Celeste.Level::get_FrozenOrPaused()
+   IL_0022: brtrue.s IL_0039
+   IL_0024: ldloc.0
+   IL_0025: ldfld Celeste.PlayerDeadBody Celeste.Level::RetryPlayerCorpse
+   IL_002a: brtrue.s IL_0039
+   IL_002c: ldarg.0
+   IL_002d: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_0032: ldc.r4 0
+   IL_0037: bgt.un.s IL_003a
+   IL_0039: ret
+   IL_003a: ldarg.0
+   IL_003b: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0040: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0045: stloc.1
+   IL_0046: ldarg.0
+   IL_0047: ldfld Monocle.Entity Celeste.BirdTutorialGui::Entity
+   IL_004c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0051: ldarg.0
+   IL_0052: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0057: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_005c: ldloc.1
+   IL_005d: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_0062: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Floor(Microsoft.Xna.Framework.Vector2)
+   IL_0067: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_006c: stloc.2
+   IL_006d: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0072: brfalse.s IL_0098
+   IL_0074: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0079: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_007e: ldfld System.Boolean Celeste.Assists::MirrorMode
+   IL_0083: brfalse.s IL_0098
+   IL_0085: ldloca.s V_2
+   IL_0087: ldc.r4 320
+   IL_008c: ldloc.2
+   IL_008d: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0092: sub
+   IL_0093: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0098: ldloca.s V_2
+   IL_009a: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_009f: dup
+   IL_00a0: ldind.r4
+   IL_00a1: ldc.r4 6
+   IL_00a6: mul
+   IL_00a7: stind.r4
+   IL_00a8: ldloca.s V_2
+   IL_00aa: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00af: dup
+   IL_00b0: ldind.r4
+   IL_00b1: ldc.r4 6
+   IL_00b6: mul
+   IL_00b7: stind.r4
+   IL_00b8: call System.Single Celeste.ActiveFont::get_LineHeight()
+   IL_00bd: stloc.3
+   IL_00be: ldarg.0
+   IL_00bf: ldfld System.Single Celeste.BirdTutorialGui::controlsWidth
+   IL_00c4: ldarg.0
+   IL_00c5: ldfld System.Single Celeste.BirdTutorialGui::infoWidth
+   IL_00ca: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_00cf: ldc.r4 64
+   IL_00d4: add
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_00db: mul
+   IL_00dc: stloc.s V_4
+   IL_00de: ldarg.0
+   IL_00df: ldfld System.Single Celeste.BirdTutorialGui::infoHeight
+   IL_00e4: ldloc.3
+   IL_00e5: add
+   IL_00e6: ldc.r4 32
+   IL_00eb: add
+   IL_00ec: stloc.s V_5
+   IL_00ee: ldloc.2
+   IL_00ef: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00f4: ldloc.s V_4
+   IL_00f6: ldc.r4 2
+   IL_00fb: div
+   IL_00fc: sub
+   IL_00fd: ldloc.2
+   IL_00fe: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0103: ldloc.s V_5
+   IL_0105: sub
+   IL_0106: ldc.r4 32
+   IL_010b: sub
+   IL_010c: stloc.s V_6
+   IL_010e: dup
+   IL_010f: ldc.r4 6
+   IL_0114: sub
+   IL_0115: ldloc.s V_6
+   IL_0117: ldc.r4 6
+   IL_011c: sub
+   IL_011d: ldloc.s V_4
+   IL_011f: ldc.r4 12
+   IL_0124: add
+   IL_0125: ldloc.s V_5
+   IL_0127: ldc.r4 12
+   IL_012c: add
+   IL_012d: ldarg.0
+   IL_012e: ldfld Microsoft.Xna.Framework.Color Celeste.BirdTutorialGui::lineColor
+   IL_0133: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0138: ldloc.s V_6
+   IL_013a: ldloc.s V_4
+   IL_013c: ldloc.s V_5
+   IL_013e: ldarg.0
+   IL_013f: ldfld Microsoft.Xna.Framework.Color Celeste.BirdTutorialGui::bgColor
+   IL_0144: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0149: ldc.i4.0
+   IL_014a: stloc.s V_7
+   IL_014c: br IL_01d1
+   IL_0151: ldc.i4.s 73
+   IL_0153: ldloc.s V_7
+   IL_0155: ldc.i4.2
+   IL_0156: mul
+   IL_0157: sub
+   IL_0158: conv.r4
+   IL_0159: ldarg.0
+   IL_015a: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_015f: mul
+   IL_0160: stloc.s V_8
+   IL_0162: ldloc.2
+   IL_0163: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0168: ldloc.s V_8
+   IL_016a: ldc.r4 2
+   IL_016f: div
+   IL_0170: sub
+   IL_0171: ldloc.s V_6
+   IL_0173: ldloc.s V_5
+   IL_0175: add
+   IL_0176: ldloc.s V_7
+   IL_0178: conv.r4
+   IL_0179: add
+   IL_017a: ldloc.s V_8
+   IL_017c: ldc.r4 1
+   IL_0181: ldarg.0
+   IL_0182: ldfld Microsoft.Xna.Framework.Color Celeste.BirdTutorialGui::lineColor
+   IL_0187: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_018c: ldloc.s V_8
+   IL_018e: ldc.r4 12
+   IL_0193: ble.un.s IL_01cb
+   IL_0195: ldloc.2
+   IL_0196: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_019b: ldloc.s V_8
+   IL_019d: ldc.r4 2
+   IL_01a2: div
+   IL_01a3: sub
+   IL_01a4: ldc.r4 6
+   IL_01a9: add
+   IL_01aa: ldloc.s V_6
+   IL_01ac: ldloc.s V_5
+   IL_01ae: add
+   IL_01af: ldloc.s V_7
+   IL_01b1: conv.r4
+   IL_01b2: add
+   IL_01b3: ldloc.s V_8
+   IL_01b5: ldc.r4 12
+   IL_01ba: sub
+   IL_01bb: ldc.r4 1
+   IL_01c0: ldarg.0
+   IL_01c1: ldfld Microsoft.Xna.Framework.Color Celeste.BirdTutorialGui::bgColor
+   IL_01c6: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_01cb: ldloc.s V_7
+   IL_01cd: ldc.i4.1
+   IL_01ce: add
+   IL_01cf: stloc.s V_7
+   IL_01d1: ldloc.s V_7
+   IL_01d3: ldc.i4.s 36
+ + IL_01d5: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01d6: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01d7: ldfld System.Single Celeste.BirdTutorialGui::controlsWidth @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01dc: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01dd: ldfld System.Single Celeste.BirdTutorialGui::infoWidth @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01e2: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01e3: ldfld System.Single Celeste.BirdTutorialGui::infoHeight @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01e8: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01e9: ldfld Microsoft.Xna.Framework.Color Celeste.BirdTutorialGui::lineColor @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01ee: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01ef: ldfld Microsoft.Xna.Framework.Color Celeste.BirdTutorialGui::bgColor @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+ + IL_01f4: call System.Int32 Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird::modTutorialPointer(System.Int32,Celeste.BirdTutorialGui,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color) @ Celeste.Mod.MaxHelpingHand.Entities.CustomTutorialWithNoBird.replacePointerIfNeeded(ILContext)
+   IL_01f9: ble IL_0151
+   IL_01fe: ldloc.s V_4
+   IL_0200: ldc.r4 3
+   IL_0205: ble.un IL_055d
+   IL_020a: ldloca.s V_9
+   IL_020c: ldloc.2
+   IL_020d: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0212: ldloc.s V_6
+   IL_0214: ldc.r4 16
+   IL_0219: add
+   IL_021a: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_021f: ldarg.0
+   IL_0220: ldfld System.Object Celeste.BirdTutorialGui::info
+   IL_0225: isinst System.String
+   IL_022a: brfalse.s IL_0265
+   IL_022c: ldarg.0
+   IL_022d: ldfld System.Object Celeste.BirdTutorialGui::info
+   IL_0232: castclass System.String
+   IL_0237: ldloc.s V_9
+   IL_0239: ldc.r4 0.5
+   IL_023e: ldc.r4 0
+   IL_0243: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0248: ldarg.0
+   IL_0249: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_024e: ldc.r4 1
+   IL_0253: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0258: ldarg.0
+   IL_0259: ldfld Microsoft.Xna.Framework.Color Celeste.BirdTutorialGui::textColor
+   IL_025e: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0263: br.s IL_02a8
+   IL_0265: ldarg.0
+   IL_0266: ldfld System.Object Celeste.BirdTutorialGui::info
+   IL_026b: isinst Monocle.MTexture
+   IL_0270: brfalse.s IL_02a8
+   IL_0272: ldarg.0
+   IL_0273: ldfld System.Object Celeste.BirdTutorialGui::info
+   IL_0278: castclass Monocle.MTexture
+   IL_027d: ldloc.s V_9
+   IL_027f: ldc.r4 0.5
+   IL_0284: ldc.r4 0
+   IL_0289: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_028e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0293: ldarg.0
+   IL_0294: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_0299: ldc.r4 1
+   IL_029e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_02a3: callvirt System.Void Monocle.MTexture::DrawJustified(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2)
+   IL_02a8: ldloca.s V_9
+   IL_02aa: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_02af: dup
+   IL_02b0: ldind.r4
+   IL_02b1: ldarg.0
+   IL_02b2: ldfld System.Single Celeste.BirdTutorialGui::infoHeight
+   IL_02b7: ldloc.3
+   IL_02b8: ldc.r4 0.5
+   IL_02bd: mul
+   IL_02be: add
+   IL_02bf: add
+   IL_02c0: stind.r4
+   IL_02c1: ldloca.s V_10
+   IL_02c3: ldarg.0
+   IL_02c4: ldfld System.Single Celeste.BirdTutorialGui::controlsWidth
+   IL_02c9: neg
+   IL_02ca: ldc.r4 2
+   IL_02cf: div
+   IL_02d0: ldc.r4 0
+   IL_02d5: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_02da: ldarg.0
+   IL_02db: ldfld System.Collections.Generic.List`1<System.Object> Celeste.BirdTutorialGui::controls
+   IL_02e0: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<System.Object>::GetEnumerator()
+   IL_02e5: stloc.s V_11
+   IL_02e7: br IL_0541
+   IL_02ec: ldloca.s V_11
+   IL_02ee: call T System.Collections.Generic.List`1/Enumerator<System.Object>::get_Current()
+   IL_02f3: stloc.s V_12
+   IL_02f5: ldloc.s V_12
+   IL_02f7: isinst Celeste.BirdTutorialGui/ButtonPrompt
+   IL_02fc: brfalse.s IL_037c
+   IL_02fe: ldloc.s V_12
+   IL_0300: unbox.any Celeste.BirdTutorialGui/ButtonPrompt
+   IL_0305: call Monocle.VirtualButton Celeste.BirdTutorialGui::ButtonPromptToVirtualButton(Celeste.BirdTutorialGui/ButtonPrompt)
+   IL_030a: ldc.i4.0
+   IL_030b: ldstr "controls/keyboard/oemquestion"
+   IL_0310: call Monocle.MTexture Celeste.Input::GuiButton(Monocle.VirtualButton,Celeste.Input/PrefixMode,System.String)
+   IL_0315: stloc.s V_13
+   IL_0317: ldloca.s V_10
+   IL_0319: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_031e: dup
+   IL_031f: ldind.r4
+   IL_0320: ldarg.0
+   IL_0321: ldfld System.Single Celeste.BirdTutorialGui::buttonPadding
+   IL_0326: add
+   IL_0327: stind.r4
+   IL_0328: ldloc.s V_13
+   IL_032a: ldloc.s V_9
+   IL_032c: ldloc.s V_10
+   IL_032e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0333: neg
+   IL_0334: ldloc.s V_13
+   IL_0336: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_033b: ldc.i4.2
+   IL_033c: div
+   IL_033d: conv.r4
+   IL_033e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0343: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0348: ldarg.0
+   IL_0349: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_034e: ldc.r4 1
+   IL_0353: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0358: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2)
+   IL_035d: ldloca.s V_10
+   IL_035f: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0364: dup
+   IL_0365: ldind.r4
+   IL_0366: ldloc.s V_13
+   IL_0368: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_036d: conv.r4
+   IL_036e: ldarg.0
+   IL_036f: ldfld System.Single Celeste.BirdTutorialGui::buttonPadding
+   IL_0374: add
+   IL_0375: add
+   IL_0376: stind.r4
+   IL_0377: br IL_0541
+   IL_037c: ldloc.s V_12
+   IL_037e: isinst Microsoft.Xna.Framework.Vector2
+   IL_0383: brfalse IL_0426
+   IL_0388: ldloc.s V_12
+   IL_038a: unbox.any Microsoft.Xna.Framework.Vector2
+   IL_038f: stloc.s V_14
+   IL_0391: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0396: brfalse.s IL_03b8
+   IL_0398: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_039d: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_03a2: ldfld System.Boolean Celeste.Assists::MirrorMode
+   IL_03a7: brfalse.s IL_03b8
+   IL_03a9: ldloca.s V_14
+   IL_03ab: ldloc.s V_14
+   IL_03ad: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03b2: neg
+   IL_03b3: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03b8: ldloc.s V_14
+   IL_03ba: call Monocle.MTexture Celeste.Input::GuiDirection(Microsoft.Xna.Framework.Vector2)
+   IL_03bf: stloc.s V_15
+   IL_03c1: ldloca.s V_10
+   IL_03c3: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03c8: dup
+   IL_03c9: ldind.r4
+   IL_03ca: ldarg.0
+   IL_03cb: ldfld System.Single Celeste.BirdTutorialGui::buttonPadding
+   IL_03d0: add
+   IL_03d1: stind.r4
+   IL_03d2: ldloc.s V_15
+   IL_03d4: ldloc.s V_9
+   IL_03d6: ldloc.s V_10
+   IL_03d8: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03dd: neg
+   IL_03de: ldloc.s V_15
+   IL_03e0: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_03e5: ldc.i4.2
+   IL_03e6: div
+   IL_03e7: conv.r4
+   IL_03e8: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_03ed: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_03f2: ldarg.0
+   IL_03f3: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_03f8: ldc.r4 1
+   IL_03fd: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0402: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2)
+   IL_0407: ldloca.s V_10
+   IL_0409: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_040e: dup
+   IL_040f: ldind.r4
+   IL_0410: ldloc.s V_15
+   IL_0412: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_0417: conv.r4
+   IL_0418: ldarg.0
+   IL_0419: ldfld System.Single Celeste.BirdTutorialGui::buttonPadding
+   IL_041e: add
+   IL_041f: add
+   IL_0420: stind.r4
+   IL_0421: br IL_0541
+   IL_0426: ldloc.s V_12
+   IL_0428: isinst System.String
+   IL_042d: brfalse IL_04e7
+   IL_0432: ldloc.s V_12
+   IL_0434: callvirt System.String System.Object::ToString()
+   IL_0439: dup
+   IL_043a: call Microsoft.Xna.Framework.Vector2 Celeste.ActiveFont::Measure(System.String)
+   IL_043f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0444: stloc.s V_16
+   IL_0446: dup
+   IL_0447: ldloc.s V_9
+   IL_0449: ldc.r4 1
+   IL_044e: ldc.r4 2
+   IL_0453: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0458: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_045d: ldloc.s V_10
+   IL_045f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0464: neg
+   IL_0465: ldloc.s V_16
+   IL_0467: div
+   IL_0468: ldc.r4 0.5
+   IL_046d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0472: ldarg.0
+   IL_0473: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_0478: ldc.r4 1
+   IL_047d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0482: ldarg.0
+   IL_0483: ldfld Microsoft.Xna.Framework.Color Celeste.BirdTutorialGui::textColor
+   IL_0488: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_048d: ldloc.s V_9
+   IL_048f: ldc.r4 1
+   IL_0494: ldc.r4 -2
+   IL_0499: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_049e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04a3: ldloc.s V_10
+   IL_04a5: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_04aa: neg
+   IL_04ab: ldloc.s V_16
+   IL_04ad: div
+   IL_04ae: ldc.r4 0.5
+   IL_04b3: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04b8: ldarg.0
+   IL_04b9: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_04be: ldc.r4 1
+   IL_04c3: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04c8: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_04cd: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_04d2: ldloca.s V_10
+   IL_04d4: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_04d9: dup
+   IL_04da: ldind.r4
+   IL_04db: ldloc.s V_16
+   IL_04dd: ldc.r4 1
+   IL_04e2: add
+   IL_04e3: add
+   IL_04e4: stind.r4
+   IL_04e5: br.s IL_0541
+   IL_04e7: ldloc.s V_12
+   IL_04e9: isinst Monocle.MTexture
+   IL_04ee: brfalse.s IL_0541
+   IL_04f0: ldloc.s V_12
+   IL_04f2: castclass Monocle.MTexture
+   IL_04f7: stloc.s V_17
+   IL_04f9: ldloc.s V_17
+   IL_04fb: ldloc.s V_9
+   IL_04fd: ldloc.s V_10
+   IL_04ff: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0504: neg
+   IL_0505: ldloc.s V_17
+   IL_0507: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_050c: ldc.i4.2
+   IL_050d: div
+   IL_050e: conv.r4
+   IL_050f: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0514: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0519: ldarg.0
+   IL_051a: ldfld System.Single Celeste.BirdTutorialGui::Scale
+   IL_051f: ldc.r4 1
+   IL_0524: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0529: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2)
+   IL_052e: ldloca.s V_10
+   IL_0530: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0535: dup
+   IL_0536: ldind.r4
+   IL_0537: ldloc.s V_17
+   IL_0539: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_053e: conv.r4
+   IL_053f: add
+   IL_0540: stind.r4
+   IL_0541: ldloca.s V_11
+   IL_0543: call System.Boolean System.Collections.Generic.List`1/Enumerator<System.Object>::MoveNext()
+   IL_0548: brtrue IL_02ec
+   IL_054d: leave.s IL_055d
+   IL_054f: ldloca.s V_11
+   IL_0551: constrained. System.Collections.Generic.List`1/Enumerator<System.Object>
+   IL_0557: callvirt System.Void System.IDisposable::Dispose()
+   IL_055c: endfinally
+   IL_055d: ret

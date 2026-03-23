@@ -1,0 +1,24 @@
+On: Celeste.Mod.MaxHelpingHand.Triggers.ActivateTimedTouchSwitchesTimerTrigger.onTouchSwitchTurnOn(orig_TurnOn,TouchSwitch)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Switch Celeste.TouchSwitch::Switch
+   IL_0006: callvirt System.Boolean Celeste.Switch::get_Activated()
+   IL_000b: brtrue.s IL_004c
+   IL_000d: ldarg.0
+   IL_000e: ldfld Celeste.SoundSource Celeste.TouchSwitch::touchSfx
+   IL_0013: ldstr "event:/game/general/touchswitch_any"
+   IL_0018: ldnull
+   IL_0019: ldc.r4 0
+   IL_001e: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)
+   IL_0023: pop
+   IL_0024: ldarg.0
+   IL_0025: ldfld Celeste.Switch Celeste.TouchSwitch::Switch
+   IL_002a: callvirt System.Boolean Celeste.Switch::Activate()
+   IL_002f: brfalse.s IL_004c
+   IL_0031: ldstr "event:/game/general/touchswitch_last_oneshot"
+   IL_0036: call Celeste.SoundEmitter Celeste.SoundEmitter::Play(System.String)
+   IL_003b: pop
+   IL_003c: ldarg.0
+   IL_003d: ldstr "event:/game/general/touchswitch_last_cutoff"
+   IL_0042: newobj System.Void Celeste.SoundSource::.ctor(System.String)
+   IL_0047: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_004c: ret

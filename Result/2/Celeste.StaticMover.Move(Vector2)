@@ -1,0 +1,19 @@
+On: Celeste.Mod.EeveeHelper.MiscHooks.StaticMover_Move(orig_Move,StaticMover,Vector2)
+On: Celeste.Mod.MaxHelpingHand.Entities.StaticMoverWithLiftSpeed.onStaticMoverMove(orig_Move,StaticMover,Vector2)
+On: Celeste.Mod.VortexHelper.Misc.StaticMoverWithLiftSpeed+Hooks.StaticMover_Move(orig_Move,StaticMover,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Action`1<Microsoft.Xna.Framework.Vector2> Celeste.StaticMover::OnMove
+   IL_0006: brfalse.s IL_0015
+   IL_0008: ldarg.0
+   IL_0009: ldfld System.Action`1<Microsoft.Xna.Framework.Vector2> Celeste.StaticMover::OnMove
+   IL_000e: ldarg.1
+   IL_000f: callvirt System.Void System.Action`1<Microsoft.Xna.Framework.Vector2>::Invoke(T)
+   IL_0014: ret
+   IL_0015: ldarg.0
+   IL_0016: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_001b: dup
+   IL_001c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0021: ldarg.1
+   IL_0022: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0027: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_002c: ret

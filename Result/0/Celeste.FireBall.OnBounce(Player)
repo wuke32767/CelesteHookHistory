@@ -1,0 +1,57 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomFireBallOnBounce(orig_OnBounce,FireBall,Player)
+On: FlaglinesAndSuch.HKnail.FireBall_OnBounce(orig_OnBounce,FireBall,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.FireBall::iceMode
+   IL_0006: brfalse IL_00b0
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Boolean Celeste.FireBall::broken
+   IL_0011: brtrue IL_00b0
+   IL_0016: ldarg.1
+   IL_0017: callvirt System.Single Monocle.Entity::get_Bottom()
+   IL_001c: ldarg.0
+   IL_001d: call System.Single Monocle.Entity::get_Y()
+   IL_0022: ldc.r4 4
+   IL_0027: add
+   IL_0028: bgt.un IL_00b0
+   IL_002d: ldarg.1
+   IL_002e: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0033: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0038: ldc.r4 0
+   IL_003d: blt.un.s IL_00b0
+   IL_003f: ldstr "event:/game/09_core/iceball_break"
+   IL_0044: ldarg.0
+   IL_0045: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_004a: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_004f: pop
+   IL_0050: ldarg.0
+   IL_0051: ldfld Monocle.Sprite Celeste.FireBall::sprite
+   IL_0056: ldstr "shatter"
+   IL_005b: ldc.i4.0
+   IL_005c: ldc.i4.0
+   IL_005d: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0062: ldarg.0
+   IL_0063: ldc.i4.1
+   IL_0064: stfld System.Boolean Celeste.FireBall::broken
+   IL_0069: ldarg.0
+   IL_006a: ldc.i4.0
+   IL_006b: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0070: ldarg.1
+   IL_0071: ldarg.0
+   IL_0072: call System.Single Monocle.Entity::get_Y()
+   IL_0077: ldc.r4 2
+   IL_007c: sub
+   IL_007d: conv.i4
+   IL_007e: conv.r4
+   IL_007f: callvirt System.Void Celeste.Player::Bounce(System.Single)
+   IL_0084: ldarg.0
+   IL_0085: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_008a: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_008f: ldsfld Monocle.ParticleType Celeste.FireBall::P_IceBreak
+   IL_0094: ldc.i4.s 18
+   IL_0096: ldarg.0
+   IL_0097: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_009c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00a1: ldc.r4 6
+   IL_00a6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00ab: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00b0: ret

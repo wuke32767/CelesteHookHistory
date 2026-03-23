@@ -1,0 +1,84 @@
+IL: Celeste.Mod.GooberHelper.Settings.Root.FastMenuing.patch_Postcard_DisplayRoutine(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld Celeste.Postcard Celeste.Postcard/<DisplayRoutine>d__13::<>4__this
+   IL_000d: stloc.1
+   IL_000e: ldloc.0
+   IL_000f: switch IL_002e,IL_004a,IL_006a,IL_0083,IL_00b6,IL_00d6
+   IL_002c: ldc.i4.0
+   IL_002d: ret
+   IL_002e: ldarg.0
+   IL_002f: ldc.i4.m1
+   IL_0030: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_0035: ldarg.0
+   IL_0036: ldloc.1
+   IL_0037: callvirt System.Collections.IEnumerator Celeste.Postcard::EaseIn()
+   IL_003c: stfld System.Object Celeste.Postcard/<DisplayRoutine>d__13::<>2__current
+   IL_0041: ldarg.0
+   IL_0042: ldc.i4.1
+   IL_0043: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_0048: ldc.i4.1
+   IL_0049: ret
+   IL_004a: ldarg.0
+   IL_004b: ldc.i4.m1
+   IL_004c: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_0051: ldarg.0
+   IL_0052: ldc.r4 0.75
+ + IL_10000: call System.Single Celeste.Mod.GooberHelper.Settings.Root.FastMenuing::overrideWithZero(System.Single) @ Celeste.Mod.GooberHelper.Settings.Root.FastMenuing.patch_Postcard_DisplayRoutine(ILContext)
+   IL_0057: box System.Single
+   IL_005c: stfld System.Object Celeste.Postcard/<DisplayRoutine>d__13::<>2__current
+   IL_0061: ldarg.0
+   IL_0062: ldc.i4.2
+   IL_0063: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_0068: ldc.i4.1
+   IL_0069: ret
+   IL_006a: ldarg.0
+   IL_006b: ldc.i4.m1
+   IL_006c: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_0071: br.s IL_008a
+   IL_0073: ldarg.0
+   IL_0074: ldnull
+   IL_0075: stfld System.Object Celeste.Postcard/<DisplayRoutine>d__13::<>2__current
+   IL_007a: ldarg.0
+   IL_007b: ldc.i4.3
+   IL_007c: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_0081: ldc.i4.1
+   IL_0082: ret
+   IL_0083: ldarg.0
+   IL_0084: ldc.i4.m1
+   IL_0085: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_008a: ldsfld Monocle.VirtualButton Celeste.Input::MenuConfirm
+   IL_008f: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_0094: brfalse.s IL_0073
+   IL_0096: ldstr "event:/ui/main/button_lowkey"
+   IL_009b: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_00a0: pop
+   IL_00a1: ldarg.0
+   IL_00a2: ldloc.1
+   IL_00a3: callvirt System.Collections.IEnumerator Celeste.Postcard::EaseOut()
+   IL_00a8: stfld System.Object Celeste.Postcard/<DisplayRoutine>d__13::<>2__current
+   IL_00ad: ldarg.0
+   IL_00ae: ldc.i4.4
+   IL_00af: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_00b4: ldc.i4.1
+   IL_00b5: ret
+   IL_00b6: ldarg.0
+   IL_00b7: ldc.i4.m1
+   IL_00b8: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_00bd: ldarg.0
+   IL_00be: ldc.r4 1.2
+ + IL_10001: call System.Single Celeste.Mod.GooberHelper.Settings.Root.FastMenuing::overrideWithZero(System.Single) @ Celeste.Mod.GooberHelper.Settings.Root.FastMenuing.patch_Postcard_DisplayRoutine(ILContext)
+   IL_00c3: box System.Single
+   IL_00c8: stfld System.Object Celeste.Postcard/<DisplayRoutine>d__13::<>2__current
+   IL_00cd: ldarg.0
+   IL_00ce: ldc.i4.5
+   IL_00cf: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_00d4: ldc.i4.1
+   IL_00d5: ret
+   IL_00d6: ldarg.0
+   IL_00d7: ldc.i4.m1
+   IL_00d8: stfld System.Int32 Celeste.Postcard/<DisplayRoutine>d__13::<>1__state
+   IL_00dd: ldc.i4.0
+   IL_00de: ret

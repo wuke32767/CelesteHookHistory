@@ -1,0 +1,30 @@
+On: Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger.onPlayerResetSprite(orig_ResetSprite,Player,PlayerSpriteMode)
+On: Celeste.Mod.SpringCollab2020.Triggers.MadelineSilhouetteTrigger.onPlayerResetSprite(orig_ResetSprite,Player,PlayerSpriteMode)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0006: ldfld System.Action`1<System.String> Monocle.Sprite::OnFrameChange
+   IL_000b: stloc.0
+   IL_000c: ldarg.0
+   IL_000d: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0012: ldfld System.Action`1<System.String> Monocle.Sprite::OnLastFrame
+   IL_0017: stloc.1
+   IL_0018: ldarg.0
+   IL_0019: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_001e: ldfld System.Action`2<System.String,System.String> Monocle.Sprite::OnChange
+   IL_0023: stloc.2
+   IL_0024: ldarg.0
+   IL_0025: ldarg.1
+   IL_0026: callvirt System.Void Celeste.Player::orig_ResetSprite(Celeste.PlayerSpriteMode)
+   IL_002b: ldarg.0
+   IL_002c: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0031: ldloc.0
+   IL_0032: stfld System.Action`1<System.String> Monocle.Sprite::OnFrameChange
+   IL_0037: ldarg.0
+   IL_0038: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_003d: ldloc.1
+   IL_003e: stfld System.Action`1<System.String> Monocle.Sprite::OnLastFrame
+   IL_0043: ldarg.0
+   IL_0044: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0049: ldloc.2
+   IL_004a: stfld System.Action`2<System.String,System.String> Monocle.Sprite::OnChange
+   IL_004f: ret

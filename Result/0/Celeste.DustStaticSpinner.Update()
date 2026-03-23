@@ -1,0 +1,43 @@
+On: Celeste.Mod.TASHelper.Gameplay.Spinner.Info.PositionHelper.PatchDustUpdate(orig_Update,DustStaticSpinner)
+On: Celeste.Mod.SpinnySpinners.SpinnySpinnersModule.dustSpinnerUpdate(orig_Update,DustStaticSpinner)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000c: ldc.r4 0.05
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Single Celeste.DustStaticSpinner::offset
+   IL_0017: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single,System.Single)
+   IL_001c: brfalse.s IL_007a
+   IL_001e: ldarg.0
+   IL_001f: ldfld Celeste.DustGraphic Celeste.DustStaticSpinner::Sprite
+   IL_0024: callvirt System.Boolean Celeste.DustGraphic::get_Estableshed()
+   IL_0029: brfalse.s IL_007a
+   IL_002b: ldarg.0
+   IL_002c: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0031: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0036: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_003b: stloc.0
+   IL_003c: ldloc.0
+   IL_003d: brfalse.s IL_007a
+   IL_003f: ldarg.0
+   IL_0040: ldloc.0
+   IL_0041: callvirt System.Single Monocle.Entity::get_X()
+   IL_0046: ldarg.0
+   IL_0047: call System.Single Monocle.Entity::get_X()
+   IL_004c: sub
+   IL_004d: call System.Single System.Math::Abs(System.Single)
+   IL_0052: ldc.r4 128
+   IL_0057: bge.un.s IL_0074
+   IL_0059: ldloc.0
+   IL_005a: callvirt System.Single Monocle.Entity::get_Y()
+   IL_005f: ldarg.0
+   IL_0060: call System.Single Monocle.Entity::get_Y()
+   IL_0065: sub
+   IL_0066: call System.Single System.Math::Abs(System.Single)
+   IL_006b: ldc.r4 128
+   IL_0070: clt
+   IL_0072: br.s IL_0075
+   IL_0074: ldc.i4.0
+   IL_0075: stfld System.Boolean Monocle.Entity::Collidable
+   IL_007a: ret

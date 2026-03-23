@@ -1,0 +1,69 @@
+On: Celeste.Mod.CommunalHelper.Entities.PlayerSeekerBarrier.SeekerBarrierRenderer_Untrack(orig_Untrack,SeekerBarrierRenderer,SeekerBarrier)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.List`1<Celeste.SeekerBarrier> Celeste.SeekerBarrierRenderer::list
+   IL_0006: ldarg.1
+   IL_0007: callvirt System.Boolean System.Collections.Generic.List`1<Celeste.SeekerBarrier>::Remove(T)
+   IL_000c: pop
+   IL_000d: ldarg.0
+   IL_000e: ldfld System.Collections.Generic.List`1<Celeste.SeekerBarrier> Celeste.SeekerBarrierRenderer::list
+   IL_0013: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.SeekerBarrier>::get_Count()
+   IL_0018: ldc.i4.0
+   IL_0019: bgt.s IL_0024
+   IL_001b: ldarg.0
+   IL_001c: ldnull
+   IL_001d: stfld Monocle.VirtualMap`1<System.Boolean> Celeste.SeekerBarrierRenderer::tiles
+   IL_0022: br.s IL_008a
+   IL_0024: ldarg.1
+   IL_0025: callvirt System.Single Monocle.Entity::get_X()
+   IL_002a: conv.i4
+   IL_002b: ldc.i4.8
+   IL_002c: div
+   IL_002d: stloc.0
+   IL_002e: br.s IL_007a
+   IL_0030: ldarg.1
+   IL_0031: callvirt System.Single Monocle.Entity::get_Y()
+   IL_0036: conv.i4
+   IL_0037: ldc.i4.8
+   IL_0038: div
+   IL_0039: stloc.1
+   IL_003a: br.s IL_0066
+   IL_003c: ldarg.0
+   IL_003d: ldfld Monocle.VirtualMap`1<System.Boolean> Celeste.SeekerBarrierRenderer::tiles
+   IL_0042: ldloc.0
+   IL_0043: ldarg.0
+   IL_0044: ldflda Microsoft.Xna.Framework.Rectangle Celeste.SeekerBarrierRenderer::levelTileBounds
+   IL_0049: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_004e: sub
+   IL_004f: ldloc.1
+   IL_0050: ldarg.0
+   IL_0051: ldflda Microsoft.Xna.Framework.Rectangle Celeste.SeekerBarrierRenderer::levelTileBounds
+   IL_0056: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_005b: sub
+   IL_005c: ldc.i4.0
+   IL_005d: callvirt System.Void Monocle.VirtualMap`1<System.Boolean>::set_Item(System.Int32,System.Int32,T)
+   IL_0062: ldloc.1
+   IL_0063: ldc.i4.1
+   IL_0064: add
+   IL_0065: stloc.1
+   IL_0066: ldloc.1
+   IL_0067: conv.r4
+   IL_0068: ldarg.1
+   IL_0069: callvirt System.Single Monocle.Entity::get_Bottom()
+   IL_006e: ldc.r4 8
+   IL_0073: div
+   IL_0074: blt.s IL_003c
+   IL_0076: ldloc.0
+   IL_0077: ldc.i4.1
+   IL_0078: add
+   IL_0079: stloc.0
+   IL_007a: ldloc.0
+   IL_007b: conv.r4
+   IL_007c: ldarg.1
+   IL_007d: callvirt System.Single Monocle.Entity::get_Right()
+   IL_0082: ldc.r4 8
+   IL_0087: div
+   IL_0088: blt.s IL_0030
+   IL_008a: ldarg.0
+   IL_008b: ldc.i4.1
+   IL_008c: stfld System.Boolean Celeste.SeekerBarrierRenderer::dirty
+   IL_0091: ret

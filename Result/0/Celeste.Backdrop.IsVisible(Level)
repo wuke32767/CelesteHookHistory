@@ -1,0 +1,82 @@
+On: Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule+<>c.<Load>b__4_0(orig_IsVisible,Backdrop,Level)
+On: Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropIsVisible(orig_IsVisible,Backdrop,Level)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Backdrop::ForceVisible
+   IL_0006: brfalse.s IL_000a
+   IL_0008: ldc.i4.1
+   IL_0009: ret
+   IL_000a: ldarg.0
+   IL_000b: ldfld System.String Celeste.Backdrop::OnlyIfNotFlag
+   IL_0010: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0015: brtrue.s IL_002c
+   IL_0017: ldarg.1
+   IL_0018: ldfld Celeste.Session Celeste.Level::Session
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.String Celeste.Backdrop::OnlyIfNotFlag
+   IL_0023: callvirt System.Boolean Celeste.Session::GetFlag(System.String)
+   IL_0028: brfalse.s IL_002c
+   IL_002a: ldc.i4.0
+   IL_002b: ret
+   IL_002c: ldarg.0
+   IL_002d: ldfld System.String Celeste.Backdrop::AlsoIfFlag
+   IL_0032: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0037: brtrue.s IL_004e
+   IL_0039: ldarg.1
+   IL_003a: ldfld Celeste.Session Celeste.Level::Session
+   IL_003f: ldarg.0
+   IL_0040: ldfld System.String Celeste.Backdrop::AlsoIfFlag
+   IL_0045: callvirt System.Boolean Celeste.Session::GetFlag(System.String)
+   IL_004a: brfalse.s IL_004e
+   IL_004c: ldc.i4.1
+   IL_004d: ret
+   IL_004e: ldarg.0
+   IL_004f: ldflda System.Nullable`1<System.Boolean> Celeste.Backdrop::Dreaming
+   IL_0054: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0059: brfalse.s IL_0075
+   IL_005b: ldarg.0
+   IL_005c: ldflda System.Nullable`1<System.Boolean> Celeste.Backdrop::Dreaming
+   IL_0061: call T System.Nullable`1<System.Boolean>::get_Value()
+   IL_0066: ldarg.1
+   IL_0067: ldfld Celeste.Session Celeste.Level::Session
+   IL_006c: ldfld System.Boolean Celeste.Session::Dreaming
+   IL_0071: beq.s IL_0075
+   IL_0073: ldc.i4.0
+   IL_0074: ret
+   IL_0075: ldarg.0
+   IL_0076: ldfld System.String Celeste.Backdrop::OnlyIfFlag
+   IL_007b: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0080: brtrue.s IL_0097
+   IL_0082: ldarg.1
+   IL_0083: ldfld Celeste.Session Celeste.Level::Session
+   IL_0088: ldarg.0
+   IL_0089: ldfld System.String Celeste.Backdrop::OnlyIfFlag
+   IL_008e: callvirt System.Boolean Celeste.Session::GetFlag(System.String)
+   IL_0093: brtrue.s IL_0097
+   IL_0095: ldc.i4.0
+   IL_0096: ret
+   IL_0097: ldarg.0
+   IL_0098: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.Backdrop::ExcludeFrom
+   IL_009d: brfalse.s IL_00b9
+   IL_009f: ldarg.0
+   IL_00a0: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.Backdrop::ExcludeFrom
+   IL_00a5: ldarg.1
+   IL_00a6: ldfld Celeste.Session Celeste.Level::Session
+   IL_00ab: ldfld System.String Celeste.Session::Level
+   IL_00b0: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Contains(T)
+   IL_00b5: brfalse.s IL_00b9
+   IL_00b7: ldc.i4.0
+   IL_00b8: ret
+   IL_00b9: ldarg.0
+   IL_00ba: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.Backdrop::OnlyIn
+   IL_00bf: brfalse.s IL_00db
+   IL_00c1: ldarg.0
+   IL_00c2: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.Backdrop::OnlyIn
+   IL_00c7: ldarg.1
+   IL_00c8: ldfld Celeste.Session Celeste.Level::Session
+   IL_00cd: ldfld System.String Celeste.Session::Level
+   IL_00d2: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Contains(T)
+   IL_00d7: brtrue.s IL_00db
+   IL_00d9: ldc.i4.0
+   IL_00da: ret
+   IL_00db: ldc.i4.1
+   IL_00dc: ret

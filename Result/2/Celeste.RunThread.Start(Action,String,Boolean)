@@ -1,0 +1,79 @@
+On: TAS.Playback.Core.On_RunThread_Start(orig_Start,Action,String,Boolean)
+   IL_0000: newobj System.Void Celeste.RunThread/<>c__DisplayClass4_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.0
+   IL_0008: stfld System.Action Celeste.RunThread/<>c__DisplayClass4_0::method
+   IL_000d: ldloc.0
+   IL_000e: ldftn System.Void Celeste.RunThread/<>c__DisplayClass4_0::<Start>b__0()
+   IL_0014: newobj System.Void System.Threading.ThreadStart::.ctor(System.Object,System.IntPtr)
+   IL_0019: newobj System.Void System.Threading.Thread::.ctor(System.Threading.ThreadStart)
+   IL_001e: dup
+   IL_001f: ldarg.1
+   IL_0020: callvirt System.Void System.Threading.Thread::set_Name(System.String)
+   IL_0025: dup
+   IL_0026: ldc.i4.1
+   IL_0027: callvirt System.Void System.Threading.Thread::set_IsBackground(System.Boolean)
+   IL_002c: dup
+   IL_002d: ldarg.2
+   IL_002e: brtrue.s IL_0033
+   IL_0030: ldc.i4.2
+   IL_0031: br.s IL_0034
+   IL_0033: ldc.i4.4
+   IL_0034: callvirt System.Void System.Threading.Thread::set_Priority(System.Threading.ThreadPriority)
+   IL_0039: stloc.1
+   IL_003a: ldsfld System.Collections.Generic.List`1<System.Threading.Thread> Celeste.RunThread::threads
+   IL_003f: stloc.2
+   IL_0040: ldc.i4.0
+   IL_0041: stloc.3
+   IL_0042: ldloc.2
+   IL_0043: ldloca.s V_3
+   IL_0045: call System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
+   IL_004a: ldsfld System.Collections.Generic.List`1<System.Threading.Thread> Celeste.RunThread::threads
+   IL_004f: ldloc.1
+   IL_0050: callvirt System.Void System.Collections.Generic.List`1<System.Threading.Thread>::Add(T)
+   IL_0055: ldsfld System.Collections.Generic.List`1<System.DateTime> Celeste.RunThread::threadTimes
+   IL_005a: call System.DateTime System.DateTime::get_UtcNow()
+   IL_005f: callvirt System.Void System.Collections.Generic.List`1<System.DateTime>::Add(T)
+   IL_0064: ldsfld System.Collections.Generic.List`1<System.String> Celeste.RunThread::threadInfos
+   IL_0069: ldstr "Name: {0}
+Action: {1}
+Starter:
+{2}"
+   IL_006e: ldarg.1
+   IL_006f: ldloc.0
+   IL_0070: ldfld System.Action Celeste.RunThread/<>c__DisplayClass4_0::method
+   IL_0075: dup
+   IL_0076: brtrue.s IL_007c
+   IL_0078: pop
+   IL_0079: ldnull
+   IL_007a: br.s IL_008d
+   IL_007c: callvirt System.Reflection.MethodInfo System.Delegate::get_Method()
+   IL_0081: dup
+   IL_0082: brtrue.s IL_0088
+   IL_0084: pop
+   IL_0085: ldnull
+   IL_0086: br.s IL_008d
+   IL_0088: callvirt System.String System.Object::ToString()
+   IL_008d: dup
+   IL_008e: brtrue.s IL_009c
+   IL_0090: pop
+   IL_0091: ldloc.0
+   IL_0092: ldfld System.Action Celeste.RunThread/<>c__DisplayClass4_0::method
+   IL_0097: callvirt System.String System.Object::ToString()
+   IL_009c: ldc.i4.1
+   IL_009d: newobj System.Void System.Diagnostics.StackTrace::.ctor(System.Int32)
+   IL_00a2: call System.String System.String::Format(System.String,System.Object,System.Object,System.Object)
+   IL_00a7: callvirt System.Void System.Collections.Generic.List`1<System.String>::Add(T)
+   IL_00ac: leave.s IL_00b8
+   IL_00ae: ldloc.3
+   IL_00af: brfalse.s IL_00b7
+   IL_00b1: ldloc.2
+   IL_00b2: call System.Void System.Threading.Monitor::Exit(System.Object)
+   IL_00b7: endfinally
+   IL_00b8: ldloc.1
+   IL_00b9: newobj System.Void System.WeakReference`1<System.Threading.Thread>::.ctor(T)
+   IL_00be: stsfld System.WeakReference`1<System.Threading.Thread> Celeste.RunThread::Current
+   IL_00c3: ldloc.1
+   IL_00c4: callvirt System.Void System.Threading.Thread::Start()
+   IL_00c9: ret

@@ -1,0 +1,11 @@
+On: VivHelper.VivHelperModule.Debris_Added(orig_Added,Debris,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldarg.0
+   IL_0009: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_000e: ldfld Celeste.Session Celeste.Level::Session
+   IL_0013: ldfld System.Boolean Celeste.Session::Dreaming
+   IL_0018: stfld System.Boolean Celeste.Debris::dreaming
+   IL_001d: ret

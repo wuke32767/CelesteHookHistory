@@ -1,0 +1,51 @@
+On: vitmod.CustomWindController.Glider_OnPickup(orig_OnPickup,Glider)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Glider::bubble
+   IL_0006: brfalse.s IL_0043
+   IL_0008: ldc.i4.0
+   IL_0009: stloc.0
+   IL_000a: br.s IL_003e
+   IL_000c: ldarg.0
+   IL_000d: ldfld Celeste.Level Celeste.Glider::level
+   IL_0012: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_0017: ldsfld Monocle.ParticleType Celeste.Glider::P_Platform
+   IL_001c: ldarg.0
+   IL_001d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0022: ldarg.0
+   IL_0023: ldloc.0
+   IL_0024: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Glider::PlatformAdd(System.Int32)
+   IL_0029: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_002e: ldarg.0
+   IL_002f: ldloc.0
+   IL_0030: callvirt Microsoft.Xna.Framework.Color Celeste.Glider::PlatformColor(System.Int32)
+   IL_0035: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_003a: ldloc.0
+   IL_003b: ldc.i4.1
+   IL_003c: add
+   IL_003d: stloc.0
+   IL_003e: ldloc.0
+   IL_003f: ldc.i4.s 24
+   IL_0041: blt.s IL_000c
+   IL_0043: ldarg.0
+   IL_0044: ldc.i4.0
+   IL_0045: stfld System.Boolean Celeste.Actor::AllowPushing
+   IL_004a: ldarg.0
+   IL_004b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0050: stfld Microsoft.Xna.Framework.Vector2 Celeste.Glider::Speed
+   IL_0055: ldarg.0
+   IL_0056: ldsfld Monocle.BitTag Celeste.Tags::Persistent
+   IL_005b: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0060: call System.Void Monocle.Entity::AddTag(System.Int32)
+   IL_0065: ldarg.0
+   IL_0066: ldc.r4 0.5
+   IL_006b: stfld System.Single Celeste.Glider::highFrictionTimer
+   IL_0070: ldarg.0
+   IL_0071: ldc.i4.0
+   IL_0072: stfld System.Boolean Celeste.Glider::bubble
+   IL_0077: ldarg.0
+   IL_0078: ldfld Monocle.Wiggler Celeste.Glider::wiggler
+   IL_007d: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0082: ldarg.0
+   IL_0083: ldc.i4.0
+   IL_0084: stfld System.Boolean Celeste.Glider::tutorial
+   IL_0089: ret

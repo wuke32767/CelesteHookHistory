@@ -1,0 +1,77 @@
+On: Celeste.Mod.Aqua.Core.SeekerExtensions.Seeker_OnCollideH(orig_OnCollideH,Seeker,CollisionData)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.StateMachine Celeste.Seeker::State
+   IL_0006: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_000b: ldc.i4.3
+   IL_000c: bne.un.s IL_007e
+   IL_000e: ldarg.1
+   IL_000f: ldfld Celeste.Platform Celeste.CollisionData::Hit
+   IL_0014: brfalse.s IL_007e
+   IL_0016: ldarg.0
+   IL_0017: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_001c: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0021: call System.Int32 System.Math::Sign(System.Single)
+   IL_0026: stloc.0
+   IL_0027: ldarg.0
+   IL_0028: ldarg.0
+   IL_0029: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_002e: ldloc.0
+   IL_002f: conv.r4
+   IL_0030: ldc.r4 4
+   IL_0035: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_003a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_003f: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_0044: brtrue.s IL_0052
+   IL_0046: ldarg.0
+   IL_0047: ldc.i4.4
+   IL_0048: ldnull
+   IL_0049: ldnull
+   IL_004a: call System.Boolean Celeste.Actor::MoveVExact(System.Int32,Celeste.Collision,Celeste.Solid)
+   IL_004f: brtrue.s IL_0052
+   IL_0051: ret
+   IL_0052: ldarg.0
+   IL_0053: ldarg.0
+   IL_0054: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0059: ldloc.0
+   IL_005a: conv.r4
+   IL_005b: ldc.r4 -4
+   IL_0060: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0065: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_006a: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_006f: brtrue.s IL_007e
+   IL_0071: ldarg.0
+   IL_0072: ldc.i4.s -4
+   IL_0074: ldnull
+   IL_0075: ldnull
+   IL_0076: call System.Boolean Celeste.Actor::MoveVExact(System.Int32,Celeste.Collision,Celeste.Solid)
+   IL_007b: brtrue.s IL_007e
+   IL_007d: ret
+   IL_007e: ldarg.0
+   IL_007f: ldfld Monocle.StateMachine Celeste.Seeker::State
+   IL_0084: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_0089: ldc.i4.3
+   IL_008a: beq.s IL_009a
+   IL_008c: ldarg.0
+   IL_008d: ldfld Monocle.StateMachine Celeste.Seeker::State
+   IL_0092: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_0097: ldc.i4.5
+   IL_0098: bne.un.s IL_00b9
+   IL_009a: ldarg.0
+   IL_009b: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_00a0: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00a5: call System.Single System.Math::Abs(System.Single)
+   IL_00aa: ldc.r4 100
+   IL_00af: blt.un.s IL_00b9
+   IL_00b1: ldarg.0
+   IL_00b2: ldarg.1
+   IL_00b3: callvirt System.Void Celeste.Seeker::SlammedIntoWall(Celeste.CollisionData)
+   IL_00b8: ret
+   IL_00b9: ldarg.0
+   IL_00ba: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Seeker::Speed
+   IL_00bf: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00c4: dup
+   IL_00c5: ldind.r4
+   IL_00c6: ldc.r4 -0.2
+   IL_00cb: mul
+   IL_00cc: stind.r4
+   IL_00cd: ret

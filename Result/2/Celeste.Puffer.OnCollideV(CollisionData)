@@ -1,0 +1,59 @@
+On: Celeste.Mod.FemtoHelper.FemtoModule.Puffer_KaizoCollideVHook(orig_OnCollideV,Puffer,CollisionData)
+   IL_0000: ldarg.1
+   IL_0001: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CollisionData::Direction
+   IL_0006: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_000b: ldc.r4 0
+   IL_0010: ble.un.s IL_0078
+   IL_0012: ldc.i4.m1
+   IL_0013: stloc.0
+   IL_0014: br.s IL_0060
+   IL_0016: ldc.i4.1
+   IL_0017: stloc.1
+   IL_0018: br.s IL_0058
+   IL_001a: ldarg.0
+   IL_001b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0020: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0025: ldloc.1
+   IL_0026: conv.r4
+   IL_0027: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_002c: ldloc.0
+   IL_002d: conv.r4
+   IL_002e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0033: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0038: stloc.2
+   IL_0039: ldarg.0
+   IL_003a: ldloc.2
+   IL_003b: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_0040: brtrue.s IL_0054
+   IL_0042: ldarg.0
+   IL_0043: ldloc.2
+   IL_0044: ldc.i4.1
+   IL_0045: call System.Boolean Celeste.Actor::OnGround(Microsoft.Xna.Framework.Vector2,System.Int32)
+   IL_004a: brtrue.s IL_0054
+   IL_004c: ldarg.0
+   IL_004d: ldloc.2
+   IL_004e: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0053: ret
+   IL_0054: ldloc.1
+   IL_0055: ldc.i4.1
+   IL_0056: add
+   IL_0057: stloc.1
+   IL_0058: ldloc.1
+   IL_0059: ldc.i4.2
+   IL_005a: ble.s IL_001a
+   IL_005c: ldloc.0
+   IL_005d: ldc.i4.2
+   IL_005e: add
+   IL_005f: stloc.0
+   IL_0060: ldloc.0
+   IL_0061: ldc.i4.1
+   IL_0062: ble.s IL_0016
+   IL_0064: ldarg.0
+   IL_0065: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_006a: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_006f: dup
+   IL_0070: ldind.r4
+   IL_0071: ldc.r4 -0.2
+   IL_0076: mul
+   IL_0077: stind.r4
+   IL_0078: ret

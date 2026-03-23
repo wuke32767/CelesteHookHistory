@@ -1,0 +1,29 @@
+On: Celeste.Mod.Spirialis.TimeController.waterfallRefill(orig_RefillDash,Player)
+On: Celeste.Mod.ProgHelper.PlayerExtensions.Player_RefillDash(orig_RefillDash,Player)
+On: LuckyHelper.Entities.Misc.DummyPlayer.PlayerOnRefillDash(orig_RefillDash,Player)
+On: ChroniaHelper.Entities.IceFloor.WhenRefillDash(orig_RefillDash,Player)
+On: ChroniaHelper.Entities.CustomNegaBlock.WhenRefillDash(orig_RefillDash,Player)
+On: Celeste.Mod.XaphanHelper.Entities.EtherealBlock.modRefillDash(orig_RefillDash,Player)
+On: Celeste.Mod.XaphanHelper.Entities.PlayerPlatform.OnPlayerRefillDash(orig_RefillDash,Player)
+On: Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.modRefillDash(orig_RefillDash,Player)
+On: Celeste.Mod.ShrimpHelper.Entities.StarfishGuy+StarfishPlatform.RefillDashHook(orig_RefillDash,Player)
+On: Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier.DisabledRefillDash(orig_RefillDash,Player)
+On: Celeste.Mod.CommunalHelper.States.Elytra.Player_RefillDash(orig_RefillDash,Player)
+On: ExtendedVariants.Variants.DashCount.modRefillDash(orig_RefillDash,Player)
+On: Celeste.Mod.VortexHelper.Entities.FloorBooster+Hooks.Player_RefillDash(orig_RefillDash,Player)
+On: Celeste.Mod.TASHelper.Gameplay.PlayerStateUtils.OnRefillDash(orig_RefillDash,Player)
+On: Celeste.Mod.ShroomHelper.Entities.OneDashWingedStrawberry.Player_RefillDash(orig_RefillDash,Player)
+On: Celeste.Mod.BounceHelper.BounceHelperModule.modRefillDash(orig_RefillDash,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Int32 Celeste.Player::Dashes
+   IL_0006: ldarg.0
+   IL_0007: callvirt System.Int32 Celeste.Player::get_MaxDashes()
+   IL_000c: bge.s IL_001c
+   IL_000e: ldarg.0
+   IL_000f: ldarg.0
+   IL_0010: callvirt System.Int32 Celeste.Player::get_MaxDashes()
+   IL_0015: stfld System.Int32 Celeste.Player::Dashes
+   IL_001a: ldc.i4.1
+   IL_001b: ret
+   IL_001c: ldc.i4.0
+   IL_001d: ret

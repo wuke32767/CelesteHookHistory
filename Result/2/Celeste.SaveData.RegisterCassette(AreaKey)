@@ -1,0 +1,12 @@
+On: Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager.SaveDataOnRegisterCassette(orig_RegisterCassette,SaveData,AreaKey)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.SaveData_RegisterCassette(orig_RegisterCassette,SaveData,AreaKey)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_0006: ldarg.1
+   IL_0007: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_000c: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_0011: ldc.i4.1
+   IL_0012: stfld System.Boolean Celeste.AreaStats::Cassette
+   IL_0017: ldc.i4.s 10
+   IL_0019: call System.Void Celeste.Achievements::Register(Celeste.Achievement)
+   IL_001e: ret

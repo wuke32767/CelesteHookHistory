@@ -1,0 +1,23 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_KillboxKill(orig_OnPlayer,Killbox,Player)
+   IL_0000: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0005: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_000a: ldfld System.Boolean Celeste.Assists::Invincible
+   IL_000f: brfalse.s IL_0030
+   IL_0011: ldarg.1
+   IL_0012: ldstr "event:/game/general/assist_screenbottom"
+   IL_0017: ldnull
+   IL_0018: ldc.r4 0
+   IL_001d: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
+   IL_0022: pop
+   IL_0023: ldarg.1
+   IL_0024: ldarg.0
+   IL_0025: call System.Single Monocle.Entity::get_Top()
+   IL_002a: callvirt System.Void Celeste.Player::Bounce(System.Single)
+   IL_002f: ret
+   IL_0030: ldarg.1
+   IL_0031: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0036: ldc.i4.0
+   IL_0037: ldc.i4.1
+   IL_0038: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_003d: pop
+   IL_003e: ret

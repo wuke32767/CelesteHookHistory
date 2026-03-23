@@ -1,0 +1,23 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomBossShotOnPlayer(orig_OnPlayer,FinalBossShot,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.FinalBossShot::dead
+   IL_0006: brtrue.s IL_003b
+   IL_0008: ldarg.0
+   IL_0009: ldfld System.Single Celeste.FinalBossShot::cantKillTimer
+   IL_000e: ldc.r4 0
+   IL_0013: ble.un.s IL_001c
+   IL_0015: ldarg.0
+   IL_0016: callvirt System.Void Celeste.FinalBossShot::Destroy()
+   IL_001b: ret
+   IL_001c: ldarg.1
+   IL_001d: ldarg.1
+   IL_001e: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0023: ldarg.0
+   IL_0024: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0029: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_002e: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_0033: ldc.i4.0
+   IL_0034: ldc.i4.1
+   IL_0035: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_003a: pop
+   IL_003b: ret

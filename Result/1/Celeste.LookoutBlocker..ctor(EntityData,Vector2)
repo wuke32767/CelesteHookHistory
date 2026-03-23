@@ -1,0 +1,19 @@
+On: VanillaTweaks.VanillaTweaksHooks.LookoutBlocker_ctor(orig_ctor,LookoutBlocker,EntityData,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: ldfld Microsoft.Xna.Framework.Vector2 Celeste.EntityData::Position
+   IL_0007: ldarg.2
+   IL_0008: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_000d: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0012: ldarg.0
+   IL_0013: ldarg.1
+   IL_0014: ldfld System.Int32 Celeste.EntityData::Width
+   IL_0019: conv.r4
+   IL_001a: ldarg.1
+   IL_001b: ldfld System.Int32 Celeste.EntityData::Height
+   IL_0020: conv.r4
+   IL_0021: ldc.r4 0
+   IL_0026: ldc.r4 0
+   IL_002b: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0030: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0035: ret

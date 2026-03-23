@@ -1,0 +1,39 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modOuiMapSearchInspect(orig_Inspect,OuiMapSearch,AreaData,AreaMode)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: stfld System.Boolean Celeste.Oui::Focused
+   IL_0007: ldstr "event:/ui/world_map/icon/select"
+   IL_000c: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0011: pop
+   IL_0012: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0017: ldarg.1
+   IL_0018: ldarg.2
+   IL_0019: call Celeste.AreaKey Celeste.AreaDataExt::ToKey(Celeste.AreaData,Celeste.AreaMode)
+   IL_001e: stfld Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_0023: ldarg.0
+   IL_0024: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.Mod.UI.OuiMapSearch::OuiIcons
+   IL_0029: brfalse.s IL_0054
+   IL_002b: ldarg.1
+   IL_002c: ldfld System.Int32 Celeste.AreaData::ID
+   IL_0031: ldarg.0
+   IL_0032: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.Mod.UI.OuiMapSearch::OuiIcons
+   IL_0037: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Count()
+   IL_003c: bge.s IL_0054
+   IL_003e: ldarg.0
+   IL_003f: ldfld System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon> Celeste.Mod.UI.OuiMapSearch::OuiIcons
+   IL_0044: ldarg.1
+   IL_0045: ldfld System.Int32 Celeste.AreaData::ID
+   IL_004a: callvirt T System.Collections.Generic.List`1<Celeste.OuiChapterSelectIcon>::get_Item(System.Int32)
+   IL_004f: callvirt System.Void Celeste.OuiChapterSelectIcon::Select()
+   IL_0054: ldarg.0
+   IL_0055: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_005a: ldfld Celeste.MountainRenderer Celeste.Overworld::Mountain
+   IL_005f: ldfld Celeste.MountainModel Celeste.MountainRenderer::Model
+   IL_0064: ldarg.1
+   IL_0065: ldfld System.Int32 Celeste.AreaData::MountainState
+   IL_006a: callvirt System.Void Celeste.MountainModel::EaseState(System.Int32)
+   IL_006f: ldarg.0
+   IL_0070: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_0075: callvirt T Celeste.Overworld::Goto<Celeste.OuiChapterPanel>()
+   IL_007a: pop
+   IL_007b: ret

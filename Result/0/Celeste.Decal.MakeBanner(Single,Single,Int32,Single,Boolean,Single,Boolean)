@@ -1,0 +1,80 @@
+On: Celeste.Mod.AdamsAddons.Entities.RegistryDecal.modMakeBanner(orig_MakeBanner,Decal,Single,Single,Int32,Single,Boolean,Single,Boolean)
+On: TileLayoutAnchor.TileLayoutAnchorModule.MakeDecalBannerConsistent(orig_MakeBanner,Decal,Single,Single,Int32,Single,Boolean,Single,Boolean)
+   IL_0000: newobj System.Void Celeste.Decal/Banner::.ctor()
+   IL_0005: dup
+   IL_0006: ldarg.1
+   IL_0007: stfld System.Single Celeste.Decal/Banner::WaveSpeed
+   IL_000c: dup
+   IL_000d: ldarg.2
+   IL_000e: stfld System.Single Celeste.Decal/Banner::WaveAmplitude
+   IL_0013: dup
+   IL_0014: ldarg.3
+   IL_0015: stfld System.Int32 Celeste.Decal/Banner::SliceSize
+   IL_001a: dup
+   IL_001b: ldarg.s sliceSinIncrement
+   IL_001d: stfld System.Single Celeste.Decal/Banner::SliceSinIncrement
+   IL_0022: dup
+   IL_0023: newobj System.Void System.Collections.Generic.List`1<System.Collections.Generic.List`1<Monocle.MTexture>>::.ctor()
+   IL_0028: stfld System.Collections.Generic.List`1<System.Collections.Generic.List`1<Monocle.MTexture>> Celeste.Decal/Banner::Segments
+   IL_002d: dup
+   IL_002e: ldarg.s easeDown
+   IL_0030: stfld System.Boolean Celeste.Decal/Banner::EaseDown
+   IL_0035: dup
+   IL_0036: ldarg.s offset
+   IL_0038: stfld System.Single Celeste.Decal/Banner::Offset
+   IL_003d: dup
+   IL_003e: ldarg.s onlyIfWindy
+   IL_0040: stfld System.Boolean Celeste.Decal/Banner::OnlyIfWindy
+   IL_0045: stloc.0
+   IL_0046: ldarg.0
+   IL_0047: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Decal::textures
+   IL_004c: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.MTexture>::GetEnumerator()
+   IL_0051: stloc.1
+   IL_0052: br.s IL_009a
+   IL_0054: ldloca.s V_1
+   IL_0056: call T System.Collections.Generic.List`1/Enumerator<Monocle.MTexture>::get_Current()
+   IL_005b: stloc.2
+   IL_005c: newobj System.Void System.Collections.Generic.List`1<Monocle.MTexture>::.ctor()
+   IL_0061: stloc.3
+   IL_0062: ldc.i4.0
+   IL_0063: stloc.s V_4
+   IL_0065: br.s IL_0084
+   IL_0067: ldloc.3
+   IL_0068: ldloc.2
+   IL_0069: ldc.i4.0
+   IL_006a: ldloc.s V_4
+   IL_006c: ldloc.2
+   IL_006d: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_0072: ldarg.3
+   IL_0073: ldnull
+   IL_0074: callvirt Monocle.MTexture Monocle.MTexture::GetSubtexture(System.Int32,System.Int32,System.Int32,System.Int32,Monocle.MTexture)
+   IL_0079: callvirt System.Void System.Collections.Generic.List`1<Monocle.MTexture>::Add(T)
+   IL_007e: ldloc.s V_4
+   IL_0080: ldarg.3
+   IL_0081: add
+   IL_0082: stloc.s V_4
+   IL_0084: ldloc.s V_4
+   IL_0086: ldloc.2
+   IL_0087: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_008c: blt.s IL_0067
+   IL_008e: ldloc.0
+   IL_008f: ldfld System.Collections.Generic.List`1<System.Collections.Generic.List`1<Monocle.MTexture>> Celeste.Decal/Banner::Segments
+   IL_0094: ldloc.3
+   IL_0095: callvirt System.Void System.Collections.Generic.List`1<System.Collections.Generic.List`1<Monocle.MTexture>>::Add(T)
+   IL_009a: ldloca.s V_1
+   IL_009c: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.MTexture>::MoveNext()
+   IL_00a1: brtrue.s IL_0054
+   IL_00a3: leave.s IL_00b3
+   IL_00a5: ldloca.s V_1
+   IL_00a7: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.MTexture>
+   IL_00ad: callvirt System.Void System.IDisposable::Dispose()
+   IL_00b2: endfinally
+   IL_00b3: ldarg.0
+   IL_00b4: ldarg.0
+   IL_00b5: ldloc.0
+   IL_00b6: dup
+   IL_00b7: stloc.s V_5
+   IL_00b9: stfld Monocle.Component Celeste.Decal::image
+   IL_00be: ldloc.s V_5
+   IL_00c0: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00c5: ret

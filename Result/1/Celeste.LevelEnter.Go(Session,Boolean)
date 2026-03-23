@@ -1,0 +1,126 @@
+On: Celeste.Mod.GravityHelper.Hooks.LevelEnterHooks.LevelEnter_Go(orig_Go,Session,Boolean)
+On: Celeste.Mod.XaphanHelper.Controllers.MetroidGameplayController.onLevelEnterGo(orig_Go,Session,Boolean)
+On: Celeste.Mod.XaphanHelper.XaphanModule.onLevelEnterGo(orig_Go,Session,Boolean)
+On: Celeste.Mod.JungleHelper.Entities.EnforceSkinController.onLevelEnter(orig_Go,Session,Boolean)
+On: Celeste.Mod.CollabUtils2.UI.ReturnToLobbyHelper.onLevelEnterGo(orig_Go,Session,Boolean)
+On: FactoryHelper.FactoryHelperHooks.LevelEnterGo(orig_Go,Session,Boolean)
+   IL_0000: ldsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_0005: brfalse.s IL_0014
+   IL_0007: ldarg.0
+   IL_0008: ldarg.1
+   IL_0009: newobj System.Void Celeste.LevelEnter::.ctor(Celeste.Session,System.Boolean)
+   IL_000e: call System.Void Monocle.Engine::set_Scene(Monocle.Scene)
+   IL_0013: ret
+   IL_0014: nop
+   IL_0015: ldarg.0
+   IL_0016: ldarg.1
+   IL_0017: call System.Boolean Celeste.LevelEnter::PlayCustomVignette(Celeste.Session,System.Boolean)
+   IL_001c: brtrue.s IL_0025
+   IL_001e: ldarg.0
+   IL_001f: ldarg.1
+   IL_0020: call System.Void Celeste.LevelEnter::orig_Go(Celeste.Session,System.Boolean)
+   IL_0025: ldarg.0
+   IL_0026: ldarg.1
+   IL_0027: call System.Void Celeste.Mod.Everest/Events/Level::Enter(Celeste.Session,System.Boolean)
+   IL_002c: leave IL_0154
+   IL_0031: ldarg.0
+   IL_0032: brtrue.s IL_0037
+   IL_0034: ldnull
+   IL_0035: br.s IL_0042
+   IL_0037: ldarg.0
+   IL_0038: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_003d: call System.String Celeste.AreaKeyExt::GetSID(Celeste.AreaKey)
+   IL_0042: dup
+   IL_0043: brtrue.s IL_004b
+   IL_0045: pop
+   IL_0046: ldstr "???"
+   IL_004b: stloc.0
+   IL_004c: ldarg.0
+   IL_004d: brfalse.s IL_0070
+   IL_004f: ldarg.0
+   IL_0050: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0055: pop
+   IL_0056: ldarg.0
+   IL_0057: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_005c: call Celeste.AreaData Celeste.AreaData::Get(Celeste.AreaKey)
+   IL_0061: ldfld System.String Celeste.AreaData::Name
+   IL_0066: dup
+   IL_0067: stloc.1
+   IL_0068: ldnull
+   IL_0069: call System.Boolean Celeste.Dialog::Has(System.String,Celeste.Language)
+   IL_006e: brtrue.s IL_0073
+   IL_0070: ldnull
+   IL_0071: br.s IL_0097
+   IL_0073: ldstr " ["
+   IL_0078: ldloc.1
+   IL_0079: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Language> Celeste.Dialog::Languages
+   IL_007e: ldstr "english"
+   IL_0083: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Celeste.Language>::get_Item(TKey)
+   IL_0088: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_008d: ldstr "]"
+   IL_0092: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0097: stloc.1
+   IL_0098: ldarg.0
+   IL_0099: brfalse.s IL_00ea
+   IL_009b: ldarg.0
+   IL_009c: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_00a1: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_00a6: ldc.i4.0
+   IL_00a7: ble.s IL_00ea
+   IL_00a9: ldloc.1
+   IL_00aa: ldloca.s V_2
+   IL_00ac: ldc.i4.3
+   IL_00ad: ldc.i4.1
+   IL_00ae: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_00b3: ldloca.s V_2
+   IL_00b5: ldstr " ["
+   IL_00ba: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_00bf: ldloca.s V_2
+   IL_00c1: ldarg.0
+   IL_00c2: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_00c7: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_00cc: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<Celeste.AreaMode>(T)
+   IL_00d1: ldloca.s V_2
+   IL_00d3: ldstr "]"
+   IL_00d8: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_00dd: ldloca.s V_2
+   IL_00df: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_00e4: call System.String System.String::Concat(System.String,System.String)
+   IL_00e9: stloc.1
+   IL_00ea: ldstr "LevelEnter"
+   IL_00ef: stloc.3
+   IL_00f0: ldloc.3
+   IL_00f1: ldc.i4.s 20
+   IL_00f3: ldc.i4.2
+   IL_00f4: ldloc.3
+   IL_00f5: ldloca.s V_5
+   IL_00f7: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_00fc: stloc.s V_4
+   IL_00fe: ldloc.s V_5
+   IL_0100: brfalse.s IL_011e
+   IL_0102: ldloca.s V_4
+   IL_0104: ldstr "Failed entering map "
+   IL_0109: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_010e: ldloca.s V_4
+   IL_0110: ldloc.0
+   IL_0111: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0116: ldloca.s V_4
+   IL_0118: ldloc.1
+   IL_0119: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_011e: ldloc.s V_4
+   IL_0120: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_0125: ldnull
+   IL_0126: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_012b: ldstr "postcard_levelloadfailed"
+   IL_0130: ldnull
+   IL_0131: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_0136: ldstr "((sid))"
+   IL_013b: ldloc.0
+   IL_013c: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0141: stsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_0146: ldarg.0
+   IL_0147: ldarg.1
+   IL_0148: newobj System.Void Celeste.LevelEnter::.ctor(Celeste.Session,System.Boolean)
+   IL_014d: call System.Void Monocle.Engine::set_Scene(Monocle.Scene)
+   IL_0152: leave.s IL_0154
+   IL_0154: ret

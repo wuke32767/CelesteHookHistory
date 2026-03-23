@@ -1,0 +1,26 @@
+On: Celeste.Mod.FewerVisualDistractions.Patches.AdditionalEffectTweaker.HeatWave_RenderDisplacement(orig_RenderDisplacement,HeatWave,Level)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Single Celeste.HeatWave::heat
+   IL_0006: ldc.r4 0
+   IL_000b: ble.un.s IL_005a
+   IL_000d: ldloca.s V_0
+   IL_000f: ldc.r4 0.5
+   IL_0014: ldc.r4 0.5
+   IL_0019: ldc.r4 0.1
+   IL_001e: ldc.r4 1
+   IL_0023: call System.Void Microsoft.Xna.Framework.Color::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0028: ldarg.1
+   IL_0029: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_002e: callvirt System.Single Monocle.Camera::get_X()
+   IL_0033: ldc.r4 5
+   IL_0038: sub
+   IL_0039: ldarg.1
+   IL_003a: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_003f: callvirt System.Single Monocle.Camera::get_Y()
+   IL_0044: ldc.r4 5
+   IL_0049: sub
+   IL_004a: ldc.r4 370
+   IL_004f: ldc.r4 190
+   IL_0054: ldloc.0
+   IL_0055: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_005a: ret

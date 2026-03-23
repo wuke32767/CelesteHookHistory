@@ -1,0 +1,810 @@
+On: Celeste.Mod.Killbind.KillbindModule.OnPicoPlayerUpdate(orig_update,player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0006: ldfld System.Boolean Celeste.Pico8.Classic::pause_player
+   IL_000b: brfalse.s IL_000e
+   IL_000d: ret
+   IL_000e: ldarg.0
+   IL_000f: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0014: ldarg.0
+   IL_0015: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_001a: ldfld System.Int32 Celeste.Pico8.Classic::k_right
+   IL_001f: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_0024: brtrue.s IL_0044
+   IL_0026: ldarg.0
+   IL_0027: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_002c: ldarg.0
+   IL_002d: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0032: ldfld System.Int32 Celeste.Pico8.Classic::k_left
+   IL_0037: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_003c: brtrue.s IL_0041
+   IL_003e: ldc.i4.0
+   IL_003f: br.s IL_0045
+   IL_0041: ldc.i4.m1
+   IL_0042: br.s IL_0045
+   IL_0044: ldc.i4.1
+   IL_0045: stloc.0
+   IL_0046: ldarg.0
+   IL_0047: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_004c: ldarg.0
+   IL_004d: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_0052: ldarg.0
+   IL_0053: ldflda Microsoft.Xna.Framework.Rectangle Celeste.Pico8.Classic/ClassicObject::hitbox
+   IL_0058: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_005d: conv.r4
+   IL_005e: add
+   IL_005f: ldarg.0
+   IL_0060: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_0065: ldarg.0
+   IL_0066: ldflda Microsoft.Xna.Framework.Rectangle Celeste.Pico8.Classic/ClassicObject::hitbox
+   IL_006b: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0070: conv.r4
+   IL_0071: add
+   IL_0072: ldarg.0
+   IL_0073: ldflda Microsoft.Xna.Framework.Rectangle Celeste.Pico8.Classic/ClassicObject::hitbox
+   IL_0078: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_007d: ldarg.0
+   IL_007e: ldflda Microsoft.Xna.Framework.Rectangle Celeste.Pico8.Classic/ClassicObject::hitbox
+   IL_0083: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_0088: ldarg.0
+   IL_0089: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_008e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0093: ldarg.0
+   IL_0094: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0099: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_009e: callvirt System.Boolean Celeste.Pico8.Classic::spikes_at(System.Single,System.Single,System.Int32,System.Int32,System.Single,System.Single)
+   IL_00a3: brfalse.s IL_00b1
+   IL_00a5: ldarg.0
+   IL_00a6: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_00ab: ldarg.0
+   IL_00ac: callvirt System.Void Celeste.Pico8.Classic::kill_player(Celeste.Pico8.Classic/player)
+   IL_00b1: ldarg.0
+   IL_00b2: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_00b7: ldc.r4 128
+   IL_00bc: ble.un.s IL_00ca
+   IL_00be: ldarg.0
+   IL_00bf: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_00c4: ldarg.0
+   IL_00c5: callvirt System.Void Celeste.Pico8.Classic::kill_player(Celeste.Pico8.Classic/player)
+   IL_00ca: ldarg.0
+   IL_00cb: ldc.i4.0
+   IL_00cc: ldc.i4.1
+   IL_00cd: call System.Boolean Celeste.Pico8.Classic/ClassicObject::is_solid(System.Int32,System.Int32)
+   IL_00d2: stloc.1
+   IL_00d3: ldarg.0
+   IL_00d4: ldc.i4.0
+   IL_00d5: ldc.i4.1
+   IL_00d6: call System.Boolean Celeste.Pico8.Classic/ClassicObject::is_ice(System.Int32,System.Int32)
+   IL_00db: stloc.2
+   IL_00dc: ldloc.1
+   IL_00dd: brfalse.s IL_0114
+   IL_00df: ldarg.0
+   IL_00e0: ldfld System.Boolean Celeste.Pico8.Classic/player::was_on_ground
+   IL_00e5: brtrue.s IL_0114
+   IL_00e7: ldarg.0
+   IL_00e8: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_00ed: newobj System.Void Celeste.Pico8.Classic/smoke::.ctor()
+   IL_00f2: ldarg.0
+   IL_00f3: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_00f8: ldarg.0
+   IL_00f9: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_00fe: ldc.r4 4
+   IL_0103: add
+   IL_0104: ldloca.s V_4
+   IL_0106: initobj System.Nullable`1<System.Int32>
+   IL_010c: ldloc.s V_4
+   IL_010e: callvirt T Celeste.Pico8.Classic::init_object<Celeste.Pico8.Classic/smoke>(T,System.Single,System.Single,System.Nullable`1<System.Int32>)
+   IL_0113: pop
+   IL_0114: ldarg.0
+   IL_0115: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_011a: ldarg.0
+   IL_011b: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0120: ldfld System.Int32 Celeste.Pico8.Classic::k_jump
+   IL_0125: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_012a: brfalse.s IL_0137
+   IL_012c: ldarg.0
+   IL_012d: ldfld System.Boolean Celeste.Pico8.Classic/player::p_jump
+   IL_0132: ldc.i4.0
+   IL_0133: ceq
+   IL_0135: br.s IL_0138
+   IL_0137: ldc.i4.0
+   IL_0138: ldarg.0
+   IL_0139: ldarg.0
+   IL_013a: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_013f: ldarg.0
+   IL_0140: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0145: ldfld System.Int32 Celeste.Pico8.Classic::k_jump
+   IL_014a: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_014f: stfld System.Boolean Celeste.Pico8.Classic/player::p_jump
+   IL_0154: brfalse.s IL_015f
+   IL_0156: ldarg.0
+   IL_0157: ldc.i4.4
+   IL_0158: stfld System.Int32 Celeste.Pico8.Classic/player::jbuffer
+   IL_015d: br.s IL_0176
+   IL_015f: ldarg.0
+   IL_0160: ldfld System.Int32 Celeste.Pico8.Classic/player::jbuffer
+   IL_0165: ldc.i4.0
+   IL_0166: ble.s IL_0176
+   IL_0168: ldarg.0
+   IL_0169: ldarg.0
+   IL_016a: ldfld System.Int32 Celeste.Pico8.Classic/player::jbuffer
+   IL_016f: ldc.i4.1
+   IL_0170: sub
+   IL_0171: stfld System.Int32 Celeste.Pico8.Classic/player::jbuffer
+   IL_0176: ldarg.0
+   IL_0177: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_017c: ldarg.0
+   IL_017d: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0182: ldfld System.Int32 Celeste.Pico8.Classic::k_dash
+   IL_0187: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_018c: brfalse.s IL_0199
+   IL_018e: ldarg.0
+   IL_018f: ldfld System.Boolean Celeste.Pico8.Classic/player::p_dash
+   IL_0194: ldc.i4.0
+   IL_0195: ceq
+   IL_0197: br.s IL_019a
+   IL_0199: ldc.i4.0
+   IL_019a: stloc.3
+   IL_019b: ldarg.0
+   IL_019c: ldarg.0
+   IL_019d: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_01a2: ldarg.0
+   IL_01a3: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_01a8: ldfld System.Int32 Celeste.Pico8.Classic::k_dash
+   IL_01ad: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_01b2: stfld System.Boolean Celeste.Pico8.Classic/player::p_dash
+   IL_01b7: ldloc.1
+   IL_01b8: brfalse.s IL_01f4
+   IL_01ba: ldarg.0
+   IL_01bb: ldc.i4.6
+   IL_01bc: stfld System.Int32 Celeste.Pico8.Classic/player::grace
+   IL_01c1: ldarg.0
+   IL_01c2: ldfld System.Int32 Celeste.Pico8.Classic/player::djump
+   IL_01c7: ldarg.0
+   IL_01c8: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_01cd: ldfld System.Int32 Celeste.Pico8.Classic::max_djump
+   IL_01d2: bge.s IL_020b
+   IL_01d4: ldarg.0
+   IL_01d5: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_01da: ldc.i4.s 54
+   IL_01dc: callvirt System.Void Celeste.Pico8.Classic::psfx(System.Int32)
+   IL_01e1: ldarg.0
+   IL_01e2: ldarg.0
+   IL_01e3: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_01e8: ldfld System.Int32 Celeste.Pico8.Classic::max_djump
+   IL_01ed: stfld System.Int32 Celeste.Pico8.Classic/player::djump
+   IL_01f2: br.s IL_020b
+   IL_01f4: ldarg.0
+   IL_01f5: ldfld System.Int32 Celeste.Pico8.Classic/player::grace
+   IL_01fa: ldc.i4.0
+   IL_01fb: ble.s IL_020b
+   IL_01fd: ldarg.0
+   IL_01fe: ldarg.0
+   IL_01ff: ldfld System.Int32 Celeste.Pico8.Classic/player::grace
+   IL_0204: ldc.i4.1
+   IL_0205: sub
+   IL_0206: stfld System.Int32 Celeste.Pico8.Classic/player::grace
+   IL_020b: ldarg.0
+   IL_020c: ldarg.0
+   IL_020d: ldfld System.Int32 Celeste.Pico8.Classic/player::dash_effect_time
+   IL_0212: ldc.i4.1
+   IL_0213: sub
+   IL_0214: stfld System.Int32 Celeste.Pico8.Classic/player::dash_effect_time
+   IL_0219: ldarg.0
+   IL_021a: ldfld System.Int32 Celeste.Pico8.Classic/player::dash_time
+   IL_021f: ldc.i4.0
+   IL_0220: ble IL_02cd
+   IL_0225: ldarg.0
+   IL_0226: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_022b: newobj System.Void Celeste.Pico8.Classic/smoke::.ctor()
+   IL_0230: ldarg.0
+   IL_0231: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_0236: ldarg.0
+   IL_0237: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_023c: ldloca.s V_4
+   IL_023e: initobj System.Nullable`1<System.Int32>
+   IL_0244: ldloc.s V_4
+   IL_0246: callvirt T Celeste.Pico8.Classic::init_object<Celeste.Pico8.Classic/smoke>(T,System.Single,System.Single,System.Nullable`1<System.Int32>)
+   IL_024b: pop
+   IL_024c: ldarg.0
+   IL_024d: ldarg.0
+   IL_024e: ldfld System.Int32 Celeste.Pico8.Classic/player::dash_time
+   IL_0253: ldc.i4.1
+   IL_0254: sub
+   IL_0255: stfld System.Int32 Celeste.Pico8.Classic/player::dash_time
+   IL_025a: ldarg.0
+   IL_025b: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0260: ldarg.0
+   IL_0261: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0266: ldarg.0
+   IL_0267: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_026c: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0271: ldarg.0
+   IL_0272: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_target
+   IL_0277: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_027c: ldarg.0
+   IL_027d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_accel
+   IL_0282: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0287: callvirt System.Single Celeste.Pico8.Classic::appr(System.Single,System.Single,System.Single)
+   IL_028c: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0291: ldarg.0
+   IL_0292: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0297: ldarg.0
+   IL_0298: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_029d: ldarg.0
+   IL_029e: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_02a3: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_02a8: ldarg.0
+   IL_02a9: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_target
+   IL_02ae: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_02b3: ldarg.0
+   IL_02b4: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_accel
+   IL_02b9: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_02be: callvirt System.Single Celeste.Pico8.Classic::appr(System.Single,System.Single,System.Single)
+   IL_02c3: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_02c8: br IL_07fd
+   IL_02cd: ldc.i4.1
+   IL_02ce: stloc.s V_5
+   IL_02d0: ldc.r4 0.6
+   IL_02d5: stloc.s V_6
+   IL_02d7: ldc.r4 0.15
+   IL_02dc: stloc.s V_7
+   IL_02de: ldloc.1
+   IL_02df: brtrue.s IL_02ea
+   IL_02e1: ldc.r4 0.4
+   IL_02e6: stloc.s V_6
+   IL_02e8: br.s IL_030a
+   IL_02ea: ldloc.2
+   IL_02eb: brfalse.s IL_030a
+   IL_02ed: ldc.r4 0.05
+   IL_02f2: stloc.s V_6
+   IL_02f4: ldloc.0
+   IL_02f5: ldarg.0
+   IL_02f6: ldfld System.Boolean Celeste.Pico8.Classic/ClassicObject::flipX
+   IL_02fb: brtrue.s IL_0300
+   IL_02fd: ldc.i4.1
+   IL_02fe: br.s IL_0301
+   IL_0300: ldc.i4.m1
+   IL_0301: bne.un.s IL_030a
+   IL_0303: ldc.r4 0.05
+   IL_0308: stloc.s V_6
+   IL_030a: ldarg.0
+   IL_030b: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0310: ldarg.0
+   IL_0311: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0316: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_031b: callvirt System.Single Celeste.Pico8.Emulator::abs(System.Single)
+   IL_0320: ldloc.s V_5
+   IL_0322: conv.r4
+   IL_0323: ble.un.s IL_0364
+   IL_0325: ldarg.0
+   IL_0326: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_032b: ldarg.0
+   IL_032c: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0331: ldarg.0
+   IL_0332: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0337: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_033c: ldarg.0
+   IL_033d: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0342: ldarg.0
+   IL_0343: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0348: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_034d: callvirt System.Int32 Celeste.Pico8.Emulator::sign(System.Single)
+   IL_0352: ldloc.s V_5
+   IL_0354: mul
+   IL_0355: conv.r4
+   IL_0356: ldloc.s V_7
+   IL_0358: callvirt System.Single Celeste.Pico8.Classic::appr(System.Single,System.Single,System.Single)
+   IL_035d: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0362: br.s IL_038c
+   IL_0364: ldarg.0
+   IL_0365: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_036a: ldarg.0
+   IL_036b: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0370: ldarg.0
+   IL_0371: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0376: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_037b: ldloc.0
+   IL_037c: ldloc.s V_5
+   IL_037e: mul
+   IL_037f: conv.r4
+   IL_0380: ldloc.s V_6
+   IL_0382: callvirt System.Single Celeste.Pico8.Classic::appr(System.Single,System.Single,System.Single)
+   IL_0387: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_038c: ldarg.0
+   IL_038d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0392: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0397: ldc.r4 0
+   IL_039c: beq.s IL_03b6
+   IL_039e: ldarg.0
+   IL_039f: ldarg.0
+   IL_03a0: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_03a5: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03aa: ldc.r4 0
+   IL_03af: clt
+   IL_03b1: stfld System.Boolean Celeste.Pico8.Classic/ClassicObject::flipX
+   IL_03b6: ldc.r4 2
+   IL_03bb: stloc.s V_8
+   IL_03bd: ldc.r4 0.21
+   IL_03c2: stloc.s V_9
+   IL_03c4: ldarg.0
+   IL_03c5: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_03ca: ldarg.0
+   IL_03cb: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_03d0: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_03d5: callvirt System.Single Celeste.Pico8.Emulator::abs(System.Single)
+   IL_03da: ldc.r4 0.15
+   IL_03df: bgt.un.s IL_03eb
+   IL_03e1: ldloc.s V_9
+   IL_03e3: ldc.r4 0.5
+   IL_03e8: mul
+   IL_03e9: stloc.s V_9
+   IL_03eb: ldloc.0
+   IL_03ec: brfalse.s IL_044c
+   IL_03ee: ldarg.0
+   IL_03ef: ldloc.0
+   IL_03f0: ldc.i4.0
+   IL_03f1: call System.Boolean Celeste.Pico8.Classic/ClassicObject::is_solid(System.Int32,System.Int32)
+   IL_03f6: brfalse.s IL_044c
+   IL_03f8: ldarg.0
+   IL_03f9: ldloc.0
+   IL_03fa: ldc.i4.0
+   IL_03fb: call System.Boolean Celeste.Pico8.Classic/ClassicObject::is_ice(System.Int32,System.Int32)
+   IL_0400: brtrue.s IL_044c
+   IL_0402: ldc.r4 0.4
+   IL_0407: stloc.s V_8
+   IL_0409: ldarg.0
+   IL_040a: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_040f: ldc.r4 10
+   IL_0414: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_0419: ldc.r4 2
+   IL_041e: bge.un.s IL_044c
+   IL_0420: ldarg.0
+   IL_0421: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0426: newobj System.Void Celeste.Pico8.Classic/smoke::.ctor()
+   IL_042b: ldarg.0
+   IL_042c: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_0431: ldloc.0
+   IL_0432: ldc.i4.6
+   IL_0433: mul
+   IL_0434: conv.r4
+   IL_0435: add
+   IL_0436: ldarg.0
+   IL_0437: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_043c: ldloca.s V_4
+   IL_043e: initobj System.Nullable`1<System.Int32>
+   IL_0444: ldloc.s V_4
+   IL_0446: callvirt T Celeste.Pico8.Classic::init_object<Celeste.Pico8.Classic/smoke>(T,System.Single,System.Single,System.Nullable`1<System.Int32>)
+   IL_044b: pop
+   IL_044c: ldloc.1
+   IL_044d: brtrue.s IL_0474
+   IL_044f: ldarg.0
+   IL_0450: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0455: ldarg.0
+   IL_0456: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_045b: ldarg.0
+   IL_045c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0461: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0466: ldloc.s V_8
+   IL_0468: ldloc.s V_9
+   IL_046a: callvirt System.Single Celeste.Pico8.Classic::appr(System.Single,System.Single,System.Single)
+   IL_046f: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0474: ldarg.0
+   IL_0475: ldfld System.Int32 Celeste.Pico8.Classic/player::jbuffer
+   IL_047a: ldc.i4.0
+   IL_047b: ble IL_0578
+   IL_0480: ldarg.0
+   IL_0481: ldfld System.Int32 Celeste.Pico8.Classic/player::grace
+   IL_0486: ldc.i4.0
+   IL_0487: ble.s IL_04e5
+   IL_0489: ldarg.0
+   IL_048a: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_048f: ldc.i4.1
+   IL_0490: callvirt System.Void Celeste.Pico8.Classic::psfx(System.Int32)
+   IL_0495: ldarg.0
+   IL_0496: ldc.i4.0
+   IL_0497: stfld System.Int32 Celeste.Pico8.Classic/player::jbuffer
+   IL_049c: ldarg.0
+   IL_049d: ldc.i4.0
+   IL_049e: stfld System.Int32 Celeste.Pico8.Classic/player::grace
+   IL_04a3: ldarg.0
+   IL_04a4: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_04a9: ldc.r4 -2
+   IL_04ae: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_04b3: ldarg.0
+   IL_04b4: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_04b9: newobj System.Void Celeste.Pico8.Classic/smoke::.ctor()
+   IL_04be: ldarg.0
+   IL_04bf: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_04c4: ldarg.0
+   IL_04c5: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_04ca: ldc.r4 4
+   IL_04cf: add
+   IL_04d0: ldloca.s V_4
+   IL_04d2: initobj System.Nullable`1<System.Int32>
+   IL_04d8: ldloc.s V_4
+   IL_04da: callvirt T Celeste.Pico8.Classic::init_object<Celeste.Pico8.Classic/smoke>(T,System.Single,System.Single,System.Nullable`1<System.Int32>)
+   IL_04df: pop
+   IL_04e0: br IL_0578
+   IL_04e5: ldarg.0
+   IL_04e6: ldc.i4.s -3
+   IL_04e8: ldc.i4.0
+   IL_04e9: call System.Boolean Celeste.Pico8.Classic/ClassicObject::is_solid(System.Int32,System.Int32)
+   IL_04ee: brtrue.s IL_0500
+   IL_04f0: ldarg.0
+   IL_04f1: ldc.i4.3
+   IL_04f2: ldc.i4.0
+   IL_04f3: call System.Boolean Celeste.Pico8.Classic/ClassicObject::is_solid(System.Int32,System.Int32)
+   IL_04f8: brtrue.s IL_04fd
+   IL_04fa: ldc.i4.0
+   IL_04fb: br.s IL_0501
+   IL_04fd: ldc.i4.1
+   IL_04fe: br.s IL_0501
+   IL_0500: ldc.i4.m1
+   IL_0501: stloc.s V_12
+   IL_0503: ldloc.s V_12
+   IL_0505: brfalse.s IL_0578
+   IL_0507: ldarg.0
+   IL_0508: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_050d: ldc.i4.2
+   IL_050e: callvirt System.Void Celeste.Pico8.Classic::psfx(System.Int32)
+   IL_0513: ldarg.0
+   IL_0514: ldc.i4.0
+   IL_0515: stfld System.Int32 Celeste.Pico8.Classic/player::jbuffer
+   IL_051a: ldarg.0
+   IL_051b: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0520: ldc.r4 -2
+   IL_0525: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_052a: ldarg.0
+   IL_052b: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0530: ldloc.s V_12
+   IL_0532: neg
+   IL_0533: ldloc.s V_5
+   IL_0535: ldc.i4.1
+   IL_0536: add
+   IL_0537: mul
+   IL_0538: conv.r4
+   IL_0539: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_053e: ldarg.0
+   IL_053f: ldloc.s V_12
+   IL_0541: ldc.i4.3
+   IL_0542: mul
+   IL_0543: ldc.i4.0
+   IL_0544: call System.Boolean Celeste.Pico8.Classic/ClassicObject::is_ice(System.Int32,System.Int32)
+   IL_0549: brtrue.s IL_0578
+   IL_054b: ldarg.0
+   IL_054c: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0551: newobj System.Void Celeste.Pico8.Classic/smoke::.ctor()
+   IL_0556: ldarg.0
+   IL_0557: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_055c: ldloc.s V_12
+   IL_055e: ldc.i4.6
+   IL_055f: mul
+   IL_0560: conv.r4
+   IL_0561: add
+   IL_0562: ldarg.0
+   IL_0563: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_0568: ldloca.s V_4
+   IL_056a: initobj System.Nullable`1<System.Int32>
+   IL_0570: ldloc.s V_4
+   IL_0572: callvirt T Celeste.Pico8.Classic::init_object<Celeste.Pico8.Classic/smoke>(T,System.Single,System.Single,System.Nullable`1<System.Int32>)
+   IL_0577: pop
+   IL_0578: ldc.i4.5
+   IL_0579: stloc.s V_10
+   IL_057b: ldloc.s V_10
+   IL_057d: conv.r4
+   IL_057e: ldc.r4 0.70710677
+   IL_0583: mul
+   IL_0584: stloc.s V_11
+   IL_0586: ldarg.0
+   IL_0587: ldfld System.Int32 Celeste.Pico8.Classic/player::djump
+   IL_058c: ldc.i4.0
+   IL_058d: cgt
+   IL_058f: ldloc.3
+   IL_0590: and
+   IL_0591: brfalse IL_07bd
+   IL_0596: ldarg.0
+   IL_0597: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_059c: newobj System.Void Celeste.Pico8.Classic/smoke::.ctor()
+   IL_05a1: ldarg.0
+   IL_05a2: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_05a7: ldarg.0
+   IL_05a8: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_05ad: ldloca.s V_4
+   IL_05af: initobj System.Nullable`1<System.Int32>
+   IL_05b5: ldloc.s V_4
+   IL_05b7: callvirt T Celeste.Pico8.Classic::init_object<Celeste.Pico8.Classic/smoke>(T,System.Single,System.Single,System.Nullable`1<System.Int32>)
+   IL_05bc: pop
+   IL_05bd: ldarg.0
+   IL_05be: ldarg.0
+   IL_05bf: ldfld System.Int32 Celeste.Pico8.Classic/player::djump
+   IL_05c4: ldc.i4.1
+   IL_05c5: sub
+   IL_05c6: stfld System.Int32 Celeste.Pico8.Classic/player::djump
+   IL_05cb: ldarg.0
+   IL_05cc: ldc.i4.4
+   IL_05cd: stfld System.Int32 Celeste.Pico8.Classic/player::dash_time
+   IL_05d2: ldarg.0
+   IL_05d3: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_05d8: ldc.i4.1
+   IL_05d9: stfld System.Boolean Celeste.Pico8.Classic::has_dashed
+   IL_05de: ldarg.0
+   IL_05df: ldc.i4.s 10
+   IL_05e1: stfld System.Int32 Celeste.Pico8.Classic/player::dash_effect_time
+   IL_05e6: ldarg.0
+   IL_05e7: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_05ec: ldarg.0
+   IL_05ed: ldfld System.Boolean Celeste.Pico8.Classic/ClassicObject::flipX
+   IL_05f2: brtrue.s IL_05f7
+   IL_05f4: ldc.i4.1
+   IL_05f5: br.s IL_05f8
+   IL_05f7: ldc.i4.m1
+   IL_05f8: callvirt System.Int32 Celeste.Pico8.Emulator::dashDirectionX(System.Int32)
+   IL_05fd: stloc.s V_13
+   IL_05ff: ldarg.0
+   IL_0600: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0605: ldarg.0
+   IL_0606: ldfld System.Boolean Celeste.Pico8.Classic/ClassicObject::flipX
+   IL_060b: brtrue.s IL_0610
+   IL_060d: ldc.i4.1
+   IL_060e: br.s IL_0611
+   IL_0610: ldc.i4.m1
+   IL_0611: callvirt System.Int32 Celeste.Pico8.Emulator::dashDirectionY(System.Int32)
+   IL_0616: stloc.s V_14
+   IL_0618: ldloc.s V_13
+   IL_061a: brfalse.s IL_0647
+   IL_061c: ldloc.s V_14
+   IL_061e: brfalse.s IL_0647
+   IL_0620: ldarg.0
+   IL_0621: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0626: ldloc.s V_13
+   IL_0628: conv.r4
+   IL_0629: ldloc.s V_11
+   IL_062b: mul
+   IL_062c: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0631: ldarg.0
+   IL_0632: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0637: ldloc.s V_14
+   IL_0639: conv.r4
+   IL_063a: ldloc.s V_11
+   IL_063c: mul
+   IL_063d: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0642: br IL_06bd
+   IL_0647: ldloc.s V_13
+   IL_0649: brfalse.s IL_066e
+   IL_064b: ldarg.0
+   IL_064c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0651: ldloc.s V_13
+   IL_0653: ldloc.s V_10
+   IL_0655: mul
+   IL_0656: conv.r4
+   IL_0657: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_065c: ldarg.0
+   IL_065d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0662: ldc.r4 0
+   IL_0667: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_066c: br.s IL_06bd
+   IL_066e: ldloc.s V_14
+   IL_0670: brfalse.s IL_0695
+   IL_0672: ldarg.0
+   IL_0673: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0678: ldc.r4 0
+   IL_067d: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0682: ldarg.0
+   IL_0683: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0688: ldloc.s V_14
+   IL_068a: ldloc.s V_10
+   IL_068c: mul
+   IL_068d: conv.r4
+   IL_068e: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0693: br.s IL_06bd
+   IL_0695: ldarg.0
+   IL_0696: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_069b: ldarg.0
+   IL_069c: ldfld System.Boolean Celeste.Pico8.Classic/ClassicObject::flipX
+   IL_06a1: brtrue.s IL_06a6
+   IL_06a3: ldc.i4.1
+   IL_06a4: br.s IL_06a7
+   IL_06a6: ldc.i4.m1
+   IL_06a7: conv.r4
+   IL_06a8: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_06ad: ldarg.0
+   IL_06ae: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_06b3: ldc.r4 0
+   IL_06b8: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_06bd: ldarg.0
+   IL_06be: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_06c3: ldc.i4.3
+   IL_06c4: callvirt System.Void Celeste.Pico8.Classic::psfx(System.Int32)
+   IL_06c9: ldarg.0
+   IL_06ca: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_06cf: ldc.i4.2
+   IL_06d0: stfld System.Int32 Celeste.Pico8.Classic::freeze
+   IL_06d5: ldarg.0
+   IL_06d6: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_06db: ldc.i4.6
+   IL_06dc: stfld System.Int32 Celeste.Pico8.Classic::shake
+   IL_06e1: ldarg.0
+   IL_06e2: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_target
+   IL_06e7: ldc.i4.2
+   IL_06e8: ldarg.0
+   IL_06e9: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_06ee: ldarg.0
+   IL_06ef: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_06f4: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_06f9: callvirt System.Int32 Celeste.Pico8.Emulator::sign(System.Single)
+   IL_06fe: mul
+   IL_06ff: conv.r4
+   IL_0700: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0705: ldarg.0
+   IL_0706: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_target
+   IL_070b: ldc.i4.2
+   IL_070c: ldarg.0
+   IL_070d: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0712: ldarg.0
+   IL_0713: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0718: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_071d: callvirt System.Int32 Celeste.Pico8.Emulator::sign(System.Single)
+   IL_0722: mul
+   IL_0723: conv.r4
+   IL_0724: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0729: ldarg.0
+   IL_072a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_accel
+   IL_072f: ldc.r4 1.5
+   IL_0734: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0739: ldarg.0
+   IL_073a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_accel
+   IL_073f: ldc.r4 1.5
+   IL_0744: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0749: ldarg.0
+   IL_074a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_074f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0754: ldc.r4 0
+   IL_0759: bge.un.s IL_076f
+   IL_075b: ldarg.0
+   IL_075c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_target
+   IL_0761: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0766: dup
+   IL_0767: ldind.r4
+   IL_0768: ldc.r4 0.75
+   IL_076d: mul
+   IL_076e: stind.r4
+   IL_076f: ldarg.0
+   IL_0770: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_0775: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_077a: ldc.r4 0
+   IL_077f: beq.s IL_0795
+   IL_0781: ldarg.0
+   IL_0782: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_accel
+   IL_0787: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_078c: dup
+   IL_078d: ldind.r4
+   IL_078e: ldc.r4 0.70710677
+   IL_0793: mul
+   IL_0794: stind.r4
+   IL_0795: ldarg.0
+   IL_0796: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_079b: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_07a0: ldc.r4 0
+   IL_07a5: beq.s IL_07fd
+   IL_07a7: ldarg.0
+   IL_07a8: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/player::dash_accel
+   IL_07ad: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_07b2: dup
+   IL_07b3: ldind.r4
+   IL_07b4: ldc.r4 0.70710677
+   IL_07b9: mul
+   IL_07ba: stind.r4
+   IL_07bb: br.s IL_07fd
+   IL_07bd: ldloc.3
+   IL_07be: brfalse.s IL_07fd
+   IL_07c0: ldarg.0
+   IL_07c1: ldfld System.Int32 Celeste.Pico8.Classic/player::djump
+   IL_07c6: ldc.i4.0
+   IL_07c7: bgt.s IL_07fd
+   IL_07c9: ldarg.0
+   IL_07ca: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_07cf: ldc.i4.s 9
+   IL_07d1: callvirt System.Void Celeste.Pico8.Classic::psfx(System.Int32)
+   IL_07d6: ldarg.0
+   IL_07d7: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_07dc: newobj System.Void Celeste.Pico8.Classic/smoke::.ctor()
+   IL_07e1: ldarg.0
+   IL_07e2: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_07e7: ldarg.0
+   IL_07e8: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_07ed: ldloca.s V_4
+   IL_07ef: initobj System.Nullable`1<System.Int32>
+   IL_07f5: ldloc.s V_4
+   IL_07f7: callvirt T Celeste.Pico8.Classic::init_object<Celeste.Pico8.Classic/smoke>(T,System.Single,System.Single,System.Nullable`1<System.Int32>)
+   IL_07fc: pop
+   IL_07fd: ldarg.0
+   IL_07fe: ldarg.0
+   IL_07ff: ldfld System.Single Celeste.Pico8.Classic/player::spr_off
+   IL_0804: ldc.r4 0.25
+   IL_0809: add
+   IL_080a: stfld System.Single Celeste.Pico8.Classic/player::spr_off
+   IL_080f: ldloc.1
+   IL_0810: brtrue.s IL_083c
+   IL_0812: ldarg.0
+   IL_0813: ldloc.0
+   IL_0814: ldc.i4.0
+   IL_0815: call System.Boolean Celeste.Pico8.Classic/ClassicObject::is_solid(System.Int32,System.Int32)
+   IL_081a: brfalse.s IL_082c
+   IL_081c: ldarg.0
+   IL_081d: ldc.r4 5
+   IL_0822: stfld System.Single Celeste.Pico8.Classic/ClassicObject::spr
+   IL_0827: br IL_08f0
+   IL_082c: ldarg.0
+   IL_082d: ldc.r4 3
+   IL_0832: stfld System.Single Celeste.Pico8.Classic/ClassicObject::spr
+   IL_0837: br IL_08f0
+   IL_083c: ldarg.0
+   IL_083d: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0842: ldarg.0
+   IL_0843: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0848: ldfld System.Int32 Celeste.Pico8.Classic::k_down
+   IL_084d: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_0852: brfalse.s IL_0864
+   IL_0854: ldarg.0
+   IL_0855: ldc.r4 6
+   IL_085a: stfld System.Single Celeste.Pico8.Classic/ClassicObject::spr
+   IL_085f: br IL_08f0
+   IL_0864: ldarg.0
+   IL_0865: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_086a: ldarg.0
+   IL_086b: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0870: ldfld System.Int32 Celeste.Pico8.Classic::k_up
+   IL_0875: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_087a: brfalse.s IL_0889
+   IL_087c: ldarg.0
+   IL_087d: ldc.r4 7
+   IL_0882: stfld System.Single Celeste.Pico8.Classic/ClassicObject::spr
+   IL_0887: br.s IL_08f0
+   IL_0889: ldarg.0
+   IL_088a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Pico8.Classic/ClassicObject::spd
+   IL_088f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0894: ldc.r4 0
+   IL_0899: beq.s IL_08cb
+   IL_089b: ldarg.0
+   IL_089c: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_08a1: ldarg.0
+   IL_08a2: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_08a7: ldfld System.Int32 Celeste.Pico8.Classic::k_left
+   IL_08ac: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_08b1: brtrue.s IL_08d8
+   IL_08b3: ldarg.0
+   IL_08b4: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_08b9: ldarg.0
+   IL_08ba: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_08bf: ldfld System.Int32 Celeste.Pico8.Classic::k_right
+   IL_08c4: callvirt System.Boolean Celeste.Pico8.Emulator::btn(System.Int32)
+   IL_08c9: brtrue.s IL_08d8
+   IL_08cb: ldarg.0
+   IL_08cc: ldc.r4 1
+   IL_08d1: stfld System.Single Celeste.Pico8.Classic/ClassicObject::spr
+   IL_08d6: br.s IL_08f0
+   IL_08d8: ldarg.0
+   IL_08d9: ldc.r4 1
+   IL_08de: ldarg.0
+   IL_08df: ldfld System.Single Celeste.Pico8.Classic/player::spr_off
+   IL_08e4: ldc.r4 4
+   IL_08e9: rem
+   IL_08ea: add
+   IL_08eb: stfld System.Single Celeste.Pico8.Classic/ClassicObject::spr
+   IL_08f0: ldarg.0
+   IL_08f1: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_08f6: ldc.r4 -4
+   IL_08fb: bge.un.s IL_0917
+   IL_08fd: ldarg.0
+   IL_08fe: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0903: callvirt System.Int32 Celeste.Pico8.Classic::level_index()
+   IL_0908: ldc.i4.s 30
+   IL_090a: bge.s IL_0917
+   IL_090c: ldarg.0
+   IL_090d: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0912: callvirt System.Void Celeste.Pico8.Classic::next_room()
+   IL_0917: ldarg.0
+   IL_0918: ldloc.1
+   IL_0919: stfld System.Boolean Celeste.Pico8.Classic/player::was_on_ground
+   IL_091e: ret

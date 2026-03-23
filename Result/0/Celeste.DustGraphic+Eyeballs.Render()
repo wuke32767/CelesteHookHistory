@@ -1,0 +1,91 @@
+IL: Celeste.Mod.MaxHelpingHand.Triggers.GradientDustTrigger.modDustEyesRender(ILContext)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedClutteredEntity() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_0011: ldfld System.Boolean Monocle.Component::Visible
+   IL_0016: brfalse IL_014e
+   IL_001b: ldarg.0
+   IL_001c: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_0021: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0026: ldfld System.Boolean Monocle.Entity::Visible
+   IL_002b: brfalse IL_014e
+   IL_0030: ldarg.0
+   IL_0031: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_0036: ldflda Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_003b: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0040: neg
+   IL_0041: ldarg.0
+   IL_0042: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_0047: ldflda Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_004c: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0051: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0056: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_005b: stloc.0
+   IL_005c: ldarg.0
+   IL_005d: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_0062: ldfld System.Boolean Celeste.DustGraphic::leftEyeVisible
+   IL_0067: brfalse.s IL_00d5
+   IL_0069: ldarg.0
+   IL_006a: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_006f: ldfld Monocle.MTexture Celeste.DustGraphic::eyeTexture
+   IL_0074: ldarg.0
+   IL_0075: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_007a: callvirt Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::get_RenderPosition()
+   IL_007f: ldarg.0
+   IL_0080: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_0085: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_008a: ldc.r4 5
+   IL_008f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0094: ldloc.0
+   IL_0095: ldc.r4 3
+   IL_009a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_009f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a4: ldarg.0
+   IL_00a5: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_00aa: ldfld System.Single Celeste.DustGraphic::Scale
+   IL_00af: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00b4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+ + IL_00b9: dup @ Celeste.Mod.MaxHelpingHand.Triggers.GradientDustTrigger.modDustEyesRender(ILContext)
+   IL_00ba: ldarg.0
+   IL_00bb: ldfld Microsoft.Xna.Framework.Color Celeste.DustGraphic/Eyeballs::Color
+ + IL_00c0: call Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Triggers.GradientDustTrigger::modGradientDustEyeColor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ Celeste.Mod.MaxHelpingHand.Triggers.GradientDustTrigger.modDustEyesRender(ILContext)
+   IL_00c5: ldarg.0
+   IL_00c6: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_00cb: ldfld System.Single Celeste.DustGraphic::Scale
+   IL_00d0: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_00db: ldfld System.Boolean Celeste.DustGraphic::rightEyeVisible
+   IL_00e0: brfalse.s IL_014e
+   IL_00e2: ldarg.0
+   IL_00e3: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_00e8: ldfld Monocle.MTexture Celeste.DustGraphic::eyeTexture
+   IL_00ed: ldarg.0
+   IL_00ee: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_00f3: callvirt Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::get_RenderPosition()
+   IL_00f8: ldarg.0
+   IL_00f9: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_00fe: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustGraphic::EyeDirection
+   IL_0103: ldc.r4 5
+   IL_0108: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_010d: ldloc.0
+   IL_010e: ldc.r4 3
+   IL_0113: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0118: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_011d: ldarg.0
+   IL_011e: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_0123: ldfld System.Single Celeste.DustGraphic::Scale
+   IL_0128: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_012d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+ + IL_0132: dup @ Celeste.Mod.MaxHelpingHand.Triggers.GradientDustTrigger.modDustEyesRender(ILContext)
+   IL_0133: ldarg.0
+   IL_0134: ldfld Microsoft.Xna.Framework.Color Celeste.DustGraphic/Eyeballs::Color
+ + IL_0139: call Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Triggers.GradientDustTrigger::modGradientDustEyeColor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ Celeste.Mod.MaxHelpingHand.Triggers.GradientDustTrigger.modDustEyesRender(ILContext)
+   IL_013e: ldarg.0
+   IL_013f: ldfld Celeste.DustGraphic Celeste.DustGraphic/Eyeballs::Dust
+   IL_0144: ldfld System.Single Celeste.DustGraphic::Scale
+   IL_0149: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_014e: ret

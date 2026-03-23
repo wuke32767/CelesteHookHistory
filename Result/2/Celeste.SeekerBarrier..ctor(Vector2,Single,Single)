@@ -1,0 +1,58 @@
+On: Celeste.Mod.CommunalHelper.DashStates.SeekerDash.SeekerBarrier_ctor_Vector2_float_float(orig_ctor_Vector2_float_float,SeekerBarrier,Vector2,Single,Single)
+On: Celeste.Mod.Aqua.Core.SeekerBarrierExtensions.SeekerBarrier_Construct(orig_ctor_Vector2_float_float,SeekerBarrier,Vector2,Single,Single)
+   IL_0000: ldarg.0
+   IL_0001: newobj System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::.ctor()
+   IL_0006: stfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.SeekerBarrier::particles
+   IL_000b: ldarg.0
+   IL_000c: newobj System.Void System.Collections.Generic.List`1<Celeste.SeekerBarrier>::.ctor()
+   IL_0011: stfld System.Collections.Generic.List`1<Celeste.SeekerBarrier> Celeste.SeekerBarrier::adjacent
+   IL_0016: ldarg.0
+   IL_0017: ldc.i4.3
+   IL_0018: newarr System.Single
+   IL_001d: dup
+   IL_001e: ldtoken <PrivateImplementationDetails>/__StaticArrayInitTypeSize=12 <PrivateImplementationDetails>::76421D8ACD0C21BFF4344CAF0F240B6E97325A86
+   IL_0023: call System.Void System.Runtime.CompilerServices.RuntimeHelpers::InitializeArray(System.Array,System.RuntimeFieldHandle)
+   IL_0028: stfld System.Single[] Celeste.SeekerBarrier::speeds
+   IL_002d: ldarg.0
+   IL_002e: ldarg.1
+   IL_002f: ldarg.2
+   IL_0030: ldarg.3
+   IL_0031: ldc.i4.0
+   IL_0032: call System.Void Celeste.Solid::.ctor(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Boolean)
+   IL_0037: ldarg.0
+   IL_0038: ldc.i4.0
+   IL_0039: stfld System.Boolean Monocle.Entity::Collidable
+   IL_003e: ldc.i4.0
+   IL_003f: stloc.0
+   IL_0040: br.s IL_0082
+   IL_0042: ldarg.0
+   IL_0043: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.SeekerBarrier::particles
+   IL_0048: ldsfld System.Random Monocle.Calc::Random
+   IL_004d: ldarg.0
+   IL_004e: call System.Single Monocle.Entity::get_Width()
+   IL_0053: ldc.r4 1
+   IL_0058: sub
+   IL_0059: call System.Single Monocle.Calc::NextFloat(System.Random,System.Single)
+   IL_005e: ldsfld System.Random Monocle.Calc::Random
+   IL_0063: ldarg.0
+   IL_0064: call System.Single Monocle.Entity::get_Height()
+   IL_0069: ldc.r4 1
+   IL_006e: sub
+   IL_006f: call System.Single Monocle.Calc::NextFloat(System.Random,System.Single)
+   IL_0074: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0079: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::Add(T)
+   IL_007e: ldloc.0
+   IL_007f: ldc.i4.1
+   IL_0080: add
+   IL_0081: stloc.0
+   IL_0082: ldloc.0
+   IL_0083: conv.r4
+   IL_0084: ldarg.0
+   IL_0085: call System.Single Monocle.Entity::get_Width()
+   IL_008a: ldarg.0
+   IL_008b: call System.Single Monocle.Entity::get_Height()
+   IL_0090: mul
+   IL_0091: ldc.r4 16
+   IL_0096: div
+   IL_0097: blt.s IL_0042
+   IL_0099: ret

@@ -1,0 +1,33 @@
+On: LuckyHelper.Triggers.AudioAdjustTrigger.AudioOnPlay_string_Vector2_string_float_string_float(orig_Play_string_Vector2_string_float_string_float,String,Vector2,String,Single,String,Single)
+On: Celeste.Mod.AdamsAddons.Triggers.ReplaceAudioTrigger.modPlayStringVector2StringFloatStringFloat(orig_Play_string_Vector2_string_float_string_float,String,Vector2,String,Single,String,Single)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Vector2>::.ctor(T)
+   IL_0007: call FMOD.Studio.EventInstance Celeste.Audio::CreateInstance(System.String,System.Nullable`1<Microsoft.Xna.Framework.Vector2>)
+   IL_000c: stloc.0
+   IL_000d: ldloc.0
+   IL_000e: ldnull
+   IL_000f: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_0014: brfalse.s IL_003f
+   IL_0016: ldarg.2
+   IL_0017: brfalse.s IL_0022
+   IL_0019: ldloc.0
+   IL_001a: ldarg.2
+   IL_001b: ldarg.3
+   IL_001c: callvirt FMOD.RESULT FMOD.Studio.EventInstance::setParameterValue(System.String,System.Single)
+   IL_0021: pop
+   IL_0022: ldarg.s param2
+   IL_0024: brfalse.s IL_0031
+   IL_0026: ldloc.0
+   IL_0027: ldarg.s param2
+   IL_0029: ldarg.s value2
+   IL_002b: callvirt FMOD.RESULT FMOD.Studio.EventInstance::setParameterValue(System.String,System.Single)
+   IL_0030: pop
+   IL_0031: ldloc.0
+   IL_0032: callvirt FMOD.RESULT FMOD.Studio.EventInstance::start()
+   IL_0037: pop
+   IL_0038: ldloc.0
+   IL_0039: callvirt FMOD.RESULT FMOD.Studio.EventInstance::release()
+   IL_003e: pop
+   IL_003f: ldloc.0
+   IL_0040: ret

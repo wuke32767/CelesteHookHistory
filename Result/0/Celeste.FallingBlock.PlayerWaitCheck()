@@ -1,0 +1,32 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.ConstantDelayFallingBlockController.On_FallingBlock_PlayerWaitCheck(orig_PlayerWaitCheck,FallingBlock)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.FallingBlock::Triggered
+   IL_0006: brfalse.s IL_000a
+   IL_0008: ldc.i4.1
+   IL_0009: ret
+   IL_000a: ldarg.0
+   IL_000b: callvirt System.Boolean Celeste.FallingBlock::PlayerFallCheck()
+   IL_0010: brfalse.s IL_0014
+   IL_0012: ldc.i4.1
+   IL_0013: ret
+   IL_0014: ldarg.0
+   IL_0015: ldfld System.Boolean Celeste.FallingBlock::climbFall
+   IL_001a: brfalse.s IL_004d
+   IL_001c: ldarg.0
+   IL_001d: ldarg.0
+   IL_001e: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0023: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0028: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_002d: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Player>(Microsoft.Xna.Framework.Vector2)
+   IL_0032: brtrue.s IL_004b
+   IL_0034: ldarg.0
+   IL_0035: ldarg.0
+   IL_0036: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0040: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0045: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Player>(Microsoft.Xna.Framework.Vector2)
+   IL_004a: ret
+   IL_004b: ldc.i4.1
+   IL_004c: ret
+   IL_004d: ldc.i4.0
+   IL_004e: ret

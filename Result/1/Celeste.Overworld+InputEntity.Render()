@@ -1,0 +1,95 @@
+On: Celeste.Mod.SaveMover.SaveMoverModule.InputEntityRender(orig_Render,Entity)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Overworld Celeste.Overworld/InputEntity::Overworld
+   IL_0006: ldfld System.Single Celeste.Overworld::inputEase
+   IL_000b: stloc.0
+   IL_000c: ldloc.0
+   IL_000d: ldc.r4 0
+   IL_0012: ble.un IL_0104
+   IL_0017: ldc.r4 0.5
+   IL_001c: stloc.1
+   IL_001d: ldc.i4.s 32
+   IL_001f: stloc.2
+   IL_0020: ldstr "ui_cancel"
+   IL_0025: ldnull
+   IL_0026: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_002b: stloc.3
+   IL_002c: ldstr "ui_confirm"
+   IL_0031: ldnull
+   IL_0032: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0037: stloc.s V_4
+   IL_0039: ldloc.3
+   IL_003a: ldsfld Monocle.VirtualButton Celeste.Input::MenuCancel
+   IL_003f: call System.Single Celeste.ButtonUI::Width(System.String,Monocle.VirtualButton)
+   IL_0044: stloc.s V_5
+   IL_0046: ldloc.s V_4
+   IL_0048: ldsfld Monocle.VirtualButton Celeste.Input::MenuConfirm
+   IL_004d: call System.Single Celeste.ButtonUI::Width(System.String,Monocle.VirtualButton)
+   IL_0052: stloc.s V_6
+   IL_0054: ldloca.s V_7
+   IL_0056: ldc.r4 1880
+   IL_005b: ldc.r4 1024
+   IL_0060: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0065: ldloca.s V_7
+   IL_0067: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_006c: dup
+   IL_006d: ldind.r4
+   IL_006e: ldc.r4 40
+   IL_0073: ldloc.s V_6
+   IL_0075: ldloc.s V_5
+   IL_0077: add
+   IL_0078: ldloc.1
+   IL_0079: mul
+   IL_007a: add
+   IL_007b: ldloc.2
+   IL_007c: conv.r4
+   IL_007d: add
+   IL_007e: ldc.r4 1
+   IL_0083: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0088: ldloc.0
+   IL_0089: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_008e: sub
+   IL_008f: mul
+   IL_0090: add
+   IL_0091: stind.r4
+   IL_0092: ldloc.s V_7
+   IL_0094: ldloc.3
+   IL_0095: ldsfld Monocle.VirtualButton Celeste.Input::MenuCancel
+   IL_009a: ldloc.1
+   IL_009b: ldc.r4 1
+   IL_00a0: ldarg.0
+   IL_00a1: ldfld Monocle.Wiggler Celeste.Overworld/InputEntity::cancelWiggle
+   IL_00a6: callvirt System.Single Monocle.Wiggler::get_Value()
+   IL_00ab: ldc.r4 0.05
+   IL_00b0: mul
+   IL_00b1: ldc.r4 1
+   IL_00b6: call System.Void Celeste.ButtonUI::Render(Microsoft.Xna.Framework.Vector2,System.String,Monocle.VirtualButton,System.Single,System.Single,System.Single,System.Single)
+   IL_00bb: ldarg.0
+   IL_00bc: ldfld Celeste.Overworld Celeste.Overworld/InputEntity::Overworld
+   IL_00c1: ldfld System.Boolean Celeste.Overworld::ShowConfirmUI
+   IL_00c6: brfalse.s IL_0104
+   IL_00c8: ldloca.s V_7
+   IL_00ca: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00cf: dup
+   IL_00d0: ldind.r4
+   IL_00d1: ldloc.1
+   IL_00d2: ldloc.s V_5
+   IL_00d4: mul
+   IL_00d5: ldloc.2
+   IL_00d6: conv.r4
+   IL_00d7: add
+   IL_00d8: sub
+   IL_00d9: stind.r4
+   IL_00da: ldloc.s V_7
+   IL_00dc: ldloc.s V_4
+   IL_00de: ldsfld Monocle.VirtualButton Celeste.Input::MenuConfirm
+   IL_00e3: ldloc.1
+   IL_00e4: ldc.r4 1
+   IL_00e9: ldarg.0
+   IL_00ea: ldfld Monocle.Wiggler Celeste.Overworld/InputEntity::confirmWiggle
+   IL_00ef: callvirt System.Single Monocle.Wiggler::get_Value()
+   IL_00f4: ldc.r4 0.05
+   IL_00f9: mul
+   IL_00fa: ldc.r4 1
+   IL_00ff: call System.Void Celeste.ButtonUI::Render(Microsoft.Xna.Framework.Vector2,System.String,Monocle.VirtualButton,System.Single,System.Single,System.Single,System.Single)
+   IL_0104: ret

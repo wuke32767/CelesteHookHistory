@@ -1,0 +1,21 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.DashBoostField.On_Player_UnderwaterMusicCheck(orig_UnderwaterMusicCheck,Player)
+On: ChroniaHelper.Entities.OmniZipWater.Player_UnderwaterMusicCheck(orig_UnderwaterMusicCheck,Player)
+On: Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController.Player_UnderwaterMusicCheck(orig_UnderwaterMusicCheck,Player)
+On: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_UnderwaterMusicCheck(orig_UnderwaterMusicCheck,Player)
+On: Celeste.Mod.SSMHelper.Entities.DashBoostField.On_Player_UnderwaterMusicCheck(orig_UnderwaterMusicCheck,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0007: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Water>(Microsoft.Xna.Framework.Vector2)
+   IL_000c: brfalse.s IL_002f
+   IL_000e: ldarg.0
+   IL_000f: ldarg.0
+   IL_0010: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0015: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_001a: ldc.r4 -12
+   IL_001f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0024: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0029: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Water>(Microsoft.Xna.Framework.Vector2)
+   IL_002e: ret
+   IL_002f: ldc.i4.0
+   IL_0030: ret

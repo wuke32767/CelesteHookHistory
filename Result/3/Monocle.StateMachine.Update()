@@ -1,0 +1,47 @@
+On: VivHelper.SolidModifierComponent.StateMachine_Update(orig_Update,StateMachine)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: stfld System.Boolean Monocle.StateMachine::ChangedStates
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Func`1<System.Int32>[] Monocle.StateMachine::updates
+   IL_000d: ldarg.0
+   IL_000e: ldfld System.Int32 Monocle.StateMachine::state
+   IL_0013: ldelem.ref
+   IL_0014: brfalse.s IL_002e
+   IL_0016: ldarg.0
+   IL_0017: ldarg.0
+   IL_0018: ldfld System.Func`1<System.Int32>[] Monocle.StateMachine::updates
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.Int32 Monocle.StateMachine::state
+   IL_0023: ldelem.ref
+   IL_0024: callvirt TResult System.Func`1<System.Int32>::Invoke()
+   IL_0029: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_002e: ldarg.0
+   IL_002f: ldfld Monocle.Coroutine Monocle.StateMachine::currentCoroutine
+   IL_0034: ldfld System.Boolean Monocle.Component::Active
+   IL_0039: brfalse.s IL_0086
+   IL_003b: ldarg.0
+   IL_003c: ldfld Monocle.Coroutine Monocle.StateMachine::currentCoroutine
+   IL_0041: callvirt System.Void Monocle.Component::Update()
+   IL_0046: ldarg.0
+   IL_0047: ldfld System.Boolean Monocle.StateMachine::ChangedStates
+   IL_004c: brtrue.s IL_0086
+   IL_004e: ldarg.0
+   IL_004f: ldfld System.Boolean Monocle.StateMachine::Log
+   IL_0054: brfalse.s IL_0086
+   IL_0056: ldarg.0
+   IL_0057: ldfld Monocle.Coroutine Monocle.StateMachine::currentCoroutine
+   IL_005c: callvirt System.Boolean Monocle.Coroutine::get_Finished()
+   IL_0061: brfalse.s IL_0086
+   IL_0063: ldc.i4.1
+   IL_0064: newarr System.Object
+   IL_0069: dup
+   IL_006a: ldc.i4.0
+   IL_006b: ldstr "Finished Coroutine "
+   IL_0070: ldarg.0
+   IL_0071: ldfld System.Int32 Monocle.StateMachine::state
+   IL_0076: box System.Int32
+   IL_007b: call System.String System.String::Concat(System.Object,System.Object)
+   IL_0080: stelem.ref
+   IL_0081: call System.Void Monocle.Calc::Log(System.Object[])
+   IL_0086: ret

@@ -1,0 +1,21 @@
+On: Celeste.Mod.Randomizer.RandoModule.TentacleOutline(orig_Render,Spikes)
+   IL_0000: ldarg.0
+   IL_0001: call System.Boolean Celeste.Spikes::IsVisible()
+   IL_0006: brtrue.s IL_0009
+   IL_0008: ret
+   IL_0009: ldarg.0
+   IL_000a: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000f: stloc.0
+   IL_0010: ldarg.0
+   IL_0011: ldarg.0
+   IL_0012: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0017: ldarg.0
+   IL_0018: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Spikes::imageOffset
+   IL_001d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0022: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0027: ldarg.0
+   IL_0028: call System.Void Monocle.Entity::Render()
+   IL_002d: ldarg.0
+   IL_002e: ldloc.0
+   IL_002f: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0034: ret

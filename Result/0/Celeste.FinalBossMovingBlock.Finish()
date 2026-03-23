@@ -1,0 +1,69 @@
+On: Celeste.Mod.FancyTileEntities.FancyFinalBossMovingBlock.Finish(orig_Finish,FinalBossMovingBlock)
+   IL_0000: ldarg.0
+   IL_0001: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_CenterRight()
+   IL_0006: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_000b: ldc.r4 10
+   IL_0010: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0015: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_001a: stloc.0
+   IL_001b: ldc.i4.0
+   IL_001c: stloc.1
+   IL_001d: br.s IL_007a
+   IL_001f: ldc.i4.0
+   IL_0020: stloc.2
+   IL_0021: br.s IL_0066
+   IL_0023: ldarg.0
+   IL_0024: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0029: call Monocle.Pooler Monocle.Engine::get_Pooler()
+   IL_002e: callvirt T Monocle.Pooler::Create<Celeste.Debris>()
+   IL_0033: ldarg.0
+   IL_0034: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0039: ldc.i4.4
+   IL_003a: ldloc.1
+   IL_003b: ldc.i4.8
+   IL_003c: mul
+   IL_003d: add
+   IL_003e: conv.r4
+   IL_003f: ldc.i4.4
+   IL_0040: ldloc.2
+   IL_0041: ldc.i4.8
+   IL_0042: mul
+   IL_0043: add
+   IL_0044: conv.r4
+   IL_0045: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_004a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004f: ldc.i4.s 102
+   IL_0051: ldc.i4.1
+   IL_0052: callvirt Celeste.Debris Celeste.Debris::Init(Microsoft.Xna.Framework.Vector2,System.Char,System.Boolean)
+   IL_0057: ldloc.0
+   IL_0058: callvirt Celeste.Debris Celeste.Debris::BlastFrom(Microsoft.Xna.Framework.Vector2)
+   IL_005d: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0062: ldloc.2
+   IL_0063: ldc.i4.1
+   IL_0064: add
+   IL_0065: stloc.2
+   IL_0066: ldloc.2
+   IL_0067: conv.r4
+   IL_0068: ldarg.0
+   IL_0069: call System.Single Monocle.Entity::get_Height()
+   IL_006e: ldc.r4 8
+   IL_0073: div
+   IL_0074: blt.s IL_0023
+   IL_0076: ldloc.1
+   IL_0077: ldc.i4.1
+   IL_0078: add
+   IL_0079: stloc.1
+   IL_007a: ldloc.1
+   IL_007b: conv.r4
+   IL_007c: ldarg.0
+   IL_007d: call System.Single Monocle.Entity::get_Width()
+   IL_0082: ldc.r4 8
+   IL_0087: div
+   IL_0088: blt.s IL_001f
+   IL_008a: ldarg.0
+   IL_008b: callvirt System.Void Celeste.FinalBossMovingBlock::BreakParticles()
+   IL_0090: ldarg.0
+   IL_0091: call System.Void Celeste.Platform::DestroyStaticMovers()
+   IL_0096: ldarg.0
+   IL_0097: call System.Void Monocle.Entity::RemoveSelf()
+   IL_009c: ret

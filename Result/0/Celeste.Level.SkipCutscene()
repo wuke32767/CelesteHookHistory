@@ -1,0 +1,62 @@
+On: PrismaticHelper.Cutscenes.ParserHooks.Level_SkipCutscene(orig_SkipCutscene,Level)
+On: Celeste.Mod.LuaCutscenes.ChoicePrompt.ClearOptionsOnSkip(orig_SkipCutscene,Level)
+On: Celeste.Mod.DialogConsole.DialogConsoleModule.LevelSkipCutsceneHook(orig_SkipCutscene,Level)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.1
+   IL_0002: stfld System.Boolean Celeste.Level::SkippingCutscene
+   IL_0007: ldc.r4 1
+   IL_000c: stsfld System.Single Monocle.Engine::TimeRate
+   IL_0011: ldc.r4 0
+   IL_0016: call System.Void Celeste.Distort::set_Anxiety(System.Single)
+   IL_001b: ldc.r4 1
+   IL_0020: call System.Void Celeste.Distort::set_GameRate(System.Single)
+   IL_0025: ldarg.0
+   IL_0026: ldfld System.Boolean Celeste.Level::endingChapterAfterCutscene
+   IL_002b: brfalse.s IL_0038
+   IL_002d: ldstr "bus:/gameplay_sfx"
+   IL_0032: ldc.i4.1
+   IL_0033: call System.Void Celeste.Audio::BusStopAll(System.String,System.Boolean)
+   IL_0038: newobj System.Void System.Collections.Generic.List`1<Monocle.Entity>::.ctor()
+   IL_003d: stloc.0
+   IL_003e: ldarg.0
+   IL_003f: call Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0044: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.Textbox>()
+   IL_0049: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_004e: stloc.1
+   IL_004f: br.s IL_0060
+   IL_0051: ldloca.s V_1
+   IL_0053: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_0058: stloc.2
+   IL_0059: ldloc.0
+   IL_005a: ldloc.2
+   IL_005b: callvirt System.Void System.Collections.Generic.List`1<Monocle.Entity>::Add(T)
+   IL_0060: ldloca.s V_1
+   IL_0062: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0067: brtrue.s IL_0051
+   IL_0069: leave.s IL_0079
+   IL_006b: ldloca.s V_1
+   IL_006d: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0073: callvirt System.Void System.IDisposable::Dispose()
+   IL_0078: endfinally
+   IL_0079: ldloc.0
+   IL_007a: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_007f: stloc.1
+   IL_0080: br.s IL_008e
+   IL_0082: ldloca.s V_1
+   IL_0084: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_0089: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_008e: ldloca.s V_1
+   IL_0090: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0095: brtrue.s IL_0082
+   IL_0097: leave.s IL_00a7
+   IL_0099: ldloca.s V_1
+   IL_009b: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_00a1: callvirt System.Void System.IDisposable::Dispose()
+   IL_00a6: endfinally
+   IL_00a7: ldarg.0
+   IL_00a8: ldarg.0
+   IL_00a9: callvirt System.Collections.IEnumerator Celeste.Level::SkipCutsceneRoutine()
+   IL_00ae: ldc.i4.1
+   IL_00af: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_00b4: stfld Monocle.Coroutine Celeste.Level::skipCoroutine
+   IL_00b9: ret

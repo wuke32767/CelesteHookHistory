@@ -1,0 +1,64 @@
+On: Celeste.Mod.Randomizer.RandoModule.NoAchievements(orig_Register,Achievement)
+On: TAS.EverestInterop.DisableAchievements.Achievements_Register(orig_Register,Achievement)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.7
+   IL_0002: sub
+   IL_0003: switch IL_002c,IL_002c,IL_002c,IL_002c,IL_004f,IL_0096
+   IL_0020: ldarg.0
+   IL_0021: ldc.i4.s 29
+   IL_0023: sub
+   IL_0024: ldc.i4.2
+   IL_0025: ble.un.s IL_004f
+   IL_0027: br IL_00a9
+   IL_002c: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0031: castclass Celeste.SaveData
+   IL_0036: dup
+   IL_0037: brtrue.s IL_003d
+   IL_0039: pop
+   IL_003a: ldnull
+   IL_003b: br.s IL_0042
+   IL_003d: callvirt System.String Celeste.SaveData::get_LevelSet()
+   IL_0042: ldstr "Celeste"
+   IL_0047: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_004c: stloc.0
+   IL_004d: br.s IL_00ab
+   IL_004f: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0054: isinst Celeste.Level
+   IL_0059: dup
+   IL_005a: brtrue.s IL_0073
+   IL_005c: pop
+   IL_005d: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0062: isinst Celeste.LevelLoader
+   IL_0067: dup
+   IL_0068: brtrue.s IL_006e
+   IL_006a: pop
+   IL_006b: ldnull
+   IL_006c: br.s IL_0073
+   IL_006e: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0073: dup
+   IL_0074: brtrue.s IL_007a
+   IL_0076: pop
+   IL_0077: ldnull
+   IL_0078: br.s IL_0089
+   IL_007a: ldfld Celeste.Session Celeste.Level::Session
+   IL_007f: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0084: call System.String Celeste.AreaKeyExt::GetLevelSet(Celeste.AreaKey)
+   IL_0089: ldstr "Celeste"
+   IL_008e: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0093: stloc.0
+   IL_0094: br.s IL_00ab
+   IL_0096: ldstr "Pico8Tilemap"
+   IL_009b: ldloca.s V_1
+   IL_009d: ldc.i4.0
+   IL_009e: call System.Boolean Celeste.Mod.Everest/Content::TryGet<Celeste.Mod.AssetTypeText>(System.String,Celeste.Mod.ModAsset&,System.Boolean)
+   IL_00a3: ldc.i4.0
+   IL_00a4: ceq
+   IL_00a6: stloc.0
+   IL_00a7: br.s IL_00ab
+   IL_00a9: ldc.i4.1
+   IL_00aa: stloc.0
+   IL_00ab: ldloc.0
+   IL_00ac: brfalse.s IL_00b4
+   IL_00ae: ldarg.0
+   IL_00af: call System.Void Celeste.Achievements::orig_Register(Celeste.Achievement)
+   IL_00b4: ret

@@ -1,0 +1,17 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomSnowballOnPlayer(orig_OnPlayer,Snowball,Player)
+   IL_0000: ldarg.1
+   IL_0001: ldc.r4 -1
+   IL_0006: ldc.r4 0
+   IL_000b: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0010: ldc.i4.0
+   IL_0011: ldc.i4.1
+   IL_0012: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_0017: pop
+   IL_0018: ldarg.0
+   IL_0019: callvirt System.Void Celeste.Snowball::Destroy()
+   IL_001e: ldstr "event:/game/04_cliffside/snowball_impact"
+   IL_0023: ldarg.0
+   IL_0024: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0029: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_002e: pop
+   IL_002f: ret

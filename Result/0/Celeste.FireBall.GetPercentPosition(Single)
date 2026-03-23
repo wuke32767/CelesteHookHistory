@@ -1,0 +1,108 @@
+On: ChaosEnsues.Entry.FireBall_GetPercentPosition(orig_GetPercentPosition,FireBall,Single)
+   IL_0000: ldarg.1
+   IL_0001: ldc.r4 0
+   IL_0006: bgt.un.s IL_0015
+   IL_0008: ldarg.0
+   IL_0009: ldfld Microsoft.Xna.Framework.Vector2[] Celeste.FireBall::nodes
+   IL_000e: ldc.i4.0
+   IL_000f: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_0014: ret
+   IL_0015: ldarg.1
+   IL_0016: ldc.r4 1
+   IL_001b: blt.un.s IL_0033
+   IL_001d: ldarg.0
+   IL_001e: ldfld Microsoft.Xna.Framework.Vector2[] Celeste.FireBall::nodes
+   IL_0023: ldarg.0
+   IL_0024: ldfld Microsoft.Xna.Framework.Vector2[] Celeste.FireBall::nodes
+   IL_0029: ldlen
+   IL_002a: conv.i4
+   IL_002b: ldc.i4.1
+   IL_002c: sub
+   IL_002d: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_0032: ret
+   IL_0033: ldarg.0
+   IL_0034: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_0039: ldarg.0
+   IL_003a: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_003f: ldlen
+   IL_0040: conv.i4
+   IL_0041: ldc.i4.1
+   IL_0042: sub
+   IL_0043: ldelem.r4
+   IL_0044: stloc.0
+   IL_0045: ldloc.0
+   IL_0046: ldarg.1
+   IL_0047: mul
+   IL_0048: stloc.1
+   IL_0049: ldc.i4.0
+   IL_004a: stloc.2
+   IL_004b: br.s IL_005e
+   IL_004d: ldarg.0
+   IL_004e: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_0053: ldloc.2
+   IL_0054: ldc.i4.1
+   IL_0055: add
+   IL_0056: ldelem.r4
+   IL_0057: ldloc.1
+   IL_0058: bgt.s IL_006b
+   IL_005a: ldloc.2
+   IL_005b: ldc.i4.1
+   IL_005c: add
+   IL_005d: stloc.2
+   IL_005e: ldloc.2
+   IL_005f: ldarg.0
+   IL_0060: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_0065: ldlen
+   IL_0066: conv.i4
+   IL_0067: ldc.i4.1
+   IL_0068: sub
+   IL_0069: blt.s IL_004d
+   IL_006b: ldloc.2
+   IL_006c: ldarg.0
+   IL_006d: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_0072: ldlen
+   IL_0073: conv.i4
+   IL_0074: ldc.i4.1
+   IL_0075: sub
+   IL_0076: bne.un.s IL_0085
+   IL_0078: ldarg.0
+   IL_0079: ldfld Microsoft.Xna.Framework.Vector2[] Celeste.FireBall::nodes
+   IL_007e: ldc.i4.0
+   IL_007f: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_0084: ret
+   IL_0085: ldarg.0
+   IL_0086: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_008b: ldloc.2
+   IL_008c: ldelem.r4
+   IL_008d: ldloc.0
+   IL_008e: div
+   IL_008f: stloc.3
+   IL_0090: ldarg.0
+   IL_0091: ldfld System.Single[] Celeste.FireBall::lengths
+   IL_0096: ldloc.2
+   IL_0097: ldc.i4.1
+   IL_0098: add
+   IL_0099: ldelem.r4
+   IL_009a: ldloc.0
+   IL_009b: div
+   IL_009c: stloc.s V_4
+   IL_009e: ldarg.1
+   IL_009f: ldloc.3
+   IL_00a0: ldloc.s V_4
+   IL_00a2: ldc.r4 0
+   IL_00a7: ldc.r4 1
+   IL_00ac: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_00b1: stloc.s V_5
+   IL_00b3: ldarg.0
+   IL_00b4: ldfld Microsoft.Xna.Framework.Vector2[] Celeste.FireBall::nodes
+   IL_00b9: ldloc.2
+   IL_00ba: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_00bf: ldarg.0
+   IL_00c0: ldfld Microsoft.Xna.Framework.Vector2[] Celeste.FireBall::nodes
+   IL_00c5: ldloc.2
+   IL_00c6: ldc.i4.1
+   IL_00c7: add
+   IL_00c8: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_00cd: ldloc.s V_5
+   IL_00cf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::Lerp(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00d4: ret

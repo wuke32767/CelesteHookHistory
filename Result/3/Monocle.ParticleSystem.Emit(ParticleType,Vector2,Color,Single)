@@ -1,0 +1,31 @@
+On: LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnEmit_ParticleType_Vector2_Color_float(orig_Emit_ParticleType_Vector2_Color_float,ParticleSystem,ParticleType,Vector2,Color,Single)
+On: Celeste.Mod.SkinModHelper.ParticleModify.onParticleSystem_Emit_PtclV2FC(orig_Emit_ParticleType_Vector2_Color_float,ParticleSystem,ParticleType,Vector2,Color,Single)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_0014 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ldarg type @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000e: call DynamicMethod!Initialize_SimulateTypeCreateCalls!System.Void TAS.Gameplay.Optimization.FastForwardOptimization::Initialize_SimulateTypeCreateCalls(Monocle.ParticleType) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0013: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0014: ldarg.1
+   IL_0015: ldarg.0
+   IL_0016: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_001b: ldarg.0
+   IL_001c: ldfld System.Int32 Monocle.ParticleSystem::nextSlot
+   IL_0021: ldelema Monocle.Particle
+   IL_0026: ldarg.2
+   IL_0027: ldarg.3
+   IL_0028: ldarg.s direction
+   IL_002a: callvirt Monocle.Particle Monocle.ParticleType::Create(Monocle.Particle&,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_002f: pop
+   IL_0030: ldarg.0
+   IL_0031: ldarg.0
+   IL_0032: ldfld System.Int32 Monocle.ParticleSystem::nextSlot
+   IL_0037: ldc.i4.1
+   IL_0038: add
+   IL_0039: ldarg.0
+   IL_003a: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_003f: ldlen
+   IL_0040: conv.i4
+   IL_0041: rem
+   IL_0042: stfld System.Int32 Monocle.ParticleSystem::nextSlot
+   IL_0047: ret

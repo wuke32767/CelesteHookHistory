@@ -1,0 +1,591 @@
+On: Celeste.Mod.GooberHelper.Settings.Root.DebugMapPhysicsUtils.MapEditorHooks.patch_MapEditor_Update(orig_Update,MapEditor)
+   IL_0000: ldloca.s V_0
+   IL_0002: ldarg.0
+   IL_0003: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::lastMouseScreenPosition
+   IL_0008: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_000d: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_0012: callvirt Microsoft.Xna.Framework.Vector2 Monocle.MInput/MouseData::get_Position()
+   IL_0017: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001c: sub
+   IL_001d: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_0022: callvirt System.Single Monocle.Camera::get_Zoom()
+   IL_0027: div
+   IL_0028: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_002d: ldloca.s V_0
+   IL_002f: ldarg.0
+   IL_0030: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::lastMouseScreenPosition
+   IL_0035: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_003a: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_003f: callvirt Microsoft.Xna.Framework.Vector2 Monocle.MInput/MouseData::get_Position()
+   IL_0044: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0049: sub
+   IL_004a: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_004f: callvirt System.Single Monocle.Camera::get_Zoom()
+   IL_0054: div
+   IL_0055: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_005a: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_005f: ldc.i4.s 32
+   IL_0061: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_0066: brfalse.s IL_0097
+   IL_0068: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_006d: ldc.i4 162
+   IL_0072: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_0077: brfalse.s IL_0097
+   IL_0079: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_007e: ldc.r4 6
+   IL_0083: callvirt System.Void Monocle.Camera::set_Zoom(System.Single)
+   IL_0088: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_008d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0092: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
+   IL_0097: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_009c: callvirt System.Int32 Monocle.MInput/MouseData::get_WheelDelta()
+   IL_00a1: call System.Int32 System.Math::Sign(System.Int32)
+   IL_00a6: stloc.1
+   IL_00a7: ldloc.1
+   IL_00a8: ldc.i4.0
+   IL_00a9: ble.s IL_00bc
+   IL_00ab: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_00b0: callvirt System.Single Monocle.Camera::get_Zoom()
+   IL_00b5: ldc.r4 1
+   IL_00ba: bge.s IL_00cd
+   IL_00bc: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_00c1: callvirt System.Single Monocle.Camera::get_Zoom()
+   IL_00c6: ldc.r4 1
+   IL_00cb: ble.un.s IL_00e2
+   IL_00cd: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_00d2: dup
+   IL_00d3: callvirt System.Single Monocle.Camera::get_Zoom()
+   IL_00d8: ldloc.1
+   IL_00d9: conv.r4
+   IL_00da: add
+   IL_00db: callvirt System.Void Monocle.Camera::set_Zoom(System.Single)
+   IL_00e0: br.s IL_00fb
+   IL_00e2: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_00e7: dup
+   IL_00e8: callvirt System.Single Monocle.Camera::get_Zoom()
+   IL_00ed: ldloc.1
+   IL_00ee: conv.r4
+   IL_00ef: ldc.r4 0.25
+   IL_00f4: mul
+   IL_00f5: add
+   IL_00f6: callvirt System.Void Monocle.Camera::set_Zoom(System.Single)
+   IL_00fb: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_0100: ldc.r4 0.25
+   IL_0105: ldc.r4 24
+   IL_010a: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_010f: callvirt System.Single Monocle.Camera::get_Zoom()
+   IL_0114: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_0119: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_011e: callvirt System.Void Monocle.Camera::set_Zoom(System.Single)
+   IL_0123: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_0128: dup
+   IL_0129: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_012e: ldsfld Monocle.VirtualIntegerAxis Celeste.Input::MoveX
+   IL_0133: ldfld System.Int32 Monocle.VirtualIntegerAxis::Value
+   IL_0138: conv.r4
+   IL_0139: ldsfld Monocle.VirtualIntegerAxis Celeste.Input::MoveY
+   IL_013e: ldfld System.Int32 Monocle.VirtualIntegerAxis::Value
+   IL_0143: conv.r4
+   IL_0144: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0149: ldc.r4 300
+   IL_014e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0153: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0158: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_015d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0162: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
+   IL_0167: ldarg.0
+   IL_0168: callvirt System.Void Celeste.Editor.MapEditor::UpdateMouse()
+   IL_016d: ldarg.0
+   IL_016e: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::hovered
+   IL_0173: callvirt System.Void System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::Clear()
+   IL_0178: ldarg.0
+   IL_0179: ldfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_017e: brtrue IL_0482
+   IL_0183: ldarg.0
+   IL_0184: ldarg.0
+   IL_0185: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_018a: stfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mouseDragStart
+   IL_018f: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_0194: callvirt System.Boolean Monocle.MInput/MouseData::get_PressedLeftButton()
+   IL_0199: brfalse IL_0348
+   IL_019e: ldarg.0
+   IL_019f: ldarg.0
+   IL_01a0: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_01a5: callvirt System.Boolean Celeste.Editor.MapEditor::LevelCheck(Microsoft.Xna.Framework.Vector2)
+   IL_01aa: stloc.2
+   IL_01ab: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_01b0: ldc.i4.s 32
+   IL_01b2: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_01b7: brfalse.s IL_01c5
+   IL_01b9: ldarg.0
+   IL_01ba: ldc.i4.1
+   IL_01bb: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_01c0: br IL_067c
+   IL_01c5: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_01ca: ldc.i4 162
+   IL_01cf: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_01d4: brfalse.s IL_01f7
+   IL_01d6: ldloc.2
+   IL_01d7: brfalse.s IL_01eb
+   IL_01d9: ldarg.0
+   IL_01da: ldarg.0
+   IL_01db: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_01e0: callvirt System.Boolean Celeste.Editor.MapEditor::ToggleSelection(Microsoft.Xna.Framework.Vector2)
+   IL_01e5: pop
+   IL_01e6: br IL_067c
+   IL_01eb: ldarg.0
+   IL_01ec: ldc.i4.2
+   IL_01ed: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_01f2: br IL_067c
+   IL_01f7: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_01fc: ldc.i4.s 70
+   IL_01fe: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_0203: brfalse.s IL_0236
+   IL_0205: ldarg.0
+   IL_0206: ldfld System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::levels
+   IL_020b: ldarg.0
+   IL_020c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_0211: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0216: conv.i4
+   IL_0217: ldarg.0
+   IL_0218: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_021d: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0222: conv.i4
+   IL_0223: ldc.i4.s 32
+   IL_0225: ldc.i4.s 32
+   IL_0227: newobj System.Void Celeste.Editor.LevelTemplate::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_022c: callvirt System.Void System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate>::Add(T)
+   IL_0231: br IL_067c
+   IL_0236: ldloc.2
+   IL_0237: brfalse IL_033c
+   IL_023c: ldarg.0
+   IL_023d: ldarg.0
+   IL_023e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_0243: callvirt System.Boolean Celeste.Editor.MapEditor::SelectionCheck(Microsoft.Xna.Framework.Vector2)
+   IL_0248: brtrue.s IL_0257
+   IL_024a: ldarg.0
+   IL_024b: ldarg.0
+   IL_024c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_0251: callvirt System.Boolean Celeste.Editor.MapEditor::SetSelection(Microsoft.Xna.Framework.Vector2)
+   IL_0256: pop
+   IL_0257: ldc.i4.0
+   IL_0258: stloc.3
+   IL_0259: ldarg.0
+   IL_025a: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::selection
+   IL_025f: callvirt System.Int32 System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::get_Count()
+   IL_0264: ldc.i4.1
+   IL_0265: bne.un.s IL_02b3
+   IL_0267: ldarg.0
+   IL_0268: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::selection
+   IL_026d: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::GetEnumerator()
+   IL_0272: stloc.s V_4
+   IL_0274: br.s IL_029a
+   IL_0276: ldloca.s V_4
+   IL_0278: call T System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::get_Current()
+   IL_027d: stloc.s V_5
+   IL_027f: ldloc.s V_5
+   IL_0281: ldarg.0
+   IL_0282: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_0287: callvirt System.Boolean Celeste.Editor.LevelTemplate::ResizePosition(Microsoft.Xna.Framework.Vector2)
+   IL_028c: brfalse.s IL_029a
+   IL_028e: ldloc.s V_5
+   IL_0290: ldfld Celeste.Editor.LevelTemplateType Celeste.Editor.LevelTemplate::Type
+   IL_0295: ldc.i4.1
+   IL_0296: bne.un.s IL_029a
+   IL_0298: ldc.i4.1
+   IL_0299: stloc.3
+   IL_029a: ldloca.s V_4
+   IL_029c: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::MoveNext()
+   IL_02a1: brtrue.s IL_0276
+   IL_02a3: leave.s IL_02b3
+   IL_02a5: ldloca.s V_4
+   IL_02a7: constrained. System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>
+   IL_02ad: callvirt System.Void System.IDisposable::Dispose()
+   IL_02b2: endfinally
+   IL_02b3: ldloc.3
+   IL_02b4: brfalse.s IL_02f6
+   IL_02b6: ldarg.0
+   IL_02b7: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::selection
+   IL_02bc: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::GetEnumerator()
+   IL_02c1: stloc.s V_4
+   IL_02c3: br.s IL_02d1
+   IL_02c5: ldloca.s V_4
+   IL_02c7: call T System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::get_Current()
+   IL_02cc: callvirt System.Void Celeste.Editor.LevelTemplate::StartResizing()
+   IL_02d1: ldloca.s V_4
+   IL_02d3: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::MoveNext()
+   IL_02d8: brtrue.s IL_02c5
+   IL_02da: leave.s IL_02ea
+   IL_02dc: ldloca.s V_4
+   IL_02de: constrained. System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>
+   IL_02e4: callvirt System.Void System.IDisposable::Dispose()
+   IL_02e9: endfinally
+   IL_02ea: ldarg.0
+   IL_02eb: ldc.i4.4
+   IL_02ec: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_02f1: br IL_067c
+   IL_02f6: ldarg.0
+   IL_02f7: callvirt System.Void Celeste.Editor.MapEditor::StoreUndo()
+   IL_02fc: ldarg.0
+   IL_02fd: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::selection
+   IL_0302: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::GetEnumerator()
+   IL_0307: stloc.s V_4
+   IL_0309: br.s IL_0317
+   IL_030b: ldloca.s V_4
+   IL_030d: call T System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::get_Current()
+   IL_0312: callvirt System.Void Celeste.Editor.LevelTemplate::StartMoving()
+   IL_0317: ldloca.s V_4
+   IL_0319: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::MoveNext()
+   IL_031e: brtrue.s IL_030b
+   IL_0320: leave.s IL_0330
+   IL_0322: ldloca.s V_4
+   IL_0324: constrained. System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>
+   IL_032a: callvirt System.Void System.IDisposable::Dispose()
+   IL_032f: endfinally
+   IL_0330: ldarg.0
+   IL_0331: ldc.i4.3
+   IL_0332: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_0337: br IL_067c
+   IL_033c: ldarg.0
+   IL_033d: ldc.i4.2
+   IL_033e: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_0343: br IL_067c
+   IL_0348: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_034d: callvirt System.Boolean Monocle.MInput/MouseData::get_PressedRightButton()
+   IL_0352: brfalse.s IL_03a9
+   IL_0354: ldarg.0
+   IL_0355: ldarg.0
+   IL_0356: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_035b: callvirt Celeste.Editor.LevelTemplate Celeste.Editor.MapEditor::TestCheck(Microsoft.Xna.Framework.Vector2)
+   IL_0360: stloc.s V_6
+   IL_0362: ldloc.s V_6
+   IL_0364: brfalse IL_067c
+   IL_0369: ldloc.s V_6
+   IL_036b: ldfld Celeste.Editor.LevelTemplateType Celeste.Editor.LevelTemplate::Type
+   IL_0370: ldc.i4.1
+   IL_0371: bne.un.s IL_0390
+   IL_0373: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0378: ldc.i4.s 70
+   IL_037a: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_037f: brfalse.s IL_03a8
+   IL_0381: ldarg.0
+   IL_0382: ldfld System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::levels
+   IL_0387: ldloc.s V_6
+   IL_0389: callvirt System.Boolean System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate>::Remove(T)
+   IL_038e: pop
+   IL_038f: ret
+   IL_0390: ldarg.0
+   IL_0391: ldloc.s V_6
+   IL_0393: ldarg.0
+   IL_0394: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_0399: ldc.r4 8
+   IL_039e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_03a3: callvirt System.Void Celeste.Editor.MapEditor::LoadLevel(Celeste.Editor.LevelTemplate,Microsoft.Xna.Framework.Vector2)
+   IL_03a8: ret
+   IL_03a9: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_03ae: callvirt System.Boolean Monocle.MInput/MouseData::get_PressedMiddleButton()
+   IL_03b3: brfalse.s IL_03c1
+   IL_03b5: ldarg.0
+   IL_03b6: ldc.i4.1
+   IL_03b7: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_03bc: br IL_067c
+   IL_03c1: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_03c6: ldc.i4.s 32
+   IL_03c8: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_03cd: brtrue IL_067c
+   IL_03d2: ldarg.0
+   IL_03d3: ldfld System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::levels
+   IL_03d8: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate>::GetEnumerator()
+   IL_03dd: stloc.s V_7
+   IL_03df: br.s IL_0407
+   IL_03e1: ldloca.s V_7
+   IL_03e3: call T System.Collections.Generic.List`1/Enumerator<Celeste.Editor.LevelTemplate>::get_Current()
+   IL_03e8: stloc.s V_8
+   IL_03ea: ldloc.s V_8
+   IL_03ec: ldarg.0
+   IL_03ed: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_03f2: callvirt System.Boolean Celeste.Editor.LevelTemplate::Check(Microsoft.Xna.Framework.Vector2)
+   IL_03f7: brfalse.s IL_0407
+   IL_03f9: ldarg.0
+   IL_03fa: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::hovered
+   IL_03ff: ldloc.s V_8
+   IL_0401: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::Add(T)
+   IL_0406: pop
+   IL_0407: ldloca.s V_7
+   IL_0409: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Editor.LevelTemplate>::MoveNext()
+   IL_040e: brtrue.s IL_03e1
+   IL_0410: leave.s IL_0420
+   IL_0412: ldloca.s V_7
+   IL_0414: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Editor.LevelTemplate>
+   IL_041a: callvirt System.Void System.IDisposable::Dispose()
+   IL_041f: endfinally
+   IL_0420: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0425: ldc.i4 162
+   IL_042a: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_042f: brfalse IL_067c
+   IL_0434: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0439: ldc.i4.s 90
+   IL_043b: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_0440: brfalse.s IL_044d
+   IL_0442: ldarg.0
+   IL_0443: callvirt System.Void Celeste.Editor.MapEditor::Undo()
+   IL_0448: br IL_067c
+   IL_044d: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0452: ldc.i4.s 89
+   IL_0454: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_0459: brfalse.s IL_0466
+   IL_045b: ldarg.0
+   IL_045c: callvirt System.Void Celeste.Editor.MapEditor::Redo()
+   IL_0461: br IL_067c
+   IL_0466: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_046b: ldc.i4.s 65
+   IL_046d: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_0472: brfalse IL_067c
+   IL_0477: ldarg.0
+   IL_0478: callvirt System.Void Celeste.Editor.MapEditor::SelectAll()
+   IL_047d: br IL_067c
+   IL_0482: ldarg.0
+   IL_0483: ldfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_0488: ldc.i4.1
+   IL_0489: bne.un.s IL_04cb
+   IL_048b: ldsfld Monocle.Camera Celeste.Editor.MapEditor::Camera
+   IL_0490: dup
+   IL_0491: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_0496: ldloc.0
+   IL_0497: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_049c: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
+   IL_04a1: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_04a6: callvirt System.Boolean Monocle.MInput/MouseData::get_CheckLeftButton()
+   IL_04ab: brtrue IL_067c
+   IL_04b0: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_04b5: callvirt System.Boolean Monocle.MInput/MouseData::get_CheckMiddleButton()
+   IL_04ba: brtrue IL_067c
+   IL_04bf: ldarg.0
+   IL_04c0: ldc.i4.0
+   IL_04c1: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_04c6: br IL_067c
+   IL_04cb: ldarg.0
+   IL_04cc: ldfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_04d1: ldc.i4.2
+   IL_04d2: bne.un IL_0573
+   IL_04d7: ldarg.0
+   IL_04d8: ldarg.0
+   IL_04d9: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mouseDragStart
+   IL_04de: ldarg.0
+   IL_04df: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_04e4: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Editor.MapEditor::GetMouseRect(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04e9: stloc.s V_9
+   IL_04eb: ldarg.0
+   IL_04ec: ldfld System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::levels
+   IL_04f1: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate>::GetEnumerator()
+   IL_04f6: stloc.s V_7
+   IL_04f8: br.s IL_051c
+   IL_04fa: ldloca.s V_7
+   IL_04fc: call T System.Collections.Generic.List`1/Enumerator<Celeste.Editor.LevelTemplate>::get_Current()
+   IL_0501: stloc.s V_10
+   IL_0503: ldloc.s V_10
+   IL_0505: ldloc.s V_9
+   IL_0507: callvirt System.Boolean Celeste.Editor.LevelTemplate::Check(Microsoft.Xna.Framework.Rectangle)
+   IL_050c: brfalse.s IL_051c
+   IL_050e: ldarg.0
+   IL_050f: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::hovered
+   IL_0514: ldloc.s V_10
+   IL_0516: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::Add(T)
+   IL_051b: pop
+   IL_051c: ldloca.s V_7
+   IL_051e: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Editor.LevelTemplate>::MoveNext()
+   IL_0523: brtrue.s IL_04fa
+   IL_0525: leave.s IL_0535
+   IL_0527: ldloca.s V_7
+   IL_0529: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Editor.LevelTemplate>
+   IL_052f: callvirt System.Void System.IDisposable::Dispose()
+   IL_0534: endfinally
+   IL_0535: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_053a: callvirt System.Boolean Monocle.MInput/MouseData::get_CheckLeftButton()
+   IL_053f: brtrue IL_067c
+   IL_0544: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0549: ldc.i4 162
+   IL_054e: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_0553: brfalse.s IL_055f
+   IL_0555: ldarg.0
+   IL_0556: ldloc.s V_9
+   IL_0558: callvirt System.Void Celeste.Editor.MapEditor::ToggleSelection(Microsoft.Xna.Framework.Rectangle)
+   IL_055d: br.s IL_0567
+   IL_055f: ldarg.0
+   IL_0560: ldloc.s V_9
+   IL_0562: callvirt System.Void Celeste.Editor.MapEditor::SetSelection(Microsoft.Xna.Framework.Rectangle)
+   IL_0567: ldarg.0
+   IL_0568: ldc.i4.0
+   IL_0569: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_056e: br IL_067c
+   IL_0573: ldarg.0
+   IL_0574: ldfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_0579: ldc.i4.3
+   IL_057a: bne.un IL_0612
+   IL_057f: ldarg.0
+   IL_0580: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_0585: ldarg.0
+   IL_0586: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mouseDragStart
+   IL_058b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0590: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Round(Microsoft.Xna.Framework.Vector2)
+   IL_0595: stloc.s V_11
+   IL_0597: ldarg.0
+   IL_0598: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::selection
+   IL_059d: callvirt System.Int32 System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::get_Count()
+   IL_05a2: ldc.i4.1
+   IL_05a3: bne.un.s IL_05b9
+   IL_05a5: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_05aa: ldc.i4 164
+   IL_05af: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_05b4: ldc.i4.0
+   IL_05b5: ceq
+   IL_05b7: br.s IL_05ba
+   IL_05b9: ldc.i4.0
+   IL_05ba: stloc.s V_12
+   IL_05bc: ldarg.0
+   IL_05bd: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::selection
+   IL_05c2: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::GetEnumerator()
+   IL_05c7: stloc.s V_4
+   IL_05c9: br.s IL_05e1
+   IL_05cb: ldloca.s V_4
+   IL_05cd: call T System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::get_Current()
+   IL_05d2: ldloc.s V_11
+   IL_05d4: ldarg.0
+   IL_05d5: ldfld System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::levels
+   IL_05da: ldloc.s V_12
+   IL_05dc: callvirt System.Void Celeste.Editor.LevelTemplate::Move(Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate>,System.Boolean)
+   IL_05e1: ldloca.s V_4
+   IL_05e3: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::MoveNext()
+   IL_05e8: brtrue.s IL_05cb
+   IL_05ea: leave.s IL_05fa
+   IL_05ec: ldloca.s V_4
+   IL_05ee: constrained. System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>
+   IL_05f4: callvirt System.Void System.IDisposable::Dispose()
+   IL_05f9: endfinally
+   IL_05fa: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_05ff: callvirt System.Boolean Monocle.MInput/MouseData::get_CheckLeftButton()
+   IL_0604: brtrue IL_067c
+   IL_0609: ldarg.0
+   IL_060a: ldc.i4.0
+   IL_060b: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_0610: br.s IL_067c
+   IL_0612: ldarg.0
+   IL_0613: ldfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_0618: ldc.i4.4
+   IL_0619: bne.un.s IL_067c
+   IL_061b: ldarg.0
+   IL_061c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mousePosition
+   IL_0621: ldarg.0
+   IL_0622: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::mouseDragStart
+   IL_0627: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_062c: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Round(Microsoft.Xna.Framework.Vector2)
+   IL_0631: stloc.s V_13
+   IL_0633: ldarg.0
+   IL_0634: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::selection
+   IL_0639: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::GetEnumerator()
+   IL_063e: stloc.s V_4
+   IL_0640: br.s IL_0650
+   IL_0642: ldloca.s V_4
+   IL_0644: call T System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::get_Current()
+   IL_0649: ldloc.s V_13
+   IL_064b: callvirt System.Void Celeste.Editor.LevelTemplate::Resize(Microsoft.Xna.Framework.Vector2)
+   IL_0650: ldloca.s V_4
+   IL_0652: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>::MoveNext()
+   IL_0657: brtrue.s IL_0642
+   IL_0659: leave.s IL_0669
+   IL_065b: ldloca.s V_4
+   IL_065d: constrained. System.Collections.Generic.HashSet`1/Enumerator<Celeste.Editor.LevelTemplate>
+   IL_0663: callvirt System.Void System.IDisposable::Dispose()
+   IL_0668: endfinally
+   IL_0669: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_066e: callvirt System.Boolean Monocle.MInput/MouseData::get_CheckLeftButton()
+   IL_0673: brtrue.s IL_067c
+   IL_0675: ldarg.0
+   IL_0676: ldc.i4.0
+   IL_0677: stfld Celeste.Editor.MapEditor/MouseModes Celeste.Editor.MapEditor::mouseMode
+   IL_067c: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0681: ldc.i4.s 49
+   IL_0683: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_0688: brfalse.s IL_0696
+   IL_068a: ldarg.0
+   IL_068b: ldc.i4.0
+   IL_068c: callvirt System.Void Celeste.Editor.MapEditor::SetEditorColor(System.Int32)
+   IL_0691: br IL_0721
+   IL_0696: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_069b: ldc.i4.s 50
+   IL_069d: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_06a2: brfalse.s IL_06b0
+   IL_06a4: ldarg.0
+   IL_06a5: ldc.i4.1
+   IL_06a6: callvirt System.Void Celeste.Editor.MapEditor::SetEditorColor(System.Int32)
+   IL_06ab: br IL_0721
+   IL_06b0: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_06b5: ldc.i4.s 51
+   IL_06b7: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_06bc: brfalse.s IL_06c7
+   IL_06be: ldarg.0
+   IL_06bf: ldc.i4.2
+   IL_06c0: callvirt System.Void Celeste.Editor.MapEditor::SetEditorColor(System.Int32)
+   IL_06c5: br.s IL_0721
+   IL_06c7: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_06cc: ldc.i4.s 52
+   IL_06ce: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_06d3: brfalse.s IL_06de
+   IL_06d5: ldarg.0
+   IL_06d6: ldc.i4.3
+   IL_06d7: callvirt System.Void Celeste.Editor.MapEditor::SetEditorColor(System.Int32)
+   IL_06dc: br.s IL_0721
+   IL_06de: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_06e3: ldc.i4.s 53
+   IL_06e5: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_06ea: brfalse.s IL_06f5
+   IL_06ec: ldarg.0
+   IL_06ed: ldc.i4.4
+   IL_06ee: callvirt System.Void Celeste.Editor.MapEditor::SetEditorColor(System.Int32)
+   IL_06f3: br.s IL_0721
+   IL_06f5: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_06fa: ldc.i4.s 54
+   IL_06fc: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_0701: brfalse.s IL_070c
+   IL_0703: ldarg.0
+   IL_0704: ldc.i4.5
+   IL_0705: callvirt System.Void Celeste.Editor.MapEditor::SetEditorColor(System.Int32)
+   IL_070a: br.s IL_0721
+   IL_070c: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0711: ldc.i4.s 55
+   IL_0713: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_0718: brfalse.s IL_0721
+   IL_071a: ldarg.0
+   IL_071b: ldc.i4.6
+   IL_071c: callvirt System.Void Celeste.Editor.MapEditor::SetEditorColor(System.Int32)
+   IL_0721: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0726: ldc.i4.s 112
+   IL_0728: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_072d: brtrue.s IL_074e
+   IL_072f: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0734: ldc.i4 162
+   IL_0739: callvirt System.Boolean Monocle.MInput/KeyboardData::Check(Microsoft.Xna.Framework.Input.Keys)
+   IL_073e: brfalse.s IL_0755
+   IL_0740: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
+   IL_0745: ldc.i4.s 83
+   IL_0747: callvirt System.Boolean Monocle.MInput/KeyboardData::Pressed(Microsoft.Xna.Framework.Input.Keys)
+   IL_074c: brfalse.s IL_0755
+   IL_074e: ldarg.0
+   IL_074f: callvirt System.Void Celeste.Editor.MapEditor::SaveAndReload()
+   IL_0754: ret
+   IL_0755: ldsfld System.Single Celeste.Editor.MapEditor::saveFlash
+   IL_075a: ldc.r4 0
+   IL_075f: ble.un.s IL_0777
+   IL_0761: ldsfld System.Single Celeste.Editor.MapEditor::saveFlash
+   IL_0766: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_076b: ldc.r4 4
+   IL_0770: mul
+   IL_0771: sub
+   IL_0772: stsfld System.Single Celeste.Editor.MapEditor::saveFlash
+   IL_0777: ldarg.0
+   IL_0778: call Monocle.MInput/MouseData Monocle.MInput::get_Mouse()
+   IL_077d: callvirt Microsoft.Xna.Framework.Vector2 Monocle.MInput/MouseData::get_Position()
+   IL_0782: stfld Microsoft.Xna.Framework.Vector2 Celeste.Editor.MapEditor::lastMouseScreenPosition
+   IL_0787: ldarg.0
+   IL_0788: call System.Void Monocle.Scene::Update()
+   IL_078d: ret

@@ -1,0 +1,40 @@
+On: AltLevelsHelper.Entry.Spikes_IsRiding_Solid(orig_IsRiding_Solid,Spikes,Solid)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Spikes/Directions Celeste.Spikes::Direction
+   IL_0006: stloc.0
+   IL_0007: ldloc.0
+   IL_0008: switch IL_001f,IL_0037,IL_004f,IL_0067
+   IL_001d: ldc.i4.0
+   IL_001e: ret
+   IL_001f: ldarg.0
+   IL_0020: ldarg.1
+   IL_0021: ldarg.0
+   IL_0022: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0027: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_002c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0031: call System.Boolean Monocle.Entity::CollideCheckOutside(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_0036: ret
+   IL_0037: ldarg.0
+   IL_0038: ldarg.1
+   IL_0039: ldarg.0
+   IL_003a: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0044: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0049: call System.Boolean Monocle.Entity::CollideCheckOutside(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_004e: ret
+   IL_004f: ldarg.0
+   IL_0050: ldarg.1
+   IL_0051: ldarg.0
+   IL_0052: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0057: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_005c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0061: call System.Boolean Monocle.Entity::CollideCheckOutside(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_0066: ret
+   IL_0067: ldarg.0
+   IL_0068: ldarg.1
+   IL_0069: ldarg.0
+   IL_006a: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_006f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0074: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0079: call System.Boolean Monocle.Entity::CollideCheckOutside(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_007e: ret

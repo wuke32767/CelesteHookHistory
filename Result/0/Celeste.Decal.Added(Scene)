@@ -1,0 +1,114 @@
+On: TileLayoutAnchor.TileLayoutAnchorModule.MakeDecalStartConsistent(orig_Added,Decal,Scene)
+   IL_0000: ldarg.0
+   IL_0001: call System.Int32 Monocle.Entity::get_Depth()
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldarg.1
+   IL_0009: callvirt System.Void Celeste.Decal::orig_Added(Monocle.Scene)
+   IL_000e: ldarg.0
+   IL_000f: ldfld System.Boolean Celeste.Decal::DepthSetByPlacement
+   IL_0014: brfalse.s IL_001d
+   IL_0016: ldarg.0
+   IL_0017: ldloc.0
+   IL_0018: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.String Celeste.Decal::Name
+   IL_0023: callvirt System.String System.String::ToLower()
+   IL_0028: stloc.1
+   IL_0029: ldloc.1
+   IL_002a: ldstr "decals/"
+   IL_002f: ldc.i4.4
+   IL_0030: callvirt System.Boolean System.String::StartsWith(System.String,System.StringComparison)
+   IL_0035: brfalse.s IL_003f
+   IL_0037: ldloc.1
+   IL_0038: ldc.i4.7
+   IL_0039: callvirt System.String System.String::Substring(System.Int32)
+   IL_003e: stloc.1
+   IL_003f: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.DecalRegistry/DecalInfo> Celeste.Mod.DecalRegistry::RegisteredDecals
+   IL_0044: ldloc.1
+   IL_0045: ldloca.s V_2
+   IL_0047: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.DecalRegistry/DecalInfo>::TryGetValue(TKey,TValue&)
+   IL_004c: brtrue.s IL_004f
+   IL_004e: ret
+   IL_004f: ldarg.0
+   IL_0050: ldarg.0
+   IL_0051: ldfld Monocle.Component Celeste.Decal::image
+   IL_0056: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_005b: ldarg.0
+   IL_005c: ldnull
+   IL_005d: stfld Monocle.Component Celeste.Decal::image
+   IL_0062: ldloca.s V_2
+   IL_0064: call System.Collections.Generic.List`1<Celeste.Mod.Registry.DecalRegistryHandlers.DecalRegistryHandler> Celeste.Mod.DecalRegistry/DecalInfo::get_Handlers()
+   IL_0069: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.Registry.DecalRegistryHandlers.DecalRegistryHandler>::GetEnumerator()
+   IL_006e: stloc.3
+   IL_006f: br IL_010e
+   IL_0074: ldloca.s V_3
+   IL_0076: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.Registry.DecalRegistryHandlers.DecalRegistryHandler>::get_Current()
+   IL_007b: stloc.s V_4
+   IL_007d: ldloc.s V_4
+   IL_007f: ldarg.0
+   IL_0080: callvirt System.Void Celeste.Mod.Registry.DecalRegistryHandlers.DecalRegistryHandler::ApplyTo(Celeste.Decal)
+   IL_0085: leave IL_010e
+   IL_008a: ldstr "postcard_decalregerror"
+   IL_008f: ldnull
+   IL_0090: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_0095: ldstr "((property))"
+   IL_009a: ldloc.s V_4
+   IL_009c: callvirt System.String Celeste.Mod.Registry.DecalRegistryHandlers.DecalRegistryHandler::get_Name()
+   IL_00a1: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_00a6: ldstr "((decal))"
+   IL_00ab: ldloc.1
+   IL_00ac: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_00b1: stsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_00b6: ldstr "Decal Registry"
+   IL_00bb: stloc.s V_5
+   IL_00bd: ldloc.s V_5
+   IL_00bf: ldc.i4.s 31
+   IL_00c1: ldc.i4.2
+   IL_00c2: ldloc.s V_5
+   IL_00c4: ldloca.s V_7
+   IL_00c6: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_00cb: stloc.s V_6
+   IL_00cd: ldloc.s V_7
+   IL_00cf: brfalse.s IL_00ff
+   IL_00d1: ldloca.s V_6
+   IL_00d3: ldstr "Failed to apply property '"
+   IL_00d8: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_00dd: ldloca.s V_6
+   IL_00df: ldloc.s V_4
+   IL_00e1: callvirt System.String Celeste.Mod.Registry.DecalRegistryHandlers.DecalRegistryHandler::get_Name()
+   IL_00e6: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_00eb: ldloca.s V_6
+   IL_00ed: ldstr "' to "
+   IL_00f2: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_00f7: ldloca.s V_6
+   IL_00f9: ldloc.1
+   IL_00fa: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_00ff: ldloc.s V_6
+   IL_0101: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_0106: ldnull
+   IL_0107: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_010c: leave.s IL_010e
+   IL_010e: ldloca.s V_3
+   IL_0110: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.Registry.DecalRegistryHandlers.DecalRegistryHandler>::MoveNext()
+   IL_0115: brtrue IL_0074
+   IL_011a: leave.s IL_012a
+   IL_011c: ldloca.s V_3
+   IL_011e: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.Registry.DecalRegistryHandlers.DecalRegistryHandler>
+   IL_0124: callvirt System.Void System.IDisposable::Dispose()
+   IL_0129: endfinally
+   IL_012a: ldarg.0
+   IL_012b: ldloc.2
+   IL_012c: call System.Void Celeste.Mod.Everest/Events/Decal::HandleDecalRegistry(Celeste.Decal,Celeste.Mod.DecalRegistry/DecalInfo)
+   IL_0131: ldarg.0
+   IL_0132: ldfld Monocle.Component Celeste.Decal::image
+   IL_0137: brtrue.s IL_014f
+   IL_0139: ldarg.0
+   IL_013a: ldarg.0
+   IL_013b: newobj System.Void Celeste.Decal/DecalImage::.ctor()
+   IL_0140: dup
+   IL_0141: stloc.s V_8
+   IL_0143: stfld Monocle.Component Celeste.Decal::image
+   IL_0148: ldloc.s V_8
+   IL_014a: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_014f: ret

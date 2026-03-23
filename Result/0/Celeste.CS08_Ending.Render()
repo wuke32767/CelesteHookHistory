@@ -1,0 +1,30 @@
+On: TAS.EverestInterop.AreaCompleteInfo.CS08_EndingOnRender(orig_Render,CS08_Ending)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Single Celeste.CS08_Ending::fade
+   IL_0006: ldc.r4 0
+   IL_000b: ble.un.s IL_0036
+   IL_000d: ldc.r4 -10
+   IL_0012: ldc.r4 -10
+   IL_0017: ldc.r4 1940
+   IL_001c: ldc.r4 1100
+   IL_0021: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0026: ldarg.0
+   IL_0027: ldfld System.Single Celeste.CS08_Ending::fade
+   IL_002c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0031: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0036: ldarg.0
+   IL_0037: call System.Void Monocle.Entity::Render()
+   IL_003c: ldsfld Celeste.Settings Celeste.Settings::Instance
+   IL_0041: ldfld Celeste.SpeedrunType Celeste.Settings::SpeedrunClock
+   IL_0046: brfalse.s IL_006b
+   IL_0048: ldarg.0
+   IL_0049: ldfld System.Single Celeste.CS08_Ending::versionAlpha
+   IL_004e: ldc.r4 0
+   IL_0053: ble.un.s IL_006b
+   IL_0055: ldarg.0
+   IL_0056: ldfld System.String Celeste.CS08_Ending::version
+   IL_005b: ldarg.0
+   IL_005c: ldfld System.Single Celeste.CS08_Ending::versionAlpha
+   IL_0061: ldc.r4 1
+   IL_0066: call System.Void Celeste.AreaComplete::VersionNumberAndVariants(System.String,System.Single,System.Single)
+   IL_006b: ret

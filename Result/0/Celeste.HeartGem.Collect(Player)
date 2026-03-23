@@ -1,0 +1,53 @@
+On: GoldenTrainer.GoldenTrainerModule.RespawnAtEndCrystal(orig_Collect,HeartGem,Player)
+On: Celeste.Mod.EmoteMod.EmoteWheelModule.OnHeartGemCollect(orig_Collect,HeartGem,Player)
+On: Celeste.Mod.DJMapHelper.Entities.AngryOshiroRight.HeartGemOnCollect(orig_Collect,HeartGem,Player)
+On: ExtendedVariants.Variants.OshiroEverywhere.modHeartGemCollect(orig_Collect,HeartGem,Player)
+On: ExtendedVariants.Variants.AddSeekers.onHeartGemCollect(orig_Collect,HeartGem,Player)
+On: Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrystalHeart.onHeartGemCollect(orig_Collect,HeartGem,Player)
+On: Celeste.Mod.ARandomizerMod.ARandomizerModModule.HeartCollected(orig_Collect,HeartGem,Player)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000b: callvirt T Monocle.Tracker::GetEntity<Celeste.AngryOshiro>()
+   IL_0010: stloc.0
+   IL_0011: ldloc.0
+   IL_0012: brfalse.s IL_001a
+   IL_0014: ldloc.0
+   IL_0015: callvirt System.Void Celeste.AngryOshiro::StopControllingTime()
+   IL_001a: ldarg.0
+   IL_001b: ldarg.1
+   IL_001c: callvirt System.Collections.IEnumerator Celeste.HeartGem::CollectRoutine(Celeste.Player)
+   IL_0021: ldc.i4.1
+   IL_0022: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0027: stloc.1
+   IL_0028: ldloc.1
+   IL_0029: ldc.i4.1
+   IL_002a: stfld System.Boolean Monocle.Coroutine::UseRawDeltaTime
+   IL_002f: ldarg.0
+   IL_0030: ldloc.1
+   IL_0031: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0036: ldarg.0
+   IL_0037: ldc.i4.1
+   IL_0038: stfld System.Boolean Celeste.HeartGem::collected
+   IL_003d: ldarg.0
+   IL_003e: ldfld System.Boolean Celeste.HeartGem::removeCameraTriggers
+   IL_0043: brfalse.s IL_0082
+   IL_0045: ldarg.0
+   IL_0046: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_004b: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_0050: callvirt System.Collections.Generic.List`1<T> Monocle.EntityList::FindAll<Celeste.CameraOffsetTrigger>()
+   IL_0055: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.CameraOffsetTrigger>::GetEnumerator()
+   IL_005a: stloc.2
+   IL_005b: br.s IL_0069
+   IL_005d: ldloca.s V_2
+   IL_005f: call T System.Collections.Generic.List`1/Enumerator<Celeste.CameraOffsetTrigger>::get_Current()
+   IL_0064: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_0069: ldloca.s V_2
+   IL_006b: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.CameraOffsetTrigger>::MoveNext()
+   IL_0070: brtrue.s IL_005d
+   IL_0072: leave.s IL_0082
+   IL_0074: ldloca.s V_2
+   IL_0076: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.CameraOffsetTrigger>
+   IL_007c: callvirt System.Void System.IDisposable::Dispose()
+   IL_0081: endfinally
+   IL_0082: ret

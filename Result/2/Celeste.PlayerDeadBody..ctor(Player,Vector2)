@@ -1,0 +1,69 @@
+On: Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDeadBodyCtor(orig_ctor,PlayerDeadBody,Player,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0006: stfld Microsoft.Xna.Framework.Vector2 Celeste.PlayerDeadBody::bounce
+   IL_000b: ldarg.0
+   IL_000c: ldc.r4 1
+   IL_0011: stfld System.Single Celeste.PlayerDeadBody::scale
+   IL_0016: ldarg.0
+   IL_0017: call System.Void Monocle.Entity::.ctor()
+   IL_001c: ldarg.0
+   IL_001d: ldc.i4 -1000000
+   IL_0022: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0027: ldarg.0
+   IL_0028: ldarg.1
+   IL_0029: stfld Celeste.Player Celeste.PlayerDeadBody::player
+   IL_002e: ldarg.0
+   IL_002f: ldarg.1
+   IL_0030: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_0035: stfld Celeste.Facings Celeste.PlayerDeadBody::facing
+   IL_003a: ldarg.0
+   IL_003b: ldarg.1
+   IL_003c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0041: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0046: ldarg.0
+   IL_0047: ldarg.0
+   IL_0048: ldarg.1
+   IL_0049: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_004e: dup
+   IL_004f: stloc.0
+   IL_0050: stfld Celeste.PlayerHair Celeste.PlayerDeadBody::hair
+   IL_0055: ldloc.0
+   IL_0056: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_005b: ldarg.0
+   IL_005c: ldarg.0
+   IL_005d: ldarg.1
+   IL_005e: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0063: dup
+   IL_0064: stloc.1
+   IL_0065: stfld Celeste.PlayerSprite Celeste.PlayerDeadBody::sprite
+   IL_006a: ldloc.1
+   IL_006b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0070: ldarg.0
+   IL_0071: ldarg.0
+   IL_0072: ldarg.1
+   IL_0073: ldfld Celeste.VertexLight Celeste.Player::Light
+   IL_0078: dup
+   IL_0079: stloc.2
+   IL_007a: stfld Celeste.VertexLight Celeste.PlayerDeadBody::light
+   IL_007f: ldloc.2
+   IL_0080: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0085: ldarg.0
+   IL_0086: ldfld Celeste.PlayerSprite Celeste.PlayerDeadBody::sprite
+   IL_008b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0090: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0095: ldarg.0
+   IL_0096: ldarg.0
+   IL_0097: ldfld Celeste.PlayerHair Celeste.PlayerDeadBody::hair
+   IL_009c: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_00a1: stfld Microsoft.Xna.Framework.Color Celeste.PlayerDeadBody::initialHairColor
+   IL_00a6: ldarg.0
+   IL_00a7: ldarg.2
+   IL_00a8: stfld Microsoft.Xna.Framework.Vector2 Celeste.PlayerDeadBody::bounce
+   IL_00ad: ldarg.0
+   IL_00ae: ldarg.0
+   IL_00af: callvirt System.Collections.IEnumerator Celeste.PlayerDeadBody::DeathRoutine()
+   IL_00b4: ldc.i4.1
+   IL_00b5: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_00ba: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00bf: ret

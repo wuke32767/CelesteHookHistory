@@ -1,0 +1,113 @@
+On: Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.SwapBlock_Render(orig_Render,SwapBlock)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0006: ldarg.0
+   IL_0007: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_Shake()
+   IL_000c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0011: stloc.0
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Single Celeste.SwapBlock::lerp
+   IL_0018: ldarg.0
+   IL_0019: ldfld System.Int32 Celeste.SwapBlock::target
+   IL_001e: conv.r4
+   IL_001f: beq IL_00c9
+   IL_0024: ldarg.0
+   IL_0025: ldfld System.Single Celeste.SwapBlock::speed
+   IL_002a: ldc.r4 0
+   IL_002f: ble.un IL_00c9
+   IL_0034: ldarg.0
+   IL_0035: ldfld Microsoft.Xna.Framework.Vector2 Celeste.SwapBlock::end
+   IL_003a: ldarg.0
+   IL_003b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.SwapBlock::start
+   IL_0040: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0045: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_004a: stloc.1
+   IL_004b: ldarg.0
+   IL_004c: ldfld System.Int32 Celeste.SwapBlock::target
+   IL_0051: ldc.i4.1
+   IL_0052: bne.un.s IL_0060
+   IL_0054: ldloc.1
+   IL_0055: ldc.r4 -1
+   IL_005a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_005f: stloc.1
+   IL_0060: ldarg.0
+   IL_0061: ldfld System.Single Celeste.SwapBlock::speed
+   IL_0066: ldarg.0
+   IL_0067: ldfld System.Single Celeste.SwapBlock::maxForwardSpeed
+   IL_006c: div
+   IL_006d: stloc.2
+   IL_006e: ldc.r4 16
+   IL_0073: ldloc.2
+   IL_0074: mul
+   IL_0075: stloc.3
+   IL_0076: ldc.i4.2
+   IL_0077: stloc.s V_4
+   IL_0079: br.s IL_00c3
+   IL_007b: ldarg.0
+   IL_007c: ldloc.0
+   IL_007d: ldloc.1
+   IL_007e: ldloc.s V_4
+   IL_0080: conv.r4
+   IL_0081: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0086: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_008b: ldarg.0
+   IL_008c: call System.Single Monocle.Entity::get_Width()
+   IL_0091: ldarg.0
+   IL_0092: call System.Single Monocle.Entity::get_Height()
+   IL_0097: ldarg.0
+   IL_0098: ldfld Monocle.MTexture[0...,0...] Celeste.SwapBlock::nineSliceGreen
+   IL_009d: ldarg.0
+   IL_009e: ldfld Monocle.Sprite Celeste.SwapBlock::middleGreen
+   IL_00a3: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00a8: ldc.r4 1
+   IL_00ad: ldloc.s V_4
+   IL_00af: conv.r4
+   IL_00b0: ldloc.3
+   IL_00b1: div
+   IL_00b2: sub
+   IL_00b3: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00b8: callvirt System.Void Celeste.SwapBlock::DrawBlockStyle(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,Monocle.MTexture[0...,0...],Monocle.Sprite,Microsoft.Xna.Framework.Color)
+   IL_00bd: ldloc.s V_4
+   IL_00bf: ldc.i4.2
+   IL_00c0: add
+   IL_00c1: stloc.s V_4
+   IL_00c3: ldloc.s V_4
+   IL_00c5: conv.r4
+   IL_00c6: ldloc.3
+   IL_00c7: blt.s IL_007b
+   IL_00c9: ldarg.0
+   IL_00ca: ldfld System.Single Celeste.SwapBlock::redAlpha
+   IL_00cf: ldc.r4 1
+   IL_00d4: bge.un.s IL_00fa
+   IL_00d6: ldarg.0
+   IL_00d7: ldloc.0
+   IL_00d8: ldarg.0
+   IL_00d9: call System.Single Monocle.Entity::get_Width()
+   IL_00de: ldarg.0
+   IL_00df: call System.Single Monocle.Entity::get_Height()
+   IL_00e4: ldarg.0
+   IL_00e5: ldfld Monocle.MTexture[0...,0...] Celeste.SwapBlock::nineSliceGreen
+   IL_00ea: ldarg.0
+   IL_00eb: ldfld Monocle.Sprite Celeste.SwapBlock::middleGreen
+   IL_00f0: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00f5: callvirt System.Void Celeste.SwapBlock::DrawBlockStyle(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,Monocle.MTexture[0...,0...],Monocle.Sprite,Microsoft.Xna.Framework.Color)
+   IL_00fa: ldarg.0
+   IL_00fb: ldfld System.Single Celeste.SwapBlock::redAlpha
+   IL_0100: ldc.r4 0
+   IL_0105: ble.un.s IL_0136
+   IL_0107: ldarg.0
+   IL_0108: ldloc.0
+   IL_0109: ldarg.0
+   IL_010a: call System.Single Monocle.Entity::get_Width()
+   IL_010f: ldarg.0
+   IL_0110: call System.Single Monocle.Entity::get_Height()
+   IL_0115: ldarg.0
+   IL_0116: ldfld Monocle.MTexture[0...,0...] Celeste.SwapBlock::nineSliceRed
+   IL_011b: ldarg.0
+   IL_011c: ldfld Monocle.Sprite Celeste.SwapBlock::middleRed
+   IL_0121: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0126: ldarg.0
+   IL_0127: ldfld System.Single Celeste.SwapBlock::redAlpha
+   IL_012c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0131: callvirt System.Void Celeste.SwapBlock::DrawBlockStyle(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,Monocle.MTexture[0...,0...],Monocle.Sprite,Microsoft.Xna.Framework.Color)
+   IL_0136: ret

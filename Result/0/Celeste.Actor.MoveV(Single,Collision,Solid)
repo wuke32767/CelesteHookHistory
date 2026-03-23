@@ -1,0 +1,38 @@
+On: VivHelper.Entities.HoldableBarrier.SolidForHoldablesV(orig_MoveV,Actor,Single,Collision,Solid)
+On: Celeste.Mod.FemtoHelper.Entities.MovementModifier.Actor_MoveV(orig_MoveV,Actor,Single,Collision,Solid)
+On: Celeste.Mod.CommunalHelper.Entities.DreamBoosterHooks.Actor_MoveV(orig_MoveV,Actor,Single,Collision,Solid)
+   IL_0000: ldarg.0
+   IL_0001: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Actor::movementCounter
+   IL_0006: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_000b: dup
+   IL_000c: ldind.r4
+   IL_000d: ldarg.1
+   IL_000e: add
+   IL_000f: stind.r4
+   IL_0010: ldarg.0
+   IL_0011: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Actor::movementCounter
+   IL_0016: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_001b: conv.r8
+   IL_001c: ldc.i4.0
+   IL_001d: call System.Double System.Math::Round(System.Double,System.MidpointRounding)
+   IL_0022: conv.i4
+   IL_0023: stloc.0
+   IL_0024: ldloc.0
+   IL_0025: brfalse.s IL_0042
+   IL_0027: ldarg.0
+   IL_0028: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Actor::movementCounter
+   IL_002d: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0032: dup
+   IL_0033: ldind.r4
+   IL_0034: ldloc.0
+   IL_0035: conv.r4
+   IL_0036: sub
+   IL_0037: stind.r4
+   IL_0038: ldarg.0
+   IL_0039: ldloc.0
+   IL_003a: ldarg.2
+   IL_003b: ldarg.3
+   IL_003c: callvirt System.Boolean Celeste.Actor::MoveVExact(System.Int32,Celeste.Collision,Celeste.Solid)
+   IL_0041: ret
+   IL_0042: ldc.i4.0
+   IL_0043: ret

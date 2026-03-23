@@ -1,0 +1,1815 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call DynamicMethod!Init_PushRandom!System.Void TAS.Gameplay.DesyncFix.SeededRandomness/AuraHelperLanternHandler::Init_PushRandom() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0005: nop
+   IL_0006: ldarg.0
+   IL_0007: call System.Void Monocle.Entity::Update()
+   IL_000c: nop
+   IL_000d: ldarg.0
+   IL_000e: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0013: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0018: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_001d: stloc.0
+   IL_001e: ldarg.0
+   IL_001f: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0024: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0029: callvirt T Monocle.Tracker::GetEntity<AuraHelper.Shovel>()
+   IL_002e: stloc.1
+   IL_002f: ldarg.0
+   IL_0030: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0035: stloc.2
+   IL_0036: ldloc.1
+   IL_0037: ldfld System.Boolean AuraHelper.Shovel::attack
+   IL_003c: brfalse.s IL_005a
+   IL_003e: ldarg.0
+   IL_003f: ldloc.1
+   IL_0040: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_0045: brfalse.s IL_005a
+   IL_0047: ldarg.0
+   IL_0048: ldfld System.Boolean AuraHelper.Lantern::dead
+   IL_004d: brtrue.s IL_005a
+   IL_004f: ldarg.0
+   IL_0050: ldfld System.Boolean AuraHelper.Lantern::attacked
+   IL_0055: ldc.i4.0
+   IL_0056: ceq
+   IL_0058: br.s IL_005b
+   IL_005a: ldc.i4.0
+   IL_005b: stloc.s V_4
+   IL_005d: ldloc.s V_4
+   IL_005f: brfalse IL_01aa
+   IL_0064: nop
+   IL_0065: ldstr "event:/game/06_reflection/pinballbumper_hit"
+   IL_006a: ldarg.0
+   IL_006b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0070: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0075: pop
+   IL_0076: ldarg.0
+   IL_0077: ldc.i4.0
+   IL_0078: stfld System.Int32 AuraHelper.Lantern::index
+   IL_007d: ldarg.0
+   IL_007e: ldarg.0
+   IL_007f: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_0084: ldc.i4.1
+   IL_0085: sub
+   IL_0086: stfld System.Int32 AuraHelper.Lantern::hp
+   IL_008b: ldarg.0
+   IL_008c: ldc.i4.1
+   IL_008d: stfld System.Boolean AuraHelper.Lantern::attacked
+   IL_0092: ldarg.0
+   IL_0093: ldarg.0
+   IL_0094: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0099: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_009e: nop
+   IL_009f: ldarg.0
+   IL_00a0: ldc.i4.3
+   IL_00a1: stfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_00a6: ldarg.0
+   IL_00a7: ldarg.0
+   IL_00a8: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_00ad: ldstr "objects/monsters/lantern/hurt"
+   IL_00b2: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_00b7: dup
+   IL_00b8: stloc.s V_5
+   IL_00ba: stfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_00bf: ldloc.s V_5
+   IL_00c1: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00c6: nop
+   IL_00c7: ldarg.0
+   IL_00c8: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_00cd: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_00d2: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00d7: dup
+   IL_00d8: ldind.r4
+   IL_00d9: ldc.r4 5
+   IL_00de: sub
+   IL_00df: stind.r4
+   IL_00e0: ldarg.0
+   IL_00e1: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_00e6: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_00eb: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00f0: dup
+   IL_00f1: ldind.r4
+   IL_00f2: ldc.r4 6
+   IL_00f7: sub
+   IL_00f8: stind.r4
+   IL_00f9: ldarg.0
+   IL_00fa: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_00ff: ldstr "hurt"
+   IL_0104: ldstr ""
+   IL_0109: ldc.r4 0.05
+   IL_010e: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single)
+   IL_0113: nop
+   IL_0114: ldarg.0
+   IL_0115: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_011a: ldstr "hurt"
+   IL_011f: ldc.i4.0
+   IL_0120: ldc.i4.0
+   IL_0121: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0126: nop
+   IL_0127: ldarg.0
+   IL_0128: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_012d: ldc.i4.5
+   IL_012e: ceq
+   IL_0130: stloc.s V_6
+   IL_0132: ldloc.s V_6
+   IL_0134: brfalse.s IL_0141
+   IL_0136: ldarg.0
+   IL_0137: ldc.i4 400
+   IL_013c: stfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0141: ldarg.0
+   IL_0142: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_0147: ldc.i4.4
+   IL_0148: ceq
+   IL_014a: stloc.s V_7
+   IL_014c: ldloc.s V_7
+   IL_014e: brfalse.s IL_015b
+   IL_0150: ldarg.0
+   IL_0151: ldc.i4 600
+   IL_0156: stfld System.Int32 AuraHelper.Lantern::colddown
+   IL_015b: ldarg.0
+   IL_015c: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_0161: ldc.i4.3
+   IL_0162: ceq
+   IL_0164: stloc.s V_8
+   IL_0166: ldloc.s V_8
+   IL_0168: brfalse.s IL_0175
+   IL_016a: ldarg.0
+   IL_016b: ldc.i4 600
+   IL_0170: stfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0175: ldarg.0
+   IL_0176: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_017b: ldc.i4.2
+   IL_017c: ceq
+   IL_017e: stloc.s V_9
+   IL_0180: ldloc.s V_9
+   IL_0182: brfalse.s IL_018f
+   IL_0184: ldarg.0
+   IL_0185: ldc.i4 600
+   IL_018a: stfld System.Int32 AuraHelper.Lantern::colddown
+   IL_018f: ldarg.0
+   IL_0190: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_0195: ldc.i4.1
+   IL_0196: ceq
+   IL_0198: stloc.s V_10
+   IL_019a: ldloc.s V_10
+   IL_019c: brfalse.s IL_01a9
+   IL_019e: ldarg.0
+   IL_019f: ldc.i4 600
+   IL_01a4: stfld System.Int32 AuraHelper.Lantern::colddown
+   IL_01a9: nop
+   IL_01aa: ldarg.0
+   IL_01ab: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_01b0: stloc.3
+   IL_01b1: ldarg.0
+   IL_01b2: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_01b7: ldc.i4.5
+   IL_01b8: bne.un.s IL_01c5
+   IL_01ba: ldarg.0
+   IL_01bb: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_01c0: ldc.i4.0
+   IL_01c1: cgt
+   IL_01c3: br.s IL_01c6
+   IL_01c5: ldc.i4.0
+   IL_01c6: stloc.s V_11
+   IL_01c8: ldloc.s V_11
+   IL_01ca: brfalse IL_0316
+   IL_01cf: nop
+   IL_01d0: ldarg.0
+   IL_01d1: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_01d6: ldc.i4.s 40
+   IL_01d8: rem
+   IL_01d9: ldc.i4.0
+   IL_01da: ceq
+   IL_01dc: stloc.s V_12
+   IL_01de: ldloc.s V_12
+   IL_01e0: brfalse IL_0315
+   IL_01e5: nop
+   IL_01e6: ldarg.0
+   IL_01e7: ldfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_01ec: ldc.i4.1
+   IL_01ed: ceq
+   IL_01ef: stloc.s V_14
+   IL_01f1: ldloc.s V_14
+   IL_01f3: brfalse IL_0288
+   IL_01f8: nop
+   IL_01f9: ldarg.0
+   IL_01fa: ldarg.0
+   IL_01fb: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0200: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_0205: nop
+   IL_0206: ldarg.0
+   IL_0207: ldarg.0
+   IL_0208: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_020d: ldstr "objects/monsters/lantern/attack"
+   IL_0212: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_0217: dup
+   IL_0218: stloc.s V_5
+   IL_021a: stfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_021f: ldloc.s V_5
+   IL_0221: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0226: nop
+   IL_0227: ldarg.0
+   IL_0228: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_022d: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0232: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0237: dup
+   IL_0238: ldind.r4
+   IL_0239: ldc.r4 5
+   IL_023e: sub
+   IL_023f: stind.r4
+   IL_0240: ldarg.0
+   IL_0241: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0246: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_024b: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0250: dup
+   IL_0251: ldind.r4
+   IL_0252: ldc.r4 6
+   IL_0257: sub
+   IL_0258: stind.r4
+   IL_0259: ldarg.0
+   IL_025a: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_025f: ldstr "attack"
+   IL_0264: ldstr ""
+   IL_0269: ldc.r4 0.1
+   IL_026e: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single)
+   IL_0273: nop
+   IL_0274: ldarg.0
+   IL_0275: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_027a: ldstr "attack"
+   IL_027f: ldc.i4.0
+   IL_0280: ldc.i4.0
+   IL_0281: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0286: nop
+   IL_0287: nop
+   IL_0288: ldarg.0
+   IL_0289: ldc.i4.1
+   IL_028a: stfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_028f: ldstr "event:/game/general/strawberry_touch"
+   IL_0294: ldarg.0
+   IL_0295: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_029a: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_029f: pop
+   IL_02a0: ldsfld System.Random Monocle.Calc::Random
+   IL_02a5: stloc.s V_13
+   IL_02a7: ldarg.0
+   IL_02a8: ldloc.3
+   IL_02a9: newobj System.Void AuraHelper.Generator::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_02ae: stfld AuraHelper.Generator AuraHelper.Lantern::gene
+   IL_02b3: ldarg.0
+   IL_02b4: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_02b9: ldarg.0
+   IL_02ba: ldfld AuraHelper.Generator AuraHelper.Lantern::gene
+   IL_02bf: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_02c4: nop
+   IL_02c5: ldarg.0
+   IL_02c6: ldfld AuraHelper.Generator AuraHelper.Lantern::gene
+   IL_02cb: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02d0: ldloc.s V_13
+   IL_02d2: ldarg.0
+   IL_02d3: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02d8: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_02dd: conv.i4
+   IL_02de: ldc.i4.s 110
+   IL_02e0: sub
+   IL_02e1: ldarg.0
+   IL_02e2: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02e7: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_02ec: conv.i4
+   IL_02ed: ldc.i4.s 110
+   IL_02ef: add
+   IL_02f0: callvirt System.Int32 System.Random::Next(System.Int32,System.Int32)
+   IL_02f5: conv.r4
+   IL_02f6: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_02fb: ldarg.0
+   IL_02fc: ldfld AuraHelper.Generator AuraHelper.Lantern::gene
+   IL_0301: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0306: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_030b: dup
+   IL_030c: ldind.r4
+   IL_030d: ldc.r4 200
+   IL_0312: sub
+   IL_0313: stind.r4
+   IL_0314: nop
+   IL_0315: nop
+   IL_0316: ldarg.0
+   IL_0317: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_031c: ldc.i4.4
+   IL_031d: bne.un.s IL_032a
+   IL_031f: ldarg.0
+   IL_0320: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0325: ldc.i4.0
+   IL_0326: cgt
+   IL_0328: br.s IL_032b
+   IL_032a: ldc.i4.0
+   IL_032b: stloc.s V_15
+   IL_032d: ldloc.s V_15
+   IL_032f: brfalse IL_0509
+   IL_0334: nop
+   IL_0335: ldarg.0
+   IL_0336: ldc.i4.0
+   IL_0337: stfld System.Boolean AuraHelper.Lantern::lineok
+   IL_033c: ldarg.0
+   IL_033d: ldc.i4.0
+   IL_033e: stfld System.Boolean AuraHelper.Lantern::ok
+   IL_0343: ldarg.0
+   IL_0344: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0349: ldc.i4.s 80
+   IL_034b: rem
+   IL_034c: ldc.i4.s 10
+   IL_034e: blt.s IL_0379
+   IL_0350: ldarg.0
+   IL_0351: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0356: ldc.i4.s 80
+   IL_0358: rem
+   IL_0359: ldc.i4.s 19
+   IL_035b: bgt.s IL_0379
+   IL_035d: ldarg.0
+   IL_035e: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0363: ldc.i4 560
+   IL_0368: bgt.s IL_0379
+   IL_036a: ldarg.0
+   IL_036b: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0370: ldc.i4.s 80
+   IL_0372: clt
+   IL_0374: ldc.i4.0
+   IL_0375: ceq
+   IL_0377: br.s IL_037a
+   IL_0379: ldc.i4.0
+   IL_037a: stloc.s V_16
+   IL_037c: ldloc.s V_16
+   IL_037e: brfalse.s IL_03f8
+   IL_0380: nop
+   IL_0381: ldstr "event:/game/05_mirror_temple/torch_activate"
+   IL_0386: ldarg.0
+   IL_0387: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_038c: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0391: pop
+   IL_0392: ldsfld System.Random Monocle.Calc::Random
+   IL_0397: stloc.s V_17
+   IL_0399: ldloca.s V_3
+   IL_039b: ldloc.s V_17
+   IL_039d: ldarg.0
+   IL_039e: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_03a3: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03a8: conv.i4
+   IL_03a9: ldc.i4.s 118
+   IL_03ab: sub
+   IL_03ac: ldarg.0
+   IL_03ad: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_03b2: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03b7: conv.i4
+   IL_03b8: ldc.i4 154
+   IL_03bd: add
+   IL_03be: callvirt System.Int32 System.Random::Next(System.Int32,System.Int32)
+   IL_03c3: conv.r4
+   IL_03c4: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03c9: ldloca.s V_3
+   IL_03cb: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_03d0: dup
+   IL_03d1: ldind.r4
+   IL_03d2: ldc.r4 85
+   IL_03d7: sub
+   IL_03d8: stind.r4
+   IL_03d9: ldarg.0
+   IL_03da: ldloc.3
+   IL_03db: newobj System.Void AuraHelper.Line::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_03e0: stfld AuraHelper.Line AuraHelper.Lantern::line
+   IL_03e5: ldarg.0
+   IL_03e6: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_03eb: ldarg.0
+   IL_03ec: ldfld AuraHelper.Line AuraHelper.Lantern::line
+   IL_03f1: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_03f6: nop
+   IL_03f7: nop
+   IL_03f8: ldarg.0
+   IL_03f9: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_03fe: ldc.i4.s 80
+   IL_0400: rem
+   IL_0401: ldc.i4.5
+   IL_0402: ceq
+   IL_0404: stloc.s V_18
+   IL_0406: ldloc.s V_18
+   IL_0408: brfalse.s IL_0411
+   IL_040a: ldarg.0
+   IL_040b: ldc.i4.1
+   IL_040c: stfld System.Boolean AuraHelper.Lantern::lineok
+   IL_0411: ldarg.0
+   IL_0412: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0417: ldc.i4.s 80
+   IL_0419: rem
+   IL_041a: ldc.i4.0
+   IL_041b: ceq
+   IL_041d: stloc.s V_19
+   IL_041f: ldloc.s V_19
+   IL_0421: brfalse.s IL_042a
+   IL_0423: ldarg.0
+   IL_0424: ldc.i4.1
+   IL_0425: stfld System.Boolean AuraHelper.Lantern::ok
+   IL_042a: ldarg.0
+   IL_042b: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0430: ldc.i4.s 80
+   IL_0432: rem
+   IL_0433: ldc.i4.s 19
+   IL_0435: bne.un.s IL_0453
+   IL_0437: ldarg.0
+   IL_0438: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_043d: ldc.i4 560
+   IL_0442: bge.s IL_0453
+   IL_0444: ldarg.0
+   IL_0445: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_044a: ldc.i4.s 80
+   IL_044c: clt
+   IL_044e: ldc.i4.0
+   IL_044f: ceq
+   IL_0451: br.s IL_0454
+   IL_0453: ldc.i4.0
+   IL_0454: stloc.s V_20
+   IL_0456: ldloc.s V_20
+   IL_0458: brfalse IL_0508
+   IL_045d: nop
+   IL_045e: ldarg.0
+   IL_045f: ldfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_0464: ldc.i4.1
+   IL_0465: ceq
+   IL_0467: stloc.s V_21
+   IL_0469: ldloc.s V_21
+   IL_046b: brfalse IL_0500
+   IL_0470: nop
+   IL_0471: ldarg.0
+   IL_0472: ldarg.0
+   IL_0473: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0478: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_047d: nop
+   IL_047e: ldarg.0
+   IL_047f: ldarg.0
+   IL_0480: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0485: ldstr "objects/monsters/lantern/attack"
+   IL_048a: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_048f: dup
+   IL_0490: stloc.s V_5
+   IL_0492: stfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0497: ldloc.s V_5
+   IL_0499: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_049e: nop
+   IL_049f: ldarg.0
+   IL_04a0: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_04a5: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_04aa: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_04af: dup
+   IL_04b0: ldind.r4
+   IL_04b1: ldc.r4 5
+   IL_04b6: sub
+   IL_04b7: stind.r4
+   IL_04b8: ldarg.0
+   IL_04b9: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_04be: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_04c3: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_04c8: dup
+   IL_04c9: ldind.r4
+   IL_04ca: ldc.r4 6
+   IL_04cf: sub
+   IL_04d0: stind.r4
+   IL_04d1: ldarg.0
+   IL_04d2: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_04d7: ldstr "attack"
+   IL_04dc: ldstr ""
+   IL_04e1: ldc.r4 0.1
+   IL_04e6: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single)
+   IL_04eb: nop
+   IL_04ec: ldarg.0
+   IL_04ed: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_04f2: ldstr "attack"
+   IL_04f7: ldc.i4.0
+   IL_04f8: ldc.i4.0
+   IL_04f9: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_04fe: nop
+   IL_04ff: nop
+   IL_0500: ldarg.0
+   IL_0501: ldc.i4.1
+   IL_0502: stfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_0507: nop
+   IL_0508: nop
+   IL_0509: ldarg.0
+   IL_050a: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_050f: ldc.i4.3
+   IL_0510: bne.un.s IL_051d
+   IL_0512: ldarg.0
+   IL_0513: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0518: ldc.i4.0
+   IL_0519: cgt
+   IL_051b: br.s IL_051e
+   IL_051d: ldc.i4.0
+   IL_051e: stloc.s V_22
+   IL_0520: ldloc.s V_22
+   IL_0522: brfalse IL_092d
+   IL_0527: nop
+   IL_0528: ldarg.0
+   IL_0529: ldc.i4.0
+   IL_052a: stfld System.Boolean AuraHelper.Lantern::ok2
+   IL_052f: ldarg.0
+   IL_0530: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0535: ldc.i4.s 80
+   IL_0537: rem
+   IL_0538: brtrue.s IL_054c
+   IL_053a: ldarg.0
+   IL_053b: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0540: ldc.i4 500
+   IL_0545: cgt
+   IL_0547: ldc.i4.0
+   IL_0548: ceq
+   IL_054a: br.s IL_054d
+   IL_054c: ldc.i4.0
+   IL_054d: stloc.s V_23
+   IL_054f: ldloc.s V_23
+   IL_0551: brfalse IL_0912
+   IL_0556: nop
+   IL_0557: ldstr "event:/game/09_core/iceblock_reappear"
+   IL_055c: ldarg.0
+   IL_055d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0562: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0567: pop
+   IL_0568: ldarg.0
+   IL_0569: ldfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_056e: ldc.i4.1
+   IL_056f: ceq
+   IL_0571: stloc.s V_24
+   IL_0573: ldloc.s V_24
+   IL_0575: brfalse IL_060a
+   IL_057a: nop
+   IL_057b: ldarg.0
+   IL_057c: ldarg.0
+   IL_057d: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0582: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_0587: nop
+   IL_0588: ldarg.0
+   IL_0589: ldarg.0
+   IL_058a: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_058f: ldstr "objects/monsters/lantern/attack"
+   IL_0594: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_0599: dup
+   IL_059a: stloc.s V_5
+   IL_059c: stfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_05a1: ldloc.s V_5
+   IL_05a3: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_05a8: nop
+   IL_05a9: ldarg.0
+   IL_05aa: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_05af: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_05b4: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_05b9: dup
+   IL_05ba: ldind.r4
+   IL_05bb: ldc.r4 5
+   IL_05c0: sub
+   IL_05c1: stind.r4
+   IL_05c2: ldarg.0
+   IL_05c3: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_05c8: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_05cd: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_05d2: dup
+   IL_05d3: ldind.r4
+   IL_05d4: ldc.r4 6
+   IL_05d9: sub
+   IL_05da: stind.r4
+   IL_05db: ldarg.0
+   IL_05dc: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_05e1: ldstr "attack"
+   IL_05e6: ldstr ""
+   IL_05eb: ldc.r4 0.1
+   IL_05f0: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single)
+   IL_05f5: nop
+   IL_05f6: ldarg.0
+   IL_05f7: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_05fc: ldstr "attack"
+   IL_0601: ldc.i4.0
+   IL_0602: ldc.i4.0
+   IL_0603: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0608: nop
+   IL_0609: nop
+   IL_060a: ldarg.0
+   IL_060b: ldc.i4.1
+   IL_060c: stfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_0611: ldloca.s V_3
+   IL_0613: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0618: dup
+   IL_0619: ldind.r4
+   IL_061a: ldc.r4 9
+   IL_061f: add
+   IL_0620: stind.r4
+   IL_0621: ldloca.s V_3
+   IL_0623: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0628: dup
+   IL_0629: ldind.r4
+   IL_062a: ldc.r4 10
+   IL_062f: add
+   IL_0630: stind.r4
+   IL_0631: ldarg.0
+   IL_0632: ldloc.3
+   IL_0633: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0638: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_063d: ldarg.0
+   IL_063e: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0643: ldarg.0
+   IL_0644: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0649: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_064e: nop
+   IL_064f: ldarg.0
+   IL_0650: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0655: ldc.i4.1
+   IL_0656: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_065b: ldarg.0
+   IL_065c: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0661: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0666: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_066b: dup
+   IL_066c: ldind.r4
+   IL_066d: ldc.r4 8
+   IL_0672: sub
+   IL_0673: stind.r4
+   IL_0674: ldarg.0
+   IL_0675: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_067a: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_067f: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0684: dup
+   IL_0685: ldind.r4
+   IL_0686: ldc.r4 16
+   IL_068b: sub
+   IL_068c: stind.r4
+   IL_068d: ldarg.0
+   IL_068e: ldloc.3
+   IL_068f: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0694: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0699: ldarg.0
+   IL_069a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_069f: ldarg.0
+   IL_06a0: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_06a5: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_06aa: nop
+   IL_06ab: ldarg.0
+   IL_06ac: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_06b1: ldc.i4.1
+   IL_06b2: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_06b7: ldarg.0
+   IL_06b8: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_06bd: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_06c2: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_06c7: dup
+   IL_06c8: ldind.r4
+   IL_06c9: ldc.r4 8
+   IL_06ce: sub
+   IL_06cf: stind.r4
+   IL_06d0: ldarg.0
+   IL_06d1: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_06d6: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_06db: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_06e0: dup
+   IL_06e1: ldind.r4
+   IL_06e2: ldc.r4 16
+   IL_06e7: add
+   IL_06e8: stind.r4
+   IL_06e9: ldarg.0
+   IL_06ea: ldloc.3
+   IL_06eb: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_06f0: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_06f5: ldarg.0
+   IL_06f6: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_06fb: ldarg.0
+   IL_06fc: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0701: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0706: nop
+   IL_0707: ldarg.0
+   IL_0708: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_070d: ldc.i4.1
+   IL_070e: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_0713: ldarg.0
+   IL_0714: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0719: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_071e: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0723: dup
+   IL_0724: ldind.r4
+   IL_0725: ldc.r4 16
+   IL_072a: sub
+   IL_072b: stind.r4
+   IL_072c: ldarg.0
+   IL_072d: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0732: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0737: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_073c: dup
+   IL_073d: ldind.r4
+   IL_073e: ldc.r4 8
+   IL_0743: sub
+   IL_0744: stind.r4
+   IL_0745: ldarg.0
+   IL_0746: ldloc.3
+   IL_0747: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_074c: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0751: ldarg.0
+   IL_0752: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0757: ldarg.0
+   IL_0758: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_075d: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0762: nop
+   IL_0763: ldarg.0
+   IL_0764: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0769: ldc.i4.1
+   IL_076a: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_076f: ldarg.0
+   IL_0770: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0775: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_077a: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_077f: dup
+   IL_0780: ldind.r4
+   IL_0781: ldc.r4 16
+   IL_0786: sub
+   IL_0787: stind.r4
+   IL_0788: ldarg.0
+   IL_0789: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_078e: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0793: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0798: dup
+   IL_0799: ldind.r4
+   IL_079a: ldc.r4 8
+   IL_079f: add
+   IL_07a0: stind.r4
+   IL_07a1: ldarg.0
+   IL_07a2: ldloc.3
+   IL_07a3: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_07a8: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_07ad: ldarg.0
+   IL_07ae: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_07b3: ldarg.0
+   IL_07b4: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_07b9: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_07be: nop
+   IL_07bf: ldarg.0
+   IL_07c0: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_07c5: ldc.i4.1
+   IL_07c6: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_07cb: ldarg.0
+   IL_07cc: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_07d1: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_07d6: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_07db: dup
+   IL_07dc: ldind.r4
+   IL_07dd: ldc.r4 16
+   IL_07e2: add
+   IL_07e3: stind.r4
+   IL_07e4: ldarg.0
+   IL_07e5: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_07ea: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_07ef: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_07f4: dup
+   IL_07f5: ldind.r4
+   IL_07f6: ldc.r4 8
+   IL_07fb: add
+   IL_07fc: stind.r4
+   IL_07fd: ldarg.0
+   IL_07fe: ldloc.3
+   IL_07ff: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0804: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0809: ldarg.0
+   IL_080a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_080f: ldarg.0
+   IL_0810: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0815: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_081a: nop
+   IL_081b: ldarg.0
+   IL_081c: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0821: ldc.i4.1
+   IL_0822: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_0827: ldarg.0
+   IL_0828: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_082d: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0832: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0837: dup
+   IL_0838: ldind.r4
+   IL_0839: ldc.r4 16
+   IL_083e: add
+   IL_083f: stind.r4
+   IL_0840: ldarg.0
+   IL_0841: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0846: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_084b: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0850: dup
+   IL_0851: ldind.r4
+   IL_0852: ldc.r4 8
+   IL_0857: sub
+   IL_0858: stind.r4
+   IL_0859: ldarg.0
+   IL_085a: ldloc.3
+   IL_085b: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0860: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0865: ldarg.0
+   IL_0866: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_086b: ldarg.0
+   IL_086c: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0871: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0876: nop
+   IL_0877: ldarg.0
+   IL_0878: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_087d: ldc.i4.1
+   IL_087e: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_0883: ldarg.0
+   IL_0884: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0889: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_088e: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0893: dup
+   IL_0894: ldind.r4
+   IL_0895: ldc.r4 8
+   IL_089a: add
+   IL_089b: stind.r4
+   IL_089c: ldarg.0
+   IL_089d: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_08a2: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_08a7: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_08ac: dup
+   IL_08ad: ldind.r4
+   IL_08ae: ldc.r4 16
+   IL_08b3: sub
+   IL_08b4: stind.r4
+   IL_08b5: ldarg.0
+   IL_08b6: ldloc.3
+   IL_08b7: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_08bc: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_08c1: ldarg.0
+   IL_08c2: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_08c7: ldarg.0
+   IL_08c8: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_08cd: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_08d2: nop
+   IL_08d3: ldarg.0
+   IL_08d4: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_08d9: ldc.i4.1
+   IL_08da: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_08df: ldarg.0
+   IL_08e0: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_08e5: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_08ea: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_08ef: dup
+   IL_08f0: ldind.r4
+   IL_08f1: ldc.r4 8
+   IL_08f6: add
+   IL_08f7: stind.r4
+   IL_08f8: ldarg.0
+   IL_08f9: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_08fe: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0903: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0908: dup
+   IL_0909: ldind.r4
+   IL_090a: ldc.r4 16
+   IL_090f: add
+   IL_0910: stind.r4
+   IL_0911: nop
+   IL_0912: ldarg.0
+   IL_0913: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0918: ldc.i4.s 80
+   IL_091a: rem
+   IL_091b: ldc.i4.s 40
+   IL_091d: ceq
+   IL_091f: stloc.s V_25
+   IL_0921: ldloc.s V_25
+   IL_0923: brfalse.s IL_092c
+   IL_0925: ldarg.0
+   IL_0926: ldc.i4.1
+   IL_0927: stfld System.Boolean AuraHelper.Lantern::ok2
+   IL_092c: nop
+   IL_092d: ldarg.0
+   IL_092e: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_0933: ldc.i4.2
+   IL_0934: bne.un.s IL_0941
+   IL_0936: ldarg.0
+   IL_0937: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_093c: ldc.i4.0
+   IL_093d: cgt
+   IL_093f: br.s IL_0942
+   IL_0941: ldc.i4.0
+   IL_0942: stloc.s V_26
+   IL_0944: ldloc.s V_26
+   IL_0946: brfalse IL_0b20
+   IL_094b: nop
+   IL_094c: ldarg.0
+   IL_094d: ldc.i4.0
+   IL_094e: stfld System.Boolean AuraHelper.Lantern::ok
+   IL_0953: ldarg.0
+   IL_0954: ldc.i4.0
+   IL_0955: stfld System.Boolean AuraHelper.Lantern::lineok
+   IL_095a: ldarg.0
+   IL_095b: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0960: ldc.i4.s 80
+   IL_0962: rem
+   IL_0963: ldc.i4.s 10
+   IL_0965: blt.s IL_0990
+   IL_0967: ldarg.0
+   IL_0968: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_096d: ldc.i4.s 80
+   IL_096f: rem
+   IL_0970: ldc.i4.s 19
+   IL_0972: bgt.s IL_0990
+   IL_0974: ldarg.0
+   IL_0975: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_097a: ldc.i4 560
+   IL_097f: bgt.s IL_0990
+   IL_0981: ldarg.0
+   IL_0982: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0987: ldc.i4.s 80
+   IL_0989: clt
+   IL_098b: ldc.i4.0
+   IL_098c: ceq
+   IL_098e: br.s IL_0991
+   IL_0990: ldc.i4.0
+   IL_0991: stloc.s V_27
+   IL_0993: ldloc.s V_27
+   IL_0995: brfalse.s IL_0a0f
+   IL_0997: nop
+   IL_0998: ldstr "event:/game/05_mirror_temple/torch_activate"
+   IL_099d: ldarg.0
+   IL_099e: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_09a3: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_09a8: pop
+   IL_09a9: ldsfld System.Random Monocle.Calc::Random
+   IL_09ae: stloc.s V_28
+   IL_09b0: ldloca.s V_3
+   IL_09b2: ldloc.s V_28
+   IL_09b4: ldarg.0
+   IL_09b5: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_09ba: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_09bf: conv.i4
+   IL_09c0: ldc.i4.s 116
+   IL_09c2: sub
+   IL_09c3: ldarg.0
+   IL_09c4: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_09c9: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_09ce: conv.i4
+   IL_09cf: ldc.i4 148
+   IL_09d4: add
+   IL_09d5: callvirt System.Int32 System.Random::Next(System.Int32,System.Int32)
+   IL_09da: conv.r4
+   IL_09db: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_09e0: ldloca.s V_3
+   IL_09e2: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_09e7: dup
+   IL_09e8: ldind.r4
+   IL_09e9: ldc.r4 85
+   IL_09ee: sub
+   IL_09ef: stind.r4
+   IL_09f0: ldarg.0
+   IL_09f1: ldloc.3
+   IL_09f2: newobj System.Void AuraHelper.Line::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_09f7: stfld AuraHelper.Line AuraHelper.Lantern::line
+   IL_09fc: ldarg.0
+   IL_09fd: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0a02: ldarg.0
+   IL_0a03: ldfld AuraHelper.Line AuraHelper.Lantern::line
+   IL_0a08: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0a0d: nop
+   IL_0a0e: nop
+   IL_0a0f: ldarg.0
+   IL_0a10: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0a15: ldc.i4.s 80
+   IL_0a17: rem
+   IL_0a18: ldc.i4.5
+   IL_0a19: ceq
+   IL_0a1b: stloc.s V_29
+   IL_0a1d: ldloc.s V_29
+   IL_0a1f: brfalse.s IL_0a28
+   IL_0a21: ldarg.0
+   IL_0a22: ldc.i4.1
+   IL_0a23: stfld System.Boolean AuraHelper.Lantern::lineok
+   IL_0a28: ldarg.0
+   IL_0a29: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0a2e: ldc.i4.s 80
+   IL_0a30: rem
+   IL_0a31: ldc.i4.0
+   IL_0a32: ceq
+   IL_0a34: stloc.s V_30
+   IL_0a36: ldloc.s V_30
+   IL_0a38: brfalse.s IL_0a41
+   IL_0a3a: ldarg.0
+   IL_0a3b: ldc.i4.1
+   IL_0a3c: stfld System.Boolean AuraHelper.Lantern::ok
+   IL_0a41: ldarg.0
+   IL_0a42: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0a47: ldc.i4.s 80
+   IL_0a49: rem
+   IL_0a4a: ldc.i4.s 19
+   IL_0a4c: bne.un.s IL_0a6a
+   IL_0a4e: ldarg.0
+   IL_0a4f: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0a54: ldc.i4 560
+   IL_0a59: bge.s IL_0a6a
+   IL_0a5b: ldarg.0
+   IL_0a5c: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0a61: ldc.i4.s 80
+   IL_0a63: clt
+   IL_0a65: ldc.i4.0
+   IL_0a66: ceq
+   IL_0a68: br.s IL_0a6b
+   IL_0a6a: ldc.i4.0
+   IL_0a6b: stloc.s V_31
+   IL_0a6d: ldloc.s V_31
+   IL_0a6f: brfalse IL_0b1f
+   IL_0a74: nop
+   IL_0a75: ldarg.0
+   IL_0a76: ldfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_0a7b: ldc.i4.1
+   IL_0a7c: ceq
+   IL_0a7e: stloc.s V_32
+   IL_0a80: ldloc.s V_32
+   IL_0a82: brfalse IL_0b17
+   IL_0a87: nop
+   IL_0a88: ldarg.0
+   IL_0a89: ldarg.0
+   IL_0a8a: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0a8f: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_0a94: nop
+   IL_0a95: ldarg.0
+   IL_0a96: ldarg.0
+   IL_0a97: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0a9c: ldstr "objects/monsters/lantern/attack"
+   IL_0aa1: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_0aa6: dup
+   IL_0aa7: stloc.s V_5
+   IL_0aa9: stfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0aae: ldloc.s V_5
+   IL_0ab0: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0ab5: nop
+   IL_0ab6: ldarg.0
+   IL_0ab7: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0abc: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0ac1: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0ac6: dup
+   IL_0ac7: ldind.r4
+   IL_0ac8: ldc.r4 5
+   IL_0acd: sub
+   IL_0ace: stind.r4
+   IL_0acf: ldarg.0
+   IL_0ad0: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0ad5: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0ada: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0adf: dup
+   IL_0ae0: ldind.r4
+   IL_0ae1: ldc.r4 6
+   IL_0ae6: sub
+   IL_0ae7: stind.r4
+   IL_0ae8: ldarg.0
+   IL_0ae9: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0aee: ldstr "attack"
+   IL_0af3: ldstr ""
+   IL_0af8: ldc.r4 0.1
+   IL_0afd: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single)
+   IL_0b02: nop
+   IL_0b03: ldarg.0
+   IL_0b04: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0b09: ldstr "attack"
+   IL_0b0e: ldc.i4.0
+   IL_0b0f: ldc.i4.0
+   IL_0b10: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0b15: nop
+   IL_0b16: nop
+   IL_0b17: ldarg.0
+   IL_0b18: ldc.i4.1
+   IL_0b19: stfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_0b1e: nop
+   IL_0b1f: nop
+   IL_0b20: ldarg.0
+   IL_0b21: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_0b26: ldc.i4.1
+   IL_0b27: bne.un.s IL_0b34
+   IL_0b29: ldarg.0
+   IL_0b2a: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0b2f: ldc.i4.0
+   IL_0b30: cgt
+   IL_0b32: br.s IL_0b35
+   IL_0b34: ldc.i4.0
+   IL_0b35: stloc.s V_33
+   IL_0b37: ldloc.s V_33
+   IL_0b39: brfalse IL_0c88
+   IL_0b3e: nop
+   IL_0b3f: ldarg.0
+   IL_0b40: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0b45: ldc.i4.s 40
+   IL_0b47: rem
+   IL_0b48: ldc.i4.0
+   IL_0b49: ceq
+   IL_0b4b: stloc.s V_34
+   IL_0b4d: ldloc.s V_34
+   IL_0b4f: brfalse IL_0c87
+   IL_0b54: nop
+   IL_0b55: ldarg.0
+   IL_0b56: ldfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_0b5b: ldc.i4.1
+   IL_0b5c: ceq
+   IL_0b5e: stloc.s V_36
+   IL_0b60: ldloc.s V_36
+   IL_0b62: brfalse IL_0bf7
+   IL_0b67: nop
+   IL_0b68: ldarg.0
+   IL_0b69: ldarg.0
+   IL_0b6a: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0b6f: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_0b74: nop
+   IL_0b75: ldarg.0
+   IL_0b76: ldarg.0
+   IL_0b77: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0b7c: ldstr "objects/monsters/lantern/attack"
+   IL_0b81: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_0b86: dup
+   IL_0b87: stloc.s V_5
+   IL_0b89: stfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0b8e: ldloc.s V_5
+   IL_0b90: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0b95: nop
+   IL_0b96: ldarg.0
+   IL_0b97: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0b9c: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0ba1: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0ba6: dup
+   IL_0ba7: ldind.r4
+   IL_0ba8: ldc.r4 5
+   IL_0bad: sub
+   IL_0bae: stind.r4
+   IL_0baf: ldarg.0
+   IL_0bb0: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0bb5: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0bba: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0bbf: dup
+   IL_0bc0: ldind.r4
+   IL_0bc1: ldc.r4 6
+   IL_0bc6: sub
+   IL_0bc7: stind.r4
+   IL_0bc8: ldarg.0
+   IL_0bc9: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0bce: ldstr "attack"
+   IL_0bd3: ldstr ""
+   IL_0bd8: ldc.r4 0.1
+   IL_0bdd: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single)
+   IL_0be2: nop
+   IL_0be3: ldarg.0
+   IL_0be4: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0be9: ldstr "attack"
+   IL_0bee: ldc.i4.0
+   IL_0bef: ldc.i4.0
+   IL_0bf0: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0bf5: nop
+   IL_0bf6: nop
+   IL_0bf7: ldarg.0
+   IL_0bf8: ldc.i4.1
+   IL_0bf9: stfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_0bfe: ldstr "event:/game/general/strawberry_touch"
+   IL_0c03: ldarg.0
+   IL_0c04: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0c09: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0c0e: pop
+   IL_0c0f: ldsfld System.Random Monocle.Calc::Random
+   IL_0c14: stloc.s V_35
+   IL_0c16: ldarg.0
+   IL_0c17: ldloc.3
+   IL_0c18: newobj System.Void AuraHelper.Generator::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0c1d: stfld AuraHelper.Generator AuraHelper.Lantern::gene
+   IL_0c22: ldarg.0
+   IL_0c23: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0c28: ldarg.0
+   IL_0c29: ldfld AuraHelper.Generator AuraHelper.Lantern::gene
+   IL_0c2e: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0c33: nop
+   IL_0c34: ldarg.0
+   IL_0c35: ldfld AuraHelper.Generator AuraHelper.Lantern::gene
+   IL_0c3a: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0c3f: ldloc.s V_35
+   IL_0c41: ldarg.0
+   IL_0c42: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0c47: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0c4c: conv.i4
+   IL_0c4d: ldc.i4.s 118
+   IL_0c4f: sub
+   IL_0c50: ldarg.0
+   IL_0c51: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0c56: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0c5b: conv.i4
+   IL_0c5c: ldc.i4 154
+   IL_0c61: add
+   IL_0c62: callvirt System.Int32 System.Random::Next(System.Int32,System.Int32)
+   IL_0c67: conv.r4
+   IL_0c68: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0c6d: ldarg.0
+   IL_0c6e: ldfld AuraHelper.Generator AuraHelper.Lantern::gene
+   IL_0c73: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0c78: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0c7d: dup
+   IL_0c7e: ldind.r4
+   IL_0c7f: ldc.r4 200
+   IL_0c84: sub
+   IL_0c85: stind.r4
+   IL_0c86: nop
+   IL_0c87: nop
+   IL_0c88: ldarg.0
+   IL_0c89: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_0c8e: ldc.i4.2
+   IL_0c8f: beq.s IL_0c9a
+   IL_0c91: ldarg.0
+   IL_0c92: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_0c97: ldc.i4.1
+   IL_0c98: bne.un.s IL_0ca5
+   IL_0c9a: ldarg.0
+   IL_0c9b: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0ca0: ldc.i4.0
+   IL_0ca1: cgt
+   IL_0ca3: br.s IL_0ca6
+   IL_0ca5: ldc.i4.0
+   IL_0ca6: stloc.s V_37
+   IL_0ca8: ldloc.s V_37
+   IL_0caa: brfalse IL_10b5
+   IL_0caf: nop
+   IL_0cb0: ldarg.0
+   IL_0cb1: ldc.i4.0
+   IL_0cb2: stfld System.Boolean AuraHelper.Lantern::ok2
+   IL_0cb7: ldarg.0
+   IL_0cb8: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0cbd: ldc.i4.s 80
+   IL_0cbf: rem
+   IL_0cc0: brtrue.s IL_0cd4
+   IL_0cc2: ldarg.0
+   IL_0cc3: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_0cc8: ldc.i4 500
+   IL_0ccd: cgt
+   IL_0ccf: ldc.i4.0
+   IL_0cd0: ceq
+   IL_0cd2: br.s IL_0cd5
+   IL_0cd4: ldc.i4.0
+   IL_0cd5: stloc.s V_38
+   IL_0cd7: ldloc.s V_38
+   IL_0cd9: brfalse IL_109a
+   IL_0cde: nop
+   IL_0cdf: ldstr "event:/game/09_core/iceblock_reappear"
+   IL_0ce4: ldarg.0
+   IL_0ce5: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0cea: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0cef: pop
+   IL_0cf0: ldarg.0
+   IL_0cf1: ldfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_0cf6: ldc.i4.1
+   IL_0cf7: ceq
+   IL_0cf9: stloc.s V_39
+   IL_0cfb: ldloc.s V_39
+   IL_0cfd: brfalse IL_0d92
+   IL_0d02: nop
+   IL_0d03: ldarg.0
+   IL_0d04: ldarg.0
+   IL_0d05: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0d0a: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_0d0f: nop
+   IL_0d10: ldarg.0
+   IL_0d11: ldarg.0
+   IL_0d12: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0d17: ldstr "objects/monsters/lantern/attack"
+   IL_0d1c: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_0d21: dup
+   IL_0d22: stloc.s V_5
+   IL_0d24: stfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0d29: ldloc.s V_5
+   IL_0d2b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0d30: nop
+   IL_0d31: ldarg.0
+   IL_0d32: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0d37: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0d3c: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0d41: dup
+   IL_0d42: ldind.r4
+   IL_0d43: ldc.r4 5
+   IL_0d48: sub
+   IL_0d49: stind.r4
+   IL_0d4a: ldarg.0
+   IL_0d4b: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0d50: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0d55: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0d5a: dup
+   IL_0d5b: ldind.r4
+   IL_0d5c: ldc.r4 6
+   IL_0d61: sub
+   IL_0d62: stind.r4
+   IL_0d63: ldarg.0
+   IL_0d64: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0d69: ldstr "attack"
+   IL_0d6e: ldstr ""
+   IL_0d73: ldc.r4 0.1
+   IL_0d78: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single)
+   IL_0d7d: nop
+   IL_0d7e: ldarg.0
+   IL_0d7f: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_0d84: ldstr "attack"
+   IL_0d89: ldc.i4.0
+   IL_0d8a: ldc.i4.0
+   IL_0d8b: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0d90: nop
+   IL_0d91: nop
+   IL_0d92: ldarg.0
+   IL_0d93: ldc.i4.1
+   IL_0d94: stfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_0d99: ldloca.s V_3
+   IL_0d9b: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0da0: dup
+   IL_0da1: ldind.r4
+   IL_0da2: ldc.r4 9
+   IL_0da7: add
+   IL_0da8: stind.r4
+   IL_0da9: ldloca.s V_3
+   IL_0dab: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0db0: dup
+   IL_0db1: ldind.r4
+   IL_0db2: ldc.r4 10
+   IL_0db7: add
+   IL_0db8: stind.r4
+   IL_0db9: ldarg.0
+   IL_0dba: ldloc.3
+   IL_0dbb: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0dc0: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0dc5: ldarg.0
+   IL_0dc6: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0dcb: ldarg.0
+   IL_0dcc: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0dd1: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0dd6: nop
+   IL_0dd7: ldarg.0
+   IL_0dd8: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0ddd: ldc.i4.1
+   IL_0dde: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_0de3: ldarg.0
+   IL_0de4: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0de9: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0dee: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0df3: dup
+   IL_0df4: ldind.r4
+   IL_0df5: ldc.r4 8
+   IL_0dfa: sub
+   IL_0dfb: stind.r4
+   IL_0dfc: ldarg.0
+   IL_0dfd: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0e02: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0e07: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0e0c: dup
+   IL_0e0d: ldind.r4
+   IL_0e0e: ldc.r4 16
+   IL_0e13: sub
+   IL_0e14: stind.r4
+   IL_0e15: ldarg.0
+   IL_0e16: ldloc.3
+   IL_0e17: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0e1c: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0e21: ldarg.0
+   IL_0e22: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0e27: ldarg.0
+   IL_0e28: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0e2d: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0e32: nop
+   IL_0e33: ldarg.0
+   IL_0e34: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0e39: ldc.i4.1
+   IL_0e3a: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_0e3f: ldarg.0
+   IL_0e40: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0e45: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0e4a: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0e4f: dup
+   IL_0e50: ldind.r4
+   IL_0e51: ldc.r4 8
+   IL_0e56: sub
+   IL_0e57: stind.r4
+   IL_0e58: ldarg.0
+   IL_0e59: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0e5e: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0e63: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0e68: dup
+   IL_0e69: ldind.r4
+   IL_0e6a: ldc.r4 16
+   IL_0e6f: add
+   IL_0e70: stind.r4
+   IL_0e71: ldarg.0
+   IL_0e72: ldloc.3
+   IL_0e73: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0e78: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0e7d: ldarg.0
+   IL_0e7e: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0e83: ldarg.0
+   IL_0e84: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0e89: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0e8e: nop
+   IL_0e8f: ldarg.0
+   IL_0e90: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0e95: ldc.i4.1
+   IL_0e96: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_0e9b: ldarg.0
+   IL_0e9c: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0ea1: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0ea6: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0eab: dup
+   IL_0eac: ldind.r4
+   IL_0ead: ldc.r4 16
+   IL_0eb2: sub
+   IL_0eb3: stind.r4
+   IL_0eb4: ldarg.0
+   IL_0eb5: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0eba: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0ebf: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0ec4: dup
+   IL_0ec5: ldind.r4
+   IL_0ec6: ldc.r4 8
+   IL_0ecb: sub
+   IL_0ecc: stind.r4
+   IL_0ecd: ldarg.0
+   IL_0ece: ldloc.3
+   IL_0ecf: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0ed4: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0ed9: ldarg.0
+   IL_0eda: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0edf: ldarg.0
+   IL_0ee0: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0ee5: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0eea: nop
+   IL_0eeb: ldarg.0
+   IL_0eec: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0ef1: ldc.i4.1
+   IL_0ef2: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_0ef7: ldarg.0
+   IL_0ef8: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0efd: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0f02: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0f07: dup
+   IL_0f08: ldind.r4
+   IL_0f09: ldc.r4 16
+   IL_0f0e: sub
+   IL_0f0f: stind.r4
+   IL_0f10: ldarg.0
+   IL_0f11: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0f16: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0f1b: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0f20: dup
+   IL_0f21: ldind.r4
+   IL_0f22: ldc.r4 8
+   IL_0f27: add
+   IL_0f28: stind.r4
+   IL_0f29: ldarg.0
+   IL_0f2a: ldloc.3
+   IL_0f2b: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0f30: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0f35: ldarg.0
+   IL_0f36: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0f3b: ldarg.0
+   IL_0f3c: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0f41: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0f46: nop
+   IL_0f47: ldarg.0
+   IL_0f48: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0f4d: ldc.i4.1
+   IL_0f4e: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_0f53: ldarg.0
+   IL_0f54: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0f59: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0f5e: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0f63: dup
+   IL_0f64: ldind.r4
+   IL_0f65: ldc.r4 16
+   IL_0f6a: add
+   IL_0f6b: stind.r4
+   IL_0f6c: ldarg.0
+   IL_0f6d: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0f72: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0f77: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0f7c: dup
+   IL_0f7d: ldind.r4
+   IL_0f7e: ldc.r4 8
+   IL_0f83: add
+   IL_0f84: stind.r4
+   IL_0f85: ldarg.0
+   IL_0f86: ldloc.3
+   IL_0f87: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0f8c: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0f91: ldarg.0
+   IL_0f92: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0f97: ldarg.0
+   IL_0f98: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0f9d: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0fa2: nop
+   IL_0fa3: ldarg.0
+   IL_0fa4: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0fa9: ldc.i4.1
+   IL_0faa: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_0faf: ldarg.0
+   IL_0fb0: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0fb5: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0fba: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0fbf: dup
+   IL_0fc0: ldind.r4
+   IL_0fc1: ldc.r4 16
+   IL_0fc6: add
+   IL_0fc7: stind.r4
+   IL_0fc8: ldarg.0
+   IL_0fc9: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0fce: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0fd3: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0fd8: dup
+   IL_0fd9: ldind.r4
+   IL_0fda: ldc.r4 8
+   IL_0fdf: sub
+   IL_0fe0: stind.r4
+   IL_0fe1: ldarg.0
+   IL_0fe2: ldloc.3
+   IL_0fe3: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0fe8: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0fed: ldarg.0
+   IL_0fee: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0ff3: ldarg.0
+   IL_0ff4: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_0ff9: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0ffe: nop
+   IL_0fff: ldarg.0
+   IL_1000: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_1005: ldc.i4.1
+   IL_1006: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_100b: ldarg.0
+   IL_100c: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_1011: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_1016: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_101b: dup
+   IL_101c: ldind.r4
+   IL_101d: ldc.r4 8
+   IL_1022: add
+   IL_1023: stind.r4
+   IL_1024: ldarg.0
+   IL_1025: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_102a: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_102f: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_1034: dup
+   IL_1035: ldind.r4
+   IL_1036: ldc.r4 16
+   IL_103b: sub
+   IL_103c: stind.r4
+   IL_103d: ldarg.0
+   IL_103e: ldloc.3
+   IL_103f: newobj System.Void AuraHelper.Cracker::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_1044: stfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_1049: ldarg.0
+   IL_104a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_104f: ldarg.0
+   IL_1050: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_1055: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_105a: nop
+   IL_105b: ldarg.0
+   IL_105c: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_1061: ldc.i4.1
+   IL_1062: stfld System.Boolean AuraHelper.Cracker::forward
+   IL_1067: ldarg.0
+   IL_1068: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_106d: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_1072: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_1077: dup
+   IL_1078: ldind.r4
+   IL_1079: ldc.r4 8
+   IL_107e: add
+   IL_107f: stind.r4
+   IL_1080: ldarg.0
+   IL_1081: ldfld AuraHelper.Cracker AuraHelper.Lantern::cracker
+   IL_1086: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_108b: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_1090: dup
+   IL_1091: ldind.r4
+   IL_1092: ldc.r4 16
+   IL_1097: add
+   IL_1098: stind.r4
+   IL_1099: nop
+   IL_109a: ldarg.0
+   IL_109b: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_10a0: ldc.i4.s 80
+   IL_10a2: rem
+   IL_10a3: ldc.i4.s 40
+   IL_10a5: ceq
+   IL_10a7: stloc.s V_40
+   IL_10a9: ldloc.s V_40
+   IL_10ab: brfalse.s IL_10b4
+   IL_10ad: ldarg.0
+   IL_10ae: ldc.i4.1
+   IL_10af: stfld System.Boolean AuraHelper.Lantern::ok2
+   IL_10b4: nop
+   IL_10b5: ldarg.0
+   IL_10b6: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_10bb: ldc.i4.0
+   IL_10bc: cgt
+   IL_10be: stloc.s V_41
+   IL_10c0: ldloc.s V_41
+   IL_10c2: brfalse.s IL_10d4
+   IL_10c4: ldarg.0
+   IL_10c5: ldarg.0
+   IL_10c6: ldfld System.Int32 AuraHelper.Lantern::colddown
+   IL_10cb: ldc.i4.1
+   IL_10cc: sub
+   IL_10cd: stfld System.Int32 AuraHelper.Lantern::colddown
+   IL_10d2: br.s IL_10dd
+   IL_10d4: nop
+   IL_10d5: ldarg.0
+   IL_10d6: ldc.i4.0
+   IL_10d7: stfld System.Boolean AuraHelper.Lantern::attacked
+   IL_10dc: nop
+   IL_10dd: ldarg.0
+   IL_10de: ldfld System.Int32 AuraHelper.Lantern::hp
+   IL_10e3: brtrue.s IL_10f0
+   IL_10e5: ldarg.0
+   IL_10e6: ldfld System.Boolean AuraHelper.Lantern::dead
+   IL_10eb: ldc.i4.0
+   IL_10ec: ceq
+   IL_10ee: br.s IL_10f1
+   IL_10f0: ldc.i4.0
+   IL_10f1: stloc.s V_42
+   IL_10f3: ldloc.s V_42
+   IL_10f5: brfalse.s IL_1111
+   IL_10f7: nop
+   IL_10f8: ldstr "event:/game/06_reflection/boss_spikes_burst"
+   IL_10fd: ldarg.0
+   IL_10fe: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_1103: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_1108: pop
+   IL_1109: ldarg.0
+   IL_110a: ldc.i4.1
+   IL_110b: stfld System.Boolean AuraHelper.Lantern::dead
+   IL_1110: nop
+   IL_1111: ldarg.0
+   IL_1112: ldfld System.Boolean AuraHelper.Lantern::dead
+   IL_1117: ldc.i4.0
+   IL_1118: ceq
+   IL_111a: stloc.s V_43
+   IL_111c: ldloc.s V_43
+   IL_111e: brfalse IL_1210
+   IL_1123: nop
+   IL_1124: ldarg.0
+   IL_1125: ldfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_112a: ldc.i4.1
+   IL_112b: beq.s IL_1136
+   IL_112d: ldarg.0
+   IL_112e: ldfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_1133: ldc.i4.3
+   IL_1134: bne.un.s IL_1146
+   IL_1136: ldarg.0
+   IL_1137: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_113c: callvirt System.Boolean Monocle.Sprite::get_Animating()
+   IL_1141: ldc.i4.0
+   IL_1142: ceq
+   IL_1144: br.s IL_1147
+   IL_1146: ldc.i4.0
+   IL_1147: stloc.s V_44
+   IL_1149: ldloc.s V_44
+   IL_114b: brfalse IL_11e7
+   IL_1150: nop
+   IL_1151: ldarg.0
+   IL_1152: ldarg.0
+   IL_1153: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_1158: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_115d: nop
+   IL_115e: ldarg.0
+   IL_115f: ldarg.0
+   IL_1160: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_1165: ldstr "objects/monsters/lantern/idle"
+   IL_116a: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_116f: dup
+   IL_1170: stloc.s V_5
+   IL_1172: stfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_1177: ldloc.s V_5
+   IL_1179: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_117e: nop
+   IL_117f: ldarg.0
+   IL_1180: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_1185: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_118a: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_118f: dup
+   IL_1190: ldind.r4
+   IL_1191: ldc.r4 5
+   IL_1196: sub
+   IL_1197: stind.r4
+   IL_1198: ldarg.0
+   IL_1199: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_119e: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_11a3: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_11a8: dup
+   IL_11a9: ldind.r4
+   IL_11aa: ldc.r4 6
+   IL_11af: sub
+   IL_11b0: stind.r4
+   IL_11b1: ldarg.0
+   IL_11b2: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_11b7: ldstr "idle"
+   IL_11bc: ldstr ""
+   IL_11c1: ldc.r4 0.1
+   IL_11c6: callvirt System.Void Monocle.Sprite::AddLoop(System.String,System.String,System.Single)
+   IL_11cb: nop
+   IL_11cc: ldarg.0
+   IL_11cd: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_11d2: ldstr "idle"
+   IL_11d7: ldc.i4.0
+   IL_11d8: ldc.i4.0
+   IL_11d9: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_11de: nop
+   IL_11df: ldarg.0
+   IL_11e0: ldc.i4.1
+   IL_11e1: stfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_11e6: nop
+   IL_11e7: ldloc.0
+   IL_11e8: brfalse.s IL_11f3
+   IL_11ea: ldarg.0
+   IL_11eb: ldloc.0
+   IL_11ec: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity)
+   IL_11f1: br.s IL_11f4
+   IL_11f3: ldc.i4.0
+   IL_11f4: stloc.s V_45
+   IL_11f6: ldloc.s V_45
+   IL_11f8: brfalse.s IL_120a
+   IL_11fa: nop
+   IL_11fb: ldloc.0
+   IL_11fc: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_1201: ldc.i4.0
+   IL_1202: ldc.i4.1
+   IL_1203: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_1208: pop
+   IL_1209: nop
+   IL_120a: nop
+   IL_120b: br IL_12ee
+   IL_1210: nop
+   IL_1211: ldarg.0
+   IL_1212: ldfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_1217: ldc.i4.4
+   IL_1218: ceq
+   IL_121a: ldc.i4.0
+   IL_121b: ceq
+   IL_121d: stloc.s V_46
+   IL_121f: ldloc.s V_46
+   IL_1221: brfalse IL_12c9
+   IL_1226: nop
+   IL_1227: ldarg.0
+   IL_1228: ldarg.0
+   IL_1229: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_122e: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_1233: nop
+   IL_1234: ldarg.0
+   IL_1235: ldarg.0
+   IL_1236: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_123b: ldstr "objects/monsters/lantern/death"
+   IL_1240: newobj System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_1245: dup
+   IL_1246: stloc.s V_5
+   IL_1248: stfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_124d: ldloc.s V_5
+   IL_124f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_1254: nop
+   IL_1255: ldarg.0
+   IL_1256: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_125b: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_1260: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_1265: dup
+   IL_1266: ldind.r4
+   IL_1267: ldc.r4 5
+   IL_126c: sub
+   IL_126d: stind.r4
+   IL_126e: ldarg.0
+   IL_126f: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_1274: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_1279: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_127e: dup
+   IL_127f: ldind.r4
+   IL_1280: ldc.r4 6
+   IL_1285: sub
+   IL_1286: stind.r4
+   IL_1287: ldarg.0
+   IL_1288: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_128d: ldstr "death"
+   IL_1292: ldstr ""
+   IL_1297: ldc.r4 0.1
+   IL_129c: callvirt System.Void Monocle.Sprite::Add(System.String,System.String,System.Single)
+   IL_12a1: nop
+   IL_12a2: ldarg.0
+   IL_12a3: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_12a8: ldstr "death"
+   IL_12ad: ldc.i4.0
+   IL_12ae: ldc.i4.0
+   IL_12af: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_12b4: nop
+   IL_12b5: ldloc.2
+   IL_12b6: ldfld Celeste.Session Celeste.Level::Session
+   IL_12bb: ldarg.0
+   IL_12bc: ldfld System.String AuraHelper.Lantern::DesFlag
+   IL_12c1: ldc.i4.1
+   IL_12c2: callvirt System.Void Celeste.Session::SetFlag(System.String,System.Boolean)
+   IL_12c7: nop
+   IL_12c8: nop
+   IL_12c9: ldarg.0
+   IL_12ca: ldc.i4.4
+   IL_12cb: stfld System.Int32 AuraHelper.Lantern::AnimationType
+   IL_12d0: ldarg.0
+   IL_12d1: ldfld Monocle.Sprite AuraHelper.Lantern::sprite
+   IL_12d6: callvirt System.Boolean Monocle.Sprite::get_Animating()
+   IL_12db: ldc.i4.0
+   IL_12dc: ceq
+   IL_12de: stloc.s V_47
+   IL_12e0: ldloc.s V_47
+   IL_12e2: brfalse.s IL_12ed
+   IL_12e4: nop
+   IL_12e5: ldarg.0
+   IL_12e6: call System.Void Monocle.Entity::RemoveSelf()
+   IL_12eb: nop
+   IL_12ec: nop
+   IL_12ed: nop
+ + IL_12ee: call System.Void Monocle.Calc::PopRandom() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_12f3: ret

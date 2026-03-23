@@ -1,0 +1,41 @@
+On: Celeste.Mod.XaphanHelper.UI_Elements.MapDisplay.modHeartGemEndCutscene(orig_EndCutscene,HeartGem)
+On: Celeste.Mod.EmoteMod.EmoteWheelModule.OnHeartGemEndCutscene(orig_EndCutscene,HeartGem)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: dup
+   IL_000c: ldc.i4.0
+   IL_000d: stfld System.Boolean Celeste.Level::Frozen
+   IL_0012: dup
+   IL_0013: ldc.i4.1
+   IL_0014: stfld System.Boolean Celeste.Level::CanRetry
+   IL_0019: ldfld Celeste.FormationBackdrop Celeste.Level::FormationBackdrop
+   IL_001e: ldc.i4.0
+   IL_001f: stfld System.Boolean Celeste.FormationBackdrop::Display
+   IL_0024: ldc.r4 1
+   IL_0029: stsfld System.Single Monocle.Engine::TimeRate
+   IL_002e: ldarg.0
+   IL_002f: ldfld Celeste.Poem Celeste.HeartGem::poem
+   IL_0034: brfalse.s IL_0041
+   IL_0036: ldarg.0
+   IL_0037: ldfld Celeste.Poem Celeste.HeartGem::poem
+   IL_003c: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_0041: ldarg.0
+   IL_0042: ldfld System.Collections.Generic.List`1<Celeste.InvisibleBarrier> Celeste.HeartGem::walls
+   IL_0047: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.InvisibleBarrier>::GetEnumerator()
+   IL_004c: stloc.0
+   IL_004d: br.s IL_005b
+   IL_004f: ldloca.s V_0
+   IL_0051: call T System.Collections.Generic.List`1/Enumerator<Celeste.InvisibleBarrier>::get_Current()
+   IL_0056: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_005b: ldloca.s V_0
+   IL_005d: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.InvisibleBarrier>::MoveNext()
+   IL_0062: brtrue.s IL_004f
+   IL_0064: leave.s IL_0074
+   IL_0066: ldloca.s V_0
+   IL_0068: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.InvisibleBarrier>
+   IL_006e: callvirt System.Void System.IDisposable::Dispose()
+   IL_0073: endfinally
+   IL_0074: ldarg.0
+   IL_0075: call System.Void Monocle.Entity::RemoveSelf()
+   IL_007a: ret

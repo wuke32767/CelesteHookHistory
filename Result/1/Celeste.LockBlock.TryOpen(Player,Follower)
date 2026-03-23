@@ -1,0 +1,31 @@
+On: Celeste.Mod.ConsistencyTracker.ConsistencyTrackerModule.LockBlock_TryOpen(orig_TryOpen,LockBlock,Player,Follower)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0007: ldarg.0
+   IL_0008: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000d: ldarg.1
+   IL_000e: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0013: ldarg.0
+   IL_0014: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0019: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_001e: brtrue.s IL_004b
+   IL_0020: ldarg.0
+   IL_0021: ldc.i4.1
+   IL_0022: stfld System.Boolean Celeste.LockBlock::opening
+   IL_0027: ldarg.2
+   IL_0028: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_002d: isinst Celeste.Key
+   IL_0032: ldc.i4.1
+   IL_0033: stfld System.Boolean Celeste.Key::StartedUsing
+   IL_0038: ldarg.0
+   IL_0039: ldarg.0
+   IL_003a: ldarg.2
+   IL_003b: callvirt System.Collections.IEnumerator Celeste.LockBlock::UnlockRoutine(Celeste.Follower)
+   IL_0040: ldc.i4.1
+   IL_0041: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0046: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_004b: ldarg.0
+   IL_004c: ldc.i4.1
+   IL_004d: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0052: ret

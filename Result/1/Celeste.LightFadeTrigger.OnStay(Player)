@@ -1,0 +1,35 @@
+On: ExtendedVariants.Variants.RoomLighting.modLightFadeTriggerOnStay(orig_OnStay,LightFadeTrigger,Player)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: stloc.0
+   IL_000c: ldloc.0
+   IL_000d: ldfld Celeste.Session Celeste.Level::Session
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Single Celeste.LightFadeTrigger::LightAddFrom
+   IL_0018: ldarg.0
+   IL_0019: ldfld System.Single Celeste.LightFadeTrigger::LightAddTo
+   IL_001e: ldarg.0
+   IL_001f: ldfld System.Single Celeste.LightFadeTrigger::LightAddFrom
+   IL_0024: sub
+   IL_0025: ldarg.0
+   IL_0026: ldarg.1
+   IL_0027: ldarg.0
+   IL_0028: ldfld Celeste.Trigger/PositionModes Celeste.LightFadeTrigger::PositionMode
+   IL_002d: call System.Single Celeste.Trigger::GetPositionLerp(Celeste.Player,Celeste.Trigger/PositionModes)
+   IL_0032: ldc.r4 0
+   IL_0037: ldc.r4 1
+   IL_003c: call System.Single Microsoft.Xna.Framework.MathHelper::Clamp(System.Single,System.Single,System.Single)
+   IL_0041: mul
+   IL_0042: add
+   IL_0043: stloc.1
+   IL_0044: ldloc.1
+   IL_0045: stfld System.Single Celeste.Session::LightingAlphaAdd
+   IL_004a: ldloc.0
+   IL_004b: ldfld Celeste.LightingRenderer Celeste.Level::Lighting
+   IL_0050: ldloc.0
+   IL_0051: ldfld System.Single Celeste.Level::BaseLightingAlpha
+   IL_0056: ldloc.1
+   IL_0057: add
+   IL_0058: stfld System.Single Celeste.LightingRenderer::Alpha
+   IL_005d: ret

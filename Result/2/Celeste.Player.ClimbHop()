@@ -1,0 +1,78 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.ZeroGBarrier.Player_ClimbHop(orig_ClimbHop,Player)
+On: Celeste.Mod.XaphanHelper.Entities.Conveyor.OnPlayerClimbHop(orig_ClimbHop,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldarg.0
+   IL_0003: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0008: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_000d: ldarg.0
+   IL_000e: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_0013: conv.r4
+   IL_0014: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0019: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_001e: call T Monocle.Entity::CollideFirst<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_0023: stfld Celeste.Solid Celeste.Player::climbHopSolid
+   IL_0028: ldarg.0
+   IL_0029: ldc.r4 0.5
+   IL_002e: stfld System.Single Celeste.Player::playFootstepOnLand
+   IL_0033: ldarg.0
+   IL_0034: ldfld Celeste.Solid Celeste.Player::climbHopSolid
+   IL_0039: brfalse.s IL_006d
+   IL_003b: ldarg.0
+   IL_003c: ldarg.0
+   IL_003d: ldfld Celeste.Solid Celeste.Player::climbHopSolid
+   IL_0042: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0047: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::climbHopSolidPosition
+   IL_004c: ldarg.0
+   IL_004d: ldarg.0
+   IL_004e: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_0053: stfld System.Int32 Celeste.Player::hopWaitX
+   IL_0058: ldarg.0
+   IL_0059: ldarg.0
+   IL_005a: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_005f: conv.r4
+   IL_0060: ldc.r4 100
+   IL_0065: mul
+   IL_0066: stfld System.Single Celeste.Player::hopWaitXSpeed
+   IL_006b: br.s IL_008c
+   IL_006d: ldarg.0
+   IL_006e: ldc.i4.0
+   IL_006f: stfld System.Int32 Celeste.Player::hopWaitX
+   IL_0074: ldarg.0
+   IL_0075: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_007a: ldarg.0
+   IL_007b: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_0080: conv.r4
+   IL_0081: ldc.r4 100
+   IL_0086: mul
+   IL_0087: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_008c: ldarg.0
+   IL_008d: ldc.r4 0.15
+   IL_0092: stfld System.Single Celeste.Player::lowFrictionStopTimer
+   IL_0097: ldarg.0
+   IL_0098: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_009d: ldarg.0
+   IL_009e: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_00a3: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00a8: ldc.r4 -120
+   IL_00ad: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_00b2: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00b7: ldarg.0
+   IL_00b8: ldc.i4.0
+   IL_00b9: stfld System.Int32 Celeste.Player::forceMoveX
+   IL_00be: ldarg.0
+   IL_00bf: ldc.r4 0.2
+   IL_00c4: stfld System.Single Celeste.Player::forceMoveXTimer
+   IL_00c9: ldarg.0
+   IL_00ca: ldc.i4.0
+   IL_00cb: stfld System.Boolean Celeste.Player::fastJump
+   IL_00d0: ldarg.0
+   IL_00d1: ldc.r4 0.3
+   IL_00d6: stfld System.Single Celeste.Player::noWindTimer
+   IL_00db: ldarg.0
+   IL_00dc: ldstr "event:/char/madeline/climb_ledge"
+   IL_00e1: ldnull
+   IL_00e2: ldc.r4 0
+   IL_00e7: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
+   IL_00ec: pop
+   IL_00ed: ret

@@ -1,0 +1,108 @@
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.Commands_CmdHearts_int_string(orig_CmdHearts_int_string,Int32,String)
+   IL_0000: newobj System.Void Celeste.Commands/<>c__DisplayClass17_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.1
+   IL_0008: stfld System.String Celeste.Commands/<>c__DisplayClass17_0::levelSet
+   IL_000d: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0012: stloc.1
+   IL_0013: ldloc.1
+   IL_0014: brtrue.s IL_0017
+   IL_0016: ret
+   IL_0017: ldloc.0
+   IL_0018: ldfld System.String Celeste.Commands/<>c__DisplayClass17_0::levelSet
+   IL_001d: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0022: brfalse.s IL_0030
+   IL_0024: ldloc.0
+   IL_0025: ldloc.1
+   IL_0026: callvirt System.String Celeste.SaveData::get_LevelSet()
+   IL_002b: stfld System.String Celeste.Commands/<>c__DisplayClass17_0::levelSet
+   IL_0030: ldc.i4.0
+   IL_0031: stloc.2
+   IL_0032: ldloc.1
+   IL_0033: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_0038: call System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::Cast<Celeste.AreaStats>(System.Collections.IEnumerable)
+   IL_003d: ldloc.0
+   IL_003e: ldfld System.Func`2<Celeste.AreaStats,System.Boolean> Celeste.Commands/<>c__DisplayClass17_0::<>9__0
+   IL_0043: dup
+   IL_0044: brtrue.s IL_005e
+   IL_0046: pop
+   IL_0047: ldloc.0
+   IL_0048: ldloc.0
+   IL_0049: ldftn System.Boolean Celeste.Commands/<>c__DisplayClass17_0::<CmdHearts>b__0(Celeste.AreaStats)
+   IL_004f: newobj System.Void System.Func`2<Celeste.AreaStats,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0054: dup
+   IL_0055: stloc.s V_4
+   IL_0057: stfld System.Func`2<Celeste.AreaStats,System.Boolean> Celeste.Commands/<>c__DisplayClass17_0::<>9__0
+   IL_005c: ldloc.s V_4
+   IL_005e: call System.Collections.Generic.IEnumerable`1<TSource> System.Linq.Enumerable::Where<Celeste.AreaStats>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_0063: callvirt System.Collections.Generic.IEnumerator`1<T> System.Collections.Generic.IEnumerable`1<Celeste.AreaStats>::GetEnumerator()
+   IL_0068: stloc.3
+   IL_0069: br IL_00e9
+   IL_006e: ldloc.3
+   IL_006f: callvirt T System.Collections.Generic.IEnumerator`1<Celeste.AreaStats>::get_Current()
+   IL_0074: stloc.s V_5
+   IL_0076: ldc.i4.0
+   IL_0077: stloc.s V_6
+   IL_0079: br.s IL_00d9
+   IL_007b: ldloc.s V_5
+   IL_007d: callvirt System.Int32 Celeste.AreaStats::get_ID_Safe()
+   IL_0082: call Celeste.AreaData Celeste.AreaData::Get(System.Int32)
+   IL_0087: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_008c: stloc.s V_7
+   IL_008e: ldloc.s V_7
+   IL_0090: brfalse.s IL_00d3
+   IL_0092: ldloc.s V_7
+   IL_0094: ldlen
+   IL_0095: conv.i4
+   IL_0096: ldloc.s V_6
+   IL_0098: ble.s IL_00d3
+   IL_009a: ldloc.s V_7
+   IL_009c: ldloc.s V_6
+   IL_009e: ldelem.ref
+   IL_009f: dup
+   IL_00a0: brtrue.s IL_00a6
+   IL_00a2: pop
+   IL_00a3: ldnull
+   IL_00a4: br.s IL_00ab
+   IL_00a6: ldfld Celeste.MapData Celeste.ModeProperties::MapData
+   IL_00ab: brfalse.s IL_00d3
+   IL_00ad: ldloc.s V_5
+   IL_00af: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_00b4: ldloc.s V_6
+   IL_00b6: ldelem.ref
+   IL_00b7: stloc.s V_8
+   IL_00b9: ldloc.2
+   IL_00ba: ldarg.0
+   IL_00bb: bge.s IL_00cb
+   IL_00bd: ldloc.s V_8
+   IL_00bf: ldc.i4.1
+   IL_00c0: stfld System.Boolean Celeste.AreaModeStats::HeartGem
+   IL_00c5: ldloc.2
+   IL_00c6: ldc.i4.1
+   IL_00c7: add
+   IL_00c8: stloc.2
+   IL_00c9: br.s IL_00d3
+   IL_00cb: ldloc.s V_8
+   IL_00cd: ldc.i4.0
+   IL_00ce: stfld System.Boolean Celeste.AreaModeStats::HeartGem
+   IL_00d3: ldloc.s V_6
+   IL_00d5: ldc.i4.1
+   IL_00d6: add
+   IL_00d7: stloc.s V_6
+   IL_00d9: ldloc.s V_6
+   IL_00db: ldloc.s V_5
+   IL_00dd: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_00e2: ldlen
+   IL_00e3: conv.i4
+   IL_00e4: blt IL_007b
+   IL_00e9: ldloc.3
+   IL_00ea: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_00ef: brtrue IL_006e
+   IL_00f4: leave.s IL_0100
+   IL_00f6: ldloc.3
+   IL_00f7: brfalse.s IL_00ff
+   IL_00f9: ldloc.3
+   IL_00fa: callvirt System.Void System.IDisposable::Dispose()
+   IL_00ff: endfinally
+   IL_0100: ret

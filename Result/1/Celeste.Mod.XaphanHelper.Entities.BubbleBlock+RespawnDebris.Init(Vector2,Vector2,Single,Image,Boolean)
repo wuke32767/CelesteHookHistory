@@ -1,0 +1,85 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: ldarg from @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0004: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0009: nop
+   IL_000a: ldarg.0
+   IL_000b: ldarg.0
+   IL_000c: ldc.r4 0.44
+   IL_0011: ldc.r4 0
+   IL_0016: newobj System.Void Monocle.SineWave::.ctor(System.Single,System.Single)
+   IL_001b: callvirt Monocle.SineWave Monocle.SineWave::Randomize()
+   IL_0020: dup
+   IL_0021: stloc.0
+   IL_0022: stfld Monocle.SineWave Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::sine
+   IL_0027: ldloc.0
+   IL_0028: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_002d: nop
+   IL_002e: ldarg.0
+   IL_002f: ldfld Monocle.Image Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::sprite
+   IL_0034: ldnull
+   IL_0035: ceq
+   IL_0037: stloc.1
+   IL_0038: ldloc.1
+   IL_0039: brfalse.s IL_0067
+   IL_003b: nop
+   IL_003c: ldarg.0
+   IL_003d: ldarg.0
+   IL_003e: ldarg.s image
+   IL_0040: ldfld Monocle.MTexture Monocle.Image::Texture
+   IL_0045: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_004a: dup
+   IL_004b: stloc.2
+   IL_004c: stfld Monocle.Image Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::sprite
+   IL_0051: ldloc.2
+   IL_0052: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0057: nop
+   IL_0058: ldarg.0
+   IL_0059: ldfld Monocle.Image Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::sprite
+   IL_005e: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0063: pop
+   IL_0064: nop
+   IL_0065: br.s IL_007b
+   IL_0067: nop
+   IL_0068: ldarg.0
+   IL_0069: ldfld Monocle.Image Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::sprite
+   IL_006e: ldarg.s image
+   IL_0070: ldfld Monocle.MTexture Monocle.Image::Texture
+   IL_0075: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_007a: nop
+   IL_007b: ldarg.0
+   IL_007c: ldarg.0
+   IL_007d: ldarg.1
+   IL_007e: dup
+   IL_007f: stloc.3
+   IL_0080: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::from
+   IL_0085: ldloc.3
+   IL_0086: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_008b: ldarg.0
+   IL_008c: ldc.r4 0
+   IL_0091: stfld System.Single Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::percent
+   IL_0096: ldarg.0
+   IL_0097: ldarg.2
+   IL_0098: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::to
+   IL_009d: ldarg.0
+   IL_009e: ldarg.3
+   IL_009f: stfld System.Single Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::duration
+   IL_00a4: ldarg.1
+   IL_00a5: ldarg.2
+   IL_00a6: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Equality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00ab: stloc.s V_4
+   IL_00ad: ldloc.s V_4
+   IL_00af: brfalse.s IL_00ba
+   IL_00b1: nop
+   IL_00b2: ldarg.0
+   IL_00b3: ldc.i4.1
+   IL_00b4: stfld System.Boolean Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::noMove
+   IL_00b9: nop
+   IL_00ba: ldarg.0
+   IL_00bb: ldarg.s reform
+   IL_00bd: stfld System.Boolean Celeste.Mod.XaphanHelper.Entities.BubbleBlock/RespawnDebris::Reform
+   IL_00c2: ldarg.0
+   IL_00c3: stloc.s V_5
+   IL_00c5: br.s IL_00c7
+   IL_00c7: ldloc.s V_5
+ + IL_00c9: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_00ce: ret

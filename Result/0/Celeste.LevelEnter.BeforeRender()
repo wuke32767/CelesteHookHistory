@@ -1,0 +1,12 @@
+On: Celeste.Mod.GravityHelper.Hooks.LevelEnterHooks.LevelEnter_BeforeRender(orig_BeforeRender,LevelEnter)
+On: Celeste.Mod.XaphanHelper.XaphanModule.modLevelEnterBeforeRender(orig_BeforeRender,LevelEnter)
+On: Celeste.Mod.JungleHelper.Entities.EnforceSkinController.addSkinWarningPostcardRendering(orig_BeforeRender,LevelEnter)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Scene::BeforeRender()
+   IL_0006: ldarg.0
+   IL_0007: ldfld Celeste.Postcard Celeste.LevelEnter::postcard
+   IL_000c: brfalse.s IL_0019
+   IL_000e: ldarg.0
+   IL_000f: ldfld Celeste.Postcard Celeste.LevelEnter::postcard
+   IL_0014: callvirt System.Void Celeste.Postcard::BeforeRender()
+   IL_0019: ret

@@ -1,0 +1,57 @@
+On: Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.resetCrystalHeartAfterAltSidesHelper(Action`1,OuiChapterPanel)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: newobj System.Void MonoMod.Utils.DynData`1<Celeste.OuiChapterPanel>::.ctor(TTarget)
+   IL_0007: stloc.0
+   IL_0008: ldloc.0
+   IL_0009: callvirt System.Collections.Generic.Dictionary`2<System.String,System.Object> MonoMod.Utils.DynData`1<Celeste.OuiChapterPanel>::get_Data()
+   IL_000e: ldstr "AsHeartDirty"
+   IL_0013: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.Object>::ContainsKey(TKey)
+   IL_0018: brfalse.s IL_0027
+   IL_001a: ldloc.0
+   IL_001b: ldstr "AsHeartDirty"
+   IL_0020: callvirt T MonoMod.Utils.DynData`1<Celeste.OuiChapterPanel>::Get<System.Boolean>(System.String)
+   IL_0025: br.s IL_0028
+   IL_0027: ldc.i4.0
+   IL_0028: stloc.1
+   IL_0029: ldloc.1
+   IL_002a: brfalse.s IL_00a6
+   IL_002c: nop
+   IL_002d: ldarg.0
+   IL_002e: ldloc.0
+   IL_002f: ldstr "heart"
+   IL_0034: callvirt System.Object MonoMod.Utils.DynData`1<Celeste.OuiChapterPanel>::get_Item(System.String)
+   IL_0039: isinst Celeste.HeartGemDisplay
+   IL_003e: callvirt System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_0043: nop
+   IL_0044: ldloc.0
+   IL_0045: ldstr "heart"
+   IL_004a: ldc.i4.0
+   IL_004b: ldc.i4.0
+   IL_004c: newobj System.Void Celeste.HeartGemDisplay::.ctor(System.Int32,System.Boolean)
+   IL_0051: callvirt System.Void MonoMod.Utils.DynData`1<Celeste.OuiChapterPanel>::set_Item(System.String,System.Object)
+   IL_0056: nop
+   IL_0057: ldarg.0
+   IL_0058: ldloc.0
+   IL_0059: ldstr "heart"
+   IL_005e: callvirt System.Object MonoMod.Utils.DynData`1<Celeste.OuiChapterPanel>::get_Item(System.String)
+   IL_0063: isinst Celeste.HeartGemDisplay
+   IL_0068: callvirt System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_006d: nop
+   IL_006e: ldloc.0
+   IL_006f: ldstr "AsHeartDirty"
+   IL_0074: ldc.i4.0
+   IL_0075: box System.Boolean
+   IL_007a: callvirt System.Void MonoMod.Utils.DynData`1<Celeste.OuiChapterPanel>::set_Item(System.String,System.Object)
+   IL_007f: nop
+   IL_0080: ldstr "AltSidesHelper"
+   IL_0085: ldstr "Resetting dirty crystal heart for "
+   IL_008a: ldarg.0
+   IL_008b: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
+   IL_0090: ldfld System.String Celeste.AreaData::SID
+   IL_0095: ldstr "."
+   IL_009a: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_009f: call System.Void Celeste.Mod.Logger::Log(System.String,System.String)
+   IL_00a4: nop
+   IL_00a5: nop
+   IL_00a6: ret

@@ -1,0 +1,79 @@
+On: Celeste.Mod.KoseiHelper.Entities.CustomTempleCrackedBlock.modBreak(orig_Break,TempleCrackedBlock,Vector2)
+On: Celeste.Mod.CoopHelper.CoopHelperModule.OnTempleCrackedBlockBreak(orig_Break,TempleCrackedBlock,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.TempleCrackedBlock::persistent
+   IL_0006: brfalse.s IL_0024
+   IL_0008: ldarg.0
+   IL_0009: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_000e: ldfld Celeste.Session Celeste.Level::Session
+   IL_0013: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.Session::DoNotLoad
+   IL_0018: ldarg.0
+   IL_0019: ldfld Celeste.EntityID Celeste.TempleCrackedBlock::eid
+   IL_001e: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Add(T)
+   IL_0023: pop
+   IL_0024: ldstr "event:/game/05_mirror_temple/crackedwall_vanish"
+   IL_0029: ldarg.0
+   IL_002a: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_002f: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0034: pop
+   IL_0035: ldarg.0
+   IL_0036: ldc.i4.1
+   IL_0037: stfld System.Boolean Celeste.TempleCrackedBlock::broken
+   IL_003c: ldarg.0
+   IL_003d: ldc.i4.0
+   IL_003e: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0043: ldc.i4.0
+   IL_0044: stloc.0
+   IL_0045: br.s IL_00a2
+   IL_0047: ldc.i4.0
+   IL_0048: stloc.1
+   IL_0049: br.s IL_008e
+   IL_004b: ldarg.0
+   IL_004c: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0051: call Monocle.Pooler Monocle.Engine::get_Pooler()
+   IL_0056: callvirt T Monocle.Pooler::Create<Celeste.Debris>()
+   IL_005b: ldarg.0
+   IL_005c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0061: ldloc.0
+   IL_0062: ldc.i4.8
+   IL_0063: mul
+   IL_0064: ldc.i4.4
+   IL_0065: add
+   IL_0066: conv.r4
+   IL_0067: ldloc.1
+   IL_0068: ldc.i4.8
+   IL_0069: mul
+   IL_006a: ldc.i4.4
+   IL_006b: add
+   IL_006c: conv.r4
+   IL_006d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0072: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0077: ldc.i4.s 49
+   IL_0079: ldc.i4.1
+   IL_007a: callvirt Celeste.Debris Celeste.Debris::Init(Microsoft.Xna.Framework.Vector2,System.Char,System.Boolean)
+   IL_007f: ldarg.1
+   IL_0080: callvirt Celeste.Debris Celeste.Debris::BlastFrom(Microsoft.Xna.Framework.Vector2)
+   IL_0085: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_008a: ldloc.1
+   IL_008b: ldc.i4.1
+   IL_008c: add
+   IL_008d: stloc.1
+   IL_008e: ldloc.1
+   IL_008f: conv.r4
+   IL_0090: ldarg.0
+   IL_0091: call System.Single Monocle.Entity::get_Height()
+   IL_0096: ldc.r4 8
+   IL_009b: div
+   IL_009c: blt.s IL_004b
+   IL_009e: ldloc.0
+   IL_009f: ldc.i4.1
+   IL_00a0: add
+   IL_00a1: stloc.0
+   IL_00a2: ldloc.0
+   IL_00a3: conv.r4
+   IL_00a4: ldarg.0
+   IL_00a5: call System.Single Monocle.Entity::get_Width()
+   IL_00aa: ldc.r4 8
+   IL_00af: div
+   IL_00b0: blt.s IL_0047
+   IL_00b2: ret

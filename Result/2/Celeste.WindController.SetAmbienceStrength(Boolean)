@@ -1,0 +1,39 @@
+On: Celeste.Mod.SpeedrunTool.Other.BetterMapEditor.FixWindSoundNotPlay(orig_SetAmbienceStrength,WindController,Boolean)
+   IL_0000: ldc.i4.0
+   IL_0001: stloc.0
+   IL_0002: ldarg.0
+   IL_0003: ldflda Microsoft.Xna.Framework.Vector2 Celeste.WindController::targetSpeed
+   IL_0008: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_000d: ldc.r4 0
+   IL_0012: beq.s IL_0027
+   IL_0014: ldarg.0
+   IL_0015: ldflda Microsoft.Xna.Framework.Vector2 Celeste.WindController::targetSpeed
+   IL_001a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001f: call System.Int32 System.Math::Sign(System.Single)
+   IL_0024: stloc.0
+   IL_0025: br.s IL_004a
+   IL_0027: ldarg.0
+   IL_0028: ldflda Microsoft.Xna.Framework.Vector2 Celeste.WindController::targetSpeed
+   IL_002d: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0032: ldc.r4 0
+   IL_0037: beq.s IL_004a
+   IL_0039: ldarg.0
+   IL_003a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.WindController::targetSpeed
+   IL_003f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0044: call System.Int32 System.Math::Sign(System.Single)
+   IL_0049: stloc.0
+   IL_004a: call FMOD.Studio.EventInstance Celeste.Audio::get_CurrentAmbienceEventInstance()
+   IL_004f: ldstr "wind_direction"
+   IL_0054: ldloc.0
+   IL_0055: conv.r4
+   IL_0056: call System.Void Celeste.Audio::SetParameter(FMOD.Studio.EventInstance,System.String,System.Single)
+   IL_005b: call FMOD.Studio.EventInstance Celeste.Audio::get_CurrentAmbienceEventInstance()
+   IL_0060: ldstr "strong_wind"
+   IL_0065: ldarg.1
+   IL_0066: brtrue.s IL_006b
+   IL_0068: ldc.i4.0
+   IL_0069: br.s IL_006c
+   IL_006b: ldc.i4.1
+   IL_006c: conv.r4
+   IL_006d: call System.Void Celeste.Audio::SetParameter(FMOD.Studio.EventInstance,System.String,System.Single)
+   IL_0072: ret

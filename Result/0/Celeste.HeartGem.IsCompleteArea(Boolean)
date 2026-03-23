@@ -1,0 +1,37 @@
+On: Celeste.Mod.XaphanHelper.Hooks.MergeChaptersBCSideHeartCompleteArea.onHeartGemIsCompleteArea(orig_IsCompleteArea,HeartGem,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: dup
+   IL_000c: brtrue.s IL_0012
+   IL_000e: pop
+   IL_000f: ldnull
+   IL_0010: br.s IL_001c
+   IL_0012: ldfld Celeste.Session Celeste.Level::Session
+   IL_0017: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_001c: castclass Celeste.MapData
+   IL_0021: callvirt Celeste.Mod.Meta.MapMetaModeProperties Celeste.MapData::get_Meta()
+   IL_0026: stloc.0
+   IL_0027: ldloc.0
+   IL_0028: brfalse.s IL_0056
+   IL_002a: ldloc.0
+   IL_002b: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMetaModeProperties::get_HeartIsEnd()
+   IL_0030: stloc.1
+   IL_0031: ldloca.s V_1
+   IL_0033: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0038: brfalse.s IL_0056
+   IL_003a: ldloc.0
+   IL_003b: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMetaModeProperties::get_HeartIsEnd()
+   IL_0040: stloc.1
+   IL_0041: ldloca.s V_1
+   IL_0043: call T System.Nullable`1<System.Boolean>::get_Value()
+   IL_0048: brfalse.s IL_0054
+   IL_004a: ldarg.0
+   IL_004b: ldfld System.Boolean Celeste.HeartGem::IsFake
+   IL_0050: ldc.i4.0
+   IL_0051: ceq
+   IL_0053: ret
+   IL_0054: ldc.i4.0
+   IL_0055: ret
+   IL_0056: ldarg.1
+   IL_0057: ret

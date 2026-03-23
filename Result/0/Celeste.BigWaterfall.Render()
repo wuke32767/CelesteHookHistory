@@ -1,0 +1,192 @@
+On: Celeste.Mod.FewerVisualDistractions.Patches.AdditionalEffectTweaker.BigWaterfall_Render(orig_Render,BigWaterfall)
+   IL_0000: ldarg.0
+   IL_0001: callvirt Microsoft.Xna.Framework.Vector2 Celeste.BigWaterfall::get_RenderPosition()
+   IL_0006: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_000b: stloc.0
+   IL_000c: ldarg.0
+   IL_000d: ldfld Microsoft.Xna.Framework.Color Celeste.BigWaterfall::fillColor
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Single Celeste.BigWaterfall::fade
+   IL_0018: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_001d: stloc.1
+   IL_001e: ldarg.0
+   IL_001f: ldfld Microsoft.Xna.Framework.Color Celeste.BigWaterfall::surfaceColor
+   IL_0024: ldarg.0
+   IL_0025: ldfld System.Single Celeste.BigWaterfall::fade
+   IL_002a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_002f: stloc.2
+   IL_0030: ldloc.0
+   IL_0031: ldarg.0
+   IL_0032: call System.Single Monocle.Entity::get_Y()
+   IL_0037: ldarg.0
+   IL_0038: ldfld System.Single Celeste.BigWaterfall::width
+   IL_003d: ldarg.0
+   IL_003e: ldfld System.Single Celeste.BigWaterfall::height
+   IL_0043: ldloc.1
+   IL_0044: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0049: ldarg.0
+   IL_004a: ldfld Celeste.BigWaterfall/Layers Celeste.BigWaterfall::layer
+   IL_004f: brtrue IL_00e5
+   IL_0054: ldloc.0
+   IL_0055: ldc.r4 1
+   IL_005a: sub
+   IL_005b: ldarg.0
+   IL_005c: call System.Single Monocle.Entity::get_Y()
+   IL_0061: ldc.r4 3
+   IL_0066: ldarg.0
+   IL_0067: ldfld System.Single Celeste.BigWaterfall::height
+   IL_006c: ldloc.2
+   IL_006d: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0072: ldloc.0
+   IL_0073: ldarg.0
+   IL_0074: ldfld System.Single Celeste.BigWaterfall::width
+   IL_0079: add
+   IL_007a: ldc.r4 2
+   IL_007f: sub
+   IL_0080: ldarg.0
+   IL_0081: call System.Single Monocle.Entity::get_Y()
+   IL_0086: ldc.r4 3
+   IL_008b: ldarg.0
+   IL_008c: ldfld System.Single Celeste.BigWaterfall::height
+   IL_0091: ldloc.2
+   IL_0092: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0097: ldarg.0
+   IL_0098: ldfld System.Collections.Generic.List`1<System.Single> Celeste.BigWaterfall::lines
+   IL_009d: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<System.Single>::GetEnumerator()
+   IL_00a2: stloc.3
+   IL_00a3: br.s IL_00c9
+   IL_00a5: ldloca.s V_3
+   IL_00a7: call T System.Collections.Generic.List`1/Enumerator<System.Single>::get_Current()
+   IL_00ac: stloc.s V_4
+   IL_00ae: ldloc.0
+   IL_00af: ldloc.s V_4
+   IL_00b1: add
+   IL_00b2: ldarg.0
+   IL_00b3: call System.Single Monocle.Entity::get_Y()
+   IL_00b8: ldc.r4 1
+   IL_00bd: ldarg.0
+   IL_00be: ldfld System.Single Celeste.BigWaterfall::height
+   IL_00c3: ldloc.2
+   IL_00c4: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00c9: ldloca.s V_3
+   IL_00cb: call System.Boolean System.Collections.Generic.List`1/Enumerator<System.Single>::MoveNext()
+   IL_00d0: brtrue.s IL_00a5
+   IL_00d2: leave IL_01fc
+   IL_00d7: ldloca.s V_3
+   IL_00d9: constrained. System.Collections.Generic.List`1/Enumerator<System.Single>
+   IL_00df: callvirt System.Void System.IDisposable::Dispose()
+   IL_00e4: endfinally
+   IL_00e5: ldarg.0
+   IL_00e6: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00eb: isinst Celeste.Level
+   IL_00f0: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_00f5: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_00fa: stloc.s V_5
+   IL_00fc: ldc.i4.3
+   IL_00fd: stloc.s V_6
+   IL_00ff: ldarg.0
+   IL_0100: call System.Single Monocle.Entity::get_Y()
+   IL_0105: ldloc.s V_5
+   IL_0107: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_010c: ldloc.s V_6
+   IL_010e: conv.r4
+   IL_010f: div
+   IL_0110: conv.r8
+   IL_0111: call System.Double System.Math::Floor(System.Double)
+   IL_0116: conv.r4
+   IL_0117: ldloc.s V_6
+   IL_0119: conv.r4
+   IL_011a: mul
+   IL_011b: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_0120: ldarg.0
+   IL_0121: call System.Single Monocle.Entity::get_Y()
+   IL_0126: ldarg.0
+   IL_0127: ldfld System.Single Celeste.BigWaterfall::height
+   IL_012c: add
+   IL_012d: ldloc.s V_5
+   IL_012f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0134: ldc.r4 180
+   IL_0139: add
+   IL_013a: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_013f: stloc.s V_7
+   IL_0141: stloc.s V_8
+   IL_0143: br IL_01f3
+   IL_0148: ldloc.s V_8
+   IL_014a: ldc.r4 6
+   IL_014f: div
+   IL_0150: ldarg.0
+   IL_0151: ldfld System.Single Celeste.BigWaterfall::sine
+   IL_0156: ldc.r4 8
+   IL_015b: mul
+   IL_015c: sub
+   IL_015d: conv.r8
+   IL_015e: call System.Double System.Math::Sin(System.Double)
+   IL_0163: ldc.r8 2
+   IL_016c: mul
+   IL_016d: conv.i4
+   IL_016e: stloc.s V_9
+   IL_0170: ldloc.0
+   IL_0171: ldloc.s V_8
+   IL_0173: ldc.i4.4
+   IL_0174: ldloc.s V_9
+   IL_0176: add
+   IL_0177: conv.r4
+   IL_0178: ldloc.s V_6
+   IL_017a: conv.r4
+   IL_017b: ldloc.2
+   IL_017c: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0181: ldloc.0
+   IL_0182: ldarg.0
+   IL_0183: ldfld System.Single Celeste.BigWaterfall::width
+   IL_0188: add
+   IL_0189: ldc.r4 4
+   IL_018e: sub
+   IL_018f: ldloc.s V_9
+   IL_0191: conv.r4
+   IL_0192: add
+   IL_0193: ldloc.s V_8
+   IL_0195: ldc.i4.4
+   IL_0196: ldloc.s V_9
+   IL_0198: sub
+   IL_0199: conv.r4
+   IL_019a: ldloc.s V_6
+   IL_019c: conv.r4
+   IL_019d: ldloc.2
+   IL_019e: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_01a3: ldarg.0
+   IL_01a4: ldfld System.Collections.Generic.List`1<System.Single> Celeste.BigWaterfall::lines
+   IL_01a9: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<System.Single>::GetEnumerator()
+   IL_01ae: stloc.3
+   IL_01af: br.s IL_01d2
+   IL_01b1: ldloca.s V_3
+   IL_01b3: call T System.Collections.Generic.List`1/Enumerator<System.Single>::get_Current()
+   IL_01b8: stloc.s V_10
+   IL_01ba: ldloc.0
+   IL_01bb: ldloc.s V_9
+   IL_01bd: conv.r4
+   IL_01be: add
+   IL_01bf: ldloc.s V_10
+   IL_01c1: add
+   IL_01c2: ldloc.s V_8
+   IL_01c4: ldc.r4 1
+   IL_01c9: ldloc.s V_6
+   IL_01cb: conv.r4
+   IL_01cc: ldloc.2
+   IL_01cd: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_01d2: ldloca.s V_3
+   IL_01d4: call System.Boolean System.Collections.Generic.List`1/Enumerator<System.Single>::MoveNext()
+   IL_01d9: brtrue.s IL_01b1
+   IL_01db: leave.s IL_01eb
+   IL_01dd: ldloca.s V_3
+   IL_01df: constrained. System.Collections.Generic.List`1/Enumerator<System.Single>
+   IL_01e5: callvirt System.Void System.IDisposable::Dispose()
+   IL_01ea: endfinally
+   IL_01eb: ldloc.s V_8
+   IL_01ed: ldloc.s V_6
+   IL_01ef: conv.r4
+   IL_01f0: add
+   IL_01f1: stloc.s V_8
+   IL_01f3: ldloc.s V_8
+   IL_01f5: ldloc.s V_7
+   IL_01f7: blt IL_0148
+   IL_01fc: ret

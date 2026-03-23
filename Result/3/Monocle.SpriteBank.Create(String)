@@ -1,0 +1,21 @@
+On: Celeste.Mod.StrawberryJam2021.Triggers.SpriteSwapTrigger.SpriteBank_Create(orig_Create,SpriteBank,String)
+On: Celeste.Mod.SkinModHelper.SkinsSystem.SpriteBankCreateHook(orig_Create,SpriteBank,String)
+On: SkinModHelper.Module.SkinModHelperModule.SpriteBankCreateHook(orig_Create,SpriteBank,String)
+On: Celeste.Mod.Procedurline.SpriteManager.SpriteBankCreateHook(orig_Create,SpriteBank,String)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_0006: ldarg.1
+   IL_0007: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::ContainsKey(TKey)
+   IL_000c: brfalse.s IL_0020
+   IL_000e: ldarg.0
+   IL_000f: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_0014: ldarg.1
+   IL_0015: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::get_Item(TKey)
+   IL_001a: callvirt Monocle.Sprite Monocle.SpriteData::Create()
+   IL_001f: ret
+   IL_0020: ldstr "Missing animation name in SpriteData: '"
+   IL_0025: ldarg.1
+   IL_0026: ldstr "'!"
+   IL_002b: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0030: newobj System.Void System.Exception::.ctor(System.String)
+   IL_0035: throw

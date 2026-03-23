@@ -1,0 +1,38 @@
+On: Celeste.Mod.HardcoreMode.HMModule.On_OuiFileSelectSlot_OnNewGameSelected(orig_OnNewGameSelected,OuiFileSelectSlot)
+   IL_0000: newobj System.Void Celeste.OuiFileSelectSlot/<>c__DisplayClass43_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldarg.0
+   IL_0007: callvirt System.Void Celeste.OuiFileSelectSlot::orig_OnNewGameSelected()
+   IL_000c: ldloc.0
+   IL_000d: ldarg.0
+   IL_000e: ldfld Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker Celeste.OuiFileSelectSlot::newGameLevelSetPicker
+   IL_0013: dup
+   IL_0014: brtrue.s IL_001a
+   IL_0016: pop
+   IL_0017: ldnull
+   IL_0018: br.s IL_001f
+   IL_001a: callvirt System.String Celeste.Mod.UI.OuiFileSelectSlotLevelSetPicker::get_NewGameLevelSet()
+   IL_001f: stfld System.String Celeste.OuiFileSelectSlot/<>c__DisplayClass43_0::newGameLevelSet
+   IL_0024: ldloc.0
+   IL_0025: ldfld System.String Celeste.OuiFileSelectSlot/<>c__DisplayClass43_0::newGameLevelSet
+   IL_002a: brfalse.s IL_006f
+   IL_002c: ldloc.0
+   IL_002d: ldfld System.String Celeste.OuiFileSelectSlot/<>c__DisplayClass43_0::newGameLevelSet
+   IL_0032: ldstr "Celeste"
+   IL_0037: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_003c: brfalse.s IL_006f
+   IL_003e: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0043: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
+   IL_0048: ldloc.0
+   IL_0049: ldftn System.Boolean Celeste.OuiFileSelectSlot/<>c__DisplayClass43_0::<OnNewGameSelected>b__0(Celeste.AreaData)
+   IL_004f: newobj System.Void System.Func`2<Celeste.AreaData,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0054: call TSource System.Linq.Enumerable::FirstOrDefault<Celeste.AreaData>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_0059: dup
+   IL_005a: brtrue.s IL_0064
+   IL_005c: pop
+   IL_005d: ldsfld Celeste.AreaKey Celeste.AreaKey::Default
+   IL_0062: br.s IL_006a
+   IL_0064: ldc.i4.0
+   IL_0065: call Celeste.AreaKey Celeste.AreaDataExt::ToKey(Celeste.AreaData,Celeste.AreaMode)
+   IL_006a: stfld Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_006f: ret

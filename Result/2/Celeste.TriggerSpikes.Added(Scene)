@@ -1,0 +1,152 @@
+On: Celeste.Mod.LylyraHelper.Code.Components.Sliceable.Attached.AttachedTriggerSpikesSliceable.TriggerSpikes_Added(orig_Added,TriggerSpikes,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0007: ldarg.1
+   IL_0008: call Celeste.DustStyles/DustStyle Celeste.DustStyles::Get(Monocle.Scene)
+   IL_000d: ldfld Microsoft.Xna.Framework.Vector3[] Celeste.DustStyles/DustStyle::EdgeColors
+   IL_0012: stloc.0
+   IL_0013: ldarg.0
+   IL_0014: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0019: ldstr "danger/dustcreature/base"
+   IL_001e: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0023: stfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.TriggerSpikes::dustTextures
+   IL_0028: ldarg.0
+   IL_0029: ldloc.0
+   IL_002a: ldlen
+   IL_002b: conv.i4
+   IL_002c: newarr Microsoft.Xna.Framework.Color
+   IL_0031: stfld Microsoft.Xna.Framework.Color[] Celeste.TriggerSpikes::tentacleColors
+   IL_0036: ldc.i4.0
+   IL_0037: stloc.2
+   IL_0038: br.s IL_0065
+   IL_003a: ldarg.0
+   IL_003b: ldfld Microsoft.Xna.Framework.Color[] Celeste.TriggerSpikes::tentacleColors
+   IL_0040: ldloc.2
+   IL_0041: ldloc.0
+   IL_0042: ldloc.2
+   IL_0043: ldelem.any Microsoft.Xna.Framework.Vector3
+   IL_0048: newobj System.Void Microsoft.Xna.Framework.Color::.ctor(Microsoft.Xna.Framework.Vector3)
+   IL_004d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_DarkSlateBlue()
+   IL_0052: ldc.r4 0.4
+   IL_0057: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_005c: stelem.any Microsoft.Xna.Framework.Color
+   IL_0061: ldloc.2
+   IL_0062: ldc.i4.1
+   IL_0063: add
+   IL_0064: stloc.2
+   IL_0065: ldloc.2
+   IL_0066: ldarg.0
+   IL_0067: ldfld Microsoft.Xna.Framework.Color[] Celeste.TriggerSpikes::tentacleColors
+   IL_006c: ldlen
+   IL_006d: conv.i4
+   IL_006e: blt.s IL_003a
+   IL_0070: ldloca.s V_1
+   IL_0072: ldarg.0
+   IL_0073: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TriggerSpikes::outwards
+   IL_0078: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_007d: call System.Single System.Math::Abs(System.Single)
+   IL_0082: ldarg.0
+   IL_0083: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TriggerSpikes::outwards
+   IL_0088: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_008d: call System.Single System.Math::Abs(System.Single)
+   IL_0092: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0097: ldarg.0
+   IL_0098: ldarg.0
+   IL_0099: ldfld System.Int32 Celeste.TriggerSpikes::size
+   IL_009e: ldc.i4.4
+   IL_009f: div
+   IL_00a0: newarr Celeste.TriggerSpikes/SpikeInfo
+   IL_00a5: stfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_00aa: ldc.i4.0
+   IL_00ab: stloc.3
+   IL_00ac: br IL_01af
+   IL_00b1: ldarg.0
+   IL_00b2: ldfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_00b7: ldloc.3
+   IL_00b8: ldelema Celeste.TriggerSpikes/SpikeInfo
+   IL_00bd: ldarg.0
+   IL_00be: stfld Celeste.TriggerSpikes Celeste.TriggerSpikes/SpikeInfo::Parent
+   IL_00c3: ldarg.0
+   IL_00c4: ldfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_00c9: ldloc.3
+   IL_00ca: ldelema Celeste.TriggerSpikes/SpikeInfo
+   IL_00cf: ldloc.3
+   IL_00d0: stfld System.Int32 Celeste.TriggerSpikes/SpikeInfo::Index
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_00db: ldloc.3
+   IL_00dc: ldelema Celeste.TriggerSpikes/SpikeInfo
+   IL_00e1: ldarg.0
+   IL_00e2: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00e7: ldloc.1
+   IL_00e8: ldc.i4.2
+   IL_00e9: ldloc.3
+   IL_00ea: ldc.i4.4
+   IL_00eb: mul
+   IL_00ec: add
+   IL_00ed: conv.r4
+   IL_00ee: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00f3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00f8: stfld Microsoft.Xna.Framework.Vector2 Celeste.TriggerSpikes/SpikeInfo::WorldPosition
+   IL_00fd: ldarg.0
+   IL_00fe: ldfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_0103: ldloc.3
+   IL_0104: ldelema Celeste.TriggerSpikes/SpikeInfo
+   IL_0109: ldsfld System.Random Monocle.Calc::Random
+   IL_010e: ldc.r4 0.25
+   IL_0113: call System.Single Monocle.Calc::NextFloat(System.Random,System.Single)
+   IL_0118: stfld System.Single Celeste.TriggerSpikes/SpikeInfo::ParticleTimerOffset
+   IL_011d: ldarg.0
+   IL_011e: ldfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_0123: ldloc.3
+   IL_0124: ldelema Celeste.TriggerSpikes/SpikeInfo
+   IL_0129: ldsfld System.Random Monocle.Calc::Random
+   IL_012e: ldarg.0
+   IL_012f: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.TriggerSpikes::dustTextures
+   IL_0134: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.MTexture>::get_Count()
+   IL_0139: callvirt System.Int32 System.Random::Next(System.Int32)
+   IL_013e: stfld System.Int32 Celeste.TriggerSpikes/SpikeInfo::TextureIndex
+   IL_0143: ldarg.0
+   IL_0144: ldfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_0149: ldloc.3
+   IL_014a: ldelema Celeste.TriggerSpikes/SpikeInfo
+   IL_014f: ldsfld System.Random Monocle.Calc::Random
+   IL_0154: ldc.i4.3
+   IL_0155: ldc.i4.4
+   IL_0156: ldc.i4.6
+   IL_0157: call T Monocle.Calc::Choose<System.Int32>(System.Random,T,T,T)
+   IL_015c: stfld System.Int32 Celeste.TriggerSpikes/SpikeInfo::DustOutDistance
+   IL_0161: ldarg.0
+   IL_0162: ldfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_0167: ldloc.3
+   IL_0168: ldelema Celeste.TriggerSpikes/SpikeInfo
+   IL_016d: ldsfld System.Random Monocle.Calc::Random
+   IL_0172: ldarg.0
+   IL_0173: ldfld Microsoft.Xna.Framework.Color[] Celeste.TriggerSpikes::tentacleColors
+   IL_0178: ldlen
+   IL_0179: conv.i4
+   IL_017a: callvirt System.Int32 System.Random::Next(System.Int32)
+   IL_017f: stfld System.Int32 Celeste.TriggerSpikes/SpikeInfo::TentacleColor
+   IL_0184: ldarg.0
+   IL_0185: ldfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_018a: ldloc.3
+   IL_018b: ldelema Celeste.TriggerSpikes/SpikeInfo
+   IL_0190: ldsfld System.Random Monocle.Calc::Random
+   IL_0195: ldarg.0
+   IL_0196: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.TriggerSpikes::tentacleTextures
+   IL_019b: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.MTexture>::get_Count()
+   IL_01a0: conv.r4
+   IL_01a1: call System.Single Monocle.Calc::NextFloat(System.Random,System.Single)
+   IL_01a6: stfld System.Single Celeste.TriggerSpikes/SpikeInfo::TentacleFrame
+   IL_01ab: ldloc.3
+   IL_01ac: ldc.i4.1
+   IL_01ad: add
+   IL_01ae: stloc.3
+   IL_01af: ldloc.3
+   IL_01b0: ldarg.0
+   IL_01b1: ldfld Celeste.TriggerSpikes/SpikeInfo[] Celeste.TriggerSpikes::spikes
+   IL_01b6: ldlen
+   IL_01b7: conv.i4
+   IL_01b8: blt IL_00b1
+   IL_01bd: ret

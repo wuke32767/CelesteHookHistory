@@ -1,0 +1,23 @@
+On: TAS.EverestInterop.Pico8Fixer.BalloonOnInit(orig_init,balloon,Classic,Emulator)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: ldarg.2
+   IL_0003: call System.Void Celeste.Pico8.Classic/ClassicObject::init(Celeste.Pico8.Classic,Celeste.Pico8.Emulator)
+   IL_0008: ldarg.0
+   IL_0009: ldarg.0
+   IL_000a: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_000f: ldc.r4 1
+   IL_0014: callvirt System.Single Celeste.Pico8.Emulator::rnd(System.Single)
+   IL_0019: stfld System.Single Celeste.Pico8.Classic/balloon::offset
+   IL_001e: ldarg.0
+   IL_001f: ldarg.0
+   IL_0020: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_0025: stfld System.Single Celeste.Pico8.Classic/balloon::start
+   IL_002a: ldarg.0
+   IL_002b: ldc.i4.m1
+   IL_002c: ldc.i4.m1
+   IL_002d: ldc.i4.s 10
+   IL_002f: ldc.i4.s 10
+   IL_0031: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0036: stfld Microsoft.Xna.Framework.Rectangle Celeste.Pico8.Classic/ClassicObject::hitbox
+   IL_003b: ret

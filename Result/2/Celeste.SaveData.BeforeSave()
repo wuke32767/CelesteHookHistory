@@ -1,0 +1,74 @@
+On: Celeste.Mod.EeveeHelper.Entities.RoomChest.SaveData_BeforeSave(orig_BeforeSave,SaveData)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_0006: call System.String Celeste.AreaKeyExt::GetLevelSet(Celeste.AreaKey)
+   IL_000b: ldstr "Celeste"
+   IL_0010: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0015: brfalse.s IL_0023
+   IL_0017: ldarg.0
+   IL_0018: ldarg.0
+   IL_0019: ldfld Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_001e: stfld Celeste.AreaKey Celeste.SaveData::LastArea
+   IL_0023: ldarg.0
+   IL_0024: ldfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_0029: brfalse.s IL_0053
+   IL_002b: ldarg.0
+   IL_002c: ldfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_0031: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0036: call System.String Celeste.AreaKeyExt::GetLevelSet(Celeste.AreaKey)
+   IL_003b: ldstr "Celeste"
+   IL_0040: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0045: brfalse.s IL_0053
+   IL_0047: ldarg.0
+   IL_0048: ldarg.0
+   IL_0049: ldfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_004e: stfld Celeste.Session Celeste.SaveData::CurrentSession
+   IL_0053: ldarg.0
+   IL_0054: ldfld System.Collections.Generic.List`1<Celeste.LevelSetStats> Celeste.SaveData::LevelSets
+   IL_0059: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.LevelSetStats>::GetEnumerator()
+   IL_005e: stloc.0
+   IL_005f: br.s IL_00c7
+   IL_0061: newobj System.Void Celeste.SaveData/<>c__DisplayClass64_0::.ctor()
+   IL_0066: stloc.1
+   IL_0067: ldloc.1
+   IL_0068: ldloca.s V_0
+   IL_006a: call T System.Collections.Generic.List`1/Enumerator<Celeste.LevelSetStats>::get_Current()
+   IL_006f: stfld Celeste.LevelSetStats Celeste.SaveData/<>c__DisplayClass64_0::set
+   IL_0074: ldloc.1
+   IL_0075: ldfld Celeste.LevelSetStats Celeste.SaveData/<>c__DisplayClass64_0::set
+   IL_007a: ldfld System.String Celeste.LevelSetStats::Name
+   IL_007f: ldstr "Celeste"
+   IL_0084: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0089: brtrue.s IL_00c7
+   IL_008b: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
+   IL_0090: ldloc.1
+   IL_0091: ldftn System.Boolean Celeste.SaveData/<>c__DisplayClass64_0::<BeforeSave>b__0(Celeste.AreaData)
+   IL_0097: newobj System.Void System.Func`2<Celeste.AreaData,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_009c: call System.Int32 System.Linq.Enumerable::Count<Celeste.AreaData>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_00a1: stloc.2
+   IL_00a2: ldloc.1
+   IL_00a3: ldfld Celeste.LevelSetStats Celeste.SaveData/<>c__DisplayClass64_0::set
+   IL_00a8: ldfld System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.LevelSetStats::Areas
+   IL_00ad: stloc.3
+   IL_00ae: br.s IL_00be
+   IL_00b0: ldloc.3
+   IL_00b1: ldloc.3
+   IL_00b2: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.AreaStats>::get_Count()
+   IL_00b7: ldc.i4.1
+   IL_00b8: sub
+   IL_00b9: callvirt System.Void System.Collections.Generic.List`1<Celeste.AreaStats>::RemoveAt(System.Int32)
+   IL_00be: ldloc.3
+   IL_00bf: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.AreaStats>::get_Count()
+   IL_00c4: ldloc.2
+   IL_00c5: bgt.s IL_00b0
+   IL_00c7: ldloca.s V_0
+   IL_00c9: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.LevelSetStats>::MoveNext()
+   IL_00ce: brtrue.s IL_0061
+   IL_00d0: leave.s IL_00e0
+   IL_00d2: ldloca.s V_0
+   IL_00d4: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.LevelSetStats>
+   IL_00da: callvirt System.Void System.IDisposable::Dispose()
+   IL_00df: endfinally
+   IL_00e0: ldarg.0
+   IL_00e1: callvirt System.Void Celeste.SaveData::orig_BeforeSave()
+   IL_00e6: ret

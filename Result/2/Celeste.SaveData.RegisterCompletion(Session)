@@ -1,0 +1,128 @@
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.SaveData_RegisterCompletion(orig_RegisterCompletion,SaveData,Session)
+On: Celeste.Mod.CollabUtils2.LobbyHelper.onRegisterCompletion(orig_RegisterCompletion,SaveData,Session)
+   IL_0000: ldarg.1
+   IL_0001: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_000d: ldloc.0
+   IL_000e: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0013: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_0018: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_001d: ldloc.0
+   IL_001e: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_0023: ldelem.ref
+   IL_0024: stloc.1
+   IL_0025: ldarg.1
+   IL_0026: ldfld System.Boolean Celeste.Session::GrabbedGolden
+   IL_002b: brfalse.s IL_0034
+   IL_002d: ldloc.1
+   IL_002e: ldc.i4.0
+   IL_002f: stfld System.Int32 Celeste.AreaModeStats::BestDeaths
+   IL_0034: ldarg.1
+   IL_0035: ldfld System.Boolean Celeste.Session::StartedFromBeginning
+   IL_003a: brfalse IL_0106
+   IL_003f: ldloc.1
+   IL_0040: ldc.i4.1
+   IL_0041: stfld System.Boolean Celeste.AreaModeStats::SingleRunCompleted
+   IL_0046: ldloc.1
+   IL_0047: ldfld System.Int64 Celeste.AreaModeStats::BestTime
+   IL_004c: ldc.i4.0
+   IL_004d: conv.i8
+   IL_004e: ble.s IL_005e
+   IL_0050: ldarg.1
+   IL_0051: ldfld System.Int32 Celeste.Session::Deaths
+   IL_0056: ldloc.1
+   IL_0057: ldfld System.Int32 Celeste.AreaModeStats::BestDeaths
+   IL_005c: bge.s IL_006a
+   IL_005e: ldloc.1
+   IL_005f: ldarg.1
+   IL_0060: ldfld System.Int32 Celeste.Session::Deaths
+   IL_0065: stfld System.Int32 Celeste.AreaModeStats::BestDeaths
+   IL_006a: ldloc.1
+   IL_006b: ldfld System.Int64 Celeste.AreaModeStats::BestTime
+   IL_0070: ldc.i4.0
+   IL_0071: conv.i8
+   IL_0072: ble.s IL_0082
+   IL_0074: ldarg.1
+   IL_0075: ldfld System.Int32 Celeste.Session::Dashes
+   IL_007a: ldloc.1
+   IL_007b: ldfld System.Int32 Celeste.AreaModeStats::BestDashes
+   IL_0080: bge.s IL_008e
+   IL_0082: ldloc.1
+   IL_0083: ldarg.1
+   IL_0084: ldfld System.Int32 Celeste.Session::Dashes
+   IL_0089: stfld System.Int32 Celeste.AreaModeStats::BestDashes
+   IL_008e: ldloc.1
+   IL_008f: ldfld System.Int64 Celeste.AreaModeStats::BestTime
+   IL_0094: ldc.i4.0
+   IL_0095: conv.i8
+   IL_0096: ble.s IL_00a6
+   IL_0098: ldarg.1
+   IL_0099: ldfld System.Int64 Celeste.Session::Time
+   IL_009e: ldloc.1
+   IL_009f: ldfld System.Int64 Celeste.AreaModeStats::BestTime
+   IL_00a4: bge.s IL_00c3
+   IL_00a6: ldloc.1
+   IL_00a7: ldfld System.Int64 Celeste.AreaModeStats::BestTime
+   IL_00ac: ldc.i4.0
+   IL_00ad: conv.i8
+   IL_00ae: ble.s IL_00b7
+   IL_00b0: ldarg.1
+   IL_00b1: ldc.i4.1
+   IL_00b2: stfld System.Boolean Celeste.Session::BeatBestTime
+   IL_00b7: ldloc.1
+   IL_00b8: ldarg.1
+   IL_00b9: ldfld System.Int64 Celeste.Session::Time
+   IL_00be: stfld System.Int64 Celeste.AreaModeStats::BestTime
+   IL_00c3: ldloc.0
+   IL_00c4: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_00c9: brtrue.s IL_0106
+   IL_00cb: ldarg.1
+   IL_00cc: callvirt System.Boolean Celeste.Session::get_FullClear()
+   IL_00d1: brfalse.s IL_0106
+   IL_00d3: ldloc.1
+   IL_00d4: ldc.i4.1
+   IL_00d5: stfld System.Boolean Celeste.AreaModeStats::FullClear
+   IL_00da: ldarg.1
+   IL_00db: ldfld System.Boolean Celeste.Session::StartedFromBeginning
+   IL_00e0: brfalse.s IL_0106
+   IL_00e2: ldloc.1
+   IL_00e3: ldfld System.Int64 Celeste.AreaModeStats::BestFullClearTime
+   IL_00e8: ldc.i4.0
+   IL_00e9: conv.i8
+   IL_00ea: ble.s IL_00fa
+   IL_00ec: ldarg.1
+   IL_00ed: ldfld System.Int64 Celeste.Session::Time
+   IL_00f2: ldloc.1
+   IL_00f3: ldfld System.Int64 Celeste.AreaModeStats::BestFullClearTime
+   IL_00f8: bge.s IL_0106
+   IL_00fa: ldloc.1
+   IL_00fb: ldarg.1
+   IL_00fc: ldfld System.Int64 Celeste.Session::Time
+   IL_0101: stfld System.Int64 Celeste.AreaModeStats::BestFullClearTime
+   IL_0106: ldloc.0
+   IL_0107: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_010c: ldc.i4.1
+   IL_010d: add
+   IL_010e: ldarg.0
+   IL_010f: callvirt System.Int32 Celeste.SaveData::get_UnlockedAreas_Safe()
+   IL_0114: ble.s IL_0132
+   IL_0116: ldloc.0
+   IL_0117: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_011c: ldarg.0
+   IL_011d: callvirt System.Int32 Celeste.SaveData::get_MaxArea()
+   IL_0122: bge.s IL_0132
+   IL_0124: ldarg.0
+   IL_0125: ldloc.0
+   IL_0126: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_012b: ldc.i4.1
+   IL_012c: add
+   IL_012d: callvirt System.Void Celeste.SaveData::set_UnlockedAreas_Safe(System.Int32)
+   IL_0132: ldloc.1
+   IL_0133: ldc.i4.1
+   IL_0134: stfld System.Boolean Celeste.AreaModeStats::Completed
+   IL_0139: ldarg.1
+   IL_013a: ldc.i4.0
+   IL_013b: stfld System.Boolean Celeste.Session::InArea
+   IL_0140: ret

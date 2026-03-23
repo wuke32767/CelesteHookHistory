@@ -1,0 +1,48 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: newobj System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass39_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: nop
+   IL_0007: ldloc.0
+   IL_0008: ldarg.0
+   IL_0009: ldfld System.String Celeste.PlayerSprite::spriteName
+   IL_000e: stfld System.String Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass39_0::spriteName
+   IL_0013: ldsfld System.Collections.Generic.Dictionary`2<System.String,System.String> Celeste.Mod.SkinModHelper.PlayerSkinSystem::oldskinname_cache
+   IL_0018: ldloc.0
+   IL_0019: ldfld System.String Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass39_0::spriteName
+   IL_001e: ldarg.1
+   IL_001f: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.String>::TryGetValue(TKey,TValue&)
+   IL_0024: stloc.1
+   IL_0025: ldloc.1
+   IL_0026: brfalse.s IL_0031
+   IL_0028: nop
+   IL_0029: ldarg.1
+   IL_002a: ldind.ref
+   IL_002b: ldnull
+   IL_002c: cgt.un
+   IL_002e: stloc.2
+   IL_002f: br.s IL_006d
+   IL_0031: ldsfld System.Collections.Generic.Dictionary`2<System.String,System.String> Celeste.Mod.SkinModHelper.PlayerSkinSystem::oldskinname_cache
+   IL_0036: ldloc.0
+   IL_0037: ldfld System.String Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass39_0::spriteName
+   IL_003c: ldarg.1
+   IL_003d: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.SkinModHelper.SkinModHelperOldConfig> Celeste.Mod.SkinModHelper.SkinsSystem::OtherskinOldConfig
+   IL_0042: callvirt System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.SkinModHelper.SkinModHelperOldConfig>::get_Keys()
+   IL_0047: ldloc.0
+   IL_0048: ldftn System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass39_0::<OldConfigCheck>b__0(System.String)
+   IL_004e: newobj System.Void System.Func`2<System.String,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0053: call TSource System.Linq.Enumerable::FirstOrDefault<System.String>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_0058: dup
+   IL_0059: stloc.s V_4
+   IL_005b: stind.ref
+   IL_005c: ldloc.s V_4
+   IL_005e: dup
+   IL_005f: stloc.3
+   IL_0060: callvirt System.Void System.Collections.Generic.Dictionary`2<System.String,System.String>::set_Item(TKey,TValue)
+   IL_0065: nop
+   IL_0066: ldloc.3
+   IL_0067: ldnull
+   IL_0068: cgt.un
+   IL_006a: stloc.2
+   IL_006b: br.s IL_006d
+   IL_006d: ldloc.2
+   IL_006e: ret

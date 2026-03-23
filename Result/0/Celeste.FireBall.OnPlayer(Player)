@@ -1,0 +1,28 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomFireBallOnPlayer(orig_OnPlayer,FireBall,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.FireBall::iceMode
+   IL_0006: brtrue.s IL_0018
+   IL_0008: ldarg.0
+   IL_0009: ldfld System.Boolean Celeste.FireBall::broken
+   IL_000e: brtrue.s IL_0018
+   IL_0010: ldarg.0
+   IL_0011: ldarg.1
+   IL_0012: callvirt System.Void Celeste.FireBall::KillPlayer(Celeste.Player)
+   IL_0017: ret
+   IL_0018: ldarg.0
+   IL_0019: ldfld System.Boolean Celeste.FireBall::iceMode
+   IL_001e: brfalse.s IL_0043
+   IL_0020: ldarg.0
+   IL_0021: ldfld System.Boolean Celeste.FireBall::broken
+   IL_0026: brtrue.s IL_0043
+   IL_0028: ldarg.1
+   IL_0029: callvirt System.Single Monocle.Entity::get_Bottom()
+   IL_002e: ldarg.0
+   IL_002f: call System.Single Monocle.Entity::get_Y()
+   IL_0034: ldc.r4 4
+   IL_0039: add
+   IL_003a: ble.un.s IL_0043
+   IL_003c: ldarg.0
+   IL_003d: ldarg.1
+   IL_003e: callvirt System.Void Celeste.FireBall::KillPlayer(Celeste.Player)
+   IL_0043: ret

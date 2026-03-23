@@ -1,0 +1,52 @@
+On: VanillaTweaks.Jukebox.Audio_SetMusic(orig_SetMusic,String,Boolean,Boolean)
+On: Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.OnSetMusic(orig_SetMusic,String,Boolean,Boolean)
+On: ChaosEnsues.Entry.Audio_SetMusic(orig_SetMusic,String,Boolean,Boolean)
+On: Celeste.Mod.SorbetHelper.Entities.MusicSyncControllerFMOD.On_Audio_SetMusic(orig_SetMusic,String,Boolean,Boolean)
+On: TAS.EverestInterop.AutoMute.AudioOnSetMusic(orig_SetMusic,String,Boolean,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0006: brtrue.s IL_0015
+   IL_0008: ldarg.0
+   IL_0009: ldstr "null"
+   IL_000e: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0013: brfalse.s IL_0032
+   IL_0015: ldsfld FMOD.Studio.EventInstance Celeste.Audio::currentMusicEvent
+   IL_001a: ldarg.2
+   IL_001b: call System.Void Celeste.Audio::Stop(FMOD.Studio.EventInstance,System.Boolean)
+   IL_0020: ldnull
+   IL_0021: stsfld FMOD.Studio.EventInstance Celeste.Audio::currentMusicEvent
+   IL_0026: ldstr ""
+   IL_002b: stsfld System.String Celeste.Audio::CurrentMusic
+   IL_0030: br.s IL_0080
+   IL_0032: ldsfld System.String Celeste.Audio::CurrentMusic
+   IL_0037: ldarg.0
+   IL_0038: ldc.i4.5
+   IL_0039: callvirt System.Boolean System.String::Equals(System.String,System.StringComparison)
+   IL_003e: brtrue.s IL_0080
+   IL_0040: ldsfld FMOD.Studio.EventInstance Celeste.Audio::currentMusicEvent
+   IL_0045: ldarg.2
+   IL_0046: call System.Void Celeste.Audio::Stop(FMOD.Studio.EventInstance,System.Boolean)
+   IL_004b: ldarg.0
+   IL_004c: ldloca.s V_1
+   IL_004e: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector2>
+   IL_0054: ldloc.1
+   IL_0055: call FMOD.Studio.EventInstance Celeste.Audio::CreateInstance(System.String,System.Nullable`1<Microsoft.Xna.Framework.Vector2>)
+   IL_005a: stloc.0
+   IL_005b: ldloc.0
+   IL_005c: ldnull
+   IL_005d: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_0062: ldarg.1
+   IL_0063: and
+   IL_0064: brfalse.s IL_006d
+   IL_0066: ldloc.0
+   IL_0067: callvirt FMOD.RESULT FMOD.Studio.EventInstance::start()
+   IL_006c: pop
+   IL_006d: ldloc.0
+   IL_006e: stsfld FMOD.Studio.EventInstance Celeste.Audio::currentMusicEvent
+   IL_0073: ldloc.0
+   IL_0074: call System.String Celeste.Audio::GetEventName(FMOD.Studio.EventInstance)
+   IL_0079: stsfld System.String Celeste.Audio::CurrentMusic
+   IL_007e: ldc.i4.1
+   IL_007f: ret
+   IL_0080: ldc.i4.0
+   IL_0081: ret

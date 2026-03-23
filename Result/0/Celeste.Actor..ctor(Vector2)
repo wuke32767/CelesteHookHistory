@@ -1,0 +1,19 @@
+On: ChroniaHelper.Entities.TeraBlock.OnActorCreate(orig_ctor,Actor,Vector2)
+On: Celeste.Mod.TeraHelper.Entities.TeraBlock.OnActorCreate(orig_ctor,Actor,Vector2)
+On: Celeste.Mod.Aqua.Core.ActorExtensions.Actor_Construct(orig_ctor,Actor,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.1
+   IL_0002: stfld System.Boolean Celeste.Actor::AllowPushing
+   IL_0007: ldarg.0
+   IL_0008: ldc.r4 0.16
+   IL_000d: stfld System.Single Celeste.Actor::LiftSpeedGraceTime
+   IL_0012: ldarg.0
+   IL_0013: ldarg.1
+   IL_0014: call System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0019: ldarg.0
+   IL_001a: ldarg.0
+   IL_001b: dup
+   IL_001c: ldvirtftn System.Void Celeste.Actor::OnSquish(Celeste.CollisionData)
+   IL_0022: newobj System.Void Celeste.Collision::.ctor(System.Object,System.IntPtr)
+   IL_0027: stfld Celeste.Collision Celeste.Actor::SquishCallback
+   IL_002c: ret

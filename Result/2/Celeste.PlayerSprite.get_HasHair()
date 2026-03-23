@@ -1,0 +1,17 @@
+On: Celeste.Mod.Procedurline.PlayerManager.<.ctor>b__5_6(Func`2,PlayerSprite)
+On: TAS.Gameplay.DesyncFix.SkinModFix.On_PlayerSprite_getHasHair(Func`2,PlayerSprite)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.MTexture Monocle.Image::Texture
+   IL_0006: brfalse.s IL_0028
+   IL_0008: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.PlayerAnimMetadata> Celeste.PlayerSprite::FrameMetadata
+   IL_000d: ldarg.0
+   IL_000e: ldfld Monocle.MTexture Monocle.Image::Texture
+   IL_0013: ldfld System.String Monocle.MTexture::AtlasPath
+   IL_0018: ldloca.s V_0
+   IL_001a: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Celeste.PlayerAnimMetadata>::TryGetValue(TKey,TValue&)
+   IL_001f: brfalse.s IL_0028
+   IL_0021: ldloc.0
+   IL_0022: ldfld System.Boolean Celeste.PlayerAnimMetadata::HasHair
+   IL_0027: ret
+   IL_0028: ldc.i4.0
+   IL_0029: ret

@@ -1,0 +1,59 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.FlagDashSwitch.DashSwitch_GetGate(orig_GetGate,DashSwitch)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000b: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.TempleGate>()
+   IL_0010: ldnull
+   IL_0011: stloc.0
+   IL_0012: ldc.r4 0
+   IL_0017: stloc.1
+   IL_0018: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_001d: stloc.2
+   IL_001e: br.s IL_0075
+   IL_0020: ldloca.s V_2
+   IL_0022: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_0027: castclass Celeste.TempleGate
+   IL_002c: stloc.3
+   IL_002d: ldloc.3
+   IL_002e: ldfld Celeste.TempleGate/Types Celeste.TempleGate::Type
+   IL_0033: brtrue.s IL_0075
+   IL_0035: ldloc.3
+   IL_0036: ldfld System.Boolean Celeste.TempleGate::ClaimedByASwitch
+   IL_003b: brtrue.s IL_0075
+   IL_003d: ldloc.3
+   IL_003e: ldfld System.String Celeste.TempleGate::LevelID
+   IL_0043: ldarg.0
+   IL_0044: ldflda Celeste.EntityID Celeste.DashSwitch::id
+   IL_0049: ldfld System.String Celeste.EntityID::Level
+   IL_004e: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0053: brfalse.s IL_0075
+   IL_0055: ldarg.0
+   IL_0056: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_005b: ldloc.3
+   IL_005c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0061: call System.Single Microsoft.Xna.Framework.Vector2::DistanceSquared(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0066: stloc.s V_4
+   IL_0068: ldloc.0
+   IL_0069: brfalse.s IL_0070
+   IL_006b: ldloc.s V_4
+   IL_006d: ldloc.1
+   IL_006e: bge.un.s IL_0075
+   IL_0070: ldloc.3
+   IL_0071: stloc.0
+   IL_0072: ldloc.s V_4
+   IL_0074: stloc.1
+   IL_0075: ldloca.s V_2
+   IL_0077: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_007c: brtrue.s IL_0020
+   IL_007e: leave.s IL_008e
+   IL_0080: ldloca.s V_2
+   IL_0082: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0088: callvirt System.Void System.IDisposable::Dispose()
+   IL_008d: endfinally
+   IL_008e: ldloc.0
+   IL_008f: brfalse.s IL_0098
+   IL_0091: ldloc.0
+   IL_0092: ldc.i4.1
+   IL_0093: stfld System.Boolean Celeste.TempleGate::ClaimedByASwitch
+   IL_0098: ldloc.0
+   IL_0099: ret

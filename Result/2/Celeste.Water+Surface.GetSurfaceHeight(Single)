@@ -1,0 +1,154 @@
+On: Celeste.Mod.SelfishHelper.Entities.WaterBlock+Hooks.Surface_GetSurfaceHeight(orig_GetSurfaceHeight_float,Surface,Single)
+   IL_0000: ldarg.1
+   IL_0001: ldc.r4 0
+   IL_0006: blt.s IL_0012
+   IL_0008: ldarg.1
+   IL_0009: ldarg.0
+   IL_000a: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_000f: conv.r4
+   IL_0010: ble.un.s IL_0018
+   IL_0012: ldc.r4 0
+   IL_0017: ret
+   IL_0018: ldc.r4 0
+   IL_001d: stloc.0
+   IL_001e: ldarg.0
+   IL_001f: ldfld System.Collections.Generic.List`1<Celeste.Water/Ripple> Celeste.Water/Surface::Ripples
+   IL_0024: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Water/Ripple>::GetEnumerator()
+   IL_0029: stloc.2
+   IL_002a: br IL_00b5
+   IL_002f: ldloca.s V_2
+   IL_0031: call T System.Collections.Generic.List`1/Enumerator<Celeste.Water/Ripple>::get_Current()
+   IL_0036: stloc.3
+   IL_0037: ldloc.3
+   IL_0038: ldfld System.Single Celeste.Water/Ripple::Position
+   IL_003d: ldarg.1
+   IL_003e: sub
+   IL_003f: call System.Single System.Math::Abs(System.Single)
+   IL_0044: stloc.s V_4
+   IL_0046: ldc.r4 0
+   IL_004b: stloc.s V_5
+   IL_004d: ldloc.s V_4
+   IL_004f: ldc.r4 12
+   IL_0054: bge.un.s IL_0075
+   IL_0056: ldloc.s V_4
+   IL_0058: ldc.r4 0
+   IL_005d: ldc.r4 16
+   IL_0062: ldc.r4 1
+   IL_0067: ldc.r4 -0.75
+   IL_006c: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0071: stloc.s V_5
+   IL_0073: br.s IL_0092
+   IL_0075: ldloc.s V_4
+   IL_0077: ldc.r4 16
+   IL_007c: ldc.r4 32
+   IL_0081: ldc.r4 -0.75
+   IL_0086: ldc.r4 0
+   IL_008b: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0090: stloc.s V_5
+   IL_0092: ldloc.0
+   IL_0093: ldloc.s V_5
+   IL_0095: ldloc.3
+   IL_0096: ldfld System.Single Celeste.Water/Ripple::Height
+   IL_009b: mul
+   IL_009c: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeIn
+   IL_00a1: ldc.r4 1
+   IL_00a6: ldloc.3
+   IL_00a7: ldfld System.Single Celeste.Water/Ripple::Percent
+   IL_00ac: sub
+   IL_00ad: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_00b2: mul
+   IL_00b3: add
+   IL_00b4: stloc.0
+   IL_00b5: ldloca.s V_2
+   IL_00b7: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Water/Ripple>::MoveNext()
+   IL_00bc: brtrue IL_002f
+   IL_00c1: leave.s IL_00d1
+   IL_00c3: ldloca.s V_2
+   IL_00c5: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Water/Ripple>
+   IL_00cb: callvirt System.Void System.IDisposable::Dispose()
+   IL_00d0: endfinally
+   IL_00d1: ldloc.0
+   IL_00d2: ldc.r4 -4
+   IL_00d7: ldc.r4 4
+   IL_00dc: call System.Single Monocle.Calc::Clamp(System.Single,System.Single,System.Single)
+   IL_00e1: stloc.0
+   IL_00e2: ldarg.0
+   IL_00e3: ldfld System.Collections.Generic.List`1<Celeste.Water/Tension> Celeste.Water/Surface::Tensions
+   IL_00e8: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Water/Tension>::GetEnumerator()
+   IL_00ed: stloc.s V_6
+   IL_00ef: br.s IL_0140
+   IL_00f1: ldloca.s V_6
+   IL_00f3: call T System.Collections.Generic.List`1/Enumerator<Celeste.Water/Tension>::get_Current()
+   IL_00f8: stloc.s V_7
+   IL_00fa: ldloc.s V_7
+   IL_00fc: ldfld System.Single Celeste.Water/Tension::Position
+   IL_0101: ldarg.1
+   IL_0102: sub
+   IL_0103: call System.Single System.Math::Abs(System.Single)
+   IL_0108: ldc.r4 0
+   IL_010d: ldc.r4 24
+   IL_0112: ldc.r4 1
+   IL_0117: ldc.r4 0
+   IL_011c: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0121: stloc.s V_8
+   IL_0123: ldloc.0
+   IL_0124: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0129: ldloc.s V_8
+   IL_012b: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0130: ldloc.s V_7
+   IL_0132: ldfld System.Single Celeste.Water/Tension::Strength
+   IL_0137: mul
+   IL_0138: ldc.r4 12
+   IL_013d: mul
+   IL_013e: add
+   IL_013f: stloc.0
+   IL_0140: ldloca.s V_6
+   IL_0142: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Water/Tension>::MoveNext()
+   IL_0147: brtrue.s IL_00f1
+   IL_0149: leave.s IL_0159
+   IL_014b: ldloca.s V_6
+   IL_014d: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Water/Tension>
+   IL_0153: callvirt System.Void System.IDisposable::Dispose()
+   IL_0158: endfinally
+   IL_0159: ldarg.1
+   IL_015a: ldarg.0
+   IL_015b: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_0160: conv.r4
+   IL_0161: div
+   IL_0162: stloc.1
+   IL_0163: ldloc.0
+   IL_0164: ldloc.1
+   IL_0165: ldc.r4 0
+   IL_016a: ldc.r4 0.1
+   IL_016f: ldc.r4 0.5
+   IL_0174: ldc.r4 1
+   IL_0179: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_017e: mul
+   IL_017f: stloc.0
+   IL_0180: ldloc.0
+   IL_0181: ldloc.1
+   IL_0182: ldc.r4 0.9
+   IL_0187: ldc.r4 1
+   IL_018c: ldc.r4 1
+   IL_0191: ldc.r4 0.5
+   IL_0196: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_019b: mul
+   IL_019c: stloc.0
+   IL_019d: ldloc.0
+   IL_019e: ldarg.0
+   IL_019f: ldfld System.Single Celeste.Water/Surface::timer
+   IL_01a4: ldarg.1
+   IL_01a5: ldc.r4 0.1
+   IL_01aa: mul
+   IL_01ab: add
+   IL_01ac: conv.r8
+   IL_01ad: call System.Double System.Math::Sin(System.Double)
+   IL_01b2: conv.r4
+   IL_01b3: add
+   IL_01b4: stloc.0
+   IL_01b5: ldloc.0
+   IL_01b6: ldc.r4 6
+   IL_01bb: add
+   IL_01bc: stloc.0
+   IL_01bd: ldloc.0
+   IL_01be: ret

@@ -1,0 +1,96 @@
+On: CutsceneHelper.CSHelperModule.VirtualJoystick_Update(orig_Update,VirtualJoystick)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.List`1<Monocle.VirtualJoystick/Node> Monocle.VirtualJoystick::Nodes
+   IL_0006: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.VirtualJoystick/Node>::GetEnumerator()
+   IL_000b: stloc.0
+   IL_000c: br.s IL_001a
+   IL_000e: ldloca.s V_0
+   IL_0010: call T System.Collections.Generic.List`1/Enumerator<Monocle.VirtualJoystick/Node>::get_Current()
+   IL_0015: callvirt System.Void Monocle.VirtualInputNode::Update()
+   IL_001a: ldloca.s V_0
+   IL_001c: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.VirtualJoystick/Node>::MoveNext()
+   IL_0021: brtrue.s IL_000e
+   IL_0023: leave.s IL_0033
+   IL_0025: ldloca.s V_0
+   IL_0027: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.VirtualJoystick/Node>
+   IL_002d: callvirt System.Void System.IDisposable::Dispose()
+   IL_0032: endfinally
+   IL_0033: ldarg.0
+   IL_0034: callvirt System.Void Monocle.VirtualJoystick::orig_Update()
+   IL_0039: ldsfld System.Boolean Monocle.MInput::Disabled
+   IL_003e: brtrue IL_011b
+   IL_0043: ldarg.0
+   IL_0044: ldfld System.Collections.Generic.List`1<Monocle.VirtualJoystick/Node> Monocle.VirtualJoystick::Nodes
+   IL_0049: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.VirtualJoystick/Node>::GetEnumerator()
+   IL_004e: stloc.0
+   IL_004f: br IL_00ff
+   IL_0054: ldloca.s V_0
+   IL_0056: call T System.Collections.Generic.List`1/Enumerator<Monocle.VirtualJoystick/Node>::get_Current()
+   IL_005b: callvirt Microsoft.Xna.Framework.Vector2 Monocle.VirtualJoystick/Node::get_Value()
+   IL_0060: stloc.1
+   IL_0061: ldloc.1
+   IL_0062: ldloca.s V_2
+   IL_0064: initobj Microsoft.Xna.Framework.Vector2
+   IL_006a: ldloc.2
+   IL_006b: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0070: brfalse IL_00ff
+   IL_0075: ldarg.0
+   IL_0076: ldfld System.Boolean Monocle.VirtualJoystick::Normalized
+   IL_007b: brfalse.s IL_00a7
+   IL_007d: ldarg.0
+   IL_007e: ldflda System.Nullable`1<System.Single> Monocle.VirtualJoystick::SnapSlices
+   IL_0083: call System.Boolean System.Nullable`1<System.Single>::get_HasValue()
+   IL_0088: brfalse.s IL_009e
+   IL_008a: ldloc.1
+   IL_008b: ldarg.0
+   IL_008c: ldflda System.Nullable`1<System.Single> Monocle.VirtualJoystick::SnapSlices
+   IL_0091: call T System.Nullable`1<System.Single>::get_Value()
+   IL_0096: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SnappedNormal(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_009b: stloc.1
+   IL_009c: br.s IL_00c6
+   IL_009e: ldloca.s V_1
+   IL_00a0: call System.Void Microsoft.Xna.Framework.Vector2::Normalize()
+   IL_00a5: br.s IL_00c6
+   IL_00a7: ldarg.0
+   IL_00a8: ldflda System.Nullable`1<System.Single> Monocle.VirtualJoystick::SnapSlices
+   IL_00ad: call System.Boolean System.Nullable`1<System.Single>::get_HasValue()
+   IL_00b2: brfalse.s IL_00c6
+   IL_00b4: ldloc.1
+   IL_00b5: ldarg.0
+   IL_00b6: ldflda System.Nullable`1<System.Single> Monocle.VirtualJoystick::SnapSlices
+   IL_00bb: call T System.Nullable`1<System.Single>::get_Value()
+   IL_00c0: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Snapped(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00c5: stloc.1
+   IL_00c6: ldarg.0
+   IL_00c7: ldfld System.Boolean Monocle.VirtualJoystick::InvertedX
+   IL_00cc: brfalse.s IL_00de
+   IL_00ce: ldloca.s V_1
+   IL_00d0: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00d5: dup
+   IL_00d6: ldind.r4
+   IL_00d7: ldc.r4 -1
+   IL_00dc: mul
+   IL_00dd: stind.r4
+   IL_00de: ldarg.0
+   IL_00df: ldfld System.Boolean Monocle.VirtualJoystick::InvertedY
+   IL_00e4: brfalse.s IL_00f6
+   IL_00e6: ldloca.s V_1
+   IL_00e8: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00ed: dup
+   IL_00ee: ldind.r4
+   IL_00ef: ldc.r4 -1
+   IL_00f4: mul
+   IL_00f5: stind.r4
+   IL_00f6: ldarg.0
+   IL_00f7: ldloc.1
+   IL_00f8: callvirt System.Void Monocle.VirtualJoystick::set_Value(Microsoft.Xna.Framework.Vector2)
+   IL_00fd: leave.s IL_011b
+   IL_00ff: ldloca.s V_0
+   IL_0101: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.VirtualJoystick/Node>::MoveNext()
+   IL_0106: brtrue IL_0054
+   IL_010b: leave.s IL_011b
+   IL_010d: ldloca.s V_0
+   IL_010f: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.VirtualJoystick/Node>
+   IL_0115: callvirt System.Void System.IDisposable::Dispose()
+   IL_011a: endfinally
+   IL_011b: ret

@@ -1,0 +1,30 @@
+On: AltSidesHelper.AltSidesHelperModule.OnSessionGetFullClear(orig_Session_get_FullClear,Session)
+   IL_0000: ldarg.0
+   IL_0001: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_0006: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_000b: brtrue.s IL_004c
+   IL_000d: ldarg.0
+   IL_000e: ldfld System.Boolean Celeste.Session::Cassette
+   IL_0013: brfalse.s IL_004c
+   IL_0015: ldarg.0
+   IL_0016: ldfld System.Boolean Celeste.Session::HeartGem
+   IL_001b: brfalse.s IL_004c
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.Session::Strawberries
+   IL_0023: callvirt System.Int32 System.Collections.Generic.HashSet`1<Celeste.EntityID>::get_Count()
+   IL_0028: ldarg.0
+   IL_0029: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_002e: ldfld System.Int32 Celeste.MapData::DetectedStrawberries
+   IL_0033: blt.s IL_004c
+   IL_0035: ldarg.0
+   IL_0036: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_003b: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0040: ldc.i4.7
+   IL_0041: bne.un.s IL_004a
+   IL_0043: ldarg.0
+   IL_0044: callvirt System.Boolean Celeste.Session::get_HasAllSummitGems()
+   IL_0049: ret
+   IL_004a: ldc.i4.1
+   IL_004b: ret
+   IL_004c: ldc.i4.0
+   IL_004d: ret

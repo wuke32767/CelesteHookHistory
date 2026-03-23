@@ -1,0 +1,18 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_0007: stloc.0
+   IL_0008: ldloc.0
+   IL_0009: ldfld System.Action Celeste.Mod.SkinModHelper.HairConfig::OnHairUpdate
+   IL_000e: dup
+   IL_000f: brtrue.s IL_0014
+   IL_0011: pop
+   IL_0012: br.s IL_001a
+   IL_0014: callvirt System.Void System.Action::Invoke()
+   IL_0019: nop
+   IL_001a: ldarg.0
+   IL_001b: ldarg.1
+   IL_001c: callvirt System.Void On.Celeste.PlayerHair/orig_Update::Invoke(Celeste.PlayerHair)
+   IL_0021: nop
+   IL_0022: ret

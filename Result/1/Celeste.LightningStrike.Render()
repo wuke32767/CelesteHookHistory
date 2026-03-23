@@ -1,0 +1,16 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedLightningStrike() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Boolean Celeste.LightningStrike::on
+   IL_0011: brtrue.s IL_0014
+   IL_0013: ret
+   IL_0014: ldarg.0
+   IL_0015: ldfld Celeste.LightningStrike/Node Celeste.LightningStrike::strike
+   IL_001a: ldarg.0
+   IL_001b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0020: ldarg.0
+   IL_0021: ldfld System.Single Celeste.LightningStrike::scale
+   IL_0026: callvirt System.Void Celeste.LightningStrike/Node::Render(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_002b: ret

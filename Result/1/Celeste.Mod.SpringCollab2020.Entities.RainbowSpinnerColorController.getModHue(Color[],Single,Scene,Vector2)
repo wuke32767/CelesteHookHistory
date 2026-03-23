@@ -1,0 +1,58 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.SimplifiedGraphics::<Initialize>g__OverwriteCrystalHue|5_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_001a @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ldc.i4 0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000f: ldc.i4 0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<Microsoft.Xna.Framework.Color>(System.Int32,System.Int32) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+        Reference: {R:255 G:255 B:255 A:255}
+ + IL_0019: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_001a: ldarga.s position
+   IL_001c: call System.Single Microsoft.Xna.Framework.Vector2::Length()
+   IL_0021: ldarg.2
+   IL_0022: ldfld System.Single Monocle.Scene::TimeActive
+   IL_0027: ldc.r4 50
+   IL_002c: mul
+   IL_002d: add
+   IL_002e: ldarg.1
+   IL_002f: rem
+   IL_0030: ldarg.1
+   IL_0031: div
+   IL_0032: call System.Single Monocle.Calc::YoYo(System.Single)
+   IL_0037: stloc.0
+   IL_0038: ldloc.0
+   IL_0039: ldc.r4 1
+   IL_003e: bne.un.s IL_004c
+   IL_0040: ldarg.0
+   IL_0041: ldarg.0
+   IL_0042: ldlen
+   IL_0043: conv.i4
+   IL_0044: ldc.i4.1
+   IL_0045: sub
+   IL_0046: ldelem.any Microsoft.Xna.Framework.Color
+   IL_004b: ret
+   IL_004c: ldarg.0
+   IL_004d: ldlen
+   IL_004e: conv.i4
+   IL_004f: ldc.i4.1
+   IL_0050: sub
+   IL_0051: conv.r4
+   IL_0052: ldloc.0
+   IL_0053: mul
+   IL_0054: dup
+   IL_0055: conv.i4
+   IL_0056: stloc.1
+   IL_0057: ldloc.1
+   IL_0058: conv.r4
+   IL_0059: sub
+   IL_005a: stloc.2
+   IL_005b: ldarg.0
+   IL_005c: ldloc.1
+   IL_005d: ldelem.any Microsoft.Xna.Framework.Color
+   IL_0062: ldarg.0
+   IL_0063: ldloc.1
+   IL_0064: ldc.i4.1
+   IL_0065: add
+   IL_0066: ldelem.any Microsoft.Xna.Framework.Color
+   IL_006b: ldloc.2
+   IL_006c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0071: ret

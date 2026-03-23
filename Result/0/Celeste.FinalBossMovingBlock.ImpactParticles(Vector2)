@@ -1,0 +1,264 @@
+On: Celeste.Mod.FancyTileEntities.FancyFinalBossMovingBlock.ImpactParticles(orig_ImpactParticles,FinalBossMovingBlock,Vector2)
+   IL_0000: ldarg.1
+   IL_0001: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0006: ldc.r4 0
+   IL_000b: bge.un IL_00c6
+   IL_0010: ldloca.s V_0
+   IL_0012: ldc.r4 0
+   IL_0017: ldc.r4 2
+   IL_001c: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0021: ldc.i4.0
+   IL_0022: stloc.1
+   IL_0023: br IL_00ae
+   IL_0028: ldloca.s V_2
+   IL_002a: ldarg.0
+   IL_002b: call System.Single Monocle.Entity::get_Left()
+   IL_0030: ldc.r4 1
+   IL_0035: sub
+   IL_0036: ldarg.0
+   IL_0037: call System.Single Monocle.Entity::get_Top()
+   IL_003c: ldc.r4 4
+   IL_0041: add
+   IL_0042: ldloc.1
+   IL_0043: ldc.i4.8
+   IL_0044: mul
+   IL_0045: conv.r4
+   IL_0046: add
+   IL_0047: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_004c: ldarg.0
+   IL_004d: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0052: ldloc.2
+   IL_0053: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Water>(Microsoft.Xna.Framework.Vector2)
+   IL_0058: brtrue.s IL_00aa
+   IL_005a: ldarg.0
+   IL_005b: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0060: ldloc.2
+   IL_0061: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_0066: brfalse.s IL_00aa
+   IL_0068: ldarg.0
+   IL_0069: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_006e: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_0073: ldsfld Monocle.ParticleType Celeste.CrushBlock::P_Impact
+   IL_0078: ldloc.2
+   IL_0079: ldloc.0
+   IL_007a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_007f: ldc.r4 0
+   IL_0084: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0089: ldarg.0
+   IL_008a: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_008f: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_0094: ldsfld Monocle.ParticleType Celeste.CrushBlock::P_Impact
+   IL_0099: ldloc.2
+   IL_009a: ldloc.0
+   IL_009b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a0: ldc.r4 0
+   IL_00a5: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00aa: ldloc.1
+   IL_00ab: ldc.i4.1
+   IL_00ac: add
+   IL_00ad: stloc.1
+   IL_00ae: ldloc.1
+   IL_00af: conv.r4
+   IL_00b0: ldarg.0
+   IL_00b1: call System.Single Monocle.Entity::get_Height()
+   IL_00b6: ldc.r4 8
+   IL_00bb: div
+   IL_00bc: blt IL_0028
+   IL_00c1: br IL_0190
+   IL_00c6: ldarg.1
+   IL_00c7: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00cc: ldc.r4 0
+   IL_00d1: ble.un IL_0190
+   IL_00d6: ldloca.s V_3
+   IL_00d8: ldc.r4 0
+   IL_00dd: ldc.r4 2
+   IL_00e2: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00e7: ldc.i4.0
+   IL_00e8: stloc.s V_4
+   IL_00ea: br IL_017c
+   IL_00ef: ldloca.s V_5
+   IL_00f1: ldarg.0
+   IL_00f2: call System.Single Monocle.Entity::get_Right()
+   IL_00f7: ldc.r4 1
+   IL_00fc: add
+   IL_00fd: ldarg.0
+   IL_00fe: call System.Single Monocle.Entity::get_Top()
+   IL_0103: ldc.r4 4
+   IL_0108: add
+   IL_0109: ldloc.s V_4
+   IL_010b: ldc.i4.8
+   IL_010c: mul
+   IL_010d: conv.r4
+   IL_010e: add
+   IL_010f: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0114: ldarg.0
+   IL_0115: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_011a: ldloc.s V_5
+   IL_011c: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Water>(Microsoft.Xna.Framework.Vector2)
+   IL_0121: brtrue.s IL_0176
+   IL_0123: ldarg.0
+   IL_0124: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0129: ldloc.s V_5
+   IL_012b: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_0130: brfalse.s IL_0176
+   IL_0132: ldarg.0
+   IL_0133: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0138: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_013d: ldsfld Monocle.ParticleType Celeste.CrushBlock::P_Impact
+   IL_0142: ldloc.s V_5
+   IL_0144: ldloc.3
+   IL_0145: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_014a: ldc.r4 3.1415927
+   IL_014f: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0154: ldarg.0
+   IL_0155: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_015a: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_015f: ldsfld Monocle.ParticleType Celeste.CrushBlock::P_Impact
+   IL_0164: ldloc.s V_5
+   IL_0166: ldloc.3
+   IL_0167: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_016c: ldc.r4 3.1415927
+   IL_0171: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0176: ldloc.s V_4
+   IL_0178: ldc.i4.1
+   IL_0179: add
+   IL_017a: stloc.s V_4
+   IL_017c: ldloc.s V_4
+   IL_017e: conv.r4
+   IL_017f: ldarg.0
+   IL_0180: call System.Single Monocle.Entity::get_Height()
+   IL_0185: ldc.r4 8
+   IL_018a: div
+   IL_018b: blt IL_00ef
+   IL_0190: ldarg.1
+   IL_0191: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0196: ldc.r4 0
+   IL_019b: bge.un IL_025d
+   IL_01a0: ldloca.s V_6
+   IL_01a2: ldc.r4 2
+   IL_01a7: ldc.r4 0
+   IL_01ac: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01b1: ldc.i4.0
+   IL_01b2: stloc.s V_7
+   IL_01b4: br IL_0248
+   IL_01b9: ldloca.s V_8
+   IL_01bb: ldarg.0
+   IL_01bc: call System.Single Monocle.Entity::get_Left()
+   IL_01c1: ldc.r4 4
+   IL_01c6: add
+   IL_01c7: ldloc.s V_7
+   IL_01c9: ldc.i4.8
+   IL_01ca: mul
+   IL_01cb: conv.r4
+   IL_01cc: add
+   IL_01cd: ldarg.0
+   IL_01ce: call System.Single Monocle.Entity::get_Top()
+   IL_01d3: ldc.r4 1
+   IL_01d8: sub
+   IL_01d9: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01de: ldarg.0
+   IL_01df: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_01e4: ldloc.s V_8
+   IL_01e6: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Water>(Microsoft.Xna.Framework.Vector2)
+   IL_01eb: brtrue.s IL_0242
+   IL_01ed: ldarg.0
+   IL_01ee: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_01f3: ldloc.s V_8
+   IL_01f5: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_01fa: brfalse.s IL_0242
+   IL_01fc: ldarg.0
+   IL_01fd: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0202: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_0207: ldsfld Monocle.ParticleType Celeste.CrushBlock::P_Impact
+   IL_020c: ldloc.s V_8
+   IL_020e: ldloc.s V_6
+   IL_0210: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0215: ldc.r4 1.5707964
+   IL_021a: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_021f: ldarg.0
+   IL_0220: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0225: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_022a: ldsfld Monocle.ParticleType Celeste.CrushBlock::P_Impact
+   IL_022f: ldloc.s V_8
+   IL_0231: ldloc.s V_6
+   IL_0233: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0238: ldc.r4 1.5707964
+   IL_023d: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0242: ldloc.s V_7
+   IL_0244: ldc.i4.1
+   IL_0245: add
+   IL_0246: stloc.s V_7
+   IL_0248: ldloc.s V_7
+   IL_024a: conv.r4
+   IL_024b: ldarg.0
+   IL_024c: call System.Single Monocle.Entity::get_Width()
+   IL_0251: ldc.r4 8
+   IL_0256: div
+   IL_0257: blt IL_01b9
+   IL_025c: ret
+   IL_025d: ldarg.1
+   IL_025e: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0263: ldc.r4 0
+   IL_0268: ble.un IL_0329
+   IL_026d: ldloca.s V_9
+   IL_026f: ldc.r4 2
+   IL_0274: ldc.r4 0
+   IL_0279: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_027e: ldc.i4.0
+   IL_027f: stloc.s V_10
+   IL_0281: br IL_0315
+   IL_0286: ldloca.s V_11
+   IL_0288: ldarg.0
+   IL_0289: call System.Single Monocle.Entity::get_Left()
+   IL_028e: ldc.r4 4
+   IL_0293: add
+   IL_0294: ldloc.s V_10
+   IL_0296: ldc.i4.8
+   IL_0297: mul
+   IL_0298: conv.r4
+   IL_0299: add
+   IL_029a: ldarg.0
+   IL_029b: call System.Single Monocle.Entity::get_Bottom()
+   IL_02a0: ldc.r4 1
+   IL_02a5: add
+   IL_02a6: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_02ab: ldarg.0
+   IL_02ac: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_02b1: ldloc.s V_11
+   IL_02b3: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Water>(Microsoft.Xna.Framework.Vector2)
+   IL_02b8: brtrue.s IL_030f
+   IL_02ba: ldarg.0
+   IL_02bb: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_02c0: ldloc.s V_11
+   IL_02c2: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_02c7: brfalse.s IL_030f
+   IL_02c9: ldarg.0
+   IL_02ca: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_02cf: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_02d4: ldsfld Monocle.ParticleType Celeste.CrushBlock::P_Impact
+   IL_02d9: ldloc.s V_11
+   IL_02db: ldloc.s V_9
+   IL_02dd: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02e2: ldc.r4 -1.5707964
+   IL_02e7: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02ec: ldarg.0
+   IL_02ed: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_02f2: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_02f7: ldsfld Monocle.ParticleType Celeste.CrushBlock::P_Impact
+   IL_02fc: ldloc.s V_11
+   IL_02fe: ldloc.s V_9
+   IL_0300: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0305: ldc.r4 -1.5707964
+   IL_030a: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_030f: ldloc.s V_10
+   IL_0311: ldc.i4.1
+   IL_0312: add
+   IL_0313: stloc.s V_10
+   IL_0315: ldloc.s V_10
+   IL_0317: conv.r4
+   IL_0318: ldarg.0
+   IL_0319: call System.Single Monocle.Entity::get_Width()
+   IL_031e: ldc.r4 8
+   IL_0323: div
+   IL_0324: blt IL_0286
+   IL_0329: ret

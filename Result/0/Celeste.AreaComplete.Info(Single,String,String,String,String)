@@ -1,0 +1,88 @@
+On: Celeste.Mod.Randomizer.RandoModule.EndlessShowScore2(orig_Info,Single,String,String,String,String)
+On: Celeste.Mod.HardcoreMode.HMModule.On_AreaComplete_Info(orig_Info,Single,String,String,String,String)
+On: TAS.EverestInterop.AreaCompleteInfo.AreaCompleteOnInfo(orig_Info,Single,String,String,String,String)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 0
+   IL_0006: ble.un IL_011c
+   IL_000b: ldsfld Celeste.Settings Celeste.Settings::Instance
+   IL_0010: ldfld Celeste.SpeedrunType Celeste.Settings::SpeedrunClock
+   IL_0015: brfalse IL_011c
+   IL_001a: ldloca.s V_0
+   IL_001c: ldc.r4 80
+   IL_0021: ldc.r4 300
+   IL_0026: ldc.r4 1
+   IL_002b: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0030: ldarg.0
+   IL_0031: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0036: sub
+   IL_0037: mul
+   IL_0038: sub
+   IL_0039: ldc.r4 1000
+   IL_003e: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0043: ldsfld Celeste.Settings Celeste.Settings::Instance
+   IL_0048: ldfld Celeste.SpeedrunType Celeste.Settings::SpeedrunClock
+   IL_004d: ldc.i4.1
+   IL_004e: bne.un.s IL_0069
+   IL_0050: ldloc.0
+   IL_0051: ldarg.1
+   IL_0052: ldc.r4 1
+   IL_0057: ldc.i4.1
+   IL_0058: ldc.i4.0
+   IL_0059: ldc.i4.0
+   IL_005a: ldc.r4 1
+   IL_005f: call System.Void Celeste.SpeedrunTimerDisplay::DrawTime(Microsoft.Xna.Framework.Vector2,System.String,System.Single,System.Boolean,System.Boolean,System.Boolean,System.Single)
+   IL_0064: br IL_010f
+   IL_0069: ldloca.s V_0
+   IL_006b: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0070: dup
+   IL_0071: ldind.r4
+   IL_0072: ldc.r4 16
+   IL_0077: sub
+   IL_0078: stind.r4
+   IL_0079: ldloc.0
+   IL_007a: ldarg.2
+   IL_007b: ldc.r4 1
+   IL_0080: ldc.i4.1
+   IL_0081: ldc.i4.0
+   IL_0082: ldc.i4.0
+   IL_0083: ldc.r4 1
+   IL_0088: call System.Void Celeste.SpeedrunTimerDisplay::DrawTime(Microsoft.Xna.Framework.Vector2,System.String,System.Single,System.Boolean,System.Boolean,System.Boolean,System.Single)
+   IL_008d: ldarg.3
+   IL_008e: ldloc.0
+   IL_008f: ldc.r4 0
+   IL_0094: ldc.r4 40
+   IL_0099: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_009e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a3: ldc.r4 0
+   IL_00a8: ldc.r4 1
+   IL_00ad: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00b2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00b7: ldc.r4 0.6
+   IL_00bc: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00c1: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00c6: ldc.r4 2
+   IL_00cb: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_00d0: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00d5: ldloc.0
+   IL_00d6: ldarg.3
+   IL_00d7: call Microsoft.Xna.Framework.Vector2 Celeste.ActiveFont::Measure(System.String)
+   IL_00dc: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00e1: ldc.r4 0.6
+   IL_00e6: mul
+   IL_00e7: ldc.r4 8
+   IL_00ec: add
+   IL_00ed: ldc.r4 40
+   IL_00f2: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00f7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00fc: ldarg.1
+   IL_00fd: ldc.r4 0.6
+   IL_0102: ldc.i4.1
+   IL_0103: ldc.i4.0
+   IL_0104: ldc.i4.0
+   IL_0105: ldc.r4 1
+   IL_010a: call System.Void Celeste.SpeedrunTimerDisplay::DrawTime(Microsoft.Xna.Framework.Vector2,System.String,System.Single,System.Boolean,System.Boolean,System.Boolean,System.Single)
+   IL_010f: ldarg.s versionText
+   IL_0111: ldarg.0
+   IL_0112: ldc.r4 1
+   IL_0117: call System.Void Celeste.AreaComplete::VersionNumberAndVariants(System.String,System.Single,System.Single)
+   IL_011c: ret

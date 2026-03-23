@@ -1,0 +1,92 @@
+On: Celeste.Mod.MaxHelpingHand.Entities.NoDashRefillSpring.onTheoHitSpring(orig_HitSpring,TheoCrystal,Spring)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Holdable Celeste.TheoCrystal::Hold
+   IL_0006: callvirt System.Boolean Celeste.Holdable::get_IsHeld()
+   IL_000b: brtrue IL_011b
+   IL_0010: ldarg.1
+   IL_0011: ldfld Celeste.Spring/Orientations Celeste.Spring::Orientation
+   IL_0016: brtrue.s IL_005b
+   IL_0018: ldarg.0
+   IL_0019: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TheoCrystal::Speed
+   IL_001e: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0023: ldc.r4 0
+   IL_0028: blt.un.s IL_005b
+   IL_002a: ldarg.0
+   IL_002b: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TheoCrystal::Speed
+   IL_0030: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0035: dup
+   IL_0036: ldind.r4
+   IL_0037: ldc.r4 0.5
+   IL_003c: mul
+   IL_003d: stind.r4
+   IL_003e: ldarg.0
+   IL_003f: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TheoCrystal::Speed
+   IL_0044: ldc.r4 -160
+   IL_0049: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_004e: ldarg.0
+   IL_004f: ldc.r4 0.15
+   IL_0054: stfld System.Single Celeste.TheoCrystal::noGravityTimer
+   IL_0059: ldc.i4.1
+   IL_005a: ret
+   IL_005b: ldarg.1
+   IL_005c: ldfld Celeste.Spring/Orientations Celeste.Spring::Orientation
+   IL_0061: ldc.i4.1
+   IL_0062: bne.un.s IL_00bb
+   IL_0064: ldarg.0
+   IL_0065: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TheoCrystal::Speed
+   IL_006a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_006f: ldc.r4 0
+   IL_0074: bgt.un.s IL_00bb
+   IL_0076: ldarg.0
+   IL_0077: ldarg.1
+   IL_0078: callvirt System.Single Monocle.Entity::get_CenterY()
+   IL_007d: ldc.r4 5
+   IL_0082: add
+   IL_0083: ldc.r4 4
+   IL_0088: ldnull
+   IL_0089: call System.Void Celeste.Actor::MoveTowardsY(System.Single,System.Single,Celeste.Collision)
+   IL_008e: ldarg.0
+   IL_008f: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TheoCrystal::Speed
+   IL_0094: ldc.r4 220
+   IL_0099: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_009e: ldarg.0
+   IL_009f: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TheoCrystal::Speed
+   IL_00a4: ldc.r4 -80
+   IL_00a9: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00ae: ldarg.0
+   IL_00af: ldc.r4 0.1
+   IL_00b4: stfld System.Single Celeste.TheoCrystal::noGravityTimer
+   IL_00b9: ldc.i4.1
+   IL_00ba: ret
+   IL_00bb: ldarg.1
+   IL_00bc: ldfld Celeste.Spring/Orientations Celeste.Spring::Orientation
+   IL_00c1: ldc.i4.2
+   IL_00c2: bne.un.s IL_011b
+   IL_00c4: ldarg.0
+   IL_00c5: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TheoCrystal::Speed
+   IL_00ca: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00cf: ldc.r4 0
+   IL_00d4: blt.un.s IL_011b
+   IL_00d6: ldarg.0
+   IL_00d7: ldarg.1
+   IL_00d8: callvirt System.Single Monocle.Entity::get_CenterY()
+   IL_00dd: ldc.r4 5
+   IL_00e2: add
+   IL_00e3: ldc.r4 4
+   IL_00e8: ldnull
+   IL_00e9: call System.Void Celeste.Actor::MoveTowardsY(System.Single,System.Single,Celeste.Collision)
+   IL_00ee: ldarg.0
+   IL_00ef: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TheoCrystal::Speed
+   IL_00f4: ldc.r4 -220
+   IL_00f9: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00fe: ldarg.0
+   IL_00ff: ldflda Microsoft.Xna.Framework.Vector2 Celeste.TheoCrystal::Speed
+   IL_0104: ldc.r4 -80
+   IL_0109: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_010e: ldarg.0
+   IL_010f: ldc.r4 0.1
+   IL_0114: stfld System.Single Celeste.TheoCrystal::noGravityTimer
+   IL_0119: ldc.i4.1
+   IL_011a: ret
+   IL_011b: ldc.i4.0
+   IL_011c: ret

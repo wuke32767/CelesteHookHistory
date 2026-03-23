@@ -1,0 +1,11 @@
+On: Celeste.Mod.IsaGrabBag.BadelineFollower.BadelineBoostAwake(orig_Awake,BadelineBoost,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Awake(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: call System.Boolean Monocle.Entity::CollideCheck<Celeste.FakeWall>()
+   IL_000d: brfalse.s IL_001a
+   IL_000f: ldarg.0
+   IL_0010: ldc.i4 -12500
+   IL_0015: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_001a: ret

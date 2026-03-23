@@ -1,0 +1,82 @@
+On: Celeste.Mod.GooberHelper.Options.GeneralHooks.PlayerRender.patch_TrailManager_BeforeRenderPatch(orig_BeforeRenderPatch,TrailManager)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.TrailManager::dirty
+   IL_0006: brtrue.s IL_0009
+   IL_0008: ret
+   IL_0009: ldarg.0
+   IL_000a: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_000f: stloc.0
+   IL_0010: ldc.i4.0
+   IL_0011: stloc.1
+   IL_0012: br.s IL_0088
+   IL_0014: ldloc.0
+   IL_0015: ldloc.1
+   IL_0016: ldelem.ref
+   IL_0017: brfalse.s IL_0084
+   IL_0019: ldloc.0
+   IL_001a: ldloc.1
+   IL_001b: ldelem.ref
+   IL_001c: ldfld System.Boolean Celeste.TrailManager/Snapshot::Drawn
+   IL_0021: brtrue.s IL_0084
+   IL_0023: ldarg.0
+   IL_0024: ldc.i4.1
+   IL_0025: stfld System.Boolean Celeste.TrailManager::dirty
+   IL_002a: ldarg.0
+   IL_002b: ldc.i4.1
+   IL_002c: newarr Celeste.TrailManager/Snapshot
+   IL_0031: dup
+   IL_0032: ldc.i4.0
+   IL_0033: ldloc.0
+   IL_0034: ldloc.1
+   IL_0035: ldelem.ref
+   IL_0036: stelem.ref
+   IL_0037: stfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_003c: ldarg.0
+   IL_003d: ldfld Monocle.VirtualRenderTarget[] Celeste.TrailManager::buffers
+   IL_0042: stloc.2
+   IL_0043: ldloc.1
+   IL_0044: stloc.3
+   IL_0045: ldloc.2
+   IL_0046: ldloc.3
+   IL_0047: ldelem.ref
+   IL_0048: brtrue.s IL_0070
+   IL_004a: ldloc.2
+   IL_004b: ldloc.3
+   IL_004c: ldstr "trail-manager-snapshot-"
+   IL_0051: ldloca.s V_1
+   IL_0053: call System.String System.Int32::ToString()
+   IL_0058: call System.String System.String::Concat(System.String,System.String)
+   IL_005d: ldc.i4 512
+   IL_0062: ldc.i4 512
+   IL_0067: ldc.i4.0
+   IL_0068: ldc.i4.1
+   IL_0069: ldc.i4.0
+   IL_006a: call Monocle.VirtualRenderTarget Monocle.VirtualContent::CreateRenderTarget(System.String,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32)
+   IL_006f: stelem.ref
+   IL_0070: ldarg.0
+   IL_0071: ldarg.0
+   IL_0072: ldfld Monocle.VirtualRenderTarget[] Celeste.TrailManager::buffers
+   IL_0077: ldloc.1
+   IL_0078: ldelem.ref
+   IL_0079: stfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_007e: ldarg.0
+   IL_007f: callvirt System.Void Celeste.TrailManager::BeforeRender()
+   IL_0084: ldloc.1
+   IL_0085: ldc.i4.1
+   IL_0086: add
+   IL_0087: stloc.1
+   IL_0088: ldloc.1
+   IL_0089: ldloc.0
+   IL_008a: ldlen
+   IL_008b: conv.i4
+   IL_008c: blt IL_0014
+   IL_0091: ldarg.0
+   IL_0092: ldloc.0
+   IL_0093: stfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_0098: ldarg.0
+   IL_0099: ldc.i4.0
+   IL_009a: stfld System.Boolean Celeste.TrailManager::dirty
+   IL_009f: ldarg.0
+   IL_00a0: ldnull
+   IL_00a1: stfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_00a6: ret

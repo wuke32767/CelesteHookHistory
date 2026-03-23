@@ -1,0 +1,99 @@
+On: vitmod.CustomWindController.WindController_Update(orig_Update,WindController)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld Celeste.WindController/Patterns Celeste.WindController::pattern
+   IL_000c: ldc.i4.s 10
+   IL_000e: bne.un IL_0090
+   IL_0013: ldc.i4.0
+   IL_0014: stloc.0
+   IL_0015: ldarg.0
+   IL_0016: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_001b: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0020: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.StrawberrySeed>()
+   IL_0025: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_002a: stloc.1
+   IL_002b: br.s IL_0044
+   IL_002d: ldloca.s V_1
+   IL_002f: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_0034: castclass Celeste.StrawberrySeed
+   IL_0039: callvirt System.Boolean Celeste.StrawberrySeed::get_Collected()
+   IL_003e: brfalse.s IL_0044
+   IL_0040: ldc.i4.1
+   IL_0041: stloc.0
+   IL_0042: leave.s IL_005d
+   IL_0044: ldloca.s V_1
+   IL_0046: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_004b: brtrue.s IL_002d
+   IL_004d: leave.s IL_005d
+   IL_004f: ldloca.s V_1
+   IL_0051: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0057: callvirt System.Void System.IDisposable::Dispose()
+   IL_005c: endfinally
+   IL_005d: ldloc.0
+   IL_005e: brfalse.s IL_0079
+   IL_0060: ldarg.0
+   IL_0061: ldflda Microsoft.Xna.Framework.Vector2 Celeste.WindController::targetSpeed
+   IL_0066: ldc.r4 -400
+   IL_006b: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0070: ldarg.0
+   IL_0071: ldc.i4.0
+   IL_0072: callvirt System.Void Celeste.WindController::SetAmbienceStrength(System.Boolean)
+   IL_0077: br.s IL_0090
+   IL_0079: ldarg.0
+   IL_007a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.WindController::targetSpeed
+   IL_007f: ldc.r4 0
+   IL_0084: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0089: ldarg.0
+   IL_008a: ldc.i4.0
+   IL_008b: callvirt System.Void Celeste.WindController::SetAmbienceStrength(System.Boolean)
+   IL_0090: ldarg.0
+   IL_0091: ldfld Celeste.Level Celeste.WindController::level
+   IL_0096: ldarg.0
+   IL_0097: ldfld Celeste.Level Celeste.WindController::level
+   IL_009c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Level::Wind
+   IL_00a1: ldarg.0
+   IL_00a2: ldfld Microsoft.Xna.Framework.Vector2 Celeste.WindController::targetSpeed
+   IL_00a7: ldc.r4 1000
+   IL_00ac: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00b1: mul
+   IL_00b2: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00b7: stfld Microsoft.Xna.Framework.Vector2 Celeste.Level::Wind
+   IL_00bc: ldarg.0
+   IL_00bd: ldfld Celeste.Level Celeste.WindController::level
+   IL_00c2: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Level::Wind
+   IL_00c7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_00cc: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00d1: brfalse.s IL_0146
+   IL_00d3: ldarg.0
+   IL_00d4: ldfld Celeste.Level Celeste.WindController::level
+   IL_00d9: callvirt System.Boolean Celeste.Level::get_Transitioning()
+   IL_00de: brtrue.s IL_0146
+   IL_00e0: ldarg.0
+   IL_00e1: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00e6: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_00eb: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.WindMover>()
+   IL_00f0: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
+   IL_00f5: stloc.2
+   IL_00f6: br.s IL_012d
+   IL_00f8: ldloca.s V_2
+   IL_00fa: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
+   IL_00ff: castclass Celeste.WindMover
+   IL_0104: ldfld System.Action`1<Microsoft.Xna.Framework.Vector2> Celeste.WindMover::Move
+   IL_0109: ldarg.0
+   IL_010a: ldfld Celeste.Level Celeste.WindController::level
+   IL_010f: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Level::Wind
+   IL_0114: ldc.r4 0.1
+   IL_0119: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_011e: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0123: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0128: callvirt System.Void System.Action`1<Microsoft.Xna.Framework.Vector2>::Invoke(T)
+   IL_012d: ldloca.s V_2
+   IL_012f: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Component>::MoveNext()
+   IL_0134: brtrue.s IL_00f8
+   IL_0136: leave.s IL_0146
+   IL_0138: ldloca.s V_2
+   IL_013a: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+   IL_0140: callvirt System.Void System.IDisposable::Dispose()
+   IL_0145: endfinally
+   IL_0146: ret

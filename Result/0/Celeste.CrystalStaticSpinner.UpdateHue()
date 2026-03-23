@@ -1,0 +1,69 @@
+On: vitmod.VitModule.CrystalStaticSpinner_UpdateHue(orig_UpdateHue,CrystalStaticSpinner)
+On: Celeste.Mod.FewerVisualDistractions.Patches.FarewellTweaker.CrystalStaticSpinner_UpdateHue(orig_UpdateHue,CrystalStaticSpinner)
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_000b: ldarg.0
+   IL_000c: call Monocle.ComponentList Monocle.Entity::get_Components()
+   IL_0011: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Component> Monocle.ComponentList::GetEnumerator()
+   IL_0016: stloc.0
+   IL_0017: br.s IL_0045
+   IL_0019: ldloc.0
+   IL_001a: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Component>::get_Current()
+   IL_001f: isinst Monocle.Image
+   IL_0024: stloc.1
+   IL_0025: ldloc.1
+   IL_0026: brfalse.s IL_0045
+   IL_0028: ldloc.1
+   IL_0029: ldarg.0
+   IL_002a: ldarg.0
+   IL_002b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0030: ldloc.1
+   IL_0031: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0036: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_003b: callvirt Microsoft.Xna.Framework.Color Celeste.CrystalStaticSpinner::GetHue(Microsoft.Xna.Framework.Vector2)
+   IL_0040: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0045: ldloc.0
+   IL_0046: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_004b: brtrue.s IL_0019
+   IL_004d: leave.s IL_0059
+   IL_004f: ldloc.0
+   IL_0050: brfalse.s IL_0058
+   IL_0052: ldloc.0
+   IL_0053: callvirt System.Void System.IDisposable::Dispose()
+   IL_0058: endfinally
+   IL_0059: ldarg.0
+   IL_005a: ldfld Monocle.Entity Celeste.CrystalStaticSpinner::filler
+   IL_005f: brfalse.s IL_00b4
+   IL_0061: ldarg.0
+   IL_0062: ldfld Monocle.Entity Celeste.CrystalStaticSpinner::filler
+   IL_0067: callvirt Monocle.ComponentList Monocle.Entity::get_Components()
+   IL_006c: callvirt System.Collections.Generic.IEnumerator`1<Monocle.Component> Monocle.ComponentList::GetEnumerator()
+   IL_0071: stloc.0
+   IL_0072: br.s IL_00a0
+   IL_0074: ldloc.0
+   IL_0075: callvirt T System.Collections.Generic.IEnumerator`1<Monocle.Component>::get_Current()
+   IL_007a: isinst Monocle.Image
+   IL_007f: stloc.2
+   IL_0080: ldloc.2
+   IL_0081: brfalse.s IL_00a0
+   IL_0083: ldloc.2
+   IL_0084: ldarg.0
+   IL_0085: ldarg.0
+   IL_0086: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_008b: ldloc.2
+   IL_008c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0091: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0096: callvirt Microsoft.Xna.Framework.Color Celeste.CrystalStaticSpinner::GetHue(Microsoft.Xna.Framework.Vector2)
+   IL_009b: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00a0: ldloc.0
+   IL_00a1: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_00a6: brtrue.s IL_0074
+   IL_00a8: leave.s IL_00b4
+   IL_00aa: ldloc.0
+   IL_00ab: brfalse.s IL_00b3
+   IL_00ad: ldloc.0
+   IL_00ae: callvirt System.Void System.IDisposable::Dispose()
+   IL_00b3: endfinally
+   IL_00b4: ret

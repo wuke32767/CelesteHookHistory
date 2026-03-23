@@ -1,0 +1,67 @@
+On: TAS.EverestInterop.Hitboxes.HitboxFixer.AccurateShapeHitbox(orig_Collider_Render,Collider,Camera,Color)
+   IL_0000: ldarg.0
+   IL_0001: callvirt Microsoft.Xna.Framework.Rectangle FrostHelper.Colliders.ShapeHitbox::GetCullRectangle()
+   IL_0006: ldc.r4 4
+   IL_000b: ldarg.1
+   IL_000c: call System.Boolean FrostHelper.CameraCullHelper::IsRectangleVisible(Microsoft.Xna.Framework.Rectangle,System.Single,Monocle.Camera)
+   IL_0011: brtrue.s IL_0014
+   IL_0013: ret
+   IL_0014: ldarg.0
+   IL_0015: call Monocle.Entity Monocle.Collider::get_Entity()
+   IL_001a: dup
+   IL_001b: brtrue.s IL_0029
+   IL_001d: pop
+   IL_001e: ldloca.s V_2
+   IL_0020: initobj Microsoft.Xna.Framework.Vector2
+   IL_0026: ldloc.2
+   IL_0027: br.s IL_002e
+   IL_0029: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_002e: stloc.0
+   IL_002f: ldarg.0
+   IL_0030: ldfld Microsoft.Xna.Framework.Vector2[] FrostHelper.Colliders.ShapeHitbox::Points
+   IL_0035: stloc.1
+   IL_0036: ldc.i4.0
+   IL_0037: stloc.3
+   IL_0038: br.s IL_0060
+   IL_003a: ldloc.1
+   IL_003b: ldloc.3
+   IL_003c: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_0041: ldloc.0
+   IL_0042: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0047: ldloc.1
+   IL_0048: ldloc.3
+   IL_0049: ldc.i4.1
+   IL_004a: add
+   IL_004b: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_0050: ldloc.0
+   IL_0051: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0056: ldarg.2
+   IL_0057: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_005c: ldloc.3
+   IL_005d: ldc.i4.1
+   IL_005e: add
+   IL_005f: stloc.3
+   IL_0060: ldloc.3
+   IL_0061: ldloc.1
+   IL_0062: ldlen
+   IL_0063: conv.i4
+   IL_0064: ldc.i4.1
+   IL_0065: sub
+   IL_0066: blt.s IL_003a
+   IL_0068: ldloc.1
+   IL_0069: ldc.i4.0
+   IL_006a: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_006f: ldloc.0
+   IL_0070: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0075: ldloc.1
+   IL_0076: dup
+   IL_0077: ldlen
+   IL_0078: conv.i4
+   IL_0079: ldc.i4.1
+   IL_007a: sub
+   IL_007b: ldelem.any Microsoft.Xna.Framework.Vector2
+   IL_0080: ldloc.0
+   IL_0081: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0086: ldarg.2
+   IL_0087: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_008c: ret

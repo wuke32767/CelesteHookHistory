@@ -1,0 +1,90 @@
+On: Celeste.Mod.Spirialis.TimeController.talkComponentUIUpdate(orig_Update,TalkComponentUI)
+On: Celeste.Mod.XaphanHelper.Entities.TransitionBlackEffect.OnTalkComponentTalkComponentUIUpdate(orig_Update,TalkComponentUI)
+On: BrokemiaHelper.CaveWall.TalkComponentUI_Update(orig_Update,TalkComponentUI)
+On: Celeste.Mod.Aqua.Core.TalkComponentExtensions.TalkComponentUI_Update(orig_Update,TalkComponentUI)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Single Celeste.TalkComponent/TalkComponentUI::timer
+   IL_0007: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_000c: add
+   IL_000d: stfld System.Single Celeste.TalkComponent/TalkComponentUI::timer
+   IL_0012: ldarg.0
+   IL_0013: ldarg.0
+   IL_0014: ldfld System.Single Celeste.TalkComponent/TalkComponentUI::slide
+   IL_0019: ldarg.0
+   IL_001a: callvirt System.Boolean Celeste.TalkComponent/TalkComponentUI::get_Display()
+   IL_001f: ldc.i4.0
+   IL_0020: cgt.un
+   IL_0022: conv.r4
+   IL_0023: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0028: ldc.r4 4
+   IL_002d: mul
+   IL_002e: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0033: stfld System.Single Celeste.TalkComponent/TalkComponentUI::slide
+   IL_0038: ldarg.0
+   IL_0039: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_003e: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0043: dup
+   IL_0044: brtrue.s IL_004a
+   IL_0046: pop
+   IL_0047: ldnull
+   IL_0048: br.s IL_004f
+   IL_004a: call Monocle.Collider Monocle.Entity::get_Collider()
+   IL_004f: brfalse.s IL_00a9
+   IL_0051: ldarg.0
+   IL_0052: ldfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_0057: ldc.r4 1
+   IL_005c: bge.un IL_0101
+   IL_0061: ldarg.0
+   IL_0062: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0067: ldarg.0
+   IL_0068: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_006d: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0072: callvirt Monocle.Collider Monocle.Entity::get_Collider()
+   IL_0077: callvirt Microsoft.Xna.Framework.Rectangle Monocle.Collider::get_Bounds()
+   IL_007c: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.FakeWall>(Microsoft.Xna.Framework.Rectangle)
+   IL_0081: brtrue IL_0101
+   IL_0086: ldarg.0
+   IL_0087: ldarg.0
+   IL_0088: ldfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_008d: ldc.r4 1
+   IL_0092: ldc.r4 2
+   IL_0097: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_009c: mul
+   IL_009d: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_00a2: stfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_00a7: br.s IL_0101
+   IL_00a9: ldarg.0
+   IL_00aa: ldfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_00af: ldc.r4 1
+   IL_00b4: bge.un.s IL_0101
+   IL_00b6: ldarg.0
+   IL_00b7: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_00bc: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00c1: brfalse.s IL_0101
+   IL_00c3: ldarg.0
+   IL_00c4: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00c9: ldarg.0
+   IL_00ca: ldfld Celeste.TalkComponent Celeste.TalkComponent/TalkComponentUI::Handler
+   IL_00cf: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00d4: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00d9: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.FakeWall>(Microsoft.Xna.Framework.Vector2)
+   IL_00de: brtrue.s IL_0101
+   IL_00e0: ldarg.0
+   IL_00e1: ldarg.0
+   IL_00e2: ldfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_00e7: ldc.r4 1
+   IL_00ec: ldc.r4 2
+   IL_00f1: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00f6: mul
+   IL_00f7: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_00fc: stfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_0101: ldarg.0
+   IL_0102: callvirt System.Boolean Celeste.TalkComponent/TalkComponentUI::get_Highlighted()
+   IL_0107: brfalse.s IL_0114
+   IL_0109: ldarg.0
+   IL_010a: ldc.r4 1
+   IL_010f: stfld System.Single Celeste.TalkComponent/TalkComponentUI::alpha
+   IL_0114: ldarg.0
+   IL_0115: call System.Void Monocle.Entity::Update()
+   IL_011a: ret

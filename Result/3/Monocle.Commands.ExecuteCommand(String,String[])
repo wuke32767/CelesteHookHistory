@@ -1,0 +1,22 @@
+On: Celeste.Mod.DisplayMessageCommand.DisplayMessageCommandModule.customParseDisplayMessageCommandConsole(orig_ExecuteCommand,Commands,String,String[])
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.Commands/CommandInfo> Monocle.Commands::commands
+   IL_0006: ldarg.1
+   IL_0007: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Monocle.Commands/CommandInfo>::ContainsKey(TKey)
+   IL_000c: brfalse.s IL_0026
+   IL_000e: ldarg.0
+   IL_000f: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.Commands/CommandInfo> Monocle.Commands::commands
+   IL_0014: ldarg.1
+   IL_0015: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Monocle.Commands/CommandInfo>::get_Item(TKey)
+   IL_001a: ldfld System.Action`1<System.String[]> Monocle.Commands/CommandInfo::Action
+   IL_001f: ldarg.2
+   IL_0020: callvirt System.Void System.Action`1<System.String[]>::Invoke(T)
+   IL_0025: ret
+   IL_0026: ldarg.0
+   IL_0027: ldstr "Command '"
+   IL_002c: ldarg.1
+   IL_002d: ldstr "' not found! Type 'help' for list of commands"
+   IL_0032: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0037: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Yellow()
+   IL_003c: callvirt System.Void Monocle.Commands::Log(System.Object,Microsoft.Xna.Framework.Color)
+   IL_0041: ret

@@ -1,0 +1,17 @@
+On: Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerSpriteRenderHook(orig_Render,PlayerSprite)
+On: FrostHelper.CustomFeather.PlayerSprite_Render(orig_Render,PlayerSprite)
+On: TAS.Gameplay.DesyncFix.SkinModFix.On_PlayerSprite_Render(orig_Render,PlayerSprite)
+   IL_0000: ldarg.0
+   IL_0001: call Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::get_RenderPosition()
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldarg.0
+   IL_0009: call Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::get_RenderPosition()
+   IL_000e: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Floor(Microsoft.Xna.Framework.Vector2)
+   IL_0013: call System.Void Monocle.GraphicsComponent::set_RenderPosition(Microsoft.Xna.Framework.Vector2)
+   IL_0018: ldarg.0
+   IL_0019: call System.Void Monocle.Image::Render()
+   IL_001e: ldarg.0
+   IL_001f: ldloc.0
+   IL_0020: call System.Void Monocle.GraphicsComponent::set_RenderPosition(Microsoft.Xna.Framework.Vector2)
+   IL_0025: ret

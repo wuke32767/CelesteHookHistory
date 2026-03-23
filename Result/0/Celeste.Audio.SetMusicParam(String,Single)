@@ -1,0 +1,11 @@
+On: VanillaTweaks.Jukebox.Audio_SetMusicParam(orig_SetMusicParam,String,Single)
+   IL_0000: ldsfld FMOD.Studio.EventInstance Celeste.Audio::currentMusicEvent
+   IL_0005: ldnull
+   IL_0006: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_000b: brfalse.s IL_001a
+   IL_000d: ldsfld FMOD.Studio.EventInstance Celeste.Audio::currentMusicEvent
+   IL_0012: ldarg.0
+   IL_0013: ldarg.1
+   IL_0014: callvirt FMOD.RESULT FMOD.Studio.EventInstance::setParameterValue(System.String,System.Single)
+   IL_0019: pop
+   IL_001a: ret

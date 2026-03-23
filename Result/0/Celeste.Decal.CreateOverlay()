@@ -1,0 +1,83 @@
+On: FrostHelper.DecalRegistry.RainbowDecalRegistryHandler.DecalOnCreateOverlay(orig_CreateOverlay,Decal)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Decal::textures
+   IL_0006: ldc.i4.0
+   IL_0007: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_000c: ldc.i4.8
+   IL_000d: ldc.i4.8
+   IL_000e: newobj System.Void Monocle.Tileset::.ctor(Monocle.MTexture,System.Int32,System.Int32)
+   IL_0013: stloc.0
+   IL_0014: ldc.i4.0
+   IL_0015: stloc.1
+   IL_0016: br IL_00a7
+   IL_001b: ldc.i4.0
+   IL_001c: stloc.2
+   IL_001d: br.s IL_008a
+   IL_001f: ldarg.0
+   IL_0020: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0025: ldloc.0
+   IL_0026: ldloc.1
+   IL_0027: ldloc.2
+   IL_0028: callvirt Monocle.MTexture Monocle.Tileset::get_Item(System.Int32,System.Int32)
+   IL_002d: ldarg.0
+   IL_002e: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0033: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Decal::textures
+   IL_003e: ldc.i4.0
+   IL_003f: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_0044: callvirt Microsoft.Xna.Framework.Vector2 Monocle.MTexture::get_Center()
+   IL_0049: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_004e: sub
+   IL_004f: ldloc.1
+   IL_0050: ldc.i4.8
+   IL_0051: mul
+   IL_0052: conv.r4
+   IL_0053: add
+   IL_0054: ldarg.0
+   IL_0055: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_005a: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_005f: ldarg.0
+   IL_0060: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Decal::textures
+   IL_0065: ldc.i4.0
+   IL_0066: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_006b: callvirt Microsoft.Xna.Framework.Vector2 Monocle.MTexture::get_Center()
+   IL_0070: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0075: sub
+   IL_0076: ldloc.2
+   IL_0077: ldc.i4.8
+   IL_0078: mul
+   IL_0079: conv.r4
+   IL_007a: add
+   IL_007b: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0080: call System.Boolean Celeste.TileInterceptor::TileCheck(Monocle.Scene,Monocle.MTexture,Microsoft.Xna.Framework.Vector2)
+   IL_0085: pop
+   IL_0086: ldloc.2
+   IL_0087: ldc.i4.1
+   IL_0088: add
+   IL_0089: stloc.2
+   IL_008a: ldloc.2
+   IL_008b: ldarg.0
+   IL_008c: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Decal::textures
+   IL_0091: ldc.i4.0
+   IL_0092: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_0097: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_009c: ldc.i4.8
+   IL_009d: div
+   IL_009e: blt IL_001f
+   IL_00a3: ldloc.1
+   IL_00a4: ldc.i4.1
+   IL_00a5: add
+   IL_00a6: stloc.1
+   IL_00a7: ldloc.1
+   IL_00a8: ldarg.0
+   IL_00a9: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Decal::textures
+   IL_00ae: ldc.i4.0
+   IL_00af: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_00b4: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_00b9: ldc.i4.8
+   IL_00ba: div
+   IL_00bb: blt IL_001b
+   IL_00c0: ldarg.0
+   IL_00c1: call System.Void Monocle.Entity::RemoveSelf()
+   IL_00c6: ret

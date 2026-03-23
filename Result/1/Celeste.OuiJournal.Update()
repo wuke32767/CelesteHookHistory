@@ -1,0 +1,135 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_JournalUpdate(orig_Update,OuiJournal)
+On: Celeste.Mod.izumisQOL.BetterJournalModule.Update(orig_Update,OuiJournal)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Single Celeste.OuiJournal::dot
+   IL_000d: ldarg.0
+   IL_000e: ldfld System.Single Celeste.OuiJournal::dotTarget
+   IL_0013: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0018: ldc.r4 8
+   IL_001d: mul
+   IL_001e: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0023: stfld System.Single Celeste.OuiJournal::dot
+   IL_0028: ldarg.0
+   IL_0029: ldarg.0
+   IL_002a: ldfld System.Single Celeste.OuiJournal::leftArrowEase
+   IL_002f: ldarg.0
+   IL_0030: ldfld System.Single Celeste.OuiJournal::dotTarget
+   IL_0035: ldc.r4 0
+   IL_003a: bgt.s IL_003f
+   IL_003c: ldc.i4.0
+   IL_003d: br.s IL_0040
+   IL_003f: ldc.i4.1
+   IL_0040: conv.r4
+   IL_0041: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0046: ldc.r4 5
+   IL_004b: mul
+   IL_004c: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0051: ldarg.0
+   IL_0052: ldfld System.Single Celeste.OuiJournal::dotEase
+   IL_0057: mul
+   IL_0058: stfld System.Single Celeste.OuiJournal::leftArrowEase
+   IL_005d: ldarg.0
+   IL_005e: ldarg.0
+   IL_005f: ldfld System.Single Celeste.OuiJournal::rightArrowEase
+   IL_0064: ldarg.0
+   IL_0065: ldfld System.Single Celeste.OuiJournal::dotTarget
+   IL_006a: ldarg.0
+   IL_006b: ldfld System.Collections.Generic.List`1<Celeste.OuiJournalPage> Celeste.OuiJournal::Pages
+   IL_0070: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiJournalPage>::get_Count()
+   IL_0075: ldc.i4.1
+   IL_0076: sub
+   IL_0077: conv.r4
+   IL_0078: blt.s IL_007d
+   IL_007a: ldc.i4.0
+   IL_007b: br.s IL_007e
+   IL_007d: ldc.i4.1
+   IL_007e: conv.r4
+   IL_007f: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0084: ldc.r4 5
+   IL_0089: mul
+   IL_008a: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_008f: ldarg.0
+   IL_0090: ldfld System.Single Celeste.OuiJournal::dotEase
+   IL_0095: mul
+   IL_0096: stfld System.Single Celeste.OuiJournal::rightArrowEase
+   IL_009b: ldarg.0
+   IL_009c: ldfld System.Boolean Celeste.Oui::Focused
+   IL_00a1: brfalse IL_018c
+   IL_00a6: ldarg.0
+   IL_00a7: ldfld System.Boolean Celeste.OuiJournal::turningPage
+   IL_00ac: brtrue IL_018c
+   IL_00b1: ldarg.0
+   IL_00b2: callvirt Celeste.OuiJournalPage Celeste.OuiJournal::get_Page()
+   IL_00b7: callvirt System.Void Celeste.OuiJournalPage::Update()
+   IL_00bc: ldarg.0
+   IL_00bd: ldfld System.Boolean Celeste.OuiJournal::PageTurningLocked
+   IL_00c2: brtrue IL_0166
+   IL_00c7: ldsfld Monocle.VirtualButton Celeste.Input::MenuLeft
+   IL_00cc: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_00d1: brfalse.s IL_0112
+   IL_00d3: ldarg.0
+   IL_00d4: ldfld System.Int32 Celeste.OuiJournal::PageIndex
+   IL_00d9: ldc.i4.0
+   IL_00da: ble.s IL_0112
+   IL_00dc: ldarg.0
+   IL_00dd: ldfld System.Int32 Celeste.OuiJournal::PageIndex
+   IL_00e2: ldc.i4.1
+   IL_00e3: bne.un.s IL_00f2
+   IL_00e5: ldstr "event:/ui/world_map/journal/page_cover_back"
+   IL_00ea: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_00ef: pop
+   IL_00f0: br.s IL_00fd
+   IL_00f2: ldstr "event:/ui/world_map/journal/page_main_back"
+   IL_00f7: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_00fc: pop
+   IL_00fd: ldarg.0
+   IL_00fe: ldarg.0
+   IL_00ff: ldc.i4.m1
+   IL_0100: callvirt System.Collections.IEnumerator Celeste.OuiJournal::TurnPage(System.Int32)
+   IL_0105: ldc.i4.1
+   IL_0106: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_010b: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0110: br.s IL_0166
+   IL_0112: ldsfld Monocle.VirtualButton Celeste.Input::MenuRight
+   IL_0117: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_011c: brfalse.s IL_0166
+   IL_011e: ldarg.0
+   IL_011f: ldfld System.Int32 Celeste.OuiJournal::PageIndex
+   IL_0124: ldarg.0
+   IL_0125: ldfld System.Collections.Generic.List`1<Celeste.OuiJournalPage> Celeste.OuiJournal::Pages
+   IL_012a: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.OuiJournalPage>::get_Count()
+   IL_012f: ldc.i4.1
+   IL_0130: sub
+   IL_0131: bge.s IL_0166
+   IL_0133: ldarg.0
+   IL_0134: ldfld System.Int32 Celeste.OuiJournal::PageIndex
+   IL_0139: brtrue.s IL_0148
+   IL_013b: ldstr "event:/ui/world_map/journal/page_cover_forward"
+   IL_0140: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0145: pop
+   IL_0146: br.s IL_0153
+   IL_0148: ldstr "event:/ui/world_map/journal/page_main_forward"
+   IL_014d: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0152: pop
+   IL_0153: ldarg.0
+   IL_0154: ldarg.0
+   IL_0155: ldc.i4.1
+   IL_0156: callvirt System.Collections.IEnumerator Celeste.OuiJournal::TurnPage(System.Int32)
+   IL_015b: ldc.i4.1
+   IL_015c: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0161: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0166: ldarg.0
+   IL_0167: ldfld System.Boolean Celeste.OuiJournal::PageTurningLocked
+   IL_016c: brtrue.s IL_018c
+   IL_016e: ldsfld Monocle.VirtualButton Celeste.Input::MenuJournal
+   IL_0173: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_0178: brtrue.s IL_0186
+   IL_017a: ldsfld Monocle.VirtualButton Celeste.Input::MenuCancel
+   IL_017f: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_0184: brfalse.s IL_018c
+   IL_0186: ldarg.0
+   IL_0187: callvirt System.Void Celeste.OuiJournal::Close()
+   IL_018c: ret

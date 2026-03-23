@@ -1,0 +1,17 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.PocketUmbrellaController.Player_Drop(orig_Drop,Player)
+On: Celeste.Mod.LollydesSJContributions.Entities.PocketUmbrellaController.Player_Drop(orig_Drop,Player)
+On: Celeste.Mod.XaphanHelper.Entities.Drone.OnPlayerDrop(orig_Drop,Player)
+   IL_0000: ldarg.0
+   IL_0001: callvirt Celeste.Holdable Celeste.Player::get_Holding()
+   IL_0006: brfalse.s IL_0026
+   IL_0008: ldc.i4.0
+   IL_0009: ldc.i4.0
+   IL_000a: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_000f: ldarg.0
+   IL_0010: callvirt Celeste.Holdable Celeste.Player::get_Holding()
+   IL_0015: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_001a: callvirt System.Void Celeste.Holdable::Release(Microsoft.Xna.Framework.Vector2)
+   IL_001f: ldarg.0
+   IL_0020: ldnull
+   IL_0021: callvirt System.Void Celeste.Player::set_Holding(Celeste.Holdable)
+   IL_0026: ret

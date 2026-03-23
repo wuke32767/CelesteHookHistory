@@ -1,0 +1,48 @@
+On: Celeste.Mod.Aqua.Core.PlatformExtensions.Platform_Update(orig_Update,Platform)
+On: ExtendedVariants.Variants.LiftboostProtection.Platform_Update(orig_Update,Platform)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_000c: stfld Microsoft.Xna.Framework.Vector2 Celeste.Platform::LiftSpeed
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Boolean Celeste.Platform::shaking
+   IL_0017: brfalse.s IL_008d
+   IL_0019: ldarg.0
+   IL_001a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_001f: ldc.r4 0.04
+   IL_0024: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_0029: brfalse.s IL_0054
+   IL_002b: ldarg.0
+   IL_002c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Platform::shakeAmount
+   IL_0031: stloc.0
+   IL_0032: ldarg.0
+   IL_0033: ldsfld System.Random Monocle.Calc::Random
+   IL_0038: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::ShakeVector(System.Random)
+   IL_003d: stfld Microsoft.Xna.Framework.Vector2 Celeste.Platform::shakeAmount
+   IL_0042: ldarg.0
+   IL_0043: ldarg.0
+   IL_0044: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Platform::shakeAmount
+   IL_0049: ldloc.0
+   IL_004a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004f: callvirt System.Void Celeste.Platform::OnShake(Microsoft.Xna.Framework.Vector2)
+   IL_0054: ldarg.0
+   IL_0055: ldfld System.Single Celeste.Platform::shakeTimer
+   IL_005a: ldc.r4 0
+   IL_005f: ble.un.s IL_008d
+   IL_0061: ldarg.0
+   IL_0062: ldarg.0
+   IL_0063: ldfld System.Single Celeste.Platform::shakeTimer
+   IL_0068: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_006d: sub
+   IL_006e: stfld System.Single Celeste.Platform::shakeTimer
+   IL_0073: ldarg.0
+   IL_0074: ldfld System.Single Celeste.Platform::shakeTimer
+   IL_0079: ldc.r4 0
+   IL_007e: bgt.un.s IL_008d
+   IL_0080: ldarg.0
+   IL_0081: ldc.i4.0
+   IL_0082: stfld System.Boolean Celeste.Platform::shaking
+   IL_0087: ldarg.0
+   IL_0088: callvirt System.Void Celeste.Platform::StopShaking()
+   IL_008d: ret

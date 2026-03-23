@@ -1,0 +1,289 @@
+On: ChroniaHelper.Cores.MapProcessor.OnMapDataLoad(orig_Load,MapData)
+On: Celeste.Mod.Randomizer.RandoModule.DontLoadRandoMaps(orig_Load,MapData)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.MapData_Load(orig_Load,MapData)
+On: Bitsbolts.Events.OnCelesteMapDataLoad(orig_Load,MapData)
+On: Celeste.Mod.MaxHelpingHand.Entities.GoldenStrawberryCustomConditions.modMapDataLoad(orig_Load,MapData)
+On: Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.onMapDataLoad(orig_Load,MapData)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: stfld System.Int32 Celeste.MapData::DetectedStrawberries
+   IL_0007: ldarg.0
+   IL_0008: ldc.i4.0
+   IL_0009: stfld System.Boolean Celeste.MapData::DetectedHeartGem
+   IL_000e: ldarg.0
+   IL_000f: ldc.i4.0
+   IL_0010: stfld System.Boolean Celeste.MapData::DetectedRemixNotes
+   IL_0015: ldarg.0
+   IL_0016: newobj System.Void System.Collections.Generic.List`1<Celeste.EntityData>::.ctor()
+   IL_001b: stfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::Goldenberries
+   IL_0020: ldarg.0
+   IL_0021: newobj System.Void System.Collections.Generic.List`1<Celeste.EntityData>::.ctor()
+   IL_0026: stfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::DashlessGoldenberries
+   IL_002b: ldarg.0
+   IL_002c: ldc.i4.0
+   IL_002d: stfld System.Boolean Celeste.MapData::DetectedCassette
+   IL_0032: ldarg.0
+   IL_0033: ldc.i4.0
+   IL_0034: stfld System.Int32 Celeste.MapData::DetectedStrawberriesIncludingUntracked
+   IL_0039: ldarg.0
+   IL_003a: callvirt System.Void Celeste.MapData::orig_Load()
+   IL_003f: ldarg.0
+   IL_0040: callvirt System.Void Celeste.MapData::RegenerateLevelsByNameCache()
+   IL_0045: ldarg.0
+   IL_0046: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_004b: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.LevelData>::GetEnumerator()
+   IL_0050: stloc.1
+   IL_0051: br.s IL_00a6
+   IL_0053: ldloca.s V_1
+   IL_0055: call T System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::get_Current()
+   IL_005a: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.LevelData::Entities
+   IL_005f: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.EntityData>::GetEnumerator()
+   IL_0064: stloc.2
+   IL_0065: br.s IL_008d
+   IL_0067: ldloca.s V_2
+   IL_0069: call T System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::get_Current()
+   IL_006e: stloc.3
+   IL_006f: ldloc.3
+   IL_0070: ldfld System.String Celeste.EntityData::Name
+   IL_0075: ldstr "memorialTextController"
+   IL_007a: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_007f: brfalse.s IL_008d
+   IL_0081: ldarg.0
+   IL_0082: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::DashlessGoldenberries
+   IL_0087: ldloc.3
+   IL_0088: callvirt System.Void System.Collections.Generic.List`1<Celeste.EntityData>::Add(T)
+   IL_008d: ldloca.s V_2
+   IL_008f: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::MoveNext()
+   IL_0094: brtrue.s IL_0067
+   IL_0096: leave.s IL_00a6
+   IL_0098: ldloca.s V_2
+   IL_009a: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>
+   IL_00a0: callvirt System.Void System.IDisposable::Dispose()
+   IL_00a5: endfinally
+   IL_00a6: ldloca.s V_1
+   IL_00a8: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::MoveNext()
+   IL_00ad: brtrue.s IL_0053
+   IL_00af: leave.s IL_00bf
+   IL_00b1: ldloca.s V_1
+   IL_00b3: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>
+   IL_00b9: callvirt System.Void System.IDisposable::Dispose()
+   IL_00be: endfinally
+   IL_00bf: ldarg.0
+   IL_00c0: ldfld Celeste.AreaKey Celeste.MapData::Area
+   IL_00c5: call Celeste.AreaData Celeste.AreaData::Get(Celeste.AreaKey)
+   IL_00ca: ldfld Celeste.Mod.Meta.MapMeta Celeste.AreaData::Meta
+   IL_00cf: dup
+   IL_00d0: brtrue.s IL_00d6
+   IL_00d2: pop
+   IL_00d3: ldnull
+   IL_00d4: br.s IL_00db
+   IL_00d6: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Parent()
+   IL_00db: call Celeste.AreaData Celeste.AreaData::Get(System.String)
+   IL_00e0: dup
+   IL_00e1: brtrue.s IL_00e7
+   IL_00e3: pop
+   IL_00e4: ldnull
+   IL_00e5: br.s IL_0103
+   IL_00e7: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_00ec: dup
+   IL_00ed: brtrue.s IL_00f3
+   IL_00ef: pop
+   IL_00f0: ldnull
+   IL_00f1: br.s IL_0103
+   IL_00f3: ldarg.0
+   IL_00f4: ldflda Celeste.AreaKey Celeste.MapData::Area
+   IL_00f9: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_00fe: call TSource System.Linq.Enumerable::ElementAtOrDefault<Celeste.ModeProperties>(System.Collections.Generic.IEnumerable`1<TSource>,System.Int32)
+   IL_0103: stloc.0
+   IL_0104: ldloc.0
+   IL_0105: brfalse IL_02a1
+   IL_010a: ldloc.0
+   IL_010b: ldfld Celeste.MapData Celeste.ModeProperties::MapData
+   IL_0110: stloc.s V_4
+   IL_0112: ldloc.s V_4
+   IL_0114: brtrue.s IL_0162
+   IL_0116: ldstr "MapData"
+   IL_011b: stloc.s V_5
+   IL_011d: ldloc.s V_5
+   IL_011f: ldc.i4.s 55
+   IL_0121: ldc.i4.1
+   IL_0122: ldloc.s V_5
+   IL_0124: ldloca.s V_7
+   IL_0126: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_012b: stloc.s V_6
+   IL_012d: ldloc.s V_7
+   IL_012f: brfalse.s IL_0156
+   IL_0131: ldloca.s V_6
+   IL_0133: ldstr "Failed auto-assigning data from "
+   IL_0138: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_013d: ldloca.s V_6
+   IL_013f: ldarg.0
+   IL_0140: ldfld Celeste.AreaKey Celeste.MapData::Area
+   IL_0145: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted<Celeste.AreaKey>(T)
+   IL_014a: ldloca.s V_6
+   IL_014c: ldstr " to its unloaded parent"
+   IL_0151: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0156: ldloc.s V_6
+   IL_0158: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_015d: leave IL_0309
+   IL_0162: ldloc.s V_4
+   IL_0164: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::Strawberries
+   IL_0169: ldarg.0
+   IL_016a: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::Strawberries
+   IL_016f: callvirt System.Void System.Collections.Generic.List`1<Celeste.EntityData>::AddRange(System.Collections.Generic.IEnumerable`1<T>)
+   IL_0174: ldloc.0
+   IL_0175: ldc.i4.0
+   IL_0176: stfld System.Int32 Celeste.ModeProperties::TotalStrawberries
+   IL_017b: ldloc.0
+   IL_017c: ldc.i4.0
+   IL_017d: stfld System.Int32 Celeste.ModeProperties::StartStrawberries
+   IL_0182: ldloc.0
+   IL_0183: ldc.i4.s 10
+   IL_0185: ldc.i4.s 25
+   IL_0187: newobj System.Void Celeste.EntityData[0...,0...]::.ctor(System.Int32,System.Int32)
+   IL_018c: stfld Celeste.EntityData[0...,0...] Celeste.ModeProperties::StrawberriesByCheckpoint
+   IL_0191: ldc.i4.0
+   IL_0192: stloc.s V_8
+   IL_0194: br.s IL_01b6
+   IL_0196: ldloc.0
+   IL_0197: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_019c: ldloc.s V_8
+   IL_019e: ldelem.ref
+   IL_019f: brfalse.s IL_01b0
+   IL_01a1: ldloc.0
+   IL_01a2: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_01a7: ldloc.s V_8
+   IL_01a9: ldelem.ref
+   IL_01aa: ldc.i4.0
+   IL_01ab: stfld System.Int32 Celeste.CheckpointData::Strawberries
+   IL_01b0: ldloc.s V_8
+   IL_01b2: ldc.i4.1
+   IL_01b3: add
+   IL_01b4: stloc.s V_8
+   IL_01b6: ldloc.0
+   IL_01b7: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_01bc: brfalse.s IL_01ca
+   IL_01be: ldloc.s V_8
+   IL_01c0: ldloc.0
+   IL_01c1: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_01c6: ldlen
+   IL_01c7: conv.i4
+   IL_01c8: blt.s IL_0196
+   IL_01ca: ldloc.s V_4
+   IL_01cc: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.MapData::Strawberries
+   IL_01d1: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.EntityData>::GetEnumerator()
+   IL_01d6: stloc.2
+   IL_01d7: br IL_0285
+   IL_01dc: ldloca.s V_2
+   IL_01de: call T System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::get_Current()
+   IL_01e3: stloc.s V_9
+   IL_01e5: ldloc.s V_9
+   IL_01e7: ldstr "moon"
+   IL_01ec: ldc.i4.0
+   IL_01ed: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_01f2: brtrue IL_0285
+   IL_01f7: ldloc.s V_9
+   IL_01f9: ldstr "checkpointIDParented"
+   IL_01fe: ldloc.s V_9
+   IL_0200: ldstr "checkpointID"
+   IL_0205: ldc.i4.0
+   IL_0206: callvirt System.Int32 Celeste.EntityData::Int(System.String,System.Int32)
+   IL_020b: callvirt System.Int32 Celeste.EntityData::Int(System.String,System.Int32)
+   IL_0210: stloc.s V_10
+   IL_0212: ldloc.s V_9
+   IL_0214: ldstr "order"
+   IL_0219: ldc.i4.0
+   IL_021a: callvirt System.Int32 Celeste.EntityData::Int(System.String,System.Int32)
+   IL_021f: stloc.s V_11
+   IL_0221: ldloc.0
+   IL_0222: ldflda Celeste.EntityData[0...,0...] Celeste.ModeProperties::StrawberriesByCheckpoint
+   IL_0227: ldloc.s V_10
+   IL_0229: ldloc.s V_11
+   IL_022b: call Celeste.EntityData Celeste.MapData::_GrowAndGet(Celeste.EntityData[0...,0...]&,System.Int32,System.Int32)
+   IL_0230: brtrue.s IL_0243
+   IL_0232: ldloc.0
+   IL_0233: ldfld Celeste.EntityData[0...,0...] Celeste.ModeProperties::StrawberriesByCheckpoint
+   IL_0238: ldloc.s V_10
+   IL_023a: ldloc.s V_11
+   IL_023c: ldloc.s V_9
+   IL_023e: call System.Void Celeste.EntityData[0...,0...]::Set(System.Int32,System.Int32,Celeste.EntityData)
+   IL_0243: ldloc.s V_10
+   IL_0245: brtrue.s IL_0257
+   IL_0247: ldloc.0
+   IL_0248: dup
+   IL_0249: ldfld System.Int32 Celeste.ModeProperties::StartStrawberries
+   IL_024e: ldc.i4.1
+   IL_024f: add
+   IL_0250: stfld System.Int32 Celeste.ModeProperties::StartStrawberries
+   IL_0255: br.s IL_0277
+   IL_0257: ldloc.0
+   IL_0258: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_025d: brfalse.s IL_0277
+   IL_025f: ldloc.0
+   IL_0260: ldfld Celeste.CheckpointData[] Celeste.ModeProperties::Checkpoints
+   IL_0265: ldloc.s V_10
+   IL_0267: ldc.i4.1
+   IL_0268: sub
+   IL_0269: ldelem.ref
+   IL_026a: dup
+   IL_026b: ldfld System.Int32 Celeste.CheckpointData::Strawberries
+   IL_0270: ldc.i4.1
+   IL_0271: add
+   IL_0272: stfld System.Int32 Celeste.CheckpointData::Strawberries
+   IL_0277: ldloc.0
+   IL_0278: dup
+   IL_0279: ldfld System.Int32 Celeste.ModeProperties::TotalStrawberries
+   IL_027e: ldc.i4.1
+   IL_027f: add
+   IL_0280: stfld System.Int32 Celeste.ModeProperties::TotalStrawberries
+   IL_0285: ldloca.s V_2
+   IL_0287: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::MoveNext()
+   IL_028c: brtrue IL_01dc
+   IL_0291: leave.s IL_02a1
+   IL_0293: ldloca.s V_2
+   IL_0295: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>
+   IL_029b: callvirt System.Void System.IDisposable::Dispose()
+   IL_02a0: endfinally
+   IL_02a1: leave.s IL_0309
+   IL_02a3: isinst System.Exception
+   IL_02a8: dup
+   IL_02a9: brtrue.s IL_02af
+   IL_02ab: pop
+   IL_02ac: ldc.i4.0
+   IL_02ad: br.s IL_02c1
+   IL_02af: stloc.s V_12
+   IL_02b1: ldloc.s V_12
+   IL_02b3: isinst System.OutOfMemoryException
+   IL_02b8: ldnull
+   IL_02b9: cgt.un
+   IL_02bb: ldc.i4.0
+   IL_02bc: ceq
+   IL_02be: ldc.i4.0
+   IL_02bf: cgt.un
+   IL_02c1: endfilter
+   IL_02c3: pop
+   IL_02c4: ldstr "MapData"
+   IL_02c9: stloc.s V_5
+   IL_02cb: ldloc.s V_5
+   IL_02cd: ldc.i4.s 23
+   IL_02cf: ldc.i4.1
+   IL_02d0: ldloc.s V_5
+   IL_02d2: ldloca.s V_7
+   IL_02d4: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_02d9: stloc.s V_6
+   IL_02db: ldloc.s V_7
+   IL_02dd: brfalse.s IL_02f8
+   IL_02df: ldloca.s V_6
+   IL_02e1: ldstr "Failed loading MapData "
+   IL_02e6: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_02eb: ldloca.s V_6
+   IL_02ed: ldarg.0
+   IL_02ee: ldfld Celeste.AreaKey Celeste.MapData::Area
+   IL_02f3: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted<Celeste.AreaKey>(T)
+   IL_02f8: ldloc.s V_6
+   IL_02fa: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_02ff: ldloc.s V_12
+   IL_0301: ldnull
+   IL_0302: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_0307: leave.s IL_0309
+   IL_0309: ret

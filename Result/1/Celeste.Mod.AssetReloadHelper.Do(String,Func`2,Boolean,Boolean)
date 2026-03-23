@@ -1,0 +1,150 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+IL: Celeste.Mod.SpeedrunTool.Utils.HookHelper+<>c__DisplayClass2_0.<ILHook>b__0(ILContext)
+ + IL_10000: call System.Void Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI::Close() @ Celeste.Mod.SpeedrunTool.Utils.HookHelper+<>c__DisplayClass2_0.<ILHook>b__0(ILContext)
+ + IL_10001: ldarg.2 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0001: brtrue IL_0010 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0006: call System.Void TAS.Manager::DisableRun() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_000b: call System.Void TAS.Playback.SavestateManager::ClearAllSavestates() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0010: newobj System.Void Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::.ctor()
+   IL_0015: stloc.0
+   IL_0016: ldloc.0
+   IL_0017: ldarg.0
+   IL_0018: stfld System.String Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::text
+   IL_001d: ldloc.0
+   IL_001e: ldarg.1
+   IL_001f: stfld System.Func`2<System.Boolean,System.Threading.Tasks.Task> Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::action
+   IL_0024: ldloc.0
+   IL_0025: ldarg.3
+   IL_0026: stfld System.Boolean Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::useWorkerThread
+   IL_002b: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_0030: brfalse.s IL_0080
+   IL_0032: ldstr "reload"
+   IL_0037: stloc.1
+   IL_0038: ldloc.1
+   IL_0039: ldc.i4.s 63
+   IL_003b: ldc.i4.1
+   IL_003c: ldloc.1
+   IL_003d: ldloca.s V_3
+   IL_003f: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0044: stloc.2
+   IL_0045: ldloc.3
+   IL_0046: brfalse.s IL_0061
+   IL_0048: ldloca.s V_2
+   IL_004a: ldstr "Delaying reload action until critical error handler is closed: "
+   IL_004f: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0054: ldloca.s V_2
+   IL_0056: ldloc.0
+   IL_0057: ldfld System.String Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::text
+   IL_005c: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0061: ldloc.2
+   IL_0062: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_0067: ldarg.2
+   IL_0068: ldloc.0
+   IL_0069: ldfld System.String Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::text
+   IL_006e: ldloc.0
+   IL_006f: ldfld System.Func`2<System.Boolean,System.Threading.Tasks.Task> Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::action
+   IL_0074: ldloc.0
+   IL_0075: ldfld System.Boolean Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::useWorkerThread
+   IL_007a: call System.Threading.Tasks.Task Celeste.Mod.AssetReloadHelper::DelayReloadUntilAfterCrash(System.Boolean,System.String,System.Func`2<System.Boolean,System.Threading.Tasks.Task>,System.Boolean)
+   IL_007f: ret
+   IL_0080: ldsfld System.Diagnostics.Stopwatch Celeste.Celeste::LoadTimer
+   IL_0085: brfalse.s IL_008c
+   IL_0087: ldc.i4.1
+   IL_0088: starg.s silent
+   IL_008a: br.s IL_00ff
+   IL_008c: ldarg.2
+   IL_008d: brfalse.s IL_00ff
+   IL_008f: call System.Threading.Thread System.Threading.Thread::get_CurrentThread()
+   IL_0094: callvirt System.String System.Threading.Thread::get_Name()
+   IL_0099: dup
+   IL_009a: brtrue.s IL_00a2
+   IL_009c: pop
+   IL_009d: ldstr "<null>"
+   IL_00a2: stloc.s V_4
+   IL_00a4: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Mod.AssetReloadHelper::SilentThreadList
+   IL_00a9: ldloc.s V_4
+   IL_00ab: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Contains(T)
+   IL_00b0: brtrue.s IL_00ff
+   IL_00b2: ldstr "reload"
+   IL_00b7: stloc.1
+   IL_00b8: ldloc.1
+   IL_00b9: ldc.i4.s 53
+   IL_00bb: ldc.i4.2
+   IL_00bc: ldloc.1
+   IL_00bd: ldloca.s V_3
+   IL_00bf: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_00c4: stloc.2
+   IL_00c5: ldloc.3
+   IL_00c6: brfalse.s IL_00f6
+   IL_00c8: ldloca.s V_2
+   IL_00ca: ldstr "Tried to silently reload on non-whitelisted thread "
+   IL_00cf: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_00d4: ldloca.s V_2
+   IL_00d6: ldloc.s V_4
+   IL_00d8: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_00dd: ldloca.s V_2
+   IL_00df: ldstr ": "
+   IL_00e4: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_00e9: ldloca.s V_2
+   IL_00eb: ldloc.0
+   IL_00ec: ldfld System.String Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::text
+   IL_00f1: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_00f6: ldloc.2
+   IL_00f7: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_00fc: ldc.i4.0
+   IL_00fd: starg.s silent
+   IL_00ff: ldarg.2
+   IL_0100: brfalse.s IL_0114
+   IL_0102: ldloc.0
+   IL_0103: ldftn System.Threading.Tasks.Task Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::<Do>b__0()
+   IL_0109: newobj System.Void System.Func`1<System.Threading.Tasks.Task>::.ctor(System.Object,System.IntPtr)
+   IL_010e: callvirt TResult System.Func`1<System.Threading.Tasks.Task>::Invoke()
+   IL_0113: ret
+   IL_0114: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0119: brtrue.s IL_0133
+   IL_011b: ldloc.0
+   IL_011c: ldftn System.Threading.Tasks.Task`1<System.Threading.Tasks.Task> Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::<Do>b__1()
+   IL_0122: newobj System.Void System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>>::.ctor(System.Object,System.IntPtr)
+   IL_0127: ldc.i4.0
+   IL_0128: call System.Threading.Tasks.Task`1<T> Celeste.Mod.MainThreadHelper::Schedule<System.Threading.Tasks.Task>(System.Func`1<System.Threading.Tasks.Task`1<T>>,System.Boolean)
+   IL_012d: call System.Threading.Tasks.Task System.Threading.Tasks.TaskExtensions::Unwrap(System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>)
+   IL_0132: ret
+   IL_0133: ldsfld System.Object Celeste.Mod.AssetReloadHelper::_CurrentHelperSceneLock
+   IL_0138: stloc.s V_5
+   IL_013a: ldc.i4.0
+   IL_013b: stloc.3
+   IL_013c: ldloc.s V_5
+   IL_013e: ldloca.s V_3
+   IL_0140: call System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
+   IL_0145: volatile.
+   IL_0147: ldsfld System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper> modreq(System.Runtime.CompilerServices.IsVolatile) Celeste.Mod.AssetReloadHelper::CurrentHelperScene
+   IL_014c: brtrue.s IL_0176
+   IL_014e: ldsfld System.Func`1<System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper>> Celeste.Mod.AssetReloadHelper/<>O::<0>__StartReloadScene
+   IL_0153: dup
+   IL_0154: brtrue.s IL_0169
+   IL_0156: pop
+   IL_0157: ldnull
+   IL_0158: ldftn System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper> Celeste.Mod.AssetReloadHelper::StartReloadScene()
+   IL_015e: newobj System.Void System.Func`1<System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper>>::.ctor(System.Object,System.IntPtr)
+   IL_0163: dup
+   IL_0164: stsfld System.Func`1<System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper>> Celeste.Mod.AssetReloadHelper/<>O::<0>__StartReloadScene
+   IL_0169: ldc.i4.0
+   IL_016a: call System.Threading.Tasks.Task`1<T> Celeste.Mod.MainThreadHelper::Schedule<Celeste.Mod.AssetReloadHelper>(System.Func`1<System.Threading.Tasks.Task`1<T>>,System.Boolean)
+   IL_016f: volatile.
+   IL_0171: stsfld System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper> modreq(System.Runtime.CompilerServices.IsVolatile) Celeste.Mod.AssetReloadHelper::CurrentHelperScene
+   IL_0176: volatile.
+   IL_0178: ldsfld System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper> modreq(System.Runtime.CompilerServices.IsVolatile) Celeste.Mod.AssetReloadHelper::CurrentHelperScene
+   IL_017d: ldloc.0
+   IL_017e: ldftn System.Threading.Tasks.Task Celeste.Mod.AssetReloadHelper/<>c__DisplayClass6_0::<Do>b__2(System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper>)
+   IL_0184: newobj System.Void System.Func`2<System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper>,System.Threading.Tasks.Task>::.ctor(System.Object,System.IntPtr)
+   IL_0189: callvirt System.Threading.Tasks.Task`1<TNewResult> System.Threading.Tasks.Task`1<Celeste.Mod.AssetReloadHelper>::ContinueWith<System.Threading.Tasks.Task>(System.Func`2<System.Threading.Tasks.Task`1<TResult>,TNewResult>)
+   IL_018e: call System.Threading.Tasks.Task System.Threading.Tasks.TaskExtensions::Unwrap(System.Threading.Tasks.Task`1<System.Threading.Tasks.Task>)
+   IL_0193: stloc.s V_6
+   IL_0195: leave.s IL_01a2
+   IL_0197: ldloc.3
+   IL_0198: brfalse.s IL_01a1
+   IL_019a: ldloc.s V_5
+   IL_019c: call System.Void System.Threading.Monitor::Exit(System.Object)
+   IL_01a1: endfinally
+   IL_01a2: ldloc.s V_6
+   IL_01a4: ret

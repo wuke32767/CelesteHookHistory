@@ -1,0 +1,722 @@
+On: Celeste.Mod.SpringCollab2020.Entities.SidewaysJumpThru.onLevelLoad(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.SpringCollab2020.Entities.UpsideDownJumpThru.onLevelLoad(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.GravityHelper.GravityHelperModule.LevelLoader_ctor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: ExtendedVariants.Module.ExtendedVariantsModule.checkForceEnableVariants(orig_ctor,LevelLoader,Session,Nullable`1)
+On: PrismaticHelper.Entities.Panels.WorldPanels.LevelLoaderConstruct(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.SpeedrunTool.DeathStatistics.DeathStatisticsManager.LevelLoaderOnCtor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.SpeedrunTool.Other.BetterMapEditor.LevelLoaderOnCtor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.SpeedrunTool.TeleportRoom.TeleportRoomUtils.LevelLoaderOnCtor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.MiscUtils.MiscUtilsModule.LevelLoader_ctor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.JungleHelper.Entities.EnforceSkinController.onLevelLoad(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.JungleHelper.Entities.SpiderBoss.onLevelStart(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.JungleHelper.Entities.ClimbableOneWayPlatform.onLevelLoad(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.ErrandOfWednesday.ErrandOfWednesdayModule.level_loader_constructor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.EmoteMod.BackpackModule.onLevelLoader(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.DJMapHelper.Triggers.ChangeSpinnerColorTrigger.LevelLoaderOnCtor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.CollabUtils2.UI.OuiJournalCoverWithStickers.onLevelLoad(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.CollabUtils2.LazyLoadingHandler.lazilyLoadTextures(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.CollabUtils2.UI.ReturnToLobbyHelper.onLevelLoaderConstructor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: ExtendedVariants.Variants.BadelineChasersEverywhere.onLevelStart(orig_ctor,LevelLoader,Session,Nullable`1)
+On: ExtendedVariants.Variants.AllStrawberriesAreGoldens.onEnterNewLevel(orig_ctor,LevelLoader,Session,Nullable`1)
+On: ExtendedVariants.Variants.MadelineBackpackMode.onLevelLoaderConstructor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.MaxHelpingHand.Entities.UpsideDownJumpThru.onLevelLoad(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.MaxHelpingHand.Entities.SidewaysJumpThru.onLevelLoad(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.StyleMaskHelper.StylegroundMaskTilesetHandler.On_LevelLoader_ctor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.FunctionalZoomOut.FunctionalZoomOutModule.On_LevelLoader_ctor(orig_ctor,LevelLoader,Session,Nullable`1)
+On: Celeste.Mod.EmHelper.Module.EmHelper.LevelLoader_ctor(orig_ctor,LevelLoader,Session,Nullable`1)
+   IL_0000: ldarg.1
+   IL_0001: brtrue.s IL_0006
+   IL_0003: ldnull
+   IL_0004: br.s IL_0011
+   IL_0006: ldarg.1
+   IL_0007: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_000c: call System.String Celeste.AreaKeyExt::GetSID(Celeste.AreaKey)
+   IL_0011: dup
+   IL_0012: brtrue.s IL_001a
+   IL_0014: pop
+   IL_0015: ldstr "NULL"
+   IL_001a: stloc.0
+   IL_001b: ldarg.1
+   IL_001c: brfalse.s IL_003f
+   IL_001e: ldarg.1
+   IL_001f: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_0024: pop
+   IL_0025: ldarg.1
+   IL_0026: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_002b: call Celeste.AreaData Celeste.AreaData::Get(Celeste.AreaKey)
+   IL_0030: ldfld System.String Celeste.AreaData::Name
+   IL_0035: dup
+   IL_0036: stloc.1
+   IL_0037: ldnull
+   IL_0038: call System.Boolean Celeste.Dialog::Has(System.String,Celeste.Language)
+   IL_003d: brtrue.s IL_0042
+   IL_003f: ldnull
+   IL_0040: br.s IL_0066
+   IL_0042: ldstr " ["
+   IL_0047: ldloc.1
+   IL_0048: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Language> Celeste.Dialog::Languages
+   IL_004d: ldstr "english"
+   IL_0052: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Celeste.Language>::get_Item(TKey)
+   IL_0057: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_005c: ldstr "]"
+   IL_0061: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0066: stloc.1
+   IL_0067: ldarg.1
+   IL_0068: brfalse.s IL_00b9
+   IL_006a: ldarg.1
+   IL_006b: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_0070: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_0075: ldc.i4.0
+   IL_0076: ble.s IL_00b9
+   IL_0078: ldloc.1
+   IL_0079: ldloca.s V_4
+   IL_007b: ldc.i4.3
+   IL_007c: ldc.i4.1
+   IL_007d: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_0082: ldloca.s V_4
+   IL_0084: ldstr " ["
+   IL_0089: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_008e: ldloca.s V_4
+   IL_0090: ldarg.1
+   IL_0091: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_0096: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_009b: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<Celeste.AreaMode>(T)
+   IL_00a0: ldloca.s V_4
+   IL_00a2: ldstr "]"
+   IL_00a7: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_00ac: ldloca.s V_4
+   IL_00ae: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_00b3: call System.String System.String::Concat(System.String,System.String)
+   IL_00b8: stloc.1
+   IL_00b9: ldstr "LevelLoader"
+   IL_00be: stloc.s V_5
+   IL_00c0: ldloc.s V_5
+   IL_00c2: ldc.i4.8
+   IL_00c3: ldc.i4.2
+   IL_00c4: ldloc.s V_5
+   IL_00c6: ldloca.s V_7
+   IL_00c8: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Info>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_00cd: stloc.s V_6
+   IL_00cf: ldloc.s V_7
+   IL_00d1: brfalse.s IL_00ef
+   IL_00d3: ldloca.s V_6
+   IL_00d5: ldstr "Loading "
+   IL_00da: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Info>::AppendLiteral(System.String)
+   IL_00df: ldloca.s V_6
+   IL_00e1: ldloc.0
+   IL_00e2: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Info>::AppendFormatted(System.String)
+   IL_00e7: ldloca.s V_6
+   IL_00e9: ldloc.1
+   IL_00ea: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Info>::AppendFormatted(System.String)
+   IL_00ef: ldloc.s V_6
+   IL_00f1: call System.Void Celeste.Mod.Logger::Info(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Info>)
+   IL_00f6: ldsfld System.WeakReference`1<System.Threading.Thread> Celeste.LevelLoader::LastLoadingThread
+   IL_00fb: brfalse.s IL_011f
+   IL_00fd: ldsfld System.WeakReference`1<System.Threading.Thread> Celeste.LevelLoader::LastLoadingThread
+   IL_0102: ldloca.s V_2
+   IL_0104: callvirt System.Boolean System.WeakReference`1<System.Threading.Thread>::TryGetTarget(T&)
+   IL_0109: brfalse.s IL_011f
+   IL_010b: ldloc.2
+   IL_010c: brfalse.s IL_011f
+   IL_010e: ldloc.2
+   IL_010f: callvirt System.Boolean System.Threading.Thread::get_IsAlive()
+   IL_0114: brfalse.s IL_011f
+   IL_0116: ldloc.2
+   IL_0117: brfalse.s IL_011f
+   IL_0119: ldloc.2
+   IL_011a: callvirt System.Void System.Threading.Thread::Interrupt()
+   IL_011f: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0124: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_LazyLoading()
+   IL_0129: brfalse.s IL_0151
+   IL_012b: ldsfld System.Action Celeste.LevelLoader/<>c::<>9__9_0
+   IL_0130: dup
+   IL_0131: brtrue.s IL_014a
+   IL_0133: pop
+   IL_0134: ldsfld Celeste.LevelLoader/<>c Celeste.LevelLoader/<>c::<>9
+   IL_0139: ldftn System.Void Celeste.LevelLoader/<>c::<ctor>b__9_0()
+   IL_013f: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0144: dup
+   IL_0145: stsfld System.Action Celeste.LevelLoader/<>c::<>9__9_0
+   IL_014a: ldc.i4.0
+   IL_014b: call System.Threading.Tasks.ValueTask Celeste.Mod.MainThreadHelper::Schedule(System.Action,System.Boolean)
+   IL_0150: pop
+   IL_0151: newobj System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::.ctor()
+   IL_0156: dup
+   IL_0157: ldc.i4.s 49
+   IL_0159: ldc.i4.3
+   IL_015a: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_015f: dup
+   IL_0160: ldc.i4.s 51
+   IL_0162: ldc.i4.4
+   IL_0163: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_0168: dup
+   IL_0169: ldc.i4.s 52
+   IL_016b: ldc.i4.7
+   IL_016c: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_0171: dup
+   IL_0172: ldc.i4.s 53
+   IL_0174: ldc.i4.8
+   IL_0175: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_017a: dup
+   IL_017b: ldc.i4.s 54
+   IL_017d: ldc.i4.8
+   IL_017e: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_0183: dup
+   IL_0184: ldc.i4.s 55
+   IL_0186: ldc.i4.8
+   IL_0187: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_018c: dup
+   IL_018d: ldc.i4.s 56
+   IL_018f: ldc.i4.8
+   IL_0190: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_0195: dup
+   IL_0196: ldc.i4.s 57
+   IL_0198: ldc.i4.s 13
+   IL_019a: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_019f: dup
+   IL_01a0: ldc.i4.s 97
+   IL_01a2: ldc.i4.8
+   IL_01a3: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01a8: dup
+   IL_01a9: ldc.i4.s 98
+   IL_01ab: ldc.i4.s 23
+   IL_01ad: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01b2: dup
+   IL_01b3: ldc.i4.s 99
+   IL_01b5: ldc.i4.8
+   IL_01b6: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01bb: dup
+   IL_01bc: ldc.i4.s 100
+   IL_01be: ldc.i4.8
+   IL_01bf: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01c4: dup
+   IL_01c5: ldc.i4.s 101
+   IL_01c7: ldc.i4.8
+   IL_01c8: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01cd: dup
+   IL_01ce: ldc.i4.s 102
+   IL_01d0: ldc.i4.8
+   IL_01d1: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01d6: dup
+   IL_01d7: ldc.i4.s 103
+   IL_01d9: ldc.i4.8
+   IL_01da: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01df: dup
+   IL_01e0: ldc.i4.s 71
+   IL_01e2: ldc.i4.8
+   IL_01e3: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01e8: dup
+   IL_01e9: ldc.i4.s 104
+   IL_01eb: ldc.i4.s 33
+   IL_01ed: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01f2: dup
+   IL_01f3: ldc.i4.s 105
+   IL_01f5: ldc.i4.4
+   IL_01f6: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_01fb: dup
+   IL_01fc: ldc.i4.s 106
+   IL_01fe: ldc.i4.8
+   IL_01ff: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_0204: dup
+   IL_0205: ldc.i4.s 107
+   IL_0207: ldc.i4.3
+   IL_0208: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_020d: dup
+   IL_020e: ldc.i4.s 108
+   IL_0210: ldc.i4.s 25
+   IL_0212: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_0217: dup
+   IL_0218: ldc.i4.s 109
+   IL_021a: ldc.i4.s 44
+   IL_021c: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_0221: dup
+   IL_0222: ldc.i4.s 110
+   IL_0224: ldc.i4.s 40
+   IL_0226: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_022b: dup
+   IL_022c: ldc.i4.s 111
+   IL_022e: ldc.i4.s 43
+   IL_0230: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::Add(TKey,TValue)
+   IL_0235: stsfld System.Collections.Generic.Dictionary`2<System.Char,System.Int32> Celeste.SurfaceIndex::TileToIndex
+   IL_023a: ldsfld System.Collections.Generic.Dictionary`2<System.Int32,System.String> Celeste.SurfaceIndex::IndexToCustomPath
+   IL_023f: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Int32,System.String>::Clear()
+   IL_0244: ldsfld System.Collections.Generic.Dictionary`2<System.Int32,System.Int32> Celeste.SurfaceIndex::IndexToSoundParam
+   IL_0249: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Int32,System.Int32>::Clear()
+   IL_024e: ldstr ""
+   IL_0253: stloc.3
+   IL_0254: ldarg.1
+   IL_0255: call Celeste.AreaData Celeste.AreaData::Get(Celeste.Session)
+   IL_025a: ldfld Celeste.Mod.Meta.MapMeta Celeste.AreaData::Meta
+   IL_025f: stloc.s V_8
+   IL_0261: ldloc.s V_8
+   IL_0263: brtrue.s IL_0268
+   IL_0265: ldnull
+   IL_0266: br.s IL_026f
+   IL_0268: ldloc.s V_8
+   IL_026a: callvirt System.String Celeste.Mod.Meta.MapMeta::get_BackgroundTiles()
+   IL_026f: stloc.3
+   IL_0270: ldloc.3
+   IL_0271: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0276: brfalse.s IL_0288
+   IL_0278: ldstr "Graphics"
+   IL_027d: ldstr "BackgroundTiles.xml"
+   IL_0282: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_0287: stloc.3
+   IL_0288: ldloc.3
+   IL_0289: newobj System.Void Celeste.Autotiler::.ctor(System.String)
+   IL_028e: stsfld Celeste.Autotiler Celeste.GFX::BGAutotiler
+   IL_0293: ldloc.s V_8
+   IL_0295: brtrue.s IL_029a
+   IL_0297: ldnull
+   IL_0298: br.s IL_02a1
+   IL_029a: ldloc.s V_8
+   IL_029c: callvirt System.String Celeste.Mod.Meta.MapMeta::get_ForegroundTiles()
+   IL_02a1: stloc.3
+   IL_02a2: ldloc.3
+   IL_02a3: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_02a8: brfalse.s IL_02ba
+   IL_02aa: ldstr "Graphics"
+   IL_02af: ldstr "ForegroundTiles.xml"
+   IL_02b4: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_02b9: stloc.3
+   IL_02ba: ldloc.3
+   IL_02bb: newobj System.Void Celeste.Autotiler::.ctor(System.String)
+   IL_02c0: stsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_02c5: ldloc.s V_8
+   IL_02c7: brtrue.s IL_02cc
+   IL_02c9: ldnull
+   IL_02ca: br.s IL_02d3
+   IL_02cc: ldloc.s V_8
+   IL_02ce: callvirt System.String Celeste.Mod.Meta.MapMeta::get_AnimatedTiles()
+   IL_02d3: stloc.3
+   IL_02d4: ldloc.3
+   IL_02d5: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_02da: brfalse.s IL_02ec
+   IL_02dc: ldstr "Graphics"
+   IL_02e1: ldstr "AnimatedTiles.xml"
+   IL_02e6: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_02eb: stloc.3
+   IL_02ec: newobj System.Void Celeste.AnimatedTilesBank::.ctor()
+   IL_02f1: stsfld Celeste.AnimatedTilesBank Celeste.GFX::AnimatedTilesBank
+   IL_02f6: ldloc.3
+   IL_02f7: call System.Xml.XmlDocument Monocle.Calc::LoadContentXML(System.String)
+   IL_02fc: ldstr "sprite"
+   IL_0301: callvirt System.Xml.XmlNodeList System.Xml.XmlDocument::GetElementsByTagName(System.String)
+   IL_0306: callvirt System.Collections.IEnumerator System.Xml.XmlNodeList::GetEnumerator()
+   IL_030b: stloc.s V_9
+   IL_030d: br.s IL_038a
+   IL_030f: ldloc.s V_9
+   IL_0311: callvirt System.Object System.Collections.IEnumerator::get_Current()
+   IL_0316: castclass System.Xml.XmlElement
+   IL_031b: stloc.s V_10
+   IL_031d: ldloc.s V_10
+   IL_031f: brfalse.s IL_038a
+   IL_0321: ldsfld Celeste.AnimatedTilesBank Celeste.GFX::AnimatedTilesBank
+   IL_0326: ldloc.s V_10
+   IL_0328: ldstr "name"
+   IL_032d: call System.String Monocle.Calc::Attr(System.Xml.XmlElement,System.String)
+   IL_0332: ldloc.s V_10
+   IL_0334: ldstr "delay"
+   IL_0339: ldc.r4 0
+   IL_033e: call System.Single Monocle.Calc::AttrFloat(System.Xml.XmlElement,System.String,System.Single)
+   IL_0343: ldloc.s V_10
+   IL_0345: ldstr "posX"
+   IL_034a: ldstr "posY"
+   IL_034f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0354: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AttrVector2(System.Xml.XmlElement,System.String,System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0359: ldloc.s V_10
+   IL_035b: ldstr "origX"
+   IL_0360: ldstr "origY"
+   IL_0365: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_036a: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AttrVector2(System.Xml.XmlElement,System.String,System.String,Microsoft.Xna.Framework.Vector2)
+   IL_036f: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0374: ldloc.s V_10
+   IL_0376: ldstr "path"
+   IL_037b: call System.String Monocle.Calc::Attr(System.Xml.XmlElement,System.String)
+   IL_0380: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0385: callvirt System.Void Celeste.AnimatedTilesBank::Add(System.String,System.Single,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List`1<Monocle.MTexture>)
+   IL_038a: ldloc.s V_9
+   IL_038c: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_0391: brtrue IL_030f
+   IL_0396: leave.s IL_03ad
+   IL_0398: ldloc.s V_9
+   IL_039a: isinst System.IDisposable
+   IL_039f: stloc.s V_11
+   IL_03a1: ldloc.s V_11
+   IL_03a3: brfalse.s IL_03ac
+   IL_03a5: ldloc.s V_11
+   IL_03a7: callvirt System.Void System.IDisposable::Dispose()
+   IL_03ac: endfinally
+   IL_03ad: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_03b2: ldstr "Graphics"
+   IL_03b7: ldstr "Sprites.xml"
+   IL_03bc: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_03c1: newobj System.Void Monocle.SpriteBank::.ctor(Monocle.Atlas,System.String)
+   IL_03c6: stsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_03cb: ldloc.s V_8
+   IL_03cd: brtrue.s IL_03d2
+   IL_03cf: ldnull
+   IL_03d0: br.s IL_03d9
+   IL_03d2: ldloc.s V_8
+   IL_03d4: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Sprites()
+   IL_03d9: stloc.3
+   IL_03da: ldloc.3
+   IL_03db: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_03e0: brtrue IL_065f
+   IL_03e5: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_03ea: stloc.s V_12
+   IL_03ec: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_03f1: ldarg.0
+   IL_03f2: ldloc.3
+   IL_03f3: callvirt System.Xml.XmlDocument Celeste.LevelLoader::getModdedSpritesXml(System.String)
+   IL_03f8: newobj System.Void Monocle.SpriteBank::.ctor(Monocle.Atlas,System.Xml.XmlDocument)
+   IL_03fd: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_0402: callvirt System.Collections.Generic.Dictionary`2/Enumerator<TKey,TValue> System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::GetEnumerator()
+   IL_0407: stloc.s V_13
+   IL_0409: br IL_0643
+   IL_040e: ldloca.s V_13
+   IL_0410: call System.Collections.Generic.KeyValuePair`2<TKey,TValue> System.Collections.Generic.Dictionary`2/Enumerator<System.String,Monocle.SpriteData>::get_Current()
+   IL_0415: stloc.s V_14
+   IL_0417: ldloca.s V_14
+   IL_0419: call TKey System.Collections.Generic.KeyValuePair`2<System.String,Monocle.SpriteData>::get_Key()
+   IL_041e: stloc.s V_15
+   IL_0420: ldloca.s V_14
+   IL_0422: call TValue System.Collections.Generic.KeyValuePair`2<System.String,Monocle.SpriteData>::get_Value()
+   IL_0427: stloc.s V_16
+   IL_0429: ldloc.s V_12
+   IL_042b: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_0430: ldloc.s V_15
+   IL_0432: ldloca.s V_17
+   IL_0434: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::TryGetValue(TKey,TValue&)
+   IL_0439: brfalse IL_0633
+   IL_043e: ldc.i4.0
+   IL_043f: stloc.s V_18
+   IL_0441: ldc.i4.0
+   IL_0442: stloc.s V_19
+   IL_0444: ldloc.s V_16
+   IL_0446: ldfld System.Collections.Generic.List`1<Monocle.SpriteDataSource> Monocle.SpriteData::Sources
+   IL_044b: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.SpriteDataSource>::get_Count()
+   IL_0450: ldc.i4.1
+   IL_0451: sub
+   IL_0452: stloc.s V_21
+   IL_0454: br IL_0568
+   IL_0459: ldloc.s V_16
+   IL_045b: ldfld System.Collections.Generic.List`1<Monocle.SpriteDataSource> Monocle.SpriteData::Sources
+   IL_0460: ldloc.s V_21
+   IL_0462: callvirt T System.Collections.Generic.List`1<Monocle.SpriteDataSource>::get_Item(System.Int32)
+   IL_0467: ldfld System.Xml.XmlElement Monocle.SpriteDataSource::XML
+   IL_046c: stloc.s V_22
+   IL_046e: ldloc.s V_22
+   IL_0470: brfalse IL_0562
+   IL_0475: ldloc.s V_18
+   IL_0477: brtrue IL_052e
+   IL_047c: ldloc.s V_22
+   IL_047e: ldstr "Center"
+   IL_0483: call System.Boolean Monocle.Calc::HasChild(System.Xml.XmlElement,System.String)
+   IL_0488: brfalse.s IL_04bc
+   IL_048a: ldloc.s V_17
+   IL_048c: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_0491: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0496: pop
+   IL_0497: ldloc.s V_17
+   IL_0499: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_049e: ldc.r4 0.5
+   IL_04a3: ldc.r4 0.5
+   IL_04a8: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04ad: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Vector2>::.ctor(T)
+   IL_04b2: stfld System.Nullable`1<Microsoft.Xna.Framework.Vector2> Monocle.Sprite::Justify
+   IL_04b7: ldc.i4.1
+   IL_04b8: stloc.s V_18
+   IL_04ba: br.s IL_052e
+   IL_04bc: ldloc.s V_22
+   IL_04be: ldstr "Justify"
+   IL_04c3: call System.Boolean Monocle.Calc::HasChild(System.Xml.XmlElement,System.String)
+   IL_04c8: brfalse.s IL_0505
+   IL_04ca: ldloc.s V_17
+   IL_04cc: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_04d1: ldloc.s V_22
+   IL_04d3: ldstr "Justify"
+   IL_04d8: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::ChildPosition(System.Xml.XmlElement,System.String)
+   IL_04dd: callvirt Monocle.Image Monocle.Image::JustifyOrigin(Microsoft.Xna.Framework.Vector2)
+   IL_04e2: pop
+   IL_04e3: ldloc.s V_17
+   IL_04e5: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_04ea: ldloc.s V_22
+   IL_04ec: ldstr "Justify"
+   IL_04f1: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::ChildPosition(System.Xml.XmlElement,System.String)
+   IL_04f6: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Vector2>::.ctor(T)
+   IL_04fb: stfld System.Nullable`1<Microsoft.Xna.Framework.Vector2> Monocle.Sprite::Justify
+   IL_0500: ldc.i4.1
+   IL_0501: stloc.s V_18
+   IL_0503: br.s IL_052e
+   IL_0505: ldloc.s V_22
+   IL_0507: ldstr "Origin"
+   IL_050c: call System.Boolean Monocle.Calc::HasChild(System.Xml.XmlElement,System.String)
+   IL_0511: brfalse.s IL_052e
+   IL_0513: ldloc.s V_17
+   IL_0515: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_051a: ldloc.s V_22
+   IL_051c: ldstr "Origin"
+   IL_0521: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::ChildPosition(System.Xml.XmlElement,System.String)
+   IL_0526: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Origin
+   IL_052b: ldc.i4.1
+   IL_052c: stloc.s V_18
+   IL_052e: ldloc.s V_19
+   IL_0530: brtrue.s IL_055b
+   IL_0532: ldloc.s V_22
+   IL_0534: ldstr "Position"
+   IL_0539: call System.Boolean Monocle.Calc::HasChild(System.Xml.XmlElement,System.String)
+   IL_053e: brfalse.s IL_055b
+   IL_0540: ldloc.s V_17
+   IL_0542: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_0547: ldloc.s V_22
+   IL_0549: ldstr "Position"
+   IL_054e: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::ChildPosition(System.Xml.XmlElement,System.String)
+   IL_0553: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0558: ldc.i4.1
+   IL_0559: stloc.s V_19
+   IL_055b: ldloc.s V_18
+   IL_055d: ldloc.s V_19
+   IL_055f: and
+   IL_0560: brtrue.s IL_0570
+   IL_0562: ldloc.s V_21
+   IL_0564: ldc.i4.1
+   IL_0565: sub
+   IL_0566: stloc.s V_21
+   IL_0568: ldloc.s V_21
+   IL_056a: ldc.i4.0
+   IL_056b: bge IL_0459
+   IL_0570: ldloc.s V_17
+   IL_0572: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_0577: castclass Monocle.Sprite
+   IL_057c: callvirt System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation> Monocle.Sprite::get_Animations()
+   IL_0581: stloc.s V_20
+   IL_0583: ldloc.s V_16
+   IL_0585: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_058a: castclass Monocle.Sprite
+   IL_058f: callvirt System.Collections.Generic.Dictionary`2<System.String,Monocle.Sprite/Animation> Monocle.Sprite::get_Animations()
+   IL_0594: callvirt System.Collections.IDictionaryEnumerator System.Collections.IDictionary::GetEnumerator()
+   IL_0599: stloc.s V_23
+   IL_059b: br.s IL_05c0
+   IL_059d: ldloc.s V_23
+   IL_059f: callvirt System.Object System.Collections.IEnumerator::get_Current()
+   IL_05a4: unbox.any System.Collections.DictionaryEntry
+   IL_05a9: stloc.s V_24
+   IL_05ab: ldloc.s V_20
+   IL_05ad: ldloca.s V_24
+   IL_05af: call System.Object System.Collections.DictionaryEntry::get_Key()
+   IL_05b4: ldloca.s V_24
+   IL_05b6: call System.Object System.Collections.DictionaryEntry::get_Value()
+   IL_05bb: callvirt System.Void System.Collections.IDictionary::set_Item(System.Object,System.Object)
+   IL_05c0: ldloc.s V_23
+   IL_05c2: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
+   IL_05c7: brtrue.s IL_059d
+   IL_05c9: leave.s IL_05e0
+   IL_05cb: ldloc.s V_23
+   IL_05cd: isinst System.IDisposable
+   IL_05d2: stloc.s V_11
+   IL_05d4: ldloc.s V_11
+   IL_05d6: brfalse.s IL_05df
+   IL_05d8: ldloc.s V_11
+   IL_05da: callvirt System.Void System.IDisposable::Dispose()
+   IL_05df: endfinally
+   IL_05e0: ldloc.s V_17
+   IL_05e2: ldfld System.Collections.Generic.List`1<Monocle.SpriteDataSource> Monocle.SpriteData::Sources
+   IL_05e7: ldloc.s V_16
+   IL_05e9: ldfld System.Collections.Generic.List`1<Monocle.SpriteDataSource> Monocle.SpriteData::Sources
+   IL_05ee: callvirt System.Void System.Collections.Generic.List`1<Monocle.SpriteDataSource>::AddRange(System.Collections.Generic.IEnumerable`1<T>)
+   IL_05f3: ldloc.s V_17
+   IL_05f5: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_05fa: callvirt System.Void Monocle.Sprite::Stop()
+   IL_05ff: ldloc.s V_16
+   IL_0601: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_0606: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_060b: ldstr ""
+   IL_0610: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_0615: brfalse.s IL_0643
+   IL_0617: ldloc.s V_17
+   IL_0619: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_061e: ldloc.s V_16
+   IL_0620: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_0625: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_062a: ldc.i4.0
+   IL_062b: ldc.i4.0
+   IL_062c: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0631: br.s IL_0643
+   IL_0633: ldloc.s V_12
+   IL_0635: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_063a: ldloc.s V_15
+   IL_063c: ldloc.s V_16
+   IL_063e: callvirt System.Void System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::set_Item(TKey,TValue)
+   IL_0643: ldloca.s V_13
+   IL_0645: call System.Boolean System.Collections.Generic.Dictionary`2/Enumerator<System.String,Monocle.SpriteData>::MoveNext()
+   IL_064a: brtrue IL_040e
+   IL_064f: leave.s IL_065f
+   IL_0651: ldloca.s V_13
+   IL_0653: constrained. System.Collections.Generic.Dictionary`2/Enumerator<System.String,Monocle.SpriteData>
+   IL_0659: callvirt System.Void System.IDisposable::Dispose()
+   IL_065e: endfinally
+   IL_065f: call System.Void Celeste.PlayerSprite::ClearFramesMetadata()
+   IL_0664: ldstr "player"
+   IL_0669: call System.Void Celeste.PlayerSprite::CreateFramesMetadata(System.String)
+   IL_066e: ldstr "player_no_backpack"
+   IL_0673: call System.Void Celeste.PlayerSprite::CreateFramesMetadata(System.String)
+   IL_0678: ldstr "badeline"
+   IL_067d: call System.Void Celeste.PlayerSprite::CreateFramesMetadata(System.String)
+   IL_0682: ldstr "player_badeline"
+   IL_0687: call System.Void Celeste.PlayerSprite::CreateFramesMetadata(System.String)
+   IL_068c: ldstr "player_playback"
+   IL_0691: call System.Void Celeste.PlayerSprite::CreateFramesMetadata(System.String)
+   IL_0696: ldloc.s V_8
+   IL_0698: brtrue.s IL_069d
+   IL_069a: ldnull
+   IL_069b: br.s IL_06a4
+   IL_069d: ldloc.s V_8
+   IL_069f: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Portraits()
+   IL_06a4: stloc.3
+   IL_06a5: ldloc.3
+   IL_06a6: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_06ab: brfalse.s IL_06bd
+   IL_06ad: ldstr "Graphics"
+   IL_06b2: ldstr "Portraits.xml"
+   IL_06b7: call System.String System.IO.Path::Combine(System.String,System.String)
+   IL_06bc: stloc.3
+   IL_06bd: ldsfld Monocle.Atlas Celeste.GFX::Portraits
+   IL_06c2: ldloc.3
+   IL_06c3: newobj System.Void Monocle.SpriteBank::.ctor(Monocle.Atlas,System.String)
+   IL_06c8: stsfld Monocle.SpriteBank Celeste.GFX::PortraitsSpriteBank
+   IL_06cd: leave IL_0806
+   IL_06d2: stloc.s V_25
+   IL_06d4: ldsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_06d9: brtrue IL_07be
+   IL_06de: ldloc.s V_25
+   IL_06e0: isinst System.Xml.XmlException
+   IL_06e5: brfalse.s IL_073d
+   IL_06e7: ldstr "postcard_xmlerror"
+   IL_06ec: ldnull
+   IL_06ed: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_06f2: ldstr "((path))"
+   IL_06f7: ldloc.3
+   IL_06f8: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_06fd: stsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_0702: ldstr "LevelLoader"
+   IL_0707: stloc.s V_5
+   IL_0709: ldloc.s V_5
+   IL_070b: ldc.i4.s 15
+   IL_070d: ldc.i4.1
+   IL_070e: ldloc.s V_5
+   IL_0710: ldloca.s V_7
+   IL_0712: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0717: stloc.s V_26
+   IL_0719: ldloc.s V_7
+   IL_071b: brfalse.s IL_0731
+   IL_071d: ldloca.s V_26
+   IL_071f: ldstr "Failed parsing "
+   IL_0724: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0729: ldloca.s V_26
+   IL_072b: ldloc.3
+   IL_072c: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0731: ldloc.s V_26
+   IL_0733: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_0738: br IL_07be
+   IL_073d: ldloc.s V_25
+   IL_073f: ldtoken Celeste.Autotiler
+   IL_0744: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_0749: call System.Boolean Celeste.Mod.Helpers.ExceptionExt::TypeInStacktrace(System.Exception,System.Type)
+   IL_074e: brfalse.s IL_07a3
+   IL_0750: ldstr "postcard_tilexmlerror"
+   IL_0755: ldnull
+   IL_0756: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_075b: ldstr "((path))"
+   IL_0760: ldloc.3
+   IL_0761: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_0766: stsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_076b: ldstr "LevelLoader"
+   IL_0770: stloc.s V_5
+   IL_0772: ldloc.s V_5
+   IL_0774: ldc.i4.s 30
+   IL_0776: ldc.i4.1
+   IL_0777: ldloc.s V_5
+   IL_0779: ldloca.s V_7
+   IL_077b: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0780: stloc.s V_26
+   IL_0782: ldloc.s V_7
+   IL_0784: brfalse.s IL_079a
+   IL_0786: ldloca.s V_26
+   IL_0788: ldstr "Failed parsing tileset tag in "
+   IL_078d: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0792: ldloca.s V_26
+   IL_0794: ldloc.3
+   IL_0795: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_079a: ldloc.s V_26
+   IL_079c: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_07a1: br.s IL_07be
+   IL_07a3: ldstr "postcard_levelloadfailed"
+   IL_07a8: ldnull
+   IL_07a9: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_07ae: ldstr "((sid))"
+   IL_07b3: ldloc.0
+   IL_07b4: callvirt System.String System.String::Replace(System.String,System.String)
+   IL_07b9: stsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_07be: ldstr "LevelLoader"
+   IL_07c3: stloc.s V_5
+   IL_07c5: ldloc.s V_5
+   IL_07c7: ldc.i4.s 15
+   IL_07c9: ldc.i4.2
+   IL_07ca: ldloc.s V_5
+   IL_07cc: ldloca.s V_7
+   IL_07ce: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_07d3: stloc.s V_26
+   IL_07d5: ldloc.s V_7
+   IL_07d7: brfalse.s IL_07f5
+   IL_07d9: ldloca.s V_26
+   IL_07db: ldstr "Failed loading "
+   IL_07e0: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_07e5: ldloca.s V_26
+   IL_07e7: ldloc.0
+   IL_07e8: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_07ed: ldloca.s V_26
+   IL_07ef: ldloc.1
+   IL_07f0: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_07f5: ldloc.s V_26
+   IL_07f7: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_07fc: ldloc.s V_25
+   IL_07fe: ldnull
+   IL_07ff: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_0804: leave.s IL_0806
+   IL_0806: ldarg.0
+   IL_0807: ldarg.1
+   IL_0808: ldarg.2
+   IL_0809: callvirt System.Void Celeste.LevelLoader::orig_ctor(Celeste.Session,System.Nullable`1<Microsoft.Xna.Framework.Vector2>)
+   IL_080e: ldsfld System.String Celeste.LevelEnter::ErrorMessage
+   IL_0813: brtrue.s IL_0878
+   IL_0815: ldarg.0
+   IL_0816: ldftn System.Void Celeste.LevelLoader::LoadingThread_Safe()
+   IL_081c: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0821: ldstr "LEVEL_LOADER"
+   IL_0826: ldc.i4.0
+   IL_0827: call System.Void Celeste.RunThread::Start(System.Action,System.String,System.Boolean)
+   IL_082c: ldsfld System.WeakReference`1<System.Threading.Thread> Celeste.RunThread::Current
+   IL_0831: stsfld System.WeakReference`1<System.Threading.Thread> Celeste.LevelLoader::LastLoadingThread
+   IL_0836: call Monocle.Pooler Monocle.Engine::get_Pooler()
+   IL_083b: castclass Monocle.Pooler
+   IL_0840: callvirt System.Collections.Generic.Dictionary`2<System.Type,System.Collections.Generic.Queue`1<Monocle.Entity>> Monocle.Pooler::get_Pools()
+   IL_0845: callvirt System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2<System.Type,System.Collections.Generic.Queue`1<Monocle.Entity>>::get_Values()
+   IL_084a: callvirt System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<TKey,TValue> System.Collections.Generic.Dictionary`2/ValueCollection<System.Type,System.Collections.Generic.Queue`1<Monocle.Entity>>::GetEnumerator()
+   IL_084f: stloc.s V_27
+   IL_0851: br.s IL_085f
+   IL_0853: ldloca.s V_27
+   IL_0855: call TValue System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<System.Type,System.Collections.Generic.Queue`1<Monocle.Entity>>::get_Current()
+   IL_085a: callvirt System.Void System.Collections.Generic.Queue`1<Monocle.Entity>::Clear()
+   IL_085f: ldloca.s V_27
+   IL_0861: call System.Boolean System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<System.Type,System.Collections.Generic.Queue`1<Monocle.Entity>>::MoveNext()
+   IL_0866: brtrue.s IL_0853
+   IL_0868: leave.s IL_087f
+   IL_086a: ldloca.s V_27
+   IL_086c: constrained. System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<System.Type,System.Collections.Generic.Queue`1<Monocle.Entity>>
+   IL_0872: callvirt System.Void System.IDisposable::Dispose()
+   IL_0877: endfinally
+   IL_0878: ldarg.0
+   IL_0879: ldc.i4.1
+   IL_087a: callvirt System.Void Celeste.LevelLoader::set_Loaded(System.Boolean)
+   IL_087f: ret

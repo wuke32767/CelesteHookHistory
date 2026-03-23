@@ -1,0 +1,174 @@
+On: Celeste.Mod.FancyTileEntities.FancyFinalBossMovingBlock.StopParticles(orig_StopParticles,FinalBossMovingBlock,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0006: stloc.0
+   IL_0007: ldarg.1
+   IL_0008: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_000d: stloc.1
+   IL_000e: ldarg.1
+   IL_000f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0014: ldc.r4 0
+   IL_0019: ble.un.s IL_007a
+   IL_001b: ldloca.s V_2
+   IL_001d: ldarg.0
+   IL_001e: call System.Single Monocle.Entity::get_Right()
+   IL_0023: ldc.r4 1
+   IL_0028: sub
+   IL_0029: ldarg.0
+   IL_002a: call System.Single Monocle.Entity::get_Top()
+   IL_002f: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0034: ldc.i4.0
+   IL_0035: stloc.3
+   IL_0036: br.s IL_006e
+   IL_0038: ldloc.0
+   IL_0039: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_003e: ldsfld Monocle.ParticleType Celeste.FinalBossMovingBlock::P_Stop
+   IL_0043: ldloc.2
+   IL_0044: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0049: ldc.i4.2
+   IL_004a: ldloc.3
+   IL_004b: add
+   IL_004c: ldsfld System.Random Monocle.Calc::Random
+   IL_0051: ldc.i4.m1
+   IL_0052: ldc.i4.1
+   IL_0053: call System.Int32 Monocle.Calc::Range(System.Random,System.Int32,System.Int32)
+   IL_0058: add
+   IL_0059: conv.r4
+   IL_005a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_005f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0064: ldloc.1
+   IL_0065: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_006a: ldloc.3
+   IL_006b: ldc.i4.4
+   IL_006c: add
+   IL_006d: stloc.3
+   IL_006e: ldloc.3
+   IL_006f: conv.r4
+   IL_0070: ldarg.0
+   IL_0071: call System.Single Monocle.Entity::get_Height()
+   IL_0076: blt.s IL_0038
+   IL_0078: br.s IL_00e4
+   IL_007a: ldarg.1
+   IL_007b: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0080: ldc.r4 0
+   IL_0085: bge.un.s IL_00e4
+   IL_0087: ldloca.s V_4
+   IL_0089: ldarg.0
+   IL_008a: call System.Single Monocle.Entity::get_Left()
+   IL_008f: ldarg.0
+   IL_0090: call System.Single Monocle.Entity::get_Top()
+   IL_0095: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_009a: ldc.i4.0
+   IL_009b: stloc.s V_5
+   IL_009d: br.s IL_00d9
+   IL_009f: ldloc.0
+   IL_00a0: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_00a5: ldsfld Monocle.ParticleType Celeste.FinalBossMovingBlock::P_Stop
+   IL_00aa: ldloc.s V_4
+   IL_00ac: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_00b1: ldc.i4.2
+   IL_00b2: ldloc.s V_5
+   IL_00b4: add
+   IL_00b5: ldsfld System.Random Monocle.Calc::Random
+   IL_00ba: ldc.i4.m1
+   IL_00bb: ldc.i4.1
+   IL_00bc: call System.Int32 Monocle.Calc::Range(System.Random,System.Int32,System.Int32)
+   IL_00c1: add
+   IL_00c2: conv.r4
+   IL_00c3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00c8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00cd: ldloc.1
+   IL_00ce: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00d3: ldloc.s V_5
+   IL_00d5: ldc.i4.4
+   IL_00d6: add
+   IL_00d7: stloc.s V_5
+   IL_00d9: ldloc.s V_5
+   IL_00db: conv.r4
+   IL_00dc: ldarg.0
+   IL_00dd: call System.Single Monocle.Entity::get_Height()
+   IL_00e2: blt.s IL_009f
+   IL_00e4: ldarg.1
+   IL_00e5: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00ea: ldc.r4 0
+   IL_00ef: ble.un.s IL_0155
+   IL_00f1: ldloca.s V_6
+   IL_00f3: ldarg.0
+   IL_00f4: call System.Single Monocle.Entity::get_Left()
+   IL_00f9: ldarg.0
+   IL_00fa: call System.Single Monocle.Entity::get_Bottom()
+   IL_00ff: ldc.r4 1
+   IL_0104: sub
+   IL_0105: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_010a: ldc.i4.0
+   IL_010b: stloc.s V_7
+   IL_010d: br.s IL_0149
+   IL_010f: ldloc.0
+   IL_0110: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_0115: ldsfld Monocle.ParticleType Celeste.FinalBossMovingBlock::P_Stop
+   IL_011a: ldloc.s V_6
+   IL_011c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0121: ldc.i4.2
+   IL_0122: ldloc.s V_7
+   IL_0124: add
+   IL_0125: ldsfld System.Random Monocle.Calc::Random
+   IL_012a: ldc.i4.m1
+   IL_012b: ldc.i4.1
+   IL_012c: call System.Int32 Monocle.Calc::Range(System.Random,System.Int32,System.Int32)
+   IL_0131: add
+   IL_0132: conv.r4
+   IL_0133: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0138: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_013d: ldloc.1
+   IL_013e: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0143: ldloc.s V_7
+   IL_0145: ldc.i4.4
+   IL_0146: add
+   IL_0147: stloc.s V_7
+   IL_0149: ldloc.s V_7
+   IL_014b: conv.r4
+   IL_014c: ldarg.0
+   IL_014d: call System.Single Monocle.Entity::get_Width()
+   IL_0152: blt.s IL_010f
+   IL_0154: ret
+   IL_0155: ldarg.1
+   IL_0156: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_015b: ldc.r4 0
+   IL_0160: bge.un.s IL_01bf
+   IL_0162: ldloca.s V_8
+   IL_0164: ldarg.0
+   IL_0165: call System.Single Monocle.Entity::get_Left()
+   IL_016a: ldarg.0
+   IL_016b: call System.Single Monocle.Entity::get_Top()
+   IL_0170: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0175: ldc.i4.0
+   IL_0176: stloc.s V_9
+   IL_0178: br.s IL_01b4
+   IL_017a: ldloc.0
+   IL_017b: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_0180: ldsfld Monocle.ParticleType Celeste.FinalBossMovingBlock::P_Stop
+   IL_0185: ldloc.s V_8
+   IL_0187: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_018c: ldc.i4.2
+   IL_018d: ldloc.s V_9
+   IL_018f: add
+   IL_0190: ldsfld System.Random Monocle.Calc::Random
+   IL_0195: ldc.i4.m1
+   IL_0196: ldc.i4.1
+   IL_0197: call System.Int32 Monocle.Calc::Range(System.Random,System.Int32,System.Int32)
+   IL_019c: add
+   IL_019d: conv.r4
+   IL_019e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01a3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01a8: ldloc.1
+   IL_01a9: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01ae: ldloc.s V_9
+   IL_01b0: ldc.i4.4
+   IL_01b1: add
+   IL_01b2: stloc.s V_9
+   IL_01b4: ldloc.s V_9
+   IL_01b6: conv.r4
+   IL_01b7: ldarg.0
+   IL_01b8: call System.Single Monocle.Entity::get_Width()
+   IL_01bd: blt.s IL_017a
+   IL_01bf: ret

@@ -1,0 +1,17 @@
+On: Celeste.Mod.XaphanHelper.Entities.Liquid.onPlayerIsOverWater(orig__IsOverWater,Player)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Collider Monocle.Entity::get_Collider()
+   IL_0006: callvirt Microsoft.Xna.Framework.Rectangle Monocle.Collider::get_Bounds()
+   IL_000b: stloc.0
+   IL_000c: ldloca.s V_0
+   IL_000e: ldflda System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_0013: dup
+   IL_0014: ldind.i4
+   IL_0015: ldc.i4.2
+   IL_0016: add
+   IL_0017: stind.i4
+   IL_0018: ldarg.0
+   IL_0019: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_001e: ldloc.0
+   IL_001f: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Water>(Microsoft.Xna.Framework.Rectangle)
+   IL_0024: ret

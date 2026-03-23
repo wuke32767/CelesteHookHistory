@@ -1,0 +1,51 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: nop
+   IL_0002: ldarg.1
+   IL_0003: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.HairConfig/HairLength>::GetEnumerator()
+   IL_0008: stloc.0
+   IL_0009: br.s IL_006c
+   IL_000b: ldloca.s V_0
+   IL_000d: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.SkinModHelper.HairConfig/HairLength>::get_Current()
+   IL_0012: stloc.1
+   IL_0013: nop
+   IL_0014: ldarg.0
+   IL_0015: ldfld System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes> Celeste.Mod.SkinModHelper.HairConfig::_HairAttrWithDashes
+   IL_001a: ldloc.1
+   IL_001b: callvirt System.Int32 Celeste.Mod.SkinModHelper.HairConfig/HairLength::get_Dashes()
+   IL_0020: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes>::ContainsKey(TKey)
+   IL_0025: ldc.i4.0
+   IL_0026: ceq
+   IL_0028: stloc.2
+   IL_0029: ldloc.2
+   IL_002a: brfalse.s IL_0049
+   IL_002c: ldarg.0
+   IL_002d: ldfld System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes> Celeste.Mod.SkinModHelper.HairConfig::_HairAttrWithDashes
+   IL_0032: ldloc.1
+   IL_0033: callvirt System.Int32 Celeste.Mod.SkinModHelper.HairConfig/HairLength::get_Dashes()
+   IL_0038: ldloc.1
+   IL_0039: callvirt System.Int32 Celeste.Mod.SkinModHelper.HairConfig/HairLength::get_Dashes()
+   IL_003e: newobj System.Void Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes::.ctor(System.Int32)
+   IL_0043: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes>::set_Item(TKey,TValue)
+   IL_0048: nop
+   IL_0049: ldarg.0
+   IL_004a: ldfld System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes> Celeste.Mod.SkinModHelper.HairConfig::_HairAttrWithDashes
+   IL_004f: ldloc.1
+   IL_0050: callvirt System.Int32 Celeste.Mod.SkinModHelper.HairConfig/HairLength::get_Dashes()
+   IL_0055: callvirt TValue System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes>::get_Item(TKey)
+   IL_005a: ldloc.1
+   IL_005b: callvirt System.Int32 Celeste.Mod.SkinModHelper.HairConfig/HairLength::get_Length()
+   IL_0060: newobj System.Void System.Nullable`1<System.Int32>::.ctor(T)
+   IL_0065: callvirt System.Void Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes::set_Length(System.Nullable`1<System.Int32>)
+   IL_006a: nop
+   IL_006b: nop
+   IL_006c: ldloca.s V_0
+   IL_006e: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.SkinModHelper.HairConfig/HairLength>::MoveNext()
+   IL_0073: brtrue.s IL_000b
+   IL_0075: leave.s IL_0086
+   IL_0077: ldloca.s V_0
+   IL_0079: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.SkinModHelper.HairConfig/HairLength>
+   IL_007f: callvirt System.Void System.IDisposable::Dispose()
+   IL_0084: nop
+   IL_0085: endfinally
+   IL_0086: ret

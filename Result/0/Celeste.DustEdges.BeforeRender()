@@ -1,0 +1,185 @@
+On: Celeste.Mod.MaxHelpingHand.Triggers.GradientDustTrigger.onDustEdgesBeforeRender(orig_BeforeRender,DustEdges)
+IL: Celeste.Mod.FemtoHelper.Entities.GenericSmwBlock.DustEdges_BeforeRender(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_000b: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.DustEdge>()
+   IL_0010: stloc.0
+   IL_0011: ldarg.0
+   IL_0012: ldloc.0
+   IL_0013: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.Component>::get_Count()
+   IL_0018: ldc.i4.0
+   IL_0019: cgt
+   IL_001b: stfld System.Boolean Celeste.DustEdges::hasDust
+   IL_0020: ldarg.0
+   IL_0021: ldfld System.Boolean Celeste.DustEdges::hasDust
+   IL_0026: brfalse IL_02b8
+   IL_002b: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0030: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0035: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::TempA
+   IL_003a: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_003f: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTarget(Microsoft.Xna.Framework.Graphics.RenderTarget2D)
+   IL_0044: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0049: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_004e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Transparent()
+   IL_0053: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::Clear(Microsoft.Xna.Framework.Color)
+   IL_0058: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_005d: ldc.i4.0
+   IL_005e: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_0063: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointClamp
+   IL_0068: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::None
+   IL_006d: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
+   IL_0072: ldnull
+   IL_0073: ldarg.0
+   IL_0074: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0079: isinst Celeste.Level
+   IL_007e: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0083: callvirt Microsoft.Xna.Framework.Matrix Monocle.Camera::get_Matrix()
+   IL_0088: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
+   IL_008d: ldloc.0
+   IL_008e: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
+   IL_0093: stloc.2
+   IL_0094: br.s IL_00c3
+   IL_0096: ldloca.s V_2
+   IL_0098: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
+   IL_009d: isinst Celeste.DustEdge
+   IL_00a2: stloc.3
+   IL_00a3: ldloc.3
+   IL_00a4: ldfld System.Boolean Monocle.Component::Visible
+   IL_00a9: brfalse.s IL_00c3
+   IL_00ab: ldloc.3
+   IL_00ac: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00b1: ldfld System.Boolean Monocle.Entity::Visible
+   IL_00b6: brfalse.s IL_00c3
+   IL_00b8: ldloc.3
+   IL_00b9: ldfld System.Action Celeste.DustEdge::RenderDust
+ + IL_10000: ldloc.3 @ Celeste.Mod.FemtoHelper.Entities.GenericSmwBlock.DustEdges_BeforeRender(ILContext)
+ + IL_10001: ldc.i4 0 @ Celeste.Mod.FemtoHelper.Entities.GenericSmwBlock.DustEdges_BeforeRender(ILContext)
+ + IL_10002: call System.Void Celeste.Mod.FemtoHelper.Entities.GenericSmwBlock::GoMyRenderDust(Celeste.DustEdge,System.Boolean) @ Celeste.Mod.FemtoHelper.Entities.GenericSmwBlock.DustEdges_BeforeRender(ILContext)
+   IL_00be: callvirt System.Void System.Action::Invoke()
+ + IL_10003: ldloc.3 @ Celeste.Mod.FemtoHelper.Entities.GenericSmwBlock.DustEdges_BeforeRender(ILContext)
+ + IL_10004: ldc.i4 1 @ Celeste.Mod.FemtoHelper.Entities.GenericSmwBlock.DustEdges_BeforeRender(ILContext)
+ + IL_10005: call System.Void Celeste.Mod.FemtoHelper.Entities.GenericSmwBlock::GoMyRenderDust(Celeste.DustEdge,System.Boolean) @ Celeste.Mod.FemtoHelper.Entities.GenericSmwBlock.DustEdges_BeforeRender(ILContext)
+   IL_00c3: ldloca.s V_2
+   IL_00c5: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Component>::MoveNext()
+   IL_00ca: brtrue.s IL_0096
+   IL_00cc: leave.s IL_00dc
+   IL_00ce: ldloca.s V_2
+   IL_00d0: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+   IL_00d6: callvirt System.Void System.IDisposable::Dispose()
+   IL_00db: endfinally
+   IL_00dc: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_00e1: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_00e6: ldarg.0
+   IL_00e7: ldfld Monocle.VirtualTexture Celeste.DustEdges::DustNoiseFrom
+   IL_00ec: brfalse.s IL_00fb
+   IL_00ee: ldarg.0
+   IL_00ef: ldfld Monocle.VirtualTexture Celeste.DustEdges::DustNoiseFrom
+   IL_00f4: callvirt System.Boolean Monocle.VirtualTexture::get_IsDisposed()
+   IL_00f9: brfalse.s IL_0101
+   IL_00fb: ldarg.0
+   IL_00fc: callvirt System.Void Celeste.DustEdges::CreateTextures()
+   IL_0101: ldarg.0
+   IL_0102: callvirt Microsoft.Xna.Framework.Vector2 Celeste.DustEdges::FlooredCamera()
+   IL_0107: stloc.1
+   IL_0108: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_010d: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0112: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::ResortDust
+   IL_0117: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_011c: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTarget(Microsoft.Xna.Framework.Graphics.RenderTarget2D)
+   IL_0121: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0126: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_012b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Transparent()
+   IL_0130: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::Clear(Microsoft.Xna.Framework.Color)
+   IL_0135: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_013a: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_013f: callvirt Microsoft.Xna.Framework.Graphics.TextureCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Textures()
+   IL_0144: ldc.i4.1
+   IL_0145: ldarg.0
+   IL_0146: ldfld Monocle.VirtualTexture Celeste.DustEdges::DustNoiseFrom
+   IL_014b: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0150: callvirt System.Void Microsoft.Xna.Framework.Graphics.TextureCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.Texture)
+   IL_0155: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_015a: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_015f: callvirt Microsoft.Xna.Framework.Graphics.TextureCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Textures()
+   IL_0164: ldc.i4.2
+   IL_0165: ldarg.0
+   IL_0166: ldfld Monocle.VirtualTexture Celeste.DustEdges::DustNoiseTo
+   IL_016b: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0170: callvirt System.Void Microsoft.Xna.Framework.Graphics.TextureCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.Texture)
+   IL_0175: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxDust
+   IL_017a: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_017f: ldstr "colors"
+   IL_0184: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0189: ldarg.0
+   IL_018a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_018f: call Celeste.DustStyles/DustStyle Celeste.DustStyles::Get(Monocle.Scene)
+   IL_0194: ldfld Microsoft.Xna.Framework.Vector3[] Celeste.DustStyles/DustStyle::EdgeColors
+   IL_0199: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector3[])
+   IL_019e: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxDust
+   IL_01a3: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_01a8: ldstr "noiseEase"
+   IL_01ad: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_01b2: ldarg.0
+   IL_01b3: ldfld System.Single Celeste.DustEdges::noiseEase
+   IL_01b8: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Single)
+   IL_01bd: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxDust
+   IL_01c2: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_01c7: ldstr "noiseFromPos"
+   IL_01cc: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_01d1: ldarg.0
+   IL_01d2: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustEdges::noiseFromPos
+   IL_01d7: ldloc.1
+   IL_01d8: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_01dd: ldc.r4 320
+   IL_01e2: div
+   IL_01e3: ldloc.1
+   IL_01e4: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_01e9: ldc.r4 180
+   IL_01ee: div
+   IL_01ef: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01f4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01f9: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector2)
+   IL_01fe: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxDust
+   IL_0203: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_0208: ldstr "noiseToPos"
+   IL_020d: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0212: ldarg.0
+   IL_0213: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DustEdges::noiseToPos
+   IL_0218: ldloc.1
+   IL_0219: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_021e: ldc.r4 320
+   IL_0223: div
+   IL_0224: ldloc.1
+   IL_0225: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_022a: ldc.r4 180
+   IL_022f: div
+   IL_0230: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0235: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_023a: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector2)
+   IL_023f: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxDust
+   IL_0244: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_0249: ldstr "pixel"
+   IL_024e: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0253: ldc.r4 0.003125
+   IL_0258: ldc.r4 0.0055555557
+   IL_025d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0262: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector2)
+   IL_0267: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_026c: ldc.i4.0
+   IL_026d: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_0272: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointClamp
+   IL_0277: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::None
+   IL_027c: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
+   IL_0281: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxDust
+   IL_0286: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::get_Identity()
+   IL_028b: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
+   IL_0290: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0295: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::TempA
+   IL_029a: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_029f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_02a4: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_02a9: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_02ae: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_02b3: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_02b8: ret

@@ -1,0 +1,17 @@
+On: TAS.Gameplay.DesyncFix.SkinModFix.On_Sprite_Reverse(orig_Reverse,Sprite,String,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: ldarg.2
+   IL_0003: ldc.i4.0
+   IL_0004: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0009: ldarg.0
+   IL_000a: ldfld System.Single Monocle.Sprite::Rate
+   IL_000f: ldc.r4 0
+   IL_0014: ble.un.s IL_0028
+   IL_0016: ldarg.0
+   IL_0017: ldarg.0
+   IL_0018: ldfld System.Single Monocle.Sprite::Rate
+   IL_001d: ldc.r4 -1
+   IL_0022: mul
+   IL_0023: stfld System.Single Monocle.Sprite::Rate
+   IL_0028: ret

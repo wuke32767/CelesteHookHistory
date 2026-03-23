@@ -1,0 +1,50 @@
+On: ExtendedVariants.Variants.AlwaysInvisible.modPlayerSeekerRender(orig_Render,PlayerSeeker)
+   IL_0000: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0005: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_000a: ldfld System.Boolean Celeste.Assists::InvisibleMotion
+   IL_000f: brfalse.s IL_002c
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Boolean Celeste.PlayerSeeker::enabled
+   IL_0017: brfalse.s IL_002c
+   IL_0019: ldarg.0
+   IL_001a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.PlayerSeeker::speed
+   IL_001f: call System.Single Microsoft.Xna.Framework.Vector2::LengthSquared()
+   IL_0024: ldc.r4 100
+   IL_0029: ble.un.s IL_002c
+   IL_002b: ret
+   IL_002c: ldarg.0
+   IL_002d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0032: stloc.0
+   IL_0033: ldarg.0
+   IL_0034: ldarg.0
+   IL_0035: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003a: ldarg.0
+   IL_003b: ldfld Monocle.Shaker Celeste.PlayerSeeker::shaker
+   IL_0040: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Shaker::Value
+   IL_0045: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004a: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_004f: ldarg.0
+   IL_0050: ldfld Monocle.Sprite Celeste.PlayerSeeker::sprite
+   IL_0055: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_005a: stloc.1
+   IL_005b: ldarg.0
+   IL_005c: ldfld Monocle.Sprite Celeste.PlayerSeeker::sprite
+   IL_0061: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0066: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_006b: dup
+   IL_006c: ldind.r4
+   IL_006d: ldarg.0
+   IL_006e: ldfld Celeste.Facings Celeste.PlayerSeeker::facing
+   IL_0073: conv.r4
+   IL_0074: mul
+   IL_0075: stind.r4
+   IL_0076: ldarg.0
+   IL_0077: call System.Void Monocle.Entity::Render()
+   IL_007c: ldarg.0
+   IL_007d: ldloc.0
+   IL_007e: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0083: ldarg.0
+   IL_0084: ldfld Monocle.Sprite Celeste.PlayerSeeker::sprite
+   IL_0089: ldloc.1
+   IL_008a: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_008f: ret

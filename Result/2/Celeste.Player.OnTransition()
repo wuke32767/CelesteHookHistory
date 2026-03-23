@@ -1,0 +1,42 @@
+On: ExtendedVariants.Variants.Stamina.modOnTransition(orig_OnTransition,Player)
+On: ChaosMode.ChaosModeModule.Player_OnTransition(orig_OnTransition,Player)
+On: Celeste.Mod.StrawberryJam2021.Entities.ExpiringDashRefill.OnTransition(orig_OnTransition,Player)
+On: Celeste.Mod.GameHelper.Entities.PSwitch.OnPlayerTransition(orig_OnTransition,Player)
+On: Celeste.Mod.CoopHelper.CoopHelperModule.OnPlayerTransition(orig_OnTransition,Player)
+On: Celeste.Mod.SpeedrunTool.SaveLoad.Utils.AutoClearState.PlayerOnOnTransition(orig_OnTransition,Player)
+On: Celeste.Mod.JungleHelper.Entities.Lantern.onPlayerTransition(orig_OnTransition,Player)
+On: Celeste.Mod.CommunalHelper.Entities.StrawberryJam.ExpiringDashRefill.OnTransition(orig_OnTransition,Player)
+On: Celeste.Mod.CollabUtils2.Entities.SpeedBerry.onTransitionEnd(orig_OnTransition,Player)
+On: ExtendedVariants.Variants.ScreenTransitionDashCount.onPlayerTransition(orig_OnTransition,Player)
+On: ExtendedVariants.Variants.PermanentBinoStorage.Player_OnTransition(orig_OnTransition,Player)
+On: vitmod.InteractiveChaser.Player_OnTransition(orig_OnTransition,Player)
+On: Celeste.Mod.izumisQOL.NoClipModule.OnPlayerTransition(orig_OnTransition,Player)
+IL: ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 1.2
+   IL_0006: stfld System.Single Celeste.Player::wallSlideTimer
+   IL_000b: ldarg.0
+   IL_000c: ldc.r4 0
+   IL_0011: stfld System.Single Celeste.Player::jumpGraceTimer
+   IL_0016: ldarg.0
+   IL_0017: ldc.r4 0
+   IL_001c: stfld System.Single Celeste.Player::forceMoveXTimer
+   IL_0021: ldarg.0
+   IL_0022: ldfld System.Collections.Generic.List`1<Celeste.Player/ChaserState> Celeste.Player::ChaserStates
+   IL_0027: callvirt System.Void System.Collections.Generic.List`1<Celeste.Player/ChaserState>::Clear()
+   IL_002c: ldarg.0
+   IL_002d: callvirt System.Boolean Celeste.Player::RefillDash()
+   IL_0032: pop
+   IL_0033: ldarg.0
+ + IL_10000: dup @ ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
+ + IL_10001: call System.Boolean ExtendedVariants.Variants.Stamina::shouldSkipRefillStamina() @ ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
+ + IL_10002: brfalse IL_0034 @ ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
+ + IL_10003: pop @ ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
+ + IL_10004: pop @ ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
+ + IL_10005: br IL_0039 @ ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
+   IL_0034: callvirt System.Void Celeste.Player::RefillStamina()
+ + IL_10006: call System.Void ExtendedVariants.Variants.Stamina::afterRefillStamina(Celeste.Player) @ ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
+   IL_0039: ldarg.0
+   IL_003a: ldfld Celeste.Leader Celeste.Player::Leader
+   IL_003f: callvirt System.Void Celeste.Leader::TransferFollowers()
+   IL_0044: ret

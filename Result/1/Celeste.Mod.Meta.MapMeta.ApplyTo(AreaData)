@@ -1,0 +1,548 @@
+On: VivHelper.VivHelperModule.parseCustomWipes(orig_ApplyTo,MapMeta,AreaData)
+On: Celeste.Mod.MaxHelpingHand.Module.CustomWipe.onParseScreenWipe(Action`2,MapMeta,AreaData)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Icon()
+   IL_0006: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_000b: brtrue.s IL_002b
+   IL_000d: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_0012: ldarg.0
+   IL_0013: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Icon()
+   IL_0018: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_001d: brfalse.s IL_002b
+   IL_001f: ldarg.1
+   IL_0020: ldarg.0
+   IL_0021: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Icon()
+   IL_0026: stfld System.String Celeste.AreaData::Icon
+   IL_002b: ldarg.0
+   IL_002c: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMeta::get_Interlude()
+   IL_0031: stloc.2
+   IL_0032: ldloca.s V_2
+   IL_0034: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0039: brfalse.s IL_004f
+   IL_003b: ldarg.1
+   IL_003c: ldarg.0
+   IL_003d: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMeta::get_Interlude()
+   IL_0042: stloc.2
+   IL_0043: ldloca.s V_2
+   IL_0045: call T System.Nullable`1<System.Boolean>::get_Value()
+   IL_004a: callvirt System.Void Celeste.AreaData::set_Interlude_Safe(System.Boolean)
+   IL_004f: ldarg.0
+   IL_0050: callvirt System.Nullable`1<System.Int32> Celeste.Mod.Meta.MapMeta::get_CassetteCheckpointIndex()
+   IL_0055: stloc.3
+   IL_0056: ldloca.s V_3
+   IL_0058: call System.Boolean System.Nullable`1<System.Int32>::get_HasValue()
+   IL_005d: brfalse.s IL_0073
+   IL_005f: ldarg.1
+   IL_0060: ldarg.0
+   IL_0061: callvirt System.Nullable`1<System.Int32> Celeste.Mod.Meta.MapMeta::get_CassetteCheckpointIndex()
+   IL_0066: stloc.3
+   IL_0067: ldloca.s V_3
+   IL_0069: call T System.Nullable`1<System.Int32>::get_Value()
+   IL_006e: stfld System.Int32 Celeste.AreaData::CassetteCheckpointIndex
+   IL_0073: ldarg.0
+   IL_0074: callvirt System.String Celeste.Mod.Meta.MapMeta::get_TitleBaseColor()
+   IL_0079: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_007e: brtrue.s IL_0091
+   IL_0080: ldarg.1
+   IL_0081: ldarg.0
+   IL_0082: callvirt System.String Celeste.Mod.Meta.MapMeta::get_TitleBaseColor()
+   IL_0087: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_008c: stfld Microsoft.Xna.Framework.Color Celeste.AreaData::TitleBaseColor
+   IL_0091: ldarg.0
+   IL_0092: callvirt System.String Celeste.Mod.Meta.MapMeta::get_TitleAccentColor()
+   IL_0097: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_009c: brtrue.s IL_00af
+   IL_009e: ldarg.1
+   IL_009f: ldarg.0
+   IL_00a0: callvirt System.String Celeste.Mod.Meta.MapMeta::get_TitleAccentColor()
+   IL_00a5: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_00aa: stfld Microsoft.Xna.Framework.Color Celeste.AreaData::TitleAccentColor
+   IL_00af: ldarg.0
+   IL_00b0: callvirt System.String Celeste.Mod.Meta.MapMeta::get_TitleTextColor()
+   IL_00b5: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_00ba: brtrue.s IL_00cd
+   IL_00bc: ldarg.1
+   IL_00bd: ldarg.0
+   IL_00be: callvirt System.String Celeste.Mod.Meta.MapMeta::get_TitleTextColor()
+   IL_00c3: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_00c8: stfld Microsoft.Xna.Framework.Color Celeste.AreaData::TitleTextColor
+   IL_00cd: ldarg.0
+   IL_00ce: callvirt System.Nullable`1<Celeste.Player/IntroTypes> Celeste.Mod.Meta.MapMeta::get_IntroType()
+   IL_00d3: stloc.s V_4
+   IL_00d5: ldloca.s V_4
+   IL_00d7: call System.Boolean System.Nullable`1<Celeste.Player/IntroTypes>::get_HasValue()
+   IL_00dc: brfalse.s IL_00f3
+   IL_00de: ldarg.1
+   IL_00df: ldarg.0
+   IL_00e0: callvirt System.Nullable`1<Celeste.Player/IntroTypes> Celeste.Mod.Meta.MapMeta::get_IntroType()
+   IL_00e5: stloc.s V_4
+   IL_00e7: ldloca.s V_4
+   IL_00e9: call T System.Nullable`1<Celeste.Player/IntroTypes>::get_Value()
+   IL_00ee: stfld Celeste.Player/IntroTypes Celeste.AreaData::IntroType
+   IL_00f3: ldarg.0
+   IL_00f4: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMeta::get_Dreaming()
+   IL_00f9: stloc.2
+   IL_00fa: ldloca.s V_2
+   IL_00fc: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0101: brfalse.s IL_0117
+   IL_0103: ldarg.1
+   IL_0104: ldarg.0
+   IL_0105: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMeta::get_Dreaming()
+   IL_010a: stloc.2
+   IL_010b: ldloca.s V_2
+   IL_010d: call T System.Nullable`1<System.Boolean>::get_Value()
+   IL_0112: stfld System.Boolean Celeste.AreaData::Dreaming
+   IL_0117: ldarg.0
+   IL_0118: callvirt System.String Celeste.Mod.Meta.MapMeta::get_ColorGrade()
+   IL_011d: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0122: brtrue.s IL_0130
+   IL_0124: ldarg.1
+   IL_0125: ldarg.0
+   IL_0126: callvirt System.String Celeste.Mod.Meta.MapMeta::get_ColorGrade()
+   IL_012b: stfld System.String Celeste.AreaData::ColorGrade
+   IL_0130: ldarg.0
+   IL_0131: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Wipe()
+   IL_0136: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_013b: brtrue IL_01c7
+   IL_0140: newobj System.Void Celeste.Mod.Meta.MapMeta/<>c__DisplayClass131_0::.ctor()
+   IL_0145: stloc.s V_5
+   IL_0147: call System.Reflection.Assembly Celeste.Mod.Helpers.FakeAssembly::GetFakeEntryAssembly()
+   IL_014c: ldarg.0
+   IL_014d: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Wipe()
+   IL_0152: callvirt System.Type System.Reflection.Assembly::GetType(System.String)
+   IL_0157: stloc.s V_6
+   IL_0159: ldloc.s V_5
+   IL_015b: ldloc.s V_6
+   IL_015d: brtrue.s IL_0162
+   IL_015f: ldnull
+   IL_0160: br.s IL_0196
+   IL_0162: ldloc.s V_6
+   IL_0164: ldc.i4.3
+   IL_0165: newarr System.Type
+   IL_016a: dup
+   IL_016b: ldc.i4.0
+   IL_016c: ldtoken Monocle.Scene
+   IL_0171: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_0176: stelem.ref
+   IL_0177: dup
+   IL_0178: ldc.i4.1
+   IL_0179: ldtoken System.Boolean
+   IL_017e: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_0183: stelem.ref
+   IL_0184: dup
+   IL_0185: ldc.i4.2
+   IL_0186: ldtoken System.Action
+   IL_018b: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_0190: stelem.ref
+   IL_0191: callvirt System.Reflection.ConstructorInfo System.Type::GetConstructor(System.Type[])
+   IL_0196: stfld System.Reflection.ConstructorInfo Celeste.Mod.Meta.MapMeta/<>c__DisplayClass131_0::ctor
+   IL_019b: ldloc.s V_6
+   IL_019d: ldnull
+   IL_019e: call System.Boolean System.Type::op_Inequality(System.Type,System.Type)
+   IL_01a3: brfalse.s IL_01c7
+   IL_01a5: ldloc.s V_5
+   IL_01a7: ldfld System.Reflection.ConstructorInfo Celeste.Mod.Meta.MapMeta/<>c__DisplayClass131_0::ctor
+   IL_01ac: ldnull
+   IL_01ad: call System.Boolean System.Reflection.ConstructorInfo::op_Inequality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)
+   IL_01b2: brfalse.s IL_01c7
+   IL_01b4: ldarg.1
+   IL_01b5: ldloc.s V_5
+   IL_01b7: ldftn System.Void Celeste.Mod.Meta.MapMeta/<>c__DisplayClass131_0::<ApplyTo>b__1(Monocle.Scene,System.Boolean,System.Action)
+   IL_01bd: newobj System.Void System.Action`3<Monocle.Scene,System.Boolean,System.Action>::.ctor(System.Object,System.IntPtr)
+   IL_01c2: stfld System.Action`3<Monocle.Scene,System.Boolean,System.Action> Celeste.AreaData::Wipe
+   IL_01c7: ldarg.0
+   IL_01c8: callvirt System.Nullable`1<System.Single> Celeste.Mod.Meta.MapMeta::get_DarknessAlpha()
+   IL_01cd: stloc.s V_7
+   IL_01cf: ldloca.s V_7
+   IL_01d1: call System.Boolean System.Nullable`1<System.Single>::get_HasValue()
+   IL_01d6: brfalse.s IL_01ed
+   IL_01d8: ldarg.1
+   IL_01d9: ldarg.0
+   IL_01da: callvirt System.Nullable`1<System.Single> Celeste.Mod.Meta.MapMeta::get_DarknessAlpha()
+   IL_01df: stloc.s V_7
+   IL_01e1: ldloca.s V_7
+   IL_01e3: call T System.Nullable`1<System.Single>::get_Value()
+   IL_01e8: stfld System.Single Celeste.AreaData::DarknessAlpha
+   IL_01ed: ldarg.0
+   IL_01ee: callvirt System.Nullable`1<System.Single> Celeste.Mod.Meta.MapMeta::get_BloomBase()
+   IL_01f3: stloc.s V_7
+   IL_01f5: ldloca.s V_7
+   IL_01f7: call System.Boolean System.Nullable`1<System.Single>::get_HasValue()
+   IL_01fc: brfalse.s IL_0213
+   IL_01fe: ldarg.1
+   IL_01ff: ldarg.0
+   IL_0200: callvirt System.Nullable`1<System.Single> Celeste.Mod.Meta.MapMeta::get_BloomBase()
+   IL_0205: stloc.s V_7
+   IL_0207: ldloca.s V_7
+   IL_0209: call T System.Nullable`1<System.Single>::get_Value()
+   IL_020e: stfld System.Single Celeste.AreaData::BloomBase
+   IL_0213: ldarg.0
+   IL_0214: callvirt System.Nullable`1<System.Single> Celeste.Mod.Meta.MapMeta::get_BloomStrength()
+   IL_0219: stloc.s V_7
+   IL_021b: ldloca.s V_7
+   IL_021d: call System.Boolean System.Nullable`1<System.Single>::get_HasValue()
+   IL_0222: brfalse.s IL_0239
+   IL_0224: ldarg.1
+   IL_0225: ldarg.0
+   IL_0226: callvirt System.Nullable`1<System.Single> Celeste.Mod.Meta.MapMeta::get_BloomStrength()
+   IL_022b: stloc.s V_7
+   IL_022d: ldloca.s V_7
+   IL_022f: call T System.Nullable`1<System.Single>::get_Value()
+   IL_0234: stfld System.Single Celeste.AreaData::BloomStrength
+   IL_0239: ldarg.0
+   IL_023a: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Jumpthru()
+   IL_023f: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0244: brtrue.s IL_0252
+   IL_0246: ldarg.1
+   IL_0247: ldarg.0
+   IL_0248: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Jumpthru()
+   IL_024d: stfld System.String Celeste.AreaData::Jumpthru
+   IL_0252: ldarg.0
+   IL_0253: callvirt System.Nullable`1<Celeste.Session/CoreModes> Celeste.Mod.Meta.MapMeta::get_CoreMode()
+   IL_0258: stloc.s V_8
+   IL_025a: ldloca.s V_8
+   IL_025c: call System.Boolean System.Nullable`1<Celeste.Session/CoreModes>::get_HasValue()
+   IL_0261: brfalse.s IL_0278
+   IL_0263: ldarg.1
+   IL_0264: ldarg.0
+   IL_0265: callvirt System.Nullable`1<Celeste.Session/CoreModes> Celeste.Mod.Meta.MapMeta::get_CoreMode()
+   IL_026a: stloc.s V_8
+   IL_026c: ldloca.s V_8
+   IL_026e: call T System.Nullable`1<Celeste.Session/CoreModes>::get_Value()
+   IL_0273: stfld Celeste.Session/CoreModes Celeste.AreaData::CoreMode
+   IL_0278: ldarg.0
+   IL_0279: callvirt System.String Celeste.Mod.Meta.MapMeta::get_CassetteNoteColor()
+   IL_027e: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0283: brtrue.s IL_0296
+   IL_0285: ldarg.1
+   IL_0286: ldarg.0
+   IL_0287: callvirt System.String Celeste.Mod.Meta.MapMeta::get_CassetteNoteColor()
+   IL_028c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0291: stfld Microsoft.Xna.Framework.Color Celeste.AreaData::CassseteNoteColor
+   IL_0296: ldarg.0
+   IL_0297: callvirt System.String Celeste.Mod.Meta.MapMeta::get_CassetteSong()
+   IL_029c: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_02a1: brtrue.s IL_02af
+   IL_02a3: ldarg.1
+   IL_02a4: ldarg.0
+   IL_02a5: callvirt System.String Celeste.Mod.Meta.MapMeta::get_CassetteSong()
+   IL_02aa: stfld System.String Celeste.AreaData::CassetteSong
+   IL_02af: ldarg.1
+   IL_02b0: ldarg.0
+   IL_02b1: callvirt Celeste.Mod.Meta.MapMetaMountain Celeste.Mod.Meta.MapMeta::get_Mountain()
+   IL_02b6: dup
+   IL_02b7: brtrue.s IL_02c6
+   IL_02b9: pop
+   IL_02ba: ldloca.s V_10
+   IL_02bc: initobj System.Nullable`1<Celeste.MountainCamera>
+   IL_02c2: ldloc.s V_10
+   IL_02c4: br.s IL_02e5
+   IL_02c6: callvirt Celeste.Mod.Meta.MapMetaMountainCamera Celeste.Mod.Meta.MapMetaMountain::get_Idle()
+   IL_02cb: dup
+   IL_02cc: brtrue.s IL_02db
+   IL_02ce: pop
+   IL_02cf: ldloca.s V_10
+   IL_02d1: initobj System.Nullable`1<Celeste.MountainCamera>
+   IL_02d7: ldloc.s V_10
+   IL_02d9: br.s IL_02e5
+   IL_02db: callvirt Celeste.MountainCamera Celeste.Mod.Meta.MapMetaMountainCamera::Convert()
+   IL_02e0: newobj System.Void System.Nullable`1<Celeste.MountainCamera>::.ctor(T)
+   IL_02e5: stloc.s V_9
+   IL_02e7: ldloca.s V_9
+   IL_02e9: call System.Boolean System.Nullable`1<Celeste.MountainCamera>::get_HasValue()
+   IL_02ee: brtrue.s IL_02f8
+   IL_02f0: ldarg.1
+   IL_02f1: ldfld Celeste.MountainCamera Celeste.AreaData::MountainIdle
+   IL_02f6: br.s IL_02ff
+   IL_02f8: ldloca.s V_9
+   IL_02fa: call T System.Nullable`1<Celeste.MountainCamera>::GetValueOrDefault()
+   IL_02ff: stfld Celeste.MountainCamera Celeste.AreaData::MountainIdle
+   IL_0304: ldarg.1
+   IL_0305: ldarg.0
+   IL_0306: callvirt Celeste.Mod.Meta.MapMetaMountain Celeste.Mod.Meta.MapMeta::get_Mountain()
+   IL_030b: dup
+   IL_030c: brtrue.s IL_031b
+   IL_030e: pop
+   IL_030f: ldloca.s V_10
+   IL_0311: initobj System.Nullable`1<Celeste.MountainCamera>
+   IL_0317: ldloc.s V_10
+   IL_0319: br.s IL_033a
+   IL_031b: callvirt Celeste.Mod.Meta.MapMetaMountainCamera Celeste.Mod.Meta.MapMetaMountain::get_Select()
+   IL_0320: dup
+   IL_0321: brtrue.s IL_0330
+   IL_0323: pop
+   IL_0324: ldloca.s V_10
+   IL_0326: initobj System.Nullable`1<Celeste.MountainCamera>
+   IL_032c: ldloc.s V_10
+   IL_032e: br.s IL_033a
+   IL_0330: callvirt Celeste.MountainCamera Celeste.Mod.Meta.MapMetaMountainCamera::Convert()
+   IL_0335: newobj System.Void System.Nullable`1<Celeste.MountainCamera>::.ctor(T)
+   IL_033a: stloc.s V_9
+   IL_033c: ldloca.s V_9
+   IL_033e: call System.Boolean System.Nullable`1<Celeste.MountainCamera>::get_HasValue()
+   IL_0343: brtrue.s IL_034d
+   IL_0345: ldarg.1
+   IL_0346: ldfld Celeste.MountainCamera Celeste.AreaData::MountainSelect
+   IL_034b: br.s IL_0354
+   IL_034d: ldloca.s V_9
+   IL_034f: call T System.Nullable`1<Celeste.MountainCamera>::GetValueOrDefault()
+   IL_0354: stfld Celeste.MountainCamera Celeste.AreaData::MountainSelect
+   IL_0359: ldarg.1
+   IL_035a: ldarg.0
+   IL_035b: callvirt Celeste.Mod.Meta.MapMetaMountain Celeste.Mod.Meta.MapMeta::get_Mountain()
+   IL_0360: dup
+   IL_0361: brtrue.s IL_0370
+   IL_0363: pop
+   IL_0364: ldloca.s V_10
+   IL_0366: initobj System.Nullable`1<Celeste.MountainCamera>
+   IL_036c: ldloc.s V_10
+   IL_036e: br.s IL_038f
+   IL_0370: callvirt Celeste.Mod.Meta.MapMetaMountainCamera Celeste.Mod.Meta.MapMetaMountain::get_Zoom()
+   IL_0375: dup
+   IL_0376: brtrue.s IL_0385
+   IL_0378: pop
+   IL_0379: ldloca.s V_10
+   IL_037b: initobj System.Nullable`1<Celeste.MountainCamera>
+   IL_0381: ldloc.s V_10
+   IL_0383: br.s IL_038f
+   IL_0385: callvirt Celeste.MountainCamera Celeste.Mod.Meta.MapMetaMountainCamera::Convert()
+   IL_038a: newobj System.Void System.Nullable`1<Celeste.MountainCamera>::.ctor(T)
+   IL_038f: stloc.s V_9
+   IL_0391: ldloca.s V_9
+   IL_0393: call System.Boolean System.Nullable`1<Celeste.MountainCamera>::get_HasValue()
+   IL_0398: brtrue.s IL_03a2
+   IL_039a: ldarg.1
+   IL_039b: ldfld Celeste.MountainCamera Celeste.AreaData::MountainZoom
+   IL_03a0: br.s IL_03a9
+   IL_03a2: ldloca.s V_9
+   IL_03a4: call T System.Nullable`1<Celeste.MountainCamera>::GetValueOrDefault()
+   IL_03a9: stfld Celeste.MountainCamera Celeste.AreaData::MountainZoom
+   IL_03ae: ldarg.1
+   IL_03af: ldarg.0
+   IL_03b0: callvirt Celeste.Mod.Meta.MapMetaMountain Celeste.Mod.Meta.MapMeta::get_Mountain()
+   IL_03b5: dup
+   IL_03b6: brtrue.s IL_03c5
+   IL_03b8: pop
+   IL_03b9: ldloca.s V_12
+   IL_03bb: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector3>
+   IL_03c1: ldloc.s V_12
+   IL_03c3: br.s IL_03df
+   IL_03c5: callvirt System.Single[] Celeste.Mod.Meta.MapMetaMountain::get_Cursor()
+   IL_03ca: dup
+   IL_03cb: brtrue.s IL_03da
+   IL_03cd: pop
+   IL_03ce: ldloca.s V_12
+   IL_03d0: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector3>
+   IL_03d6: ldloc.s V_12
+   IL_03d8: br.s IL_03df
+   IL_03da: call System.Nullable`1<Microsoft.Xna.Framework.Vector3> Celeste.Mod.Extensions::ToVector3(System.Single[])
+   IL_03df: stloc.s V_11
+   IL_03e1: ldloca.s V_11
+   IL_03e3: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Vector3>::get_HasValue()
+   IL_03e8: brtrue.s IL_03f2
+   IL_03ea: ldarg.1
+   IL_03eb: ldfld Microsoft.Xna.Framework.Vector3 Celeste.AreaData::MountainCursor
+   IL_03f0: br.s IL_03f9
+   IL_03f2: ldloca.s V_11
+   IL_03f4: call T System.Nullable`1<Microsoft.Xna.Framework.Vector3>::GetValueOrDefault()
+   IL_03f9: stfld Microsoft.Xna.Framework.Vector3 Celeste.AreaData::MountainCursor
+   IL_03fe: ldarg.1
+   IL_03ff: ldarg.0
+   IL_0400: callvirt Celeste.Mod.Meta.MapMetaMountain Celeste.Mod.Meta.MapMeta::get_Mountain()
+   IL_0405: dup
+   IL_0406: brtrue.s IL_0411
+   IL_0408: pop
+   IL_0409: ldarg.1
+   IL_040a: ldfld System.Int32 Celeste.AreaData::MountainState
+   IL_040f: br.s IL_0416
+   IL_0411: callvirt System.Int32 Celeste.Mod.Meta.MapMetaMountain::get_State()
+   IL_0416: stfld System.Int32 Celeste.AreaData::MountainState
+   IL_041b: ldarg.1
+   IL_041c: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_0421: stloc.0
+   IL_0422: ldarg.1
+   IL_0423: ldarg.0
+   IL_0424: callvirt Celeste.Mod.Meta.MapMetaModeProperties[] Celeste.Mod.Meta.MapMeta::get_Modes()
+   IL_0429: call Celeste.ModeProperties[] Celeste.Mod.Meta.MapMeta::Convert(Celeste.Mod.Meta.MapMetaModeProperties[])
+   IL_042e: dup
+   IL_042f: brtrue.s IL_0433
+   IL_0431: pop
+   IL_0432: ldloc.0
+   IL_0433: stfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_0438: ldloc.0
+   IL_0439: brfalse.s IL_0471
+   IL_043b: ldc.i4.0
+   IL_043c: stloc.s V_13
+   IL_043e: br.s IL_045e
+   IL_0440: ldarg.1
+   IL_0441: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_0446: ldloc.s V_13
+   IL_0448: ldelem.ref
+   IL_0449: brtrue.s IL_0458
+   IL_044b: ldarg.1
+   IL_044c: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_0451: ldloc.s V_13
+   IL_0453: ldloc.0
+   IL_0454: ldloc.s V_13
+   IL_0456: ldelem.ref
+   IL_0457: stelem.ref
+   IL_0458: ldloc.s V_13
+   IL_045a: ldc.i4.1
+   IL_045b: add
+   IL_045c: stloc.s V_13
+   IL_045e: ldloc.s V_13
+   IL_0460: ldarg.1
+   IL_0461: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_0466: ldlen
+   IL_0467: conv.i4
+   IL_0468: bge.s IL_0471
+   IL_046a: ldloc.s V_13
+   IL_046c: ldloc.0
+   IL_046d: ldlen
+   IL_046e: conv.i4
+   IL_046f: blt.s IL_0440
+   IL_0471: ldarg.1
+   IL_0472: ldfld Celeste.Mod.Meta.MapMeta Celeste.AreaData::Meta
+   IL_0477: stloc.1
+   IL_0478: ldloc.1
+   IL_0479: brtrue.s IL_0483
+   IL_047b: ldarg.1
+   IL_047c: ldarg.0
+   IL_047d: stfld Celeste.Mod.Meta.MapMeta Celeste.AreaData::Meta
+   IL_0482: ret
+   IL_0483: ldarg.0
+   IL_0484: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Parent()
+   IL_0489: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_048e: brtrue.s IL_049c
+   IL_0490: ldloc.1
+   IL_0491: ldarg.0
+   IL_0492: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Parent()
+   IL_0497: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_Parent(System.String)
+   IL_049c: ldarg.0
+   IL_049d: callvirt System.String Celeste.Mod.Meta.MapMeta::get_PostcardSoundID()
+   IL_04a2: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_04a7: brtrue.s IL_04b5
+   IL_04a9: ldloc.1
+   IL_04aa: ldarg.0
+   IL_04ab: callvirt System.String Celeste.Mod.Meta.MapMeta::get_PostcardSoundID()
+   IL_04b0: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_PostcardSoundID(System.String)
+   IL_04b5: ldarg.0
+   IL_04b6: callvirt System.String Celeste.Mod.Meta.MapMeta::get_ForegroundTiles()
+   IL_04bb: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_04c0: brtrue.s IL_04ce
+   IL_04c2: ldloc.1
+   IL_04c3: ldarg.0
+   IL_04c4: callvirt System.String Celeste.Mod.Meta.MapMeta::get_ForegroundTiles()
+   IL_04c9: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_ForegroundTiles(System.String)
+   IL_04ce: ldarg.0
+   IL_04cf: callvirt System.String Celeste.Mod.Meta.MapMeta::get_BackgroundTiles()
+   IL_04d4: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_04d9: brtrue.s IL_04e7
+   IL_04db: ldloc.1
+   IL_04dc: ldarg.0
+   IL_04dd: callvirt System.String Celeste.Mod.Meta.MapMeta::get_BackgroundTiles()
+   IL_04e2: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_BackgroundTiles(System.String)
+   IL_04e7: ldarg.0
+   IL_04e8: callvirt System.String Celeste.Mod.Meta.MapMeta::get_AnimatedTiles()
+   IL_04ed: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_04f2: brtrue.s IL_0500
+   IL_04f4: ldloc.1
+   IL_04f5: ldarg.0
+   IL_04f6: callvirt System.String Celeste.Mod.Meta.MapMeta::get_AnimatedTiles()
+   IL_04fb: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_AnimatedTiles(System.String)
+   IL_0500: ldarg.0
+   IL_0501: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Sprites()
+   IL_0506: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_050b: brtrue.s IL_0519
+   IL_050d: ldloc.1
+   IL_050e: ldarg.0
+   IL_050f: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Sprites()
+   IL_0514: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_Sprites(System.String)
+   IL_0519: ldarg.0
+   IL_051a: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Portraits()
+   IL_051f: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0524: brtrue.s IL_0532
+   IL_0526: ldloc.1
+   IL_0527: ldarg.0
+   IL_0528: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Portraits()
+   IL_052d: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_Portraits(System.String)
+   IL_0532: ldarg.0
+   IL_0533: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMeta::get_OverrideASideMeta()
+   IL_0538: stloc.2
+   IL_0539: ldloca.s V_2
+   IL_053b: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0540: brfalse.s IL_054e
+   IL_0542: ldloc.1
+   IL_0543: ldarg.0
+   IL_0544: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMeta::get_OverrideASideMeta()
+   IL_0549: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_OverrideASideMeta(System.Nullable`1<System.Boolean>)
+   IL_054e: ldarg.0
+   IL_054f: callvirt Celeste.Mod.Meta.MapMetaModeProperties[] Celeste.Mod.Meta.MapMeta::get_Modes()
+   IL_0554: dup
+   IL_0555: brtrue.s IL_055b
+   IL_0557: pop
+   IL_0558: ldc.i4.0
+   IL_0559: br.s IL_055d
+   IL_055b: ldlen
+   IL_055c: conv.i4
+   IL_055d: brfalse.s IL_0597
+   IL_055f: ldarg.0
+   IL_0560: callvirt Celeste.Mod.Meta.MapMetaModeProperties[] Celeste.Mod.Meta.MapMeta::get_Modes()
+   IL_0565: ldsfld System.Func`2<Celeste.Mod.Meta.MapMetaModeProperties,System.Boolean> Celeste.Mod.Meta.MapMeta/<>c::<>9__131_0
+   IL_056a: dup
+   IL_056b: brtrue.s IL_0584
+   IL_056d: pop
+   IL_056e: ldsfld Celeste.Mod.Meta.MapMeta/<>c Celeste.Mod.Meta.MapMeta/<>c::<>9
+   IL_0573: ldftn System.Boolean Celeste.Mod.Meta.MapMeta/<>c::<ApplyTo>b__131_0(Celeste.Mod.Meta.MapMetaModeProperties)
+   IL_0579: newobj System.Void System.Func`2<Celeste.Mod.Meta.MapMetaModeProperties,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_057e: dup
+   IL_057f: stsfld System.Func`2<Celeste.Mod.Meta.MapMetaModeProperties,System.Boolean> Celeste.Mod.Meta.MapMeta/<>c::<>9__131_0
+   IL_0584: call System.Boolean System.Linq.Enumerable::Any<Celeste.Mod.Meta.MapMetaModeProperties>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_0589: brfalse.s IL_0597
+   IL_058b: ldloc.1
+   IL_058c: ldarg.0
+   IL_058d: callvirt Celeste.Mod.Meta.MapMetaModeProperties[] Celeste.Mod.Meta.MapMeta::get_Modes()
+   IL_0592: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_Modes(Celeste.Mod.Meta.MapMetaModeProperties[])
+   IL_0597: ldarg.0
+   IL_0598: callvirt Celeste.Mod.Meta.MapMetaMountain Celeste.Mod.Meta.MapMeta::get_Mountain()
+   IL_059d: brfalse.s IL_05ab
+   IL_059f: ldloc.1
+   IL_05a0: ldarg.0
+   IL_05a1: callvirt Celeste.Mod.Meta.MapMetaMountain Celeste.Mod.Meta.MapMeta::get_Mountain()
+   IL_05a6: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_Mountain(Celeste.Mod.Meta.MapMetaMountain)
+   IL_05ab: ldarg.0
+   IL_05ac: callvirt Celeste.Mod.Meta.MapMetaCompleteScreen Celeste.Mod.Meta.MapMeta::get_CompleteScreen()
+   IL_05b1: brfalse.s IL_05bf
+   IL_05b3: ldloc.1
+   IL_05b4: ldarg.0
+   IL_05b5: callvirt Celeste.Mod.Meta.MapMetaCompleteScreen Celeste.Mod.Meta.MapMeta::get_CompleteScreen()
+   IL_05ba: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_CompleteScreen(Celeste.Mod.Meta.MapMetaCompleteScreen)
+   IL_05bf: ldarg.0
+   IL_05c0: callvirt Celeste.Mod.Meta.MapMetaCompleteScreen Celeste.Mod.Meta.MapMeta::get_LoadingVignetteScreen()
+   IL_05c5: brfalse.s IL_05d3
+   IL_05c7: ldloc.1
+   IL_05c8: ldarg.0
+   IL_05c9: callvirt Celeste.Mod.Meta.MapMetaCompleteScreen Celeste.Mod.Meta.MapMeta::get_LoadingVignetteScreen()
+   IL_05ce: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_LoadingVignetteScreen(Celeste.Mod.Meta.MapMetaCompleteScreen)
+   IL_05d3: ldarg.0
+   IL_05d4: callvirt Celeste.Mod.Meta.MapMetaTextVignette Celeste.Mod.Meta.MapMeta::get_LoadingVignetteText()
+   IL_05d9: brfalse.s IL_05e7
+   IL_05db: ldloc.1
+   IL_05dc: ldarg.0
+   IL_05dd: callvirt Celeste.Mod.Meta.MapMetaTextVignette Celeste.Mod.Meta.MapMeta::get_LoadingVignetteText()
+   IL_05e2: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_LoadingVignetteText(Celeste.Mod.Meta.MapMetaTextVignette)
+   IL_05e7: ldarg.0
+   IL_05e8: callvirt Celeste.Mod.Meta.MapMetaCassetteModifier Celeste.Mod.Meta.MapMeta::get_CassetteModifier()
+   IL_05ed: brfalse.s IL_05fb
+   IL_05ef: ldloc.1
+   IL_05f0: ldarg.0
+   IL_05f1: callvirt Celeste.Mod.Meta.MapMetaCassetteModifier Celeste.Mod.Meta.MapMeta::get_CassetteModifier()
+   IL_05f6: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_CassetteModifier(Celeste.Mod.Meta.MapMetaCassetteModifier)
+   IL_05fb: ldarg.0
+   IL_05fc: callvirt Celeste.Mod.Meta.MapMetaPostcard Celeste.Mod.Meta.MapMeta::get_Postcard()
+   IL_0601: brfalse.s IL_060f
+   IL_0603: ldloc.1
+   IL_0604: ldarg.0
+   IL_0605: callvirt Celeste.Mod.Meta.MapMetaPostcard Celeste.Mod.Meta.MapMeta::get_Postcard()
+   IL_060a: callvirt System.Void Celeste.Mod.Meta.MapMeta::set_Postcard(Celeste.Mod.Meta.MapMetaPostcard)
+   IL_060f: ret

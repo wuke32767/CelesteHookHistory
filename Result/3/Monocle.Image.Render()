@@ -1,0 +1,23 @@
+On: Celeste.Mod.SkinModHelper.PlayerSkinSystem.SpriteRenderHook_ColorGrade(Action`1,Sprite)
+On: Celeste.Mod.SkinModHelper.SkinsSystem.SpriteRenderHook(Action`1,Sprite)
+On: ChaosEnsues.Entry.Image_Render(orig_Render,Image)
+On: Celeste.Mod.Procedurline.SpriteManager.ImageRenderHook(orig_Render,Image)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.MTexture Monocle.Image::Texture
+   IL_0006: brfalse.s IL_0037
+   IL_0008: ldarg.0
+   IL_0009: ldfld Monocle.MTexture Monocle.Image::Texture
+   IL_000e: ldarg.0
+   IL_000f: call Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::get_RenderPosition()
+   IL_0014: ldarg.0
+   IL_0015: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Origin
+   IL_001a: ldarg.0
+   IL_001b: ldfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0020: ldarg.0
+   IL_0021: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0026: ldarg.0
+   IL_0027: ldfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_002c: ldarg.0
+   IL_002d: ldfld Microsoft.Xna.Framework.Graphics.SpriteEffects Monocle.GraphicsComponent::Effects
+   IL_0032: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Graphics.SpriteEffects)
+   IL_0037: ret

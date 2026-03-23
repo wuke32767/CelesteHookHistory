@@ -1,0 +1,372 @@
+On: Celeste.Mod.CommunalHelper.Components.MoveBlockRedirectable.MoveBlock_ctor_Vector2_int_int_Directions_bool_bool(orig_ctor_Vector2_int_int_Directions_bool_bool,MoveBlock,Vector2,Int32,Int32,Directions,Boolean,Boolean)
+On: Celeste.Mod.Aqua.Core.MoveBlockExtensions.MoveBlock_Construct(orig_ctor_Vector2_int_int_Directions_bool_bool,MoveBlock,Vector2,Int32,Int32,Directions,Boolean,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: newobj System.Void System.Collections.Generic.List`1<Monocle.Image>::.ctor()
+   IL_0006: stfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::body
+   IL_000b: ldarg.0
+   IL_000c: newobj System.Void System.Collections.Generic.List`1<Monocle.Image>::.ctor()
+   IL_0011: stfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::topButton
+   IL_0016: ldarg.0
+   IL_0017: newobj System.Void System.Collections.Generic.List`1<Monocle.Image>::.ctor()
+   IL_001c: stfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::leftButton
+   IL_0021: ldarg.0
+   IL_0022: newobj System.Void System.Collections.Generic.List`1<Monocle.Image>::.ctor()
+   IL_0027: stfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::rightButton
+   IL_002c: ldarg.0
+   IL_002d: newobj System.Void System.Collections.Generic.List`1<Monocle.MTexture>::.ctor()
+   IL_0032: stfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.MoveBlock::arrows
+   IL_0037: ldarg.0
+   IL_0038: ldsfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::idleBgFill
+   IL_003d: stfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::fillColor
+   IL_0042: ldarg.0
+   IL_0043: ldarg.1
+   IL_0044: ldarg.2
+   IL_0045: conv.r4
+   IL_0046: ldarg.3
+   IL_0047: conv.r4
+   IL_0048: ldc.i4.0
+   IL_0049: call System.Void Celeste.Solid::.ctor(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Boolean)
+   IL_004e: ldarg.0
+   IL_004f: ldc.i4.m1
+   IL_0050: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0055: ldarg.0
+   IL_0056: ldarg.1
+   IL_0057: stfld Microsoft.Xna.Framework.Vector2 Celeste.MoveBlock::startPosition
+   IL_005c: ldarg.0
+   IL_005d: ldarg.s canSteer
+   IL_005f: stfld System.Boolean Celeste.MoveBlock::canSteer
+   IL_0064: ldarg.0
+   IL_0065: ldarg.s direction
+   IL_0067: stfld Celeste.MoveBlock/Directions Celeste.MoveBlock::direction
+   IL_006c: ldarg.0
+   IL_006d: ldarg.s fast
+   IL_006f: stfld System.Boolean Celeste.MoveBlock::fast
+   IL_0074: ldarg.s direction
+   IL_0076: switch IL_00b1,IL_008b,IL_00d7,IL_00fd
+   IL_008b: ldarg.0
+   IL_008c: ldarg.0
+   IL_008d: ldarg.0
+   IL_008e: ldc.r4 0
+   IL_0093: dup
+   IL_0094: stloc.0
+   IL_0095: stfld System.Single Celeste.MoveBlock::angle
+   IL_009a: ldloc.0
+   IL_009b: dup
+   IL_009c: stloc.0
+   IL_009d: stfld System.Single Celeste.MoveBlock::targetAngle
+   IL_00a2: ldloc.0
+   IL_00a3: stfld System.Single Celeste.MoveBlock::homeAngle
+   IL_00a8: ldarg.0
+   IL_00a9: ldc.i4.1
+   IL_00aa: stfld System.Int32 Celeste.MoveBlock::angleSteerSign
+   IL_00af: br.s IL_0121
+   IL_00b1: ldarg.0
+   IL_00b2: ldarg.0
+   IL_00b3: ldarg.0
+   IL_00b4: ldc.r4 3.1415927
+   IL_00b9: dup
+   IL_00ba: stloc.0
+   IL_00bb: stfld System.Single Celeste.MoveBlock::angle
+   IL_00c0: ldloc.0
+   IL_00c1: dup
+   IL_00c2: stloc.0
+   IL_00c3: stfld System.Single Celeste.MoveBlock::targetAngle
+   IL_00c8: ldloc.0
+   IL_00c9: stfld System.Single Celeste.MoveBlock::homeAngle
+   IL_00ce: ldarg.0
+   IL_00cf: ldc.i4.m1
+   IL_00d0: stfld System.Int32 Celeste.MoveBlock::angleSteerSign
+   IL_00d5: br.s IL_0121
+   IL_00d7: ldarg.0
+   IL_00d8: ldarg.0
+   IL_00d9: ldarg.0
+   IL_00da: ldc.r4 -1.5707964
+   IL_00df: dup
+   IL_00e0: stloc.0
+   IL_00e1: stfld System.Single Celeste.MoveBlock::angle
+   IL_00e6: ldloc.0
+   IL_00e7: dup
+   IL_00e8: stloc.0
+   IL_00e9: stfld System.Single Celeste.MoveBlock::targetAngle
+   IL_00ee: ldloc.0
+   IL_00ef: stfld System.Single Celeste.MoveBlock::homeAngle
+   IL_00f4: ldarg.0
+   IL_00f5: ldc.i4.1
+   IL_00f6: stfld System.Int32 Celeste.MoveBlock::angleSteerSign
+   IL_00fb: br.s IL_0121
+   IL_00fd: ldarg.0
+   IL_00fe: ldarg.0
+   IL_00ff: ldarg.0
+   IL_0100: ldc.r4 1.5707964
+   IL_0105: dup
+   IL_0106: stloc.0
+   IL_0107: stfld System.Single Celeste.MoveBlock::angle
+   IL_010c: ldloc.0
+   IL_010d: dup
+   IL_010e: stloc.0
+   IL_010f: stfld System.Single Celeste.MoveBlock::targetAngle
+   IL_0114: ldloc.0
+   IL_0115: stfld System.Single Celeste.MoveBlock::homeAngle
+   IL_011a: ldarg.0
+   IL_011b: ldc.i4.m1
+   IL_011c: stfld System.Int32 Celeste.MoveBlock::angleSteerSign
+   IL_0121: ldarg.2
+   IL_0122: ldc.i4.8
+   IL_0123: div
+   IL_0124: stloc.1
+   IL_0125: ldarg.3
+   IL_0126: ldc.i4.8
+   IL_0127: div
+   IL_0128: stloc.2
+   IL_0129: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_012e: ldstr "objects/moveBlock/base"
+   IL_0133: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0138: stloc.3
+   IL_0139: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_013e: ldstr "objects/moveBlock/button"
+   IL_0143: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0148: stloc.s V_4
+   IL_014a: ldarg.s canSteer
+   IL_014c: brfalse IL_01d4
+   IL_0151: ldarg.s direction
+   IL_0153: brfalse.s IL_015d
+   IL_0155: ldarg.s direction
+   IL_0157: ldc.i4.1
+   IL_0158: bne.un IL_01d4
+   IL_015d: ldc.i4.0
+   IL_015e: stloc.s V_5
+   IL_0160: br.s IL_01ba
+   IL_0162: ldloc.s V_5
+   IL_0164: brfalse.s IL_0173
+   IL_0166: ldloc.s V_5
+   IL_0168: ldloc.1
+   IL_0169: ldc.i4.1
+   IL_016a: sub
+   IL_016b: blt.s IL_0170
+   IL_016d: ldc.i4.2
+   IL_016e: br.s IL_0174
+   IL_0170: ldc.i4.1
+   IL_0171: br.s IL_0174
+   IL_0173: ldc.i4.0
+   IL_0174: stloc.s V_6
+   IL_0176: ldarg.0
+   IL_0177: ldloc.s V_4
+   IL_0179: ldloc.s V_6
+   IL_017b: ldc.i4.8
+   IL_017c: mul
+   IL_017d: ldc.i4.0
+   IL_017e: ldc.i4.8
+   IL_017f: ldc.i4.8
+   IL_0180: ldnull
+   IL_0181: callvirt Monocle.MTexture Monocle.MTexture::GetSubtexture(System.Int32,System.Int32,System.Int32,System.Int32,Monocle.MTexture)
+   IL_0186: ldloc.s V_5
+   IL_0188: ldc.i4.8
+   IL_0189: mul
+   IL_018a: conv.r4
+   IL_018b: ldc.r4 -4
+   IL_0190: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0195: ldc.r4 0
+   IL_019a: ldc.r4 1
+   IL_019f: ldc.r4 1
+   IL_01a4: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01a9: ldarg.0
+   IL_01aa: ldfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::topButton
+   IL_01af: callvirt System.Void Celeste.MoveBlock::AddImage(Monocle.MTexture,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List`1<Monocle.Image>)
+   IL_01b4: ldloc.s V_5
+   IL_01b6: ldc.i4.1
+   IL_01b7: add
+   IL_01b8: stloc.s V_5
+   IL_01ba: ldloc.s V_5
+   IL_01bc: ldloc.1
+   IL_01bd: blt.s IL_0162
+   IL_01bf: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_01c4: ldstr "objects/moveBlock/base_h"
+   IL_01c9: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_01ce: stloc.3
+   IL_01cf: br IL_02a1
+   IL_01d4: ldarg.s canSteer
+   IL_01d6: brfalse IL_02a1
+   IL_01db: ldarg.s direction
+   IL_01dd: ldc.i4.2
+   IL_01de: beq.s IL_01e8
+   IL_01e0: ldarg.s direction
+   IL_01e2: ldc.i4.3
+   IL_01e3: bne.un IL_02a1
+   IL_01e8: ldc.i4.0
+   IL_01e9: stloc.s V_7
+   IL_01eb: br IL_0289
+   IL_01f0: ldloc.s V_7
+   IL_01f2: brfalse.s IL_0201
+   IL_01f4: ldloc.s V_7
+   IL_01f6: ldloc.2
+   IL_01f7: ldc.i4.1
+   IL_01f8: sub
+   IL_01f9: blt.s IL_01fe
+   IL_01fb: ldc.i4.2
+   IL_01fc: br.s IL_0202
+   IL_01fe: ldc.i4.1
+   IL_01ff: br.s IL_0202
+   IL_0201: ldc.i4.0
+   IL_0202: stloc.s V_8
+   IL_0204: ldarg.0
+   IL_0205: ldloc.s V_4
+   IL_0207: ldloc.s V_8
+   IL_0209: ldc.i4.8
+   IL_020a: mul
+   IL_020b: ldc.i4.0
+   IL_020c: ldc.i4.8
+   IL_020d: ldc.i4.8
+   IL_020e: ldnull
+   IL_020f: callvirt Monocle.MTexture Monocle.MTexture::GetSubtexture(System.Int32,System.Int32,System.Int32,System.Int32,Monocle.MTexture)
+   IL_0214: ldc.r4 -4
+   IL_0219: ldloc.s V_7
+   IL_021b: ldc.i4.8
+   IL_021c: mul
+   IL_021d: conv.r4
+   IL_021e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0223: ldc.r4 1.5707964
+   IL_0228: ldc.r4 1
+   IL_022d: ldc.r4 -1
+   IL_0232: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0237: ldarg.0
+   IL_0238: ldfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::leftButton
+   IL_023d: callvirt System.Void Celeste.MoveBlock::AddImage(Monocle.MTexture,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List`1<Monocle.Image>)
+   IL_0242: ldarg.0
+   IL_0243: ldloc.s V_4
+   IL_0245: ldloc.s V_8
+   IL_0247: ldc.i4.8
+   IL_0248: mul
+   IL_0249: ldc.i4.0
+   IL_024a: ldc.i4.8
+   IL_024b: ldc.i4.8
+   IL_024c: ldnull
+   IL_024d: callvirt Monocle.MTexture Monocle.MTexture::GetSubtexture(System.Int32,System.Int32,System.Int32,System.Int32,Monocle.MTexture)
+   IL_0252: ldloc.1
+   IL_0253: ldc.i4.1
+   IL_0254: sub
+   IL_0255: ldc.i4.8
+   IL_0256: mul
+   IL_0257: ldc.i4.4
+   IL_0258: add
+   IL_0259: conv.r4
+   IL_025a: ldloc.s V_7
+   IL_025c: ldc.i4.8
+   IL_025d: mul
+   IL_025e: conv.r4
+   IL_025f: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0264: ldc.r4 1.5707964
+   IL_0269: ldc.r4 1
+   IL_026e: ldc.r4 1
+   IL_0273: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0278: ldarg.0
+   IL_0279: ldfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::rightButton
+   IL_027e: callvirt System.Void Celeste.MoveBlock::AddImage(Monocle.MTexture,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List`1<Monocle.Image>)
+   IL_0283: ldloc.s V_7
+   IL_0285: ldc.i4.1
+   IL_0286: add
+   IL_0287: stloc.s V_7
+   IL_0289: ldloc.s V_7
+   IL_028b: ldloc.2
+   IL_028c: blt IL_01f0
+   IL_0291: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0296: ldstr "objects/moveBlock/base_v"
+   IL_029b: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_02a0: stloc.3
+   IL_02a1: ldc.i4.0
+   IL_02a2: stloc.s V_9
+   IL_02a4: br IL_0333
+   IL_02a9: ldc.i4.0
+   IL_02aa: stloc.s V_10
+   IL_02ac: br IL_0325
+   IL_02b1: ldloc.s V_9
+   IL_02b3: brfalse.s IL_02c2
+   IL_02b5: ldloc.s V_9
+   IL_02b7: ldloc.1
+   IL_02b8: ldc.i4.1
+   IL_02b9: sub
+   IL_02ba: blt.s IL_02bf
+   IL_02bc: ldc.i4.2
+   IL_02bd: br.s IL_02c3
+   IL_02bf: ldc.i4.1
+   IL_02c0: br.s IL_02c3
+   IL_02c2: ldc.i4.0
+   IL_02c3: stloc.s V_11
+   IL_02c5: ldloc.s V_10
+   IL_02c7: brfalse.s IL_02d6
+   IL_02c9: ldloc.s V_10
+   IL_02cb: ldloc.2
+   IL_02cc: ldc.i4.1
+   IL_02cd: sub
+   IL_02ce: blt.s IL_02d3
+   IL_02d0: ldc.i4.2
+   IL_02d1: br.s IL_02d7
+   IL_02d3: ldc.i4.1
+   IL_02d4: br.s IL_02d7
+   IL_02d6: ldc.i4.0
+   IL_02d7: stloc.s V_12
+   IL_02d9: ldarg.0
+   IL_02da: ldloc.3
+   IL_02db: ldloc.s V_11
+   IL_02dd: ldc.i4.8
+   IL_02de: mul
+   IL_02df: ldloc.s V_12
+   IL_02e1: ldc.i4.8
+   IL_02e2: mul
+   IL_02e3: ldc.i4.8
+   IL_02e4: ldc.i4.8
+   IL_02e5: ldnull
+   IL_02e6: callvirt Monocle.MTexture Monocle.MTexture::GetSubtexture(System.Int32,System.Int32,System.Int32,System.Int32,Monocle.MTexture)
+   IL_02eb: ldloc.s V_9
+   IL_02ed: conv.r4
+   IL_02ee: ldloc.s V_10
+   IL_02f0: conv.r4
+   IL_02f1: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_02f6: ldc.r4 8
+   IL_02fb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0300: ldc.r4 0
+   IL_0305: ldc.r4 1
+   IL_030a: ldc.r4 1
+   IL_030f: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0314: ldarg.0
+   IL_0315: ldfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::body
+   IL_031a: callvirt System.Void Celeste.MoveBlock::AddImage(Monocle.MTexture,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List`1<Monocle.Image>)
+   IL_031f: ldloc.s V_10
+   IL_0321: ldc.i4.1
+   IL_0322: add
+   IL_0323: stloc.s V_10
+   IL_0325: ldloc.s V_10
+   IL_0327: ldloc.2
+   IL_0328: blt IL_02b1
+   IL_032d: ldloc.s V_9
+   IL_032f: ldc.i4.1
+   IL_0330: add
+   IL_0331: stloc.s V_9
+   IL_0333: ldloc.s V_9
+   IL_0335: ldloc.1
+   IL_0336: blt IL_02a9
+   IL_033b: ldarg.0
+   IL_033c: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0341: ldstr "objects/moveBlock/arrow"
+   IL_0346: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_034b: stfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.MoveBlock::arrows
+   IL_0350: ldarg.0
+   IL_0351: ldarg.0
+   IL_0352: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_0357: dup
+   IL_0358: stloc.s V_13
+   IL_035a: stfld Celeste.SoundSource Celeste.MoveBlock::moveSfx
+   IL_035f: ldloc.s V_13
+   IL_0361: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0366: ldarg.0
+   IL_0367: ldarg.0
+   IL_0368: callvirt System.Collections.IEnumerator Celeste.MoveBlock::Controller()
+   IL_036d: ldc.i4.1
+   IL_036e: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0373: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0378: ldarg.0
+   IL_0379: callvirt System.Void Celeste.MoveBlock::UpdateColors()
+   IL_037e: ldarg.0
+   IL_037f: ldc.r4 0.5
+   IL_0384: newobj System.Void Celeste.LightOcclude::.ctor(System.Single)
+   IL_0389: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_038e: ret

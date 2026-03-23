@@ -1,0 +1,59 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: ldc.i4.s 124
+   IL_0004: ldc.i4.2
+   IL_0005: callvirt System.String[] System.String::Split(System.Char,System.StringSplitOptions)
+   IL_000a: stloc.0
+   IL_000b: ldc.i4.0
+   IL_000c: stloc.1
+   IL_000d: br.s IL_0063
+   IL_000f: nop
+   IL_0010: ldloc.0
+   IL_0011: ldloc.1
+   IL_0012: ldelem.ref
+   IL_0013: ldstr "x"
+   IL_0018: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_001d: stloc.2
+   IL_001e: ldloc.2
+   IL_001f: brfalse.s IL_0023
+   IL_0021: br.s IL_005f
+   IL_0023: ldarg.0
+   IL_0024: ldfld System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes> Celeste.Mod.SkinModHelper.HairConfig::_HairAttrWithDashes
+   IL_0029: ldloc.1
+   IL_002a: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes>::ContainsKey(TKey)
+   IL_002f: ldc.i4.0
+   IL_0030: ceq
+   IL_0032: stloc.3
+   IL_0033: ldloc.3
+   IL_0034: brfalse.s IL_0049
+   IL_0036: ldarg.0
+   IL_0037: ldfld System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes> Celeste.Mod.SkinModHelper.HairConfig::_HairAttrWithDashes
+   IL_003c: ldloc.1
+   IL_003d: ldloc.1
+   IL_003e: newobj System.Void Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes::.ctor(System.Int32)
+   IL_0043: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes>::set_Item(TKey,TValue)
+   IL_0048: nop
+   IL_0049: ldarg.0
+   IL_004a: ldfld System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes> Celeste.Mod.SkinModHelper.HairConfig::_HairAttrWithDashes
+   IL_004f: ldloc.1
+   IL_0050: callvirt TValue System.Collections.Generic.Dictionary`2<System.Int32,Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes>::get_Item(TKey)
+   IL_0055: ldloc.0
+   IL_0056: ldloc.1
+   IL_0057: ldelem.ref
+   IL_0058: callvirt System.Void Celeste.Mod.SkinModHelper.HairConfig/AttrWithDashes::set_Color(System.String)
+   IL_005d: nop
+   IL_005e: nop
+   IL_005f: ldloc.1
+   IL_0060: ldc.i4.1
+   IL_0061: add
+   IL_0062: stloc.1
+   IL_0063: ldloc.1
+   IL_0064: ldloc.0
+   IL_0065: ldlen
+   IL_0066: conv.i4
+   IL_0067: clt
+   IL_0069: stloc.s V_4
+   IL_006b: ldloc.s V_4
+   IL_006d: brtrue.s IL_000f
+   IL_006f: ret

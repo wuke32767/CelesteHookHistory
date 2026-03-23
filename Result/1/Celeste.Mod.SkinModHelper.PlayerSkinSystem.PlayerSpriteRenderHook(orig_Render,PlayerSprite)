@@ -1,0 +1,103 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0007: stloc.0
+   IL_0008: ldloc.0
+   IL_0009: isinst Celeste.Player
+   IL_000e: brtrue.s IL_001a
+   IL_0010: ldloc.0
+   IL_0011: isinst Celeste.PlayerDeadBody
+   IL_0016: brtrue.s IL_001a
+   IL_0018: br.s IL_001e
+   IL_001a: ldc.i4.1
+   IL_001b: stloc.1
+   IL_001c: br.s IL_0020
+   IL_001e: ldc.i4.0
+   IL_001f: stloc.1
+   IL_0020: ldloc.1
+   IL_0021: brtrue.s IL_0038
+   IL_0023: ldarg.1
+   IL_0024: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
+   IL_0029: ldstr "isGhost"
+   IL_002e: callvirt System.Object MonoMod.Utils.DynamicData::Get(System.String)
+   IL_0033: ldnull
+   IL_0034: ceq
+   IL_0036: br.s IL_0039
+   IL_0038: ldc.i4.0
+   IL_0039: stloc.2
+   IL_003a: ldloc.2
+   IL_003b: brfalse IL_00f0
+   IL_0040: nop
+   IL_0041: ldarg.1
+   IL_0042: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0047: dup
+   IL_0048: brtrue.s IL_004e
+   IL_004a: pop
+   IL_004b: ldnull
+   IL_004c: br.s IL_0053
+   IL_004e: callvirt T Monocle.Entity::Get<Celeste.PlayerHair>()
+   IL_0053: stloc.3
+   IL_0054: ldloc.3
+   IL_0055: brtrue.s IL_005a
+   IL_0057: ldnull
+   IL_0058: br.s IL_0065
+   IL_005a: ldloc.3
+   IL_005b: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_0060: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0065: ldarg.1
+   IL_0066: ceq
+   IL_0068: stloc.s V_4
+   IL_006a: ldloc.s V_4
+   IL_006c: brfalse IL_00ef
+   IL_0071: nop
+   IL_0072: ldarg.1
+   IL_0073: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
+   IL_0078: stloc.s V_5
+   IL_007a: ldloc.s V_5
+   IL_007c: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.SkinModHelper.CharacterConfig::get_SilhouetteMode()
+   IL_0081: stloc.s V_7
+   IL_0083: ldc.i4.1
+   IL_0084: stloc.1
+   IL_0085: ldloca.s V_7
+   IL_0087: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_008c: ldloc.1
+   IL_008d: ceq
+   IL_008f: ldloca.s V_7
+   IL_0091: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0096: and
+   IL_0097: stloc.s V_6
+   IL_0099: ldloc.s V_6
+   IL_009b: brfalse.s IL_00b6
+   IL_009d: ldarg.1
+   IL_009e: ldloc.3
+   IL_009f: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_00a4: ldloc.3
+   IL_00a5: ldfld System.Single Celeste.PlayerHair::Alpha
+   IL_00aa: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00af: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00b4: br.s IL_00ee
+   IL_00b6: ldarg.1
+   IL_00b7: ldfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00bc: ldloc.3
+   IL_00bd: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_00c2: ldloc.3
+   IL_00c3: ldfld System.Single Celeste.PlayerHair::Alpha
+   IL_00c8: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00cd: call System.Boolean Microsoft.Xna.Framework.Color::op_Equality(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_00d2: stloc.s V_8
+   IL_00d4: ldloc.s V_8
+   IL_00d6: brfalse.s IL_00ee
+   IL_00d8: ldarg.1
+   IL_00d9: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00de: ldloc.3
+   IL_00df: ldfld System.Single Celeste.PlayerHair::Alpha
+   IL_00e4: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00e9: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00ee: nop
+   IL_00ef: nop
+   IL_00f0: ldarg.0
+   IL_00f1: ldarg.1
+   IL_00f2: callvirt System.Void On.Celeste.PlayerSprite/orig_Render::Invoke(Celeste.PlayerSprite)
+   IL_00f7: nop
+   IL_00f8: ret

@@ -1,0 +1,17 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomTrackSpinnerOnPlayer(orig_OnPlayer,TrackSpinner,Player)
+On: Celeste.Mod.AdamsAddons.Entities.Controllers.UnstoppableSpinnerController.modOnPlayer(orig_OnPlayer,TrackSpinner,Player)
+   IL_0000: ldarg.1
+   IL_0001: ldarg.1
+   IL_0002: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0007: ldarg.0
+   IL_0008: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0012: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_0017: ldc.i4.0
+   IL_0018: ldc.i4.1
+   IL_0019: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_001e: brfalse.s IL_0027
+   IL_0020: ldarg.0
+   IL_0021: ldc.i4.0
+   IL_0022: stfld System.Boolean Celeste.TrackSpinner::Moving
+   IL_0027: ret

@@ -1,0 +1,17 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modOuiChapterPanelStart(orig_Start,OuiChapterPanel,String)
+On: Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.OnOuiChapterPanelStart(orig_Start,OuiChapterPanel,String)
+On: Celeste.Mod.AurorasAdditions.AurorasAdditionsModule.OuiChapterPanel_Start(orig_Start,OuiChapterPanel,String)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.0
+   IL_0002: stfld System.Boolean Celeste.Oui::Focused
+   IL_0007: ldstr "event:/ui/world_map/chapter/checkpoint_start"
+   IL_000c: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_0011: pop
+   IL_0012: ldarg.0
+   IL_0013: ldarg.0
+   IL_0014: ldarg.1
+   IL_0015: callvirt System.Collections.IEnumerator Celeste.OuiChapterPanel::StartRoutine(System.String)
+   IL_001a: ldc.i4.1
+   IL_001b: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0020: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0025: ret

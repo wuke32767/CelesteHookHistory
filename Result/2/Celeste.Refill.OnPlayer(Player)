@@ -1,0 +1,36 @@
+On: .PL_VirtualRedir<Celeste.Refill::OnPlayer>?58238238(Refill,Player)
+On: Celeste.Mod.DJMapHelper.Entities.ColorfulRefill.RefillOnPlayer(orig_OnPlayer,Refill,Player)
+On: vitmod.CustomWindController.Refill_OnPlayer(orig_OnPlayer,Refill,Player)
+On: Celeste.Mod.MaymayHelper.RecallRefill.OnPlayer(orig_OnPlayer,Refill,Player)
+   IL_0000: ldarg.1
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Boolean Celeste.Refill::twoDashes
+   IL_0007: callvirt System.Boolean Celeste.Player::UseRefill(System.Boolean)
+   IL_000c: brfalse.s IL_005a
+   IL_000e: ldarg.0
+   IL_000f: ldfld System.Boolean Celeste.Refill::twoDashes
+   IL_0014: brtrue.s IL_001d
+   IL_0016: ldstr "event:/game/general/diamond_touch"
+   IL_001b: br.s IL_0022
+   IL_001d: ldstr "event:/new_content/game/10_farewell/pinkdiamond_touch"
+   IL_0022: ldarg.0
+   IL_0023: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0028: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_002d: pop
+   IL_002e: ldc.i4.1
+   IL_002f: ldc.i4.1
+   IL_0030: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0035: ldarg.0
+   IL_0036: ldc.i4.0
+   IL_0037: stfld System.Boolean Monocle.Entity::Collidable
+   IL_003c: ldarg.0
+   IL_003d: ldarg.0
+   IL_003e: ldarg.1
+   IL_003f: callvirt System.Collections.IEnumerator Celeste.Refill::RefillRoutine(Celeste.Player)
+   IL_0044: ldc.i4.1
+   IL_0045: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_004a: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_004f: ldarg.0
+   IL_0050: ldc.r4 2.5
+   IL_0055: stfld System.Single Celeste.Refill::respawnTimer
+   IL_005a: ret

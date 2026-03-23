@@ -1,0 +1,42 @@
+On: AltSidesHelper.AltSidesHelperModule.ReturnToAltSide(orig_IsStart,OuiChapterSelect,Overworld,StartMode)
+   IL_0000: ldarg.2
+   IL_0001: ldc.i4.2
+   IL_0002: beq.s IL_0008
+   IL_0004: ldarg.2
+   IL_0005: ldc.i4.3
+   IL_0006: bne.un.s IL_0058
+   IL_0008: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_000d: ldflda Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_0012: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0017: call Celeste.AreaData Celeste.AreaData::Get(System.Int32)
+   IL_001c: stloc.0
+   IL_001d: ldloc.0
+   IL_001e: brtrue.s IL_0023
+   IL_0020: ldnull
+   IL_0021: br.s IL_0035
+   IL_0023: ldloc.0
+   IL_0024: ldfld Celeste.Mod.Meta.MapMeta Celeste.AreaData::Meta
+   IL_0029: dup
+   IL_002a: brtrue.s IL_0030
+   IL_002c: pop
+   IL_002d: ldnull
+   IL_002e: br.s IL_0035
+   IL_0030: callvirt System.String Celeste.Mod.Meta.MapMeta::get_Parent()
+   IL_0035: call Celeste.AreaData Celeste.AreaData::Get(System.String)
+   IL_003a: dup
+   IL_003b: brtrue.s IL_003f
+   IL_003d: pop
+   IL_003e: ldloc.0
+   IL_003f: stloc.0
+   IL_0040: ldloc.0
+   IL_0041: brfalse.s IL_0058
+   IL_0043: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0048: ldflda Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_004d: ldloc.0
+   IL_004e: ldfld System.Int32 Celeste.AreaData::ID
+   IL_0053: stfld System.Int32 Celeste.AreaKey::ID
+   IL_0058: ldarg.0
+   IL_0059: ldarg.1
+   IL_005a: ldarg.2
+   IL_005b: callvirt System.Boolean Celeste.OuiChapterSelect::orig_IsStart(Celeste.Overworld,Celeste.Overworld/StartMode)
+   IL_0060: ret

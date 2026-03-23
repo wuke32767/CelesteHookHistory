@@ -1,0 +1,21 @@
+On: Celeste.Mod.SpeedrunTool.DeathStatistics.DeathStatisticsManager.UpdateTimerStateOnTouchFlag(orig_SetFlag,Session,String,Boolean)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.Session_SetFlag(orig_SetFlag,Session,String,Boolean)
+On: BrokemiaHelper.CelesteNetFlagSynchronizer.Session_SetFlag(orig_SetFlag,Session,String,Boolean)
+On: Bitsbolts.Entities.SaveDataFlagSync.OnSessionSetFlag(orig_SetFlag,Session,String,Boolean)
+On: Bitsbolts.Components.FlagstrListener.OnSessionSetFlag(orig_SetFlag,Session,String,Boolean)
+On: Celeste.Mod.auspicioushelper.ChannelState.Hook(orig_SetFlag,Session,String,Boolean)
+On: TAS.EverestInterop.AreaCompleteInfo.SessionOnSetFlag(orig_SetFlag,Session,String,Boolean)
+   IL_0000: ldarg.2
+   IL_0001: brfalse.s IL_0011
+   IL_0003: ldarg.0
+   IL_0004: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.Session::Flags
+   IL_0009: ldarg.1
+   IL_000a: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Add(T)
+   IL_000f: pop
+   IL_0010: ret
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Collections.Generic.HashSet`1<System.String> Celeste.Session::Flags
+   IL_0017: ldarg.1
+   IL_0018: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Remove(T)
+   IL_001d: pop
+   IL_001e: ret

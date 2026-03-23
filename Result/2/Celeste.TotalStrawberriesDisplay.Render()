@@ -1,0 +1,47 @@
+On: Celeste.Mod.XaphanHelper.Controllers.MetroidGameplayController.onTotalStrawberriesDisplayRender(orig_Render,TotalStrawberriesDisplay)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.MTexture Celeste.TotalStrawberriesDisplay::bg
+   IL_0006: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_000b: neg
+   IL_000c: conv.r4
+   IL_000d: ldarg.0
+   IL_000e: call System.Single Monocle.Entity::get_Y()
+   IL_0013: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0018: ldc.r4 32
+   IL_001d: ldarg.0
+   IL_001e: call System.Single Monocle.Entity::get_Y()
+   IL_0023: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0028: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_002d: ldarg.0
+   IL_002e: ldfld System.Single Celeste.TotalStrawberriesDisplay::DrawLerp
+   IL_0033: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0038: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::Lerp(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_003d: stloc.0
+   IL_003e: ldloc.0
+   IL_003f: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Round(Microsoft.Xna.Framework.Vector2)
+   IL_0044: stloc.0
+   IL_0045: ldarg.0
+   IL_0046: ldfld Monocle.MTexture Celeste.TotalStrawberriesDisplay::bg
+   IL_004b: ldloc.0
+   IL_004c: ldc.r4 -96
+   IL_0051: ldc.r4 12
+   IL_0056: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_005b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0060: ldc.r4 0
+   IL_0065: ldc.r4 0.5
+   IL_006a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_006f: callvirt System.Void Monocle.MTexture::DrawJustified(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0074: ldarg.0
+   IL_0075: ldfld Celeste.StrawberriesCounter Celeste.TotalStrawberriesDisplay::strawberries
+   IL_007a: ldloc.0
+   IL_007b: ldc.r4 0
+   IL_0080: ldarg.0
+   IL_0081: call System.Single Monocle.Entity::get_Y()
+   IL_0086: neg
+   IL_0087: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_008c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0091: stfld Microsoft.Xna.Framework.Vector2 Celeste.StrawberriesCounter::Position
+   IL_0096: ldarg.0
+   IL_0097: ldfld Celeste.StrawberriesCounter Celeste.TotalStrawberriesDisplay::strawberries
+   IL_009c: callvirt System.Void Monocle.Component::Render()
+   IL_00a1: ret

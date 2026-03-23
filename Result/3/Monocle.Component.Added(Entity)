@@ -1,0 +1,13 @@
+On: Celeste.Mod.Procedurline.SpriteManager.ComponentAddedHook(orig_Added,Component,Entity)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: callvirt System.Void Monocle.Component::set_Entity(Monocle.Entity)
+   IL_0007: ldarg.0
+   IL_0008: callvirt Monocle.Scene Monocle.Component::get_Scene()
+   IL_000d: brfalse.s IL_0020
+   IL_000f: ldarg.0
+   IL_0010: callvirt Monocle.Scene Monocle.Component::get_Scene()
+   IL_0015: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_001a: ldarg.0
+   IL_001b: callvirt System.Void Monocle.Tracker::ComponentAdded(Monocle.Component)
+   IL_0020: ret

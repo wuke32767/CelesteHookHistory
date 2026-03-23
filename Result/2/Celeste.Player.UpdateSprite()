@@ -1,0 +1,45 @@
+On: Celeste.Mod.Spirialis.TimePlayerSettings.CustomUpdateSprite(orig_UpdateSprite,Player)
+On: FrostHelper.FrostModule.Player_UpdateSprite(orig_UpdateSprite,Player)
+On: Celeste.Mod.XaphanHelper.Controllers.MetroidGameplayController.onPlayerUpdateSprite(orig_UpdateSprite,Player)
+On: BrokemiaHelper.TronState.Player_UpdateSprite(orig_UpdateSprite,Player)
+On: Celeste.Mod.CommunalHelper.States.Elytra.Mod_Player_UpdateSprite(orig_UpdateSprite,Player)
+On: Celeste.Mod.CommunalHelper.Triggers.PlayerVisualModifier.Player_UpdateSprite(orig_UpdateSprite,Player)
+On: Celeste.Mod.Aqua.Core.PlayerStates.Player_UpdateSprite(orig_UpdateSprite,Player)
+On: ExtendedVariants.Variants.PickupDuration.onUpdateSprite(orig_UpdateSprite,Player)
+On: Celeste.Mod.ReverseHelper.Entities.ZiplineZipmover.UpdatePlayerVisuals(orig_UpdateSprite,Player)
+On: Celeste.Mod.Kelper.Mechanics.Nail.Player_UpdateSprite(orig_UpdateSprite,Player)
+On: Celeste.Mod.IsaGrabBag.ZipLine.UpdatePlayerVisuals(orig_UpdateSprite,Player)
+IL: FrostHelper.CustomFeather.modFeatherState(ILContext)
+IL: YoctoHelper.Hooks.FastFallColliderHook.FastFallCollider(ILContext)
+ + IL_10000: ldarg.0 @ YoctoHelper.Hooks.FastFallColliderHook.FastFallCollider(ILContext)
+ + IL_10001: ldc.i4 0 @ YoctoHelper.Hooks.FastFallColliderHook.FastFallCollider(ILContext)
+ + IL_10002: ldc.i4 0 @ YoctoHelper.Hooks.FastFallColliderHook.FastFallCollider(ILContext)
+ + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ YoctoHelper.Hooks.FastFallColliderHook.FastFallCollider(ILContext)
+       => Invoke: YoctoHelper.Hooks.FastFallColliderHook.UpdateFastFallCollider(Player)
+ + IL_10004: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ YoctoHelper.Hooks.FastFallColliderHook.FastFallCollider(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.Player::orig_UpdateSprite()
+   IL_0006: ldarg.0
+   IL_0007: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_000c: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_0011: ldc.i4.s 15
+   IL_0013: beq.s IL_0024
+   IL_0015: ldarg.0
+   IL_0016: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_001b: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_0020: ldc.i4.s 19
+ + IL_10005: ldarg.0 @ FrostHelper.CustomFeather.modFeatherState(ILContext)
+ + IL_10006: call System.Int32 FrostHelper.FrostModule::GetFeatherState(System.Int32,Celeste.Player) @ FrostHelper.CustomFeather.modFeatherState(ILContext)
+   IL_0022: bne.un.s IL_004d
+   IL_0024: ldarg.0
+   IL_0025: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_002a: ldarg.0
+   IL_002b: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0030: ldfld System.Single Monocle.Sprite::Rate
+   IL_0035: ldc.r4 0
+   IL_003a: blt.s IL_0043
+   IL_003c: ldc.r4 1
+   IL_0041: br.s IL_0048
+   IL_0043: ldc.r4 -1
+   IL_0048: stfld System.Single Monocle.Sprite::Rate
+   IL_004d: ret

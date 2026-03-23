@@ -1,0 +1,80 @@
+On: Celeste.Mod.Aqua.Core.MoveBlockExtensions.MoveBlock_UpdateColors(orig_UpdateColors,MoveBlock)
+   IL_0000: ldsfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::idleBgFill
+   IL_0005: stloc.0
+   IL_0006: ldarg.0
+   IL_0007: ldfld Celeste.MoveBlock/MovementState Celeste.MoveBlock::state
+   IL_000c: ldc.i4.1
+   IL_000d: bne.un.s IL_0017
+   IL_000f: ldsfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::pressedBgFill
+   IL_0014: stloc.0
+   IL_0015: br.s IL_0026
+   IL_0017: ldarg.0
+   IL_0018: ldfld Celeste.MoveBlock/MovementState Celeste.MoveBlock::state
+   IL_001d: ldc.i4.2
+   IL_001e: bne.un.s IL_0026
+   IL_0020: ldsfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::breakingBgFill
+   IL_0025: stloc.0
+   IL_0026: ldarg.0
+   IL_0027: ldarg.0
+   IL_0028: ldfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::fillColor
+   IL_002d: ldloc.0
+   IL_002e: ldc.r4 10
+   IL_0033: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0038: mul
+   IL_0039: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_003e: stfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::fillColor
+   IL_0043: ldarg.0
+   IL_0044: ldfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::topButton
+   IL_0049: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Image>::GetEnumerator()
+   IL_004e: stloc.1
+   IL_004f: br.s IL_0063
+   IL_0051: ldloca.s V_1
+   IL_0053: call T System.Collections.Generic.List`1/Enumerator<Monocle.Image>::get_Current()
+   IL_0058: ldarg.0
+   IL_0059: ldfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::fillColor
+   IL_005e: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0063: ldloca.s V_1
+   IL_0065: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Image>::MoveNext()
+   IL_006a: brtrue.s IL_0051
+   IL_006c: leave.s IL_007c
+   IL_006e: ldloca.s V_1
+   IL_0070: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Image>
+   IL_0076: callvirt System.Void System.IDisposable::Dispose()
+   IL_007b: endfinally
+   IL_007c: ldarg.0
+   IL_007d: ldfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::leftButton
+   IL_0082: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Image>::GetEnumerator()
+   IL_0087: stloc.1
+   IL_0088: br.s IL_009c
+   IL_008a: ldloca.s V_1
+   IL_008c: call T System.Collections.Generic.List`1/Enumerator<Monocle.Image>::get_Current()
+   IL_0091: ldarg.0
+   IL_0092: ldfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::fillColor
+   IL_0097: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_009c: ldloca.s V_1
+   IL_009e: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Image>::MoveNext()
+   IL_00a3: brtrue.s IL_008a
+   IL_00a5: leave.s IL_00b5
+   IL_00a7: ldloca.s V_1
+   IL_00a9: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Image>
+   IL_00af: callvirt System.Void System.IDisposable::Dispose()
+   IL_00b4: endfinally
+   IL_00b5: ldarg.0
+   IL_00b6: ldfld System.Collections.Generic.List`1<Monocle.Image> Celeste.MoveBlock::rightButton
+   IL_00bb: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Image>::GetEnumerator()
+   IL_00c0: stloc.1
+   IL_00c1: br.s IL_00d5
+   IL_00c3: ldloca.s V_1
+   IL_00c5: call T System.Collections.Generic.List`1/Enumerator<Monocle.Image>::get_Current()
+   IL_00ca: ldarg.0
+   IL_00cb: ldfld Microsoft.Xna.Framework.Color Celeste.MoveBlock::fillColor
+   IL_00d0: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00d5: ldloca.s V_1
+   IL_00d7: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Image>::MoveNext()
+   IL_00dc: brtrue.s IL_00c3
+   IL_00de: leave.s IL_00ee
+   IL_00e0: ldloca.s V_1
+   IL_00e2: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Image>
+   IL_00e8: callvirt System.Void System.IDisposable::Dispose()
+   IL_00ed: endfinally
+   IL_00ee: ret

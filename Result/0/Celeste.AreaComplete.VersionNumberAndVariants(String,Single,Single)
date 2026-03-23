@@ -1,0 +1,111 @@
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_AreaCompleteVerNumVars(orig_VersionNumberAndVariants,String,Single,Single)
+On: Celeste.Mod.Randomizer.RandoModule.AreaCompleteDrawHash(orig_VersionNumberAndVariants,String,Single,Single)
+On: ExtendedVariants.Module.ExtendedVariantsModule.modVersionNumberAndVariants(orig_VersionNumberAndVariants,String,Single,Single)
+   IL_0000: ldsfld System.Single Celeste.AreaComplete::everestTime
+   IL_0005: call System.Single Monocle.Engine::get_RawDeltaTime()
+   IL_000a: add
+   IL_000b: stsfld System.Single Celeste.AreaComplete::everestTime
+   IL_0010: ldsfld System.String Celeste.AreaComplete::versionFull
+   IL_0015: ldarg.1
+   IL_0016: ldarg.2
+   IL_0017: call System.Void Celeste.AreaComplete::orig_VersionNumberAndVariants(System.String,System.Single,System.Single)
+   IL_001c: ldsfld Microsoft.Xna.Framework.Graphics.Texture2D Celeste.AreaComplete::identicon
+   IL_0021: brtrue.s IL_0024
+   IL_0023: ret
+   IL_0024: ldsfld System.Single Celeste.AreaComplete::everestTime
+   IL_0029: pop
+   IL_002a: ldc.r4 0.06283186
+   IL_002f: ldsfld System.Single Celeste.AreaComplete::everestTime
+   IL_0034: ldc.r4 0.8
+   IL_0039: mul
+   IL_003a: conv.r8
+   IL_003b: call System.Double System.Math::Sin(System.Double)
+   IL_0040: conv.r4
+   IL_0041: mul
+   IL_0042: stloc.0
+   IL_0043: ldloca.s V_1
+   IL_0045: ldc.r4 1920
+   IL_004a: ldsfld System.Boolean Celeste.AreaComplete::isPieScreen
+   IL_004f: brtrue.s IL_0058
+   IL_0051: ldc.r4 0.5
+   IL_0056: br.s IL_005d
+   IL_0058: ldc.r4 0.05
+   IL_005d: mul
+   IL_005e: ldc.r4 930
+   IL_0063: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0068: ldsfld Microsoft.Xna.Framework.Graphics.Texture2D Celeste.AreaComplete::identicon
+   IL_006d: callvirt Microsoft.Xna.Framework.Rectangle Microsoft.Xna.Framework.Graphics.Texture2D::get_Bounds()
+   IL_0072: stloc.2
+   IL_0073: ldloca.s V_2
+   IL_0075: ldc.i4.2
+   IL_0076: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_007b: ldc.i4.0
+   IL_007c: stloc.3
+   IL_007d: br IL_012b
+   IL_0082: ldloca.s V_4
+   IL_0084: ldsfld Microsoft.Xna.Framework.Graphics.Texture2D Celeste.AreaComplete::identicon
+   IL_0089: callvirt System.Int32 Microsoft.Xna.Framework.Graphics.Texture2D::get_Width()
+   IL_008e: conv.r4
+   IL_008f: ldc.r4 0.5
+   IL_0094: mul
+   IL_0095: ldc.r8 2.5
+   IL_009e: ldc.r8 2.5
+   IL_00a7: ldsfld System.Single Celeste.AreaComplete::everestTime
+   IL_00ac: ldc.r4 0.12
+   IL_00b1: ldloc.3
+   IL_00b2: conv.r4
+   IL_00b3: mul
+   IL_00b4: add
+   IL_00b5: conv.r8
+   IL_00b6: call System.Double System.Math::Sin(System.Double)
+   IL_00bb: mul
+   IL_00bc: add
+   IL_00bd: call System.Double System.Math::Round(System.Double)
+   IL_00c2: conv.r4
+   IL_00c3: add
+   IL_00c4: ldc.i4.2
+   IL_00c5: ldloc.3
+   IL_00c6: neg
+   IL_00c7: mul
+   IL_00c8: conv.r4
+   IL_00c9: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00ce: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_00d3: ldsfld Microsoft.Xna.Framework.Graphics.Texture2D Celeste.AreaComplete::identicon
+   IL_00d8: ldloc.1
+   IL_00d9: ldloc.2
+   IL_00da: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_00df: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00e4: ldarg.1
+   IL_00e5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00ea: ldloc.0
+   IL_00eb: ldloc.s V_4
+   IL_00ed: ldc.r4 1
+   IL_00f2: ldc.i4.0
+   IL_00f3: ldc.r4 0
+   IL_00f8: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)
+   IL_00fd: ldloc.3
+   IL_00fe: ldc.i4.1
+   IL_00ff: add
+   IL_0100: stloc.3
+   IL_0101: ldloca.s V_2
+   IL_0103: ldflda System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0108: dup
+   IL_0109: ldind.i4
+   IL_010a: ldc.i4.2
+   IL_010b: add
+   IL_010c: stind.i4
+   IL_010d: ldloca.s V_2
+   IL_010f: ldc.i4.2
+   IL_0110: ldsfld Microsoft.Xna.Framework.Graphics.Texture2D Celeste.AreaComplete::identicon
+   IL_0115: callvirt System.Int32 Microsoft.Xna.Framework.Graphics.Texture2D::get_Height()
+   IL_011a: ldloc.2
+   IL_011b: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0120: sub
+   IL_0121: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0126: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_012b: ldloc.2
+   IL_012c: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0131: ldsfld Microsoft.Xna.Framework.Graphics.Texture2D Celeste.AreaComplete::identicon
+   IL_0136: callvirt System.Int32 Microsoft.Xna.Framework.Graphics.Texture2D::get_Height()
+   IL_013b: blt IL_0082
+   IL_0140: ret

@@ -1,0 +1,65 @@
+On: Celeste.Mod.MaxHelpingHand.Module.VivHelperGrowBlockFixup.fixupGrowBlockTileGrid(Action`2,Solid,Scene)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.1
+   IL_0003: call System.Void Celeste.Solid::Awake(Monocle.Scene)
+   IL_0008: nop
+   IL_0009: ldarg.1
+   IL_000a: isinst Celeste.Level
+   IL_000f: stloc.0
+   IL_0010: ldloc.0
+   IL_0011: ldnull
+   IL_0012: cgt.un
+   IL_0014: stloc.1
+   IL_0015: ldloc.1
+   IL_0016: brfalse.s IL_001f
+   IL_0018: ldarg.0
+   IL_0019: ldloc.0
+   IL_001a: stfld Celeste.Level VivHelper.Entities.GrowBlock::level
+   IL_001f: ldarg.0
+   IL_0020: ldarg.0
+   IL_0021: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_0026: ldarg.0
+   IL_0027: ldfld System.Char VivHelper.Entities.GrowBlock::tileType
+   IL_002c: ldarg.0
+   IL_002d: ldfld System.Single VivHelper.Entities.GrowBlock::width
+   IL_0032: conv.i4
+   IL_0033: ldc.i4.8
+   IL_0034: div
+   IL_0035: ldarg.0
+   IL_0036: ldfld System.Single VivHelper.Entities.GrowBlock::height
+   IL_003b: conv.i4
+   IL_003c: ldc.i4.8
+   IL_003d: div
+   IL_003e: callvirt Celeste.Autotiler/Generated Celeste.Autotiler::GenerateBox(System.Char,System.Int32,System.Int32)
+   IL_0043: ldfld Monocle.TileGrid Celeste.Autotiler/Generated::TileGrid
+   IL_0048: dup
+   IL_0049: stloc.2
+   IL_004a: stfld Monocle.TileGrid VivHelper.Entities.GrowBlock::tileGrid
+   IL_004f: ldloc.2
+   IL_0050: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0055: nop
+   IL_0056: ldarg.0
+   IL_0057: ldarg.0
+   IL_0058: ldc.r4 1
+   IL_005d: newobj System.Void Celeste.LightOcclude::.ctor(System.Single)
+   IL_0062: dup
+   IL_0063: stloc.3
+   IL_0064: stfld Celeste.LightOcclude VivHelper.Entities.GrowBlock::lightOcclude
+   IL_0069: ldloc.3
+   IL_006a: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_006f: nop
+   IL_0070: ldarg.0
+   IL_0071: callvirt System.Void VivHelper.Entities.GrowBlock::Resize()
+   IL_0076: nop
+   IL_0077: ldarg.0
+   IL_0078: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Player>()
+   IL_007d: stloc.s V_4
+   IL_007f: ldloc.s V_4
+   IL_0081: brfalse.s IL_008c
+   IL_0083: nop
+   IL_0084: ldarg.0
+   IL_0085: call System.Void Monocle.Entity::RemoveSelf()
+   IL_008a: nop
+   IL_008b: nop
+   IL_008c: ret

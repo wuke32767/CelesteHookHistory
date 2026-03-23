@@ -1,0 +1,42 @@
+On: FrostHelper.TweakManagers.TimeBasedClimbBlocker.Player_ClimbCheck(orig_ClimbCheck,Player,Int32,Int32)
+On: Celeste.Mod.XaphanHelper.UI_Elements.BagDisplay.modPlayerClimbCheck(orig_ClimbCheck,Player,Int32,Int32)
+On: Celeste.Mod.BounceHelper.BounceHelperModule.modClimbCheck(orig_ClimbCheck,Player,Int32,Int32)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: callvirt System.Boolean Celeste.Player::ClimbBoundsCheck(System.Int32)
+   IL_0007: brfalse.s IL_006b
+   IL_0009: ldarg.0
+   IL_000a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000f: ldarg.0
+   IL_0010: ldarg.0
+   IL_0011: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0016: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_001b: ldarg.2
+   IL_001c: conv.r4
+   IL_001d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0022: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0027: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_002c: ldc.r4 2
+   IL_0031: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0036: ldarg.0
+   IL_0037: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_003c: conv.r4
+   IL_003d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0042: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0047: call System.Boolean Celeste.ClimbBlocker::Check(Monocle.Scene,Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_004c: brtrue.s IL_006b
+   IL_004e: ldarg.0
+   IL_004f: ldarg.0
+   IL_0050: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0055: ldarg.1
+   IL_0056: ldc.i4.2
+   IL_0057: mul
+   IL_0058: conv.r4
+   IL_0059: ldarg.2
+   IL_005a: conv.r4
+   IL_005b: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0060: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0065: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
+   IL_006a: ret
+   IL_006b: ldc.i4.0
+   IL_006c: ret

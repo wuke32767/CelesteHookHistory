@@ -1,0 +1,24 @@
+On: Celeste.Mod.FemtoHelper.Code.Entities.ExtraHoldableInteractionsController.Bumper_Added(orig_Added,Bumper,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldarg.0
+   IL_0009: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_000e: callvirt Celeste.Session/CoreModes Celeste.Level::get_CoreMode()
+   IL_0013: ldc.i4.1
+   IL_0014: ceq
+   IL_0016: stfld System.Boolean Celeste.Bumper::fireMode
+   IL_001b: ldarg.0
+   IL_001c: ldfld Monocle.Sprite Celeste.Bumper::spriteEvil
+   IL_0021: ldarg.0
+   IL_0022: ldfld System.Boolean Celeste.Bumper::fireMode
+   IL_0027: stfld System.Boolean Monocle.Component::Visible
+   IL_002c: ldarg.0
+   IL_002d: ldfld Monocle.Sprite Celeste.Bumper::sprite
+   IL_0032: ldarg.0
+   IL_0033: ldfld System.Boolean Celeste.Bumper::fireMode
+   IL_0038: ldc.i4.0
+   IL_0039: ceq
+   IL_003b: stfld System.Boolean Monocle.Component::Visible
+   IL_0040: ret

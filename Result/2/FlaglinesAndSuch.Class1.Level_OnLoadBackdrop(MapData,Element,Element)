@@ -1,0 +1,752 @@
+IL: Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.2
+   IL_0002: ldfld System.String Celeste.BinaryPacker/Element::Name
+   IL_0007: stloc.2
+   IL_0008: ldloc.2
+   IL_0009: stloc.1
+   IL_000a: ldloc.1
+   IL_000b: brfalse IL_0a63
+   IL_0010: ldloc.1
+   IL_0011: callvirt System.Int32 System.String::get_Length()
+   IL_0016: stloc.3
+   IL_0017: ldloc.3
+   IL_0018: ldc.i4.s 30
+   IL_001a: sub
+   IL_001b: switch IL_0051,IL_0079,IL_00f0,IL_009c,IL_016e,IL_012f,IL_0a63,IL_0a63,IL_0105,IL_0a63,IL_011a
+   IL_004c: br IL_0a63
+   IL_0051: ldloc.1
+   IL_0052: ldc.i4.s 17
+   IL_0054: callvirt System.Char System.String::get_Chars(System.Int32)
+   IL_0059: stloc.s V_4
+   IL_005b: ldloc.s V_4
+   IL_005d: ldc.i4.s 80
+   IL_005f: beq IL_00db
+   IL_0064: br.s IL_0066
+   IL_0066: ldloc.s V_4
+   IL_0068: ldc.i4.s 86
+   IL_006a: beq.s IL_00c6
+   IL_006c: br.s IL_006e
+   IL_006e: ldloc.s V_4
+   IL_0070: ldc.i4.s 99
+   IL_0072: beq.s IL_00b1
+   IL_0074: br IL_0a63
+   IL_0079: ldloc.1
+   IL_007a: ldc.i4.s 17
+   IL_007c: callvirt System.Char System.String::get_Chars(System.Int32)
+   IL_0081: stloc.s V_4
+   IL_0083: ldloc.s V_4
+   IL_0085: ldc.i4.s 80
+   IL_0087: beq IL_0144
+   IL_008c: br.s IL_008e
+   IL_008e: ldloc.s V_4
+   IL_0090: ldc.i4.s 82
+   IL_0092: beq IL_0159
+   IL_0097: br IL_0a63
+   IL_009c: ldloc.1
+   IL_009d: ldstr "FlaglinesAndSuch/customDreamStars"
+   IL_00a2: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_00a7: brtrue IL_0183
+   IL_00ac: br IL_0a63
+   IL_00b1: ldloc.1
+   IL_00b2: ldstr "FlaglinesAndSuch/customGodrays"
+   IL_00b7: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_00bc: brtrue IL_022a
+   IL_00c1: br IL_0a63
+   IL_00c6: ldloc.1
+   IL_00c7: ldstr "FlaglinesAndSuch/VaporwaveGrid"
+   IL_00cc: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_00d1: brtrue IL_0529
+   IL_00d6: br IL_0a63
+   IL_00db: ldloc.1
+   IL_00dc: ldstr "FlaglinesAndSuch/PolygonEffect"
+   IL_00e1: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_00e6: brtrue IL_089e
+   IL_00eb: br IL_0a63
+   IL_00f0: ldloc.1
+   IL_00f1: ldstr "FlaglinesAndSuch/customBossField"
+   IL_00f6: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_00fb: brtrue IL_0324
+   IL_0100: br IL_0a63
+   IL_0105: ldloc.1
+   IL_0106: ldstr "FlaglinesAndSuch/SummitBoostBackground"
+   IL_010b: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0110: brtrue IL_042e
+   IL_0115: br IL_0a63
+   IL_011a: ldloc.1
+   IL_011b: ldstr "FlaglinesAndSuch/SineParallaxStyleground"
+   IL_0120: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0125: brtrue IL_05bf
+   IL_012a: br IL_0a63
+   IL_012f: ldloc.1
+   IL_0130: ldstr "FlaglinesAndSuch/GeometricBlackhole"
+   IL_0135: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_013a: brtrue IL_07d8
+   IL_013f: br IL_0a63
+   IL_0144: ldloc.1
+   IL_0145: ldstr "FlaglinesAndSuch/PolygonEffect2"
+   IL_014a: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_014f: brtrue IL_094e
+   IL_0154: br IL_0a63
+   IL_0159: ldloc.1
+   IL_015a: ldstr "FlaglinesAndSuch/RotParralaxTwo"
+   IL_015f: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0164: brtrue IL_0a57
+   IL_0169: br IL_0a63
+   IL_016e: ldloc.1
+   IL_016f: ldstr "FlaglinesAndSuch/PolygonEffectCube"
+   IL_0174: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0179: brtrue IL_09bc
+   IL_017e: br IL_0a63
+   IL_0183: ldarg.2
+   IL_0184: ldstr "count"
+   IL_0189: ldc.i4.s 50
+   IL_018b: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_0190: ldarg.2
+   IL_0191: ldstr "minSpeed"
+   IL_0196: ldc.r4 24
+   IL_019b: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_01a0: ldarg.2
+   IL_01a1: ldstr "maxSpeed"
+   IL_01a6: ldc.r4 48
+   IL_01ab: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_01b0: ldarg.2
+   IL_01b1: ldstr "minSize"
+   IL_01b6: ldc.r4 2
+   IL_01bb: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_01c0: ldarg.2
+   IL_01c1: ldstr "maxSize"
+   IL_01c6: ldc.r4 8
+   IL_01cb: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_01d0: ldarg.2
+   IL_01d1: ldstr "Color"
+   IL_01d6: ldstr "008080"
+   IL_01db: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_01e0: ldarg.2
+   IL_01e1: ldstr "AngleX"
+   IL_01e6: ldc.i4.s -2
+   IL_01e8: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_01ed: conv.r4
+   IL_01ee: ldarg.2
+   IL_01ef: ldstr "AngleY"
+   IL_01f4: ldc.i4.s -7
+   IL_01f6: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_01fb: conv.r4
+   IL_01fc: ldarg.2
+   IL_01fd: ldstr "Scroll"
+   IL_0202: ldc.r4 0
+   IL_0207: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_020c: ldarg.2
+   IL_020d: ldstr "shape"
+   IL_0212: ldstr ""
+   IL_0217: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_021c: newobj System.Void FlaglinesAndSuch.customDreamStars::.ctor(System.Int32,System.Single,System.Single,System.Single,System.Single,System.String,System.Single,System.Single,System.Single,System.String)
+   IL_0221: stloc.0
+   IL_0222: ldloc.0
+   IL_0223: stloc.s V_5
+   IL_0225: br IL_0a68
+   IL_022a: ldarg.2
+   IL_022b: ldstr "min_width"
+   IL_0230: ldc.i4.0
+   IL_0231: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_0236: ldarg.2
+   IL_0237: ldstr "max_width"
+   IL_023c: ldc.i4.0
+   IL_023d: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_0242: ldarg.2
+   IL_0243: ldstr "min_length"
+   IL_0248: ldc.i4.0
+   IL_0249: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_024e: ldarg.2
+   IL_024f: ldstr "max_length"
+   IL_0254: ldc.i4.0
+   IL_0255: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_025a: ldarg.2
+   IL_025b: ldstr "Duration_base"
+   IL_0260: ldc.r4 0
+   IL_0265: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_026a: ldarg.2
+   IL_026b: ldstr "Duration_variance"
+   IL_0270: ldc.r4 0
+   IL_0275: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_027a: ldarg.2
+   IL_027b: ldstr "ray_color_alpha"
+   IL_0280: ldc.r4 0
+   IL_0285: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_028a: ldarg.2
+   IL_028b: ldstr "ray_color"
+   IL_0290: ldstr "f52b63"
+   IL_0295: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_029a: ldarg.2
+   IL_029b: ldstr "fade_to_color"
+   IL_02a0: ldstr ""
+   IL_02a5: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_02aa: ldarg.2
+   IL_02ab: ldstr "scroll_x"
+   IL_02b0: ldc.r4 0
+   IL_02b5: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_02ba: ldarg.2
+   IL_02bb: ldstr "scroll_y"
+   IL_02c0: ldc.r4 0
+   IL_02c5: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_02ca: ldarg.2
+   IL_02cb: ldstr "speed_x"
+   IL_02d0: ldc.r4 0
+   IL_02d5: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_02da: ldarg.2
+   IL_02db: ldstr "speed_y"
+   IL_02e0: ldc.r4 0
+   IL_02e5: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_02ea: ldarg.2
+   IL_02eb: ldstr "ray_count"
+   IL_02f0: ldc.i4.0
+   IL_02f1: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_02f6: ldarg.2
+   IL_02f7: ldstr "angle_x"
+   IL_02fc: ldc.r4 0
+   IL_0301: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0306: ldarg.2
+   IL_0307: ldstr "angle_y"
+   IL_030c: ldc.r4 0
+   IL_0311: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0316: newobj System.Void FlaglinesAndSuch.CustomGodrays::.ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single,System.String,System.String,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Single,System.Single)
+   IL_031b: stloc.0
+   IL_031c: ldloc.0
+   IL_031d: stloc.s V_5
+   IL_031f: br IL_0a68
+   IL_0324: ldarg.2
+   IL_0325: ldstr "bg_color"
+   IL_032a: ldstr ""
+   IL_032f: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0334: ldarg.2
+   IL_0335: ldstr "alpha"
+   IL_033a: ldc.r4 0
+   IL_033f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0344: ldarg.2
+   IL_0345: ldstr "count"
+   IL_034a: ldc.i4.0
+   IL_034b: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_0350: ldarg.2
+   IL_0351: ldstr "particle_colors"
+   IL_0356: ldstr ""
+   IL_035b: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0360: ldarg.2
+   IL_0361: ldstr "speed_min"
+   IL_0366: ldc.r4 0
+   IL_036b: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0370: ldarg.2
+   IL_0371: ldstr "speed_max"
+   IL_0376: ldc.r4 0
+   IL_037b: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0380: ldarg.2
+   IL_0381: ldstr "pos_x_min"
+   IL_0386: ldc.i4.0
+   IL_0387: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_038c: ldarg.2
+   IL_038d: ldstr "pos_x_max"
+   IL_0392: ldc.i4.0
+   IL_0393: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_0398: ldarg.2
+   IL_0399: ldstr "pos_y_min"
+   IL_039e: ldc.i4.0
+   IL_039f: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_03a4: ldarg.2
+   IL_03a5: ldstr "pos_y_max"
+   IL_03aa: ldc.i4.0
+   IL_03ab: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_03b0: ldarg.2
+   IL_03b1: ldstr "dir_x"
+   IL_03b6: ldc.r4 0
+   IL_03bb: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_03c0: ldarg.2
+   IL_03c1: ldstr "dir_y"
+   IL_03c6: ldc.r4 0
+   IL_03cb: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_03d0: ldarg.2
+   IL_03d1: ldstr "dir_x_alt"
+   IL_03d6: ldc.r4 0
+   IL_03db: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_03e0: ldarg.2
+   IL_03e1: ldstr "dir_y_alt"
+   IL_03e6: ldc.r4 0
+   IL_03eb: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_03f0: ldarg.2
+   IL_03f1: ldstr "scroll_x"
+   IL_03f6: ldc.r4 0
+   IL_03fb: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0400: ldarg.2
+   IL_0401: ldstr "scroll_y"
+   IL_0406: ldc.r4 0
+   IL_040b: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0410: ldarg.2
+   IL_0411: ldstr "stretch_multiplier"
+   IL_0416: ldc.r4 0
+   IL_041b: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0420: newobj System.Void FlaglinesAndSuch.CustomBossField::.ctor(System.String,System.Single,System.Int32,System.String,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0425: stloc.0
+   IL_0426: ldloc.0
+   IL_0427: stloc.s V_5
+   IL_0429: br IL_0a68
+   IL_042e: ldarg.2
+   IL_042f: ldstr "draw_background"
+   IL_0434: ldc.i4.0
+   IL_0435: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_043a: ldarg.2
+   IL_043b: ldstr "draw_bars"
+   IL_0440: ldc.i4.0
+   IL_0441: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_0446: ldarg.2
+   IL_0447: ldstr "draw_streaks"
+   IL_044c: ldc.i4.0
+   IL_044d: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_0452: ldarg.2
+   IL_0453: ldstr "draw_clouds"
+   IL_0458: ldc.i4.0
+   IL_0459: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_045e: ldc.r4 0
+   IL_0463: ldarg.2
+   IL_0464: ldstr "background_color"
+   IL_0469: ldstr ""
+   IL_046e: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0473: ldarg.2
+   IL_0474: ldstr "bar_color"
+   IL_0479: ldstr ""
+   IL_047e: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0483: ldarg.2
+   IL_0484: ldstr "streak_count"
+   IL_0489: ldc.i4.0
+   IL_048a: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_048f: ldarg.2
+   IL_0490: ldstr "streak_speed_min"
+   IL_0495: ldc.r4 0
+   IL_049a: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_049f: ldarg.2
+   IL_04a0: ldstr "streak_speed_max"
+   IL_04a5: ldc.r4 0
+   IL_04aa: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_04af: ldarg.2
+   IL_04b0: ldstr "streak_colors"
+   IL_04b5: ldstr ""
+   IL_04ba: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_04bf: ldarg.2
+   IL_04c0: ldstr "streak_alpha"
+   IL_04c5: ldc.r4 0
+   IL_04ca: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_04cf: ldarg.2
+   IL_04d0: ldstr "cloud_count"
+   IL_04d5: ldc.i4.0
+   IL_04d6: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_04db: ldarg.2
+   IL_04dc: ldstr "cloud_speed_min"
+   IL_04e1: ldc.r4 0
+   IL_04e6: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_04eb: ldarg.2
+   IL_04ec: ldstr "cloud_speed_max"
+   IL_04f1: ldc.r4 0
+   IL_04f6: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_04fb: ldarg.2
+   IL_04fc: ldstr "cloud_color"
+   IL_0501: ldstr ""
+   IL_0506: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_050b: ldarg.2
+   IL_050c: ldstr "cloud_alpha"
+   IL_0511: ldc.r4 0
+   IL_0516: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_051b: newobj System.Void FlaglinesAndSuch.SummitBoostBackground::.ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Single,System.String,System.String,System.Int32,System.Single,System.Single,System.String,System.Single,System.Int32,System.Single,System.Single,System.String,System.Single)
+   IL_0520: stloc.0
+   IL_0521: ldloc.0
+   IL_0522: stloc.s V_5
+   IL_0524: br IL_0a68
+   IL_0529: ldarg.2
+   IL_052a: ldstr "color"
+   IL_052f: ldstr ""
+   IL_0534: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0539: ldarg.2
+   IL_053a: ldstr "Horizontal_lines"
+   IL_053f: ldc.i4.0
+   IL_0540: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_0545: ldarg.2
+   IL_0546: ldstr "Vertical_lines"
+   IL_054b: ldc.i4.0
+   IL_054c: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_0551: ldarg.2
+   IL_0552: ldstr "Top_Scroll"
+   IL_0557: ldc.r4 0
+   IL_055c: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0561: ldarg.2
+   IL_0562: ldstr "Bottom_Scroll"
+   IL_0567: ldc.r4 0
+   IL_056c: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0571: ldarg.2
+   IL_0572: ldstr "Top_Height"
+   IL_0577: ldc.i4.0
+   IL_0578: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_057d: ldarg.2
+   IL_057e: ldstr "view_X"
+   IL_0583: ldc.i4.0
+   IL_0584: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_0589: ldarg.2
+   IL_058a: ldstr "view_Y"
+   IL_058f: ldc.i4.0
+   IL_0590: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_0595: ldarg.2
+   IL_0596: ldstr "Flip_Y"
+   IL_059b: ldc.i4.0
+   IL_059c: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_05a1: ldarg.2
+   IL_05a2: ldstr "Speed_y"
+   IL_05a7: ldc.r4 0
+   IL_05ac: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_05b1: newobj System.Void FlaglinesAndSuch.VaporwaveGrid::.ctor(System.String,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Boolean,System.Single)
+   IL_05b6: stloc.0
+   IL_05b7: ldloc.0
+   IL_05b8: stloc.s V_5
+   IL_05ba: br IL_0a68
+   IL_05bf: ldarg.2
+   IL_05c0: ldstr "Alpha"
+   IL_05c5: callvirt System.Boolean Celeste.BinaryPacker/Element::HasAttr(System.String)
+   IL_05ca: stloc.s V_6
+   IL_05cc: ldloc.s V_6
+   IL_05ce: brfalse IL_0704
+   IL_05d3: nop
+   IL_05d4: ldarg.2
+   IL_05d5: ldstr "Texture"
+   IL_05da: ldstr ""
+   IL_05df: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_05e4: ldarg.2
+   IL_05e5: ldstr "posX"
+   IL_05ea: ldc.r4 0
+   IL_05ef: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_05f4: ldarg.2
+   IL_05f5: ldstr "posY"
+   IL_05fa: ldc.r4 0
+   IL_05ff: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0604: ldarg.2
+   IL_0605: ldstr "speedX"
+   IL_060a: ldc.r4 0
+   IL_060f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0614: ldarg.2
+   IL_0615: ldstr "speedY"
+   IL_061a: ldc.r4 0
+   IL_061f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0624: ldarg.2
+   IL_0625: ldstr "scrollX"
+   IL_062a: ldc.r4 0
+   IL_062f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0634: ldarg.2
+   IL_0635: ldstr "scrollY"
+   IL_063a: ldc.r4 0
+   IL_063f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0644: ldarg.2
+   IL_0645: ldstr "loopX"
+   IL_064a: ldc.i4.0
+   IL_064b: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_0650: ldarg.2
+   IL_0651: ldstr "loopY"
+   IL_0656: ldc.i4.0
+   IL_0657: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_065c: ldarg.2
+   IL_065d: ldstr "amplitude"
+   IL_0662: ldc.r4 0
+   IL_0667: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_066c: ldarg.2
+   IL_066d: ldstr "frequency"
+   IL_0672: ldc.r4 0
+   IL_0677: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_067c: ldarg.2
+   IL_067d: ldstr "offset"
+   IL_0682: ldc.r4 0
+   IL_0687: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_068c: ldarg.2
+   IL_068d: ldstr "SineVertically"
+   IL_0692: ldc.i4.0
+   IL_0693: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_0698: ldarg.2
+   IL_0699: ldstr "Alpha"
+   IL_069e: ldc.r4 0
+   IL_06a3: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_06a8: ldarg.2
+   IL_06a9: ldstr "BlendMode"
+   IL_06ae: ldstr ""
+   IL_06b3: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_06b8: ldarg.2
+   IL_06b9: ldstr "Color"
+   IL_06be: ldstr ""
+   IL_06c3: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_06c8: ldarg.2
+   IL_06c9: ldstr "InstantIn"
+   IL_06ce: ldc.i4.0
+   IL_06cf: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_06d4: ldarg.2
+   IL_06d5: ldstr "InstantOut"
+   IL_06da: ldc.i4.0
+   IL_06db: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_06e0: ldarg.2
+   IL_06e1: ldstr "FlipX"
+   IL_06e6: ldc.i4.0
+   IL_06e7: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_06ec: ldarg.2
+   IL_06ed: ldstr "FlipY"
+   IL_06f2: ldc.i4.0
+   IL_06f3: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+ + IL_10000: ldarg.2 @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax::isAnimatedParallax(Celeste.BinaryPacker/Element) @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+ + IL_10002: brfalse IL_06f8 @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+ + IL_10003: newobj System.Void Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax::.ctor(System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.Single,System.Single,System.Single,System.Boolean,System.Single,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean) @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+ + IL_10004: br IL_06fd @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+   IL_06f8: newobj System.Void FlaglinesAndSuch.SineParallaxStyleground::.ctor(System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.Single,System.Single,System.Single,System.Boolean,System.Single,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+   IL_06fd: stloc.0
+   IL_06fe: nop
+   IL_06ff: br IL_07d0
+   IL_0704: nop
+   IL_0705: ldarg.2
+   IL_0706: ldstr "Texture"
+   IL_070b: ldstr ""
+   IL_0710: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0715: ldarg.2
+   IL_0716: ldstr "posX"
+   IL_071b: ldc.r4 0
+   IL_0720: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0725: ldarg.2
+   IL_0726: ldstr "posY"
+   IL_072b: ldc.r4 0
+   IL_0730: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0735: ldarg.2
+   IL_0736: ldstr "speedX"
+   IL_073b: ldc.r4 0
+   IL_0740: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0745: ldarg.2
+   IL_0746: ldstr "speedY"
+   IL_074b: ldc.r4 0
+   IL_0750: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0755: ldarg.2
+   IL_0756: ldstr "scrollX"
+   IL_075b: ldc.r4 0
+   IL_0760: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0765: ldarg.2
+   IL_0766: ldstr "scrollY"
+   IL_076b: ldc.r4 0
+   IL_0770: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0775: ldarg.2
+   IL_0776: ldstr "loopX"
+   IL_077b: ldc.i4.0
+   IL_077c: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_0781: ldarg.2
+   IL_0782: ldstr "loopY"
+   IL_0787: ldc.i4.0
+   IL_0788: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_078d: ldarg.2
+   IL_078e: ldstr "amplitude"
+   IL_0793: ldc.r4 0
+   IL_0798: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_079d: ldarg.2
+   IL_079e: ldstr "frequency"
+   IL_07a3: ldc.r4 0
+   IL_07a8: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_07ad: ldarg.2
+   IL_07ae: ldstr "offset"
+   IL_07b3: ldc.r4 0
+   IL_07b8: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_07bd: ldarg.2
+   IL_07be: ldstr "SineVertically"
+   IL_07c3: ldc.i4.0
+   IL_07c4: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+ + IL_10005: ldarg.2 @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+ + IL_10006: call System.Boolean Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax::isAnimatedParallax(Celeste.BinaryPacker/Element) @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+ + IL_10007: brfalse IL_07c9 @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+ + IL_10008: newobj System.Void Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax::.ctor(System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.Single,System.Single,System.Single,System.Boolean) @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+ + IL_10009: br IL_07ce @ Celeste.Mod.MaxHelpingHand.Effects.SineAnimatedParallax.onParseBackdrop(ILContext)
+   IL_07c9: newobj System.Void FlaglinesAndSuch.SineParallaxStyleground::.ctor(System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.Single,System.Single,System.Single,System.Boolean)
+   IL_07ce: stloc.0
+   IL_07cf: nop
+   IL_07d0: ldloc.0
+   IL_07d1: stloc.s V_5
+   IL_07d3: br IL_0a68
+   IL_07d8: ldarg.2
+   IL_07d9: ldstr "shape_count"
+   IL_07de: ldc.i4.0
+   IL_07df: call System.Int32 Celeste.Mod.Extensions::AttrInt(Celeste.BinaryPacker/Element,System.String,System.Int32)
+   IL_07e4: ldarg.2
+   IL_07e5: ldstr "speed"
+   IL_07ea: ldc.r4 0
+   IL_07ef: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_07f4: ldarg.2
+   IL_07f5: ldstr "Texture"
+   IL_07fa: ldstr ""
+   IL_07ff: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0804: ldarg.2
+   IL_0805: ldstr "InnerColor"
+   IL_080a: ldstr ""
+   IL_080f: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0814: ldarg.2
+   IL_0815: ldstr "OuterColor"
+   IL_081a: ldstr ""
+   IL_081f: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0824: ldarg.2
+   IL_0825: ldstr "OuterColor2"
+   IL_082a: ldstr ""
+   IL_082f: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0834: ldarg.2
+   IL_0835: ldstr "swirlMin"
+   IL_083a: ldc.r4 0
+   IL_083f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0844: ldarg.2
+   IL_0845: ldstr "swirlMax"
+   IL_084a: ldc.r4 0
+   IL_084f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0854: ldarg.2
+   IL_0855: ldstr "swirlMinNew"
+   IL_085a: ldc.r4 0
+   IL_085f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0864: ldarg.2
+   IL_0865: ldstr "swirlMaxNew"
+   IL_086a: ldc.r4 0
+   IL_086f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0874: ldarg.2
+   IL_0875: ldstr "rotationDifference"
+   IL_087a: ldc.r4 0
+   IL_087f: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0884: ldarg.2
+   IL_0885: ldstr "reverse"
+   IL_088a: ldc.i4.0
+   IL_088b: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_0890: newobj System.Void FlaglinesAndSuch.GeometricBlackhole::.ctor(System.Int32,System.Single,System.String,System.String,System.String,System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.Boolean)
+   IL_0895: stloc.0
+   IL_0896: ldloc.0
+   IL_0897: stloc.s V_5
+   IL_0899: br IL_0a68
+   IL_089e: ldarg.2
+   IL_089f: ldstr "colors"
+   IL_08a4: callvirt System.Boolean Celeste.BinaryPacker/Element::HasAttr(System.String)
+   IL_08a9: ldc.i4.0
+   IL_08aa: ceq
+   IL_08ac: stloc.s V_7
+   IL_08ae: ldloc.s V_7
+   IL_08b0: brfalse.s IL_08f2
+   IL_08b2: nop
+   IL_08b3: ldarg.2
+   IL_08b4: ldstr "positions"
+   IL_08b9: ldstr ""
+   IL_08be: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_08c3: ldarg.2
+   IL_08c4: ldstr "color"
+   IL_08c9: ldstr ""
+   IL_08ce: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_08d3: ldarg.2
+   IL_08d4: ldstr "VisibleSide"
+   IL_08d9: ldc.i4.0
+   IL_08da: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_08df: ldc.r4 0
+   IL_08e4: ldc.r4 0
+   IL_08e9: newobj System.Void FlaglinesAndSuch.polygonEffect::.ctor(System.String,System.String,System.Boolean,System.Single,System.Single)
+   IL_08ee: stloc.0
+   IL_08ef: nop
+   IL_08f0: br.s IL_0946
+   IL_08f2: nop
+   IL_08f3: ldarg.2
+   IL_08f4: ldstr "positions"
+   IL_08f9: ldstr ""
+   IL_08fe: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0903: ldarg.2
+   IL_0904: ldstr "colors"
+   IL_0909: ldstr ""
+   IL_090e: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0913: ldarg.2
+   IL_0914: ldstr "VisibleSide"
+   IL_0919: ldc.i4.0
+   IL_091a: callvirt System.Boolean Celeste.BinaryPacker/Element::AttrBool(System.String,System.Boolean)
+   IL_091f: ldarg.2
+   IL_0920: ldstr "OffsetX"
+   IL_0925: ldc.r4 0
+   IL_092a: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_092f: ldarg.2
+   IL_0930: ldstr "OffsetY"
+   IL_0935: ldc.r4 0
+   IL_093a: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_093f: newobj System.Void FlaglinesAndSuch.polygonEffect::.ctor(System.String,System.String,System.Boolean,System.Single,System.Single)
+   IL_0944: stloc.0
+   IL_0945: nop
+   IL_0946: ldloc.0
+   IL_0947: stloc.s V_5
+   IL_0949: br IL_0a68
+   IL_094e: ldarg.2
+   IL_094f: ldstr "ObjectFilename"
+   IL_0954: ldstr ""
+   IL_0959: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_095e: ldarg.2
+   IL_095f: ldstr "graphicsFilename"
+   IL_0964: ldstr ""
+   IL_0969: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_096e: ldarg.2
+   IL_096f: ldstr "posX"
+   IL_0974: ldc.r4 0
+   IL_0979: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_097e: ldarg.2
+   IL_097f: ldstr "posY"
+   IL_0984: ldc.r4 0
+   IL_0989: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_098e: ldarg.2
+   IL_098f: ldstr "posZ"
+   IL_0994: ldc.r4 0
+   IL_0999: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_099e: ldarg.2
+   IL_099f: ldstr "scale"
+   IL_09a4: ldc.r4 0
+   IL_09a9: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_09ae: newobj System.Void FlaglinesAndSuch.polygonEffect2::.ctor(System.String,System.String,System.Single,System.Single,System.Single,System.Single)
+   IL_09b3: stloc.0
+   IL_09b4: ldloc.0
+   IL_09b5: stloc.s V_5
+   IL_09b7: br IL_0a68
+   IL_09bc: ldarg.2
+   IL_09bd: ldstr "XPos"
+   IL_09c2: ldc.r4 0
+   IL_09c7: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_09cc: ldarg.2
+   IL_09cd: ldstr "YPos"
+   IL_09d2: ldc.r4 0
+   IL_09d7: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_09dc: ldarg.2
+   IL_09dd: ldstr "ZPos"
+   IL_09e2: ldc.r4 0
+   IL_09e7: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_09ec: ldarg.2
+   IL_09ed: ldstr "Width"
+   IL_09f2: ldc.r4 0
+   IL_09f7: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_09fc: ldarg.2
+   IL_09fd: ldstr "Height"
+   IL_0a02: ldc.r4 0
+   IL_0a07: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0a0c: ldarg.2
+   IL_0a0d: ldstr "Depth"
+   IL_0a12: ldc.r4 0
+   IL_0a17: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0a1c: ldarg.2
+   IL_0a1d: ldstr "Colors"
+   IL_0a22: ldstr ""
+   IL_0a27: callvirt System.String Celeste.BinaryPacker/Element::Attr(System.String,System.String)
+   IL_0a2c: ldarg.2
+   IL_0a2d: ldstr "OffsetX"
+   IL_0a32: ldc.r4 0
+   IL_0a37: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0a3c: ldarg.2
+   IL_0a3d: ldstr "OffsetY"
+   IL_0a42: ldc.r4 0
+   IL_0a47: callvirt System.Single Celeste.BinaryPacker/Element::AttrFloat(System.String,System.Single)
+   IL_0a4c: newobj System.Void FlaglinesAndSuch.polygonEffect::.ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.String,System.Single,System.Single)
+   IL_0a51: stloc.0
+   IL_0a52: ldloc.0
+   IL_0a53: stloc.s V_5
+   IL_0a55: br.s IL_0a68
+   IL_0a57: ldarg.2
+   IL_0a58: newobj System.Void Celeste.Mod.FlaglinesAndSuch.RotParralaxTwo::.ctor(Celeste.BinaryPacker/Element)
+   IL_0a5d: stloc.0
+   IL_0a5e: ldloc.0
+   IL_0a5f: stloc.s V_5
+   IL_0a61: br.s IL_0a68
+   IL_0a63: ldnull
+   IL_0a64: stloc.s V_5
+   IL_0a66: br.s IL_0a68
+   IL_0a68: ldloc.s V_5
+   IL_0a6a: ret

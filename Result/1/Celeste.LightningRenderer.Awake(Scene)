@@ -1,0 +1,37 @@
+On: FrostHelper.LightningColorTrigger.LightningRenderer_Awake(orig_Awake,LightningRenderer,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Awake(Monocle.Scene)
+   IL_0007: ldc.i4.0
+   IL_0008: stloc.0
+   IL_0009: br.s IL_0065
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Collections.Generic.List`1<Celeste.LightningRenderer/Bolt> Celeste.LightningRenderer::bolts
+   IL_0011: ldarg.0
+   IL_0012: ldfld Microsoft.Xna.Framework.Color[] Celeste.LightningRenderer::electricityColors
+   IL_0017: ldc.i4.0
+   IL_0018: ldelem.any Microsoft.Xna.Framework.Color
+   IL_001d: ldc.r4 1
+   IL_0022: ldc.i4 160
+   IL_0027: ldc.i4 160
+   IL_002c: newobj System.Void Celeste.LightningRenderer/Bolt::.ctor(Microsoft.Xna.Framework.Color,System.Single,System.Int32,System.Int32)
+   IL_0031: callvirt System.Void System.Collections.Generic.List`1<Celeste.LightningRenderer/Bolt>::Add(T)
+   IL_0036: ldarg.0
+   IL_0037: ldfld System.Collections.Generic.List`1<Celeste.LightningRenderer/Bolt> Celeste.LightningRenderer::bolts
+   IL_003c: ldarg.0
+   IL_003d: ldfld Microsoft.Xna.Framework.Color[] Celeste.LightningRenderer::electricityColors
+   IL_0042: ldc.i4.1
+   IL_0043: ldelem.any Microsoft.Xna.Framework.Color
+   IL_0048: ldc.r4 0.35
+   IL_004d: ldc.i4 160
+   IL_0052: ldc.i4 160
+   IL_0057: newobj System.Void Celeste.LightningRenderer/Bolt::.ctor(Microsoft.Xna.Framework.Color,System.Single,System.Int32,System.Int32)
+   IL_005c: callvirt System.Void System.Collections.Generic.List`1<Celeste.LightningRenderer/Bolt>::Add(T)
+   IL_0061: ldloc.0
+   IL_0062: ldc.i4.1
+   IL_0063: add
+   IL_0064: stloc.0
+   IL_0065: ldloc.0
+   IL_0066: ldc.i4.4
+   IL_0067: blt.s IL_000b
+   IL_0069: ret

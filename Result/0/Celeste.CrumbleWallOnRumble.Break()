@@ -1,0 +1,106 @@
+On: Celeste.Mod.FancyTileEntities.FancyCrumbleWallOnRumble.Break(orig_Break,CrumbleWallOnRumble)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0006: brfalse IL_0103
+   IL_000b: ldarg.0
+   IL_000c: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0011: brfalse IL_0103
+   IL_0016: ldstr "event:/new_content/game/10_farewell/quake_rockbreak"
+   IL_001b: ldarg.0
+   IL_001c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0021: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0026: pop
+   IL_0027: ldarg.0
+   IL_0028: ldc.i4.0
+   IL_0029: stfld System.Boolean Monocle.Entity::Collidable
+   IL_002e: ldc.i4.0
+   IL_002f: stloc.0
+   IL_0030: br IL_00c6
+   IL_0035: ldc.i4.0
+   IL_0036: stloc.1
+   IL_0037: br.s IL_00af
+   IL_0039: ldarg.0
+   IL_003a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_003f: ldarg.0
+   IL_0040: call System.Single Monocle.Entity::get_X()
+   IL_0045: conv.i4
+   IL_0046: ldloc.0
+   IL_0047: ldc.i4.8
+   IL_0048: mul
+   IL_0049: add
+   IL_004a: ldarg.0
+   IL_004b: call System.Single Monocle.Entity::get_Y()
+   IL_0050: conv.i4
+   IL_0051: ldloc.1
+   IL_0052: ldc.i4.8
+   IL_0053: mul
+   IL_0054: add
+   IL_0055: ldc.i4.8
+   IL_0056: ldc.i4.8
+   IL_0057: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_005c: callvirt System.Boolean Monocle.Scene::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Rectangle)
+   IL_0061: brtrue.s IL_00ab
+   IL_0063: ldarg.0
+   IL_0064: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0069: call Monocle.Pooler Monocle.Engine::get_Pooler()
+   IL_006e: callvirt T Monocle.Pooler::Create<Celeste.Debris>()
+   IL_0073: ldarg.0
+   IL_0074: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0079: ldc.i4.4
+   IL_007a: ldloc.0
+   IL_007b: ldc.i4.8
+   IL_007c: mul
+   IL_007d: add
+   IL_007e: conv.r4
+   IL_007f: ldc.i4.4
+   IL_0080: ldloc.1
+   IL_0081: ldc.i4.8
+   IL_0082: mul
+   IL_0083: add
+   IL_0084: conv.r4
+   IL_0085: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_008a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_008f: ldarg.0
+   IL_0090: ldfld System.Char Celeste.CrumbleWallOnRumble::tileType
+   IL_0095: ldc.i4.1
+   IL_0096: callvirt Celeste.Debris Celeste.Debris::Init(Microsoft.Xna.Framework.Vector2,System.Char,System.Boolean)
+   IL_009b: ldarg.0
+   IL_009c: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_TopCenter()
+   IL_00a1: callvirt Celeste.Debris Celeste.Debris::BlastFrom(Microsoft.Xna.Framework.Vector2)
+   IL_00a6: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_00ab: ldloc.1
+   IL_00ac: ldc.i4.1
+   IL_00ad: add
+   IL_00ae: stloc.1
+   IL_00af: ldloc.1
+   IL_00b0: conv.r4
+   IL_00b1: ldarg.0
+   IL_00b2: call System.Single Monocle.Entity::get_Height()
+   IL_00b7: ldc.r4 8
+   IL_00bc: div
+   IL_00bd: blt IL_0039
+   IL_00c2: ldloc.0
+   IL_00c3: ldc.i4.1
+   IL_00c4: add
+   IL_00c5: stloc.0
+   IL_00c6: ldloc.0
+   IL_00c7: conv.r4
+   IL_00c8: ldarg.0
+   IL_00c9: call System.Single Monocle.Entity::get_Width()
+   IL_00ce: ldc.r4 8
+   IL_00d3: div
+   IL_00d4: blt IL_0035
+   IL_00d9: ldarg.0
+   IL_00da: ldfld System.Boolean Celeste.CrumbleWallOnRumble::permanent
+   IL_00df: brfalse.s IL_00fd
+   IL_00e1: ldarg.0
+   IL_00e2: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_00e7: ldfld Celeste.Session Celeste.Level::Session
+   IL_00ec: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.Session::DoNotLoad
+   IL_00f1: ldarg.0
+   IL_00f2: ldfld Celeste.EntityID Celeste.CrumbleWallOnRumble::id
+   IL_00f7: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Add(T)
+   IL_00fc: pop
+   IL_00fd: ldarg.0
+   IL_00fe: call System.Void Monocle.Entity::RemoveSelf()
+   IL_0103: ret

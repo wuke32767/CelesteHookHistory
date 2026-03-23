@@ -1,0 +1,236 @@
+On: Celeste.Mod.HonlyHelper.FloatyBgTile.AddToGroupAndFindChildrenAddendum(orig_AddToGroupAndFindChildren,FloatySpaceBlock,FloatySpaceBlock)
+   IL_0000: ldarg.1
+   IL_0001: callvirt System.Single Monocle.Entity::get_X()
+   IL_0006: ldarg.0
+   IL_0007: ldflda Microsoft.Xna.Framework.Point Celeste.FloatySpaceBlock::GroupBoundsMin
+   IL_000c: ldfld System.Int32 Microsoft.Xna.Framework.Point::X
+   IL_0011: conv.r4
+   IL_0012: bge.un.s IL_0026
+   IL_0014: ldarg.0
+   IL_0015: ldflda Microsoft.Xna.Framework.Point Celeste.FloatySpaceBlock::GroupBoundsMin
+   IL_001a: ldarg.1
+   IL_001b: callvirt System.Single Monocle.Entity::get_X()
+   IL_0020: conv.i4
+   IL_0021: stfld System.Int32 Microsoft.Xna.Framework.Point::X
+   IL_0026: ldarg.1
+   IL_0027: callvirt System.Single Monocle.Entity::get_Y()
+   IL_002c: ldarg.0
+   IL_002d: ldflda Microsoft.Xna.Framework.Point Celeste.FloatySpaceBlock::GroupBoundsMin
+   IL_0032: ldfld System.Int32 Microsoft.Xna.Framework.Point::Y
+   IL_0037: conv.r4
+   IL_0038: bge.un.s IL_004c
+   IL_003a: ldarg.0
+   IL_003b: ldflda Microsoft.Xna.Framework.Point Celeste.FloatySpaceBlock::GroupBoundsMin
+   IL_0040: ldarg.1
+   IL_0041: callvirt System.Single Monocle.Entity::get_Y()
+   IL_0046: conv.i4
+   IL_0047: stfld System.Int32 Microsoft.Xna.Framework.Point::Y
+   IL_004c: ldarg.1
+   IL_004d: callvirt System.Single Monocle.Entity::get_Right()
+   IL_0052: ldarg.0
+   IL_0053: ldflda Microsoft.Xna.Framework.Point Celeste.FloatySpaceBlock::GroupBoundsMax
+   IL_0058: ldfld System.Int32 Microsoft.Xna.Framework.Point::X
+   IL_005d: conv.r4
+   IL_005e: ble.un.s IL_0072
+   IL_0060: ldarg.0
+   IL_0061: ldflda Microsoft.Xna.Framework.Point Celeste.FloatySpaceBlock::GroupBoundsMax
+   IL_0066: ldarg.1
+   IL_0067: callvirt System.Single Monocle.Entity::get_Right()
+   IL_006c: conv.i4
+   IL_006d: stfld System.Int32 Microsoft.Xna.Framework.Point::X
+   IL_0072: ldarg.1
+   IL_0073: callvirt System.Single Monocle.Entity::get_Bottom()
+   IL_0078: ldarg.0
+   IL_0079: ldflda Microsoft.Xna.Framework.Point Celeste.FloatySpaceBlock::GroupBoundsMax
+   IL_007e: ldfld System.Int32 Microsoft.Xna.Framework.Point::Y
+   IL_0083: conv.r4
+   IL_0084: ble.un.s IL_0098
+   IL_0086: ldarg.0
+   IL_0087: ldflda Microsoft.Xna.Framework.Point Celeste.FloatySpaceBlock::GroupBoundsMax
+   IL_008c: ldarg.1
+   IL_008d: callvirt System.Single Monocle.Entity::get_Bottom()
+   IL_0092: conv.i4
+   IL_0093: stfld System.Int32 Microsoft.Xna.Framework.Point::Y
+   IL_0098: ldarg.1
+   IL_0099: ldc.i4.1
+   IL_009a: callvirt System.Void Celeste.FloatySpaceBlock::set_HasGroup(System.Boolean)
+   IL_009f: ldarg.1
+   IL_00a0: ldarg.0
+   IL_00a1: ldftn Celeste.DashCollisionResults Celeste.FloatySpaceBlock::OnDash(Celeste.Player,Microsoft.Xna.Framework.Vector2)
+   IL_00a7: newobj System.Void Celeste.DashCollision::.ctor(System.Object,System.IntPtr)
+   IL_00ac: stfld Celeste.DashCollision Celeste.Platform::OnDashCollide
+   IL_00b1: ldarg.0
+   IL_00b2: ldfld System.Collections.Generic.List`1<Celeste.FloatySpaceBlock> Celeste.FloatySpaceBlock::Group
+   IL_00b7: ldarg.1
+   IL_00b8: callvirt System.Void System.Collections.Generic.List`1<Celeste.FloatySpaceBlock>::Add(T)
+   IL_00bd: ldarg.0
+   IL_00be: ldfld System.Collections.Generic.Dictionary`2<Celeste.Platform,Microsoft.Xna.Framework.Vector2> Celeste.FloatySpaceBlock::Moves
+   IL_00c3: ldarg.1
+   IL_00c4: ldarg.1
+   IL_00c5: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ca: callvirt System.Void System.Collections.Generic.Dictionary`2<Celeste.Platform,Microsoft.Xna.Framework.Vector2>::Add(TKey,TValue)
+   IL_00cf: ldarg.1
+   IL_00d0: ldarg.0
+   IL_00d1: beq.s IL_00da
+   IL_00d3: ldarg.1
+   IL_00d4: ldarg.0
+   IL_00d5: stfld Celeste.FloatySpaceBlock Celeste.FloatySpaceBlock::master
+   IL_00da: ldarg.0
+   IL_00db: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00e0: ldarg.1
+   IL_00e1: callvirt System.Single Monocle.Entity::get_X()
+   IL_00e6: conv.i4
+   IL_00e7: ldc.i4.1
+   IL_00e8: sub
+   IL_00e9: ldarg.1
+   IL_00ea: callvirt System.Single Monocle.Entity::get_Y()
+   IL_00ef: conv.i4
+   IL_00f0: ldarg.1
+   IL_00f1: callvirt System.Single Monocle.Entity::get_Width()
+   IL_00f6: conv.i4
+   IL_00f7: ldc.i4.2
+   IL_00f8: add
+   IL_00f9: ldarg.1
+   IL_00fa: callvirt System.Single Monocle.Entity::get_Height()
+   IL_00ff: conv.i4
+   IL_0100: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0105: callvirt System.Collections.Generic.List`1<T> Monocle.Scene::CollideAll<Celeste.JumpThru>(Microsoft.Xna.Framework.Rectangle)
+   IL_010a: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.JumpThru>::GetEnumerator()
+   IL_010f: stloc.0
+   IL_0110: br.s IL_012f
+   IL_0112: ldloca.s V_0
+   IL_0114: call T System.Collections.Generic.List`1/Enumerator<Celeste.JumpThru>::get_Current()
+   IL_0119: stloc.1
+   IL_011a: ldarg.0
+   IL_011b: ldfld System.Collections.Generic.List`1<Celeste.JumpThru> Celeste.FloatySpaceBlock::Jumpthrus
+   IL_0120: ldloc.1
+   IL_0121: callvirt System.Boolean System.Collections.Generic.List`1<Celeste.JumpThru>::Contains(T)
+   IL_0126: brtrue.s IL_012f
+   IL_0128: ldarg.0
+   IL_0129: ldloc.1
+   IL_012a: callvirt System.Void Celeste.FloatySpaceBlock::AddJumpThru(Celeste.JumpThru)
+   IL_012f: ldloca.s V_0
+   IL_0131: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.JumpThru>::MoveNext()
+   IL_0136: brtrue.s IL_0112
+   IL_0138: leave.s IL_0148
+   IL_013a: ldloca.s V_0
+   IL_013c: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.JumpThru>
+   IL_0142: callvirt System.Void System.IDisposable::Dispose()
+   IL_0147: endfinally
+   IL_0148: ldarg.0
+   IL_0149: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_014e: ldarg.1
+   IL_014f: callvirt System.Single Monocle.Entity::get_X()
+   IL_0154: conv.i4
+   IL_0155: ldarg.1
+   IL_0156: callvirt System.Single Monocle.Entity::get_Y()
+   IL_015b: conv.i4
+   IL_015c: ldc.i4.1
+   IL_015d: sub
+   IL_015e: ldarg.1
+   IL_015f: callvirt System.Single Monocle.Entity::get_Width()
+   IL_0164: conv.i4
+   IL_0165: ldarg.1
+   IL_0166: callvirt System.Single Monocle.Entity::get_Height()
+   IL_016b: conv.i4
+   IL_016c: ldc.i4.2
+   IL_016d: add
+   IL_016e: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0173: callvirt System.Collections.Generic.List`1<T> Monocle.Scene::CollideAll<Celeste.JumpThru>(Microsoft.Xna.Framework.Rectangle)
+   IL_0178: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.JumpThru>::GetEnumerator()
+   IL_017d: stloc.0
+   IL_017e: br.s IL_019d
+   IL_0180: ldloca.s V_0
+   IL_0182: call T System.Collections.Generic.List`1/Enumerator<Celeste.JumpThru>::get_Current()
+   IL_0187: stloc.2
+   IL_0188: ldarg.0
+   IL_0189: ldfld System.Collections.Generic.List`1<Celeste.JumpThru> Celeste.FloatySpaceBlock::Jumpthrus
+   IL_018e: ldloc.2
+   IL_018f: callvirt System.Boolean System.Collections.Generic.List`1<Celeste.JumpThru>::Contains(T)
+   IL_0194: brtrue.s IL_019d
+   IL_0196: ldarg.0
+   IL_0197: ldloc.2
+   IL_0198: callvirt System.Void Celeste.FloatySpaceBlock::AddJumpThru(Celeste.JumpThru)
+   IL_019d: ldloca.s V_0
+   IL_019f: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.JumpThru>::MoveNext()
+   IL_01a4: brtrue.s IL_0180
+   IL_01a6: leave.s IL_01b6
+   IL_01a8: ldloca.s V_0
+   IL_01aa: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.JumpThru>
+   IL_01b0: callvirt System.Void System.IDisposable::Dispose()
+   IL_01b5: endfinally
+   IL_01b6: ldarg.0
+   IL_01b7: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_01bc: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_01c1: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.FloatySpaceBlock>()
+   IL_01c6: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_01cb: stloc.3
+   IL_01cc: br IL_026a
+   IL_01d1: ldloca.s V_3
+   IL_01d3: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_01d8: castclass Celeste.FloatySpaceBlock
+   IL_01dd: stloc.s V_4
+   IL_01df: ldloc.s V_4
+   IL_01e1: callvirt System.Boolean Celeste.FloatySpaceBlock::get_HasGroup()
+   IL_01e6: brtrue IL_026a
+   IL_01eb: ldloc.s V_4
+   IL_01ed: ldfld System.Char Celeste.FloatySpaceBlock::tileType
+   IL_01f2: ldarg.0
+   IL_01f3: ldfld System.Char Celeste.FloatySpaceBlock::tileType
+   IL_01f8: bne.un.s IL_026a
+   IL_01fa: ldarg.0
+   IL_01fb: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0200: ldarg.1
+   IL_0201: callvirt System.Single Monocle.Entity::get_X()
+   IL_0206: conv.i4
+   IL_0207: ldc.i4.1
+   IL_0208: sub
+   IL_0209: ldarg.1
+   IL_020a: callvirt System.Single Monocle.Entity::get_Y()
+   IL_020f: conv.i4
+   IL_0210: ldarg.1
+   IL_0211: callvirt System.Single Monocle.Entity::get_Width()
+   IL_0216: conv.i4
+   IL_0217: ldc.i4.2
+   IL_0218: add
+   IL_0219: ldarg.1
+   IL_021a: callvirt System.Single Monocle.Entity::get_Height()
+   IL_021f: conv.i4
+   IL_0220: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0225: ldloc.s V_4
+   IL_0227: callvirt System.Boolean Monocle.Scene::CollideCheck(Microsoft.Xna.Framework.Rectangle,Monocle.Entity)
+   IL_022c: brtrue.s IL_0262
+   IL_022e: ldarg.0
+   IL_022f: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0234: ldarg.1
+   IL_0235: callvirt System.Single Monocle.Entity::get_X()
+   IL_023a: conv.i4
+   IL_023b: ldarg.1
+   IL_023c: callvirt System.Single Monocle.Entity::get_Y()
+   IL_0241: conv.i4
+   IL_0242: ldc.i4.1
+   IL_0243: sub
+   IL_0244: ldarg.1
+   IL_0245: callvirt System.Single Monocle.Entity::get_Width()
+   IL_024a: conv.i4
+   IL_024b: ldarg.1
+   IL_024c: callvirt System.Single Monocle.Entity::get_Height()
+   IL_0251: conv.i4
+   IL_0252: ldc.i4.2
+   IL_0253: add
+   IL_0254: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0259: ldloc.s V_4
+   IL_025b: callvirt System.Boolean Monocle.Scene::CollideCheck(Microsoft.Xna.Framework.Rectangle,Monocle.Entity)
+   IL_0260: brfalse.s IL_026a
+   IL_0262: ldarg.0
+   IL_0263: ldloc.s V_4
+   IL_0265: callvirt System.Void Celeste.FloatySpaceBlock::AddToGroupAndFindChildren(Celeste.FloatySpaceBlock)
+   IL_026a: ldloca.s V_3
+   IL_026c: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_0271: brtrue IL_01d1
+   IL_0276: leave.s IL_0286
+   IL_0278: ldloca.s V_3
+   IL_027a: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_0280: callvirt System.Void System.IDisposable::Dispose()
+   IL_0285: endfinally
+   IL_0286: ret

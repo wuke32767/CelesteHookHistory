@@ -1,0 +1,24 @@
+On: VivHelper.VivHelperModule.CustomBerryCheck(orig_OnCollect,Strawberry)
+On: Celeste.Mod.EndHelper.EndHelperModule.Hook_CollectStrawberry(orig_OnCollect,Strawberry)
+On: Celeste.Mod.ConsistencyTracker.ConsistencyTrackerModule.On_Strawberry_OnCollect(orig_OnCollect,Strawberry)
+On: ChaosEnsues.Entry.Strawberry_OnCollect(orig_OnCollect,Strawberry)
+On: Bitsbolts.Entities.PersistentBerry.OnStrawberryOnCollect(orig_OnCollect,Strawberry)
+On: Celeste.Mod.Vidcutter.VidcutterModule.OnCollectStrawberry(orig_OnCollect,Strawberry)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.Strawberry::orig_OnCollect()
+   IL_0006: call Celeste.Mod.Everest/DiscordSDK Celeste.Mod.Everest/DiscordSDK::get_Instance()
+   IL_000b: dup
+   IL_000c: brtrue.s IL_0010
+   IL_000e: pop
+   IL_000f: ret
+   IL_0010: ldarg.0
+   IL_0011: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0016: isinst Celeste.Level
+   IL_001b: dup
+   IL_001c: brtrue.s IL_0022
+   IL_001e: pop
+   IL_001f: ldnull
+   IL_0020: br.s IL_0027
+   IL_0022: ldfld Celeste.Session Celeste.Level::Session
+   IL_0027: callvirt System.Void Celeste.Mod.Everest/DiscordSDK::UpdatePresence(Celeste.Session)
+   IL_002c: ret

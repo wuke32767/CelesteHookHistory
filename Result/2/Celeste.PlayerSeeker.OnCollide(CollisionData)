@@ -1,0 +1,173 @@
+On: Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock.OnPlayerSeekerCollide(orig_OnCollide,PlayerSeeker,CollisionData)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Single Celeste.PlayerSeeker::dashTimer
+   IL_0006: ldc.r4 0
+   IL_000b: bgt.un.s IL_0055
+   IL_000d: ldarg.1
+   IL_000e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CollisionData::Direction
+   IL_0013: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0018: ldc.r4 0
+   IL_001d: beq.s IL_002f
+   IL_001f: ldarg.0
+   IL_0020: ldflda Microsoft.Xna.Framework.Vector2 Celeste.PlayerSeeker::speed
+   IL_0025: ldc.r4 0
+   IL_002a: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_002f: ldarg.1
+   IL_0030: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CollisionData::Direction
+   IL_0035: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_003a: ldc.r4 0
+   IL_003f: beq IL_0249
+   IL_0044: ldarg.0
+   IL_0045: ldflda Microsoft.Xna.Framework.Vector2 Celeste.PlayerSeeker::speed
+   IL_004a: ldc.r4 0
+   IL_004f: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0054: ret
+   IL_0055: ldarg.1
+   IL_0056: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CollisionData::Direction
+   IL_005b: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0060: ldc.r4 0
+   IL_0065: ble.un.s IL_0095
+   IL_0067: ldc.r4 3.1415927
+   IL_006c: stloc.0
+   IL_006d: ldloca.s V_1
+   IL_006f: ldarg.0
+   IL_0070: call System.Single Monocle.Entity::get_Right()
+   IL_0075: ldarg.0
+   IL_0076: call System.Single Monocle.Entity::get_Y()
+   IL_007b: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0080: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0085: ldc.r4 4
+   IL_008a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_008f: stloc.2
+   IL_0090: br IL_0138
+   IL_0095: ldarg.1
+   IL_0096: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CollisionData::Direction
+   IL_009b: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00a0: ldc.r4 0
+   IL_00a5: bge.un.s IL_00d2
+   IL_00a7: ldc.r4 0
+   IL_00ac: stloc.0
+   IL_00ad: ldloca.s V_1
+   IL_00af: ldarg.0
+   IL_00b0: call System.Single Monocle.Entity::get_Left()
+   IL_00b5: ldarg.0
+   IL_00b6: call System.Single Monocle.Entity::get_Y()
+   IL_00bb: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00c0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_00c5: ldc.r4 4
+   IL_00ca: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00cf: stloc.2
+   IL_00d0: br.s IL_0138
+   IL_00d2: ldarg.1
+   IL_00d3: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CollisionData::Direction
+   IL_00d8: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00dd: ldc.r4 0
+   IL_00e2: ble.un.s IL_010f
+   IL_00e4: ldc.r4 -1.5707964
+   IL_00e9: stloc.0
+   IL_00ea: ldloca.s V_1
+   IL_00ec: ldarg.0
+   IL_00ed: call System.Single Monocle.Entity::get_X()
+   IL_00f2: ldarg.0
+   IL_00f3: call System.Single Monocle.Entity::get_Bottom()
+   IL_00f8: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00fd: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0102: ldc.r4 4
+   IL_0107: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_010c: stloc.2
+   IL_010d: br.s IL_0138
+   IL_010f: ldc.r4 1.5707964
+   IL_0114: stloc.0
+   IL_0115: ldloca.s V_1
+   IL_0117: ldarg.0
+   IL_0118: call System.Single Monocle.Entity::get_X()
+   IL_011d: ldarg.0
+   IL_011e: call System.Single Monocle.Entity::get_Top()
+   IL_0123: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0128: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_012d: ldc.r4 4
+   IL_0132: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0137: stloc.2
+   IL_0138: ldarg.0
+   IL_0139: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_013e: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_0143: ldsfld Monocle.ParticleType Celeste.Seeker::P_HitWall
+   IL_0148: ldc.i4.s 12
+   IL_014a: ldloc.1
+   IL_014b: ldloc.2
+   IL_014c: ldloc.0
+   IL_014d: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0152: ldarg.1
+   IL_0153: ldfld Celeste.Platform Celeste.CollisionData::Hit
+   IL_0158: isinst Celeste.SeekerBarrier
+   IL_015d: brfalse.s IL_0182
+   IL_015f: ldarg.1
+   IL_0160: ldfld Celeste.Platform Celeste.CollisionData::Hit
+   IL_0165: isinst Celeste.SeekerBarrier
+   IL_016a: callvirt System.Void Celeste.SeekerBarrier::OnReflectSeeker()
+   IL_016f: ldstr "event:/game/05_mirror_temple/seeker_hit_lightwall"
+   IL_0174: ldarg.0
+   IL_0175: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_017a: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_017f: pop
+   IL_0180: br.s IL_0193
+   IL_0182: ldstr "event:/game/05_mirror_temple/seeker_hit_normal"
+   IL_0187: ldarg.0
+   IL_0188: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_018d: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0192: pop
+   IL_0193: ldarg.1
+   IL_0194: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CollisionData::Direction
+   IL_0199: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_019e: ldc.r4 0
+   IL_01a3: beq.s IL_01d5
+   IL_01a5: ldarg.0
+   IL_01a6: ldflda Microsoft.Xna.Framework.Vector2 Celeste.PlayerSeeker::speed
+   IL_01ab: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_01b0: dup
+   IL_01b1: ldind.r4
+   IL_01b2: ldc.r4 -0.8
+   IL_01b7: mul
+   IL_01b8: stind.r4
+   IL_01b9: ldarg.0
+   IL_01ba: ldfld Monocle.Sprite Celeste.PlayerSeeker::sprite
+   IL_01bf: ldc.r4 0.6
+   IL_01c4: ldc.r4 1.4
+   IL_01c9: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01ce: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_01d3: br.s IL_0215
+   IL_01d5: ldarg.1
+   IL_01d6: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CollisionData::Direction
+   IL_01db: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_01e0: ldc.r4 0
+   IL_01e5: beq.s IL_0215
+   IL_01e7: ldarg.0
+   IL_01e8: ldflda Microsoft.Xna.Framework.Vector2 Celeste.PlayerSeeker::speed
+   IL_01ed: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_01f2: dup
+   IL_01f3: ldind.r4
+   IL_01f4: ldc.r4 -0.8
+   IL_01f9: mul
+   IL_01fa: stind.r4
+   IL_01fb: ldarg.0
+   IL_01fc: ldfld Monocle.Sprite Celeste.PlayerSeeker::sprite
+   IL_0201: ldc.r4 1.4
+   IL_0206: ldc.r4 0.6
+   IL_020b: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0210: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0215: ldarg.1
+   IL_0216: ldfld Celeste.Platform Celeste.CollisionData::Hit
+   IL_021b: isinst Celeste.TempleCrackedBlock
+   IL_0220: brfalse.s IL_0249
+   IL_0222: ldc.r4 0.15
+   IL_0227: call System.Void Celeste.Celeste::Freeze(System.Single)
+   IL_022c: ldc.i4.2
+   IL_022d: ldc.i4.2
+   IL_022e: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0233: ldarg.1
+   IL_0234: ldfld Celeste.Platform Celeste.CollisionData::Hit
+   IL_0239: isinst Celeste.TempleCrackedBlock
+   IL_023e: ldarg.0
+   IL_023f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0244: callvirt System.Void Celeste.TempleCrackedBlock::Break(Microsoft.Xna.Framework.Vector2)
+   IL_0249: ret

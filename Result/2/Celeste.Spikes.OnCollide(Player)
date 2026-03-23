@@ -1,0 +1,73 @@
+On: Celeste.Mod.Spirialis.HazardHooks.CustomSpikesOnCollide(orig_OnCollide,Spikes,Player)
+On: ChroniaHelper.Entities.TeraBlock.SpikeCheck(orig_OnCollide,Spikes,Player)
+On: Celeste.Mod.TeraHelper.Entities.TeraBlock.SpikeCheck(orig_OnCollide,Spikes,Player)
+On: AltLevelsHelper.Entry.Spikes_OnCollide(orig_OnCollide,Spikes,Player)
+On: Celeste.Mod.auspicioushelper.HookVanilla.Hook(orig_OnCollide,Spikes,Player)
+On: FlaglinesAndSuch.StandBox.BoxOnSpike(orig_OnCollide,Spikes,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Spikes/Directions Celeste.Spikes::Direction
+   IL_0006: stloc.0
+   IL_0007: ldloc.0
+   IL_0008: switch IL_001e,IL_005d,IL_0088,IL_00b3
+   IL_001d: ret
+   IL_001e: ldarg.1
+   IL_001f: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0024: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0029: ldc.r4 0
+   IL_002e: blt.un IL_00dd
+   IL_0033: ldarg.1
+   IL_0034: callvirt System.Single Monocle.Entity::get_Bottom()
+   IL_0039: ldarg.0
+   IL_003a: call System.Single Monocle.Entity::get_Bottom()
+   IL_003f: bgt.un IL_00dd
+   IL_0044: ldarg.1
+   IL_0045: ldc.r4 0
+   IL_004a: ldc.r4 -1
+   IL_004f: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0054: ldc.i4.0
+   IL_0055: ldc.i4.1
+   IL_0056: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_005b: pop
+   IL_005c: ret
+   IL_005d: ldarg.1
+   IL_005e: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0063: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0068: ldc.r4 0
+   IL_006d: bgt.un.s IL_00dd
+   IL_006f: ldarg.1
+   IL_0070: ldc.r4 0
+   IL_0075: ldc.r4 1
+   IL_007a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_007f: ldc.i4.0
+   IL_0080: ldc.i4.1
+   IL_0081: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_0086: pop
+   IL_0087: ret
+   IL_0088: ldarg.1
+   IL_0089: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_008e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0093: ldc.r4 0
+   IL_0098: blt.un.s IL_00dd
+   IL_009a: ldarg.1
+   IL_009b: ldc.r4 -1
+   IL_00a0: ldc.r4 0
+   IL_00a5: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00aa: ldc.i4.0
+   IL_00ab: ldc.i4.1
+   IL_00ac: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_00b1: pop
+   IL_00b2: ret
+   IL_00b3: ldarg.1
+   IL_00b4: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_00b9: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00be: ldc.r4 0
+   IL_00c3: bgt.un.s IL_00dd
+   IL_00c5: ldarg.1
+   IL_00c6: ldc.r4 1
+   IL_00cb: ldc.r4 0
+   IL_00d0: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00d5: ldc.i4.0
+   IL_00d6: ldc.i4.1
+   IL_00d7: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_00dc: pop
+   IL_00dd: ret

@@ -1,0 +1,42 @@
+On: Celeste.Mod.FemtoHelper.Entities.MovementModifier.Actor_NaiveMove(orig_NaiveMove,Actor,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Actor::movementCounter
+   IL_0007: ldarg.1
+   IL_0008: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_000d: stfld Microsoft.Xna.Framework.Vector2 Celeste.Actor::movementCounter
+   IL_0012: ldarg.0
+   IL_0013: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Actor::movementCounter
+   IL_0018: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001d: conv.r8
+   IL_001e: call System.Double System.Math::Round(System.Double)
+   IL_0023: conv.i4
+   IL_0024: stloc.0
+   IL_0025: ldarg.0
+   IL_0026: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Actor::movementCounter
+   IL_002b: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0030: conv.r8
+   IL_0031: call System.Double System.Math::Round(System.Double)
+   IL_0036: conv.i4
+   IL_0037: stloc.1
+   IL_0038: ldarg.0
+   IL_0039: ldarg.0
+   IL_003a: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003f: ldloc.0
+   IL_0040: conv.r4
+   IL_0041: ldloc.1
+   IL_0042: conv.r4
+   IL_0043: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0048: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004d: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0052: ldarg.0
+   IL_0053: ldarg.0
+   IL_0054: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Actor::movementCounter
+   IL_0059: ldloc.0
+   IL_005a: conv.r4
+   IL_005b: ldloc.1
+   IL_005c: conv.r4
+   IL_005d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0062: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0067: stfld Microsoft.Xna.Framework.Vector2 Celeste.Actor::movementCounter
+   IL_006c: ret

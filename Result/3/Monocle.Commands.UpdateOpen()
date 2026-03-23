@@ -1,0 +1,99 @@
+On: Celeste.Mod.ImGuiHelper.ImGuiHelperModule.Commands_UpdateOpen(orig_UpdateOpen,Commands)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::currentState
+   IL_0007: stfld Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::oldState
+   IL_000c: ldarg.0
+   IL_000d: call Microsoft.Xna.Framework.Input.KeyboardState Microsoft.Xna.Framework.Input.Keyboard::GetState()
+   IL_0012: stfld Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::currentState
+   IL_0017: ldarg.0
+   IL_0018: ldarg.0
+   IL_0019: ldfld System.Single Monocle.Commands::underscoreCounter
+   IL_001e: call System.Single Monocle.Engine::get_RawDeltaTime()
+   IL_0023: add
+   IL_0024: stfld System.Single Monocle.Commands::underscoreCounter
+   IL_0029: br.s IL_004c
+   IL_002b: ldarg.0
+   IL_002c: ldarg.0
+   IL_002d: ldfld System.Single Monocle.Commands::underscoreCounter
+   IL_0032: ldc.r4 0.5
+   IL_0037: sub
+   IL_0038: stfld System.Single Monocle.Commands::underscoreCounter
+   IL_003d: ldarg.0
+   IL_003e: ldarg.0
+   IL_003f: ldfld System.Boolean Monocle.Commands::underscore
+   IL_0044: ldc.i4.0
+   IL_0045: ceq
+   IL_0047: stfld System.Boolean Monocle.Commands::underscore
+   IL_004c: ldarg.0
+   IL_004d: ldfld System.Single Monocle.Commands::underscoreCounter
+   IL_0052: ldc.r4 0.5
+   IL_0057: bge.s IL_002b
+   IL_0059: ldarg.0
+   IL_005a: ldflda System.Nullable`1<Microsoft.Xna.Framework.Input.Keys> Monocle.Commands::repeatKey
+   IL_005f: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>::get_HasValue()
+   IL_0064: brfalse.s IL_00d1
+   IL_0066: ldarg.0
+   IL_0067: ldflda Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::currentState
+   IL_006c: ldarg.0
+   IL_006d: ldflda System.Nullable`1<Microsoft.Xna.Framework.Input.Keys> Monocle.Commands::repeatKey
+   IL_0072: call T System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>::get_Value()
+   IL_0077: call Microsoft.Xna.Framework.Input.KeyState Microsoft.Xna.Framework.Input.KeyboardState::get_Item(Microsoft.Xna.Framework.Input.Keys)
+   IL_007c: ldc.i4.1
+   IL_007d: bne.un.s IL_00c5
+   IL_007f: ldarg.0
+   IL_0080: ldarg.0
+   IL_0081: ldfld System.Single Monocle.Commands::repeatCounter
+   IL_0086: call System.Single Monocle.Engine::get_RawDeltaTime()
+   IL_008b: add
+   IL_008c: stfld System.Single Monocle.Commands::repeatCounter
+   IL_0091: br.s IL_00b6
+   IL_0093: ldarg.0
+   IL_0094: ldarg.0
+   IL_0095: ldflda System.Nullable`1<Microsoft.Xna.Framework.Input.Keys> Monocle.Commands::repeatKey
+   IL_009a: call T System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>::get_Value()
+   IL_009f: callvirt System.Void Monocle.Commands::HandleKey(Microsoft.Xna.Framework.Input.Keys)
+   IL_00a4: ldarg.0
+   IL_00a5: ldarg.0
+   IL_00a6: ldfld System.Single Monocle.Commands::repeatCounter
+   IL_00ab: ldc.r4 0.033333335
+   IL_00b0: sub
+   IL_00b1: stfld System.Single Monocle.Commands::repeatCounter
+   IL_00b6: ldarg.0
+   IL_00b7: ldfld System.Single Monocle.Commands::repeatCounter
+   IL_00bc: ldc.r4 0.5
+   IL_00c1: bge.s IL_0093
+   IL_00c3: br.s IL_00d1
+   IL_00c5: ldarg.0
+   IL_00c6: ldflda System.Nullable`1<Microsoft.Xna.Framework.Input.Keys> Monocle.Commands::repeatKey
+   IL_00cb: initobj System.Nullable`1<Microsoft.Xna.Framework.Input.Keys>
+   IL_00d1: ldarg.0
+   IL_00d2: ldflda Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::currentState
+   IL_00d7: call Microsoft.Xna.Framework.Input.Keys[] Microsoft.Xna.Framework.Input.KeyboardState::GetPressedKeys()
+   IL_00dc: stloc.0
+   IL_00dd: ldc.i4.0
+   IL_00de: stloc.1
+   IL_00df: br.s IL_00ff
+   IL_00e1: ldloc.0
+   IL_00e2: ldloc.1
+   IL_00e3: ldelem.i4
+   IL_00e4: stloc.2
+   IL_00e5: ldarg.0
+   IL_00e6: ldflda Microsoft.Xna.Framework.Input.KeyboardState Monocle.Commands::oldState
+   IL_00eb: ldloc.2
+   IL_00ec: call Microsoft.Xna.Framework.Input.KeyState Microsoft.Xna.Framework.Input.KeyboardState::get_Item(Microsoft.Xna.Framework.Input.Keys)
+   IL_00f1: brtrue.s IL_00fb
+   IL_00f3: ldarg.0
+   IL_00f4: ldloc.2
+   IL_00f5: callvirt System.Void Monocle.Commands::HandleKey(Microsoft.Xna.Framework.Input.Keys)
+   IL_00fa: ret
+   IL_00fb: ldloc.1
+   IL_00fc: ldc.i4.1
+   IL_00fd: add
+   IL_00fe: stloc.1
+   IL_00ff: ldloc.1
+   IL_0100: ldloc.0
+   IL_0101: ldlen
+   IL_0102: conv.i4
+   IL_0103: blt.s IL_00e1
+   IL_0105: ret

@@ -1,0 +1,96 @@
+On: Celeste.Mod.ConsistencyTracker.Utility.GameData.ModUpdaterHelperOnDownloadModUpdateList(orig_ModUpdaterHelper_DownloadModUpdateList)
+On: TAS.Communication.GameData.ModUpdaterHelperOnDownloadModUpdateList(orig_ModUpdaterHelper_DownloadModUpdateList)
+   IL_0000: ldnull
+   IL_0001: stloc.0
+   IL_0002: ldstr "modupdater"
+   IL_0007: call System.String Celeste.Mod.Helpers.ModUpdaterHelper::getModUpdaterDatabaseUrl(System.String)
+   IL_000c: stloc.1
+   IL_000d: ldstr "ModUpdaterHelper"
+   IL_0012: stloc.2
+   IL_0013: ldloc.2
+   IL_0014: ldc.i4.s 36
+   IL_0016: ldc.i4.1
+   IL_0017: ldloc.2
+   IL_0018: ldloca.s V_4
+   IL_001a: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_001f: stloc.3
+   IL_0020: ldloc.s V_4
+   IL_0022: brfalse.s IL_0038
+   IL_0024: ldloca.s V_3
+   IL_0026: ldstr "Downloading last versions list from "
+   IL_002b: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_0030: ldloca.s V_3
+   IL_0032: ldloc.1
+   IL_0033: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted(System.String)
+   IL_0038: ldloc.3
+   IL_0039: call System.Void Celeste.Mod.Logger::Verbose(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>)
+   IL_003e: newobj System.Void Celeste.Mod.Helpers.CompressedHttpClient::.ctor()
+   IL_0043: stloc.s V_5
+   IL_0045: ldloc.s V_5
+   IL_0047: ldloc.1
+   IL_0048: callvirt System.Threading.Tasks.Task`1<System.String> System.Net.Http.HttpClient::GetStringAsync(System.String)
+   IL_004d: callvirt TResult System.Threading.Tasks.Task`1<System.String>::get_Result()
+   IL_0052: stloc.s V_6
+   IL_0054: ldsfld YamlDotNet.Serialization.IDeserializer Celeste.Mod.YamlHelper::Deserializer
+   IL_0059: ldloc.s V_6
+   IL_005b: callvirt T YamlDotNet.Serialization.IDeserializer::Deserialize<System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.Helpers.ModUpdateInfo>>(System.String)
+   IL_0060: stloc.0
+   IL_0061: ldloc.0
+   IL_0062: callvirt System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.Helpers.ModUpdateInfo>::get_Keys()
+   IL_0067: callvirt System.Collections.Generic.Dictionary`2/KeyCollection/Enumerator<TKey,TValue> System.Collections.Generic.Dictionary`2/KeyCollection<System.String,Celeste.Mod.Helpers.ModUpdateInfo>::GetEnumerator()
+   IL_006c: stloc.s V_7
+   IL_006e: br.s IL_0088
+   IL_0070: ldloca.s V_7
+   IL_0072: call TKey System.Collections.Generic.Dictionary`2/KeyCollection/Enumerator<System.String,Celeste.Mod.Helpers.ModUpdateInfo>::get_Current()
+   IL_0077: stloc.s V_8
+   IL_0079: ldloc.0
+   IL_007a: ldloc.s V_8
+   IL_007c: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.Helpers.ModUpdateInfo>::get_Item(TKey)
+   IL_0081: ldloc.s V_8
+   IL_0083: callvirt System.Void Celeste.Mod.Helpers.ModUpdateInfo::set_Name(System.String)
+   IL_0088: ldloca.s V_7
+   IL_008a: call System.Boolean System.Collections.Generic.Dictionary`2/KeyCollection/Enumerator<System.String,Celeste.Mod.Helpers.ModUpdateInfo>::MoveNext()
+   IL_008f: brtrue.s IL_0070
+   IL_0091: leave.s IL_00a1
+   IL_0093: ldloca.s V_7
+   IL_0095: constrained. System.Collections.Generic.Dictionary`2/KeyCollection/Enumerator<System.String,Celeste.Mod.Helpers.ModUpdateInfo>
+   IL_009b: callvirt System.Void System.IDisposable::Dispose()
+   IL_00a0: endfinally
+   IL_00a1: ldstr "ModUpdaterHelper"
+   IL_00a6: stloc.2
+   IL_00a7: ldloc.2
+   IL_00a8: ldc.i4.s 19
+   IL_00aa: ldc.i4.1
+   IL_00ab: ldloc.2
+   IL_00ac: ldloca.s V_4
+   IL_00ae: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_00b3: stloc.3
+   IL_00b4: ldloc.s V_4
+   IL_00b6: brfalse.s IL_00dd
+   IL_00b8: ldloca.s V_3
+   IL_00ba: ldstr "Downloaded "
+   IL_00bf: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_00c4: ldloca.s V_3
+   IL_00c6: ldloc.0
+   IL_00c7: callvirt System.Int32 System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.Helpers.ModUpdateInfo>::get_Count()
+   IL_00cc: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted<System.Int32>(T)
+   IL_00d1: ldloca.s V_3
+   IL_00d3: ldstr " item(s)"
+   IL_00d8: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_00dd: ldloc.3
+   IL_00de: call System.Void Celeste.Mod.Logger::Verbose(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>)
+   IL_00e3: leave.s IL_00f1
+   IL_00e5: ldloc.s V_5
+   IL_00e7: brfalse.s IL_00f0
+   IL_00e9: ldloc.s V_5
+   IL_00eb: callvirt System.Void System.IDisposable::Dispose()
+   IL_00f0: endfinally
+   IL_00f1: leave.s IL_010a
+   IL_00f3: ldstr "ModUpdaterHelper"
+   IL_00f8: ldstr "Downloading database failed!"
+   IL_00fd: call System.Void Celeste.Mod.Logger::Warn(System.String,System.String)
+   IL_0102: ldnull
+   IL_0103: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_0108: leave.s IL_010a
+   IL_010a: ldloc.0
+   IL_010b: ret

@@ -1,0 +1,3651 @@
+On: Celeste.Mod.Aqua.Core.ParticleTypesExtensions.ParticleTypes_Load(orig_Load)
+On: AltLevelsHelper.Entry.ParticleTypes_Load(orig_Load)
+On: Celeste.Mod.SaladimHelper.CommonModule.OnLoadParticles(orig_Load)
+   IL_0000: ldc.i4.4
+   IL_0001: newarr Monocle.MTexture
+   IL_0006: dup
+   IL_0007: ldc.i4.0
+   IL_0008: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_000d: ldstr "particles/smoke0"
+   IL_0012: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0017: stelem.ref
+   IL_0018: dup
+   IL_0019: ldc.i4.1
+   IL_001a: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_001f: ldstr "particles/smoke1"
+   IL_0024: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0029: stelem.ref
+   IL_002a: dup
+   IL_002b: ldc.i4.2
+   IL_002c: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0031: ldstr "particles/smoke2"
+   IL_0036: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_003b: stelem.ref
+   IL_003c: dup
+   IL_003d: ldc.i4.3
+   IL_003e: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0043: ldstr "particles/smoke3"
+   IL_0048: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_004d: stelem.ref
+   IL_004e: newobj System.Void Monocle.Chooser`1<Monocle.MTexture>::.ctor(T[])
+   IL_0053: stloc.0
+   IL_0054: ldc.i4.4
+   IL_0055: newarr Monocle.MTexture
+   IL_005a: dup
+   IL_005b: ldc.i4.0
+   IL_005c: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0061: ldstr "particles/zappysmoke00"
+   IL_0066: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_006b: stelem.ref
+   IL_006c: dup
+   IL_006d: ldc.i4.1
+   IL_006e: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0073: ldstr "particles/zappysmoke01"
+   IL_0078: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_007d: stelem.ref
+   IL_007e: dup
+   IL_007f: ldc.i4.2
+   IL_0080: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0085: ldstr "particles/zappysmoke02"
+   IL_008a: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_008f: stelem.ref
+   IL_0090: dup
+   IL_0091: ldc.i4.3
+   IL_0092: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0097: ldstr "particles/zappysmoke03"
+   IL_009c: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_00a1: stelem.ref
+   IL_00a2: newobj System.Void Monocle.Chooser`1<Monocle.MTexture>::.ctor(T[])
+   IL_00a7: stloc.1
+   IL_00a8: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_00ad: dup
+   IL_00ae: ldloc.0
+   IL_00af: stfld Monocle.Chooser`1<Monocle.MTexture> Monocle.ParticleType::SourceChooser
+   IL_00b4: dup
+   IL_00b5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00ba: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_00bf: dup
+   IL_00c0: ldc.r4 0
+   IL_00c5: ldc.r4 4
+   IL_00ca: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00cf: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_00d4: dup
+   IL_00d5: ldc.r4 0.3
+   IL_00da: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_00df: dup
+   IL_00e0: ldc.r4 0.5
+   IL_00e5: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_00ea: dup
+   IL_00eb: ldc.r4 0.7
+   IL_00f0: stfld System.Single Monocle.ParticleType::Size
+   IL_00f5: dup
+   IL_00f6: ldc.r4 0.2
+   IL_00fb: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_0100: dup
+   IL_0101: ldc.r4 1.5707964
+   IL_0106: stfld System.Single Monocle.ParticleType::Direction
+   IL_010b: dup
+   IL_010c: ldc.r4 0.5
+   IL_0111: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0116: dup
+   IL_0117: ldc.r4 5
+   IL_011c: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0121: dup
+   IL_0122: ldc.r4 15
+   IL_0127: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_012c: dup
+   IL_012d: ldc.i4.1
+   IL_012e: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_0133: dup
+   IL_0134: ldc.i4.1
+   IL_0135: stfld System.Boolean Monocle.ParticleType::ScaleOut
+   IL_013a: dup
+   IL_013b: ldc.i4.1
+   IL_013c: stfld System.Boolean Monocle.ParticleType::UseActualDeltaTime
+   IL_0141: stsfld Monocle.ParticleType Celeste.ParticleTypes::Dust
+   IL_0146: ldsfld Monocle.ParticleType Celeste.ParticleTypes::Dust
+   IL_014b: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0150: dup
+   IL_0151: ldloc.1
+   IL_0152: stfld Monocle.Chooser`1<Monocle.MTexture> Monocle.ParticleType::SourceChooser
+   IL_0157: dup
+   IL_0158: ldstr "5be1cd"
+   IL_015d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0162: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0167: dup
+   IL_0168: ldstr "aafab6"
+   IL_016d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0172: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0177: dup
+   IL_0178: ldc.i4.2
+   IL_0179: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_017e: stsfld Monocle.ParticleType Celeste.ParticleTypes::SparkyDust
+   IL_0183: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0188: dup
+   IL_0189: ldloc.0
+   IL_018a: stfld Monocle.Chooser`1<Monocle.MTexture> Monocle.ParticleType::SourceChooser
+   IL_018f: dup
+   IL_0190: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0195: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_019a: dup
+   IL_019b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_LightGray()
+   IL_01a0: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_01a5: dup
+   IL_01a6: ldc.i4.1
+   IL_01a7: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_01ac: dup
+   IL_01ad: ldc.r4 -4
+   IL_01b2: ldc.r4 1
+   IL_01b7: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01bc: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_01c1: dup
+   IL_01c2: ldc.r4 2
+   IL_01c7: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_01cc: dup
+   IL_01cd: ldc.r4 4
+   IL_01d2: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_01d7: dup
+   IL_01d8: ldc.r4 1
+   IL_01dd: stfld System.Single Monocle.ParticleType::Size
+   IL_01e2: dup
+   IL_01e3: ldc.r4 0.25
+   IL_01e8: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_01ed: dup
+   IL_01ee: ldc.r4 1.5707964
+   IL_01f3: stfld System.Single Monocle.ParticleType::Direction
+   IL_01f8: dup
+   IL_01f9: ldc.r4 0.5
+   IL_01fe: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0203: dup
+   IL_0204: ldc.r4 4
+   IL_0209: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_020e: dup
+   IL_020f: ldc.r4 12
+   IL_0214: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0219: dup
+   IL_021a: ldc.i4.1
+   IL_021b: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_0220: dup
+   IL_0221: ldc.i4.1
+   IL_0222: stfld System.Boolean Monocle.ParticleType::ScaleOut
+   IL_0227: stsfld Monocle.ParticleType Celeste.ParticleTypes::Chimney
+   IL_022c: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0231: dup
+   IL_0232: ldloc.0
+   IL_0233: stfld Monocle.Chooser`1<Monocle.MTexture> Monocle.ParticleType::SourceChooser
+   IL_0238: dup
+   IL_0239: ldc.r4 0
+   IL_023e: ldc.r4 -4
+   IL_0243: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0248: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_024d: dup
+   IL_024e: ldc.r4 2
+   IL_0253: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0258: dup
+   IL_0259: ldc.r4 4
+   IL_025e: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0263: dup
+   IL_0264: ldc.r4 0.5
+   IL_0269: stfld System.Single Monocle.ParticleType::Size
+   IL_026e: dup
+   IL_026f: ldc.r4 0
+   IL_0274: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_0279: dup
+   IL_027a: ldc.r4 -1.5707964
+   IL_027f: stfld System.Single Monocle.ParticleType::Direction
+   IL_0284: dup
+   IL_0285: ldc.r4 0.5
+   IL_028a: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_028f: dup
+   IL_0290: ldc.r4 4
+   IL_0295: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_029a: dup
+   IL_029b: ldc.r4 12
+   IL_02a0: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_02a5: dup
+   IL_02a6: ldc.i4.1
+   IL_02a7: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_02ac: dup
+   IL_02ad: ldc.i4.1
+   IL_02ae: stfld System.Boolean Monocle.ParticleType::ScaleOut
+   IL_02b3: dup
+   IL_02b4: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_02b9: ldc.r4 0.2
+   IL_02be: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_02c3: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_02c8: dup
+   IL_02c9: ldc.i4.2
+   IL_02ca: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_02cf: stsfld Monocle.ParticleType Celeste.ParticleTypes::Steam
+   IL_02d4: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_02d9: dup
+   IL_02da: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_LightGray()
+   IL_02df: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_02e4: dup
+   IL_02e5: ldc.i4.1
+   IL_02e6: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_02eb: dup
+   IL_02ec: ldc.r4 1
+   IL_02f1: stfld System.Single Monocle.ParticleType::Size
+   IL_02f6: dup
+   IL_02f7: ldc.r4 0
+   IL_02fc: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_0301: dup
+   IL_0302: ldc.r4 20
+   IL_0307: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_030c: dup
+   IL_030d: ldc.r4 40
+   IL_0312: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0317: dup
+   IL_0318: ldc.r4 1.5707964
+   IL_031d: stfld System.Single Monocle.ParticleType::Direction
+   IL_0322: dup
+   IL_0323: ldc.r4 0.05
+   IL_0328: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_032d: dup
+   IL_032e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0333: ldc.r4 20
+   IL_0338: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_033d: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_0342: dup
+   IL_0343: ldc.r4 0.4
+   IL_0348: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_034d: dup
+   IL_034e: ldc.r4 0.8
+   IL_0353: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0358: stsfld Monocle.ParticleType Celeste.ParticleTypes::VentDust
+   IL_035d: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0362: dup
+   IL_0363: ldstr "44B7FF"
+   IL_0368: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_036d: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0372: dup
+   IL_0373: ldstr "75c9ff"
+   IL_0378: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_037d: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0382: dup
+   IL_0383: ldc.i4.2
+   IL_0384: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_0389: dup
+   IL_038a: ldc.i4.2
+   IL_038b: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0390: dup
+   IL_0391: ldc.r4 1
+   IL_0396: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_039b: dup
+   IL_039c: ldc.r4 1.8
+   IL_03a1: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_03a6: dup
+   IL_03a7: ldc.r4 1
+   IL_03ac: stfld System.Single Monocle.ParticleType::Size
+   IL_03b1: dup
+   IL_03b2: ldc.r4 10
+   IL_03b7: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_03bc: dup
+   IL_03bd: ldc.r4 20
+   IL_03c2: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_03c7: dup
+   IL_03c8: ldc.r4 0
+   IL_03cd: ldc.r4 8
+   IL_03d2: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_03d7: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_03dc: dup
+   IL_03dd: ldc.r4 1.0471976
+   IL_03e2: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_03e7: stsfld Monocle.ParticleType Celeste.Player::P_DashA
+   IL_03ec: ldsfld Monocle.ParticleType Celeste.Player::P_DashA
+   IL_03f1: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_03f6: dup
+   IL_03f7: ldstr "AC3232"
+   IL_03fc: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0401: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0406: dup
+   IL_0407: ldstr "e05959"
+   IL_040c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0411: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0416: stsfld Monocle.ParticleType Celeste.Player::P_DashB
+   IL_041b: ldsfld Monocle.ParticleType Celeste.Player::P_DashA
+   IL_0420: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0425: dup
+   IL_0426: ldstr "9B3FB5"
+   IL_042b: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0430: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0435: dup
+   IL_0436: ldstr "CC8EE2"
+   IL_043b: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0440: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0445: stsfld Monocle.ParticleType Celeste.Player::P_DashBadB
+   IL_044a: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_044f: dup
+   IL_0450: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0455: ldc.r4 0.6
+   IL_045a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_045f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0464: dup
+   IL_0465: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_046a: ldstr "particles/bubble"
+   IL_046f: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0474: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_0479: dup
+   IL_047a: ldc.i4.2
+   IL_047b: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0480: dup
+   IL_0481: ldc.r4 0.4
+   IL_0486: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_048b: dup
+   IL_048c: ldc.r4 1
+   IL_0491: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0496: dup
+   IL_0497: ldc.r4 1
+   IL_049c: stfld System.Single Monocle.ParticleType::Size
+   IL_04a1: dup
+   IL_04a2: ldc.r4 0.5
+   IL_04a7: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_04ac: dup
+   IL_04ad: ldc.r4 8
+   IL_04b2: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_04b7: dup
+   IL_04b8: ldc.r4 16
+   IL_04bd: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_04c2: dup
+   IL_04c3: ldc.r4 0
+   IL_04c8: ldc.r4 -24
+   IL_04cd: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04d2: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_04d7: dup
+   IL_04d8: ldc.r4 6.2831855
+   IL_04dd: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_04e2: stsfld Monocle.ParticleType Celeste.Player::P_CassetteFly
+   IL_04e7: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_04ec: dup
+   IL_04ed: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::TwoDashesHairColor
+   IL_04f2: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_04f7: dup
+   IL_04f8: ldstr "e256d3"
+   IL_04fd: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0502: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0507: dup
+   IL_0508: ldc.i4.1
+   IL_0509: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_050e: dup
+   IL_050f: ldc.r4 1
+   IL_0514: stfld System.Single Monocle.ParticleType::Size
+   IL_0519: dup
+   IL_051a: ldc.i4.2
+   IL_051b: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0520: dup
+   IL_0521: ldc.r4 0.6
+   IL_0526: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_052b: dup
+   IL_052c: ldc.r4 0.9
+   IL_0531: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0536: dup
+   IL_0537: ldc.r4 60
+   IL_053c: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0541: dup
+   IL_0542: ldc.r4 80
+   IL_0547: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_054c: dup
+   IL_054d: ldc.r4 0.1
+   IL_0552: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0557: dup
+   IL_0558: ldc.r4 6.2831855
+   IL_055d: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0562: stsfld Monocle.ParticleType Celeste.Player::P_Split
+   IL_0567: ldsfld Monocle.ParticleType Celeste.ParticleTypes::Dust
+   IL_056c: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0571: dup
+   IL_0572: ldc.r4 1.3962634
+   IL_0577: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_057c: dup
+   IL_057d: ldc.r4 5
+   IL_0582: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0587: dup
+   IL_0588: ldc.r4 10
+   IL_058d: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0592: dup
+   IL_0593: ldc.r4 0.4
+   IL_0598: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_059d: dup
+   IL_059e: ldc.r4 0.8
+   IL_05a3: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_05a8: stsfld Monocle.ParticleType Celeste.Player::P_SummitLandA
+   IL_05ad: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_05b2: dup
+   IL_05b3: ldloc.0
+   IL_05b4: stfld Monocle.Chooser`1<Monocle.MTexture> Monocle.ParticleType::SourceChooser
+   IL_05b9: dup
+   IL_05ba: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_05bf: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_05c4: dup
+   IL_05c5: ldc.i4.2
+   IL_05c6: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_05cb: dup
+   IL_05cc: ldc.i4.1
+   IL_05cd: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_05d2: dup
+   IL_05d3: ldc.r4 0.8
+   IL_05d8: stfld System.Single Monocle.ParticleType::Size
+   IL_05dd: dup
+   IL_05de: ldc.r4 0.4
+   IL_05e3: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_05e8: dup
+   IL_05e9: ldc.r4 20
+   IL_05ee: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_05f3: dup
+   IL_05f4: ldc.r4 60
+   IL_05f9: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_05fe: dup
+   IL_05ff: ldc.r4 0.1
+   IL_0604: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0609: dup
+   IL_060a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_060f: ldc.r4 -60
+   IL_0614: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0619: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_061e: dup
+   IL_061f: ldc.r4 0.8
+   IL_0624: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0629: dup
+   IL_062a: ldc.r4 1.2
+   IL_062f: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0634: dup
+   IL_0635: ldc.r4 0.5235988
+   IL_063a: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_063f: stsfld Monocle.ParticleType Celeste.Player::P_SummitLandB
+   IL_0644: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0649: dup
+   IL_064a: ldc.r4 1
+   IL_064f: stfld System.Single Monocle.ParticleType::Size
+   IL_0654: dup
+   IL_0655: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::TwoDashesHairColor
+   IL_065a: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_065f: dup
+   IL_0660: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::TwoDashesHairColor
+   IL_0665: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_066a: ldc.r4 0.5
+   IL_066f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0674: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0679: dup
+   IL_067a: ldc.i4.2
+   IL_067b: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_0680: dup
+   IL_0681: ldc.i4.2
+   IL_0682: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0687: dup
+   IL_0688: ldc.r4 40
+   IL_068d: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0692: dup
+   IL_0693: ldc.r4 140
+   IL_0698: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_069d: dup
+   IL_069e: ldc.r4 -1.5707964
+   IL_06a3: stfld System.Single Monocle.ParticleType::Direction
+   IL_06a8: dup
+   IL_06a9: ldc.r4 1.7453293
+   IL_06ae: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_06b3: dup
+   IL_06b4: ldc.r4 0.1
+   IL_06b9: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_06be: dup
+   IL_06bf: ldc.r4 0
+   IL_06c4: ldc.r4 20
+   IL_06c9: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_06ce: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_06d3: dup
+   IL_06d4: ldc.r4 0.8
+   IL_06d9: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_06de: dup
+   IL_06df: ldc.r4 1.6
+   IL_06e4: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_06e9: stsfld Monocle.ParticleType Celeste.Player::P_SummitLandC
+   IL_06ee: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_06f3: dup
+   IL_06f4: ldstr "6385FF"
+   IL_06f9: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_06fe: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0703: dup
+   IL_0704: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0709: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_070e: dup
+   IL_070f: ldc.i4.2
+   IL_0710: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_0715: dup
+   IL_0716: ldc.i4.2
+   IL_0717: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_071c: dup
+   IL_071d: ldc.r4 0.6
+   IL_0722: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0727: dup
+   IL_0728: ldc.r4 0.8
+   IL_072d: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0732: dup
+   IL_0733: ldc.r4 1
+   IL_0738: stfld System.Single Monocle.ParticleType::Size
+   IL_073d: dup
+   IL_073e: ldc.r4 80
+   IL_0743: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0748: dup
+   IL_0749: ldc.r4 90
+   IL_074e: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0753: dup
+   IL_0754: ldc.r4 0.03
+   IL_0759: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_075e: dup
+   IL_075f: ldc.r4 6.2831855
+   IL_0764: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0769: stsfld Monocle.ParticleType Celeste.Torch::P_OnLight
+   IL_076e: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0773: dup
+   IL_0774: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0779: ldstr "particles/cloud"
+   IL_077e: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0783: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_0788: dup
+   IL_0789: ldstr "2c5fcc"
+   IL_078e: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0793: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0798: dup
+   IL_0799: ldc.i4.0
+   IL_079a: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_079f: dup
+   IL_07a0: ldc.r4 0.25
+   IL_07a5: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_07aa: dup
+   IL_07ab: ldc.r4 0.3
+   IL_07b0: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_07b5: dup
+   IL_07b6: ldc.r4 0.7
+   IL_07bb: stfld System.Single Monocle.ParticleType::Size
+   IL_07c0: dup
+   IL_07c1: ldc.r4 0.25
+   IL_07c6: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_07cb: dup
+   IL_07cc: ldc.i4.1
+   IL_07cd: stfld System.Boolean Monocle.ParticleType::ScaleOut
+   IL_07d2: dup
+   IL_07d3: ldc.r4 4.712389
+   IL_07d8: stfld System.Single Monocle.ParticleType::Direction
+   IL_07dd: dup
+   IL_07de: ldc.r4 0.17453292
+   IL_07e3: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_07e8: dup
+   IL_07e9: ldc.r4 10
+   IL_07ee: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_07f3: dup
+   IL_07f4: ldc.r4 20
+   IL_07f9: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_07fe: dup
+   IL_07ff: ldc.r4 0.01
+   IL_0804: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0809: dup
+   IL_080a: ldc.r4 0
+   IL_080f: ldc.r4 90
+   IL_0814: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0819: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_081e: stsfld Monocle.ParticleType Celeste.Cloud::P_Cloud
+   IL_0823: ldsfld Monocle.ParticleType Celeste.Cloud::P_Cloud
+   IL_0828: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_082d: stsfld Monocle.ParticleType Celeste.Cloud::P_FragileCloud
+   IL_0832: ldsfld Monocle.ParticleType Celeste.Cloud::P_FragileCloud
+   IL_0837: ldstr "5e22ae"
+   IL_083c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0841: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0846: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_084b: dup
+   IL_084c: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0851: ldstr "particles/blob"
+   IL_0856: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_085b: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_0860: dup
+   IL_0861: ldstr "2c956e"
+   IL_0866: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_086b: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0870: dup
+   IL_0871: ldc.i4.0
+   IL_0872: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0877: dup
+   IL_0878: ldc.r4 0.5
+   IL_087d: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0882: dup
+   IL_0883: ldc.r4 0.8
+   IL_0888: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_088d: dup
+   IL_088e: ldc.r4 0.7
+   IL_0893: stfld System.Single Monocle.ParticleType::Size
+   IL_0898: dup
+   IL_0899: ldc.r4 0.25
+   IL_089e: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_08a3: dup
+   IL_08a4: ldc.i4.1
+   IL_08a5: stfld System.Boolean Monocle.ParticleType::ScaleOut
+   IL_08aa: dup
+   IL_08ab: ldc.r4 4.712389
+   IL_08b0: stfld System.Single Monocle.ParticleType::Direction
+   IL_08b5: dup
+   IL_08b6: ldc.r4 0.17453292
+   IL_08bb: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_08c0: dup
+   IL_08c1: ldc.r4 10
+   IL_08c6: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_08cb: dup
+   IL_08cc: ldc.r4 20
+   IL_08d1: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_08d6: dup
+   IL_08d7: ldc.r4 0.01
+   IL_08dc: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_08e1: dup
+   IL_08e2: ldc.r4 0
+   IL_08e7: ldc.r4 90
+   IL_08ec: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_08f1: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_08f6: stsfld Monocle.ParticleType Celeste.Booster::P_Burst
+   IL_08fb: ldsfld Monocle.ParticleType Celeste.Booster::P_Burst
+   IL_0900: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0905: stsfld Monocle.ParticleType Celeste.Booster::P_BurstRed
+   IL_090a: ldsfld Monocle.ParticleType Celeste.Booster::P_BurstRed
+   IL_090f: ldstr "942c3e"
+   IL_0914: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0919: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_091e: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0923: dup
+   IL_0924: ldc.r4 1
+   IL_0929: stfld System.Single Monocle.ParticleType::Size
+   IL_092e: dup
+   IL_092f: ldstr "4ACFC6"
+   IL_0934: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0939: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_093e: dup
+   IL_093f: ldc.r4 0.10471976
+   IL_0944: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0949: dup
+   IL_094a: ldc.r4 0.6
+   IL_094f: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0954: dup
+   IL_0955: ldc.r4 1
+   IL_095a: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_095f: dup
+   IL_0960: ldc.r4 40
+   IL_0965: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_096a: dup
+   IL_096b: ldc.r4 50
+   IL_0970: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0975: dup
+   IL_0976: ldc.r4 0.25
+   IL_097b: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0980: dup
+   IL_0981: ldc.i4.2
+   IL_0982: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0987: stsfld Monocle.ParticleType Celeste.Booster::P_Appear
+   IL_098c: ldsfld Monocle.ParticleType Celeste.Booster::P_Appear
+   IL_0991: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0996: dup
+   IL_0997: ldstr "FF594A"
+   IL_099c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_09a1: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_09a6: stsfld Monocle.ParticleType Celeste.Booster::P_RedAppear
+   IL_09ab: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_09b0: dup
+   IL_09b1: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_09b6: ldstr "particles/fire"
+   IL_09bb: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_09c0: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_09c5: dup
+   IL_09c6: ldstr "f141df"
+   IL_09cb: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_09d0: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_09d5: dup
+   IL_09d6: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_09db: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_09e0: dup
+   IL_09e1: ldc.i4.3
+   IL_09e2: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_09e7: dup
+   IL_09e8: ldc.i4.2
+   IL_09e9: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_09ee: dup
+   IL_09ef: ldc.r4 0
+   IL_09f4: ldc.r4 -40
+   IL_09f9: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_09fe: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_0a03: dup
+   IL_0a04: ldc.r4 0.8
+   IL_0a09: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0a0e: dup
+   IL_0a0f: ldc.r4 1.2
+   IL_0a14: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0a19: dup
+   IL_0a1a: ldc.r4 0.5
+   IL_0a1f: stfld System.Single Monocle.ParticleType::Size
+   IL_0a24: dup
+   IL_0a25: ldc.r4 0.4
+   IL_0a2a: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_0a2f: dup
+   IL_0a30: ldc.r4 -1.5707964
+   IL_0a35: stfld System.Single Monocle.ParticleType::Direction
+   IL_0a3a: dup
+   IL_0a3b: ldc.r4 0.5235988
+   IL_0a40: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0a45: dup
+   IL_0a46: ldc.r4 12
+   IL_0a4b: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0a50: dup
+   IL_0a51: ldc.r4 10
+   IL_0a56: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0a5b: dup
+   IL_0a5c: ldc.r4 0.2
+   IL_0a61: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0a66: dup
+   IL_0a67: ldc.i4.1
+   IL_0a68: stfld System.Boolean Monocle.ParticleType::ScaleOut
+   IL_0a6d: stsfld Monocle.ParticleType Celeste.TouchSwitch::P_Fire
+   IL_0a72: ldsfld Monocle.ParticleType Celeste.TouchSwitch::P_Fire
+   IL_0a77: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0a7c: dup
+   IL_0a7d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0a82: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0a87: stsfld Monocle.ParticleType Celeste.TouchSwitch::P_FireWhite
+   IL_0a8c: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0a91: dup
+   IL_0a92: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0a97: ldstr "particles/feather"
+   IL_0a9c: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0aa1: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_0aa6: dup
+   IL_0aa7: ldsfld Microsoft.Xna.Framework.Color Celeste.Water::SurfaceColor
+   IL_0aac: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0ab1: dup
+   IL_0ab2: ldc.i4.2
+   IL_0ab3: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0ab8: dup
+   IL_0ab9: ldc.r4 0
+   IL_0abe: ldc.r4 20
+   IL_0ac3: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0ac8: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_0acd: dup
+   IL_0ace: ldc.r4 0.8333333
+   IL_0ad3: stfld System.Single Monocle.ParticleType::Size
+   IL_0ad8: dup
+   IL_0ad9: ldc.r4 0.33333334
+   IL_0ade: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_0ae3: dup
+   IL_0ae4: ldc.i4.1
+   IL_0ae5: stfld System.Boolean Monocle.ParticleType::ScaleOut
+   IL_0aea: dup
+   IL_0aeb: ldc.r4 30
+   IL_0af0: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0af5: dup
+   IL_0af6: ldc.r4 24
+   IL_0afb: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0b00: dup
+   IL_0b01: ldc.r4 0.98
+   IL_0b06: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0b0b: dup
+   IL_0b0c: ldc.r4 -1.5707964
+   IL_0b11: stfld System.Single Monocle.ParticleType::Direction
+   IL_0b16: dup
+   IL_0b17: ldc.r4 0.6981317
+   IL_0b1c: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0b21: dup
+   IL_0b22: ldc.i4.1
+   IL_0b23: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_0b28: dup
+   IL_0b29: ldc.r4 0.35
+   IL_0b2e: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0b33: dup
+   IL_0b34: ldc.r4 0.2
+   IL_0b39: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0b3e: stsfld Monocle.ParticleType Celeste.Water::P_Splash
+   IL_0b43: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0b48: dup
+   IL_0b49: ldstr "FF8563"
+   IL_0b4e: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0b53: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0b58: dup
+   IL_0b59: ldstr "FFF4A8"
+   IL_0b5e: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0b63: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0b68: dup
+   IL_0b69: ldc.i4.2
+   IL_0b6a: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_0b6f: dup
+   IL_0b70: ldc.i4.2
+   IL_0b71: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0b76: dup
+   IL_0b77: ldc.r4 1
+   IL_0b7c: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0b81: dup
+   IL_0b82: ldc.r4 1.5
+   IL_0b87: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0b8c: dup
+   IL_0b8d: ldc.r4 1
+   IL_0b92: stfld System.Single Monocle.ParticleType::Size
+   IL_0b97: dup
+   IL_0b98: ldc.r4 2
+   IL_0b9d: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0ba2: dup
+   IL_0ba3: ldc.r4 8
+   IL_0ba8: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0bad: dup
+   IL_0bae: ldc.r4 6.2831855
+   IL_0bb3: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0bb8: stsfld Monocle.ParticleType Celeste.Strawberry::P_Glow
+   IL_0bbd: ldsfld Monocle.ParticleType Celeste.Strawberry::P_Glow
+   IL_0bc2: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0bc7: dup
+   IL_0bc8: ldstr "6385FF"
+   IL_0bcd: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0bd2: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0bd7: dup
+   IL_0bd8: ldstr "72F0FF"
+   IL_0bdd: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0be2: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0be7: stsfld Monocle.ParticleType Celeste.Strawberry::P_GhostGlow
+   IL_0bec: ldsfld Monocle.ParticleType Celeste.Strawberry::P_Glow
+   IL_0bf1: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0bf6: dup
+   IL_0bf7: ldstr "ffdd62"
+   IL_0bfc: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0c01: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0c06: dup
+   IL_0c07: ldstr "fff7c4"
+   IL_0c0c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0c11: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0c16: stsfld Monocle.ParticleType Celeste.Strawberry::P_GoldGlow
+   IL_0c1b: ldsfld Monocle.ParticleType Celeste.Strawberry::P_Glow
+   IL_0c20: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0c25: dup
+   IL_0c26: ldstr "5CFF6F"
+   IL_0c2b: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0c30: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0c35: dup
+   IL_0c36: ldstr "E1FF6B"
+   IL_0c3b: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0c40: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0c45: stsfld Monocle.ParticleType Celeste.Strawberry::P_MoonGlow
+   IL_0c4a: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0c4f: dup
+   IL_0c50: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0c55: ldstr "particles/feather"
+   IL_0c5a: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0c5f: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_0c64: dup
+   IL_0c65: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0c6a: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0c6f: dup
+   IL_0c70: ldc.i4.2
+   IL_0c71: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0c76: dup
+   IL_0c77: ldc.r4 0
+   IL_0c7c: ldc.r4 1.2
+   IL_0c81: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0c86: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_0c8b: dup
+   IL_0c8c: ldc.r4 0.5
+   IL_0c91: stfld System.Single Monocle.ParticleType::Size
+   IL_0c96: dup
+   IL_0c97: ldc.r4 0.33333334
+   IL_0c9c: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_0ca1: dup
+   IL_0ca2: ldc.r4 36
+   IL_0ca7: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0cac: dup
+   IL_0cad: ldc.r4 12
+   IL_0cb2: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0cb7: dup
+   IL_0cb8: ldc.r4 0.98
+   IL_0cbd: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0cc2: dup
+   IL_0cc3: ldc.r4 -1.5707964
+   IL_0cc8: stfld System.Single Monocle.ParticleType::Direction
+   IL_0ccd: dup
+   IL_0cce: ldc.r4 2.7925267
+   IL_0cd3: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0cd8: dup
+   IL_0cd9: ldc.i4.1
+   IL_0cda: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_0cdf: dup
+   IL_0ce0: ldc.r4 1
+   IL_0ce5: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0cea: dup
+   IL_0ceb: ldc.r4 0.3
+   IL_0cf0: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0cf5: stsfld Monocle.ParticleType Celeste.Strawberry::P_WingsBurst
+   IL_0cfa: ldsfld Monocle.ParticleType Celeste.Strawberry::P_WingsBurst
+   IL_0cff: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0d04: dup
+   IL_0d05: ldstr "639BFF"
+   IL_0d0a: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0d0f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0d14: dup
+   IL_0d15: ldc.r4 2
+   IL_0d1a: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0d1f: stsfld Monocle.ParticleType Celeste.BirdNPC::P_Feather
+   IL_0d24: ldsfld Monocle.ParticleType Celeste.Strawberry::P_WingsBurst
+   IL_0d29: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0d2e: dup
+   IL_0d2f: ldstr "639BFF"
+   IL_0d34: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0d39: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0d3e: dup
+   IL_0d3f: ldc.r4 2
+   IL_0d44: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0d49: stsfld Monocle.ParticleType Celeste.FlingBird::P_Feather
+   IL_0d4e: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0d53: dup
+   IL_0d54: ldstr "e2d926"
+   IL_0d59: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0d5e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0d63: dup
+   IL_0d64: ldstr "fffeef"
+   IL_0d69: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0d6e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0d73: dup
+   IL_0d74: ldc.i4.2
+   IL_0d75: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_0d7a: dup
+   IL_0d7b: ldc.i4.2
+   IL_0d7c: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0d81: dup
+   IL_0d82: ldc.r4 0.5
+   IL_0d87: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0d8c: dup
+   IL_0d8d: ldc.r4 0.8
+   IL_0d92: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0d97: dup
+   IL_0d98: ldc.r4 1
+   IL_0d9d: stfld System.Single Monocle.ParticleType::Size
+   IL_0da2: dup
+   IL_0da3: ldc.r4 1
+   IL_0da8: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0dad: dup
+   IL_0dae: ldc.r4 2
+   IL_0db3: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0db8: dup
+   IL_0db9: ldc.r4 6.2831855
+   IL_0dbe: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0dc3: stsfld Monocle.ParticleType Celeste.Key::P_Shimmer
+   IL_0dc8: ldsfld Monocle.ParticleType Celeste.Key::P_Shimmer
+   IL_0dcd: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0dd2: dup
+   IL_0dd3: ldc.r4 40
+   IL_0dd8: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0ddd: dup
+   IL_0dde: ldc.r4 60
+   IL_0de3: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0de8: dup
+   IL_0de9: ldc.r4 0.05
+   IL_0dee: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0df3: stsfld Monocle.ParticleType Celeste.Key::P_Insert
+   IL_0df8: ldsfld Monocle.ParticleType Celeste.Key::P_Insert
+   IL_0dfd: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0e02: stsfld Monocle.ParticleType Celeste.Key::P_Collect
+   IL_0e07: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0e0c: dup
+   IL_0e0d: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0e12: ldstr "particles/triangle"
+   IL_0e17: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0e1c: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_0e21: dup
+   IL_0e22: ldstr "d3ffd4"
+   IL_0e27: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0e2c: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0e31: dup
+   IL_0e32: ldstr "85fc87"
+   IL_0e37: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0e3c: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0e41: dup
+   IL_0e42: ldc.i4.2
+   IL_0e43: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0e48: dup
+   IL_0e49: ldc.r4 0.25
+   IL_0e4e: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0e53: dup
+   IL_0e54: ldc.r4 0.4
+   IL_0e59: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0e5e: dup
+   IL_0e5f: ldc.r4 1
+   IL_0e64: stfld System.Single Monocle.ParticleType::Size
+   IL_0e69: dup
+   IL_0e6a: ldc.r4 4.712389
+   IL_0e6f: stfld System.Single Monocle.ParticleType::Direction
+   IL_0e74: dup
+   IL_0e75: ldc.r4 0.87266463
+   IL_0e7a: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0e7f: dup
+   IL_0e80: ldc.r4 140
+   IL_0e85: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0e8a: dup
+   IL_0e8b: ldc.r4 210
+   IL_0e90: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0e95: dup
+   IL_0e96: ldc.r4 0.005
+   IL_0e9b: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0ea0: dup
+   IL_0ea1: ldc.i4.1
+   IL_0ea2: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_0ea7: dup
+   IL_0ea8: ldc.r4 1.5707964
+   IL_0ead: stfld System.Single Monocle.ParticleType::SpinMin
+   IL_0eb2: dup
+   IL_0eb3: ldc.r4 4.712389
+   IL_0eb8: stfld System.Single Monocle.ParticleType::SpinMax
+   IL_0ebd: dup
+   IL_0ebe: ldc.i4.1
+   IL_0ebf: stfld System.Boolean Monocle.ParticleType::SpinFlippedChance
+   IL_0ec4: stsfld Monocle.ParticleType Celeste.Refill::P_Shatter
+   IL_0ec9: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_0ece: dup
+   IL_0ecf: ldc.r4 0.4
+   IL_0ed4: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_0ed9: dup
+   IL_0eda: ldc.r4 0.6
+   IL_0edf: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_0ee4: dup
+   IL_0ee5: ldc.r4 1
+   IL_0eea: stfld System.Single Monocle.ParticleType::Size
+   IL_0eef: dup
+   IL_0ef0: ldc.r4 0
+   IL_0ef5: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_0efa: dup
+   IL_0efb: ldc.r4 6.2831855
+   IL_0f00: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0f05: dup
+   IL_0f06: ldc.r4 4
+   IL_0f0b: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0f10: dup
+   IL_0f11: ldc.r4 8
+   IL_0f16: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0f1b: dup
+   IL_0f1c: ldc.i4.2
+   IL_0f1d: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_0f22: dup
+   IL_0f23: ldstr "a5fff7"
+   IL_0f28: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0f2d: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0f32: dup
+   IL_0f33: ldstr "6de081"
+   IL_0f38: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0f3d: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0f42: dup
+   IL_0f43: ldc.i4.2
+   IL_0f44: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_0f49: stsfld Monocle.ParticleType Celeste.Refill::P_Glow
+   IL_0f4e: ldsfld Monocle.ParticleType Celeste.Refill::P_Glow
+   IL_0f53: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0f58: dup
+   IL_0f59: ldc.r4 30
+   IL_0f5e: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0f63: dup
+   IL_0f64: ldc.r4 40
+   IL_0f69: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_0f6e: dup
+   IL_0f6f: ldc.r4 0.2
+   IL_0f74: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_0f79: dup
+   IL_0f7a: ldc.r4 6.2831855
+   IL_0f7f: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_0f84: stsfld Monocle.ParticleType Celeste.Refill::P_Regen
+   IL_0f89: ldsfld Monocle.ParticleType Celeste.Refill::P_Shatter
+   IL_0f8e: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0f93: dup
+   IL_0f94: ldstr "FFD3F9"
+   IL_0f99: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0f9e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0fa3: dup
+   IL_0fa4: ldstr "EF94E3"
+   IL_0fa9: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0fae: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0fb3: stsfld Monocle.ParticleType Celeste.Refill::P_ShatterTwo
+   IL_0fb8: ldsfld Monocle.ParticleType Celeste.Refill::P_Glow
+   IL_0fbd: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0fc2: dup
+   IL_0fc3: ldstr "FFA5AA"
+   IL_0fc8: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0fcd: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_0fd2: dup
+   IL_0fd3: ldstr "DD6CCA"
+   IL_0fd8: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0fdd: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_0fe2: stsfld Monocle.ParticleType Celeste.Refill::P_GlowTwo
+   IL_0fe7: ldsfld Monocle.ParticleType Celeste.Refill::P_Regen
+   IL_0fec: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_0ff1: dup
+   IL_0ff2: ldc.r4 40
+   IL_0ff7: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_0ffc: dup
+   IL_0ffd: ldc.r4 60
+   IL_1002: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1007: dup
+   IL_1008: ldstr "FFA5AA"
+   IL_100d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1012: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1017: dup
+   IL_1018: ldstr "DD6CCA"
+   IL_101d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1022: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1027: stsfld Monocle.ParticleType Celeste.Refill::P_RegenTwo
+   IL_102c: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1031: dup
+   IL_1032: ldstr "99e550"
+   IL_1037: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_103c: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1041: dup
+   IL_1042: ldstr "d9ffb5"
+   IL_1047: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_104c: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1051: dup
+   IL_1052: ldc.i4.2
+   IL_1053: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1058: dup
+   IL_1059: ldc.r4 1
+   IL_105e: stfld System.Single Monocle.ParticleType::Size
+   IL_1063: dup
+   IL_1064: ldc.r4 0
+   IL_1069: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_106e: dup
+   IL_106f: ldc.r4 60
+   IL_1074: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1079: dup
+   IL_107a: ldc.r4 80
+   IL_107f: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1084: dup
+   IL_1085: ldc.r4 0.8
+   IL_108a: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_108f: dup
+   IL_1090: ldc.r4 1.2
+   IL_1095: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_109a: dup
+   IL_109b: ldc.r4 0.6981317
+   IL_10a0: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_10a5: dup
+   IL_10a6: ldc.r4 0.2
+   IL_10ab: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_10b0: stsfld Monocle.ParticleType Celeste.DashSwitch::P_PressA
+   IL_10b5: ldsfld Monocle.ParticleType Celeste.DashSwitch::P_PressA
+   IL_10ba: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_10bf: dup
+   IL_10c0: ldc.r4 100
+   IL_10c5: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_10ca: dup
+   IL_10cb: ldc.r4 110
+   IL_10d0: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_10d5: dup
+   IL_10d6: ldc.r4 0.34906584
+   IL_10db: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_10e0: stsfld Monocle.ParticleType Celeste.DashSwitch::P_PressB
+   IL_10e5: ldsfld Monocle.ParticleType Celeste.DashSwitch::P_PressA
+   IL_10ea: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_10ef: dup
+   IL_10f0: ldstr "dce34f"
+   IL_10f5: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_10fa: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_10ff: dup
+   IL_1100: ldstr "fbffaf"
+   IL_1105: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_110a: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_110f: stsfld Monocle.ParticleType Celeste.DashSwitch::P_PressAMirror
+   IL_1114: ldsfld Monocle.ParticleType Celeste.DashSwitch::P_PressB
+   IL_1119: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_111e: dup
+   IL_111f: ldstr "dce34f"
+   IL_1124: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1129: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_112e: dup
+   IL_112f: ldstr "fbffaf"
+   IL_1134: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1139: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_113e: stsfld Monocle.ParticleType Celeste.DashSwitch::P_PressBMirror
+   IL_1143: ldsfld Monocle.ParticleType Celeste.ParticleTypes::Dust
+   IL_1148: stsfld Monocle.ParticleType Celeste.FallingBlock::P_FallDustA
+   IL_114d: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1152: dup
+   IL_1153: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_1158: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_115d: dup
+   IL_115e: ldc.i4.2
+   IL_115f: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1164: dup
+   IL_1165: ldc.r4 1
+   IL_116a: stfld System.Single Monocle.ParticleType::Size
+   IL_116f: dup
+   IL_1170: ldc.r4 1.5707964
+   IL_1175: stfld System.Single Monocle.ParticleType::Direction
+   IL_117a: dup
+   IL_117b: ldc.r4 5
+   IL_1180: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1185: dup
+   IL_1186: ldc.r4 25
+   IL_118b: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1190: dup
+   IL_1191: ldc.r4 0.8
+   IL_1196: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_119b: dup
+   IL_119c: ldc.r4 1
+   IL_11a1: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_11a6: dup
+   IL_11a7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_11ac: ldc.r4 20
+   IL_11b1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_11b6: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_11bb: stsfld Monocle.ParticleType Celeste.FallingBlock::P_FallDustB
+   IL_11c0: ldsfld Monocle.ParticleType Celeste.ParticleTypes::Dust
+   IL_11c5: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_11ca: dup
+   IL_11cb: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_11d0: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_11d5: dup
+   IL_11d6: ldc.r4 0.17453292
+   IL_11db: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_11e0: dup
+   IL_11e1: ldc.r4 40
+   IL_11e6: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_11eb: dup
+   IL_11ec: ldc.r4 50
+   IL_11f1: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_11f6: dup
+   IL_11f7: ldc.r4 0.6
+   IL_11fc: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1201: dup
+   IL_1202: ldc.r4 0.6
+   IL_1207: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_120c: dup
+   IL_120d: ldc.r4 0.8
+   IL_1212: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1217: dup
+   IL_1218: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_121d: ldc.r4 -30
+   IL_1222: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_1227: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_122c: dup
+   IL_122d: ldc.i4.1
+   IL_122e: stfld System.Boolean Monocle.ParticleType::ScaleOut
+   IL_1233: stsfld Monocle.ParticleType Celeste.FallingBlock::P_LandDust
+   IL_1238: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_123d: dup
+   IL_123e: ldc.i4.2
+   IL_123f: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1244: dup
+   IL_1245: ldstr "FF3D63"
+   IL_124a: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_124f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1254: dup
+   IL_1255: ldstr "FF75DE"
+   IL_125a: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_125f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1264: dup
+   IL_1265: ldc.r4 0.4
+   IL_126a: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_126f: dup
+   IL_1270: ldc.r4 1.2
+   IL_1275: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_127a: dup
+   IL_127b: ldc.r4 30
+   IL_1280: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1285: dup
+   IL_1286: ldc.r4 70
+   IL_128b: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1290: dup
+   IL_1291: ldc.r4 1
+   IL_1296: stfld System.Single Monocle.ParticleType::Size
+   IL_129b: dup
+   IL_129c: ldc.r4 0
+   IL_12a1: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_12a6: dup
+   IL_12a7: ldc.r4 0.6
+   IL_12ac: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_12b1: dup
+   IL_12b2: ldc.r4 0.43633232
+   IL_12b7: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_12bc: stsfld Monocle.ParticleType Celeste.LockBlock::P_Appear
+   IL_12c1: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_12c6: dup
+   IL_12c7: ldstr "ffeb6b"
+   IL_12cc: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_12d1: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_12d6: dup
+   IL_12d7: ldstr "d39332"
+   IL_12dc: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_12e1: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_12e6: dup
+   IL_12e7: ldc.i4.2
+   IL_12e8: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_12ed: dup
+   IL_12ee: ldc.i4.2
+   IL_12ef: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_12f4: dup
+   IL_12f5: ldc.r4 1
+   IL_12fa: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_12ff: dup
+   IL_1300: ldc.r4 1.5
+   IL_1305: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_130a: dup
+   IL_130b: ldc.r4 1
+   IL_1310: stfld System.Single Monocle.ParticleType::Size
+   IL_1315: dup
+   IL_1316: ldc.r4 5
+   IL_131b: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1320: dup
+   IL_1321: ldc.r4 10
+   IL_1326: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_132b: dup
+   IL_132c: ldc.r4 0
+   IL_1331: ldc.r4 6
+   IL_1336: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_133b: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_1340: dup
+   IL_1341: ldc.r4 6.2831855
+   IL_1346: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_134b: stsfld Monocle.ParticleType Celeste.SwitchGate::P_Behind
+   IL_1350: ldsfld Monocle.ParticleType Celeste.ParticleTypes::Dust
+   IL_1355: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_135a: dup
+   IL_135b: ldc.r4 0.5
+   IL_1360: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1365: dup
+   IL_1366: ldc.r4 1
+   IL_136b: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1370: dup
+   IL_1371: ldc.r4 2
+   IL_1376: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_137b: dup
+   IL_137c: ldc.r4 4
+   IL_1381: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1386: stsfld Monocle.ParticleType Celeste.SwitchGate::P_Dust
+   IL_138b: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1390: dup
+   IL_1391: ldstr "847E87"
+   IL_1396: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_139b: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_13a0: dup
+   IL_13a1: ldc.i4.2
+   IL_13a2: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_13a7: dup
+   IL_13a8: ldc.r4 1
+   IL_13ad: stfld System.Single Monocle.ParticleType::Size
+   IL_13b2: dup
+   IL_13b3: ldc.r4 1.5707964
+   IL_13b8: stfld System.Single Monocle.ParticleType::Direction
+   IL_13bd: dup
+   IL_13be: ldc.r4 5
+   IL_13c3: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_13c8: dup
+   IL_13c9: ldc.r4 25
+   IL_13ce: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_13d3: dup
+   IL_13d4: ldc.r4 0.8
+   IL_13d9: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_13de: dup
+   IL_13df: ldc.r4 1
+   IL_13e4: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_13e9: dup
+   IL_13ea: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_13ef: ldc.r4 20
+   IL_13f4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_13f9: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_13fe: stsfld Monocle.ParticleType Celeste.CrumblePlatform::P_Crumble
+   IL_1403: ldsfld Monocle.ParticleType Celeste.ParticleTypes::Dust
+   IL_1408: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_140d: dup
+   IL_140e: ldc.r4 0.3
+   IL_1413: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1418: dup
+   IL_1419: ldc.r4 0.1
+   IL_141e: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1423: stsfld Monocle.ParticleType Celeste.ZipMover::P_Scrape
+   IL_1428: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_142d: dup
+   IL_142e: ldstr "fff538"
+   IL_1433: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1438: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_143d: dup
+   IL_143e: ldc.r4 1
+   IL_1443: stfld System.Single Monocle.ParticleType::Size
+   IL_1448: dup
+   IL_1449: ldc.r4 0
+   IL_144e: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_1453: dup
+   IL_1454: ldc.r4 0.15
+   IL_1459: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_145e: dup
+   IL_145f: ldc.r4 0.25
+   IL_1464: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1469: dup
+   IL_146a: ldc.r4 15
+   IL_146f: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1474: dup
+   IL_1475: ldc.r4 20
+   IL_147a: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_147f: dup
+   IL_1480: ldc.r4 1.3962634
+   IL_1485: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_148a: dup
+   IL_148b: ldc.i4.0
+   IL_148c: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1491: dup
+   IL_1492: ldc.i4.0
+   IL_1493: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1498: stsfld Monocle.ParticleType Celeste.ZipMover::P_Sparks
+   IL_149d: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_14a2: dup
+   IL_14a3: ldstr "8EED80"
+   IL_14a8: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_14ad: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_14b2: dup
+   IL_14b3: ldstr "37946E"
+   IL_14b8: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_14bd: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_14c2: dup
+   IL_14c3: ldc.i4.2
+   IL_14c4: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_14c9: dup
+   IL_14ca: ldc.i4.2
+   IL_14cb: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_14d0: dup
+   IL_14d1: ldc.r4 1
+   IL_14d6: stfld System.Single Monocle.ParticleType::Size
+   IL_14db: dup
+   IL_14dc: ldc.r4 -1.5707964
+   IL_14e1: stfld System.Single Monocle.ParticleType::Direction
+   IL_14e6: dup
+   IL_14e7: ldc.r4 0.7853982
+   IL_14ec: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_14f1: dup
+   IL_14f2: ldc.r4 10
+   IL_14f7: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_14fc: dup
+   IL_14fd: ldc.r4 20
+   IL_1502: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1507: dup
+   IL_1508: ldc.r4 0.3
+   IL_150d: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1512: dup
+   IL_1513: ldc.r4 0.6
+   IL_1518: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_151d: stsfld Monocle.ParticleType Celeste.NPC01_Theo::P_YOLO
+   IL_1522: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1527: dup
+   IL_1528: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_152d: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1532: dup
+   IL_1533: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_1538: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_153d: dup
+   IL_153e: ldc.i4.2
+   IL_153f: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1544: dup
+   IL_1545: ldc.i4.2
+   IL_1546: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_154b: dup
+   IL_154c: ldc.r4 1
+   IL_1551: stfld System.Single Monocle.ParticleType::Size
+   IL_1556: dup
+   IL_1557: ldc.r4 -1.5707964
+   IL_155c: stfld System.Single Monocle.ParticleType::Direction
+   IL_1561: dup
+   IL_1562: ldc.r4 0.7853982
+   IL_1567: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_156c: dup
+   IL_156d: ldc.r4 30
+   IL_1572: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1577: dup
+   IL_1578: ldc.r4 60
+   IL_157d: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1582: dup
+   IL_1583: ldc.r4 0.8
+   IL_1588: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_158d: dup
+   IL_158e: ldc.r4 1.2
+   IL_1593: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1598: dup
+   IL_1599: ldc.r4 0.2
+   IL_159e: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_15a3: stsfld Monocle.ParticleType Celeste.ClutterSwitch::P_Pressed
+   IL_15a8: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_15ad: dup
+   IL_15ae: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_15b3: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_15b8: dup
+   IL_15b9: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_15be: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_15c3: dup
+   IL_15c4: ldc.i4.2
+   IL_15c5: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_15ca: dup
+   IL_15cb: ldc.i4.2
+   IL_15cc: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_15d1: dup
+   IL_15d2: ldc.r4 1
+   IL_15d7: stfld System.Single Monocle.ParticleType::Size
+   IL_15dc: dup
+   IL_15dd: ldc.r4 -1.5707964
+   IL_15e2: stfld System.Single Monocle.ParticleType::Direction
+   IL_15e7: dup
+   IL_15e8: ldc.r4 0.7853982
+   IL_15ed: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_15f2: dup
+   IL_15f3: ldc.r4 10
+   IL_15f8: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_15fd: dup
+   IL_15fe: ldc.r4 20
+   IL_1603: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1608: dup
+   IL_1609: ldc.r4 0.8
+   IL_160e: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1613: dup
+   IL_1614: ldc.r4 1.2
+   IL_1619: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_161e: dup
+   IL_161f: ldc.r4 0.1
+   IL_1624: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1629: stsfld Monocle.ParticleType Celeste.ClutterSwitch::P_ClutterFly
+   IL_162e: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1633: dup
+   IL_1634: ldstr "6f2399"
+   IL_1639: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_163e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1643: dup
+   IL_1644: ldstr "ec76f7"
+   IL_1649: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_164e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1653: dup
+   IL_1654: ldc.i4.2
+   IL_1655: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_165a: dup
+   IL_165b: ldc.i4.2
+   IL_165c: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1661: dup
+   IL_1662: ldc.r4 1
+   IL_1667: stfld System.Single Monocle.ParticleType::Size
+   IL_166c: dup
+   IL_166d: ldc.r4 0
+   IL_1672: stfld System.Single Monocle.ParticleType::Direction
+   IL_1677: dup
+   IL_1678: ldc.r4 6.2831855
+   IL_167d: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1682: dup
+   IL_1683: ldc.r4 5
+   IL_1688: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_168d: dup
+   IL_168e: ldc.r4 10
+   IL_1693: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1698: dup
+   IL_1699: ldc.r4 0.6
+   IL_169e: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_16a3: dup
+   IL_16a4: ldc.r4 1.2
+   IL_16a9: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_16ae: dup
+   IL_16af: ldc.r4 0.3
+   IL_16b4: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_16b9: stsfld Monocle.ParticleType Celeste.BadelineOldsite::P_Vanish
+   IL_16be: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_16c3: dup
+   IL_16c4: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_16c9: ldstr "particles/triangle"
+   IL_16ce: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_16d3: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_16d8: dup
+   IL_16d9: ldstr "bdeff9"
+   IL_16de: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_16e3: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_16e8: dup
+   IL_16e9: ldc.i4.2
+   IL_16ea: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_16ef: dup
+   IL_16f0: ldc.r4 0.4
+   IL_16f5: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_16fa: dup
+   IL_16fb: ldc.r4 0.8
+   IL_1700: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1705: dup
+   IL_1706: ldc.r4 1
+   IL_170b: stfld System.Single Monocle.ParticleType::Size
+   IL_1710: dup
+   IL_1711: ldc.r4 4.712389
+   IL_1716: stfld System.Single Monocle.ParticleType::Direction
+   IL_171b: dup
+   IL_171c: ldc.r4 0.87266463
+   IL_1721: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1726: dup
+   IL_1727: ldc.r4 110
+   IL_172c: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1731: dup
+   IL_1732: ldc.r4 130
+   IL_1737: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_173c: dup
+   IL_173d: ldc.r4 0.05
+   IL_1742: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1747: dup
+   IL_1748: ldc.r4 0
+   IL_174d: ldc.r4 40
+   IL_1752: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_1757: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_175c: dup
+   IL_175d: ldc.i4.1
+   IL_175e: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_1763: dup
+   IL_1764: ldc.r4 1.5707964
+   IL_1769: stfld System.Single Monocle.ParticleType::SpinMin
+   IL_176e: dup
+   IL_176f: ldc.r4 4.712389
+   IL_1774: stfld System.Single Monocle.ParticleType::SpinMax
+   IL_1779: dup
+   IL_177a: ldc.i4.1
+   IL_177b: stfld System.Boolean Monocle.ParticleType::SpinFlippedChance
+   IL_1780: stsfld Monocle.ParticleType Celeste.DreamMirror::P_Shatter
+   IL_1785: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_178a: dup
+   IL_178b: ldstr "5FCDE4"
+   IL_1790: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1795: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_179a: dup
+   IL_179b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_17a0: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_17a5: dup
+   IL_17a6: ldc.i4.2
+   IL_17a7: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_17ac: dup
+   IL_17ad: ldc.i4.2
+   IL_17ae: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_17b3: dup
+   IL_17b4: ldc.r4 1
+   IL_17b9: stfld System.Single Monocle.ParticleType::Size
+   IL_17be: dup
+   IL_17bf: ldc.r4 0.4
+   IL_17c4: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_17c9: dup
+   IL_17ca: ldc.r4 0.8
+   IL_17cf: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_17d4: dup
+   IL_17d5: ldc.r4 40
+   IL_17da: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_17df: dup
+   IL_17e0: ldc.r4 60
+   IL_17e5: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_17ea: dup
+   IL_17eb: ldc.r4 0.1
+   IL_17f0: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_17f5: dup
+   IL_17f6: ldc.r4 0
+   IL_17fb: ldc.r4 10
+   IL_1800: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_1805: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_180a: stsfld Monocle.ParticleType Celeste.NPC03_Oshiro_Lobby::P_AppearSpark
+   IL_180f: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1814: dup
+   IL_1815: ldloc.0
+   IL_1816: stfld Monocle.Chooser`1<Monocle.MTexture> Monocle.ParticleType::SourceChooser
+   IL_181b: dup
+   IL_181c: ldc.i4.1
+   IL_181d: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_1822: dup
+   IL_1823: ldc.r4 0.6981317
+   IL_1828: stfld System.Single Monocle.ParticleType::SpinMin
+   IL_182d: dup
+   IL_182e: ldc.r4 1.3962634
+   IL_1833: stfld System.Single Monocle.ParticleType::SpinMax
+   IL_1838: dup
+   IL_1839: ldc.i4.1
+   IL_183a: stfld System.Boolean Monocle.ParticleType::SpinFlippedChance
+   IL_183f: dup
+   IL_1840: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_1845: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_184a: dup
+   IL_184b: ldc.i4.2
+   IL_184c: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1851: dup
+   IL_1852: ldc.r4 0.4
+   IL_1857: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_185c: dup
+   IL_185d: ldc.r4 0.8
+   IL_1862: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1867: dup
+   IL_1868: ldc.r4 0.5
+   IL_186d: stfld System.Single Monocle.ParticleType::Size
+   IL_1872: dup
+   IL_1873: ldc.r4 0.2
+   IL_1878: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_187d: dup
+   IL_187e: ldc.r4 5
+   IL_1883: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1888: dup
+   IL_1889: ldc.r4 10
+   IL_188e: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1893: dup
+   IL_1894: ldc.r4 6.2831855
+   IL_1899: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_189e: stsfld Monocle.ParticleType Celeste.DustStaticSpinner::P_Move
+   IL_18a3: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_18a8: dup
+   IL_18a9: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_18ae: ldstr "particles/rect"
+   IL_18b3: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_18b8: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_18bd: dup
+   IL_18be: ldstr "EA64B7"
+   IL_18c3: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_18c8: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_18cd: dup
+   IL_18ce: ldstr "3EE852"
+   IL_18d3: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_18d8: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_18dd: dup
+   IL_18de: ldc.i4.2
+   IL_18df: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_18e4: dup
+   IL_18e5: ldc.i4.2
+   IL_18e6: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_18eb: dup
+   IL_18ec: ldc.i4.2
+   IL_18ed: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_18f2: dup
+   IL_18f3: ldc.r4 0.4
+   IL_18f8: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_18fd: dup
+   IL_18fe: ldc.r4 0.8
+   IL_1903: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1908: dup
+   IL_1909: ldc.r4 0.5
+   IL_190e: stfld System.Single Monocle.ParticleType::Size
+   IL_1913: dup
+   IL_1914: ldc.r4 0.2
+   IL_1919: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_191e: dup
+   IL_191f: ldc.r4 6.2831855
+   IL_1924: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1929: dup
+   IL_192a: ldc.r4 10
+   IL_192f: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1934: dup
+   IL_1935: ldc.r4 20
+   IL_193a: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_193f: dup
+   IL_1940: ldc.r4 0.8
+   IL_1945: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_194a: dup
+   IL_194b: ldc.r4 1.5707964
+   IL_1950: stfld System.Single Monocle.ParticleType::SpinMin
+   IL_1955: dup
+   IL_1956: ldc.r4 4.712389
+   IL_195b: stfld System.Single Monocle.ParticleType::SpinMax
+   IL_1960: dup
+   IL_1961: ldc.i4.1
+   IL_1962: stfld System.Boolean Monocle.ParticleType::SpinFlippedChance
+   IL_1967: stloc.2
+   IL_1968: ldc.i4.3
+   IL_1969: newarr Monocle.ParticleType
+   IL_196e: dup
+   IL_196f: ldc.i4.0
+   IL_1970: ldloc.2
+   IL_1971: stelem.ref
+   IL_1972: dup
+   IL_1973: ldc.i4.1
+   IL_1974: ldloc.2
+   IL_1975: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_197a: dup
+   IL_197b: ldstr "67DFEA"
+   IL_1980: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1985: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_198a: dup
+   IL_198b: ldstr "E85351"
+   IL_1990: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1995: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_199a: stelem.ref
+   IL_199b: dup
+   IL_199c: ldc.i4.2
+   IL_199d: ldloc.2
+   IL_199e: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_19a3: dup
+   IL_19a4: ldstr "EA582C"
+   IL_19a9: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_19ae: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_19b3: dup
+   IL_19b4: ldstr "33BDE8"
+   IL_19b9: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_19be: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_19c3: stelem.ref
+   IL_19c4: stsfld Monocle.ParticleType[] Celeste.StarTrackSpinner::P_Trail
+   IL_19c9: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_19ce: dup
+   IL_19cf: ldstr "696A6A"
+   IL_19d4: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_19d9: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_19de: dup
+   IL_19df: ldstr "700808"
+   IL_19e4: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_19e9: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_19ee: dup
+   IL_19ef: ldc.i4.1
+   IL_19f0: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_19f5: dup
+   IL_19f6: ldc.i4.2
+   IL_19f7: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_19fc: dup
+   IL_19fd: ldc.r4 0.3
+   IL_1a02: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1a07: dup
+   IL_1a08: ldc.r4 0.6
+   IL_1a0d: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1a12: dup
+   IL_1a13: ldc.r4 1
+   IL_1a18: stfld System.Single Monocle.ParticleType::Size
+   IL_1a1d: dup
+   IL_1a1e: ldc.r4 6.2831855
+   IL_1a23: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1a28: dup
+   IL_1a29: ldc.r4 4
+   IL_1a2e: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1a33: dup
+   IL_1a34: ldc.r4 8
+   IL_1a39: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1a3e: dup
+   IL_1a3f: ldc.r4 0.8
+   IL_1a44: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1a49: stsfld Monocle.ParticleType Celeste.BladeTrackSpinner::P_Trail
+   IL_1a4e: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1a53: dup
+   IL_1a54: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_1a59: ldstr "particles/shatter"
+   IL_1a5e: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_1a63: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_1a68: dup
+   IL_1a69: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_1a6e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1a73: dup
+   IL_1a74: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_1a79: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1a7e: dup
+   IL_1a7f: ldc.i4.3
+   IL_1a80: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1a85: dup
+   IL_1a86: ldc.r4 0.3
+   IL_1a8b: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1a90: dup
+   IL_1a91: ldc.r4 0.4
+   IL_1a96: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1a9b: dup
+   IL_1a9c: ldc.r4 0.8
+   IL_1aa1: stfld System.Single Monocle.ParticleType::Size
+   IL_1aa6: dup
+   IL_1aa7: ldc.r4 0.3
+   IL_1aac: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_1ab1: dup
+   IL_1ab2: ldc.i4.1
+   IL_1ab3: stfld System.Boolean Monocle.ParticleType::ScaleOut
+   IL_1ab8: dup
+   IL_1ab9: ldc.r4 0
+   IL_1abe: stfld System.Single Monocle.ParticleType::Direction
+   IL_1ac3: dup
+   IL_1ac4: ldc.r4 0
+   IL_1ac9: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1ace: dup
+   IL_1acf: ldc.r4 100
+   IL_1ad4: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1ad9: dup
+   IL_1ada: ldc.r4 140
+   IL_1adf: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1ae4: dup
+   IL_1ae5: ldc.r4 1E-05
+   IL_1aea: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1aef: dup
+   IL_1af0: ldc.i4.2
+   IL_1af1: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_1af6: stsfld Monocle.ParticleType Celeste.StrawberrySeed::P_Burst
+   IL_1afb: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1b00: dup
+   IL_1b01: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_1b06: ldstr "particles/triangle"
+   IL_1b0b: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_1b10: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_1b15: dup
+   IL_1b16: ldc.i4.0
+   IL_1b17: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1b1c: dup
+   IL_1b1d: ldc.i4.2
+   IL_1b1e: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1b23: dup
+   IL_1b24: ldc.r4 0.25
+   IL_1b29: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1b2e: dup
+   IL_1b2f: ldc.r4 0.4
+   IL_1b34: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1b39: dup
+   IL_1b3a: ldc.r4 1
+   IL_1b3f: stfld System.Single Monocle.ParticleType::Size
+   IL_1b44: dup
+   IL_1b45: ldc.r4 4.712389
+   IL_1b4a: stfld System.Single Monocle.ParticleType::Direction
+   IL_1b4f: dup
+   IL_1b50: ldc.r4 0.87266463
+   IL_1b55: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1b5a: dup
+   IL_1b5b: ldc.r4 140
+   IL_1b60: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1b65: dup
+   IL_1b66: ldc.r4 210
+   IL_1b6b: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1b70: dup
+   IL_1b71: ldc.r4 0.005
+   IL_1b76: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1b7b: dup
+   IL_1b7c: ldc.i4.1
+   IL_1b7d: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_1b82: dup
+   IL_1b83: ldc.r4 1.5707964
+   IL_1b88: stfld System.Single Monocle.ParticleType::SpinMin
+   IL_1b8d: dup
+   IL_1b8e: ldc.r4 4.712389
+   IL_1b93: stfld System.Single Monocle.ParticleType::SpinMax
+   IL_1b98: dup
+   IL_1b99: ldc.i4.1
+   IL_1b9a: stfld System.Boolean Monocle.ParticleType::SpinFlippedChance
+   IL_1b9f: stsfld Monocle.ParticleType Celeste.SummitGem::P_Shatter
+   IL_1ba4: ldsfld Monocle.ParticleType Celeste.ParticleTypes::Dust
+   IL_1ba9: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_1bae: dup
+   IL_1baf: ldc.r4 1
+   IL_1bb4: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1bb9: dup
+   IL_1bba: ldc.r4 1.6
+   IL_1bbf: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1bc4: dup
+   IL_1bc5: ldc.r4 -1.5707964
+   IL_1bca: stfld System.Single Monocle.ParticleType::Direction
+   IL_1bcf: dup
+   IL_1bd0: ldc.r4 0
+   IL_1bd5: ldc.r4 12
+   IL_1bda: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_1bdf: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_1be4: dup
+   IL_1be5: ldc.r4 20
+   IL_1bea: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1bef: dup
+   IL_1bf0: ldc.r4 36
+   IL_1bf5: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1bfa: stsfld Monocle.ParticleType Celeste.Payphone::P_Snow
+   IL_1bff: ldsfld Monocle.ParticleType Celeste.Payphone::P_Snow
+   IL_1c04: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_1c09: dup
+   IL_1c0a: ldc.r4 8
+   IL_1c0f: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1c14: dup
+   IL_1c15: ldc.r4 18
+   IL_1c1a: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1c1f: stsfld Monocle.ParticleType Celeste.Payphone::P_SnowB
+   IL_1c24: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1c29: dup
+   IL_1c2a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Red()
+   IL_1c2f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1c34: dup
+   IL_1c35: ldc.i4.2
+   IL_1c36: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1c3b: dup
+   IL_1c3c: ldc.r4 1
+   IL_1c41: stfld System.Single Monocle.ParticleType::Size
+   IL_1c46: dup
+   IL_1c47: ldc.r4 0.6
+   IL_1c4c: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1c51: dup
+   IL_1c52: ldc.r4 2
+   IL_1c57: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1c5c: dup
+   IL_1c5d: ldc.r4 5
+   IL_1c62: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1c67: dup
+   IL_1c68: ldc.r4 10
+   IL_1c6d: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1c72: dup
+   IL_1c73: ldc.r4 -1.5707964
+   IL_1c78: stfld System.Single Monocle.ParticleType::Direction
+   IL_1c7d: dup
+   IL_1c7e: ldc.r4 0.7853982
+   IL_1c83: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1c88: stsfld Monocle.ParticleType Celeste.TempleMirrorPortal::P_CurtainDrop
+   IL_1c8d: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1c92: dup
+   IL_1c93: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_1c98: ldstr "particles/rect"
+   IL_1c9d: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_1ca2: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_1ca7: dup
+   IL_1ca8: ldstr "fcf8de"
+   IL_1cad: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1cb2: ldc.r4 0.4
+   IL_1cb7: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_1cbc: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1cc1: dup
+   IL_1cc2: ldc.i4.3
+   IL_1cc3: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1cc8: dup
+   IL_1cc9: ldc.r4 1
+   IL_1cce: stfld System.Single Monocle.ParticleType::Size
+   IL_1cd3: dup
+   IL_1cd4: ldc.r4 16
+   IL_1cd9: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1cde: dup
+   IL_1cdf: ldc.r4 20
+   IL_1ce4: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1ce9: dup
+   IL_1cea: ldc.r4 1.4
+   IL_1cef: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1cf4: dup
+   IL_1cf5: ldc.r4 2.8
+   IL_1cfa: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1cff: dup
+   IL_1d00: ldc.i4.2
+   IL_1d01: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_1d06: stsfld Monocle.ParticleType Celeste.LightBeam::P_Glow
+   IL_1d0b: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1d10: dup
+   IL_1d11: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_1d16: ldstr "particles/shard"
+   IL_1d1b: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_1d20: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_1d25: dup
+   IL_1d26: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_1d2b: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1d30: dup
+   IL_1d31: ldstr "e0a8d8"
+   IL_1d36: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1d3b: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1d40: dup
+   IL_1d41: ldc.i4.2
+   IL_1d42: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1d47: dup
+   IL_1d48: ldc.i4.2
+   IL_1d49: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1d4e: dup
+   IL_1d4f: ldc.i4.1
+   IL_1d50: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_1d55: dup
+   IL_1d56: ldc.r4 0.8
+   IL_1d5b: stfld System.Single Monocle.ParticleType::Size
+   IL_1d60: dup
+   IL_1d61: ldc.r4 0.4
+   IL_1d66: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_1d6b: dup
+   IL_1d6c: ldc.r4 20
+   IL_1d71: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1d76: dup
+   IL_1d77: ldc.r4 40
+   IL_1d7c: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1d81: dup
+   IL_1d82: ldc.r4 0.2
+   IL_1d87: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1d8c: dup
+   IL_1d8d: ldc.r4 0.4
+   IL_1d92: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1d97: dup
+   IL_1d98: ldc.r4 0.6
+   IL_1d9d: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1da2: dup
+   IL_1da3: ldc.r4 6.2831855
+   IL_1da8: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1dad: stsfld Monocle.ParticleType Celeste.BadelineBoost::P_Move
+   IL_1db2: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1db7: dup
+   IL_1db8: ldstr "f78ae7"
+   IL_1dbd: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1dc2: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1dc7: dup
+   IL_1dc8: ldstr "ffccf7"
+   IL_1dcd: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1dd2: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1dd7: dup
+   IL_1dd8: ldc.i4.2
+   IL_1dd9: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1dde: dup
+   IL_1ddf: ldc.i4.2
+   IL_1de0: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1de5: dup
+   IL_1de6: ldc.r4 1
+   IL_1deb: stfld System.Single Monocle.ParticleType::Size
+   IL_1df0: dup
+   IL_1df1: ldc.r4 6.2831855
+   IL_1df6: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1dfb: dup
+   IL_1dfc: ldc.r4 20
+   IL_1e01: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1e06: dup
+   IL_1e07: ldc.r4 40
+   IL_1e0c: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1e11: dup
+   IL_1e12: ldc.r4 0.2
+   IL_1e17: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1e1c: dup
+   IL_1e1d: ldc.r4 0.6
+   IL_1e22: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1e27: dup
+   IL_1e28: ldc.r4 1
+   IL_1e2d: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1e32: stsfld Monocle.ParticleType Celeste.BadelineBoost::P_Ambience
+   IL_1e37: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1e3c: dup
+   IL_1e3d: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_1e42: ldstr "particles/feather"
+   IL_1e47: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_1e4c: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_1e51: dup
+   IL_1e52: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::FlyPowerHairColor
+   IL_1e57: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1e5c: dup
+   IL_1e5d: ldstr "fff20f"
+   IL_1e62: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1e67: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1e6c: dup
+   IL_1e6d: ldc.i4.2
+   IL_1e6e: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1e73: dup
+   IL_1e74: ldc.i4.2
+   IL_1e75: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1e7a: dup
+   IL_1e7b: ldc.i4.1
+   IL_1e7c: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_1e81: dup
+   IL_1e82: ldc.r4 1
+   IL_1e87: stfld System.Single Monocle.ParticleType::Size
+   IL_1e8c: dup
+   IL_1e8d: ldc.r4 0.6
+   IL_1e92: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1e97: dup
+   IL_1e98: ldc.r4 0.9
+   IL_1e9d: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1ea2: dup
+   IL_1ea3: ldc.r4 60
+   IL_1ea8: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1ead: dup
+   IL_1eae: ldc.r4 70
+   IL_1eb3: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1eb8: dup
+   IL_1eb9: ldc.r4 0.1
+   IL_1ebe: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1ec3: dup
+   IL_1ec4: ldc.r4 6.2831855
+   IL_1ec9: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1ece: dup
+   IL_1ecf: ldc.i4.1
+   IL_1ed0: stfld System.Boolean Monocle.ParticleType::SpinFlippedChance
+   IL_1ed5: dup
+   IL_1ed6: ldc.r4 0.5235988
+   IL_1edb: stfld System.Single Monocle.ParticleType::SpinMin
+   IL_1ee0: dup
+   IL_1ee1: ldc.r4 1.3962634
+   IL_1ee6: stfld System.Single Monocle.ParticleType::SpinMax
+   IL_1eeb: stsfld Monocle.ParticleType Celeste.FlyFeather::P_Collect
+   IL_1ef0: ldsfld Monocle.ParticleType Celeste.FlyFeather::P_Collect
+   IL_1ef5: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_1efa: dup
+   IL_1efb: ldc.r4 1.3962634
+   IL_1f00: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1f05: dup
+   IL_1f06: ldc.r4 20
+   IL_1f0b: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1f10: dup
+   IL_1f11: ldc.r4 80
+   IL_1f16: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1f1b: dup
+   IL_1f1c: ldc.r4 0.2
+   IL_1f21: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1f26: stsfld Monocle.ParticleType Celeste.FlyFeather::P_Boost
+   IL_1f2b: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_1f30: dup
+   IL_1f31: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::FlyPowerHairColor
+   IL_1f36: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1f3b: dup
+   IL_1f3c: ldstr "fff20f"
+   IL_1f41: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1f46: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1f4b: dup
+   IL_1f4c: ldc.i4.2
+   IL_1f4d: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_1f52: dup
+   IL_1f53: ldc.i4.2
+   IL_1f54: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_1f59: dup
+   IL_1f5a: ldc.r4 1
+   IL_1f5f: stfld System.Single Monocle.ParticleType::Size
+   IL_1f64: dup
+   IL_1f65: ldc.r4 0.4
+   IL_1f6a: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1f6f: dup
+   IL_1f70: ldc.r4 0.8
+   IL_1f75: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1f7a: dup
+   IL_1f7b: ldc.r4 60
+   IL_1f80: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_1f85: dup
+   IL_1f86: ldc.r4 70
+   IL_1f8b: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_1f90: dup
+   IL_1f91: ldc.r4 0.25
+   IL_1f96: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_1f9b: dup
+   IL_1f9c: ldc.r4 1.0471976
+   IL_1fa1: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_1fa6: stsfld Monocle.ParticleType Celeste.FlyFeather::P_Flying
+   IL_1fab: ldsfld Monocle.ParticleType Celeste.Refill::P_Regen
+   IL_1fb0: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_1fb5: dup
+   IL_1fb6: ldstr "ffdca4"
+   IL_1fbb: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1fc0: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_1fc5: dup
+   IL_1fc6: ldstr "ffe95e"
+   IL_1fcb: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_1fd0: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_1fd5: stsfld Monocle.ParticleType Celeste.FlyFeather::P_Respawn
+   IL_1fda: ldsfld Monocle.ParticleType Celeste.ParticleTypes::Dust
+   IL_1fdf: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_1fe4: dup
+   IL_1fe5: ldc.r4 0.8
+   IL_1fea: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_1fef: dup
+   IL_1ff0: ldc.r4 1.6
+   IL_1ff5: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_1ffa: dup
+   IL_1ffb: ldc.r4 8
+   IL_2000: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2005: dup
+   IL_2006: ldc.r4 12
+   IL_200b: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2010: dup
+   IL_2011: ldc.r4 1.2
+   IL_2016: stfld System.Single Monocle.ParticleType::Size
+   IL_201b: dup
+   IL_201c: ldc.r4 0.5
+   IL_2021: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_2026: stsfld Monocle.ParticleType Celeste.CrushBlock::P_Impact
+   IL_202b: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2030: dup
+   IL_2031: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_2036: ldstr "particles/rect"
+   IL_203b: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_2040: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_2045: dup
+   IL_2046: ldstr "ff66e2"
+   IL_204b: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2050: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2055: dup
+   IL_2056: ldstr "68fcff"
+   IL_205b: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2060: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2065: dup
+   IL_2066: ldc.i4.2
+   IL_2067: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_206c: dup
+   IL_206d: ldc.i4.2
+   IL_206e: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_2073: dup
+   IL_2074: ldc.r4 0.5
+   IL_2079: stfld System.Single Monocle.ParticleType::Size
+   IL_207e: dup
+   IL_207f: ldc.r4 0.2
+   IL_2084: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_2089: dup
+   IL_208a: ldc.r4 0.5235988
+   IL_208f: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2094: dup
+   IL_2095: ldc.i4.2
+   IL_2096: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_209b: dup
+   IL_209c: ldc.r4 0.5
+   IL_20a1: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_20a6: dup
+   IL_20a7: ldc.r4 1.2
+   IL_20ac: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_20b1: dup
+   IL_20b2: ldc.r4 30
+   IL_20b7: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_20bc: dup
+   IL_20bd: ldc.r4 50
+   IL_20c2: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_20c7: dup
+   IL_20c8: ldc.r4 0.4
+   IL_20cd: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_20d2: dup
+   IL_20d3: ldc.r4 0
+   IL_20d8: ldc.r4 10
+   IL_20dd: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_20e2: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_20e7: stsfld Monocle.ParticleType Celeste.CrushBlock::P_Crushing
+   IL_20ec: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_20f1: dup
+   IL_20f2: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_20f7: ldstr "particles/rect"
+   IL_20fc: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_2101: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_2106: dup
+   IL_2107: ldstr "5fcde4"
+   IL_210c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2111: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2116: dup
+   IL_2117: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_211c: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2121: dup
+   IL_2122: ldc.i4.2
+   IL_2123: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2128: dup
+   IL_2129: ldc.i4.2
+   IL_212a: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_212f: dup
+   IL_2130: ldc.r4 0.5
+   IL_2135: stfld System.Single Monocle.ParticleType::Size
+   IL_213a: dup
+   IL_213b: ldc.r4 0.2
+   IL_2140: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_2145: dup
+   IL_2146: ldc.r4 0.5235988
+   IL_214b: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2150: dup
+   IL_2151: ldc.i4.2
+   IL_2152: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2157: dup
+   IL_2158: ldc.r4 0.5
+   IL_215d: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2162: dup
+   IL_2163: ldc.r4 1.1
+   IL_2168: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_216d: dup
+   IL_216e: ldc.r4 60
+   IL_2173: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2178: dup
+   IL_2179: ldc.r4 100
+   IL_217e: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2183: dup
+   IL_2184: ldc.r4 0.2
+   IL_2189: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_218e: stsfld Monocle.ParticleType Celeste.CrushBlock::P_Activate
+   IL_2193: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2198: dup
+   IL_2199: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_219e: ldstr "particles/rect"
+   IL_21a3: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_21a8: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_21ad: dup
+   IL_21ae: ldstr "47b5cc"
+   IL_21b3: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_21b8: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_21bd: dup
+   IL_21be: ldstr "c4f4ff"
+   IL_21c3: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_21c8: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_21cd: dup
+   IL_21ce: ldc.i4.2
+   IL_21cf: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_21d4: dup
+   IL_21d5: ldc.i4.3
+   IL_21d6: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_21db: dup
+   IL_21dc: ldc.r4 0.5
+   IL_21e1: stfld System.Single Monocle.ParticleType::Size
+   IL_21e6: dup
+   IL_21e7: ldc.r4 0.2
+   IL_21ec: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_21f1: dup
+   IL_21f2: ldc.i4.2
+   IL_21f3: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_21f8: dup
+   IL_21f9: ldc.r4 0.2
+   IL_21fe: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2203: dup
+   IL_2204: ldc.r4 0.4
+   IL_2209: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_220e: dup
+   IL_220f: ldc.r4 10
+   IL_2214: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2219: dup
+   IL_221a: ldc.r4 20
+   IL_221f: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2224: dup
+   IL_2225: ldc.r4 0.5235988
+   IL_222a: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_222f: stsfld Monocle.ParticleType Celeste.Bumper::P_Ambience
+   IL_2234: ldsfld Monocle.ParticleType Celeste.Bumper::P_Ambience
+   IL_2239: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_223e: dup
+   IL_223f: ldstr "FFA808"
+   IL_2244: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2249: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_224e: dup
+   IL_224f: ldc.i4.0
+   IL_2250: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2255: dup
+   IL_2256: ldc.r4 0.87266463
+   IL_225b: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2260: dup
+   IL_2261: ldc.r4 0.3
+   IL_2266: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_226b: dup
+   IL_226c: ldc.r4 0.6
+   IL_2271: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2276: stsfld Monocle.ParticleType Celeste.Bumper::P_FireAmbience
+   IL_227b: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2280: dup
+   IL_2281: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_2286: ldstr "particles/rect"
+   IL_228b: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_2290: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_2295: dup
+   IL_2296: ldstr "47b5cc"
+   IL_229b: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_22a0: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_22a5: dup
+   IL_22a6: ldstr "c4f4ff"
+   IL_22ab: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_22b0: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_22b5: dup
+   IL_22b6: ldc.i4.2
+   IL_22b7: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_22bc: dup
+   IL_22bd: ldc.i4.2
+   IL_22be: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_22c3: dup
+   IL_22c4: ldc.r4 0.5
+   IL_22c9: stfld System.Single Monocle.ParticleType::Size
+   IL_22ce: dup
+   IL_22cf: ldc.r4 0.2
+   IL_22d4: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_22d9: dup
+   IL_22da: ldc.i4.1
+   IL_22db: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_22e0: dup
+   IL_22e1: ldc.r4 0.6
+   IL_22e6: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_22eb: dup
+   IL_22ec: ldc.r4 1.2
+   IL_22f1: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_22f6: dup
+   IL_22f7: ldc.r4 40
+   IL_22fc: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2301: dup
+   IL_2302: ldc.r4 140
+   IL_2307: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_230c: dup
+   IL_230d: ldc.r4 0.1
+   IL_2312: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2317: dup
+   IL_2318: ldc.r4 0
+   IL_231d: ldc.r4 10
+   IL_2322: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_2327: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_232c: dup
+   IL_232d: ldc.r4 0.6981317
+   IL_2332: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2337: stsfld Monocle.ParticleType Celeste.Bumper::P_Launch
+   IL_233c: ldsfld Monocle.ParticleType Celeste.Bumper::P_Launch
+   IL_2341: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_2346: dup
+   IL_2347: ldstr "FFA808"
+   IL_234c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2351: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2356: dup
+   IL_2357: ldc.i4.0
+   IL_2358: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_235d: dup
+   IL_235e: ldc.r4 0
+   IL_2363: ldc.r4 -40
+   IL_2368: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_236d: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_2372: dup
+   IL_2373: ldc.r4 1.3962634
+   IL_2378: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_237d: dup
+   IL_237e: ldc.r4 30
+   IL_2383: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2388: dup
+   IL_2389: ldc.r4 100
+   IL_238e: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2393: dup
+   IL_2394: ldc.r4 0.8
+   IL_2399: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_239e: dup
+   IL_239f: ldc.r4 1.6
+   IL_23a4: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_23a9: stsfld Monocle.ParticleType Celeste.Bumper::P_FireHit
+   IL_23ae: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_23b3: dup
+   IL_23b4: ldc.r4 1
+   IL_23b9: stfld System.Single Monocle.ParticleType::Size
+   IL_23be: dup
+   IL_23bf: ldstr "fbf236"
+   IL_23c4: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_23c9: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_23ce: dup
+   IL_23cf: ldstr "6abe30"
+   IL_23d4: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_23d9: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_23de: dup
+   IL_23df: ldc.i4.2
+   IL_23e0: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_23e5: dup
+   IL_23e6: ldc.r4 0.6981317
+   IL_23eb: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_23f0: dup
+   IL_23f1: ldc.r4 10
+   IL_23f6: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_23fb: dup
+   IL_23fc: ldc.r4 20
+   IL_2401: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2406: dup
+   IL_2407: ldc.r4 0.3
+   IL_240c: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2411: dup
+   IL_2412: ldc.r4 0.3
+   IL_2417: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_241c: dup
+   IL_241d: ldc.r4 0.5
+   IL_2422: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2427: stsfld Monocle.ParticleType Celeste.SwapBlock::P_Move
+   IL_242c: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2431: dup
+   IL_2432: ldc.r4 1
+   IL_2437: stfld System.Single Monocle.ParticleType::Size
+   IL_243c: dup
+   IL_243d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_2442: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2447: dup
+   IL_2448: ldc.i4.2
+   IL_2449: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_244e: dup
+   IL_244f: ldc.r4 0.34906584
+   IL_2454: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2459: dup
+   IL_245a: ldc.r4 0.4
+   IL_245f: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2464: dup
+   IL_2465: ldc.r4 0.6
+   IL_246a: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_246f: dup
+   IL_2470: ldc.r4 20
+   IL_2475: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_247a: dup
+   IL_247b: ldc.r4 40
+   IL_2480: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2485: dup
+   IL_2486: ldc.r4 0.25
+   IL_248b: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2490: stsfld Monocle.ParticleType Celeste.MoveBlock::P_Activate
+   IL_2495: ldsfld Monocle.ParticleType Celeste.MoveBlock::P_Activate
+   IL_249a: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_249f: stsfld Monocle.ParticleType Celeste.MoveBlock::P_Break
+   IL_24a4: ldsfld Monocle.ParticleType Celeste.MoveBlock::P_Activate
+   IL_24a9: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_24ae: stsfld Monocle.ParticleType Celeste.MoveBlock::P_Move
+   IL_24b3: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_24b8: dup
+   IL_24b9: ldc.r4 1
+   IL_24be: stfld System.Single Monocle.ParticleType::Size
+   IL_24c3: dup
+   IL_24c4: ldstr "643e73"
+   IL_24c9: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_24ce: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_24d3: dup
+   IL_24d4: ldstr "3e2854"
+   IL_24d9: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_24de: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_24e3: dup
+   IL_24e4: ldc.i4.1
+   IL_24e5: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_24ea: dup
+   IL_24eb: ldc.i4.2
+   IL_24ec: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_24f1: dup
+   IL_24f2: ldc.r4 0.3
+   IL_24f7: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_24fc: dup
+   IL_24fd: ldc.r4 0.6
+   IL_2502: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2507: dup
+   IL_2508: ldc.r4 10
+   IL_250d: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2512: dup
+   IL_2513: ldc.r4 30
+   IL_2518: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_251d: dup
+   IL_251e: ldc.r4 1.3962634
+   IL_2523: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2528: stsfld Monocle.ParticleType Celeste.Seeker::P_BreakOut
+   IL_252d: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2532: dup
+   IL_2533: ldc.r4 1
+   IL_2538: stfld System.Single Monocle.ParticleType::Size
+   IL_253d: dup
+   IL_253e: ldstr "99e550"
+   IL_2543: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2548: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_254d: dup
+   IL_254e: ldstr "ddffbc"
+   IL_2553: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2558: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_255d: dup
+   IL_255e: ldc.i4.2
+   IL_255f: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2564: dup
+   IL_2565: ldc.i4.2
+   IL_2566: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_256b: dup
+   IL_256c: ldc.r4 0.6
+   IL_2571: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2576: dup
+   IL_2577: ldc.r4 1.2
+   IL_257c: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2581: dup
+   IL_2582: ldc.r4 20
+   IL_2587: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_258c: dup
+   IL_258d: ldc.r4 40
+   IL_2592: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2597: dup
+   IL_2598: ldc.r4 0.4
+   IL_259d: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_25a2: dup
+   IL_25a3: ldc.r4 1.7453293
+   IL_25a8: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_25ad: stsfld Monocle.ParticleType Celeste.Seeker::P_Attack
+   IL_25b2: ldsfld Monocle.ParticleType Celeste.Seeker::P_Attack
+   IL_25b7: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_25bc: dup
+   IL_25bd: ldc.r4 -1.5707964
+   IL_25c2: stfld System.Single Monocle.ParticleType::Direction
+   IL_25c7: stsfld Monocle.ParticleType Celeste.Seeker::P_Stomp
+   IL_25cc: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_25d1: dup
+   IL_25d2: ldc.r4 1
+   IL_25d7: stfld System.Single Monocle.ParticleType::Size
+   IL_25dc: dup
+   IL_25dd: ldstr "99e550"
+   IL_25e2: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_25e7: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_25ec: dup
+   IL_25ed: ldstr "ddffbc"
+   IL_25f2: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_25f7: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_25fc: dup
+   IL_25fd: ldc.i4.2
+   IL_25fe: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2603: dup
+   IL_2604: ldc.i4.2
+   IL_2605: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_260a: dup
+   IL_260b: ldc.r4 0.6
+   IL_2610: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2615: dup
+   IL_2616: ldc.r4 1.2
+   IL_261b: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2620: dup
+   IL_2621: ldc.r4 30
+   IL_2626: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_262b: dup
+   IL_262c: ldc.r4 60
+   IL_2631: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2636: dup
+   IL_2637: ldc.r4 0.4
+   IL_263c: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2641: dup
+   IL_2642: ldc.r4 1.7453293
+   IL_2647: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_264c: stsfld Monocle.ParticleType Celeste.Seeker::P_HitWall
+   IL_2651: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2656: dup
+   IL_2657: ldstr "cbdbfc"
+   IL_265c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2661: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2666: dup
+   IL_2667: ldstr "575fd9"
+   IL_266c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2671: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2676: dup
+   IL_2677: ldc.i4.2
+   IL_2678: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_267d: dup
+   IL_267e: ldc.i4.2
+   IL_267f: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2684: dup
+   IL_2685: ldc.r4 1
+   IL_268a: stfld System.Single Monocle.ParticleType::Size
+   IL_268f: dup
+   IL_2690: ldc.r4 0.4
+   IL_2695: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_269a: dup
+   IL_269b: ldc.r4 1.2
+   IL_26a0: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_26a5: dup
+   IL_26a6: ldc.r4 20
+   IL_26ab: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_26b0: dup
+   IL_26b1: ldc.r4 100
+   IL_26b6: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_26bb: dup
+   IL_26bc: ldc.r4 0.4
+   IL_26c1: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_26c6: dup
+   IL_26c7: ldc.r4 1.0471976
+   IL_26cc: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_26d1: stsfld Monocle.ParticleType Celeste.Seeker::P_Regen
+   IL_26d6: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_26db: dup
+   IL_26dc: ldsfld Microsoft.Xna.Framework.Color Celeste.Water::SurfaceColor
+   IL_26e1: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_26e6: dup
+   IL_26e7: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_26ec: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_26f1: dup
+   IL_26f2: ldc.i4.2
+   IL_26f3: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_26f8: dup
+   IL_26f9: ldc.i4.2
+   IL_26fa: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_26ff: dup
+   IL_2700: ldc.r4 1
+   IL_2705: stfld System.Single Monocle.ParticleType::Size
+   IL_270a: dup
+   IL_270b: ldc.r4 0.4
+   IL_2710: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2715: dup
+   IL_2716: ldc.r4 0.8
+   IL_271b: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2720: dup
+   IL_2721: ldc.r4 10
+   IL_2726: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_272b: dup
+   IL_272c: ldc.r4 12
+   IL_2731: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2736: dup
+   IL_2737: ldc.r4 2
+   IL_273c: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2741: dup
+   IL_2742: ldc.r4 1.5707964
+   IL_2747: stfld System.Single Monocle.ParticleType::Direction
+   IL_274c: dup
+   IL_274d: ldc.r4 0.05
+   IL_2752: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2757: stsfld Monocle.ParticleType Celeste.WaterInteraction::P_Drip
+   IL_275c: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2761: dup
+   IL_2762: ldsfld Microsoft.Xna.Framework.Color[] Celeste.RisingLava::Hot
+   IL_2767: ldc.i4.0
+   IL_2768: ldelem.any Microsoft.Xna.Framework.Color
+   IL_276d: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2772: dup
+   IL_2773: ldsfld Microsoft.Xna.Framework.Color[] Celeste.RisingLava::Hot
+   IL_2778: ldc.i4.2
+   IL_2779: ldelem.any Microsoft.Xna.Framework.Color
+   IL_277e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2783: dup
+   IL_2784: ldc.i4.2
+   IL_2785: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_278a: dup
+   IL_278b: ldc.i4.2
+   IL_278c: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2791: dup
+   IL_2792: ldc.r4 0
+   IL_2797: ldc.r4 -20
+   IL_279c: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_27a1: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_27a6: dup
+   IL_27a7: ldc.r4 1
+   IL_27ac: stfld System.Single Monocle.ParticleType::Size
+   IL_27b1: dup
+   IL_27b2: ldc.r4 0.3
+   IL_27b7: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_27bc: dup
+   IL_27bd: ldc.r4 0.8
+   IL_27c2: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_27c7: dup
+   IL_27c8: ldc.r4 5
+   IL_27cd: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_27d2: dup
+   IL_27d3: ldc.r4 25
+   IL_27d8: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_27dd: dup
+   IL_27de: ldc.r4 0.5235988
+   IL_27e3: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_27e8: stsfld Monocle.ParticleType Celeste.FireBarrier::P_Deactivate
+   IL_27ed: ldsfld Monocle.ParticleType Celeste.FireBarrier::P_Deactivate
+   IL_27f2: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_27f7: dup
+   IL_27f8: ldsfld Microsoft.Xna.Framework.Color[] Celeste.RisingLava::Cold
+   IL_27fd: ldc.i4.0
+   IL_27fe: ldelem.any Microsoft.Xna.Framework.Color
+   IL_2803: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2808: dup
+   IL_2809: ldsfld Microsoft.Xna.Framework.Color[] Celeste.RisingLava::Cold
+   IL_280e: ldc.i4.2
+   IL_280f: ldelem.any Microsoft.Xna.Framework.Color
+   IL_2814: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2819: dup
+   IL_281a: ldc.r4 0
+   IL_281f: ldc.r4 15
+   IL_2824: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_2829: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_282e: stsfld Monocle.ParticleType Celeste.IceBlock::P_Deactivate
+   IL_2833: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2838: dup
+   IL_2839: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_283e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2843: dup
+   IL_2844: ldc.i4.2
+   IL_2845: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_284a: dup
+   IL_284b: ldc.r4 20
+   IL_2850: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2855: dup
+   IL_2856: ldc.r4 50
+   IL_285b: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2860: dup
+   IL_2861: ldc.r4 0.1
+   IL_2866: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_286b: dup
+   IL_286c: ldc.r4 1
+   IL_2871: stfld System.Single Monocle.ParticleType::Size
+   IL_2876: dup
+   IL_2877: ldc.r4 0.4
+   IL_287c: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2881: dup
+   IL_2882: ldc.r4 0.8
+   IL_2887: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_288c: dup
+   IL_288d: ldc.r4 0.5235988
+   IL_2892: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2897: stsfld Monocle.ParticleType Celeste.BounceBlock::P_Reform
+   IL_289c: ldsfld Monocle.ParticleType Celeste.FireBarrier::P_Deactivate
+   IL_28a1: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_28a6: dup
+   IL_28a7: ldc.r4 40
+   IL_28ac: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_28b1: dup
+   IL_28b2: ldc.r4 80
+   IL_28b7: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_28bc: dup
+   IL_28bd: ldc.r4 0.1
+   IL_28c2: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_28c7: stsfld Monocle.ParticleType Celeste.BounceBlock::P_FireBreak
+   IL_28cc: ldsfld Monocle.ParticleType Celeste.IceBlock::P_Deactivate
+   IL_28d1: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_28d6: stsfld Monocle.ParticleType Celeste.BounceBlock::P_IceBreak
+   IL_28db: ldsfld Monocle.ParticleType Celeste.IceBlock::P_Deactivate
+   IL_28e0: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_28e5: dup
+   IL_28e6: ldc.r4 20
+   IL_28eb: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_28f0: dup
+   IL_28f1: ldc.r4 50
+   IL_28f6: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_28fb: dup
+   IL_28fc: ldc.r4 0.2
+   IL_2901: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2906: dup
+   IL_2907: ldc.r4 6.2831855
+   IL_290c: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2911: stsfld Monocle.ParticleType Celeste.FireBall::P_IceBreak
+   IL_2916: ldsfld Monocle.ParticleType Celeste.FireBarrier::P_Deactivate
+   IL_291b: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_2920: dup
+   IL_2921: ldc.r4 0
+   IL_2926: ldc.r4 -5
+   IL_292b: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_2930: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_2935: dup
+   IL_2936: ldc.r4 0.6
+   IL_293b: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2940: dup
+   IL_2941: ldc.r4 1.2
+   IL_2946: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_294b: dup
+   IL_294c: ldc.r4 4
+   IL_2951: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2956: dup
+   IL_2957: ldc.r4 8
+   IL_295c: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2961: dup
+   IL_2962: ldc.r4 6.2831855
+   IL_2967: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_296c: stsfld Monocle.ParticleType Celeste.FireBall::P_FireTrail
+   IL_2971: ldsfld Monocle.ParticleType Celeste.IceBlock::P_Deactivate
+   IL_2976: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_297b: dup
+   IL_297c: ldc.r4 0
+   IL_2981: ldc.r4 5
+   IL_2986: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_298b: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_2990: dup
+   IL_2991: ldc.r4 0.6
+   IL_2996: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_299b: dup
+   IL_299c: ldc.r4 1.2
+   IL_29a1: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_29a6: dup
+   IL_29a7: ldc.r4 4
+   IL_29ac: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_29b1: dup
+   IL_29b2: ldc.r4 8
+   IL_29b7: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_29bc: dup
+   IL_29bd: ldc.r4 6.2831855
+   IL_29c2: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_29c7: stsfld Monocle.ParticleType Celeste.FireBall::P_IceTrail
+   IL_29cc: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_29d1: dup
+   IL_29d2: ldstr "FFFFFF"
+   IL_29d7: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_29dc: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_29e1: dup
+   IL_29e2: ldstr "ff77a8"
+   IL_29e7: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_29ec: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_29f1: dup
+   IL_29f2: ldc.i4.2
+   IL_29f3: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_29f8: dup
+   IL_29f9: ldc.i4.2
+   IL_29fa: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_29ff: dup
+   IL_2a00: ldc.r4 0.25
+   IL_2a05: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2a0a: dup
+   IL_2a0b: ldc.r4 0.6
+   IL_2a10: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2a15: dup
+   IL_2a16: ldc.r4 1
+   IL_2a1b: stfld System.Single Monocle.ParticleType::Size
+   IL_2a20: dup
+   IL_2a21: ldc.r4 2
+   IL_2a26: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2a2b: dup
+   IL_2a2c: ldc.r4 8
+   IL_2a31: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2a36: dup
+   IL_2a37: ldc.r4 6.2831855
+   IL_2a3c: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2a41: stsfld Monocle.ParticleType Celeste.CrystalDebris::P_Dust
+   IL_2a46: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2a4b: dup
+   IL_2a4c: ldc.r4 1
+   IL_2a51: stfld System.Single Monocle.ParticleType::Size
+   IL_2a56: dup
+   IL_2a57: ldstr "ffced5"
+   IL_2a5c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2a61: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2a66: dup
+   IL_2a67: ldstr "ff4f7d"
+   IL_2a6c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2a71: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2a76: dup
+   IL_2a77: ldc.i4.2
+   IL_2a78: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2a7d: dup
+   IL_2a7e: ldc.i4.2
+   IL_2a7f: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2a84: dup
+   IL_2a85: ldc.r4 10
+   IL_2a8a: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2a8f: dup
+   IL_2a90: ldc.r4 30
+   IL_2a95: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2a9a: dup
+   IL_2a9b: ldc.r4 0.6981317
+   IL_2aa0: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2aa5: dup
+   IL_2aa6: ldc.r4 0.3
+   IL_2aab: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2ab0: dup
+   IL_2ab1: ldc.r4 0.6
+   IL_2ab6: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2abb: stsfld Monocle.ParticleType Celeste.FinalBossShot::P_Trail
+   IL_2ac0: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2ac5: dup
+   IL_2ac6: ldstr "e60022"
+   IL_2acb: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2ad0: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2ad5: dup
+   IL_2ad6: ldc.r4 1
+   IL_2adb: stfld System.Single Monocle.ParticleType::Size
+   IL_2ae0: dup
+   IL_2ae1: ldc.i4.2
+   IL_2ae2: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2ae7: dup
+   IL_2ae8: ldc.r4 15
+   IL_2aed: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2af2: dup
+   IL_2af3: ldc.r4 30
+   IL_2af8: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2afd: dup
+   IL_2afe: ldc.r4 1.0471976
+   IL_2b03: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2b08: dup
+   IL_2b09: ldc.r4 0.3
+   IL_2b0e: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2b13: dup
+   IL_2b14: ldc.r4 0.6
+   IL_2b19: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2b1e: stsfld Monocle.ParticleType Celeste.FinalBossBeam::P_Dissipate
+   IL_2b23: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2b28: dup
+   IL_2b29: ldstr "ffe0d3"
+   IL_2b2e: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2b33: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2b38: dup
+   IL_2b39: ldc.r4 1
+   IL_2b3e: stfld System.Single Monocle.ParticleType::Size
+   IL_2b43: dup
+   IL_2b44: ldc.i4.2
+   IL_2b45: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2b4a: dup
+   IL_2b4b: ldc.r4 40
+   IL_2b50: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2b55: dup
+   IL_2b56: ldc.r4 100
+   IL_2b5b: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2b60: dup
+   IL_2b61: ldc.r4 0.1
+   IL_2b66: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2b6b: dup
+   IL_2b6c: ldc.r4 0.6981317
+   IL_2b71: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2b76: dup
+   IL_2b77: ldc.r4 0.5
+   IL_2b7c: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2b81: dup
+   IL_2b82: ldc.r4 1.2
+   IL_2b87: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2b8c: stsfld Monocle.ParticleType Celeste.FinalBossMovingBlock::P_Stop
+   IL_2b91: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2b96: dup
+   IL_2b97: ldstr "ffe0d3"
+   IL_2b9c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2ba1: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2ba6: dup
+   IL_2ba7: ldc.r4 1
+   IL_2bac: stfld System.Single Monocle.ParticleType::Size
+   IL_2bb1: dup
+   IL_2bb2: ldc.i4.2
+   IL_2bb3: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2bb8: dup
+   IL_2bb9: ldc.r4 20
+   IL_2bbe: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2bc3: dup
+   IL_2bc4: ldc.r4 40
+   IL_2bc9: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2bce: dup
+   IL_2bcf: ldc.r4 0.1
+   IL_2bd4: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2bd9: dup
+   IL_2bda: ldc.r4 0.6981317
+   IL_2bdf: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2be4: dup
+   IL_2be5: ldc.r4 0.4
+   IL_2bea: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2bef: dup
+   IL_2bf0: ldc.r4 0.8
+   IL_2bf5: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2bfa: stsfld Monocle.ParticleType Celeste.FinalBossMovingBlock::P_Break
+   IL_2bff: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2c04: dup
+   IL_2c05: ldstr "ff00b0"
+   IL_2c0a: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2c0f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2c14: dup
+   IL_2c15: ldstr "ff84d9"
+   IL_2c1a: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2c1f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2c24: dup
+   IL_2c25: ldc.i4.2
+   IL_2c26: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2c2b: dup
+   IL_2c2c: ldc.i4.2
+   IL_2c2d: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2c32: dup
+   IL_2c33: ldc.r4 1
+   IL_2c38: stfld System.Single Monocle.ParticleType::Size
+   IL_2c3d: dup
+   IL_2c3e: ldc.r4 1.0471976
+   IL_2c43: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2c48: dup
+   IL_2c49: ldc.r4 40
+   IL_2c4e: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2c53: dup
+   IL_2c54: ldc.r4 100
+   IL_2c59: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2c5e: dup
+   IL_2c5f: ldc.r4 0.2
+   IL_2c64: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2c69: dup
+   IL_2c6a: ldc.r4 0.4
+   IL_2c6f: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2c74: dup
+   IL_2c75: ldc.r4 0.8
+   IL_2c7a: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2c7f: stsfld Monocle.ParticleType Celeste.FinalBoss::P_Burst
+   IL_2c84: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2c89: dup
+   IL_2c8a: ldc.r4 1
+   IL_2c8f: stfld System.Single Monocle.ParticleType::Size
+   IL_2c94: dup
+   IL_2c95: ldstr "49aaf0"
+   IL_2c9a: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2c9f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2ca4: dup
+   IL_2ca5: ldstr "f049be"
+   IL_2caa: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2caf: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2cb4: dup
+   IL_2cb5: ldc.i4.2
+   IL_2cb6: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2cbb: dup
+   IL_2cbc: ldc.i4.3
+   IL_2cbd: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2cc2: dup
+   IL_2cc3: ldc.r4 6.2831855
+   IL_2cc8: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2ccd: dup
+   IL_2cce: ldc.r4 5
+   IL_2cd3: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2cd8: dup
+   IL_2cd9: ldc.r4 10
+   IL_2cde: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2ce3: dup
+   IL_2ce4: ldc.r4 0.6
+   IL_2ce9: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2cee: dup
+   IL_2cef: ldc.r4 1
+   IL_2cf4: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2cf9: stsfld Monocle.ParticleType Celeste.Cassette::P_Shine
+   IL_2cfe: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2d03: dup
+   IL_2d04: ldstr "cbdbfc"
+   IL_2d09: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2d0e: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2d13: dup
+   IL_2d14: ldc.r4 1
+   IL_2d19: stfld System.Single Monocle.ParticleType::Size
+   IL_2d1e: dup
+   IL_2d1f: ldc.i4.2
+   IL_2d20: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2d25: dup
+   IL_2d26: ldc.r4 1.7453293
+   IL_2d2b: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2d30: dup
+   IL_2d31: ldc.r4 10
+   IL_2d36: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2d3b: dup
+   IL_2d3c: ldc.r4 20
+   IL_2d41: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2d46: dup
+   IL_2d47: ldc.r4 0.1
+   IL_2d4c: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_2d51: dup
+   IL_2d52: ldc.r4 0.3
+   IL_2d57: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2d5c: dup
+   IL_2d5d: ldc.r4 0.8
+   IL_2d62: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2d67: stsfld Monocle.ParticleType Celeste.TheoCrystal::P_Impact
+   IL_2d6c: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2d71: dup
+   IL_2d72: ldc.r4 1
+   IL_2d77: stfld System.Single Monocle.ParticleType::Size
+   IL_2d7c: dup
+   IL_2d7d: ldstr "5caefa"
+   IL_2d82: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2d87: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2d8c: dup
+   IL_2d8d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_2d92: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2d97: dup
+   IL_2d98: ldc.i4.2
+   IL_2d99: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2d9e: dup
+   IL_2d9f: ldc.i4.3
+   IL_2da0: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2da5: dup
+   IL_2da6: ldc.r4 -1.5707964
+   IL_2dab: stfld System.Single Monocle.ParticleType::Direction
+   IL_2db0: dup
+   IL_2db1: ldc.r4 1.3962634
+   IL_2db6: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2dbb: dup
+   IL_2dbc: ldc.r4 5
+   IL_2dc1: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2dc6: dup
+   IL_2dc7: ldc.r4 10
+   IL_2dcc: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2dd1: dup
+   IL_2dd2: ldc.r4 0.6
+   IL_2dd7: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2ddc: dup
+   IL_2ddd: ldc.r4 1
+   IL_2de2: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2de7: stsfld Monocle.ParticleType Celeste.HeartGem::P_BlueShine
+   IL_2dec: ldsfld Monocle.ParticleType Celeste.HeartGem::P_BlueShine
+   IL_2df1: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_2df6: dup
+   IL_2df7: ldstr "ff2457"
+   IL_2dfc: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2e01: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2e06: stsfld Monocle.ParticleType Celeste.HeartGem::P_RedShine
+   IL_2e0b: ldsfld Monocle.ParticleType Celeste.HeartGem::P_BlueShine
+   IL_2e10: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_2e15: dup
+   IL_2e16: ldstr "fffc24"
+   IL_2e1b: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2e20: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2e25: stsfld Monocle.ParticleType Celeste.HeartGem::P_GoldShine
+   IL_2e2a: ldsfld Monocle.ParticleType Celeste.HeartGem::P_BlueShine
+   IL_2e2f: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_2e34: dup
+   IL_2e35: ldstr "bebdb8"
+   IL_2e3a: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2e3f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2e44: dup
+   IL_2e45: ldc.r4 1.5707964
+   IL_2e4a: stfld System.Single Monocle.ParticleType::Direction
+   IL_2e4f: dup
+   IL_2e50: ldc.r4 0.34906584
+   IL_2e55: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2e5a: dup
+   IL_2e5b: ldc.r4 2
+   IL_2e60: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2e65: dup
+   IL_2e66: ldc.r4 4
+   IL_2e6b: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2e70: stsfld Monocle.ParticleType Celeste.HeartGem::P_FakeShine
+   IL_2e75: ldsfld System.Collections.Generic.Dictionary`2<System.String,Monocle.ParticleType> Celeste.ForsakenCitySatellite::Particles
+   IL_2e7a: callvirt System.Void System.Collections.Generic.Dictionary`2<System.String,Monocle.ParticleType>::Clear()
+   IL_2e7f: ldsfld System.Collections.Generic.Dictionary`2<System.String,Microsoft.Xna.Framework.Color> Celeste.ForsakenCitySatellite::Colors
+   IL_2e84: callvirt System.Collections.Generic.Dictionary`2/Enumerator<TKey,TValue> System.Collections.Generic.Dictionary`2<System.String,Microsoft.Xna.Framework.Color>::GetEnumerator()
+   IL_2e89: stloc.3
+   IL_2e8a: br.s IL_2ed9
+   IL_2e8c: ldloca.s V_3
+   IL_2e8e: call System.Collections.Generic.KeyValuePair`2<TKey,TValue> System.Collections.Generic.Dictionary`2/Enumerator<System.String,Microsoft.Xna.Framework.Color>::get_Current()
+   IL_2e93: stloc.s V_4
+   IL_2e95: ldsfld System.Collections.Generic.Dictionary`2<System.String,Monocle.ParticleType> Celeste.ForsakenCitySatellite::Particles
+   IL_2e9a: ldloca.s V_4
+   IL_2e9c: call TKey System.Collections.Generic.KeyValuePair`2<System.String,Microsoft.Xna.Framework.Color>::get_Key()
+   IL_2ea1: ldsfld Monocle.ParticleType Celeste.Player::P_DashA
+   IL_2ea6: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_2eab: dup
+   IL_2eac: ldloca.s V_4
+   IL_2eae: call TValue System.Collections.Generic.KeyValuePair`2<System.String,Microsoft.Xna.Framework.Color>::get_Value()
+   IL_2eb3: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2eb8: dup
+   IL_2eb9: ldloca.s V_4
+   IL_2ebb: call TValue System.Collections.Generic.KeyValuePair`2<System.String,Microsoft.Xna.Framework.Color>::get_Value()
+   IL_2ec0: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_2ec5: ldc.r4 0.5
+   IL_2eca: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_2ecf: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2ed4: callvirt System.Void System.Collections.Generic.Dictionary`2<System.String,Monocle.ParticleType>::Add(TKey,TValue)
+   IL_2ed9: ldloca.s V_3
+   IL_2edb: call System.Boolean System.Collections.Generic.Dictionary`2/Enumerator<System.String,Microsoft.Xna.Framework.Color>::MoveNext()
+   IL_2ee0: brtrue.s IL_2e8c
+   IL_2ee2: leave.s IL_2ef2
+   IL_2ee4: ldloca.s V_3
+   IL_2ee6: constrained. System.Collections.Generic.Dictionary`2/Enumerator<System.String,Microsoft.Xna.Framework.Color>
+   IL_2eec: callvirt System.Void System.IDisposable::Dispose()
+   IL_2ef1: endfinally
+   IL_2ef2: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2ef7: dup
+   IL_2ef8: ldc.r4 1
+   IL_2efd: stfld System.Single Monocle.ParticleType::Size
+   IL_2f02: dup
+   IL_2f03: ldstr "baffff"
+   IL_2f08: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2f0d: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2f12: dup
+   IL_2f13: ldstr "5abce2"
+   IL_2f18: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_2f1d: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2f22: dup
+   IL_2f23: ldc.i4.2
+   IL_2f24: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2f29: dup
+   IL_2f2a: ldc.i4.2
+   IL_2f2b: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2f30: dup
+   IL_2f31: ldc.r4 2
+   IL_2f36: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2f3b: dup
+   IL_2f3c: ldc.r4 5
+   IL_2f41: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2f46: dup
+   IL_2f47: ldc.r4 1.0471976
+   IL_2f4c: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2f51: dup
+   IL_2f52: ldc.r4 1.4
+   IL_2f57: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2f5c: dup
+   IL_2f5d: ldc.r4 2
+   IL_2f62: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_2f67: stsfld Monocle.ParticleType Celeste.HeartGemDoor::P_Shimmer
+   IL_2f6c: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_2f71: dup
+   IL_2f72: ldc.r4 1
+   IL_2f77: stfld System.Single Monocle.ParticleType::Size
+   IL_2f7c: dup
+   IL_2f7d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_2f82: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_2f87: dup
+   IL_2f88: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_2f8d: ldc.r4 0.65
+   IL_2f92: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_2f97: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_2f9c: dup
+   IL_2f9d: ldc.i4.1
+   IL_2f9e: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_2fa3: dup
+   IL_2fa4: ldc.i4.2
+   IL_2fa5: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_2faa: dup
+   IL_2fab: ldc.r4 0
+   IL_2fb0: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_2fb5: dup
+   IL_2fb6: ldc.r4 30
+   IL_2fbb: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_2fc0: dup
+   IL_2fc1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_2fc6: ldc.r4 20
+   IL_2fcb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_2fd0: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_2fd5: dup
+   IL_2fd6: ldc.r4 0
+   IL_2fdb: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_2fe0: dup
+   IL_2fe1: ldc.r4 -1.5707964
+   IL_2fe6: stfld System.Single Monocle.ParticleType::Direction
+   IL_2feb: dup
+   IL_2fec: ldc.r4 0.4
+   IL_2ff1: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_2ff6: dup
+   IL_2ff7: ldc.r4 1.8
+   IL_2ffc: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_3001: stsfld Monocle.ParticleType Celeste.HeartGemDoor::P_Slice
+   IL_3006: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_300b: dup
+   IL_300c: ldc.r4 1
+   IL_3011: stfld System.Single Monocle.ParticleType::Size
+   IL_3016: dup
+   IL_3017: ldstr "B9FEFE"
+   IL_301c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_3021: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_3026: dup
+   IL_3027: ldstr "FFF263"
+   IL_302c: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_3031: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_3036: dup
+   IL_3037: ldc.i4.2
+   IL_3038: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_303d: dup
+   IL_303e: ldc.i4.2
+   IL_303f: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_3044: dup
+   IL_3045: ldc.r4 5
+   IL_304a: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_304f: dup
+   IL_3050: ldc.r4 30
+   IL_3055: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_305a: dup
+   IL_305b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_3060: ldc.r4 20
+   IL_3065: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_306a: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_306f: dup
+   IL_3070: ldc.r4 1.5707964
+   IL_3075: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_307a: dup
+   IL_307b: ldc.r4 -1.5707964
+   IL_3080: stfld System.Single Monocle.ParticleType::Direction
+   IL_3085: dup
+   IL_3086: ldc.r4 0.8
+   IL_308b: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_3090: dup
+   IL_3091: ldc.r4 2
+   IL_3096: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_309b: stsfld Monocle.ParticleType Celeste.Lightning::P_Shatter
+   IL_30a0: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_30a5: dup
+   IL_30a6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_30ab: ldc.r4 60
+   IL_30b0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_30b5: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_30ba: dup
+   IL_30bb: ldc.r4 30
+   IL_30c0: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_30c5: dup
+   IL_30c6: ldc.r4 40
+   IL_30cb: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_30d0: dup
+   IL_30d1: ldc.r4 -1.5707964
+   IL_30d6: stfld System.Single Monocle.ParticleType::Direction
+   IL_30db: dup
+   IL_30dc: ldc.r4 1.5707964
+   IL_30e1: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_30e6: dup
+   IL_30e7: ldc.r4 0.6
+   IL_30ec: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_30f1: dup
+   IL_30f2: ldc.r4 1.2
+   IL_30f7: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_30fc: dup
+   IL_30fd: ldc.i4.2
+   IL_30fe: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_3103: dup
+   IL_3104: ldc.i4.2
+   IL_3105: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_310a: dup
+   IL_310b: ldstr "4FFFF3"
+   IL_3110: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_3115: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_311a: dup
+   IL_311b: ldstr "FFF899"
+   IL_3120: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_3125: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_312a: dup
+   IL_312b: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_3130: ldstr "particles/rect"
+   IL_3135: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_313a: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_313f: dup
+   IL_3140: ldc.r4 0.5
+   IL_3145: stfld System.Single Monocle.ParticleType::Size
+   IL_314a: dup
+   IL_314b: ldc.r4 0.2
+   IL_3150: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_3155: dup
+   IL_3156: ldc.i4.2
+   IL_3157: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_315c: stsfld Monocle.ParticleType Celeste.Glider::P_Glide
+   IL_3161: ldsfld Monocle.ParticleType Celeste.Glider::P_Glide
+   IL_3166: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_316b: dup
+   IL_316c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_3171: ldc.r4 -10
+   IL_3176: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_317b: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_3180: dup
+   IL_3181: ldc.r4 50
+   IL_3186: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_318b: dup
+   IL_318c: ldc.r4 60
+   IL_3191: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_3196: stsfld Monocle.ParticleType Celeste.Glider::P_GlideUp
+   IL_319b: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_31a0: dup
+   IL_31a1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_31a6: ldc.r4 60
+   IL_31ab: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_31b0: stfld Microsoft.Xna.Framework.Vector2 Monocle.ParticleType::Acceleration
+   IL_31b5: dup
+   IL_31b6: ldc.r4 5
+   IL_31bb: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_31c0: dup
+   IL_31c1: ldc.r4 20
+   IL_31c6: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_31cb: dup
+   IL_31cc: ldc.r4 -1.5707964
+   IL_31d1: stfld System.Single Monocle.ParticleType::Direction
+   IL_31d6: dup
+   IL_31d7: ldc.r4 0.6
+   IL_31dc: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_31e1: dup
+   IL_31e2: ldc.r4 1.4
+   IL_31e7: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_31ec: dup
+   IL_31ed: ldc.i4.2
+   IL_31ee: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_31f3: dup
+   IL_31f4: ldc.r4 1
+   IL_31f9: stfld System.Single Monocle.ParticleType::Size
+   IL_31fe: stsfld Monocle.ParticleType Celeste.Glider::P_Platform
+   IL_3203: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_3208: dup
+   IL_3209: ldc.r4 8
+   IL_320e: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_3213: dup
+   IL_3214: ldc.r4 16
+   IL_3219: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_321e: dup
+   IL_321f: ldc.r4 6.2831855
+   IL_3224: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_3229: dup
+   IL_322a: ldc.r4 0.4
+   IL_322f: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_3234: dup
+   IL_3235: ldc.r4 0.8
+   IL_323a: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_323f: dup
+   IL_3240: ldc.r4 1
+   IL_3245: stfld System.Single Monocle.ParticleType::Size
+   IL_324a: dup
+   IL_324b: ldc.i4.2
+   IL_324c: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_3251: dup
+   IL_3252: ldstr "B7F3FF"
+   IL_3257: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_325c: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_3261: dup
+   IL_3262: ldstr "F4FDFF"
+   IL_3267: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_326c: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_3271: dup
+   IL_3272: ldc.i4.2
+   IL_3273: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_3278: stsfld Monocle.ParticleType Celeste.Glider::P_Glow
+   IL_327d: ldsfld Monocle.ParticleType Celeste.Glider::P_Glow
+   IL_3282: newobj System.Void Monocle.ParticleType::.ctor(Monocle.ParticleType)
+   IL_3287: dup
+   IL_3288: ldc.r4 40
+   IL_328d: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_3292: dup
+   IL_3293: ldc.r4 80
+   IL_3298: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_329d: dup
+   IL_329e: ldc.r4 0.2
+   IL_32a3: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_32a8: dup
+   IL_32a9: ldc.r4 0.6
+   IL_32ae: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_32b3: dup
+   IL_32b4: ldc.r4 1.2
+   IL_32b9: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_32be: dup
+   IL_32bf: ldc.r4 2.3561945
+   IL_32c4: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_32c9: stsfld Monocle.ParticleType Celeste.Glider::P_Expand
+   IL_32ce: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_32d3: dup
+   IL_32d4: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_32d9: ldstr "particles/rect"
+   IL_32de: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_32e3: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_32e8: dup
+   IL_32e9: ldstr "FFFC75"
+   IL_32ee: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_32f3: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_32f8: dup
+   IL_32f9: ldstr "6BFFFF"
+   IL_32fe: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_3303: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_3308: dup
+   IL_3309: ldc.i4.2
+   IL_330a: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_330f: dup
+   IL_3310: ldc.i4.2
+   IL_3311: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_3316: dup
+   IL_3317: ldc.r4 0.5
+   IL_331c: stfld System.Single Monocle.ParticleType::Size
+   IL_3321: dup
+   IL_3322: ldc.r4 0.2
+   IL_3327: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_332c: dup
+   IL_332d: ldc.r4 0.6981317
+   IL_3332: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_3337: dup
+   IL_3338: ldc.i4.2
+   IL_3339: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_333e: dup
+   IL_333f: ldc.r4 0.6
+   IL_3344: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_3349: dup
+   IL_334a: ldc.r4 1.2
+   IL_334f: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_3354: dup
+   IL_3355: ldc.r4 50
+   IL_335a: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_335f: dup
+   IL_3360: ldc.r4 150
+   IL_3365: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_336a: dup
+   IL_336b: ldc.r4 0.2
+   IL_3370: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_3375: stsfld Monocle.ParticleType Celeste.LightningBreakerBox::P_Smash
+   IL_337a: newobj System.Void Monocle.ParticleType::.ctor()
+   IL_337f: dup
+   IL_3380: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_3385: ldstr "particles/rect"
+   IL_338a: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_338f: stfld Monocle.MTexture Monocle.ParticleType::Source
+   IL_3394: dup
+   IL_3395: ldstr "FFFC75"
+   IL_339a: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_339f: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_33a4: dup
+   IL_33a5: ldstr "6BFFFF"
+   IL_33aa: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_33af: stfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color2
+   IL_33b4: dup
+   IL_33b5: ldc.i4.2
+   IL_33b6: stfld Monocle.ParticleType/ColorModes Monocle.ParticleType::ColorMode
+   IL_33bb: dup
+   IL_33bc: ldc.i4.2
+   IL_33bd: stfld Monocle.ParticleType/RotationModes Monocle.ParticleType::RotationMode
+   IL_33c2: dup
+   IL_33c3: ldc.r4 0.4
+   IL_33c8: stfld System.Single Monocle.ParticleType::Size
+   IL_33cd: dup
+   IL_33ce: ldc.r4 0.1
+   IL_33d3: stfld System.Single Monocle.ParticleType::SizeRange
+   IL_33d8: dup
+   IL_33d9: ldc.r4 6.2831855
+   IL_33de: stfld System.Single Monocle.ParticleType::DirectionRange
+   IL_33e3: dup
+   IL_33e4: ldc.i4.2
+   IL_33e5: stfld Monocle.ParticleType/FadeModes Monocle.ParticleType::FadeMode
+   IL_33ea: dup
+   IL_33eb: ldc.r4 0.1
+   IL_33f0: stfld System.Single Monocle.ParticleType::LifeMin
+   IL_33f5: dup
+   IL_33f6: ldc.r4 0.2
+   IL_33fb: stfld System.Single Monocle.ParticleType::LifeMax
+   IL_3400: dup
+   IL_3401: ldc.r4 30
+   IL_3406: stfld System.Single Monocle.ParticleType::SpeedMin
+   IL_340b: dup
+   IL_340c: ldc.r4 40
+   IL_3411: stfld System.Single Monocle.ParticleType::SpeedMax
+   IL_3416: dup
+   IL_3417: ldc.r4 0.8
+   IL_341c: stfld System.Single Monocle.ParticleType::SpeedMultiplier
+   IL_3421: stsfld Monocle.ParticleType Celeste.LightningBreakerBox::P_Sparks
+   IL_3426: ret

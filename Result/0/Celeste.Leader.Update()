@@ -1,0 +1,123 @@
+On: VivHelper.VivHelperModule.newLeaderUpdate(orig_Update,Leader)
+On: LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(orig_Update,Leader)
+IL: LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_0006: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000b: ldarg.0
+   IL_000c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Leader::Position
+   IL_0011: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0016: stloc.0
+   IL_0017: ldarg.0
+   IL_0018: call Monocle.Scene Monocle.Component::get_Scene()
+   IL_001d: ldc.r4 0.02
+   IL_0022: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_0027: brfalse.s IL_008e
+   IL_0029: ldarg.0
+   IL_002a: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Leader::PastPoints
+   IL_002f: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Count()
+   IL_0034: brfalse.s IL_0057
+   IL_0036: ldloc.0
+   IL_0037: ldarg.0
+   IL_0038: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Leader::PastPoints
+   IL_003d: ldc.i4.0
+   IL_003e: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_0043: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0048: stloc.2
+   IL_0049: ldloca.s V_2
+   IL_004b: call System.Single Microsoft.Xna.Framework.Vector2::Length()
+   IL_0050: ldc.r4 3
+   IL_0055: blt.un.s IL_008e
+   IL_0057: ldarg.0
+   IL_0058: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Leader::PastPoints
+   IL_005d: ldc.i4.0
+   IL_005e: ldloc.0
+   IL_005f: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::Insert(System.Int32,T)
+   IL_0064: ldarg.0
+   IL_0065: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Leader::PastPoints
+   IL_006a: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Count()
+   IL_006f: ldc.i4 350
+   IL_0074: ble.s IL_008e
+   IL_0076: ldarg.0
+   IL_0077: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Leader::PastPoints
+   IL_007c: ldarg.0
+   IL_007d: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Leader::PastPoints
+   IL_0082: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Count()
+   IL_0087: ldc.i4.1
+   IL_0088: sub
+   IL_0089: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::RemoveAt(System.Int32)
+   IL_008e: ldc.i4.5
+   IL_008f: stloc.1
+   IL_0090: ldarg.0
+   IL_0091: ldfld System.Collections.Generic.List`1<Celeste.Follower> Celeste.Leader::Followers
+   IL_0096: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Follower>::GetEnumerator()
+   IL_009b: stloc.3
+   IL_009c: br IL_0136
+   IL_00a1: ldloca.s V_3
+   IL_00a3: call T System.Collections.Generic.List`1/Enumerator<Celeste.Follower>::get_Current()
+   IL_00a8: stloc.s V_4
+ + IL_10000: ldloc V_1 @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+ + IL_10001: ldloc V_4 @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+ + IL_10002: ldc.i4 0 @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+ + IL_10003: ldc.i4 0 @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+ + IL_10004: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+       => Invoke: LuckyHelper.Entities.EeveeLike.FollowerContainer+<>c.<LeaderOnUpdate>b__4_1(Int32,Follower)
+ + IL_10005: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Int32,System.Int32,Celeste.Follower>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+ + IL_10006: stloc V_1 @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+   IL_00aa: ldloc.1
+   IL_00ab: ldarg.0
+   IL_00ac: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Leader::PastPoints
+   IL_00b1: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Count()
+   IL_00b6: blt.s IL_00bd
+   IL_00b8: leave IL_0152
+   IL_00bd: ldarg.0
+   IL_00be: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Leader::PastPoints
+   IL_00c3: ldloc.1
+   IL_00c4: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_00c9: stloc.s V_5
+   IL_00cb: ldloc.s V_4
+   IL_00cd: ldfld System.Single Celeste.Follower::DelayTimer
+   IL_00d2: ldc.r4 0
+   IL_00d7: bgt.un.s IL_0132
+   IL_00d9: ldloc.s V_4
+   IL_00db: ldfld System.Boolean Celeste.Follower::MoveTowardsLeader
+   IL_00e0: brfalse.s IL_0132
+   IL_00e2: ldloc.s V_4
+   IL_00e4: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00e9: ldloc.s V_4
+   IL_00eb: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00f0: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00f5: ldloc.s V_5
+   IL_00f7: ldloc.s V_4
+   IL_00f9: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00fe: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0103: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0108: ldc.r4 1
+   IL_010d: ldc.r8 0.009999999776482582
+ + IL_10007: ldloc V_4 @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+ + IL_10008: ldc.i4 0 @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+ + IL_10009: ldc.i4 0 @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+ + IL_1000a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+       => Invoke: LuckyHelper.Entities.EeveeLike.FollowerContainer+<>c.<LeaderOnUpdate>b__4_3(Double,Follower)
+ + IL_1000b: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Double,System.Double,Celeste.Follower>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ LuckyHelper.Entities.EeveeLike.FollowerContainer.LeaderOnUpdate(ILContext)
+   IL_0116: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_011b: conv.r8
+   IL_011c: call System.Double System.Math::Pow(System.Double,System.Double)
+   IL_0121: conv.r4
+   IL_0122: sub
+   IL_0123: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0128: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_012d: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0132: ldloc.1
+   IL_0133: ldc.i4.5
+   IL_0134: add
+   IL_0135: stloc.1
+   IL_0136: ldloca.s V_3
+   IL_0138: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Follower>::MoveNext()
+   IL_013d: brtrue IL_00a1
+   IL_0142: leave.s IL_0152
+   IL_0144: ldloca.s V_3
+   IL_0146: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Follower>
+   IL_014c: callvirt System.Void System.IDisposable::Dispose()
+   IL_0151: endfinally
+   IL_0152: ret

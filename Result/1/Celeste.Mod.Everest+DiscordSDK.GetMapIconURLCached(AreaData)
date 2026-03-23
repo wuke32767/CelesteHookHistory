@@ -1,0 +1,22 @@
+On: Celeste.Mod.CollabUtils2.LobbyHelper.onDiscordGetPresenceIcon(Func`3,DiscordSDK,AreaData)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.Dictionary`2<System.String,System.String> Celeste.Mod.Everest/DiscordSDK::IconURLCache
+   IL_0006: ldarg.1
+   IL_0007: ldfld System.String Celeste.AreaData::Icon
+   IL_000c: ldloca.s V_0
+   IL_000e: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.String>::TryGetValue(TKey,TValue&)
+   IL_0013: brfalse.s IL_0017
+   IL_0015: ldloc.0
+   IL_0016: ret
+   IL_0017: ldarg.0
+   IL_0018: ldarg.1
+   IL_0019: callvirt System.String Celeste.Mod.Everest/DiscordSDK::GetMapIconURL(Celeste.AreaData)
+   IL_001e: stloc.0
+   IL_001f: ldarg.0
+   IL_0020: ldfld System.Collections.Generic.Dictionary`2<System.String,System.String> Celeste.Mod.Everest/DiscordSDK::IconURLCache
+   IL_0025: ldarg.1
+   IL_0026: ldfld System.String Celeste.AreaData::Icon
+   IL_002b: ldloc.0
+   IL_002c: callvirt System.Void System.Collections.Generic.Dictionary`2<System.String,System.String>::Add(TKey,TValue)
+   IL_0031: ldloc.0
+   IL_0032: ret

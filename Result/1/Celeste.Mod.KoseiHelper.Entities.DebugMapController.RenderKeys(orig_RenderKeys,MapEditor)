@@ -1,0 +1,18 @@
+IL: TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.ForceAllowAccessibilityTools::get_Enabled() @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10001: brfalse IL_0000 @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10002: ldarg.0 @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10003: ldarg.1 @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10004: call System.Void On.Celeste.Editor.MapEditor/orig_RenderKeys::Invoke(Celeste.Editor.MapEditor) @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10005: ret @ TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+   IL_0000: ldsfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugMapController::renderKeys
+   IL_0005: brfalse.s IL_0021
+   IL_0007: ldsfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugMapController::disallowDebugMap
+   IL_000c: brtrue.s IL_0021
+   IL_000e: call Celeste.Mod.KoseiHelper.KoseiHelperModuleSession Celeste.Mod.KoseiHelper.KoseiHelperModule::get_Session()
+   IL_0013: callvirt System.Boolean Celeste.Mod.KoseiHelper.KoseiHelperModuleSession::get_DebugMapModified()
+   IL_0018: brtrue.s IL_0021
+   IL_001a: ldarg.0
+   IL_001b: ldarg.1
+   IL_001c: callvirt System.Void On.Celeste.Editor.MapEditor/orig_RenderKeys::Invoke(Celeste.Editor.MapEditor)
+   IL_0021: ret

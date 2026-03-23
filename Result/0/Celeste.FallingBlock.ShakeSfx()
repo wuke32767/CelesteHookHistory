@@ -1,0 +1,37 @@
+On: Celeste.Mod.SaladimHelper.Entities.DelayedFallingBlock.FallingBlock_ShakeSfx(orig_ShakeSfx,FallingBlock)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Char Celeste.FallingBlock::TileType
+   IL_0006: ldc.i4.s 51
+   IL_0008: bne.un.s IL_001c
+   IL_000a: ldstr "event:/game/01_forsaken_city/fallblock_ice_shake"
+   IL_000f: ldarg.0
+   IL_0010: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0015: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_001a: pop
+   IL_001b: ret
+   IL_001c: ldarg.0
+   IL_001d: ldfld System.Char Celeste.FallingBlock::TileType
+   IL_0022: ldc.i4.s 57
+   IL_0024: bne.un.s IL_0038
+   IL_0026: ldstr "event:/game/03_resort/fallblock_wood_shake"
+   IL_002b: ldarg.0
+   IL_002c: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0031: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0036: pop
+   IL_0037: ret
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Char Celeste.FallingBlock::TileType
+   IL_003e: ldc.i4.s 103
+   IL_0040: bne.un.s IL_0054
+   IL_0042: ldstr "event:/game/06_reflection/fallblock_boss_shake"
+   IL_0047: ldarg.0
+   IL_0048: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_004d: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0052: pop
+   IL_0053: ret
+   IL_0054: ldstr "event:/game/general/fallblock_shake"
+   IL_0059: ldarg.0
+   IL_005a: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_005f: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0064: pop
+   IL_0065: ret

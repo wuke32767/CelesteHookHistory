@@ -1,0 +1,41 @@
+On: Celeste.Mod.SkinModHelper.LoaderHook.OuiFileSelectSlotSetupHook(orig_Setup,OuiFileSelectSlot)
+On: Celeste.Mod.HardcoreMode.HMModule.On_OuiFileSelectSlot_Setup(orig_Setup,OuiFileSelectSlot)
+   IL_0000: ldstr "portrait_madeline"
+   IL_0005: stloc.0
+   IL_0006: ldstr "idle_normal"
+   IL_000b: stloc.1
+   IL_000c: ldarg.0
+   IL_000d: ldsfld Monocle.SpriteBank Celeste.GFX::PortraitsSpriteBank
+   IL_0012: ldloc.0
+   IL_0013: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_0018: stfld Monocle.Sprite Celeste.OuiFileSelectSlot::Portrait
+   IL_001d: ldarg.0
+   IL_001e: ldfld Monocle.Sprite Celeste.OuiFileSelectSlot::Portrait
+   IL_0023: ldloc.1
+   IL_0024: ldc.i4.0
+   IL_0025: ldc.i4.0
+   IL_0026: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_002b: ldarg.0
+   IL_002c: ldfld Monocle.Sprite Celeste.OuiFileSelectSlot::Portrait
+   IL_0031: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0036: ldc.r4 200
+   IL_003b: ldsfld Monocle.SpriteBank Celeste.GFX::PortraitsSpriteBank
+   IL_0040: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_0045: ldloc.0
+   IL_0046: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::get_Item(TKey)
+   IL_004b: ldfld System.Collections.Generic.List`1<Monocle.SpriteDataSource> Monocle.SpriteData::Sources
+   IL_0050: ldc.i4.0
+   IL_0051: callvirt T System.Collections.Generic.List`1<Monocle.SpriteDataSource>::get_Item(System.Int32)
+   IL_0056: ldfld System.Xml.XmlElement Monocle.SpriteDataSource::XML
+   IL_005b: ldstr "size"
+   IL_0060: ldc.i4 160
+   IL_0065: call System.Int32 Monocle.Calc::AttrInt(System.Xml.XmlElement,System.String,System.Int32)
+   IL_006a: conv.r4
+   IL_006b: div
+   IL_006c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0071: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0076: ldarg.0
+   IL_0077: ldarg.0
+   IL_0078: ldfld Monocle.Sprite Celeste.OuiFileSelectSlot::Portrait
+   IL_007d: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0082: ret

@@ -1,0 +1,27 @@
+On: ChroniaHelper.Entities.TeraBlock.OnActorUpdate(orig_Update,Actor)
+On: Celeste.Mod.TeraHelper.Entities.TeraBlock.OnActorUpdate(orig_Update,Actor)
+On: BrokemiaHelper.UniversalAccelerator.Actor_Update(orig_Update,Actor)
+On: Celeste.Mod.Aqua.Core.ActorExtensions.Actor_Update(orig_Update,Actor)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_000c: callvirt System.Void Celeste.Actor::set_LiftSpeed(Microsoft.Xna.Framework.Vector2)
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Single Celeste.Actor::liftSpeedTimer
+   IL_0017: ldc.r4 0
+   IL_001c: ble.un.s IL_0048
+   IL_001e: ldarg.0
+   IL_001f: ldarg.0
+   IL_0020: ldfld System.Single Celeste.Actor::liftSpeedTimer
+   IL_0025: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_002a: sub
+   IL_002b: stfld System.Single Celeste.Actor::liftSpeedTimer
+   IL_0030: ldarg.0
+   IL_0031: ldfld System.Single Celeste.Actor::liftSpeedTimer
+   IL_0036: ldc.r4 0
+   IL_003b: bgt.un.s IL_0048
+   IL_003d: ldarg.0
+   IL_003e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0043: stfld Microsoft.Xna.Framework.Vector2 Celeste.Actor::lastLiftSpeed
+   IL_0048: ret

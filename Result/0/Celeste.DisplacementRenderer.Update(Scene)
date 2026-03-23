@@ -1,0 +1,39 @@
+On: Celeste.Mod.Spirialis.TimeController.distortionUpdate(orig_Update,DisplacementRenderer,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Single Celeste.DisplacementRenderer::timer
+   IL_0007: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_000c: add
+   IL_000d: stfld System.Single Celeste.DisplacementRenderer::timer
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Collections.Generic.List`1<Celeste.DisplacementRenderer/Burst> Celeste.DisplacementRenderer::points
+   IL_0018: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.DisplacementRenderer/Burst>::get_Count()
+   IL_001d: ldc.i4.1
+   IL_001e: sub
+   IL_001f: stloc.0
+   IL_0020: br.s IL_005d
+   IL_0022: ldarg.0
+   IL_0023: ldfld System.Collections.Generic.List`1<Celeste.DisplacementRenderer/Burst> Celeste.DisplacementRenderer::points
+   IL_0028: ldloc.0
+   IL_0029: callvirt T System.Collections.Generic.List`1<Celeste.DisplacementRenderer/Burst>::get_Item(System.Int32)
+   IL_002e: ldfld System.Single Celeste.DisplacementRenderer/Burst::Percent
+   IL_0033: ldc.r4 1
+   IL_0038: blt.un.s IL_0048
+   IL_003a: ldarg.0
+   IL_003b: ldfld System.Collections.Generic.List`1<Celeste.DisplacementRenderer/Burst> Celeste.DisplacementRenderer::points
+   IL_0040: ldloc.0
+   IL_0041: callvirt System.Void System.Collections.Generic.List`1<Celeste.DisplacementRenderer/Burst>::RemoveAt(System.Int32)
+   IL_0046: br.s IL_0059
+   IL_0048: ldarg.0
+   IL_0049: ldfld System.Collections.Generic.List`1<Celeste.DisplacementRenderer/Burst> Celeste.DisplacementRenderer::points
+   IL_004e: ldloc.0
+   IL_004f: callvirt T System.Collections.Generic.List`1<Celeste.DisplacementRenderer/Burst>::get_Item(System.Int32)
+   IL_0054: callvirt System.Void Celeste.DisplacementRenderer/Burst::Update()
+   IL_0059: ldloc.0
+   IL_005a: ldc.i4.1
+   IL_005b: sub
+   IL_005c: stloc.0
+   IL_005d: ldloc.0
+   IL_005e: ldc.i4.0
+   IL_005f: bge.s IL_0022
+   IL_0061: ret

@@ -1,0 +1,123 @@
+On: TAS.EverestInterop.Hitboxes.HitboxNpc.BirdNPC_DebugRender(orig_DebugRender,BirdNPC,Camera)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::DebugRender(Monocle.Camera)
+   IL_0007: ldarg.0
+   IL_0008: ldfld Celeste.BirdNPC/Modes Celeste.BirdNPC::mode
+   IL_000d: ldc.i4.1
+   IL_000e: bne.un IL_0179
+   IL_0013: ldarg.0
+   IL_0014: ldflda Microsoft.Xna.Framework.Vector2 Celeste.BirdNPC::StartPosition
+   IL_0019: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001e: ldc.r4 92
+   IL_0023: sub
+   IL_0024: stloc.0
+   IL_0025: ldarg.0
+   IL_0026: ldfld Celeste.Level Celeste.BirdNPC::level
+   IL_002b: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0030: stloc.s V_4
+   IL_0032: ldloca.s V_4
+   IL_0034: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0039: conv.r4
+   IL_003a: stloc.1
+   IL_003b: ldarg.0
+   IL_003c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.BirdNPC::StartPosition
+   IL_0041: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0046: ldc.r4 20
+   IL_004b: sub
+   IL_004c: stloc.2
+   IL_004d: ldarg.0
+   IL_004e: ldflda Microsoft.Xna.Framework.Vector2 Celeste.BirdNPC::StartPosition
+   IL_0053: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0058: ldc.r4 10
+   IL_005d: sub
+   IL_005e: stloc.3
+   IL_005f: ldloc.0
+   IL_0060: ldloc.2
+   IL_0061: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0066: ldloc.0
+   IL_0067: ldloc.3
+   IL_0068: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_006d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_0072: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0077: ldloc.0
+   IL_0078: ldloc.2
+   IL_0079: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_007e: ldloc.1
+   IL_007f: ldloc.2
+   IL_0080: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0085: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_008a: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_008f: ldloc.1
+   IL_0090: ldloc.2
+   IL_0091: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0096: ldloc.1
+   IL_0097: ldloc.3
+   IL_0098: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_009d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_00a2: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_00a7: ldloc.0
+   IL_00a8: ldloc.3
+   IL_00a9: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00ae: ldloc.1
+   IL_00af: ldloc.3
+   IL_00b0: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00b5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_00ba: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_00bf: ldarg.0
+   IL_00c0: ldflda Microsoft.Xna.Framework.Vector2 Celeste.BirdNPC::StartPosition
+   IL_00c5: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00ca: ldc.r4 60
+   IL_00cf: sub
+   IL_00d0: stloc.s V_5
+   IL_00d2: ldarg.0
+   IL_00d3: ldfld Celeste.Level Celeste.BirdNPC::level
+   IL_00d8: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00dd: stloc.s V_4
+   IL_00df: ldloca.s V_4
+   IL_00e1: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_00e6: conv.r4
+   IL_00e7: stloc.s V_6
+   IL_00e9: ldarg.0
+   IL_00ea: ldflda Microsoft.Xna.Framework.Vector2 Celeste.BirdNPC::StartPosition
+   IL_00ef: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00f4: stloc.s V_7
+   IL_00f6: ldarg.0
+   IL_00f7: ldflda Microsoft.Xna.Framework.Vector2 Celeste.BirdNPC::StartPosition
+   IL_00fc: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0101: ldc.r4 34
+   IL_0106: add
+   IL_0107: stloc.s V_8
+   IL_0109: ldloc.s V_5
+   IL_010b: ldloc.s V_7
+   IL_010d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0112: ldloc.s V_5
+   IL_0114: ldloc.s V_8
+   IL_0116: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_011b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_0120: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0125: ldloc.s V_5
+   IL_0127: ldloc.s V_7
+   IL_0129: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_012e: ldloc.s V_6
+   IL_0130: ldloc.s V_7
+   IL_0132: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0137: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_013c: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0141: ldloc.s V_6
+   IL_0143: ldloc.s V_7
+   IL_0145: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_014a: ldloc.s V_6
+   IL_014c: ldloc.s V_8
+   IL_014e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0153: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_0158: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_015d: ldloc.s V_5
+   IL_015f: ldloc.s V_8
+   IL_0161: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0166: ldloc.s V_6
+   IL_0168: ldloc.s V_8
+   IL_016a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_016f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_0174: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0179: ret

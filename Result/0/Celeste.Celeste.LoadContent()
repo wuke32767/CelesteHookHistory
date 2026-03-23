@@ -1,0 +1,97 @@
+On: AltLevelsHelper.Entry.Celeste_LoadContent(orig_LoadContent,Celeste)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Celeste::firstLoad
+   IL_0006: stloc.0
+   IL_0007: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_000c: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Core.CoreModuleSettings::get_FastTextureLoading()
+   IL_0011: stloc.1
+   IL_0012: ldloca.s V_1
+   IL_0014: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0019: brtrue.s IL_005f
+   IL_001b: call System.Int32 System.Environment::get_ProcessorCount()
+   IL_0020: ldc.i4.4
+   IL_0021: blt.s IL_005c
+   IL_0023: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0028: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Core.CoreModuleSettings::get_ThreadedGL()
+   IL_002d: stloc.2
+   IL_002e: ldloca.s V_2
+   IL_0030: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0035: brtrue.s IL_0042
+   IL_0037: ldloca.s V_3
+   IL_0039: initobj System.Nullable`1<System.Boolean>
+   IL_003f: ldloc.3
+   IL_0040: br.s IL_0051
+   IL_0042: ldloca.s V_2
+   IL_0044: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_0049: ldc.i4.0
+   IL_004a: ceq
+   IL_004c: newobj System.Void System.Nullable`1<System.Boolean>::.ctor(T)
+   IL_0051: stloc.3
+   IL_0052: ldloca.s V_3
+   IL_0054: ldc.i4.1
+   IL_0055: call T System.Nullable`1<System.Boolean>::GetValueOrDefault(T)
+   IL_005a: br.s IL_0066
+   IL_005c: ldc.i4.0
+   IL_005d: br.s IL_0066
+   IL_005f: ldloca.s V_1
+   IL_0061: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_0066: brfalse.s IL_00cc
+   IL_0068: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_006d: callvirt System.Single Celeste.Mod.Core.CoreModuleSettings::get_FastTextureLoadingMaxMB()
+   IL_0072: ldc.r4 1024
+   IL_0077: mul
+   IL_0078: ldc.r4 1024
+   IL_007d: mul
+   IL_007e: conv.i8
+   IL_007f: stloc.s V_4
+   IL_0081: ldloc.s V_4
+   IL_0083: ldc.i4.0
+   IL_0084: conv.i8
+   IL_0085: bgt.s IL_00b3
+   IL_0087: ldsfld System.Single Celeste.Mod.Everest::SystemMemoryMB
+   IL_008c: ldc.r4 0.2
+   IL_0091: mul
+   IL_0092: ldc.r4 1024
+   IL_0097: mul
+   IL_0098: ldc.r4 1024
+   IL_009d: mul
+   IL_009e: conv.i8
+   IL_009f: stloc.s V_4
+   IL_00a1: ldloc.s V_4
+   IL_00a3: ldc.i4 536870912
+   IL_00a8: conv.i8
+   IL_00a9: bgt.s IL_00b3
+   IL_00ab: ldc.i4 536870912
+   IL_00b0: conv.i8
+   IL_00b1: stloc.s V_4
+   IL_00b3: ldloc.s V_4
+   IL_00b5: ldc.i4 134217728
+   IL_00ba: conv.i8
+   IL_00bb: bgt.s IL_00c5
+   IL_00bd: ldc.i4 134217728
+   IL_00c2: conv.i8
+   IL_00c3: stloc.s V_4
+   IL_00c5: ldloc.s V_4
+   IL_00c7: call System.Void Monocle.VirtualTexture::StartFastTextureLoading(System.Int64)
+   IL_00cc: ldarg.0
+   IL_00cd: callvirt System.Void Celeste.Celeste::orig_LoadContent()
+   IL_00d2: ldsfld System.Collections.Generic.List`1<Celeste.Mod.EverestModule> Celeste.Mod.Everest::_Modules
+   IL_00d7: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.EverestModule>::GetEnumerator()
+   IL_00dc: stloc.s V_5
+   IL_00de: br.s IL_00ed
+   IL_00e0: ldloca.s V_5
+   IL_00e2: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::get_Current()
+   IL_00e7: ldloc.0
+   IL_00e8: callvirt System.Void Celeste.Mod.EverestModule::LoadContent(System.Boolean)
+   IL_00ed: ldloca.s V_5
+   IL_00ef: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::MoveNext()
+   IL_00f4: brtrue.s IL_00e0
+   IL_00f6: leave.s IL_0106
+   IL_00f8: ldloca.s V_5
+   IL_00fa: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>
+   IL_0100: callvirt System.Void System.IDisposable::Dispose()
+   IL_0105: endfinally
+   IL_0106: call System.Void Monocle.VirtualTexture::StopFastTextureLoading()
+   IL_010b: ldc.i4.1
+   IL_010c: stsfld System.Boolean Celeste.Mod.Everest::_ContentLoaded
+   IL_0111: ret

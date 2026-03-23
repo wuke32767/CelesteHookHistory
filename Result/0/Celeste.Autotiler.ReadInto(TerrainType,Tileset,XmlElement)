@@ -1,0 +1,289 @@
+On: Celeste.Mod.StyleMaskHelper.StylegroundMaskTilesetHandler.On_Autotiler_ReadInto(orig_ReadInto,Autotiler,Object,Tileset,XmlElement)
+On: Celeste.Mod.SSMHelper.StarjumpTilesetHelper.On_Autotiler_ReadInto(orig_ReadInto,Autotiler,Object,Tileset,XmlElement)
+   IL_0000: ldarg.3
+   IL_0001: ldstr "scanWidth"
+   IL_0006: call System.Boolean Monocle.Calc::HasAttr(System.Xml.XmlElement,System.String)
+   IL_000b: brfalse.s IL_0067
+   IL_000d: ldarg.3
+   IL_000e: ldstr "scanWidth"
+   IL_0013: call System.Int32 Monocle.Calc::AttrInt(System.Xml.XmlElement,System.String)
+   IL_0018: stloc.1
+   IL_0019: ldloc.1
+   IL_001a: ldc.i4.0
+   IL_001b: ble.s IL_0022
+   IL_001d: ldloc.1
+   IL_001e: ldc.i4.2
+   IL_001f: rem
+   IL_0020: brtrue.s IL_005e
+   IL_0022: ldloca.s V_2
+   IL_0024: ldc.i4.s 86
+   IL_0026: ldc.i4.1
+   IL_0027: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_002c: ldloca.s V_2
+   IL_002e: ldstr "Invalid scan width for tileset with id '"
+   IL_0033: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0038: ldloca.s V_2
+   IL_003a: ldarg.1
+   IL_003b: ldfld System.Char Celeste.Autotiler/TerrainType::ID
+   IL_0040: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Char>(T)
+   IL_0045: ldloca.s V_2
+   IL_0047: ldstr "'. Scan width must be a positive, odd integer."
+   IL_004c: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0051: ldloca.s V_2
+   IL_0053: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_0058: newobj System.Void System.ArgumentException::.ctor(System.String)
+   IL_005d: throw
+   IL_005e: ldarg.1
+   IL_005f: ldloc.1
+   IL_0060: stfld System.Int32 Celeste.Autotiler/TerrainType::ScanWidth
+   IL_0065: br.s IL_006e
+   IL_0067: ldarg.1
+   IL_0068: ldc.i4.3
+   IL_0069: stfld System.Int32 Celeste.Autotiler/TerrainType::ScanWidth
+   IL_006e: ldarg.3
+   IL_006f: ldstr "scanHeight"
+   IL_0074: call System.Boolean Monocle.Calc::HasAttr(System.Xml.XmlElement,System.String)
+   IL_0079: brfalse.s IL_00d5
+   IL_007b: ldarg.3
+   IL_007c: ldstr "scanHeight"
+   IL_0081: call System.Int32 Monocle.Calc::AttrInt(System.Xml.XmlElement,System.String)
+   IL_0086: stloc.3
+   IL_0087: ldloc.3
+   IL_0088: ldc.i4.0
+   IL_0089: ble.s IL_0090
+   IL_008b: ldloc.3
+   IL_008c: ldc.i4.2
+   IL_008d: rem
+   IL_008e: brtrue.s IL_00cc
+   IL_0090: ldloca.s V_2
+   IL_0092: ldc.i4.s 96
+   IL_0094: ldc.i4.1
+   IL_0095: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_009a: ldloca.s V_2
+   IL_009c: ldstr "Invalid scan height for tileset with id '"
+   IL_00a1: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_00a6: ldloca.s V_2
+   IL_00a8: ldarg.1
+   IL_00a9: ldfld System.Char Celeste.Autotiler/TerrainType::ID
+   IL_00ae: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Char>(T)
+   IL_00b3: ldloca.s V_2
+   IL_00b5: ldstr "'. Tileset scan height must be a positive, odd integer."
+   IL_00ba: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_00bf: ldloca.s V_2
+   IL_00c1: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_00c6: newobj System.Void System.ArgumentException::.ctor(System.String)
+   IL_00cb: throw
+   IL_00cc: ldarg.1
+   IL_00cd: ldloc.3
+   IL_00ce: stfld System.Int32 Celeste.Autotiler/TerrainType::ScanHeight
+   IL_00d3: br.s IL_00dc
+   IL_00d5: ldarg.1
+   IL_00d6: ldc.i4.3
+   IL_00d7: stfld System.Int32 Celeste.Autotiler/TerrainType::ScanHeight
+   IL_00dc: ldarg.3
+   IL_00dd: ldstr "set[starts-with(@mask, 'fill')]"
+   IL_00e2: callvirt System.Xml.XmlNodeList System.Xml.XmlNode::SelectNodes(System.String)
+   IL_00e7: stloc.0
+   IL_00e8: ldloc.0
+   IL_00e9: brfalse.s IL_0124
+   IL_00eb: ldloc.0
+   IL_00ec: callvirt System.Int32 System.Xml.XmlNodeList::get_Count()
+   IL_00f1: ldc.i4.0
+   IL_00f2: ble.s IL_0124
+   IL_00f4: ldarg.1
+   IL_00f5: newobj System.Void System.Collections.Generic.List`1<Celeste.Autotiler/Tiles>::.ctor()
+   IL_00fa: stfld System.Collections.Generic.List`1<Celeste.Autotiler/Tiles> Celeste.Autotiler/TerrainType::CustomFills
+   IL_00ff: ldc.i4.0
+   IL_0100: stloc.s V_4
+   IL_0102: br.s IL_011a
+   IL_0104: ldarg.1
+   IL_0105: ldfld System.Collections.Generic.List`1<Celeste.Autotiler/Tiles> Celeste.Autotiler/TerrainType::CustomFills
+   IL_010a: newobj System.Void Celeste.Autotiler/Tiles::.ctor()
+   IL_010f: callvirt System.Void System.Collections.Generic.List`1<Celeste.Autotiler/Tiles>::Add(T)
+   IL_0114: ldloc.s V_4
+   IL_0116: ldc.i4.1
+   IL_0117: add
+   IL_0118: stloc.s V_4
+   IL_011a: ldloc.s V_4
+   IL_011c: ldloc.0
+   IL_011d: callvirt System.Int32 System.Xml.XmlNodeList::get_Count()
+   IL_0122: blt.s IL_0104
+   IL_0124: ldarg.1
+   IL_0125: ldfld System.Collections.Generic.List`1<Celeste.Autotiler/Tiles> Celeste.Autotiler/TerrainType::CustomFills
+   IL_012a: brtrue.s IL_0159
+   IL_012c: ldarg.1
+   IL_012d: ldfld System.Int32 Celeste.Autotiler/TerrainType::ScanWidth
+   IL_0132: ldc.i4.3
+   IL_0133: bne.un.s IL_0159
+   IL_0135: ldarg.1
+   IL_0136: ldfld System.Int32 Celeste.Autotiler/TerrainType::ScanHeight
+   IL_013b: ldc.i4.3
+   IL_013c: bne.un.s IL_0159
+   IL_013e: ldarg.3
+   IL_013f: ldstr "define"
+   IL_0144: call System.Boolean Monocle.Calc::HasChild(System.Xml.XmlElement,System.String)
+   IL_0149: brtrue.s IL_0159
+   IL_014b: ldarg.0
+   IL_014c: ldarg.1
+   IL_014d: ldarg.2
+   IL_014e: ldarg.3
+   IL_014f: callvirt System.Void Celeste.Autotiler::orig_ReadInto(Celeste.Autotiler/TerrainType,Monocle.Tileset,System.Xml.XmlElement)
+   IL_0154: br IL_01db
+   IL_0159: ldstr "Autotiler"
+   IL_015e: stloc.s V_5
+   IL_0160: ldloc.s V_5
+   IL_0162: ldc.i4.s 71
+   IL_0164: ldc.i4.3
+   IL_0165: ldloc.s V_5
+   IL_0167: ldloca.s V_7
+   IL_0169: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Debug>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_016e: stloc.s V_6
+   IL_0170: ldloc.s V_7
+   IL_0172: brfalse.s IL_01cb
+   IL_0174: ldloca.s V_6
+   IL_0176: ldstr "Reading template for tileset with id '"
+   IL_017b: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Debug>::AppendLiteral(System.String)
+   IL_0180: ldloca.s V_6
+   IL_0182: ldarg.1
+   IL_0183: ldfld System.Char Celeste.Autotiler/TerrainType::ID
+   IL_0188: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Debug>::AppendFormatted<System.Char>(T)
+   IL_018d: ldloca.s V_6
+   IL_018f: ldstr "', scan height "
+   IL_0194: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Debug>::AppendLiteral(System.String)
+   IL_0199: ldloca.s V_6
+   IL_019b: ldarg.1
+   IL_019c: ldfld System.Int32 Celeste.Autotiler/TerrainType::ScanHeight
+   IL_01a1: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Debug>::AppendFormatted<System.Int32>(T)
+   IL_01a6: ldloca.s V_6
+   IL_01a8: ldstr ", and scan width "
+   IL_01ad: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Debug>::AppendLiteral(System.String)
+   IL_01b2: ldloca.s V_6
+   IL_01b4: ldarg.1
+   IL_01b5: ldfld System.Int32 Celeste.Autotiler/TerrainType::ScanWidth
+   IL_01ba: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Debug>::AppendFormatted<System.Int32>(T)
+   IL_01bf: ldloca.s V_6
+   IL_01c1: ldstr "."
+   IL_01c6: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Debug>::AppendLiteral(System.String)
+   IL_01cb: ldloc.s V_6
+   IL_01cd: call System.Void Celeste.Mod.Logger::Debug(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Debug>)
+   IL_01d2: ldarg.0
+   IL_01d3: ldarg.1
+   IL_01d4: ldarg.2
+   IL_01d5: ldarg.3
+   IL_01d6: call System.Void Celeste.Autotiler::ReadIntoCustomTemplate(Celeste.Autotiler/TerrainType,Monocle.Tileset,System.Xml.XmlElement)
+   IL_01db: ldarg.3
+   IL_01dc: ldstr "sound"
+   IL_01e1: call System.Boolean Monocle.Calc::HasAttr(System.Xml.XmlElement,System.String)
+   IL_01e6: brfalse IL_028f
+   IL_01eb: ldsfld System.Collections.Generic.Dictionary`2<System.Char,System.Int32> Celeste.SurfaceIndex::TileToIndex
+   IL_01f0: ldarg.3
+   IL_01f1: ldstr "id"
+   IL_01f6: call System.Char Monocle.Calc::AttrChar(System.Xml.XmlElement,System.String)
+   IL_01fb: ldarg.3
+   IL_01fc: ldstr "sound"
+   IL_0201: call System.Int32 Monocle.Calc::AttrInt(System.Xml.XmlElement,System.String)
+   IL_0206: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::set_Item(TKey,TValue)
+   IL_020b: ldarg.3
+   IL_020c: ldstr "soundPath"
+   IL_0211: call System.Boolean Monocle.Calc::HasAttr(System.Xml.XmlElement,System.String)
+   IL_0216: brfalse.s IL_0260
+   IL_0218: ldsfld System.Collections.Generic.Dictionary`2<System.Int32,System.String> Celeste.SurfaceIndex::IndexToCustomPath
+   IL_021d: ldarg.3
+   IL_021e: ldstr "sound"
+   IL_0223: call System.Int32 Monocle.Calc::AttrInt(System.Xml.XmlElement,System.String)
+   IL_0228: ldarg.3
+   IL_0229: ldstr "soundPath"
+   IL_022e: call System.String Monocle.Calc::Attr(System.Xml.XmlElement,System.String)
+   IL_0233: ldstr "event:/"
+   IL_0238: callvirt System.Boolean System.String::StartsWith(System.String)
+   IL_023d: brtrue.s IL_0246
+   IL_023f: ldstr "event:/"
+   IL_0244: br.s IL_024b
+   IL_0246: ldstr ""
+   IL_024b: ldarg.3
+   IL_024c: ldstr "soundPath"
+   IL_0251: call System.String Monocle.Calc::Attr(System.Xml.XmlElement,System.String)
+   IL_0256: call System.String System.String::Concat(System.String,System.String)
+   IL_025b: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Int32,System.String>::set_Item(TKey,TValue)
+   IL_0260: ldarg.3
+   IL_0261: ldstr "soundParam"
+   IL_0266: call System.Boolean Monocle.Calc::HasAttr(System.Xml.XmlElement,System.String)
+   IL_026b: brfalse.s IL_02bc
+   IL_026d: ldsfld System.Collections.Generic.Dictionary`2<System.Int32,System.Int32> Celeste.SurfaceIndex::IndexToSoundParam
+   IL_0272: ldarg.3
+   IL_0273: ldstr "sound"
+   IL_0278: call System.Int32 Monocle.Calc::AttrInt(System.Xml.XmlElement,System.String)
+   IL_027d: ldarg.3
+   IL_027e: ldstr "soundParam"
+   IL_0283: call System.Int32 Monocle.Calc::AttrInt(System.Xml.XmlElement,System.String)
+   IL_0288: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Int32,System.Int32>::set_Item(TKey,TValue)
+   IL_028d: br.s IL_02bc
+   IL_028f: ldsfld System.Collections.Generic.Dictionary`2<System.Char,System.Int32> Celeste.SurfaceIndex::TileToIndex
+   IL_0294: ldarg.3
+   IL_0295: ldstr "id"
+   IL_029a: call System.Char Monocle.Calc::AttrChar(System.Xml.XmlElement,System.String)
+   IL_029f: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::ContainsKey(TKey)
+   IL_02a4: brtrue.s IL_02bc
+   IL_02a6: ldsfld System.Collections.Generic.Dictionary`2<System.Char,System.Int32> Celeste.SurfaceIndex::TileToIndex
+   IL_02ab: ldarg.3
+   IL_02ac: ldstr "id"
+   IL_02b1: call System.Char Monocle.Calc::AttrChar(System.Xml.XmlElement,System.String)
+   IL_02b6: ldc.i4.0
+   IL_02b7: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Char,System.Int32>::set_Item(TKey,TValue)
+   IL_02bc: ldarg.3
+   IL_02bd: ldstr "debris"
+   IL_02c2: call System.Boolean Monocle.Calc::HasAttr(System.Xml.XmlElement,System.String)
+   IL_02c7: brfalse.s IL_02da
+   IL_02c9: ldarg.1
+   IL_02ca: ldarg.3
+   IL_02cb: ldstr "debris"
+   IL_02d0: call System.String Monocle.Calc::Attr(System.Xml.XmlElement,System.String)
+   IL_02d5: stfld System.String Celeste.Autotiler/TerrainType::Debris
+   IL_02da: ldarg.3
+   IL_02db: ldstr "debrisImpactSfx"
+   IL_02e0: call System.Boolean Monocle.Calc::HasAttr(System.Xml.XmlElement,System.String)
+   IL_02e5: brfalse.s IL_02f8
+   IL_02e7: ldarg.1
+   IL_02e8: ldarg.3
+   IL_02e9: ldstr "debrisImpactSfx"
+   IL_02ee: call System.String Monocle.Calc::Attr(System.Xml.XmlElement,System.String)
+   IL_02f3: stfld System.String Celeste.Autotiler/TerrainType::DebrisImpactSfx
+   IL_02f8: ldarg.3
+   IL_02f9: ldstr "ignoreExceptions"
+   IL_02fe: call System.Boolean Monocle.Calc::HasAttr(System.Xml.XmlElement,System.String)
+   IL_0303: brfalse.s IL_0352
+   IL_0305: ldarg.3
+   IL_0306: ldstr "ignoreExceptions"
+   IL_030b: call System.String Monocle.Calc::Attr(System.Xml.XmlElement,System.String)
+   IL_0310: ldc.i4.s 44
+   IL_0312: ldc.i4.0
+   IL_0313: callvirt System.String[] System.String::Split(System.Char,System.StringSplitOptions)
+   IL_0318: stloc.s V_8
+   IL_031a: ldc.i4.0
+   IL_031b: stloc.s V_9
+   IL_031d: br.s IL_034a
+   IL_031f: ldloc.s V_8
+   IL_0321: ldloc.s V_9
+   IL_0323: ldelem.ref
+   IL_0324: stloc.s V_10
+   IL_0326: ldloc.s V_10
+   IL_0328: callvirt System.Int32 System.String::get_Length()
+   IL_032d: ldc.i4.0
+   IL_032e: ble.s IL_0344
+   IL_0330: ldarg.1
+   IL_0331: ldfld System.Collections.Generic.HashSet`1<System.Char> Celeste.Autotiler/TerrainType::IgnoreExceptions
+   IL_0336: ldloc.s V_10
+   IL_0338: ldc.i4.0
+   IL_0339: callvirt System.Char System.String::get_Chars(System.Int32)
+   IL_033e: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.Char>::Add(T)
+   IL_0343: pop
+   IL_0344: ldloc.s V_9
+   IL_0346: ldc.i4.1
+   IL_0347: add
+   IL_0348: stloc.s V_9
+   IL_034a: ldloc.s V_9
+   IL_034c: ldloc.s V_8
+   IL_034e: ldlen
+   IL_034f: conv.i4
+   IL_0350: blt.s IL_031f
+   IL_0352: ret

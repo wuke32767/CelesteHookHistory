@@ -1,0 +1,25 @@
+On: Celeste.Mod.SkinModHelper.LoaderHook.OverworldLoaderLoadThreadHook(orig_LoadThread,OverworldLoader)
+   IL_0000: call System.Boolean Celeste.MTN::get_Loaded()
+   IL_0005: brtrue.s IL_000c
+   IL_0007: call System.Void Celeste.MTN::Load()
+   IL_000c: call System.Boolean Celeste.MTN::get_DataLoaded()
+   IL_0011: brtrue.s IL_0018
+   IL_0013: call System.Void Celeste.MTN::LoadData()
+   IL_0018: ldarg.0
+   IL_0019: callvirt System.Void Celeste.OverworldLoader::CheckVariantsPostcardAtLaunch()
+   IL_001e: ldarg.0
+   IL_001f: ldarg.0
+   IL_0020: newobj System.Void Celeste.Overworld::.ctor(Celeste.OverworldLoader)
+   IL_0025: stfld Celeste.Overworld Celeste.OverworldLoader::overworld
+   IL_002a: ldarg.0
+   IL_002b: ldfld Celeste.Overworld Celeste.OverworldLoader::overworld
+   IL_0030: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_0035: callvirt System.Void Monocle.EntityList::UpdateLists()
+   IL_003a: ldarg.0
+   IL_003b: ldc.i4.1
+   IL_003c: stfld System.Boolean Celeste.OverworldLoader::loaded
+   IL_0041: ldarg.0
+   IL_0042: ldfld System.Threading.Thread Celeste.OverworldLoader::activeThread
+   IL_0047: ldc.i4.2
+   IL_0048: callvirt System.Void System.Threading.Thread::set_Priority(System.Threading.ThreadPriority)
+   IL_004d: ret

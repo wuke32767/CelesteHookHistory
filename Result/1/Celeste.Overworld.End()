@@ -1,0 +1,18 @@
+On: Celeste.Mod.CollabUtils2.LobbyHelper.onOverworldEnd(orig_End,Overworld)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.Overworld::orig_End()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Boolean Celeste.Overworld::EnteringPico8
+   IL_000c: brtrue.s IL_0031
+   IL_000e: ldarg.0
+   IL_000f: ldarg.0
+   IL_0010: ldfld Celeste.HiresSnow Celeste.Overworld::Snow
+   IL_0015: call System.Void Monocle.Scene::Remove(Monocle.Renderer)
+   IL_001a: ldarg.0
+   IL_001b: call Monocle.RendererList Monocle.Scene::get_RendererList()
+   IL_0020: castclass Monocle.RendererList
+   IL_0025: callvirt System.Void Monocle.RendererList::UpdateLists()
+   IL_002a: ldarg.0
+   IL_002b: ldnull
+   IL_002c: stfld Celeste.HiresSnow Celeste.Overworld::Snow
+   IL_0031: ret

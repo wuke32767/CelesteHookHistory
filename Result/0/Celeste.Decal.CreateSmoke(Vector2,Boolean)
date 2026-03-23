@@ -1,0 +1,28 @@
+On: Celeste.Mod.AdamsAddons.Entities.RegistryDecal.modCreateSmoke(orig_CreateSmoke,Decal,Vector2,Boolean)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: stloc.0
+   IL_000c: ldarg.2
+   IL_000d: brtrue.s IL_0017
+   IL_000f: ldloc.0
+   IL_0010: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_0015: br.s IL_001d
+   IL_0017: ldloc.0
+   IL_0018: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesBG
+   IL_001d: ldsfld Monocle.ParticleType Celeste.ParticleTypes::Chimney
+   IL_0022: ldarg.1
+   IL_0023: ldc.r4 4
+   IL_0028: ldc.r4 1
+   IL_002d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0032: ldc.r4 -1.5707964
+   IL_0037: ldc.i4.1
+   IL_0038: ldc.r4 0.2
+   IL_003d: newobj System.Void Monocle.ParticleEmitter::.ctor(Monocle.ParticleSystem,Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,System.Single)
+   IL_0042: stloc.1
+   IL_0043: ldarg.0
+   IL_0044: ldloc.1
+   IL_0045: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_004a: ldloc.1
+   IL_004b: callvirt System.Void Monocle.ParticleEmitter::SimulateCycle()
+   IL_0050: ret

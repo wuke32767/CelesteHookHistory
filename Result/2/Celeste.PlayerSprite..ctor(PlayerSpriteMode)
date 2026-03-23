@@ -1,0 +1,57 @@
+On: Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger.onPlayerSpriteConstructor(orig_ctor,PlayerSprite,PlayerSpriteMode)
+On: TAS.Gameplay.DesyncFix.SkinModFix.On_PlayerSprite_ctor(orig_ctor,PlayerSprite,PlayerSpriteMode)
+On: Celeste.Mod.SkinModHelper.PlayerSkinSystem.on_PlayerSprite_ctor(orig_ctor,PlayerSprite,PlayerSpriteMode)
+On: Celeste.Mod.XaphanHelper.Controllers.MetroidGameplayController.onPlayerSpriteCtor(orig_ctor,PlayerSprite,PlayerSpriteMode)
+On: Celeste.Mod.JungleHelper.Entities.EnforceSkinController.onPlayerSpriteConstructor(orig_ctor,PlayerSprite,PlayerSpriteMode)
+On: Celeste.Mod.EmoteMod.BackpackModule.PlayerSprite(orig_ctor,PlayerSprite,PlayerSpriteMode)
+On: Celeste.Mod.Procedurline.PlayerManager.PlayerSpriteCtorHook(orig_ctor,PlayerSprite,PlayerSpriteMode)
+On: ExtendedVariants.Variants.MadelineBackpackMode.onPlayerSpriteConstructor(orig_ctor,PlayerSprite,PlayerSpriteMode)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4.4
+   IL_0002: stfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_0007: ldarg.0
+   IL_0008: ldnull
+   IL_0009: ldnull
+   IL_000a: call System.Void Monocle.Sprite::.ctor(Monocle.Atlas,System.String)
+   IL_000f: ldarg.0
+   IL_0010: ldarg.1
+   IL_0011: callvirt System.Void Celeste.PlayerSprite::set_Mode(Celeste.PlayerSpriteMode)
+   IL_0016: ldstr ""
+   IL_001b: stloc.0
+   IL_001c: ldarg.1
+   IL_001d: brtrue.s IL_0027
+   IL_001f: ldstr "player"
+   IL_0024: stloc.0
+   IL_0025: br.s IL_0055
+   IL_0027: ldarg.1
+   IL_0028: ldc.i4.1
+   IL_0029: bne.un.s IL_0033
+   IL_002b: ldstr "player_no_backpack"
+   IL_0030: stloc.0
+   IL_0031: br.s IL_0055
+   IL_0033: ldarg.1
+   IL_0034: ldc.i4.2
+   IL_0035: bne.un.s IL_003f
+   IL_0037: ldstr "badeline"
+   IL_003c: stloc.0
+   IL_003d: br.s IL_0055
+   IL_003f: ldarg.1
+   IL_0040: ldc.i4.3
+   IL_0041: bne.un.s IL_004b
+   IL_0043: ldstr "player_badeline"
+   IL_0048: stloc.0
+   IL_0049: br.s IL_0055
+   IL_004b: ldarg.1
+   IL_004c: ldc.i4.4
+   IL_004d: bne.un.s IL_0055
+   IL_004f: ldstr "player_playback"
+   IL_0054: stloc.0
+   IL_0055: ldarg.0
+   IL_0056: ldloc.0
+   IL_0057: stfld System.String Celeste.PlayerSprite::spriteName
+   IL_005c: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_0061: ldarg.0
+   IL_0062: ldloc.0
+   IL_0063: callvirt Monocle.Sprite Monocle.SpriteBank::CreateOn(Monocle.Sprite,System.String)
+   IL_0068: pop
+   IL_0069: ret

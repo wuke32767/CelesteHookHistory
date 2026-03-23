@@ -1,0 +1,94 @@
+IL: Celeste.Mod.MaxHelpingHand.Entities.Pico8FlagController.onPico8End(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 118
+   IL_0006: ldarg.0
+   IL_0007: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_000c: ldfld System.Int32 Celeste.Pico8.Classic::frames
+   IL_0011: conv.r4
+   IL_0012: ldc.r4 5
+   IL_0017: div
+   IL_0018: ldc.r4 3
+   IL_001d: rem
+   IL_001e: add
+   IL_001f: stfld System.Single Celeste.Pico8.Classic/ClassicObject::spr
+   IL_0024: ldarg.0
+   IL_0025: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_002a: ldarg.0
+   IL_002b: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::spr
+   IL_0030: ldarg.0
+   IL_0031: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::x
+   IL_0036: ldarg.0
+   IL_0037: ldfld System.Single Celeste.Pico8.Classic/ClassicObject::y
+   IL_003c: ldc.i4.1
+   IL_003d: ldc.i4.1
+   IL_003e: ldc.i4.0
+   IL_003f: ldc.i4.0
+   IL_0040: callvirt System.Void Celeste.Pico8.Emulator::spr(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Boolean,System.Boolean)
+   IL_0045: ldarg.0
+   IL_0046: ldfld System.Boolean Celeste.Pico8.Classic/flag::show
+   IL_004b: brfalse IL_0105
+   IL_0050: ldarg.0
+   IL_0051: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0056: ldc.r4 32
+   IL_005b: ldc.r4 2
+   IL_0060: ldc.r4 96
+   IL_0065: ldc.r4 31
+   IL_006a: ldc.r4 0
+   IL_006f: callvirt System.Void Celeste.Pico8.Emulator::rectfill(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0074: ldarg.0
+   IL_0075: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_007a: ldc.r4 26
+   IL_007f: ldc.r4 55
+   IL_0084: ldc.r4 6
+   IL_0089: ldc.i4.1
+   IL_008a: ldc.i4.1
+   IL_008b: ldc.i4.0
+   IL_008c: ldc.i4.0
+   IL_008d: callvirt System.Void Celeste.Pico8.Emulator::spr(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Boolean,System.Boolean)
+   IL_0092: ldarg.0
+   IL_0093: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0098: ldstr "x"
+   IL_009d: ldarg.0
+   IL_009e: ldfld System.Single Celeste.Pico8.Classic/flag::score
+   IL_00a3: box System.Single
+   IL_00a8: call System.String System.String::Concat(System.Object,System.Object)
+   IL_00ad: ldc.r4 64
+   IL_00b2: ldc.r4 9
+   IL_00b7: ldc.r4 7
+   IL_00bc: callvirt System.Void Celeste.Pico8.Emulator::print(System.String,System.Single,System.Single,System.Single)
+   IL_00c1: ldarg.0
+   IL_00c2: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_00c7: ldc.i4.s 49
+   IL_00c9: ldc.i4.s 16
+   IL_00cb: callvirt System.Void Celeste.Pico8.Classic::draw_time(System.Int32,System.Int32)
+   IL_00d0: ldarg.0
+   IL_00d1: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_00d6: ldstr "deaths:"
+   IL_00db: ldarg.0
+   IL_00dc: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_00e1: ldfld System.Int32 Celeste.Pico8.Classic::deaths
+   IL_00e6: box System.Int32
+   IL_00eb: call System.String System.String::Concat(System.Object,System.Object)
+   IL_00f0: ldc.r4 48
+   IL_00f5: ldc.r4 24
+   IL_00fa: ldc.r4 7
+   IL_00ff: callvirt System.Void Celeste.Pico8.Emulator::print(System.String,System.Single,System.Single,System.Single)
+   IL_0104: ret
+   IL_0105: ldarg.0
+   IL_0106: ldc.i4.0
+   IL_0107: ldc.i4.0
+   IL_0108: call System.Boolean Celeste.Pico8.Classic/ClassicObject::check<Celeste.Pico8.Classic/player>(System.Int32,System.Int32)
+   IL_010d: brfalse.s IL_0130
+   IL_010f: ldarg.0
+   IL_0110: ldfld Celeste.Pico8.Emulator Celeste.Pico8.Classic/ClassicObject::E
+   IL_0115: ldc.i4.s 55
+   IL_0117: callvirt System.Void Celeste.Pico8.Emulator::sfx(System.Int32)
+   IL_011c: ldarg.0
+   IL_011d: ldfld Celeste.Pico8.Classic Celeste.Pico8.Classic/ClassicObject::G
+   IL_0122: ldc.i4.s 30
+   IL_0124: stfld System.Int32 Celeste.Pico8.Classic::sfx_timer
+   IL_0129: ldarg.0
+   IL_012a: ldc.i4.1
+ + IL_10000: call System.Void Celeste.Mod.MaxHelpingHand.Entities.Pico8FlagController::markPico8AsCompleted() @ Celeste.Mod.MaxHelpingHand.Entities.Pico8FlagController.onPico8End(ILContext)
+   IL_012b: stfld System.Boolean Celeste.Pico8.Classic/flag::show
+   IL_0130: ret

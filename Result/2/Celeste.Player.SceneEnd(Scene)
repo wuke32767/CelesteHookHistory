@@ -1,0 +1,30 @@
+On: Celeste.Mod.JungleHelper.Entities.Lantern.onPlayerSceneEnd(orig_SceneEnd,Player,Scene)
+On: Celeste.Mod.ConditionHelper.ConditionWatcher.Player_SceneEnd(orig_SceneEnd,Player,Scene)
+On: Celeste.Mod.Aqua.Core.PlayerStates.Player_SceneEnd(orig_SceneEnd,Player,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: callvirt System.Void Celeste.Player::orig_SceneEnd(Monocle.Scene)
+   IL_0007: call Monocle.Scene Monocle.Engine::get_NextScene()
+   IL_000c: isinst Celeste.Pico8.Emulator
+   IL_0011: brtrue.s IL_0048
+   IL_0013: call Monocle.Scene Monocle.Engine::get_NextScene()
+   IL_0018: isinst Celeste.OverworldReflectionsFall
+   IL_001d: brtrue.s IL_0048
+   IL_001f: ldarg.0
+   IL_0020: ldfld System.Collections.Generic.HashSet`1<Celeste.Trigger> Celeste.Player::triggersInside
+   IL_0025: dup
+   IL_0026: brtrue.s IL_002b
+   IL_0028: pop
+   IL_0029: br.s IL_0030
+   IL_002b: callvirt System.Void System.Collections.Generic.HashSet`1<Celeste.Trigger>::Clear()
+   IL_0030: ldarg.0
+   IL_0031: ldfld System.Collections.Generic.List`1<Monocle.Entity> Celeste.Player::temp
+   IL_0036: dup
+   IL_0037: brtrue.s IL_003c
+   IL_0039: pop
+   IL_003a: br.s IL_0041
+   IL_003c: callvirt System.Void System.Collections.Generic.List`1<Monocle.Entity>::Clear()
+   IL_0041: ldarg.0
+   IL_0042: ldnull
+   IL_0043: stfld Celeste.Level Celeste.Player::level
+   IL_0048: ret

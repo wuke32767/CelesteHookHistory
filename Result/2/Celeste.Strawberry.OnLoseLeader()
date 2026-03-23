@@ -1,0 +1,16 @@
+On: Celeste.Mod.XaphanHelper.XaphanModule.modStrawberryOnLoseLeader(orig_OnLoseLeader,Strawberry)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Strawberry::collected
+   IL_0006: brtrue.s IL_0029
+   IL_0008: ldarg.0
+   IL_0009: ldfld System.Boolean Celeste.Strawberry::ReturnHomeWhenLost
+   IL_000e: brfalse.s IL_0029
+   IL_0010: ldarg.0
+   IL_0011: ldc.r4 0.15
+   IL_0016: ldarg.0
+   IL_0017: ldftn System.Void Celeste.Strawberry::<OnLoseLeader>b__48_0()
+   IL_001d: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0022: ldc.i4.1
+   IL_0023: call Monocle.Alarm Monocle.Alarm::Set(Monocle.Entity,System.Single,System.Action,Monocle.Alarm/AlarmMode)
+   IL_0028: pop
+   IL_0029: ret

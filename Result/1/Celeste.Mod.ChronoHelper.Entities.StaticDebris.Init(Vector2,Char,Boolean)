@@ -1,0 +1,37 @@
+IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: ldarg pos @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_0004: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0009: nop
+   IL_000a: ldarg.0
+   IL_000b: ldarg.1
+   IL_000c: ldarg.2
+   IL_000d: ldarg.3
+   IL_000e: callvirt Celeste.Mod.ChronoHelper.Entities.StaticDebris Celeste.Mod.ChronoHelper.Entities.StaticDebris::orig_Init(Microsoft.Xna.Framework.Vector2,System.Char,System.Boolean)
+   IL_0013: stloc.0
+   IL_0014: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_0019: ldloca.s V_1
+   IL_001b: ldarg.2
+   IL_001c: callvirt System.Boolean Celeste.Autotiler::TryGetCustomDebris(System.String&,System.Char)
+   IL_0021: stloc.2
+   IL_0022: ldloc.2
+   IL_0023: brfalse.s IL_0053
+   IL_0025: nop
+   IL_0026: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_002b: ldstr "debris/"
+   IL_0030: ldloc.1
+   IL_0031: call System.String System.String::Concat(System.String,System.String)
+   IL_0036: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_003b: stloc.3
+   IL_003c: ldloc.0
+   IL_003d: ldfld Monocle.Image Celeste.Mod.ChronoHelper.Entities.StaticDebris::image
+   IL_0042: ldsfld System.Random Monocle.Calc::Random
+   IL_0047: ldloc.3
+   IL_0048: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_004d: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_0052: nop
+   IL_0053: ldloc.0
+   IL_0054: stloc.s V_4
+   IL_0056: br.s IL_0058
+   IL_0058: ldloc.s V_4
+ + IL_005a: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_005f: ret

@@ -1,0 +1,44 @@
+On: Celeste.Mod.CollabUtils2.LobbyHelper.onChapterSelectIconShow(orig_Show,OuiChapterSelectIcon)
+   IL_0000: newobj System.Void Celeste.OuiChapterSelectIcon/<>c__DisplayClass35_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.0
+   IL_0008: stfld Celeste.OuiChapterSelectIcon Celeste.OuiChapterSelectIcon/<>c__DisplayClass35_0::<>4__this
+   IL_000d: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0012: brfalse.s IL_0042
+   IL_0014: ldarg.0
+   IL_0015: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_001a: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_001f: ldarg.0
+   IL_0020: ldfld System.Int32 Celeste.OuiChapterSelectIcon::Area
+   IL_0025: callvirt T System.Collections.Generic.List`1<Celeste.AreaStats>::get_Item(System.Int32)
+   IL_002a: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_002f: ldc.i4.0
+   IL_0030: ldelem.ref
+   IL_0031: ldfld System.Int64 Celeste.AreaModeStats::TimePlayed
+   IL_0036: ldc.i4.0
+   IL_0037: conv.i8
+   IL_0038: cgt
+   IL_003a: ldc.i4.0
+   IL_003b: ceq
+   IL_003d: stfld System.Boolean Celeste.OuiChapterSelectIcon::New
+   IL_0042: ldarg.0
+   IL_0043: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0048: stfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterSelectIcon::Scale
+   IL_004d: ldarg.0
+   IL_004e: ldc.i4.0
+   IL_004f: stfld System.Boolean Celeste.OuiChapterSelectIcon::hidden
+   IL_0054: ldarg.0
+   IL_0055: ldc.i4.0
+   IL_0056: stfld System.Boolean Celeste.OuiChapterSelectIcon::selected
+   IL_005b: ldloc.0
+   IL_005c: ldarg.0
+   IL_005d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0062: stfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterSelectIcon/<>c__DisplayClass35_0::from
+   IL_0067: ldarg.0
+   IL_0068: ldc.r4 0.25
+   IL_006d: ldloc.0
+   IL_006e: ldftn System.Void Celeste.OuiChapterSelectIcon/<>c__DisplayClass35_0::<Show>b__0(Monocle.Tween)
+   IL_0074: newobj System.Void System.Action`1<Monocle.Tween>::.ctor(System.Object,System.IntPtr)
+   IL_0079: callvirt System.Void Celeste.OuiChapterSelectIcon::StartTween(System.Single,System.Action`1<Monocle.Tween>)
+   IL_007e: ret

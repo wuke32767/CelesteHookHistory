@@ -1,0 +1,105 @@
+On: Celeste.Mod.Randomizer.RandoModule.EverestDontIntrospect(Action`2,Boolean,Session)
+On: TAS.EverestInterop.AreaCompleteInfo.AreaCompleteOnInitAreaCompleteInfoForEverest2(orig_InitAreaCompleteInfoForEverest2,Boolean,Session)
+   IL_0000: ldc.r4 0
+   IL_0005: stsfld System.Single Celeste.AreaComplete::versionOffset
+   IL_000a: ldsfld Celeste.Settings Celeste.Settings::Instance
+   IL_000f: ldfld Celeste.SpeedrunType Celeste.Settings::SpeedrunClock
+   IL_0014: ldc.i4.0
+   IL_0015: ble IL_013f
+   IL_001a: ldstr "{0}
+{1}"
+   IL_001f: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_0024: ldfld System.Version Monocle.Engine::Version
+   IL_0029: ldsfld System.Int32 Celeste.Mod.Everest::Build
+   IL_002e: box System.Int32
+   IL_0033: call System.String System.String::Format(System.String,System.Object,System.Object)
+   IL_0038: stsfld System.String Celeste.AreaComplete::versionFull
+   IL_003d: ldarg.1
+   IL_003e: brfalse IL_00f8
+   IL_0043: ldstr "Maps/{0}"
+   IL_0048: ldarg.1
+   IL_0049: call Celeste.AreaData Celeste.AreaData::Get(Celeste.Session)
+   IL_004e: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_0053: ldarg.1
+   IL_0054: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_0059: ldfld Celeste.AreaMode Celeste.AreaKey::Mode
+   IL_005e: ldelem.ref
+   IL_005f: ldfld System.String Celeste.ModeProperties::Path
+   IL_0064: call System.String System.String::Format(System.String,System.Object)
+   IL_0069: ldloca.s V_0
+   IL_006b: ldc.i4.0
+   IL_006c: call System.Boolean Celeste.Mod.Everest/Content::TryGet(System.String,Celeste.Mod.ModAsset&,System.Boolean)
+   IL_0071: brfalse IL_00f8
+   IL_0076: ldloc.0
+   IL_0077: ldfld Celeste.Mod.ModContent Celeste.Mod.ModAsset::Source
+   IL_007c: ldfld Celeste.Mod.EverestModuleMetadata Celeste.Mod.ModContent::Mod
+   IL_0081: dup
+   IL_0082: brtrue.s IL_0088
+   IL_0084: pop
+   IL_0085: ldc.i4.0
+   IL_0086: br.s IL_00bb
+   IL_0088: callvirt Celeste.Mod.EverestModuleMetadata[] Celeste.Mod.EverestModuleMetadata::get_Multimeta()
+   IL_008d: dup
+   IL_008e: brtrue.s IL_009c
+   IL_0090: pop
+   IL_0091: ldloca.s V_3
+   IL_0093: initobj System.Nullable`1<System.Int32>
+   IL_0099: ldloc.3
+   IL_009a: br.s IL_00a3
+   IL_009c: ldlen
+   IL_009d: conv.i4
+   IL_009e: newobj System.Void System.Nullable`1<System.Int32>::.ctor(T)
+   IL_00a3: stloc.1
+   IL_00a4: ldc.i4.1
+   IL_00a5: stloc.2
+   IL_00a6: ldloca.s V_1
+   IL_00a8: call T System.Nullable`1<System.Int32>::GetValueOrDefault()
+   IL_00ad: ldloc.2
+   IL_00ae: clt
+   IL_00b0: ldc.i4.0
+   IL_00b1: ceq
+   IL_00b3: ldloca.s V_1
+   IL_00b5: call System.Boolean System.Nullable`1<System.Int32>::get_HasValue()
+   IL_00ba: and
+   IL_00bb: brfalse.s IL_00f8
+   IL_00bd: ldstr "{0}
+{1}"
+   IL_00c2: ldsfld System.String Celeste.AreaComplete::versionFull
+   IL_00c7: ldloc.0
+   IL_00c8: ldfld Celeste.Mod.ModContent Celeste.Mod.ModAsset::Source
+   IL_00cd: ldfld Celeste.Mod.EverestModuleMetadata Celeste.Mod.ModContent::Mod
+   IL_00d2: callvirt Celeste.Mod.EverestModuleMetadata[] Celeste.Mod.EverestModuleMetadata::get_Multimeta()
+   IL_00d7: ldc.i4.0
+   IL_00d8: ldelem.ref
+   IL_00d9: callvirt System.Version Celeste.Mod.EverestModuleMetadata::get_Version()
+   IL_00de: call System.String System.String::Format(System.String,System.Object,System.Object)
+   IL_00e3: stsfld System.String Celeste.AreaComplete::versionFull
+   IL_00e8: ldsfld System.Single Celeste.AreaComplete::versionOffset
+   IL_00ed: ldc.r4 32
+   IL_00f2: sub
+   IL_00f3: stsfld System.Single Celeste.AreaComplete::versionOffset
+   IL_00f8: ldsfld Microsoft.Xna.Framework.Graphics.Texture2D Celeste.AreaComplete::identicon
+   IL_00fd: dup
+   IL_00fe: brtrue.s IL_0103
+   IL_0100: pop
+   IL_0101: br.s IL_0108
+   IL_0103: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsResource::Dispose()
+   IL_0108: call System.Byte[] Celeste.Mod.Everest::get_InstallationHash()
+   IL_010d: ldc.i4.s 100
+   IL_010f: call Jdenticon.Identicon Jdenticon.Identicon::FromHash(System.Byte[],System.Int32)
+   IL_0114: call System.IO.Stream Jdenticon.PngExtensions::SaveAsPng(Jdenticon.Identicon)
+   IL_0119: stloc.s V_4
+   IL_011b: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_0120: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_0125: ldloc.s V_4
+   IL_0127: call Microsoft.Xna.Framework.Graphics.Texture2D Microsoft.Xna.Framework.Graphics.Texture2D::FromStream(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.IO.Stream)
+   IL_012c: stsfld Microsoft.Xna.Framework.Graphics.Texture2D Celeste.AreaComplete::identicon
+   IL_0131: leave.s IL_013f
+   IL_0133: ldloc.s V_4
+   IL_0135: brfalse.s IL_013e
+   IL_0137: ldloc.s V_4
+   IL_0139: callvirt System.Void System.IDisposable::Dispose()
+   IL_013e: endfinally
+   IL_013f: ldarg.0
+   IL_0140: stsfld System.Boolean Celeste.AreaComplete::isPieScreen
+   IL_0145: ret

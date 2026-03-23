@@ -1,0 +1,73 @@
+On: Celeste.Mod.StrawberryJam2021.Entities.PocketUmbrellaController.Player_Throw(orig_Throw,Player)
+On: Celeste.Mod.StrawberryJam2021.Entities.SkyLantern.patchPlayerThrow(orig_Throw,Player)
+On: Celeste.Mod.LollydesSJContributions.Entities.PocketUmbrellaController.Player_Throw(orig_Throw,Player)
+On: Celeste.Mod.XaphanHelper.Entities.Bomb.OnPlayerThrow(orig_Throw,Player)
+On: Celeste.Mod.XaphanHelper.UI_Elements.BagDisplay.modPlayerThrow(orig_Throw,Player)
+On: Celeste.Mod.XaphanHelper.Entities.Drone.OnPlayerThrow(orig_Throw,Player)
+On: Celeste.Mod.DisposableTheo.DisposableTheoModule.Player_Throw(orig_Throw,Player)
+On: Celeste.Mod.ReverseHelper.Entities.ForceyHoldables.ForceyHoldableOnThrow(orig_Throw,Player)
+On: Celeste.Mod.BounceHelper.BounceHelperModule.modThrow(orig_Throw,Player)
+IL: Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+IL: ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
+IL: Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: callvirt Celeste.Holdable Celeste.Player::get_Holding()
+   IL_0006: brfalse IL_008b
+   IL_000b: ldsfld Monocle.VirtualIntegerAxis Celeste.Input::MoveY
+   IL_0010: ldfld System.Int32 Monocle.VirtualIntegerAxis::Value
+ + IL_10000: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+ + IL_10001: call System.Int32 Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertYAxisPlayerThrow(System.Int32,Celeste.Player) @ Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+   IL_0015: ldc.i4.1
+   IL_0016: bne.un.s IL_0020
+   IL_0018: ldarg.0
+   IL_0019: callvirt System.Void Celeste.Player::Drop()
+   IL_001e: br.s IL_0084
+   IL_0020: ldc.i4.2
+   IL_0021: ldc.i4.0
+   IL_0022: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0027: ldarg.0
+   IL_0028: callvirt Celeste.Holdable Celeste.Player::get_Holding()
+   IL_002d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0032: ldarg.0
+   IL_0033: ldfld Celeste.Facings Celeste.Player::Facing
+ + IL_10002: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+ + IL_10003: call Celeste.Facings Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertThrowFacing(Celeste.Facings,Celeste.Player) @ Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+ + IL_10004: call Celeste.Facings ExtendedVariants.Variants.ThrowIgnoresForcedMove::applyFacingChange(Celeste.Facings) @ ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
+   IL_0038: conv.r4
+   IL_0039: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_003e: callvirt System.Void Celeste.Holdable::Release(Microsoft.Xna.Framework.Vector2)
+   IL_0043: ldarg.0
+   IL_0044: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0049: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_004e: dup
+   IL_004f: ldind.r4
+   IL_0050: ldc.r4 80
+ + IL_10005: ldarg.0 @ Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+ + IL_10006: call System.Single Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal::Upthrowcheck(Celeste.Player) @ Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+ + IL_10007: mul @ Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+   IL_0055: ldarg.0
+   IL_0056: ldfld Celeste.Facings Celeste.Player::Facing
+ + IL_10008: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+ + IL_10009: call Celeste.Facings Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertThrowFacing(Celeste.Facings,Celeste.Player) @ Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+ + IL_1000a: call Celeste.Facings ExtendedVariants.Variants.ThrowIgnoresForcedMove::applyFacingChange(Celeste.Facings) @ ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
+   IL_005b: neg
+   IL_005c: conv.r4
+   IL_005d: mul
+   IL_005e: add
+   IL_005f: stind.r4
+   IL_0060: ldarg.0
+   IL_0061: ldstr "event:/char/madeline/crystaltheo_throw"
+   IL_0066: ldnull
+   IL_0067: ldc.r4 0
+   IL_006c: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
+   IL_0071: pop
+   IL_0072: ldarg.0
+   IL_0073: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0078: ldstr "throw"
+   IL_007d: ldc.i4.0
+   IL_007e: ldc.i4.0
+   IL_007f: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0084: ldarg.0
+   IL_0085: ldnull
+   IL_0086: callvirt System.Void Celeste.Player::set_Holding(Celeste.Holdable)
+   IL_008b: ret

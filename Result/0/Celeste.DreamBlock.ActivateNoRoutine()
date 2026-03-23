@@ -1,0 +1,29 @@
+On: .PL_VirtualRedir<Celeste.DreamBlock::ActivateNoRoutine>?54658502(DreamBlock)
+On: Celeste.Mod.CommunalHelper.Entities.DreamBlockDummy.DreamBlock_ActivateNoRoutine(orig_ActivateNoRoutine,DreamBlock)
+On: Celeste.Mod.aonHelper.Entities.DreamLockBlock+DreamBlockDummy.DreamBlock_ActivateNoRoutine(orig_ActivateNoRoutine,DreamBlock)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.DreamBlock::playerHasDreamDash
+   IL_0006: brtrue.s IL_0021
+   IL_0008: ldarg.0
+   IL_0009: ldc.i4.1
+   IL_000a: stfld System.Boolean Celeste.DreamBlock::playerHasDreamDash
+   IL_000f: ldarg.0
+   IL_0010: callvirt System.Void Celeste.DreamBlock::Setup()
+   IL_0015: ldarg.0
+   IL_0016: ldarg.0
+   IL_0017: ldfld Celeste.LightOcclude Celeste.DreamBlock::occlude
+   IL_001c: call System.Void Monocle.Entity::Remove(Monocle.Component)
+   IL_0021: ldarg.0
+   IL_0022: ldc.r4 0
+   IL_0027: stfld System.Single Celeste.DreamBlock::whiteHeight
+   IL_002c: ldarg.0
+   IL_002d: ldc.r4 0
+   IL_0032: stfld System.Single Celeste.DreamBlock::whiteFill
+   IL_0037: ldarg.0
+   IL_0038: ldfld Monocle.Shaker Celeste.DreamBlock::shaker
+   IL_003d: brfalse.s IL_004b
+   IL_003f: ldarg.0
+   IL_0040: ldfld Monocle.Shaker Celeste.DreamBlock::shaker
+   IL_0045: ldc.i4.0
+   IL_0046: callvirt System.Void Monocle.Shaker::set_On(System.Boolean)
+   IL_004b: ret
