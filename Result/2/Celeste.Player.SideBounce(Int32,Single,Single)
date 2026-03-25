@@ -8,11 +8,14 @@ IL: Celeste.Mod.EndHelper.EndHelperModule.ILHook_SideBounce(ILContext)
 IL: ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
 IL: ExtendedVariants.Variants.HorizontalSpringBounceDuration.modForceMoveXTimer(ILContext)
 IL: ExtendedVariants.Variants.DontRefillDashOnGround.patchNoRefills(ILContext)
+IL: Celeste.Mod.aonHelper.Entities.SpringSpeedThresholdController.Player_SideBounce(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0006: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_000b: call System.Single System.Math::Abs(System.Single)
    IL_0010: ldc.r4 240
+ + IL_10000: ldarg.0 @ Celeste.Mod.aonHelper.Entities.SpringSpeedThresholdController.Player_SideBounce(ILContext)
+ + IL_10001: call System.Single Celeste.Mod.aonHelper.Entities.SpringSpeedThresholdController::<Player_SideBounce>g__DetermineSpeedThreshold|5_5(System.Single,Celeste.Player) @ Celeste.Mod.aonHelper.Entities.SpringSpeedThresholdController.Player_SideBounce(ILContext)
    IL_0015: ble.un.s IL_002c
    IL_0017: ldarg.0
    IL_0018: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
@@ -69,7 +72,7 @@ IL: ExtendedVariants.Variants.DontRefillDashOnGround.patchNoRefills(ILContext)
    IL_008b: ldarg.0
    IL_008c: callvirt Celeste.PlayerInventory Celeste.Player::get_Inventory()
    IL_0091: ldfld System.Boolean Celeste.PlayerInventory::NoRefills
- + IL_10000: call System.Boolean ExtendedVariants.Variants.DontRefillDashOnGround::areRefillsOnGroundDisabled(System.Boolean) @ ExtendedVariants.Variants.DontRefillDashOnGround.patchNoRefills(ILContext)
+ + IL_10002: call System.Boolean ExtendedVariants.Variants.DontRefillDashOnGround::areRefillsOnGroundDisabled(System.Boolean) @ ExtendedVariants.Variants.DontRefillDashOnGround.patchNoRefills(ILContext)
    IL_0096: brtrue.s IL_009f
    IL_0098: ldarg.0
    IL_0099: callvirt System.Boolean Celeste.Player::RefillDash()
@@ -85,12 +88,12 @@ IL: ExtendedVariants.Variants.DontRefillDashOnGround.patchNoRefills(ILContext)
    IL_00b7: stfld System.Single Celeste.Player::jumpGraceTimer
    IL_00bc: ldarg.0
    IL_00bd: ldc.r4 0.2
- + IL_10001: ldc.i4 0 @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_10002: ldc.i4 0 @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10003: ldc.i4 0 @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10004: ldc.i4 0 @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10005: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
        => Invoke: Celeste.Mod.XaphanHelper.Entities.Waterfall+<>c.<modVarJumpTimer>b__18_0(Single)
- + IL_10004: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_10005: call System.Single ExtendedVariants.Variants.JumpDuration::applyJumpDuration(System.Single) @ ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
+ + IL_10006: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10007: call System.Single ExtendedVariants.Variants.JumpDuration::applyJumpDuration(System.Single) @ ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
    IL_00c2: stfld System.Single Celeste.Player::varJumpTimer
    IL_00c7: ldarg.0
    IL_00c8: ldc.i4.1
@@ -112,7 +115,7 @@ IL: ExtendedVariants.Variants.DontRefillDashOnGround.patchNoRefills(ILContext)
    IL_00fc: stfld System.Int32 Celeste.Player::forceMoveX
    IL_0101: ldarg.0
    IL_0102: ldc.r4 0.3
- + IL_10006: call System.Single ExtendedVariants.Variants.HorizontalSpringBounceDuration::applyHorizontalSpringBounceDuration(System.Single) @ ExtendedVariants.Variants.HorizontalSpringBounceDuration.modForceMoveXTimer(ILContext)
+ + IL_10008: call System.Single ExtendedVariants.Variants.HorizontalSpringBounceDuration::applyHorizontalSpringBounceDuration(System.Single) @ ExtendedVariants.Variants.HorizontalSpringBounceDuration.modForceMoveXTimer(ILContext)
    IL_0107: stfld System.Single Celeste.Player::forceMoveXTimer
    IL_010c: ldarg.0
    IL_010d: ldc.r4 0
@@ -143,7 +146,7 @@ IL: ExtendedVariants.Variants.DontRefillDashOnGround.patchNoRefills(ILContext)
    IL_0156: conv.r4
    IL_0157: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_015c: ldc.r4 0.1
- + IL_10007: call System.Single Celeste.Mod.EndHelper.EndHelperModule::GetScreenShakeReplacementIntensity(System.Single) @ Celeste.Mod.EndHelper.EndHelperModule.ILHook_SideBounce(ILContext)
+ + IL_10009: call System.Single Celeste.Mod.EndHelper.EndHelperModule::GetScreenShakeReplacementIntensity(System.Single) @ Celeste.Mod.EndHelper.EndHelperModule.ILHook_SideBounce(ILContext)
    IL_0161: callvirt System.Void Celeste.Level::DirectionalShake(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_0166: ldc.i4.1
    IL_0167: ldc.i4.1
