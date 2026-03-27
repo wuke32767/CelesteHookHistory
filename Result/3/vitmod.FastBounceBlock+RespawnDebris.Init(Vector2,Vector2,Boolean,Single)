@@ -1,67 +1,67 @@
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: ldarg from @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0004: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_0009: nop
-   IL_000a: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_000f: ldarg.3
-   IL_0010: brtrue.s IL_0019
-   IL_0012: ldstr "objects/bumpblocknew/fire_rubble"
-   IL_0017: br.s IL_001e
-   IL_0019: ldstr "objects/bumpblocknew/ice_rubble"
-   IL_001e: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
-   IL_0023: stloc.0
-   IL_0024: ldsfld System.Random Monocle.Calc::Random
-   IL_0029: ldloc.0
-   IL_002a: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
-   IL_002f: stloc.1
-   IL_0030: ldarg.0
-   IL_0031: ldfld Monocle.Image vitmod.FastBounceBlock/RespawnDebris::sprite
-   IL_0036: ldnull
-   IL_0037: ceq
-   IL_0039: stloc.2
-   IL_003a: ldloc.2
-   IL_003b: brfalse.s IL_0063
-   IL_003d: nop
-   IL_003e: ldarg.0
-   IL_003f: ldarg.0
-   IL_0040: ldloc.1
-   IL_0041: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
-   IL_0046: dup
-   IL_0047: stloc.3
-   IL_0048: stfld Monocle.Image vitmod.FastBounceBlock/RespawnDebris::sprite
-   IL_004d: ldloc.3
-   IL_004e: call System.Void Monocle.Entity::Add(Monocle.Component)
-   IL_0053: nop
-   IL_0054: ldarg.0
-   IL_0055: ldfld Monocle.Image vitmod.FastBounceBlock/RespawnDebris::sprite
-   IL_005a: callvirt Monocle.Image Monocle.Image::CenterOrigin()
-   IL_005f: pop
-   IL_0060: nop
-   IL_0061: br.s IL_0071
-   IL_0063: nop
-   IL_0064: ldarg.0
-   IL_0065: ldfld Monocle.Image vitmod.FastBounceBlock/RespawnDebris::sprite
-   IL_006a: ldloc.1
-   IL_006b: stfld Monocle.MTexture Monocle.Image::Texture
-   IL_0070: nop
-   IL_0071: ldarg.0
-   IL_0072: ldarg.1
-   IL_0073: stfld Microsoft.Xna.Framework.Vector2 vitmod.FastBounceBlock/RespawnDebris::from
-   IL_0078: ldarg.0
-   IL_0079: ldarg.1
-   IL_007a: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_007f: ldarg.0
-   IL_0080: ldc.r4 0
-   IL_0085: stfld System.Single vitmod.FastBounceBlock/RespawnDebris::percent
-   IL_008a: ldarg.0
-   IL_008b: ldarg.2
-   IL_008c: stfld Microsoft.Xna.Framework.Vector2 vitmod.FastBounceBlock/RespawnDebris::to
-   IL_0091: ldarg.0
-   IL_0092: ldarg.s duration
-   IL_0094: stfld System.Single vitmod.FastBounceBlock/RespawnDebris::duration
-   IL_0099: ldarg.0
-   IL_009a: stloc.s V_4
-   IL_009c: br.s IL_009e
-   IL_009e: ldloc.s V_4
- + IL_00a0: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_00a5: ret
+ + IL_10001: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0006: ldarg.3
+   IL_0007: brtrue.s IL_0010
+   IL_0009: ldstr "objects/bumpblocknew/fire_rubble"
+   IL_000e: br.s IL_0015
+   IL_0010: ldstr "objects/bumpblocknew/ice_rubble"
+   IL_0015: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_001a: stloc.0
+   IL_001b: ldsfld System.Random Monocle.Calc::Random
+   IL_0020: ldloc.0
+   IL_0021: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_0026: stloc.1
+   IL_0027: ldarg.0
+   IL_0028: ldfld Monocle.Image vitmod.FastBounceBlock/RespawnDebris::sprite
+   IL_002d: ldnull
+   IL_002e: ceq
+   IL_0030: stloc.2
+   IL_0031: ldloc.2
+   IL_0032: brfalse.s IL_005a
+   IL_0034: nop
+   IL_0035: ldarg.0
+   IL_0036: ldarg.0
+   IL_0037: ldloc.1
+   IL_0038: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_003d: dup
+   IL_003e: stloc.3
+   IL_003f: stfld Monocle.Image vitmod.FastBounceBlock/RespawnDebris::sprite
+   IL_0044: ldloc.3
+   IL_0045: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_004a: nop
+   IL_004b: ldarg.0
+   IL_004c: ldfld Monocle.Image vitmod.FastBounceBlock/RespawnDebris::sprite
+   IL_0051: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0056: pop
+   IL_0057: nop
+   IL_0058: br.s IL_0068
+   IL_005a: nop
+   IL_005b: ldarg.0
+   IL_005c: ldfld Monocle.Image vitmod.FastBounceBlock/RespawnDebris::sprite
+   IL_0061: ldloc.1
+   IL_0062: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_0067: nop
+   IL_0068: ldarg.0
+   IL_0069: ldarg.1
+   IL_006a: stfld Microsoft.Xna.Framework.Vector2 vitmod.FastBounceBlock/RespawnDebris::from
+   IL_006f: ldarg.0
+   IL_0070: ldarg.1
+   IL_0071: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0076: ldarg.0
+   IL_0077: ldc.r4 0
+   IL_007c: stfld System.Single vitmod.FastBounceBlock/RespawnDebris::percent
+   IL_0081: ldarg.0
+   IL_0082: ldarg.2
+   IL_0083: stfld Microsoft.Xna.Framework.Vector2 vitmod.FastBounceBlock/RespawnDebris::to
+   IL_0088: ldarg.0
+   IL_0089: ldarg.s duration
+   IL_008b: stfld System.Single vitmod.FastBounceBlock/RespawnDebris::duration
+   IL_0090: ldarg.0
+   IL_0091: stloc.s V_4
+   IL_0093: br.s IL_0095
+   IL_0095: ldloc.s V_4
+ + IL_10002: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0097: ret

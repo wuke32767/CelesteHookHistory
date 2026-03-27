@@ -2,17 +2,17 @@ On: Celeste.Mod.MotionSmoothing.FrameUncap.UpdateEveryNTicks.Input_UpdateGrab(or
 On: Celeste.Mod.CommunalHelper.States.Elytra.Input_UpdateGrab(orig_UpdateGrab)
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: call System.Boolean TAS.Playback.Core::IsPaused() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_000b: ldsfld Celeste.Settings Celeste.Settings::Instance
-   IL_0010: ldfld Celeste.GrabModes Celeste.Settings::GrabMode
-   IL_0015: ldc.i4.2
-   IL_0016: bne.un.s IL_0031
-   IL_0018: ldsfld Monocle.VirtualButton Celeste.Input::Grab
-   IL_001d: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
-   IL_0022: brfalse.s IL_0031
-   IL_0024: ldsfld System.Boolean Celeste.Input::grabToggle
-   IL_0029: ldc.i4.0
-   IL_002a: ceq
-   IL_002c: stsfld System.Boolean Celeste.Input::grabToggle
-   IL_0031: ret
+ + IL_10001: brfalse IL_0000 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldsfld Celeste.Settings Celeste.Settings::Instance
+   IL_0005: ldfld Celeste.GrabModes Celeste.Settings::GrabMode
+   IL_000a: ldc.i4.2
+   IL_000b: bne.un.s IL_0026
+   IL_000d: ldsfld Monocle.VirtualButton Celeste.Input::Grab
+   IL_0012: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_0017: brfalse.s IL_0026
+   IL_0019: ldsfld System.Boolean Celeste.Input::grabToggle
+   IL_001e: ldc.i4.0
+   IL_001f: ceq
+   IL_0021: stsfld System.Boolean Celeste.Input::grabToggle
+   IL_0026: ret

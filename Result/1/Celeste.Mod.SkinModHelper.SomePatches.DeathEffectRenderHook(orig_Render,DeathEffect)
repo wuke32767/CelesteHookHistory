@@ -20,7 +20,7 @@ IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_002e: ldc.i4.0
    IL_002f: stloc.3
    IL_0030: ldloc.3
-   IL_0031: brfalse IL_01c1
+   IL_0031: brfalse IL_01bc
    IL_0036: nop
    IL_0037: ldnull
    IL_0038: stloc.2
@@ -28,187 +28,187 @@ IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_003a: ldstr "sprite"
    IL_003f: callvirt T MonoMod.Utils.DynamicData::Get<Monocle.Sprite>(System.String)
    IL_0044: dup
-   IL_0045: brtrue.s IL_0053
+   IL_0045: brtrue.s IL_10000
    IL_0047: pop
    IL_0048: ldarg.1
    IL_0049: callvirt Monocle.Entity Monocle.Component::get_Entity()
    IL_004e: callvirt T Monocle.Entity::Get<Monocle.Sprite>()
- + IL_0053: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_0058: stloc.s V_4
-   IL_005a: ldloc.s V_4
-   IL_005c: ldnull
-   IL_005d: cgt.un
-   IL_005f: stloc.s V_5
-   IL_0061: ldloc.s V_5
-   IL_0063: brfalse IL_0165
-   IL_0068: nop
-   IL_0069: ldloc.s V_4
-   IL_006b: ldfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
-   IL_0070: call System.Single Celeste.Mod.SkinModHelper.SkinsSystem::GetAlpha(Microsoft.Xna.Framework.Color)
-   IL_0075: stloc.s V_6
-   IL_0077: ldloc.s V_6
-   IL_0079: ldc.r4 1
-   IL_007e: bge.un.s IL_0095
-   IL_0080: ldarg.1
-   IL_0081: ldflda Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
-   IL_0086: call System.Byte Microsoft.Xna.Framework.Color::get_A()
-   IL_008b: conv.r4
-   IL_008c: ldc.r4 1
-   IL_0091: ceq
-   IL_0093: br.s IL_0096
-   IL_0095: ldc.i4.0
-   IL_0096: stloc.s V_11
-   IL_0098: ldloc.s V_11
-   IL_009a: brfalse.s IL_00b1
-   IL_009c: nop
-   IL_009d: ldarg.1
-   IL_009e: ldarg.1
-   IL_009f: ldfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
-   IL_00a4: ldloc.s V_6
-   IL_00a6: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_00ab: stfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
-   IL_00b0: nop
-   IL_00b1: ldstr "deathExAnim"
-   IL_00b6: stloc.s V_7
-   IL_00b8: ldloc.s V_4
-   IL_00ba: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
-   IL_00bf: ldstr "smh_AnimPrefix"
-   IL_00c4: callvirt T MonoMod.Utils.DynamicData::Get<System.String>(System.String)
-   IL_00c9: stloc.s V_8
-   IL_00cb: ldloc.s V_4
-   IL_00cd: ldloc.s V_8
-   IL_00cf: ldloc.s V_7
-   IL_00d1: call System.String System.String::Concat(System.String,System.String)
-   IL_00d6: callvirt System.Boolean Monocle.Sprite::Has(System.String)
-   IL_00db: stloc.s V_12
-   IL_00dd: ldloc.s V_12
-   IL_00df: brfalse.s IL_00f7
-   IL_00e1: nop
-   IL_00e2: ldarg.1
-   IL_00e3: ldloc.s V_4
-   IL_00e5: ldloc.s V_8
-   IL_00e7: ldloc.s V_7
-   IL_00e9: call System.String System.String::Concat(System.String,System.String)
-   IL_00ee: call System.Void Celeste.Mod.SkinModHelper.SomePatches::InsertDeathAnimation(Celeste.DeathEffect,Monocle.Sprite,System.String)
-   IL_00f3: nop
-   IL_00f4: nop
-   IL_00f5: br.s IL_0113
-   IL_00f7: ldloc.s V_4
-   IL_00f9: ldloc.s V_7
-   IL_00fb: callvirt System.Boolean Monocle.Sprite::Has(System.String)
-   IL_0100: stloc.s V_13
-   IL_0102: ldloc.s V_13
-   IL_0104: brfalse.s IL_0113
-   IL_0106: nop
-   IL_0107: ldarg.1
-   IL_0108: ldloc.s V_4
-   IL_010a: ldloc.s V_7
-   IL_010c: call System.Void Celeste.Mod.SkinModHelper.SomePatches::InsertDeathAnimation(Celeste.DeathEffect,Monocle.Sprite,System.String)
-   IL_0111: nop
-   IL_0112: nop
-   IL_0113: ldloc.s V_4
-   IL_0115: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
-   IL_011a: callvirt System.String Celeste.Mod.SkinModHelper.CharacterConfig::get_DeathParticleColor()
-   IL_011f: stloc.s V_9
-   IL_0121: ldloc.s V_9
-   IL_0123: call System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::RGB_IsMatch(System.String)
-   IL_0128: stloc.s V_14
-   IL_012a: ldloc.s V_14
-   IL_012c: brfalse.s IL_014d
-   IL_012e: nop
-   IL_012f: ldarg.1
-   IL_0130: ldloc.s V_9
-   IL_0132: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
-   IL_0137: ldarg.1
-   IL_0138: ldfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
-   IL_013d: call System.Single Celeste.Mod.SkinModHelper.SkinsSystem::GetAlpha(Microsoft.Xna.Framework.Color)
-   IL_0142: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_0147: stfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
-   IL_014c: nop
-   IL_014d: ldloc.s V_4
-   IL_014f: ldstr "death_particle"
-   IL_0154: ldloca.s V_10
-   IL_0156: call System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::GetTextureOnSprite(Monocle.Image,System.String,Monocle.MTexture&)
-   IL_015b: stloc.s V_15
-   IL_015d: ldloc.s V_15
-   IL_015f: brfalse.s IL_0164
-   IL_0161: ldloc.s V_10
-   IL_0163: stloc.2
-   IL_0164: nop
-   IL_0165: ldarg.1
-   IL_0166: callvirt Monocle.Entity Monocle.Component::get_Entity()
-   IL_016b: isinst Celeste.PlayerDeadBody
-   IL_0170: ldnull
-   IL_0171: cgt.un
-   IL_0173: stloc.s V_16
-   IL_0175: ldloc.s V_16
-   IL_0177: brfalse.s IL_01b3
-   IL_0179: nop
-   IL_017a: ldsfld Celeste.Mod.SkinModHelper.nonBankReskin Celeste.Mod.SkinModHelper.SkinsSystem::OtherSpriteSkins
-   IL_017f: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_0184: ldstr "death_particle"
-   IL_0189: ldc.i4.0
-   IL_018a: callvirt System.String Celeste.Mod.SkinModHelper.nonBankReskin::GetSkinWithPath(Monocle.Atlas,System.String,System.Boolean)
-   IL_018f: stloc.s V_17
-   IL_0191: ldloc.s V_17
-   IL_0193: ldstr "death_particle"
-   IL_0198: call System.Boolean System.String::op_Inequality(System.String,System.String)
-   IL_019d: stloc.s V_18
-   IL_019f: ldloc.s V_18
-   IL_01a1: brfalse.s IL_01b2
-   IL_01a3: nop
-   IL_01a4: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_01a9: ldloc.s V_17
-   IL_01ab: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
-   IL_01b0: stloc.2
-   IL_01b1: nop
-   IL_01b2: nop
-   IL_01b3: ldloc.0
-   IL_01b4: ldstr "mTexture"
-   IL_01b9: ldloc.2
-   IL_01ba: callvirt System.Void MonoMod.Utils.DynamicData::Set(System.String,System.Object)
-   IL_01bf: nop
-   IL_01c0: nop
-   IL_01c1: ldloc.1
-   IL_01c2: stloc.s V_20
-   IL_01c4: ldc.i4.1
-   IL_01c5: stloc.s V_21
-   IL_01c7: ldloca.s V_20
-   IL_01c9: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
-   IL_01ce: ldloc.s V_21
-   IL_01d0: ceq
-   IL_01d2: ldloca.s V_20
-   IL_01d4: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
-   IL_01d9: and
-   IL_01da: stloc.s V_19
-   IL_01dc: ldloc.s V_19
-   IL_01de: brfalse.s IL_01ef
-   IL_01e0: nop
-   IL_01e1: ldarg.1
-   IL_01e2: ldc.r4 0
-   IL_01e7: stfld System.Single Celeste.DeathEffect::Percent
-   IL_01ec: nop
-   IL_01ed: br.s IL_0229
-   IL_01ef: ldarg.1
-   IL_01f0: callvirt Monocle.Entity Monocle.Component::get_Entity()
-   IL_01f5: ldnull
-   IL_01f6: cgt.un
-   IL_01f8: stloc.s V_22
-   IL_01fa: ldloc.s V_22
-   IL_01fc: brfalse.s IL_0229
-   IL_01fe: nop
-   IL_01ff: ldarg.1
-   IL_0200: callvirt Monocle.Entity Monocle.Component::get_Entity()
-   IL_0205: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_020a: ldarg.1
-   IL_020b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DeathEffect::Position
-   IL_0210: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0215: ldarg.1
-   IL_0216: ldfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
-   IL_021b: ldarg.1
-   IL_021c: ldfld System.Single Celeste.DeathEffect::Percent
-   IL_0221: ldloc.2
-   IL_0222: call System.Void Celeste.Mod.SkinModHelper.SomePatches::DeathEffectNewDraw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Monocle.MTexture)
-   IL_0227: nop
-   IL_0228: nop
-   IL_0229: ret
+ + IL_10000: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0053: stloc.s V_4
+   IL_0055: ldloc.s V_4
+   IL_0057: ldnull
+   IL_0058: cgt.un
+   IL_005a: stloc.s V_5
+   IL_005c: ldloc.s V_5
+   IL_005e: brfalse IL_0160
+   IL_0063: nop
+   IL_0064: ldloc.s V_4
+   IL_0066: ldfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_006b: call System.Single Celeste.Mod.SkinModHelper.SkinsSystem::GetAlpha(Microsoft.Xna.Framework.Color)
+   IL_0070: stloc.s V_6
+   IL_0072: ldloc.s V_6
+   IL_0074: ldc.r4 1
+   IL_0079: bge.un.s IL_0090
+   IL_007b: ldarg.1
+   IL_007c: ldflda Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
+   IL_0081: call System.Byte Microsoft.Xna.Framework.Color::get_A()
+   IL_0086: conv.r4
+   IL_0087: ldc.r4 1
+   IL_008c: ceq
+   IL_008e: br.s IL_0091
+   IL_0090: ldc.i4.0
+   IL_0091: stloc.s V_11
+   IL_0093: ldloc.s V_11
+   IL_0095: brfalse.s IL_00ac
+   IL_0097: nop
+   IL_0098: ldarg.1
+   IL_0099: ldarg.1
+   IL_009a: ldfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
+   IL_009f: ldloc.s V_6
+   IL_00a1: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00a6: stfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
+   IL_00ab: nop
+   IL_00ac: ldstr "deathExAnim"
+   IL_00b1: stloc.s V_7
+   IL_00b3: ldloc.s V_4
+   IL_00b5: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
+   IL_00ba: ldstr "smh_AnimPrefix"
+   IL_00bf: callvirt T MonoMod.Utils.DynamicData::Get<System.String>(System.String)
+   IL_00c4: stloc.s V_8
+   IL_00c6: ldloc.s V_4
+   IL_00c8: ldloc.s V_8
+   IL_00ca: ldloc.s V_7
+   IL_00cc: call System.String System.String::Concat(System.String,System.String)
+   IL_00d1: callvirt System.Boolean Monocle.Sprite::Has(System.String)
+   IL_00d6: stloc.s V_12
+   IL_00d8: ldloc.s V_12
+   IL_00da: brfalse.s IL_00f2
+   IL_00dc: nop
+   IL_00dd: ldarg.1
+   IL_00de: ldloc.s V_4
+   IL_00e0: ldloc.s V_8
+   IL_00e2: ldloc.s V_7
+   IL_00e4: call System.String System.String::Concat(System.String,System.String)
+   IL_00e9: call System.Void Celeste.Mod.SkinModHelper.SomePatches::InsertDeathAnimation(Celeste.DeathEffect,Monocle.Sprite,System.String)
+   IL_00ee: nop
+   IL_00ef: nop
+   IL_00f0: br.s IL_010e
+   IL_00f2: ldloc.s V_4
+   IL_00f4: ldloc.s V_7
+   IL_00f6: callvirt System.Boolean Monocle.Sprite::Has(System.String)
+   IL_00fb: stloc.s V_13
+   IL_00fd: ldloc.s V_13
+   IL_00ff: brfalse.s IL_010e
+   IL_0101: nop
+   IL_0102: ldarg.1
+   IL_0103: ldloc.s V_4
+   IL_0105: ldloc.s V_7
+   IL_0107: call System.Void Celeste.Mod.SkinModHelper.SomePatches::InsertDeathAnimation(Celeste.DeathEffect,Monocle.Sprite,System.String)
+   IL_010c: nop
+   IL_010d: nop
+   IL_010e: ldloc.s V_4
+   IL_0110: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
+   IL_0115: callvirt System.String Celeste.Mod.SkinModHelper.CharacterConfig::get_DeathParticleColor()
+   IL_011a: stloc.s V_9
+   IL_011c: ldloc.s V_9
+   IL_011e: call System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::RGB_IsMatch(System.String)
+   IL_0123: stloc.s V_14
+   IL_0125: ldloc.s V_14
+   IL_0127: brfalse.s IL_0148
+   IL_0129: nop
+   IL_012a: ldarg.1
+   IL_012b: ldloc.s V_9
+   IL_012d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
+   IL_0132: ldarg.1
+   IL_0133: ldfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
+   IL_0138: call System.Single Celeste.Mod.SkinModHelper.SkinsSystem::GetAlpha(Microsoft.Xna.Framework.Color)
+   IL_013d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0142: stfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
+   IL_0147: nop
+   IL_0148: ldloc.s V_4
+   IL_014a: ldstr "death_particle"
+   IL_014f: ldloca.s V_10
+   IL_0151: call System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::GetTextureOnSprite(Monocle.Image,System.String,Monocle.MTexture&)
+   IL_0156: stloc.s V_15
+   IL_0158: ldloc.s V_15
+   IL_015a: brfalse.s IL_015f
+   IL_015c: ldloc.s V_10
+   IL_015e: stloc.2
+   IL_015f: nop
+   IL_0160: ldarg.1
+   IL_0161: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0166: isinst Celeste.PlayerDeadBody
+   IL_016b: ldnull
+   IL_016c: cgt.un
+   IL_016e: stloc.s V_16
+   IL_0170: ldloc.s V_16
+   IL_0172: brfalse.s IL_01ae
+   IL_0174: nop
+   IL_0175: ldsfld Celeste.Mod.SkinModHelper.nonBankReskin Celeste.Mod.SkinModHelper.SkinsSystem::OtherSpriteSkins
+   IL_017a: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_017f: ldstr "death_particle"
+   IL_0184: ldc.i4.0
+   IL_0185: callvirt System.String Celeste.Mod.SkinModHelper.nonBankReskin::GetSkinWithPath(Monocle.Atlas,System.String,System.Boolean)
+   IL_018a: stloc.s V_17
+   IL_018c: ldloc.s V_17
+   IL_018e: ldstr "death_particle"
+   IL_0193: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_0198: stloc.s V_18
+   IL_019a: ldloc.s V_18
+   IL_019c: brfalse.s IL_01ad
+   IL_019e: nop
+   IL_019f: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_01a4: ldloc.s V_17
+   IL_01a6: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_01ab: stloc.2
+   IL_01ac: nop
+   IL_01ad: nop
+   IL_01ae: ldloc.0
+   IL_01af: ldstr "mTexture"
+   IL_01b4: ldloc.2
+   IL_01b5: callvirt System.Void MonoMod.Utils.DynamicData::Set(System.String,System.Object)
+   IL_01ba: nop
+   IL_01bb: nop
+   IL_01bc: ldloc.1
+   IL_01bd: stloc.s V_20
+   IL_01bf: ldc.i4.1
+   IL_01c0: stloc.s V_21
+   IL_01c2: ldloca.s V_20
+   IL_01c4: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_01c9: ldloc.s V_21
+   IL_01cb: ceq
+   IL_01cd: ldloca.s V_20
+   IL_01cf: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_01d4: and
+   IL_01d5: stloc.s V_19
+   IL_01d7: ldloc.s V_19
+   IL_01d9: brfalse.s IL_01ea
+   IL_01db: nop
+   IL_01dc: ldarg.1
+   IL_01dd: ldc.r4 0
+   IL_01e2: stfld System.Single Celeste.DeathEffect::Percent
+   IL_01e7: nop
+   IL_01e8: br.s IL_0224
+   IL_01ea: ldarg.1
+   IL_01eb: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_01f0: ldnull
+   IL_01f1: cgt.un
+   IL_01f3: stloc.s V_22
+   IL_01f5: ldloc.s V_22
+   IL_01f7: brfalse.s IL_0224
+   IL_01f9: nop
+   IL_01fa: ldarg.1
+   IL_01fb: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0200: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0205: ldarg.1
+   IL_0206: ldfld Microsoft.Xna.Framework.Vector2 Celeste.DeathEffect::Position
+   IL_020b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0210: ldarg.1
+   IL_0211: ldfld Microsoft.Xna.Framework.Color Celeste.DeathEffect::Color
+   IL_0216: ldarg.1
+   IL_0217: ldfld System.Single Celeste.DeathEffect::Percent
+   IL_021c: ldloc.2
+   IL_021d: call System.Void Celeste.Mod.SkinModHelper.SomePatches::DeathEffectNewDraw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Monocle.MTexture)
+   IL_0222: nop
+   IL_0223: nop
+   IL_0224: ret

@@ -1,85 +1,85 @@
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: call System.Boolean TAS.Gameplay.SimplifiedGraphics::<Initialize>g__OverwriteCrystalHue|5_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0005: brfalse IL_001a @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_000a: ldc.i4 0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_000f: ldc.i4 0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<Microsoft.Xna.Framework.Color>(System.Int32,System.Int32) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ldc.i4 0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10003: ldc.i4 0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10004: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<Microsoft.Xna.Framework.Color>(System.Int32,System.Int32) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
         Reference: {R:255 G:255 B:255 A:255}
- + IL_0019: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_001a: ldarg.0
-   IL_001b: ldlen
-   IL_001c: conv.i4
-   IL_001d: ldc.i4.1
-   IL_001e: bne.un.s IL_0028
-   IL_0020: ldarg.0
-   IL_0021: ldc.i4.0
-   IL_0022: ldelem.any Microsoft.Xna.Framework.Color
-   IL_0027: ret
-   IL_0028: ldarg.3
-   IL_0029: ldarg.s center
-   IL_002b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0030: stloc.3
-   IL_0031: ldloca.s V_3
-   IL_0033: call System.Single Microsoft.Xna.Framework.Vector2::Length()
-   IL_0038: ldarg.2
-   IL_0039: ldfld System.Single Monocle.Scene::TimeActive
-   IL_003e: ldarg.s gradientSpeed
-   IL_0040: mul
-   IL_0041: add
-   IL_0042: stloc.0
-   IL_0043: br.s IL_0049
-   IL_0045: ldloc.0
-   IL_0046: ldarg.1
-   IL_0047: add
-   IL_0048: stloc.0
-   IL_0049: ldloc.0
-   IL_004a: ldc.r4 0
-   IL_004f: blt.s IL_0045
-   IL_0051: ldloc.0
-   IL_0052: ldarg.1
-   IL_0053: rem
-   IL_0054: ldarg.1
-   IL_0055: div
-   IL_0056: stloc.0
-   IL_0057: ldarg.s loopColors
-   IL_0059: brtrue.s IL_0062
-   IL_005b: ldloc.0
-   IL_005c: call System.Single Monocle.Calc::YoYo(System.Single)
-   IL_0061: stloc.0
+ + IL_10005: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldlen
+   IL_0002: conv.i4
+   IL_0003: ldc.i4.1
+   IL_0004: bne.un.s IL_000e
+   IL_0006: ldarg.0
+   IL_0007: ldc.i4.0
+   IL_0008: ldelem.any Microsoft.Xna.Framework.Color
+   IL_000d: ret
+   IL_000e: ldarg.3
+   IL_000f: ldarg.s center
+   IL_0011: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0016: stloc.3
+   IL_0017: ldloca.s V_3
+   IL_0019: call System.Single Microsoft.Xna.Framework.Vector2::Length()
+   IL_001e: ldarg.2
+   IL_001f: ldfld System.Single Monocle.Scene::TimeActive
+   IL_0024: ldarg.s gradientSpeed
+   IL_0026: mul
+   IL_0027: add
+   IL_0028: stloc.0
+   IL_0029: br.s IL_002f
+   IL_002b: ldloc.0
+   IL_002c: ldarg.1
+   IL_002d: add
+   IL_002e: stloc.0
+   IL_002f: ldloc.0
+   IL_0030: ldc.r4 0
+   IL_0035: blt.s IL_002b
+   IL_0037: ldloc.0
+   IL_0038: ldarg.1
+   IL_0039: rem
+   IL_003a: ldarg.1
+   IL_003b: div
+   IL_003c: stloc.0
+   IL_003d: ldarg.s loopColors
+   IL_003f: brtrue.s IL_0048
+   IL_0041: ldloc.0
+   IL_0042: call System.Single Monocle.Calc::YoYo(System.Single)
+   IL_0047: stloc.0
+   IL_0048: ldloc.0
+   IL_0049: ldc.r4 1
+   IL_004e: bne.un.s IL_005c
+   IL_0050: ldarg.0
+   IL_0051: ldarg.0
+   IL_0052: ldlen
+   IL_0053: conv.i4
+   IL_0054: ldc.i4.1
+   IL_0055: sub
+   IL_0056: ldelem.any Microsoft.Xna.Framework.Color
+   IL_005b: ret
+   IL_005c: ldarg.0
+   IL_005d: ldlen
+   IL_005e: conv.i4
+   IL_005f: ldc.i4.1
+   IL_0060: sub
+   IL_0061: conv.r4
    IL_0062: ldloc.0
-   IL_0063: ldc.r4 1
-   IL_0068: bne.un.s IL_0076
-   IL_006a: ldarg.0
+   IL_0063: mul
+   IL_0064: dup
+   IL_0065: conv.i4
+   IL_0066: stloc.1
+   IL_0067: ldloc.1
+   IL_0068: conv.r4
+   IL_0069: sub
+   IL_006a: stloc.2
    IL_006b: ldarg.0
-   IL_006c: ldlen
-   IL_006d: conv.i4
-   IL_006e: ldc.i4.1
-   IL_006f: sub
-   IL_0070: ldelem.any Microsoft.Xna.Framework.Color
-   IL_0075: ret
-   IL_0076: ldarg.0
-   IL_0077: ldlen
-   IL_0078: conv.i4
-   IL_0079: ldc.i4.1
-   IL_007a: sub
-   IL_007b: conv.r4
-   IL_007c: ldloc.0
-   IL_007d: mul
-   IL_007e: dup
-   IL_007f: conv.i4
-   IL_0080: stloc.1
-   IL_0081: ldloc.1
-   IL_0082: conv.r4
-   IL_0083: sub
-   IL_0084: stloc.2
-   IL_0085: ldarg.0
-   IL_0086: ldloc.1
-   IL_0087: ldelem.any Microsoft.Xna.Framework.Color
-   IL_008c: ldarg.0
-   IL_008d: ldloc.1
-   IL_008e: ldc.i4.1
-   IL_008f: add
-   IL_0090: ldelem.any Microsoft.Xna.Framework.Color
-   IL_0095: ldloc.2
-   IL_0096: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
-   IL_009b: ret
+   IL_006c: ldloc.1
+   IL_006d: ldelem.any Microsoft.Xna.Framework.Color
+   IL_0072: ldarg.0
+   IL_0073: ldloc.1
+   IL_0074: ldc.i4.1
+   IL_0075: add
+   IL_0076: ldelem.any Microsoft.Xna.Framework.Color
+   IL_007b: ldloc.2
+   IL_007c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0081: ret

@@ -1,123 +1,123 @@
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: ldarg position @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0004: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_0009: ldarg.0
-   IL_000a: ldfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::spriteInitialised
-   IL_000f: brtrue IL_00b5
-   IL_0014: ldarg.1
-   IL_0015: ldstr "default"
-   IL_001a: call System.Boolean System.String::op_Equality(System.String,System.String)
-   IL_001f: brfalse.s IL_0050
-   IL_0021: ldarg.0
-   IL_0022: ldarg.0
-   IL_0023: ldsfld System.Random Monocle.Calc::Random
-   IL_0028: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_002d: ldstr "objects/moveblock/debris"
-   IL_0032: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
-   IL_0037: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
-   IL_003c: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
-   IL_0041: dup
-   IL_0042: stloc.0
-   IL_0043: stfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
-   IL_0048: ldloc.0
-   IL_0049: call System.Void Monocle.Entity::Add(Monocle.Component)
-   IL_004e: br.s IL_0088
-   IL_0050: ldarg.0
-   IL_0051: ldarg.0
-   IL_0052: ldsfld System.Random Monocle.Calc::Random
-   IL_0057: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_005c: ldstr "objects/FrenchHelper/ReskinnableMoveBlock/"
-   IL_0061: ldarg.1
-   IL_0062: ldstr "/debris"
-   IL_0067: call System.String System.String::Concat(System.String,System.String,System.String)
-   IL_006c: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
-   IL_0071: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
-   IL_0076: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
-   IL_007b: dup
-   IL_007c: stloc.0
-   IL_007d: stfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
-   IL_0082: ldloc.0
-   IL_0083: call System.Void Monocle.Entity::Add(Monocle.Component)
-   IL_0088: ldarg.0
-   IL_0089: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
-   IL_008e: callvirt Monocle.Image Monocle.Image::CenterOrigin()
-   IL_0093: pop
-   IL_0094: ldarg.0
-   IL_0095: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
-   IL_009a: ldsfld System.Random Monocle.Calc::Random
-   IL_009f: ldc.r4 0.5
-   IL_00a4: call System.Boolean Monocle.Calc::Chance(System.Random,System.Single)
-   IL_00a9: callvirt System.Void Monocle.GraphicsComponent::set_FlipX(System.Boolean)
-   IL_00ae: ldarg.0
-   IL_00af: ldc.i4.1
-   IL_00b0: stfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::spriteInitialised
-   IL_00b5: ldarg.0
-   IL_00b6: ldc.i4.1
-   IL_00b7: stfld System.Boolean Monocle.Entity::Collidable
-   IL_00bc: ldarg.0
-   IL_00bd: ldarg.2
-   IL_00be: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_00c3: ldarg.0
-   IL_00c4: ldarg.2
-   IL_00c5: ldarg.3
-   IL_00c6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_00cb: ldc.r4 60
-   IL_00d0: ldsfld System.Random Monocle.Calc::Random
-   IL_00d5: ldc.r4 60
-   IL_00da: call System.Single Monocle.Calc::NextFloat(System.Random,System.Single)
-   IL_00df: add
-   IL_00e0: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_00e5: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::speed
-   IL_00ea: ldarg.0
-   IL_00eb: ldarg.s returnTo
-   IL_00ed: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::home
-   IL_00f2: ldarg.0
-   IL_00f3: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
-   IL_00f8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
-   IL_00fd: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
-   IL_0102: ldarg.0
-   IL_0103: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
-   IL_0108: ldsfld System.Random Monocle.Calc::Random
-   IL_010d: call System.Single Monocle.Calc::NextAngle(System.Random)
-   IL_0112: stfld System.Single Monocle.GraphicsComponent::Rotation
-   IL_0117: ldarg.0
-   IL_0118: ldc.i4.0
-   IL_0119: stfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::returning
-   IL_011e: ldarg.0
-   IL_011f: ldc.i4.0
-   IL_0120: stfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::shaking
-   IL_0125: ldarg.0
-   IL_0126: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
-   IL_012b: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
-   IL_0130: ldc.r4 1
-   IL_0135: stfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_013a: ldarg.0
-   IL_013b: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
-   IL_0140: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
-   IL_0145: ldc.r4 1
-   IL_014a: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_014f: ldarg.0
-   IL_0150: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
-   IL_0155: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
-   IL_015a: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
-   IL_015f: ldarg.0
-   IL_0160: ldc.r4 1
-   IL_0165: stfld System.Single Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::alpha
-   IL_016a: ldarg.0
-   IL_016b: ldc.i4.0
-   IL_016c: stfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::firstHit
-   IL_0171: ldarg.0
-   IL_0172: ldsfld System.Random Monocle.Calc::Random
-   IL_0177: ldc.r4 3.4906585
-   IL_017c: ldc.r4 10.471975
-   IL_0181: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
-   IL_0186: ldsfld System.Random Monocle.Calc::Random
-   IL_018b: ldc.i4.1
-   IL_018c: ldc.i4.m1
-   IL_018d: call T Monocle.Calc::Choose<System.Int32>(System.Random,T,T)
-   IL_0192: conv.r4
-   IL_0193: mul
-   IL_0194: stfld System.Single Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::spin
-   IL_0199: ldarg.0
- + IL_019a: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_019f: ret
+ + IL_10001: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::spriteInitialised
+   IL_0006: brtrue IL_00ac
+   IL_000b: ldarg.1
+   IL_000c: ldstr "default"
+   IL_0011: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0016: brfalse.s IL_0047
+   IL_0018: ldarg.0
+   IL_0019: ldarg.0
+   IL_001a: ldsfld System.Random Monocle.Calc::Random
+   IL_001f: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0024: ldstr "objects/moveblock/debris"
+   IL_0029: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_002e: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_0033: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_0038: dup
+   IL_0039: stloc.0
+   IL_003a: stfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
+   IL_003f: ldloc.0
+   IL_0040: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0045: br.s IL_007f
+   IL_0047: ldarg.0
+   IL_0048: ldarg.0
+   IL_0049: ldsfld System.Random Monocle.Calc::Random
+   IL_004e: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0053: ldstr "objects/FrenchHelper/ReskinnableMoveBlock/"
+   IL_0058: ldarg.1
+   IL_0059: ldstr "/debris"
+   IL_005e: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0063: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0068: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_006d: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_0072: dup
+   IL_0073: stloc.0
+   IL_0074: stfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
+   IL_0079: ldloc.0
+   IL_007a: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_007f: ldarg.0
+   IL_0080: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
+   IL_0085: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_008a: pop
+   IL_008b: ldarg.0
+   IL_008c: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
+   IL_0091: ldsfld System.Random Monocle.Calc::Random
+   IL_0096: ldc.r4 0.5
+   IL_009b: call System.Boolean Monocle.Calc::Chance(System.Random,System.Single)
+   IL_00a0: callvirt System.Void Monocle.GraphicsComponent::set_FlipX(System.Boolean)
+   IL_00a5: ldarg.0
+   IL_00a6: ldc.i4.1
+   IL_00a7: stfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::spriteInitialised
+   IL_00ac: ldarg.0
+   IL_00ad: ldc.i4.1
+   IL_00ae: stfld System.Boolean Monocle.Entity::Collidable
+   IL_00b3: ldarg.0
+   IL_00b4: ldarg.2
+   IL_00b5: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ba: ldarg.0
+   IL_00bb: ldarg.2
+   IL_00bc: ldarg.3
+   IL_00bd: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00c2: ldc.r4 60
+   IL_00c7: ldsfld System.Random Monocle.Calc::Random
+   IL_00cc: ldc.r4 60
+   IL_00d1: call System.Single Monocle.Calc::NextFloat(System.Random,System.Single)
+   IL_00d6: add
+   IL_00d7: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00dc: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::speed
+   IL_00e1: ldarg.0
+   IL_00e2: ldarg.s returnTo
+   IL_00e4: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::home
+   IL_00e9: ldarg.0
+   IL_00ea: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
+   IL_00ef: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_00f4: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_00f9: ldarg.0
+   IL_00fa: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
+   IL_00ff: ldsfld System.Random Monocle.Calc::Random
+   IL_0104: call System.Single Monocle.Calc::NextAngle(System.Random)
+   IL_0109: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_010e: ldarg.0
+   IL_010f: ldc.i4.0
+   IL_0110: stfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::returning
+   IL_0115: ldarg.0
+   IL_0116: ldc.i4.0
+   IL_0117: stfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::shaking
+   IL_011c: ldarg.0
+   IL_011d: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
+   IL_0122: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0127: ldc.r4 1
+   IL_012c: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0131: ldarg.0
+   IL_0132: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
+   IL_0137: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_013c: ldc.r4 1
+   IL_0141: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0146: ldarg.0
+   IL_0147: ldfld Monocle.Image Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::sprite
+   IL_014c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0151: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0156: ldarg.0
+   IL_0157: ldc.r4 1
+   IL_015c: stfld System.Single Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::alpha
+   IL_0161: ldarg.0
+   IL_0162: ldc.i4.0
+   IL_0163: stfld System.Boolean Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::firstHit
+   IL_0168: ldarg.0
+   IL_0169: ldsfld System.Random Monocle.Calc::Random
+   IL_016e: ldc.r4 3.4906585
+   IL_0173: ldc.r4 10.471975
+   IL_0178: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_017d: ldsfld System.Random Monocle.Calc::Random
+   IL_0182: ldc.i4.1
+   IL_0183: ldc.i4.m1
+   IL_0184: call T Monocle.Calc::Choose<System.Int32>(System.Random,T,T)
+   IL_0189: conv.r4
+   IL_018a: mul
+   IL_018b: stfld System.Single Celeste.Mod.FrenchHelper.Entities.ReskinnableMoveBlock/Debris::spin
+   IL_0190: ldarg.0
+ + IL_10002: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0191: ret

@@ -4,753 +4,753 @@ IL: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update
 IL: Celeste.Mod.SelfishHelper.Entities.WaterBlock+Hooks.Surface_Update(ILContext)
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_000b: ldarg.0
-   IL_000c: ldarg.0
-   IL_000d: ldfld System.Single Celeste.Water/Surface::timer
-   IL_0012: call System.Single Monocle.Engine::get_DeltaTime()
-   IL_0017: add
-   IL_0018: stfld System.Single Celeste.Water/Surface::timer
-   IL_001d: ldarg.0
-   IL_001e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_0023: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Perpendicular(Microsoft.Xna.Framework.Vector2)
-   IL_0028: stloc.0
-   IL_0029: ldarg.0
-   IL_002a: ldfld System.Collections.Generic.List`1<Celeste.Water/Ripple> Celeste.Water/Surface::Ripples
-   IL_002f: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.Water/Ripple>::get_Count()
-   IL_0034: ldc.i4.1
-   IL_0035: sub
-   IL_0036: stloc.1
-   IL_0037: br IL_00e0
-   IL_003c: ldarg.0
-   IL_003d: ldfld System.Collections.Generic.List`1<Celeste.Water/Ripple> Celeste.Water/Surface::Ripples
-   IL_0042: ldloc.1
-   IL_0043: callvirt T System.Collections.Generic.List`1<Celeste.Water/Ripple>::get_Item(System.Int32)
-   IL_0048: stloc.2
-   IL_0049: ldloc.2
-   IL_004a: ldfld System.Single Celeste.Water/Ripple::Percent
-   IL_004f: ldc.r4 1
-   IL_0054: ble.un.s IL_0064
-   IL_0056: ldarg.0
-   IL_0057: ldfld System.Collections.Generic.List`1<Celeste.Water/Ripple> Celeste.Water/Surface::Ripples
-   IL_005c: ldloc.1
-   IL_005d: callvirt System.Void System.Collections.Generic.List`1<Celeste.Water/Ripple>::RemoveAt(System.Int32)
-   IL_0062: br.s IL_00dc
-   IL_0064: ldloc.2
-   IL_0065: dup
-   IL_0066: ldfld System.Single Celeste.Water/Ripple::Position
-   IL_006b: ldloc.2
-   IL_006c: ldfld System.Single Celeste.Water/Ripple::Speed
-   IL_0071: call System.Single Monocle.Engine::get_DeltaTime()
-   IL_0076: mul
-   IL_0077: add
-   IL_0078: stfld System.Single Celeste.Water/Ripple::Position
-   IL_007d: ldloc.2
-   IL_007e: ldfld System.Single Celeste.Water/Ripple::Position
-   IL_0083: ldc.r4 0
-   IL_0088: blt.s IL_0099
-   IL_008a: ldloc.2
-   IL_008b: ldfld System.Single Celeste.Water/Ripple::Position
-   IL_0090: ldarg.0
-   IL_0091: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_0096: conv.r4
-   IL_0097: ble.un.s IL_00c3
-   IL_0099: ldloc.2
-   IL_009a: ldloc.2
-   IL_009b: ldfld System.Single Celeste.Water/Ripple::Speed
-   IL_00a0: neg
-   IL_00a1: stfld System.Single Celeste.Water/Ripple::Speed
-   IL_00a6: ldloc.2
-   IL_00a7: ldloc.2
-   IL_00a8: ldfld System.Single Celeste.Water/Ripple::Position
-   IL_00ad: ldc.r4 0
-   IL_00b2: ldarg.0
-   IL_00b3: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_00b8: conv.r4
-   IL_00b9: call System.Single Monocle.Calc::Clamp(System.Single,System.Single,System.Single)
-   IL_00be: stfld System.Single Celeste.Water/Ripple::Position
-   IL_00c3: ldloc.2
-   IL_00c4: dup
-   IL_00c5: ldfld System.Single Celeste.Water/Ripple::Percent
-   IL_00ca: call System.Single Monocle.Engine::get_DeltaTime()
-   IL_00cf: ldloc.2
-   IL_00d0: ldfld System.Single Celeste.Water/Ripple::Duration
-   IL_00d5: div
-   IL_00d6: add
-   IL_00d7: stfld System.Single Celeste.Water/Ripple::Percent
-   IL_00dc: ldloc.1
-   IL_00dd: ldc.i4.1
-   IL_00de: sub
-   IL_00df: stloc.1
-   IL_00e0: ldloc.1
-   IL_00e1: ldc.i4.0
-   IL_00e2: bge IL_003c
-   IL_00e7: ldc.i4.0
-   IL_00e8: stloc.3
-   IL_00e9: ldarg.0
-   IL_00ea: ldfld System.Int32 Celeste.Water/Surface::fillStartIndex
-   IL_00ef: stloc.s V_4
-   IL_00f1: ldarg.0
-   IL_00f2: ldfld System.Int32 Celeste.Water/Surface::surfaceStartIndex
-   IL_00f7: stloc.s V_5
-   IL_00f9: br IL_04b7
-   IL_00fe: ldloc.3
-   IL_00ff: stloc.s V_6
-   IL_0101: ldarg.0
-   IL_0102: ldloc.s V_6
-   IL_0104: conv.r4
-   IL_0105: callvirt System.Single Celeste.Water/Surface::GetSurfaceHeight(System.Single)
-   IL_010a: stloc.s V_7
-   IL_010c: ldloc.3
-   IL_010d: ldc.i4.4
-   IL_010e: add
-   IL_010f: ldarg.0
-   IL_0110: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_0115: call System.Int32 System.Math::Min(System.Int32,System.Int32)
-   IL_011a: stloc.s V_8
+ + IL_10001: brfalse IL_0000 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Single Celeste.Water/Surface::timer
+   IL_0007: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_000c: add
+   IL_000d: stfld System.Single Celeste.Water/Surface::timer
+   IL_0012: ldarg.0
+   IL_0013: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_0018: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Perpendicular(Microsoft.Xna.Framework.Vector2)
+   IL_001d: stloc.0
+   IL_001e: ldarg.0
+   IL_001f: ldfld System.Collections.Generic.List`1<Celeste.Water/Ripple> Celeste.Water/Surface::Ripples
+   IL_0024: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.Water/Ripple>::get_Count()
+   IL_0029: ldc.i4.1
+   IL_002a: sub
+   IL_002b: stloc.1
+   IL_002c: br IL_00d5
+   IL_0031: ldarg.0
+   IL_0032: ldfld System.Collections.Generic.List`1<Celeste.Water/Ripple> Celeste.Water/Surface::Ripples
+   IL_0037: ldloc.1
+   IL_0038: callvirt T System.Collections.Generic.List`1<Celeste.Water/Ripple>::get_Item(System.Int32)
+   IL_003d: stloc.2
+   IL_003e: ldloc.2
+   IL_003f: ldfld System.Single Celeste.Water/Ripple::Percent
+   IL_0044: ldc.r4 1
+   IL_0049: ble.un.s IL_0059
+   IL_004b: ldarg.0
+   IL_004c: ldfld System.Collections.Generic.List`1<Celeste.Water/Ripple> Celeste.Water/Surface::Ripples
+   IL_0051: ldloc.1
+   IL_0052: callvirt System.Void System.Collections.Generic.List`1<Celeste.Water/Ripple>::RemoveAt(System.Int32)
+   IL_0057: br.s IL_00d1
+   IL_0059: ldloc.2
+   IL_005a: dup
+   IL_005b: ldfld System.Single Celeste.Water/Ripple::Position
+   IL_0060: ldloc.2
+   IL_0061: ldfld System.Single Celeste.Water/Ripple::Speed
+   IL_0066: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_006b: mul
+   IL_006c: add
+   IL_006d: stfld System.Single Celeste.Water/Ripple::Position
+   IL_0072: ldloc.2
+   IL_0073: ldfld System.Single Celeste.Water/Ripple::Position
+   IL_0078: ldc.r4 0
+   IL_007d: blt.s IL_008e
+   IL_007f: ldloc.2
+   IL_0080: ldfld System.Single Celeste.Water/Ripple::Position
+   IL_0085: ldarg.0
+   IL_0086: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_008b: conv.r4
+   IL_008c: ble.un.s IL_00b8
+   IL_008e: ldloc.2
+   IL_008f: ldloc.2
+   IL_0090: ldfld System.Single Celeste.Water/Ripple::Speed
+   IL_0095: neg
+   IL_0096: stfld System.Single Celeste.Water/Ripple::Speed
+   IL_009b: ldloc.2
+   IL_009c: ldloc.2
+   IL_009d: ldfld System.Single Celeste.Water/Ripple::Position
+   IL_00a2: ldc.r4 0
+   IL_00a7: ldarg.0
+   IL_00a8: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_00ad: conv.r4
+   IL_00ae: call System.Single Monocle.Calc::Clamp(System.Single,System.Single,System.Single)
+   IL_00b3: stfld System.Single Celeste.Water/Ripple::Position
+   IL_00b8: ldloc.2
+   IL_00b9: dup
+   IL_00ba: ldfld System.Single Celeste.Water/Ripple::Percent
+   IL_00bf: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00c4: ldloc.2
+   IL_00c5: ldfld System.Single Celeste.Water/Ripple::Duration
+   IL_00ca: div
+   IL_00cb: add
+   IL_00cc: stfld System.Single Celeste.Water/Ripple::Percent
+   IL_00d1: ldloc.1
+   IL_00d2: ldc.i4.1
+   IL_00d3: sub
+   IL_00d4: stloc.1
+   IL_00d5: ldloc.1
+   IL_00d6: ldc.i4.0
+   IL_00d7: bge IL_0031
+   IL_00dc: ldc.i4.0
+   IL_00dd: stloc.3
+   IL_00de: ldarg.0
+   IL_00df: ldfld System.Int32 Celeste.Water/Surface::fillStartIndex
+   IL_00e4: stloc.s V_4
+   IL_00e6: ldarg.0
+   IL_00e7: ldfld System.Int32 Celeste.Water/Surface::surfaceStartIndex
+   IL_00ec: stloc.s V_5
+   IL_00ee: br IL_04ac
+   IL_00f3: ldloc.3
+   IL_00f4: stloc.s V_6
+   IL_00f6: ldarg.0
+   IL_00f7: ldloc.s V_6
+   IL_00f9: conv.r4
+   IL_00fa: callvirt System.Single Celeste.Water/Surface::GetSurfaceHeight(System.Single)
+   IL_00ff: stloc.s V_7
+   IL_0101: ldloc.3
+   IL_0102: ldc.i4.4
+   IL_0103: add
+   IL_0104: ldarg.0
+   IL_0105: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_010a: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_010f: stloc.s V_8
+   IL_0111: ldarg.0
+   IL_0112: ldloc.s V_8
+   IL_0114: conv.r4
+   IL_0115: callvirt System.Single Celeste.Water/Surface::GetSurfaceHeight(System.Single)
+   IL_011a: stloc.s V_9
    IL_011c: ldarg.0
-   IL_011d: ldloc.s V_8
-   IL_011f: conv.r4
-   IL_0120: callvirt System.Single Celeste.Water/Surface::GetSurfaceHeight(System.Single)
-   IL_0125: stloc.s V_9
-   IL_0127: ldarg.0
-   IL_0128: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_012d: ldloc.s V_4
-   IL_012f: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_0134: ldarg.0
-   IL_0135: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_013a: ldloc.0
-   IL_013b: ldarg.0
-   IL_013c: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_0141: neg
-   IL_0142: ldc.i4.2
-   IL_0143: div
-   IL_0144: ldloc.s V_6
-   IL_0146: add
-   IL_0147: conv.r4
-   IL_0148: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_014d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0152: ldarg.0
-   IL_0153: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_0158: ldloc.s V_7
-   IL_015a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_015f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0164: ldc.r4 0
-   IL_0169: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_016e: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_0173: ldarg.0
-   IL_0174: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_0179: ldloc.s V_4
-   IL_017b: ldc.i4.1
-   IL_017c: add
-   IL_017d: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_0182: ldarg.0
-   IL_0183: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_0188: ldloc.0
-   IL_0189: ldarg.0
-   IL_018a: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_018f: neg
-   IL_0190: ldc.i4.2
-   IL_0191: div
-   IL_0192: ldloc.s V_8
-   IL_0194: add
-   IL_0195: conv.r4
-   IL_0196: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_019b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_01a0: ldarg.0
-   IL_01a1: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_01a6: ldloc.s V_9
-   IL_01a8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_01ad: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_01b2: ldc.r4 0
-   IL_01b7: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_01bc: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_01c1: ldarg.0
-   IL_01c2: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_01c7: ldloc.s V_4
-   IL_01c9: ldc.i4.2
-   IL_01ca: add
-   IL_01cb: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_01d0: ldarg.0
-   IL_01d1: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_01d6: ldloc.0
-   IL_01d7: ldarg.0
-   IL_01d8: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_01dd: neg
-   IL_01de: ldc.i4.2
-   IL_01df: div
-   IL_01e0: ldloc.s V_6
-   IL_01e2: add
-   IL_01e3: conv.r4
-   IL_01e4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_01e9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_01ee: ldc.r4 0
-   IL_01f3: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_01f8: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_01fd: ldarg.0
-   IL_01fe: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_0203: ldloc.s V_4
-   IL_0205: ldc.i4.3
-   IL_0206: add
-   IL_0207: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_020c: ldarg.0
-   IL_020d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_0212: ldloc.0
-   IL_0213: ldarg.0
-   IL_0214: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_0219: neg
-   IL_021a: ldc.i4.2
-   IL_021b: div
-   IL_021c: ldloc.s V_8
-   IL_021e: add
-   IL_021f: conv.r4
-   IL_0220: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0225: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_022a: ldarg.0
-   IL_022b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_0230: ldloc.s V_9
-   IL_0232: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0237: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_023c: ldc.r4 0
-   IL_0241: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0246: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_024b: ldarg.0
-   IL_024c: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_0251: ldloc.s V_4
-   IL_0253: ldc.i4.4
-   IL_0254: add
-   IL_0255: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_025a: ldarg.0
-   IL_025b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_0260: ldloc.0
-   IL_0261: ldarg.0
-   IL_0262: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_0267: neg
-   IL_0268: ldc.i4.2
-   IL_0269: div
-   IL_026a: ldloc.s V_8
-   IL_026c: add
-   IL_026d: conv.r4
-   IL_026e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0273: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0278: ldc.r4 0
-   IL_027d: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0282: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_0287: ldarg.0
-   IL_0288: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_028d: ldloc.s V_4
-   IL_028f: ldc.i4.5
-   IL_0290: add
-   IL_0291: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_0296: ldarg.0
-   IL_0297: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_029c: ldloc.0
-   IL_029d: ldarg.0
-   IL_029e: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_02a3: neg
-   IL_02a4: ldc.i4.2
-   IL_02a5: div
-   IL_02a6: ldloc.s V_6
-   IL_02a8: add
-   IL_02a9: conv.r4
-   IL_02aa: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_02af: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_02b4: ldc.r4 0
-   IL_02b9: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_02be: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_02c3: ldarg.0
-   IL_02c4: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_02c9: ldloc.s V_5
-   IL_02cb: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_02d0: ldarg.0
-   IL_02d1: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_02d6: ldloc.0
-   IL_02d7: ldarg.0
-   IL_02d8: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_02dd: neg
-   IL_02de: ldc.i4.2
-   IL_02df: div
-   IL_02e0: ldloc.s V_6
-   IL_02e2: add
-   IL_02e3: conv.r4
-   IL_02e4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_02e9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_02ee: ldarg.0
-   IL_02ef: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_02f4: ldloc.s V_7
-   IL_02f6: ldc.r4 1
-   IL_02fb: add
-   IL_02fc: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0301: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0306: ldc.r4 0
-   IL_030b: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0310: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_0315: ldarg.0
-   IL_0316: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_031b: ldloc.s V_5
-   IL_031d: ldc.i4.1
-   IL_031e: add
-   IL_031f: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_0324: ldarg.0
-   IL_0325: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_032a: ldloc.0
-   IL_032b: ldarg.0
-   IL_032c: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_0331: neg
-   IL_0332: ldc.i4.2
-   IL_0333: div
-   IL_0334: ldloc.s V_8
-   IL_0336: add
-   IL_0337: conv.r4
-   IL_0338: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_033d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0342: ldarg.0
-   IL_0343: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_0348: ldloc.s V_9
-   IL_034a: ldc.r4 1
-   IL_034f: add
-   IL_0350: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0355: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_035a: ldc.r4 0
-   IL_035f: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0364: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_0369: ldarg.0
-   IL_036a: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_036f: ldloc.s V_5
-   IL_0371: ldc.i4.2
-   IL_0372: add
-   IL_0373: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_0378: ldarg.0
-   IL_0379: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_037e: ldloc.0
-   IL_037f: ldarg.0
-   IL_0380: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_0385: neg
-   IL_0386: ldc.i4.2
-   IL_0387: div
-   IL_0388: ldloc.s V_6
-   IL_038a: add
-   IL_038b: conv.r4
-   IL_038c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0391: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0396: ldarg.0
-   IL_0397: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_039c: ldloc.s V_7
-   IL_039e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_03a3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_03a8: ldc.r4 0
-   IL_03ad: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_03b2: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_03b7: ldarg.0
-   IL_03b8: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_03bd: ldloc.s V_5
-   IL_03bf: ldc.i4.3
-   IL_03c0: add
-   IL_03c1: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_03c6: ldarg.0
-   IL_03c7: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_03cc: ldloc.0
-   IL_03cd: ldarg.0
-   IL_03ce: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_03d3: neg
-   IL_03d4: ldc.i4.2
-   IL_03d5: div
-   IL_03d6: ldloc.s V_8
-   IL_03d8: add
-   IL_03d9: conv.r4
-   IL_03da: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_03df: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_03e4: ldarg.0
-   IL_03e5: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_03ea: ldloc.s V_9
-   IL_03ec: ldc.r4 1
-   IL_03f1: add
-   IL_03f2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_03f7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_03fc: ldc.r4 0
-   IL_0401: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0406: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_040b: ldarg.0
-   IL_040c: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_0411: ldloc.s V_5
-   IL_0413: ldc.i4.4
-   IL_0414: add
-   IL_0415: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_041a: ldarg.0
-   IL_041b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_0420: ldloc.0
-   IL_0421: ldarg.0
-   IL_0422: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_0427: neg
-   IL_0428: ldc.i4.2
-   IL_0429: div
-   IL_042a: ldloc.s V_8
-   IL_042c: add
-   IL_042d: conv.r4
-   IL_042e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0433: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0438: ldarg.0
-   IL_0439: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_043e: ldloc.s V_9
-   IL_0440: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0445: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_044a: ldc.r4 0
-   IL_044f: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0454: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_0459: ldarg.0
-   IL_045a: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_045f: ldloc.s V_5
-   IL_0461: ldc.i4.5
-   IL_0462: add
-   IL_0463: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_0468: ldarg.0
-   IL_0469: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_046e: ldloc.0
-   IL_046f: ldarg.0
-   IL_0470: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_0475: neg
-   IL_0476: ldc.i4.2
-   IL_0477: div
-   IL_0478: ldloc.s V_6
-   IL_047a: add
-   IL_047b: conv.r4
-   IL_047c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0481: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0486: ldarg.0
-   IL_0487: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_048c: ldloc.s V_7
-   IL_048e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0493: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0498: ldc.r4 0
-   IL_049d: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_04a2: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_04a7: ldloc.3
-   IL_04a8: ldc.i4.4
+   IL_011d: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0122: ldloc.s V_4
+   IL_0124: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0129: ldarg.0
+   IL_012a: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_012f: ldloc.0
+   IL_0130: ldarg.0
+   IL_0131: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_0136: neg
+   IL_0137: ldc.i4.2
+   IL_0138: div
+   IL_0139: ldloc.s V_6
+   IL_013b: add
+   IL_013c: conv.r4
+   IL_013d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0142: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0147: ldarg.0
+   IL_0148: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_014d: ldloc.s V_7
+   IL_014f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0154: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0159: ldc.r4 0
+   IL_015e: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0163: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_0168: ldarg.0
+   IL_0169: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_016e: ldloc.s V_4
+   IL_0170: ldc.i4.1
+   IL_0171: add
+   IL_0172: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0177: ldarg.0
+   IL_0178: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_017d: ldloc.0
+   IL_017e: ldarg.0
+   IL_017f: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_0184: neg
+   IL_0185: ldc.i4.2
+   IL_0186: div
+   IL_0187: ldloc.s V_8
+   IL_0189: add
+   IL_018a: conv.r4
+   IL_018b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0190: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0195: ldarg.0
+   IL_0196: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_019b: ldloc.s V_9
+   IL_019d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01a2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01a7: ldc.r4 0
+   IL_01ac: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01b1: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_01b6: ldarg.0
+   IL_01b7: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_01bc: ldloc.s V_4
+   IL_01be: ldc.i4.2
+   IL_01bf: add
+   IL_01c0: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_01c5: ldarg.0
+   IL_01c6: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_01cb: ldloc.0
+   IL_01cc: ldarg.0
+   IL_01cd: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_01d2: neg
+   IL_01d3: ldc.i4.2
+   IL_01d4: div
+   IL_01d5: ldloc.s V_6
+   IL_01d7: add
+   IL_01d8: conv.r4
+   IL_01d9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01de: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01e3: ldc.r4 0
+   IL_01e8: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01ed: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_01f2: ldarg.0
+   IL_01f3: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_01f8: ldloc.s V_4
+   IL_01fa: ldc.i4.3
+   IL_01fb: add
+   IL_01fc: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0201: ldarg.0
+   IL_0202: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_0207: ldloc.0
+   IL_0208: ldarg.0
+   IL_0209: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_020e: neg
+   IL_020f: ldc.i4.2
+   IL_0210: div
+   IL_0211: ldloc.s V_8
+   IL_0213: add
+   IL_0214: conv.r4
+   IL_0215: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_021a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_021f: ldarg.0
+   IL_0220: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_0225: ldloc.s V_9
+   IL_0227: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_022c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0231: ldc.r4 0
+   IL_0236: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_023b: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_0240: ldarg.0
+   IL_0241: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0246: ldloc.s V_4
+   IL_0248: ldc.i4.4
+   IL_0249: add
+   IL_024a: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_024f: ldarg.0
+   IL_0250: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_0255: ldloc.0
+   IL_0256: ldarg.0
+   IL_0257: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_025c: neg
+   IL_025d: ldc.i4.2
+   IL_025e: div
+   IL_025f: ldloc.s V_8
+   IL_0261: add
+   IL_0262: conv.r4
+   IL_0263: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0268: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_026d: ldc.r4 0
+   IL_0272: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0277: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_027c: ldarg.0
+   IL_027d: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0282: ldloc.s V_4
+   IL_0284: ldc.i4.5
+   IL_0285: add
+   IL_0286: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_028b: ldarg.0
+   IL_028c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_0291: ldloc.0
+   IL_0292: ldarg.0
+   IL_0293: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_0298: neg
+   IL_0299: ldc.i4.2
+   IL_029a: div
+   IL_029b: ldloc.s V_6
+   IL_029d: add
+   IL_029e: conv.r4
+   IL_029f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02a4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02a9: ldc.r4 0
+   IL_02ae: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02b3: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_02b8: ldarg.0
+   IL_02b9: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_02be: ldloc.s V_5
+   IL_02c0: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_02c5: ldarg.0
+   IL_02c6: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_02cb: ldloc.0
+   IL_02cc: ldarg.0
+   IL_02cd: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_02d2: neg
+   IL_02d3: ldc.i4.2
+   IL_02d4: div
+   IL_02d5: ldloc.s V_6
+   IL_02d7: add
+   IL_02d8: conv.r4
+   IL_02d9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02de: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02e3: ldarg.0
+   IL_02e4: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_02e9: ldloc.s V_7
+   IL_02eb: ldc.r4 1
+   IL_02f0: add
+   IL_02f1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02f6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02fb: ldc.r4 0
+   IL_0300: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0305: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_030a: ldarg.0
+   IL_030b: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0310: ldloc.s V_5
+   IL_0312: ldc.i4.1
+   IL_0313: add
+   IL_0314: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0319: ldarg.0
+   IL_031a: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_031f: ldloc.0
+   IL_0320: ldarg.0
+   IL_0321: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_0326: neg
+   IL_0327: ldc.i4.2
+   IL_0328: div
+   IL_0329: ldloc.s V_8
+   IL_032b: add
+   IL_032c: conv.r4
+   IL_032d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0332: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0337: ldarg.0
+   IL_0338: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_033d: ldloc.s V_9
+   IL_033f: ldc.r4 1
+   IL_0344: add
+   IL_0345: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_034a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_034f: ldc.r4 0
+   IL_0354: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0359: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_035e: ldarg.0
+   IL_035f: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0364: ldloc.s V_5
+   IL_0366: ldc.i4.2
+   IL_0367: add
+   IL_0368: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_036d: ldarg.0
+   IL_036e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_0373: ldloc.0
+   IL_0374: ldarg.0
+   IL_0375: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_037a: neg
+   IL_037b: ldc.i4.2
+   IL_037c: div
+   IL_037d: ldloc.s V_6
+   IL_037f: add
+   IL_0380: conv.r4
+   IL_0381: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0386: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_038b: ldarg.0
+   IL_038c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_0391: ldloc.s V_7
+   IL_0393: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0398: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_039d: ldc.r4 0
+   IL_03a2: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_03a7: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_03ac: ldarg.0
+   IL_03ad: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_03b2: ldloc.s V_5
+   IL_03b4: ldc.i4.3
+   IL_03b5: add
+   IL_03b6: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_03bb: ldarg.0
+   IL_03bc: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_03c1: ldloc.0
+   IL_03c2: ldarg.0
+   IL_03c3: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_03c8: neg
+   IL_03c9: ldc.i4.2
+   IL_03ca: div
+   IL_03cb: ldloc.s V_8
+   IL_03cd: add
+   IL_03ce: conv.r4
+   IL_03cf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_03d4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03d9: ldarg.0
+   IL_03da: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_03df: ldloc.s V_9
+   IL_03e1: ldc.r4 1
+   IL_03e6: add
+   IL_03e7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_03ec: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03f1: ldc.r4 0
+   IL_03f6: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_03fb: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_0400: ldarg.0
+   IL_0401: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0406: ldloc.s V_5
+   IL_0408: ldc.i4.4
+   IL_0409: add
+   IL_040a: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_040f: ldarg.0
+   IL_0410: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_0415: ldloc.0
+   IL_0416: ldarg.0
+   IL_0417: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_041c: neg
+   IL_041d: ldc.i4.2
+   IL_041e: div
+   IL_041f: ldloc.s V_8
+   IL_0421: add
+   IL_0422: conv.r4
+   IL_0423: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0428: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_042d: ldarg.0
+   IL_042e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_0433: ldloc.s V_9
+   IL_0435: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_043a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_043f: ldc.r4 0
+   IL_0444: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0449: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_044e: ldarg.0
+   IL_044f: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0454: ldloc.s V_5
+   IL_0456: ldc.i4.5
+   IL_0457: add
+   IL_0458: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_045d: ldarg.0
+   IL_045e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_0463: ldloc.0
+   IL_0464: ldarg.0
+   IL_0465: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_046a: neg
+   IL_046b: ldc.i4.2
+   IL_046c: div
+   IL_046d: ldloc.s V_6
+   IL_046f: add
+   IL_0470: conv.r4
+   IL_0471: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0476: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_047b: ldarg.0
+   IL_047c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_0481: ldloc.s V_7
+   IL_0483: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0488: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_048d: ldc.r4 0
+   IL_0492: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0497: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_049c: ldloc.3
+   IL_049d: ldc.i4.4
+   IL_049e: add
+   IL_049f: stloc.3
+   IL_04a0: ldloc.s V_4
+   IL_04a2: ldc.i4.6
+   IL_04a3: add
+   IL_04a4: stloc.s V_4
+   IL_04a6: ldloc.s V_5
+   IL_04a8: ldc.i4.6
    IL_04a9: add
-   IL_04aa: stloc.3
-   IL_04ab: ldloc.s V_4
-   IL_04ad: ldc.i4.6
-   IL_04ae: add
-   IL_04af: stloc.s V_4
-   IL_04b1: ldloc.s V_5
-   IL_04b3: ldc.i4.6
-   IL_04b4: add
-   IL_04b5: stloc.s V_5
-   IL_04b7: ldloc.3
+   IL_04aa: stloc.s V_5
+   IL_04ac: ldloc.3
+   IL_04ad: ldarg.0
+   IL_04ae: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_04b3: blt IL_00f3
    IL_04b8: ldarg.0
-   IL_04b9: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_04be: blt IL_00fe
-   IL_04c3: ldarg.0
-   IL_04c4: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
-   IL_04c9: ldloc.0
-   IL_04ca: ldarg.0
-   IL_04cb: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_04d0: neg
-   IL_04d1: conv.r4
-   IL_04d2: ldc.r4 2
-   IL_04d7: div
-   IL_04d8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_04dd: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_04e2: stloc.s V_10
-   IL_04e4: ldarg.0
-   IL_04e5: ldfld System.Int32 Celeste.Water/Surface::rayStartIndex
-   IL_04ea: stloc.s V_11
- + IL_04ec: ldarg this @ Celeste.Mod.SelfishHelper.Entities.WaterBlock+Hooks.Surface_Update(ILContext)
- + IL_04f0: call System.Boolean Celeste.Mod.SelfishHelper.Entities.WaterBlock/Hooks::WaterBlockSurfaceCheck(Celeste.Water/Surface) @ Celeste.Mod.SelfishHelper.Entities.WaterBlock+Hooks.Surface_Update(ILContext)
- + IL_04f5: brtrue IL_08c0 @ Celeste.Mod.SelfishHelper.Entities.WaterBlock+Hooks.Surface_Update(ILContext)
-   IL_04fa: ldarg.0
-   IL_04fb: ldfld System.Collections.Generic.List`1<Celeste.Water/Ray> Celeste.Water/Surface::Rays
-   IL_0500: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Water/Ray>::GetEnumerator()
-   IL_0505: stloc.s V_12
-   IL_0507: br IL_08a4
-   IL_050c: ldloca.s V_12
-   IL_050e: call T System.Collections.Generic.List`1/Enumerator<Celeste.Water/Ray>::get_Current()
-   IL_0513: stloc.s V_13
-   IL_0515: ldloc.s V_13
-   IL_0517: ldfld System.Single Celeste.Water/Ray::Percent
-   IL_051c: ldc.r4 1
-   IL_0521: ble.un.s IL_052f
+   IL_04b9: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Position
+   IL_04be: ldloc.0
+   IL_04bf: ldarg.0
+   IL_04c0: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_04c5: neg
+   IL_04c6: conv.r4
+   IL_04c7: ldc.r4 2
+   IL_04cc: div
+   IL_04cd: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_04d2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04d7: stloc.s V_10
+   IL_04d9: ldarg.0
+   IL_04da: ldfld System.Int32 Celeste.Water/Surface::rayStartIndex
+   IL_04df: stloc.s V_11
+ + IL_10003: ldarg this @ Celeste.Mod.SelfishHelper.Entities.WaterBlock+Hooks.Surface_Update(ILContext)
+ + IL_10004: call System.Boolean Celeste.Mod.SelfishHelper.Entities.WaterBlock/Hooks::WaterBlockSurfaceCheck(Celeste.Water/Surface) @ Celeste.Mod.SelfishHelper.Entities.WaterBlock+Hooks.Surface_Update(ILContext)
+ + IL_10005: brtrue IL_07e4 @ Celeste.Mod.SelfishHelper.Entities.WaterBlock+Hooks.Surface_Update(ILContext)
+   IL_04e1: ldarg.0
+   IL_04e2: ldfld System.Collections.Generic.List`1<Celeste.Water/Ray> Celeste.Water/Surface::Rays
+   IL_04e7: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Water/Ray>::GetEnumerator()
+   IL_04ec: stloc.s V_12
+   IL_04ee: br IL_07c8
+   IL_04f3: ldloca.s V_12
+   IL_04f5: call T System.Collections.Generic.List`1/Enumerator<Celeste.Water/Ray>::get_Current()
+   IL_04fa: stloc.s V_13
+   IL_04fc: ldloc.s V_13
+   IL_04fe: ldfld System.Single Celeste.Water/Ray::Percent
+   IL_0503: ldc.r4 1
+   IL_0508: ble.un.s IL_0516
+   IL_050a: ldloc.s V_13
+   IL_050c: ldc.r4 0
+   IL_0511: callvirt System.Void Celeste.Water/Ray::Reset(System.Single)
+   IL_0516: ldloc.s V_13
+   IL_0518: dup
+   IL_0519: ldfld System.Single Celeste.Water/Ray::Percent
+   IL_051e: call System.Single Monocle.Engine::get_DeltaTime()
    IL_0523: ldloc.s V_13
-   IL_0525: ldc.r4 0
-   IL_052a: callvirt System.Void Celeste.Water/Ray::Reset(System.Single)
-   IL_052f: ldloc.s V_13
-   IL_0531: dup
-   IL_0532: ldfld System.Single Celeste.Water/Ray::Percent
-   IL_0537: call System.Single Monocle.Engine::get_DeltaTime()
-   IL_053c: ldloc.s V_13
-   IL_053e: ldfld System.Single Celeste.Water/Ray::Duration
-   IL_0543: div
-   IL_0544: add
-   IL_0545: stfld System.Single Celeste.Water/Ray::Percent
-   IL_054a: ldc.r4 1
-   IL_054f: stloc.s V_14
-   IL_0551: ldloc.s V_13
-   IL_0553: ldfld System.Single Celeste.Water/Ray::Percent
-   IL_0558: ldc.r4 0.1
-   IL_055d: bge.un.s IL_0583
-   IL_055f: ldloc.s V_13
-   IL_0561: ldfld System.Single Celeste.Water/Ray::Percent
-   IL_0566: ldc.r4 0
-   IL_056b: ldc.r4 0.1
-   IL_0570: ldc.r4 0
-   IL_0575: ldc.r4 1
-   IL_057a: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
-   IL_057f: stloc.s V_14
-   IL_0581: br.s IL_05b3
-   IL_0583: ldloc.s V_13
-   IL_0585: ldfld System.Single Celeste.Water/Ray::Percent
-   IL_058a: ldc.r4 0.9
-   IL_058f: ble.un.s IL_05b3
-   IL_0591: ldloc.s V_13
-   IL_0593: ldfld System.Single Celeste.Water/Ray::Percent
-   IL_0598: ldc.r4 0.9
-   IL_059d: ldc.r4 1
-   IL_05a2: ldc.r4 1
-   IL_05a7: ldc.r4 0
-   IL_05ac: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
-   IL_05b1: stloc.s V_14
-   IL_05b3: ldc.r4 0
-   IL_05b8: ldloc.s V_13
-   IL_05ba: ldfld System.Single Celeste.Water/Ray::Position
-   IL_05bf: ldloc.s V_13
-   IL_05c1: ldfld System.Single Celeste.Water/Ray::Width
-   IL_05c6: ldc.r4 2
-   IL_05cb: div
-   IL_05cc: sub
-   IL_05cd: call System.Single System.Math::Max(System.Single,System.Single)
-   IL_05d2: stloc.s V_15
-   IL_05d4: ldarg.0
-   IL_05d5: ldfld System.Int32 Celeste.Water/Surface::Width
-   IL_05da: conv.r4
-   IL_05db: ldloc.s V_13
-   IL_05dd: ldfld System.Single Celeste.Water/Ray::Position
-   IL_05e2: ldloc.s V_13
-   IL_05e4: ldfld System.Single Celeste.Water/Ray::Width
-   IL_05e9: ldc.r4 2
-   IL_05ee: div
-   IL_05ef: add
-   IL_05f0: call System.Single System.Math::Min(System.Single,System.Single)
-   IL_05f5: stloc.s V_16
-   IL_05f7: ldarg.0
-   IL_05f8: ldfld System.Int32 Celeste.Water/Surface::BodyHeight
-   IL_05fd: conv.r4
-   IL_05fe: ldc.r4 0.7
-   IL_0603: ldloc.s V_13
-   IL_0605: ldfld System.Single Celeste.Water/Ray::Length
-   IL_060a: mul
-   IL_060b: call System.Single System.Math::Min(System.Single,System.Single)
-   IL_0610: stloc.s V_17
-   IL_0612: ldc.r4 0.3
-   IL_0617: ldloc.s V_13
-   IL_0619: ldfld System.Single Celeste.Water/Ray::Length
-   IL_061e: mul
-   IL_061f: stloc.s V_18
-   IL_0621: ldloc.s V_10
-   IL_0623: ldloc.0
-   IL_0624: ldloc.s V_15
-   IL_0626: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_062b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0630: ldarg.0
-   IL_0631: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_0636: ldarg.0
-   IL_0637: ldloc.s V_15
-   IL_0639: callvirt System.Single Celeste.Water/Surface::GetSurfaceHeight(System.Single)
-   IL_063e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0643: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0648: stloc.s V_19
-   IL_064a: ldloc.s V_10
-   IL_064c: ldloc.0
-   IL_064d: ldloc.s V_16
-   IL_064f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0654: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0659: ldarg.0
-   IL_065a: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_065f: ldarg.0
-   IL_0660: ldloc.s V_16
-   IL_0662: callvirt System.Single Celeste.Water/Surface::GetSurfaceHeight(System.Single)
-   IL_0667: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_066c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0671: stloc.s V_20
-   IL_0673: ldloc.s V_10
-   IL_0675: ldloc.0
-   IL_0676: ldloc.s V_16
-   IL_0678: ldloc.s V_18
-   IL_067a: sub
-   IL_067b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0680: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0685: ldarg.0
-   IL_0686: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_068b: ldloc.s V_17
-   IL_068d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0692: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0697: stloc.s V_21
-   IL_0699: ldloc.s V_10
-   IL_069b: ldloc.0
-   IL_069c: ldloc.s V_15
-   IL_069e: ldloc.s V_18
-   IL_06a0: sub
-   IL_06a1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_06a6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_06ab: ldarg.0
-   IL_06ac: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
-   IL_06b1: ldloc.s V_17
-   IL_06b3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_06b8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_06bd: stloc.s V_22
-   IL_06bf: ldarg.0
-   IL_06c0: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_06c5: ldloc.s V_11
-   IL_06c7: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_06cc: ldloc.s V_19
-   IL_06ce: ldc.r4 0
-   IL_06d3: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_06d8: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_06dd: ldarg.0
-   IL_06de: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_06e3: ldloc.s V_11
-   IL_06e5: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_06ea: ldsfld Microsoft.Xna.Framework.Color Celeste.Water::RayTopColor
- + IL_06ef: ldarg.0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_06f0: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_06f5: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_06fa: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+   IL_0525: ldfld System.Single Celeste.Water/Ray::Duration
+   IL_052a: div
+   IL_052b: add
+   IL_052c: stfld System.Single Celeste.Water/Ray::Percent
+   IL_0531: ldc.r4 1
+   IL_0536: stloc.s V_14
+   IL_0538: ldloc.s V_13
+   IL_053a: ldfld System.Single Celeste.Water/Ray::Percent
+   IL_053f: ldc.r4 0.1
+   IL_0544: bge.un.s IL_056a
+   IL_0546: ldloc.s V_13
+   IL_0548: ldfld System.Single Celeste.Water/Ray::Percent
+   IL_054d: ldc.r4 0
+   IL_0552: ldc.r4 0.1
+   IL_0557: ldc.r4 0
+   IL_055c: ldc.r4 1
+   IL_0561: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0566: stloc.s V_14
+   IL_0568: br.s IL_059a
+   IL_056a: ldloc.s V_13
+   IL_056c: ldfld System.Single Celeste.Water/Ray::Percent
+   IL_0571: ldc.r4 0.9
+   IL_0576: ble.un.s IL_059a
+   IL_0578: ldloc.s V_13
+   IL_057a: ldfld System.Single Celeste.Water/Ray::Percent
+   IL_057f: ldc.r4 0.9
+   IL_0584: ldc.r4 1
+   IL_0589: ldc.r4 1
+   IL_058e: ldc.r4 0
+   IL_0593: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_0598: stloc.s V_14
+   IL_059a: ldc.r4 0
+   IL_059f: ldloc.s V_13
+   IL_05a1: ldfld System.Single Celeste.Water/Ray::Position
+   IL_05a6: ldloc.s V_13
+   IL_05a8: ldfld System.Single Celeste.Water/Ray::Width
+   IL_05ad: ldc.r4 2
+   IL_05b2: div
+   IL_05b3: sub
+   IL_05b4: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_05b9: stloc.s V_15
+   IL_05bb: ldarg.0
+   IL_05bc: ldfld System.Int32 Celeste.Water/Surface::Width
+   IL_05c1: conv.r4
+   IL_05c2: ldloc.s V_13
+   IL_05c4: ldfld System.Single Celeste.Water/Ray::Position
+   IL_05c9: ldloc.s V_13
+   IL_05cb: ldfld System.Single Celeste.Water/Ray::Width
+   IL_05d0: ldc.r4 2
+   IL_05d5: div
+   IL_05d6: add
+   IL_05d7: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_05dc: stloc.s V_16
+   IL_05de: ldarg.0
+   IL_05df: ldfld System.Int32 Celeste.Water/Surface::BodyHeight
+   IL_05e4: conv.r4
+   IL_05e5: ldc.r4 0.7
+   IL_05ea: ldloc.s V_13
+   IL_05ec: ldfld System.Single Celeste.Water/Ray::Length
+   IL_05f1: mul
+   IL_05f2: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_05f7: stloc.s V_17
+   IL_05f9: ldc.r4 0.3
+   IL_05fe: ldloc.s V_13
+   IL_0600: ldfld System.Single Celeste.Water/Ray::Length
+   IL_0605: mul
+   IL_0606: stloc.s V_18
+   IL_0608: ldloc.s V_10
+   IL_060a: ldloc.0
+   IL_060b: ldloc.s V_15
+   IL_060d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0612: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0617: ldarg.0
+   IL_0618: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_061d: ldarg.0
+   IL_061e: ldloc.s V_15
+   IL_0620: callvirt System.Single Celeste.Water/Surface::GetSurfaceHeight(System.Single)
+   IL_0625: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_062a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_062f: stloc.s V_19
+   IL_0631: ldloc.s V_10
+   IL_0633: ldloc.0
+   IL_0634: ldloc.s V_16
+   IL_0636: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_063b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0640: ldarg.0
+   IL_0641: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_0646: ldarg.0
+   IL_0647: ldloc.s V_16
+   IL_0649: callvirt System.Single Celeste.Water/Surface::GetSurfaceHeight(System.Single)
+   IL_064e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0653: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0658: stloc.s V_20
+   IL_065a: ldloc.s V_10
+   IL_065c: ldloc.0
+   IL_065d: ldloc.s V_16
+   IL_065f: ldloc.s V_18
+   IL_0661: sub
+   IL_0662: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0667: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_066c: ldarg.0
+   IL_066d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_0672: ldloc.s V_17
+   IL_0674: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0679: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_067e: stloc.s V_21
+   IL_0680: ldloc.s V_10
+   IL_0682: ldloc.0
+   IL_0683: ldloc.s V_15
+   IL_0685: ldloc.s V_18
+   IL_0687: sub
+   IL_0688: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_068d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0692: ldarg.0
+   IL_0693: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Water/Surface::Outwards
+   IL_0698: ldloc.s V_17
+   IL_069a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_069f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_06a4: stloc.s V_22
+   IL_06a6: ldarg.0
+   IL_06a7: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_06ac: ldloc.s V_11
+   IL_06ae: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_06b3: ldloc.s V_19
+   IL_06b5: ldc.r4 0
+   IL_06ba: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_06bf: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_06c4: ldarg.0
+   IL_06c5: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_06ca: ldloc.s V_11
+   IL_06cc: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_06d1: ldsfld Microsoft.Xna.Framework.Color Celeste.Water::RayTopColor
+ + IL_10006: ldarg.0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10007: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10008: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10009: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
        => Invoke: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface+<>c__DisplayClass11_0.<WaterSurface_Update>b__0(Object)
- + IL_06ff: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Object,System.Object>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0704: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0705: ldloc.s V_13 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0707: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_070c: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0711: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1000a: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Object,System.Object>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1000b: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1000c: ldloc.s V_13 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1000d: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1000e: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1000f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
        => Invoke: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface+<>c__DisplayClass11_0.<WaterSurface_Update>b__1(Ray)
- + IL_0716: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Celeste.Water/Ray,Celeste.Water/Ray>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_071b: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_071c: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0721: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0726: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10010: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Celeste.Water/Ray,Celeste.Water/Ray>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10011: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10012: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10013: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
        => Invoke: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface+<>c__DisplayClass11_0.<WaterSurface_Update>b__2(Color)
- + IL_072b: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
-   IL_0730: ldloc.s V_14
-   IL_0732: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_0737: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
-   IL_073c: ldarg.0
-   IL_073d: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_0742: ldloc.s V_11
-   IL_0744: ldc.i4.1
-   IL_0745: add
-   IL_0746: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_074b: ldloc.s V_20
-   IL_074d: ldc.r4 0
-   IL_0752: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0757: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_075c: ldarg.0
-   IL_075d: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_0762: ldloc.s V_11
-   IL_0764: ldc.i4.1
-   IL_0765: add
-   IL_0766: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_076b: ldsfld Microsoft.Xna.Framework.Color Celeste.Water::RayTopColor
- + IL_0770: ldarg.0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0771: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0776: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_077b: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10015: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+   IL_06d6: ldloc.s V_14
+   IL_06d8: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_06dd: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
+   IL_06e2: ldarg.0
+   IL_06e3: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_06e8: ldloc.s V_11
+   IL_06ea: ldc.i4.1
+   IL_06eb: add
+   IL_06ec: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_06f1: ldloc.s V_20
+   IL_06f3: ldc.r4 0
+   IL_06f8: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_06fd: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_0702: ldarg.0
+   IL_0703: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0708: ldloc.s V_11
+   IL_070a: ldc.i4.1
+   IL_070b: add
+   IL_070c: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0711: ldsfld Microsoft.Xna.Framework.Color Celeste.Water::RayTopColor
+ + IL_10016: ldarg.0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10017: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10018: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10019: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
        => Invoke: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface+<>c__DisplayClass11_0.<WaterSurface_Update>b__0(Object)
- + IL_0780: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Object,System.Object>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0785: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0786: ldloc.s V_13 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0788: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_078d: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0792: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1001a: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Object,System.Object>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1001b: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1001c: ldloc.s V_13 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1001d: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1001e: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1001f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
        => Invoke: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface+<>c__DisplayClass11_0.<WaterSurface_Update>b__1(Ray)
- + IL_0797: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Celeste.Water/Ray,Celeste.Water/Ray>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_079c: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_079d: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_07a2: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_07a7: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10020: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Celeste.Water/Ray,Celeste.Water/Ray>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10021: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10022: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10023: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10024: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
        => Invoke: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface+<>c__DisplayClass11_0.<WaterSurface_Update>b__2(Color)
- + IL_07ac: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
-   IL_07b1: ldloc.s V_14
-   IL_07b3: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_07b8: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
-   IL_07bd: ldarg.0
-   IL_07be: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_07c3: ldloc.s V_11
-   IL_07c5: ldc.i4.2
-   IL_07c6: add
-   IL_07c7: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_07cc: ldloc.s V_22
-   IL_07ce: ldc.r4 0
-   IL_07d3: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_07d8: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_07dd: ldarg.0
-   IL_07de: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_07e3: ldloc.s V_11
-   IL_07e5: ldc.i4.3
-   IL_07e6: add
-   IL_07e7: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_07ec: ldloc.s V_20
-   IL_07ee: ldc.r4 0
-   IL_07f3: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_07f8: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_07fd: ldarg.0
-   IL_07fe: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_0803: ldloc.s V_11
-   IL_0805: ldc.i4.3
-   IL_0806: add
-   IL_0807: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_080c: ldsfld Microsoft.Xna.Framework.Color Celeste.Water::RayTopColor
- + IL_0811: ldarg.0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0812: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0817: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_081c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10025: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+   IL_0716: ldloc.s V_14
+   IL_0718: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_071d: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
+   IL_0722: ldarg.0
+   IL_0723: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0728: ldloc.s V_11
+   IL_072a: ldc.i4.2
+   IL_072b: add
+   IL_072c: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0731: ldloc.s V_22
+   IL_0733: ldc.r4 0
+   IL_0738: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_073d: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_0742: ldarg.0
+   IL_0743: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0748: ldloc.s V_11
+   IL_074a: ldc.i4.3
+   IL_074b: add
+   IL_074c: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0751: ldloc.s V_20
+   IL_0753: ldc.r4 0
+   IL_0758: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_075d: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_0762: ldarg.0
+   IL_0763: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0768: ldloc.s V_11
+   IL_076a: ldc.i4.3
+   IL_076b: add
+   IL_076c: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0771: ldsfld Microsoft.Xna.Framework.Color Celeste.Water::RayTopColor
+ + IL_10026: ldarg.0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10027: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10028: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10029: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
        => Invoke: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface+<>c__DisplayClass11_0.<WaterSurface_Update>b__0(Object)
- + IL_0821: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Object,System.Object>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0826: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0827: ldloc.s V_13 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0829: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_082e: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0833: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1002a: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Object,System.Object>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1002b: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1002c: ldloc.s V_13 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1002d: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1002e: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_1002f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
        => Invoke: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface+<>c__DisplayClass11_0.<WaterSurface_Update>b__1(Ray)
- + IL_0838: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Celeste.Water/Ray,Celeste.Water/Ray>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_083d: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_083e: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0843: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
- + IL_0848: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10030: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Celeste.Water/Ray,Celeste.Water/Ray>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10031: pop @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10032: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10033: ldc.i4 0 @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+ + IL_10034: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
        => Invoke: Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface+<>c__DisplayClass11_0.<WaterSurface_Update>b__2(Color)
- + IL_084d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
-   IL_0852: ldloc.s V_14
-   IL_0854: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_0859: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
-   IL_085e: ldarg.0
-   IL_085f: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_0864: ldloc.s V_11
-   IL_0866: ldc.i4.4
-   IL_0867: add
-   IL_0868: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_086d: ldloc.s V_21
-   IL_086f: ldc.r4 0
-   IL_0874: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0879: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_087e: ldarg.0
-   IL_087f: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
-   IL_0884: ldloc.s V_11
-   IL_0886: ldc.i4.5
-   IL_0887: add
-   IL_0888: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
-   IL_088d: ldloc.s V_22
-   IL_088f: ldc.r4 0
-   IL_0894: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0899: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
-   IL_089e: ldloc.s V_11
-   IL_08a0: ldc.i4.6
-   IL_08a1: add
-   IL_08a2: stloc.s V_11
-   IL_08a4: ldloca.s V_12
-   IL_08a6: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Water/Ray>::MoveNext()
-   IL_08ab: brtrue IL_050c
-   IL_08b0: leave.s IL_08c0
-   IL_08b2: ldloca.s V_12
-   IL_08b4: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Water/Ray>
-   IL_08ba: callvirt System.Void System.IDisposable::Dispose()
-   IL_08bf: endfinally
-   IL_08c0: ret
+ + IL_10035: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.ScuffedHelper.FourSurfaceWater+CustomSurface.WaterSurface_Update(ILContext)
+   IL_0776: ldloc.s V_14
+   IL_0778: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_077d: stfld Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Graphics.VertexPositionColor::Color
+   IL_0782: ldarg.0
+   IL_0783: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_0788: ldloc.s V_11
+   IL_078a: ldc.i4.4
+   IL_078b: add
+   IL_078c: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_0791: ldloc.s V_21
+   IL_0793: ldc.r4 0
+   IL_0798: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_079d: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_07a2: ldarg.0
+   IL_07a3: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.Water/Surface::mesh
+   IL_07a8: ldloc.s V_11
+   IL_07aa: ldc.i4.5
+   IL_07ab: add
+   IL_07ac: ldelema Microsoft.Xna.Framework.Graphics.VertexPositionColor
+   IL_07b1: ldloc.s V_22
+   IL_07b3: ldc.r4 0
+   IL_07b8: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_07bd: stfld Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Graphics.VertexPositionColor::Position
+   IL_07c2: ldloc.s V_11
+   IL_07c4: ldc.i4.6
+   IL_07c5: add
+   IL_07c6: stloc.s V_11
+   IL_07c8: ldloca.s V_12
+   IL_07ca: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Water/Ray>::MoveNext()
+   IL_07cf: brtrue IL_04f3
+   IL_07d4: leave.s IL_07e4
+   IL_07d6: ldloca.s V_12
+   IL_07d8: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Water/Ray>
+   IL_07de: callvirt System.Void System.IDisposable::Dispose()
+   IL_07e3: endfinally
+   IL_07e4: ret

@@ -1,265 +1,265 @@
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedDecal() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Flagline::get_From()
+   IL_0006: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_000b: ldarg.0
-   IL_000c: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Flagline::get_From()
+   IL_000c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Flagline::To
    IL_0011: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_0016: ldarg.0
-   IL_0017: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Flagline::To
-   IL_001c: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_0021: blt.s IL_002b
-   IL_0023: ldarg.0
-   IL_0024: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Flagline::To
-   IL_0029: br.s IL_0031
-   IL_002b: ldarg.0
-   IL_002c: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Flagline::get_From()
-   IL_0031: stloc.0
+   IL_0016: blt.s IL_0020
+   IL_0018: ldarg.0
+   IL_0019: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Flagline::To
+   IL_001e: br.s IL_0026
+   IL_0020: ldarg.0
+   IL_0021: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Flagline::get_From()
+   IL_0026: stloc.0
+   IL_0027: ldarg.0
+   IL_0028: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Flagline::get_From()
+   IL_002d: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_0032: ldarg.0
-   IL_0033: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Flagline::get_From()
+   IL_0033: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Flagline::To
    IL_0038: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_003d: ldarg.0
-   IL_003e: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Flagline::To
-   IL_0043: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_0048: blt.s IL_0052
-   IL_004a: ldarg.0
-   IL_004b: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Flagline::get_From()
-   IL_0050: br.s IL_0058
-   IL_0052: ldarg.0
-   IL_0053: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Flagline::To
-   IL_0058: stloc.1
-   IL_0059: ldloc.0
-   IL_005a: ldloc.1
-   IL_005b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0060: stloc.s V_10
-   IL_0062: ldloca.s V_10
-   IL_0064: call System.Single Microsoft.Xna.Framework.Vector2::Length()
-   IL_0069: stloc.2
-   IL_006a: ldloc.2
-   IL_006b: ldc.r4 8
-   IL_0070: div
-   IL_0071: stloc.3
-   IL_0072: ldloca.s V_4
-   IL_0074: ldloc.0
-   IL_0075: ldloc.1
-   IL_0076: ldloc.1
-   IL_0077: ldloc.0
-   IL_0078: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_007d: ldc.r4 2
-   IL_0082: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0087: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
-   IL_008c: ldloc.3
-   IL_008d: ldarg.0
-   IL_008e: ldfld System.Single Celeste.Flagline::waveTimer
-   IL_0093: conv.r8
-   IL_0094: call System.Double System.Math::Sin(System.Double)
-   IL_0099: conv.r4
-   IL_009a: ldloc.3
-   IL_009b: mul
-   IL_009c: ldc.r4 0.3
-   IL_00a1: mul
-   IL_00a2: add
-   IL_00a3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_00a8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_00ad: call System.Void Monocle.SimpleCurve::.ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_00b2: ldarg.0
-   IL_00b3: ldloc.s V_4
-   IL_00b5: call System.Boolean Celeste.Flagline::IsVisible(Monocle.SimpleCurve)
-   IL_00ba: brtrue.s IL_00bd
-   IL_00bc: ret
-   IL_00bd: ldloc.0
-   IL_00be: stloc.s V_5
-   IL_00c0: ldloc.0
-   IL_00c1: stloc.s V_6
-   IL_00c3: ldc.r4 0
-   IL_00c8: stloc.s V_7
-   IL_00ca: ldc.i4.0
-   IL_00cb: stloc.s V_8
-   IL_00cd: ldc.i4.0
-   IL_00ce: stloc.s V_9
-   IL_00d0: br IL_02eb
-   IL_00d5: ldarg.0
-   IL_00d6: ldfld Celeste.Flagline/Cloth[] Celeste.Flagline::clothes
-   IL_00db: ldloc.s V_8
-   IL_00dd: ldarg.0
-   IL_00de: ldfld Celeste.Flagline/Cloth[] Celeste.Flagline::clothes
-   IL_00e3: ldlen
-   IL_00e4: conv.i4
-   IL_00e5: rem
-   IL_00e6: ldelem.any Celeste.Flagline/Cloth
-   IL_00eb: stloc.s V_11
-   IL_00ed: ldloc.s V_7
-   IL_00ef: ldloc.s V_9
-   IL_00f1: brtrue.s IL_00fc
-   IL_00f3: ldloc.s V_11
-   IL_00f5: ldfld System.Int32 Celeste.Flagline/Cloth::Step
-   IL_00fa: br.s IL_0103
-   IL_00fc: ldloc.s V_11
-   IL_00fe: ldfld System.Int32 Celeste.Flagline/Cloth::Length
-   IL_0103: conv.r4
-   IL_0104: ldloc.2
-   IL_0105: div
-   IL_0106: add
-   IL_0107: stloc.s V_7
-   IL_0109: ldloca.s V_4
-   IL_010b: ldloc.s V_7
-   IL_010d: call Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::GetPoint(System.Single)
-   IL_0112: stloc.s V_6
-   IL_0114: ldloc.s V_5
-   IL_0116: ldloc.s V_6
-   IL_0118: ldarg.0
-   IL_0119: ldfld Microsoft.Xna.Framework.Color Celeste.Flagline::lineColor
-   IL_011e: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
-   IL_0123: ldloc.s V_7
-   IL_0125: ldc.r4 1
-   IL_012a: clt
-   IL_012c: ldloc.s V_9
-   IL_012e: and
-   IL_012f: brfalse IL_02e0
-   IL_0134: ldloc.s V_11
-   IL_0136: ldfld System.Int32 Celeste.Flagline/Cloth::Length
-   IL_013b: conv.r4
-   IL_013c: ldarg.0
-   IL_013d: ldfld System.Single Celeste.Flagline::ClothDroopAmount
-   IL_0142: mul
-   IL_0143: stloc.s V_12
-   IL_0145: ldloca.s V_13
-   IL_0147: ldloc.s V_5
-   IL_0149: ldloc.s V_6
-   IL_014b: ldloc.s V_5
-   IL_014d: ldloc.s V_6
-   IL_014f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0154: ldc.r4 2
-   IL_0159: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_015e: ldc.r4 0
-   IL_0163: ldloc.s V_12
-   IL_0165: ldarg.0
-   IL_0166: ldfld System.Single Celeste.Flagline::waveTimer
-   IL_016b: ldc.r4 2
-   IL_0170: mul
-   IL_0171: ldloc.s V_7
-   IL_0173: add
-   IL_0174: conv.r8
-   IL_0175: call System.Double System.Math::Sin(System.Double)
-   IL_017a: conv.r4
-   IL_017b: ldloc.s V_12
-   IL_017d: mul
-   IL_017e: ldc.r4 0.4
-   IL_0183: mul
-   IL_0184: add
-   IL_0185: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_018a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_018f: call System.Void Monocle.SimpleCurve::.ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0194: ldloc.s V_5
-   IL_0196: stloc.s V_14
-   IL_0198: ldc.r4 1
-   IL_019d: stloc.s V_15
-   IL_019f: br.s IL_0215
-   IL_01a1: ldloca.s V_13
-   IL_01a3: ldloc.s V_15
-   IL_01a5: ldloc.s V_11
-   IL_01a7: ldfld System.Int32 Celeste.Flagline/Cloth::Length
-   IL_01ac: conv.r4
-   IL_01ad: div
-   IL_01ae: call Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::GetPoint(System.Single)
-   IL_01b3: stloc.s V_16
-   IL_01b5: ldloc.s V_16
-   IL_01b7: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_01bc: ldloc.s V_14
-   IL_01be: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_01c3: beq.s IL_020b
-   IL_01c5: ldloc.s V_14
-   IL_01c7: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_01cc: ldloc.s V_14
-   IL_01ce: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_01d3: ldloc.s V_16
-   IL_01d5: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_01da: ldloc.s V_14
-   IL_01dc: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_01e1: sub
-   IL_01e2: ldc.r4 1
-   IL_01e7: add
-   IL_01e8: ldloc.s V_11
-   IL_01ea: ldfld System.Int32 Celeste.Flagline/Cloth::Height
-   IL_01ef: conv.r4
-   IL_01f0: ldarg.0
-   IL_01f1: ldfld Microsoft.Xna.Framework.Color[] Celeste.Flagline::colors
-   IL_01f6: ldloc.s V_11
-   IL_01f8: ldfld System.Int32 Celeste.Flagline/Cloth::Color
-   IL_01fd: ldelem.any Microsoft.Xna.Framework.Color
-   IL_0202: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0207: ldloc.s V_16
-   IL_0209: stloc.s V_14
-   IL_020b: ldloc.s V_15
-   IL_020d: ldc.r4 1
-   IL_0212: add
-   IL_0213: stloc.s V_15
-   IL_0215: ldloc.s V_15
-   IL_0217: ldloc.s V_11
-   IL_0219: ldfld System.Int32 Celeste.Flagline/Cloth::Length
-   IL_021e: conv.r4
-   IL_021f: ble IL_01a1
-   IL_0224: ldloc.s V_5
-   IL_0226: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_022b: ldloc.s V_5
-   IL_022d: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_0232: ldc.r4 1
-   IL_0237: ldloc.s V_11
-   IL_0239: ldfld System.Int32 Celeste.Flagline/Cloth::Height
-   IL_023e: conv.r4
-   IL_023f: ldarg.0
-   IL_0240: ldfld Microsoft.Xna.Framework.Color[] Celeste.Flagline::highlights
-   IL_0245: ldloc.s V_11
-   IL_0247: ldfld System.Int32 Celeste.Flagline/Cloth::Color
-   IL_024c: ldelem.any Microsoft.Xna.Framework.Color
-   IL_0251: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0256: ldloc.s V_6
-   IL_0258: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_025d: ldloc.s V_6
-   IL_025f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_0264: ldc.r4 1
-   IL_0269: ldloc.s V_11
-   IL_026b: ldfld System.Int32 Celeste.Flagline/Cloth::Height
-   IL_0270: conv.r4
-   IL_0271: ldarg.0
-   IL_0272: ldfld Microsoft.Xna.Framework.Color[] Celeste.Flagline::highlights
-   IL_0277: ldloc.s V_11
-   IL_0279: ldfld System.Int32 Celeste.Flagline/Cloth::Color
-   IL_027e: ldelem.any Microsoft.Xna.Framework.Color
-   IL_0283: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0288: ldloc.s V_5
-   IL_028a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_028f: ldloc.s V_5
-   IL_0291: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_0296: ldc.r4 1
-   IL_029b: sub
-   IL_029c: ldc.r4 1
-   IL_02a1: ldc.r4 3
-   IL_02a6: ldarg.0
-   IL_02a7: ldfld Microsoft.Xna.Framework.Color Celeste.Flagline::pinColor
-   IL_02ac: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_02b1: ldloc.s V_6
-   IL_02b3: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_02b8: ldloc.s V_6
-   IL_02ba: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_02bf: ldc.r4 1
-   IL_02c4: sub
-   IL_02c5: ldc.r4 1
-   IL_02ca: ldc.r4 3
-   IL_02cf: ldarg.0
-   IL_02d0: ldfld Microsoft.Xna.Framework.Color Celeste.Flagline::pinColor
-   IL_02d5: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_02da: ldloc.s V_8
-   IL_02dc: ldc.i4.1
-   IL_02dd: add
-   IL_02de: stloc.s V_8
-   IL_02e0: ldloc.s V_6
-   IL_02e2: stloc.s V_5
-   IL_02e4: ldloc.s V_9
-   IL_02e6: ldc.i4.0
-   IL_02e7: ceq
-   IL_02e9: stloc.s V_9
-   IL_02eb: ldloc.s V_7
-   IL_02ed: ldc.r4 1
-   IL_02f2: blt IL_00d5
-   IL_02f7: ret
+   IL_003d: blt.s IL_0047
+   IL_003f: ldarg.0
+   IL_0040: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Flagline::get_From()
+   IL_0045: br.s IL_004d
+   IL_0047: ldarg.0
+   IL_0048: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Flagline::To
+   IL_004d: stloc.1
+   IL_004e: ldloc.0
+   IL_004f: ldloc.1
+   IL_0050: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0055: stloc.s V_10
+   IL_0057: ldloca.s V_10
+   IL_0059: call System.Single Microsoft.Xna.Framework.Vector2::Length()
+   IL_005e: stloc.2
+   IL_005f: ldloc.2
+   IL_0060: ldc.r4 8
+   IL_0065: div
+   IL_0066: stloc.3
+   IL_0067: ldloca.s V_4
+   IL_0069: ldloc.0
+   IL_006a: ldloc.1
+   IL_006b: ldloc.1
+   IL_006c: ldloc.0
+   IL_006d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0072: ldc.r4 2
+   IL_0077: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_007c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0081: ldloc.3
+   IL_0082: ldarg.0
+   IL_0083: ldfld System.Single Celeste.Flagline::waveTimer
+   IL_0088: conv.r8
+   IL_0089: call System.Double System.Math::Sin(System.Double)
+   IL_008e: conv.r4
+   IL_008f: ldloc.3
+   IL_0090: mul
+   IL_0091: ldc.r4 0.3
+   IL_0096: mul
+   IL_0097: add
+   IL_0098: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_009d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a2: call System.Void Monocle.SimpleCurve::.ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a7: ldarg.0
+   IL_00a8: ldloc.s V_4
+   IL_00aa: call System.Boolean Celeste.Flagline::IsVisible(Monocle.SimpleCurve)
+   IL_00af: brtrue.s IL_00b2
+   IL_00b1: ret
+   IL_00b2: ldloc.0
+   IL_00b3: stloc.s V_5
+   IL_00b5: ldloc.0
+   IL_00b6: stloc.s V_6
+   IL_00b8: ldc.r4 0
+   IL_00bd: stloc.s V_7
+   IL_00bf: ldc.i4.0
+   IL_00c0: stloc.s V_8
+   IL_00c2: ldc.i4.0
+   IL_00c3: stloc.s V_9
+   IL_00c5: br IL_02e0
+   IL_00ca: ldarg.0
+   IL_00cb: ldfld Celeste.Flagline/Cloth[] Celeste.Flagline::clothes
+   IL_00d0: ldloc.s V_8
+   IL_00d2: ldarg.0
+   IL_00d3: ldfld Celeste.Flagline/Cloth[] Celeste.Flagline::clothes
+   IL_00d8: ldlen
+   IL_00d9: conv.i4
+   IL_00da: rem
+   IL_00db: ldelem.any Celeste.Flagline/Cloth
+   IL_00e0: stloc.s V_11
+   IL_00e2: ldloc.s V_7
+   IL_00e4: ldloc.s V_9
+   IL_00e6: brtrue.s IL_00f1
+   IL_00e8: ldloc.s V_11
+   IL_00ea: ldfld System.Int32 Celeste.Flagline/Cloth::Step
+   IL_00ef: br.s IL_00f8
+   IL_00f1: ldloc.s V_11
+   IL_00f3: ldfld System.Int32 Celeste.Flagline/Cloth::Length
+   IL_00f8: conv.r4
+   IL_00f9: ldloc.2
+   IL_00fa: div
+   IL_00fb: add
+   IL_00fc: stloc.s V_7
+   IL_00fe: ldloca.s V_4
+   IL_0100: ldloc.s V_7
+   IL_0102: call Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::GetPoint(System.Single)
+   IL_0107: stloc.s V_6
+   IL_0109: ldloc.s V_5
+   IL_010b: ldloc.s V_6
+   IL_010d: ldarg.0
+   IL_010e: ldfld Microsoft.Xna.Framework.Color Celeste.Flagline::lineColor
+   IL_0113: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0118: ldloc.s V_7
+   IL_011a: ldc.r4 1
+   IL_011f: clt
+   IL_0121: ldloc.s V_9
+   IL_0123: and
+   IL_0124: brfalse IL_02d5
+   IL_0129: ldloc.s V_11
+   IL_012b: ldfld System.Int32 Celeste.Flagline/Cloth::Length
+   IL_0130: conv.r4
+   IL_0131: ldarg.0
+   IL_0132: ldfld System.Single Celeste.Flagline::ClothDroopAmount
+   IL_0137: mul
+   IL_0138: stloc.s V_12
+   IL_013a: ldloca.s V_13
+   IL_013c: ldloc.s V_5
+   IL_013e: ldloc.s V_6
+   IL_0140: ldloc.s V_5
+   IL_0142: ldloc.s V_6
+   IL_0144: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0149: ldc.r4 2
+   IL_014e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0153: ldc.r4 0
+   IL_0158: ldloc.s V_12
+   IL_015a: ldarg.0
+   IL_015b: ldfld System.Single Celeste.Flagline::waveTimer
+   IL_0160: ldc.r4 2
+   IL_0165: mul
+   IL_0166: ldloc.s V_7
+   IL_0168: add
+   IL_0169: conv.r8
+   IL_016a: call System.Double System.Math::Sin(System.Double)
+   IL_016f: conv.r4
+   IL_0170: ldloc.s V_12
+   IL_0172: mul
+   IL_0173: ldc.r4 0.4
+   IL_0178: mul
+   IL_0179: add
+   IL_017a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_017f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0184: call System.Void Monocle.SimpleCurve::.ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0189: ldloc.s V_5
+   IL_018b: stloc.s V_14
+   IL_018d: ldc.r4 1
+   IL_0192: stloc.s V_15
+   IL_0194: br.s IL_020a
+   IL_0196: ldloca.s V_13
+   IL_0198: ldloc.s V_15
+   IL_019a: ldloc.s V_11
+   IL_019c: ldfld System.Int32 Celeste.Flagline/Cloth::Length
+   IL_01a1: conv.r4
+   IL_01a2: div
+   IL_01a3: call Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::GetPoint(System.Single)
+   IL_01a8: stloc.s V_16
+   IL_01aa: ldloc.s V_16
+   IL_01ac: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_01b1: ldloc.s V_14
+   IL_01b3: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_01b8: beq.s IL_0200
+   IL_01ba: ldloc.s V_14
+   IL_01bc: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_01c1: ldloc.s V_14
+   IL_01c3: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_01c8: ldloc.s V_16
+   IL_01ca: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_01cf: ldloc.s V_14
+   IL_01d1: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_01d6: sub
+   IL_01d7: ldc.r4 1
+   IL_01dc: add
+   IL_01dd: ldloc.s V_11
+   IL_01df: ldfld System.Int32 Celeste.Flagline/Cloth::Height
+   IL_01e4: conv.r4
+   IL_01e5: ldarg.0
+   IL_01e6: ldfld Microsoft.Xna.Framework.Color[] Celeste.Flagline::colors
+   IL_01eb: ldloc.s V_11
+   IL_01ed: ldfld System.Int32 Celeste.Flagline/Cloth::Color
+   IL_01f2: ldelem.any Microsoft.Xna.Framework.Color
+   IL_01f7: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_01fc: ldloc.s V_16
+   IL_01fe: stloc.s V_14
+   IL_0200: ldloc.s V_15
+   IL_0202: ldc.r4 1
+   IL_0207: add
+   IL_0208: stloc.s V_15
+   IL_020a: ldloc.s V_15
+   IL_020c: ldloc.s V_11
+   IL_020e: ldfld System.Int32 Celeste.Flagline/Cloth::Length
+   IL_0213: conv.r4
+   IL_0214: ble IL_0196
+   IL_0219: ldloc.s V_5
+   IL_021b: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0220: ldloc.s V_5
+   IL_0222: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0227: ldc.r4 1
+   IL_022c: ldloc.s V_11
+   IL_022e: ldfld System.Int32 Celeste.Flagline/Cloth::Height
+   IL_0233: conv.r4
+   IL_0234: ldarg.0
+   IL_0235: ldfld Microsoft.Xna.Framework.Color[] Celeste.Flagline::highlights
+   IL_023a: ldloc.s V_11
+   IL_023c: ldfld System.Int32 Celeste.Flagline/Cloth::Color
+   IL_0241: ldelem.any Microsoft.Xna.Framework.Color
+   IL_0246: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_024b: ldloc.s V_6
+   IL_024d: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0252: ldloc.s V_6
+   IL_0254: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0259: ldc.r4 1
+   IL_025e: ldloc.s V_11
+   IL_0260: ldfld System.Int32 Celeste.Flagline/Cloth::Height
+   IL_0265: conv.r4
+   IL_0266: ldarg.0
+   IL_0267: ldfld Microsoft.Xna.Framework.Color[] Celeste.Flagline::highlights
+   IL_026c: ldloc.s V_11
+   IL_026e: ldfld System.Int32 Celeste.Flagline/Cloth::Color
+   IL_0273: ldelem.any Microsoft.Xna.Framework.Color
+   IL_0278: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_027d: ldloc.s V_5
+   IL_027f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0284: ldloc.s V_5
+   IL_0286: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_028b: ldc.r4 1
+   IL_0290: sub
+   IL_0291: ldc.r4 1
+   IL_0296: ldc.r4 3
+   IL_029b: ldarg.0
+   IL_029c: ldfld Microsoft.Xna.Framework.Color Celeste.Flagline::pinColor
+   IL_02a1: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_02a6: ldloc.s V_6
+   IL_02a8: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_02ad: ldloc.s V_6
+   IL_02af: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_02b4: ldc.r4 1
+   IL_02b9: sub
+   IL_02ba: ldc.r4 1
+   IL_02bf: ldc.r4 3
+   IL_02c4: ldarg.0
+   IL_02c5: ldfld Microsoft.Xna.Framework.Color Celeste.Flagline::pinColor
+   IL_02ca: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_02cf: ldloc.s V_8
+   IL_02d1: ldc.i4.1
+   IL_02d2: add
+   IL_02d3: stloc.s V_8
+   IL_02d5: ldloc.s V_6
+   IL_02d7: stloc.s V_5
+   IL_02d9: ldloc.s V_9
+   IL_02db: ldc.i4.0
+   IL_02dc: ceq
+   IL_02de: stloc.s V_9
+   IL_02e0: ldloc.s V_7
+   IL_02e2: ldc.r4 1
+   IL_02e7: blt IL_00ca
+   IL_02ec: ret

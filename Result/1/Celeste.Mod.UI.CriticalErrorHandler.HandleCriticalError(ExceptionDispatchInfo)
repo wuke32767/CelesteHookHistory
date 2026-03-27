@@ -1,183 +1,183 @@
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: call System.Void TAS.Manager::DisableRun() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0005: ldarg.0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0006: call DynamicMethod!Initialize_OverrideReturn!System.Boolean TAS.Tools.SyncChecker::Initialize_OverrideReturn(System.Runtime.ExceptionServices.ExceptionDispatchInfo) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_000b: brfalse IL_0017 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0010: ldarg.0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0011: call DynamicMethod!Initialize_OverrideReturn!System.Runtime.ExceptionServices.ExceptionDispatchInfo TAS.Tools.SyncChecker::Initialize_OverrideReturn(System.Runtime.ExceptionServices.ExceptionDispatchInfo) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0016: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_0017: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
-   IL_001c: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_UseInGameCrashHandler()
-   IL_0021: brtrue.s IL_0025
-   IL_0023: ldarg.0
-   IL_0024: ret
-   IL_0025: call System.Boolean System.Diagnostics.Debugger::get_IsAttached()
-   IL_002a: brfalse.s IL_004b
-   IL_002c: ldstr ">>> CRITICAL ERROR: "
-   IL_0031: ldarg.0
-   IL_0032: callvirt System.Exception System.Runtime.ExceptionServices.ExceptionDispatchInfo::get_SourceException()
-   IL_0037: callvirt System.String System.Object::ToString()
-   IL_003c: call System.String System.String::Concat(System.String,System.String)
-   IL_0041: call System.Void System.Diagnostics.Trace::WriteLine(System.String)
-   IL_0046: call System.Void System.Diagnostics.Debugger::Break()
-   IL_004b: ldstr "crit-error-handler"
-   IL_0050: ldstr ">>>>>>>>>>>>>>> ENCOUNTERED A CRITICAL ERROR <<<<<<<<<<<<<<<"
-   IL_0055: call System.Void Celeste.Mod.Logger::Error(System.String,System.String)
+ + IL_10001: ldarg.0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: call DynamicMethod!Initialize_OverrideReturn!System.Boolean TAS.Tools.SyncChecker::Initialize_OverrideReturn(System.Runtime.ExceptionServices.ExceptionDispatchInfo) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10003: brfalse IL_0000 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10004: ldarg.0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10005: call DynamicMethod!Initialize_OverrideReturn!System.Runtime.ExceptionServices.ExceptionDispatchInfo TAS.Tools.SyncChecker::Initialize_OverrideReturn(System.Runtime.ExceptionServices.ExceptionDispatchInfo) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10006: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0005: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_UseInGameCrashHandler()
+   IL_000a: brtrue.s IL_000e
+   IL_000c: ldarg.0
+   IL_000d: ret
+   IL_000e: call System.Boolean System.Diagnostics.Debugger::get_IsAttached()
+   IL_0013: brfalse.s IL_0034
+   IL_0015: ldstr ">>> CRITICAL ERROR: "
+   IL_001a: ldarg.0
+   IL_001b: callvirt System.Exception System.Runtime.ExceptionServices.ExceptionDispatchInfo::get_SourceException()
+   IL_0020: callvirt System.String System.Object::ToString()
+   IL_0025: call System.String System.String::Concat(System.String,System.String)
+   IL_002a: call System.Void System.Diagnostics.Trace::WriteLine(System.String)
+   IL_002f: call System.Void System.Diagnostics.Debugger::Break()
+   IL_0034: ldstr "crit-error-handler"
+   IL_0039: ldstr ">>>>>>>>>>>>>>> ENCOUNTERED A CRITICAL ERROR <<<<<<<<<<<<<<<"
+   IL_003e: call System.Void Celeste.Mod.Logger::Error(System.String,System.String)
+   IL_0043: ldarg.0
+   IL_0044: callvirt System.Exception System.Runtime.ExceptionServices.ExceptionDispatchInfo::get_SourceException()
+   IL_0049: ldstr "crit-error-handler"
+   IL_004e: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_0053: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_0058: brtrue.s IL_0075
    IL_005a: ldarg.0
-   IL_005b: callvirt System.Exception System.Runtime.ExceptionServices.ExceptionDispatchInfo::get_SourceException()
-   IL_0060: ldstr "crit-error-handler"
-   IL_0065: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
-   IL_006a: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_006f: brtrue.s IL_008c
-   IL_0071: ldarg.0
-   IL_0072: ldarg.0
-   IL_0073: callvirt System.Exception System.Runtime.ExceptionServices.ExceptionDispatchInfo::get_SourceException()
-   IL_0078: ldloca.s V_1
-   IL_007a: call System.String Celeste.Mod.UI.CriticalErrorHandler::BackupLogFile(System.Exception,System.String&)
-   IL_007f: ldloc.1
-   IL_0080: newobj System.Void Celeste.Mod.UI.CriticalErrorHandler::.ctor(System.Runtime.ExceptionServices.ExceptionDispatchInfo,System.String,System.String)
-   IL_0085: call System.Void Celeste.Mod.UI.CriticalErrorHandler::set_CurrentHandler(Celeste.Mod.UI.CriticalErrorHandler)
-   IL_008a: br.s IL_00b1
-   IL_008c: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_0091: ldc.i4.1
-   IL_0092: callvirt System.Void Celeste.Mod.UI.CriticalErrorHandler::set_EncounteredAdditionalErrors(System.Boolean)
-   IL_0097: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_009c: ldfld System.String Celeste.Mod.UI.CriticalErrorHandler::LogFile
-   IL_00a1: ldstr "Encountered an additional critical error"
-   IL_00a6: ldarg.0
-   IL_00a7: callvirt System.Exception System.Runtime.ExceptionServices.ExceptionDispatchInfo::get_SourceException()
-   IL_00ac: call System.Void Celeste.Mod.UI.CriticalErrorHandler::AmendLogFile(System.String,System.String,System.Exception)
-   IL_00b1: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_00b6: call System.Void Celeste.Mod.Everest/Events::CriticalError(Celeste.Mod.UI.CriticalErrorHandler)
-   IL_00bb: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_00c0: callvirt Celeste.Mod.UI.CriticalErrorHandler/DisplayState Celeste.Mod.UI.CriticalErrorHandler::get_State()
-   IL_00c5: ldc.i4.1
-   IL_00c6: bge IL_014b
-   IL_00cb: call Monocle.Scene Monocle.Engine::get_Scene()
-   IL_00d0: isinst Celeste.Level
-   IL_00d5: stloc.0
-   IL_00d6: ldloc.0
-   IL_00d7: brfalse.s IL_014b
-   IL_00d9: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_00de: ldc.i4.1
-   IL_00df: callvirt System.Void Celeste.Mod.UI.CriticalErrorHandler::set_State(Celeste.Mod.UI.CriticalErrorHandler/DisplayState)
-   IL_00e4: ldloc.0
-   IL_00e5: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_00ea: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
-   IL_00ef: ldloc.0
-   IL_00f0: ldfld Celeste.ScreenWipe Celeste.Level::Wipe
-   IL_00f5: brfalse.s IL_010f
-   IL_00f7: ldloc.0
-   IL_00f8: callvirt Monocle.RendererList Monocle.Scene::get_RendererList()
-   IL_00fd: ldloc.0
-   IL_00fe: ldfld Celeste.ScreenWipe Celeste.Level::Wipe
-   IL_0103: callvirt System.Void Monocle.RendererList::Remove(Monocle.Renderer)
-   IL_0108: ldloc.0
-   IL_0109: ldnull
-   IL_010a: stfld Celeste.ScreenWipe Celeste.Level::Wipe
-   IL_010f: ldloc.0
-   IL_0110: callvirt Monocle.RendererList Monocle.Scene::get_RendererList()
-   IL_0115: ldfld System.Collections.Generic.List`1<Monocle.Renderer> Monocle.RendererList::Renderers
-   IL_011a: callvirt T[] System.Collections.Generic.List`1<Monocle.Renderer>::ToArray()
-   IL_011f: stloc.2
-   IL_0120: ldc.i4.0
-   IL_0121: stloc.3
-   IL_0122: br.s IL_0143
-   IL_0124: ldloc.2
-   IL_0125: ldloc.3
-   IL_0126: ldelem.ref
-   IL_0127: stloc.s V_4
-   IL_0129: ldloc.s V_4
-   IL_012b: isinst Celeste.ScreenWipe
-   IL_0130: brfalse.s IL_013f
-   IL_0132: ldloc.0
-   IL_0133: callvirt Monocle.RendererList Monocle.Scene::get_RendererList()
-   IL_0138: ldloc.s V_4
-   IL_013a: callvirt System.Void Monocle.RendererList::Remove(Monocle.Renderer)
-   IL_013f: ldloc.3
-   IL_0140: ldc.i4.1
-   IL_0141: add
-   IL_0142: stloc.3
-   IL_0143: ldloc.3
-   IL_0144: ldloc.2
-   IL_0145: ldlen
-   IL_0146: conv.i4
-   IL_0147: blt.s IL_0124
-   IL_0149: ldnull
-   IL_014a: ret
+   IL_005b: ldarg.0
+   IL_005c: callvirt System.Exception System.Runtime.ExceptionServices.ExceptionDispatchInfo::get_SourceException()
+   IL_0061: ldloca.s V_1
+   IL_0063: call System.String Celeste.Mod.UI.CriticalErrorHandler::BackupLogFile(System.Exception,System.String&)
+   IL_0068: ldloc.1
+   IL_0069: newobj System.Void Celeste.Mod.UI.CriticalErrorHandler::.ctor(System.Runtime.ExceptionServices.ExceptionDispatchInfo,System.String,System.String)
+   IL_006e: call System.Void Celeste.Mod.UI.CriticalErrorHandler::set_CurrentHandler(Celeste.Mod.UI.CriticalErrorHandler)
+   IL_0073: br.s IL_009a
+   IL_0075: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_007a: ldc.i4.1
+   IL_007b: callvirt System.Void Celeste.Mod.UI.CriticalErrorHandler::set_EncounteredAdditionalErrors(System.Boolean)
+   IL_0080: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_0085: ldfld System.String Celeste.Mod.UI.CriticalErrorHandler::LogFile
+   IL_008a: ldstr "Encountered an additional critical error"
+   IL_008f: ldarg.0
+   IL_0090: callvirt System.Exception System.Runtime.ExceptionServices.ExceptionDispatchInfo::get_SourceException()
+   IL_0095: call System.Void Celeste.Mod.UI.CriticalErrorHandler::AmendLogFile(System.String,System.String,System.Exception)
+   IL_009a: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_009f: call System.Void Celeste.Mod.Everest/Events::CriticalError(Celeste.Mod.UI.CriticalErrorHandler)
+   IL_00a4: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_00a9: callvirt Celeste.Mod.UI.CriticalErrorHandler/DisplayState Celeste.Mod.UI.CriticalErrorHandler::get_State()
+   IL_00ae: ldc.i4.1
+   IL_00af: bge IL_0134
+   IL_00b4: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_00b9: isinst Celeste.Level
+   IL_00be: stloc.0
+   IL_00bf: ldloc.0
+   IL_00c0: brfalse.s IL_0134
+   IL_00c2: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_00c7: ldc.i4.1
+   IL_00c8: callvirt System.Void Celeste.Mod.UI.CriticalErrorHandler::set_State(Celeste.Mod.UI.CriticalErrorHandler/DisplayState)
+   IL_00cd: ldloc.0
+   IL_00ce: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_00d3: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_00d8: ldloc.0
+   IL_00d9: ldfld Celeste.ScreenWipe Celeste.Level::Wipe
+   IL_00de: brfalse.s IL_00f8
+   IL_00e0: ldloc.0
+   IL_00e1: callvirt Monocle.RendererList Monocle.Scene::get_RendererList()
+   IL_00e6: ldloc.0
+   IL_00e7: ldfld Celeste.ScreenWipe Celeste.Level::Wipe
+   IL_00ec: callvirt System.Void Monocle.RendererList::Remove(Monocle.Renderer)
+   IL_00f1: ldloc.0
+   IL_00f2: ldnull
+   IL_00f3: stfld Celeste.ScreenWipe Celeste.Level::Wipe
+   IL_00f8: ldloc.0
+   IL_00f9: callvirt Monocle.RendererList Monocle.Scene::get_RendererList()
+   IL_00fe: ldfld System.Collections.Generic.List`1<Monocle.Renderer> Monocle.RendererList::Renderers
+   IL_0103: callvirt T[] System.Collections.Generic.List`1<Monocle.Renderer>::ToArray()
+   IL_0108: stloc.2
+   IL_0109: ldc.i4.0
+   IL_010a: stloc.3
+   IL_010b: br.s IL_012c
+   IL_010d: ldloc.2
+   IL_010e: ldloc.3
+   IL_010f: ldelem.ref
+   IL_0110: stloc.s V_4
+   IL_0112: ldloc.s V_4
+   IL_0114: isinst Celeste.ScreenWipe
+   IL_0119: brfalse.s IL_0128
+   IL_011b: ldloc.0
+   IL_011c: callvirt Monocle.RendererList Monocle.Scene::get_RendererList()
+   IL_0121: ldloc.s V_4
+   IL_0123: callvirt System.Void Monocle.RendererList::Remove(Monocle.Renderer)
+   IL_0128: ldloc.3
+   IL_0129: ldc.i4.1
+   IL_012a: add
+   IL_012b: stloc.3
+   IL_012c: ldloc.3
+   IL_012d: ldloc.2
+   IL_012e: ldlen
+   IL_012f: conv.i4
+   IL_0130: blt.s IL_010d
+   IL_0132: ldnull
+   IL_0133: ret
+   IL_0134: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_0139: callvirt Celeste.Mod.UI.CriticalErrorHandler/DisplayState Celeste.Mod.UI.CriticalErrorHandler::get_State()
+   IL_013e: ldc.i4.2
+   IL_013f: bge.s IL_01b3
+   IL_0141: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_0146: callvirt Monocle.Scene Monocle.Entity::get_Scene()
    IL_014b: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_0150: callvirt Celeste.Mod.UI.CriticalErrorHandler/DisplayState Celeste.Mod.UI.CriticalErrorHandler::get_State()
-   IL_0155: ldc.i4.2
-   IL_0156: bge.s IL_01ca
-   IL_0158: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_015d: callvirt Monocle.Scene Monocle.Entity::get_Scene()
-   IL_0162: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_0167: callvirt System.Void Monocle.Entity::RemoveSelf()
-   IL_016c: dup
-   IL_016d: brtrue.s IL_0172
-   IL_016f: pop
-   IL_0170: br.s IL_0182
-   IL_0172: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
-   IL_0177: dup
-   IL_0178: brtrue.s IL_017d
-   IL_017a: pop
-   IL_017b: br.s IL_0182
-   IL_017d: callvirt System.Void Monocle.EntityList::UpdateLists()
-   IL_0182: newobj System.Void Monocle.Scene::.ctor()
-   IL_0187: dup
-   IL_0188: newobj System.Void Celeste.HudRenderer::.ctor()
-   IL_018d: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
-   IL_0192: dup
-   IL_0193: ldc.r4 0.45
-   IL_0198: newobj System.Void Celeste.HiresSnow::.ctor(System.Single)
-   IL_019d: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
-   IL_01a2: dup
-   IL_01a3: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_01a8: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
-   IL_01ad: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_01b2: ldc.i4.2
-   IL_01b3: callvirt System.Void Celeste.Mod.UI.CriticalErrorHandler::set_State(Celeste.Mod.UI.CriticalErrorHandler/DisplayState)
-   IL_01b8: dup
-   IL_01b9: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
-   IL_01be: callvirt System.Void Monocle.EntityList::UpdateLists()
-   IL_01c3: call System.Void Celeste.Mod.UI.CriticalErrorHandler::<HandleCriticalError>g__DoImmediateSceneSwitch|9_0(Monocle.Scene)
-   IL_01c8: ldnull
-   IL_01c9: ret
+   IL_0150: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_0155: dup
+   IL_0156: brtrue.s IL_015b
+   IL_0158: pop
+   IL_0159: br.s IL_016b
+   IL_015b: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_0160: dup
+   IL_0161: brtrue.s IL_0166
+   IL_0163: pop
+   IL_0164: br.s IL_016b
+   IL_0166: callvirt System.Void Monocle.EntityList::UpdateLists()
+   IL_016b: newobj System.Void Monocle.Scene::.ctor()
+   IL_0170: dup
+   IL_0171: newobj System.Void Celeste.HudRenderer::.ctor()
+   IL_0176: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_017b: dup
+   IL_017c: ldc.r4 0.45
+   IL_0181: newobj System.Void Celeste.HiresSnow::.ctor(System.Single)
+   IL_0186: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_018b: dup
+   IL_018c: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_0191: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0196: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_019b: ldc.i4.2
+   IL_019c: callvirt System.Void Celeste.Mod.UI.CriticalErrorHandler::set_State(Celeste.Mod.UI.CriticalErrorHandler/DisplayState)
+   IL_01a1: dup
+   IL_01a2: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_01a7: callvirt System.Void Monocle.EntityList::UpdateLists()
+   IL_01ac: call System.Void Celeste.Mod.UI.CriticalErrorHandler::<HandleCriticalError>g__DoImmediateSceneSwitch|9_0(Monocle.Scene)
+   IL_01b1: ldnull
+   IL_01b2: ret
+   IL_01b3: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_01b8: callvirt Celeste.Mod.UI.CriticalErrorHandler/DisplayState Celeste.Mod.UI.CriticalErrorHandler::get_State()
+   IL_01bd: ldc.i4.3
+   IL_01be: bge.s IL_0222
+   IL_01c0: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_01c5: callvirt Monocle.Scene Monocle.Entity::get_Scene()
    IL_01ca: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_01cf: callvirt Celeste.Mod.UI.CriticalErrorHandler/DisplayState Celeste.Mod.UI.CriticalErrorHandler::get_State()
-   IL_01d4: ldc.i4.3
-   IL_01d5: bge.s IL_0239
-   IL_01d7: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_01dc: callvirt Monocle.Scene Monocle.Entity::get_Scene()
-   IL_01e1: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_01e6: callvirt System.Void Monocle.Entity::RemoveSelf()
-   IL_01eb: dup
-   IL_01ec: brtrue.s IL_01f1
-   IL_01ee: pop
-   IL_01ef: br.s IL_0201
-   IL_01f1: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
-   IL_01f6: dup
-   IL_01f7: brtrue.s IL_01fc
-   IL_01f9: pop
-   IL_01fa: br.s IL_0201
-   IL_01fc: callvirt System.Void Monocle.EntityList::UpdateLists()
-   IL_0201: newobj System.Void Monocle.Scene::.ctor()
-   IL_0206: dup
-   IL_0207: newobj System.Void Celeste.HudRenderer::.ctor()
-   IL_020c: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
-   IL_0211: dup
-   IL_0212: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_0217: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
-   IL_021c: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_0221: ldc.i4.3
-   IL_0222: callvirt System.Void Celeste.Mod.UI.CriticalErrorHandler::set_State(Celeste.Mod.UI.CriticalErrorHandler/DisplayState)
-   IL_0227: dup
-   IL_0228: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
-   IL_022d: callvirt System.Void Monocle.EntityList::UpdateLists()
-   IL_0232: call System.Void Celeste.Mod.UI.CriticalErrorHandler::<HandleCriticalError>g__DoImmediateSceneSwitch|9_0(Monocle.Scene)
-   IL_0237: ldnull
-   IL_0238: ret
-   IL_0239: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
-   IL_023e: ldfld System.Runtime.ExceptionServices.ExceptionDispatchInfo Celeste.Mod.UI.CriticalErrorHandler::Error
-   IL_0243: ret
+   IL_01cf: callvirt System.Void Monocle.Entity::RemoveSelf()
+   IL_01d4: dup
+   IL_01d5: brtrue.s IL_01da
+   IL_01d7: pop
+   IL_01d8: br.s IL_01ea
+   IL_01da: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_01df: dup
+   IL_01e0: brtrue.s IL_01e5
+   IL_01e2: pop
+   IL_01e3: br.s IL_01ea
+   IL_01e5: callvirt System.Void Monocle.EntityList::UpdateLists()
+   IL_01ea: newobj System.Void Monocle.Scene::.ctor()
+   IL_01ef: dup
+   IL_01f0: newobj System.Void Celeste.HudRenderer::.ctor()
+   IL_01f5: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_01fa: dup
+   IL_01fb: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_0200: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0205: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_020a: ldc.i4.3
+   IL_020b: callvirt System.Void Celeste.Mod.UI.CriticalErrorHandler::set_State(Celeste.Mod.UI.CriticalErrorHandler/DisplayState)
+   IL_0210: dup
+   IL_0211: callvirt Monocle.EntityList Monocle.Scene::get_Entities()
+   IL_0216: callvirt System.Void Monocle.EntityList::UpdateLists()
+   IL_021b: call System.Void Celeste.Mod.UI.CriticalErrorHandler::<HandleCriticalError>g__DoImmediateSceneSwitch|9_0(Monocle.Scene)
+   IL_0220: ldnull
+   IL_0221: ret
+   IL_0222: call Celeste.Mod.UI.CriticalErrorHandler Celeste.Mod.UI.CriticalErrorHandler::get_CurrentHandler()
+   IL_0227: ldfld System.Runtime.ExceptionServices.ExceptionDispatchInfo Celeste.Mod.UI.CriticalErrorHandler::Error
+   IL_022c: ret

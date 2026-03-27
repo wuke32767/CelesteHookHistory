@@ -1,160 +1,160 @@
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: ldarg target @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0004: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0009: starg target @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_000d: nop
-   IL_000e: ldarg.0
-   IL_000f: call System.String Celeste.Mod.SkinModHelper.SkinsSystem::getAnimationRootPath(System.Object)
-   IL_0014: stloc.0
-   IL_0015: ldsfld System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Image,Celeste.Mod.SkinModHelper.CharacterConfig> Celeste.Mod.SkinModHelper.CharacterConfig::_Instance
-   IL_001a: ldarg.0
-   IL_001b: ldloca.s V_1
-   IL_001d: callvirt System.Boolean System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Image,Celeste.Mod.SkinModHelper.CharacterConfig>::TryGetValue(TKey,TValue&)
-   IL_0022: brfalse.s IL_0032
-   IL_0024: ldloc.1
-   IL_0025: ldfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::SourcePath
-   IL_002a: ldloc.0
-   IL_002b: call System.Boolean System.String::op_Inequality(System.String,System.String)
-   IL_0030: br.s IL_0033
-   IL_0032: ldc.i4.1
-   IL_0033: stloc.2
-   IL_0034: ldloc.2
-   IL_0035: brfalse IL_00ed
-   IL_003a: nop
-   IL_003b: ldarg.0
-   IL_003c: ldstr "skinConfig/CharacterConfig"
-   IL_0041: call Celeste.Mod.ModAsset Celeste.Mod.SkinModHelper.SkinsSystem::GetAssetOnSprite<Celeste.Mod.AssetTypeYaml>(Monocle.Image,System.String)
-   IL_0046: stloc.3
-   IL_0047: ldloc.3
-   IL_0048: call T Celeste.Mod.SkinModHelper.SkinsSystem::AssetIntoConfig<Celeste.Mod.SkinModHelper.CharacterConfig>(Celeste.Mod.ModAsset)
-   IL_004d: dup
-   IL_004e: brtrue.s IL_0056
-   IL_0050: pop
-   IL_0051: newobj System.Void Celeste.Mod.SkinModHelper.CharacterConfig::.ctor()
-   IL_0056: stloc.1
-   IL_0057: ldloc.1
-   IL_0058: ldloc.3
-   IL_0059: stfld Celeste.Mod.ModAsset Celeste.Mod.SkinModHelper.CharacterConfig::Source
-   IL_005e: ldloc.1
+ + IL_10001: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: starg target @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: call System.String Celeste.Mod.SkinModHelper.SkinsSystem::getAnimationRootPath(System.Object)
+   IL_0007: stloc.0
+   IL_0008: ldsfld System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Image,Celeste.Mod.SkinModHelper.CharacterConfig> Celeste.Mod.SkinModHelper.CharacterConfig::_Instance
+   IL_000d: ldarg.0
+   IL_000e: ldloca.s V_1
+   IL_0010: callvirt System.Boolean System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Image,Celeste.Mod.SkinModHelper.CharacterConfig>::TryGetValue(TKey,TValue&)
+   IL_0015: brfalse.s IL_0025
+   IL_0017: ldloc.1
+   IL_0018: ldfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::SourcePath
+   IL_001d: ldloc.0
+   IL_001e: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_0023: br.s IL_0026
+   IL_0025: ldc.i4.1
+   IL_0026: stloc.2
+   IL_0027: ldloc.2
+   IL_0028: brfalse IL_00e0
+   IL_002d: nop
+   IL_002e: ldarg.0
+   IL_002f: ldstr "skinConfig/CharacterConfig"
+   IL_0034: call Celeste.Mod.ModAsset Celeste.Mod.SkinModHelper.SkinsSystem::GetAssetOnSprite<Celeste.Mod.AssetTypeYaml>(Monocle.Image,System.String)
+   IL_0039: stloc.3
+   IL_003a: ldloc.3
+   IL_003b: call T Celeste.Mod.SkinModHelper.SkinsSystem::AssetIntoConfig<Celeste.Mod.SkinModHelper.CharacterConfig>(Celeste.Mod.ModAsset)
+   IL_0040: dup
+   IL_0041: brtrue.s IL_0049
+   IL_0043: pop
+   IL_0044: newobj System.Void Celeste.Mod.SkinModHelper.CharacterConfig::.ctor()
+   IL_0049: stloc.1
+   IL_004a: ldloc.1
+   IL_004b: ldloc.3
+   IL_004c: stfld Celeste.Mod.ModAsset Celeste.Mod.SkinModHelper.CharacterConfig::Source
+   IL_0051: ldloc.1
+   IL_0052: ldarg.0
+   IL_0053: stfld Monocle.Image Celeste.Mod.SkinModHelper.CharacterConfig::attached
+   IL_0058: ldloc.1
+   IL_0059: ldloc.0
+   IL_005a: stfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::SourcePath
    IL_005f: ldarg.0
-   IL_0060: stfld Monocle.Image Celeste.Mod.SkinModHelper.CharacterConfig::attached
-   IL_0065: ldloc.1
-   IL_0066: ldloc.0
-   IL_0067: stfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::SourcePath
-   IL_006c: ldarg.0
-   IL_006d: isinst Celeste.PlayerSprite
-   IL_0072: stloc.s V_4
-   IL_0074: ldloc.s V_4
-   IL_0076: ldnull
-   IL_0077: cgt.un
-   IL_0079: stloc.s V_5
-   IL_007b: ldloc.s V_5
-   IL_007d: brfalse.s IL_008d
-   IL_007f: ldloc.1
-   IL_0080: ldloc.s V_4
-   IL_0082: callvirt Celeste.PlayerSpriteMode Celeste.PlayerSprite::get_Mode()
-   IL_0087: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::ModeInitialize(Celeste.PlayerSpriteMode)
+   IL_0060: isinst Celeste.PlayerSprite
+   IL_0065: stloc.s V_4
+   IL_0067: ldloc.s V_4
+   IL_0069: ldnull
+   IL_006a: cgt.un
+   IL_006c: stloc.s V_5
+   IL_006e: ldloc.s V_5
+   IL_0070: brfalse.s IL_0080
+   IL_0072: ldloc.1
+   IL_0073: ldloc.s V_4
+   IL_0075: callvirt Celeste.PlayerSpriteMode Celeste.PlayerSprite::get_Mode()
+   IL_007a: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::ModeInitialize(Celeste.PlayerSpriteMode)
+   IL_007f: nop
+   IL_0080: ldloc.1
+   IL_0081: callvirt System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::get_TintMaskWithHair()
+   IL_0086: stloc.s V_6
+   IL_0088: ldloc.s V_6
+   IL_008a: brfalse.s IL_009d
    IL_008c: nop
    IL_008d: ldloc.1
-   IL_008e: callvirt System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::get_TintMaskWithHair()
-   IL_0093: stloc.s V_6
-   IL_0095: ldloc.s V_6
-   IL_0097: brfalse.s IL_00aa
+   IL_008e: ldc.i4.0
+   IL_008f: newobj System.Void System.Nullable`1<System.Boolean>::.ctor(T)
+   IL_0094: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::set_SilhouetteMode(System.Nullable`1<System.Boolean>)
    IL_0099: nop
-   IL_009a: ldloc.1
-   IL_009b: ldc.i4.0
-   IL_009c: newobj System.Void System.Nullable`1<System.Boolean>::.ctor(T)
-   IL_00a1: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::set_SilhouetteMode(System.Nullable`1<System.Boolean>)
-   IL_00a6: nop
-   IL_00a7: nop
-   IL_00a8: br.s IL_00d8
-   IL_00aa: ldloc.1
-   IL_00ab: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.SkinModHelper.CharacterConfig::get_SilhouetteMode()
-   IL_00b0: stloc.s V_8
-   IL_00b2: ldc.i4.1
-   IL_00b3: stloc.s V_9
-   IL_00b5: ldloca.s V_8
-   IL_00b7: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
-   IL_00bc: ldloc.s V_9
-   IL_00be: ceq
-   IL_00c0: ldloca.s V_8
-   IL_00c2: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
-   IL_00c7: and
-   IL_00c8: stloc.s V_7
-   IL_00ca: ldloc.s V_7
-   IL_00cc: brfalse.s IL_00d8
-   IL_00ce: nop
-   IL_00cf: ldloc.1
-   IL_00d0: ldc.i4.1
-   IL_00d1: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::set_LowStaminaFlashHair(System.Boolean)
-   IL_00d6: nop
-   IL_00d7: nop
+   IL_009a: nop
+   IL_009b: br.s IL_00cb
+   IL_009d: ldloc.1
+   IL_009e: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.SkinModHelper.CharacterConfig::get_SilhouetteMode()
+   IL_00a3: stloc.s V_8
+   IL_00a5: ldc.i4.1
+   IL_00a6: stloc.s V_9
+   IL_00a8: ldloca.s V_8
+   IL_00aa: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_00af: ldloc.s V_9
+   IL_00b1: ceq
+   IL_00b3: ldloca.s V_8
+   IL_00b5: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_00ba: and
+   IL_00bb: stloc.s V_7
+   IL_00bd: ldloc.s V_7
+   IL_00bf: brfalse.s IL_00cb
+   IL_00c1: nop
+   IL_00c2: ldloc.1
+   IL_00c3: ldc.i4.1
+   IL_00c4: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::set_LowStaminaFlashHair(System.Boolean)
+   IL_00c9: nop
+   IL_00ca: nop
+   IL_00cb: ldloc.1
+   IL_00cc: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::ParticleModifierInit()
+   IL_00d1: nop
+   IL_00d2: ldsfld System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Image,Celeste.Mod.SkinModHelper.CharacterConfig> Celeste.Mod.SkinModHelper.CharacterConfig::_Instance
+   IL_00d7: ldarg.0
    IL_00d8: ldloc.1
-   IL_00d9: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::ParticleModifierInit()
+   IL_00d9: callvirt System.Void System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Image,Celeste.Mod.SkinModHelper.CharacterConfig>::AddOrUpdate(TKey,TValue)
    IL_00de: nop
-   IL_00df: ldsfld System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Image,Celeste.Mod.SkinModHelper.CharacterConfig> Celeste.Mod.SkinModHelper.CharacterConfig::_Instance
-   IL_00e4: ldarg.0
-   IL_00e5: ldloc.1
-   IL_00e6: callvirt System.Void System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Image,Celeste.Mod.SkinModHelper.CharacterConfig>::AddOrUpdate(TKey,TValue)
-   IL_00eb: nop
-   IL_00ec: nop
-   IL_00ed: ldarg.0
-   IL_00ee: callvirt Monocle.Entity Monocle.Component::get_Entity()
-   IL_00f3: ldloc.1
-   IL_00f4: ldfld Monocle.Entity Celeste.Mod.SkinModHelper.CharacterConfig::lastEntity
-   IL_00f9: ceq
-   IL_00fb: ldc.i4.0
-   IL_00fc: ceq
-   IL_00fe: stloc.s V_10
-   IL_0100: ldloc.s V_10
-   IL_0102: brfalse.s IL_016c
-   IL_0104: nop
-   IL_0105: ldloc.1
-   IL_0106: ldarg.0
-   IL_0107: callvirt Monocle.Entity Monocle.Component::get_Entity()
-   IL_010c: stfld Monocle.Entity Celeste.Mod.SkinModHelper.CharacterConfig::lastEntity
-   IL_0111: ldarg.0
-   IL_0112: isinst Monocle.Sprite
-   IL_0117: stloc.s V_11
-   IL_0119: ldloc.s V_11
-   IL_011b: brfalse.s IL_0135
-   IL_011d: ldloc.s V_11
-   IL_011f: ldarg.0
-   IL_0120: callvirt Monocle.Entity Monocle.Component::get_Entity()
-   IL_0125: dup
-   IL_0126: brtrue.s IL_012c
-   IL_0128: pop
-   IL_0129: ldnull
-   IL_012a: br.s IL_0131
-   IL_012c: callvirt T Monocle.Entity::Get<Monocle.Sprite>()
-   IL_0131: ceq
-   IL_0133: br.s IL_0136
-   IL_0135: ldc.i4.0
-   IL_0136: stloc.s V_12
-   IL_0138: ldloc.s V_12
-   IL_013a: brfalse.s IL_0143
-   IL_013c: ldloc.1
-   IL_013d: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::ParticleModifyRefresh()
-   IL_0142: nop
-   IL_0143: ldloc.1
-   IL_0144: callvirt System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.CharacterConfig/Tweak> Celeste.Mod.SkinModHelper.CharacterConfig::get_EntityTweaks()
-   IL_0149: ldnull
-   IL_014a: cgt.un
-   IL_014c: stloc.s V_13
-   IL_014e: ldloc.s V_13
-   IL_0150: brfalse.s IL_016b
+   IL_00df: nop
+   IL_00e0: ldarg.0
+   IL_00e1: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00e6: ldloc.1
+   IL_00e7: ldfld Monocle.Entity Celeste.Mod.SkinModHelper.CharacterConfig::lastEntity
+   IL_00ec: ceq
+   IL_00ee: ldc.i4.0
+   IL_00ef: ceq
+   IL_00f1: stloc.s V_10
+   IL_00f3: ldloc.s V_10
+   IL_00f5: brfalse.s IL_015f
+   IL_00f7: nop
+   IL_00f8: ldloc.1
+   IL_00f9: ldarg.0
+   IL_00fa: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00ff: stfld Monocle.Entity Celeste.Mod.SkinModHelper.CharacterConfig::lastEntity
+   IL_0104: ldarg.0
+   IL_0105: isinst Monocle.Sprite
+   IL_010a: stloc.s V_11
+   IL_010c: ldloc.s V_11
+   IL_010e: brfalse.s IL_0128
+   IL_0110: ldloc.s V_11
+   IL_0112: ldarg.0
+   IL_0113: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0118: dup
+   IL_0119: brtrue.s IL_011f
+   IL_011b: pop
+   IL_011c: ldnull
+   IL_011d: br.s IL_0124
+   IL_011f: callvirt T Monocle.Entity::Get<Monocle.Sprite>()
+   IL_0124: ceq
+   IL_0126: br.s IL_0129
+   IL_0128: ldc.i4.0
+   IL_0129: stloc.s V_12
+   IL_012b: ldloc.s V_12
+   IL_012d: brfalse.s IL_0136
+   IL_012f: ldloc.1
+   IL_0130: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::ParticleModifyRefresh()
+   IL_0135: nop
+   IL_0136: ldloc.1
+   IL_0137: callvirt System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.CharacterConfig/Tweak> Celeste.Mod.SkinModHelper.CharacterConfig::get_EntityTweaks()
+   IL_013c: ldnull
+   IL_013d: cgt.un
+   IL_013f: stloc.s V_13
+   IL_0141: ldloc.s V_13
+   IL_0143: brfalse.s IL_015e
+   IL_0145: ldloc.1
+   IL_0146: ldarg.0
+   IL_0147: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_014c: ldloc.1
+   IL_014d: callvirt System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.CharacterConfig/Tweak> Celeste.Mod.SkinModHelper.CharacterConfig::get_EntityTweaks()
    IL_0152: ldloc.1
-   IL_0153: ldarg.0
-   IL_0154: callvirt Monocle.Entity Monocle.Component::get_Entity()
-   IL_0159: ldloc.1
-   IL_015a: callvirt System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.CharacterConfig/Tweak> Celeste.Mod.SkinModHelper.CharacterConfig::get_EntityTweaks()
+   IL_0153: ldfld System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::TweaksTEST
+   IL_0158: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::ValuesTweak(System.Object,System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.CharacterConfig/Tweak>,System.Boolean)
+   IL_015d: nop
+   IL_015e: nop
    IL_015f: ldloc.1
-   IL_0160: ldfld System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::TweaksTEST
-   IL_0165: callvirt System.Void Celeste.Mod.SkinModHelper.CharacterConfig::ValuesTweak(System.Object,System.Collections.Generic.List`1<Celeste.Mod.SkinModHelper.CharacterConfig/Tweak>,System.Boolean)
-   IL_016a: nop
-   IL_016b: nop
-   IL_016c: ldloc.1
-   IL_016d: stloc.s V_14
-   IL_016f: br.s IL_0171
-   IL_0171: ldloc.s V_14
-   IL_0173: ret
+   IL_0160: stloc.s V_14
+   IL_0162: br.s IL_0164
+   IL_0164: ldloc.s V_14
+   IL_0166: ret

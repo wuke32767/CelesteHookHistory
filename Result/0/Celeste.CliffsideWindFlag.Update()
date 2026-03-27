@@ -1,56 +1,56 @@
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0005: brfalse IL_000b @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_000a: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_000b: ldarg.0
-   IL_000c: call System.Void Monocle.Entity::Update()
-   IL_0011: ldarg.0
-   IL_0012: callvirt System.Single Celeste.CliffsideWindFlag::get_wind()
-   IL_0017: ldc.r4 0
-   IL_001c: beq.s IL_003e
-   IL_001e: ldarg.0
-   IL_001f: ldarg.0
-   IL_0020: call Monocle.Scene Monocle.Entity::get_Scene()
-   IL_0025: isinst Celeste.Level
-   IL_002a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Level::Wind
-   IL_002f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_0034: call System.Int32 System.Math::Sign(System.Single)
-   IL_0039: stfld System.Int32 Celeste.CliffsideWindFlag::sign
-   IL_003e: ldarg.0
-   IL_003f: ldarg.0
-   IL_0040: ldfld System.Single Celeste.CliffsideWindFlag::sine
-   IL_0045: call System.Single Monocle.Engine::get_DeltaTime()
+ + IL_10001: brfalse IL_0000 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: callvirt System.Single Celeste.CliffsideWindFlag::get_wind()
+   IL_000c: ldc.r4 0
+   IL_0011: beq.s IL_0033
+   IL_0013: ldarg.0
+   IL_0014: ldarg.0
+   IL_0015: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_001a: isinst Celeste.Level
+   IL_001f: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Level::Wind
+   IL_0024: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0029: call System.Int32 System.Math::Sign(System.Single)
+   IL_002e: stfld System.Int32 Celeste.CliffsideWindFlag::sign
+   IL_0033: ldarg.0
+   IL_0034: ldarg.0
+   IL_0035: ldfld System.Single Celeste.CliffsideWindFlag::sine
+   IL_003a: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_003f: ldc.r4 4
+   IL_0044: ldarg.0
+   IL_0045: callvirt System.Single Celeste.CliffsideWindFlag::get_wind()
    IL_004a: ldc.r4 4
-   IL_004f: ldarg.0
-   IL_0050: callvirt System.Single Celeste.CliffsideWindFlag::get_wind()
-   IL_0055: ldc.r4 4
-   IL_005a: mul
-   IL_005b: add
-   IL_005c: mul
-   IL_005d: ldc.r4 0.8
-   IL_0062: ldarg.0
-   IL_0063: ldfld System.Single Celeste.CliffsideWindFlag::random
-   IL_0068: ldc.r4 0.2
-   IL_006d: mul
-   IL_006e: add
-   IL_006f: mul
-   IL_0070: add
-   IL_0071: stfld System.Single Celeste.CliffsideWindFlag::sine
-   IL_0076: ldc.i4.0
-   IL_0077: stloc.0
-   IL_0078: br.s IL_0086
-   IL_007a: ldarg.0
+   IL_004f: mul
+   IL_0050: add
+   IL_0051: mul
+   IL_0052: ldc.r4 0.8
+   IL_0057: ldarg.0
+   IL_0058: ldfld System.Single Celeste.CliffsideWindFlag::random
+   IL_005d: ldc.r4 0.2
+   IL_0062: mul
+   IL_0063: add
+   IL_0064: mul
+   IL_0065: add
+   IL_0066: stfld System.Single Celeste.CliffsideWindFlag::sine
+   IL_006b: ldc.i4.0
+   IL_006c: stloc.0
+   IL_006d: br.s IL_007b
+   IL_006f: ldarg.0
+   IL_0070: ldloc.0
+   IL_0071: ldc.i4.0
+   IL_0072: callvirt System.Void Celeste.CliffsideWindFlag::SetFlagSegmentPosition(System.Int32,System.Boolean)
+   IL_0077: ldloc.0
+   IL_0078: ldc.i4.1
+   IL_0079: add
+   IL_007a: stloc.0
    IL_007b: ldloc.0
-   IL_007c: ldc.i4.0
-   IL_007d: callvirt System.Void Celeste.CliffsideWindFlag::SetFlagSegmentPosition(System.Int32,System.Boolean)
-   IL_0082: ldloc.0
-   IL_0083: ldc.i4.1
-   IL_0084: add
-   IL_0085: stloc.0
-   IL_0086: ldloc.0
-   IL_0087: ldarg.0
-   IL_0088: ldfld Celeste.CliffsideWindFlag/Segment[] Celeste.CliffsideWindFlag::segments
-   IL_008d: ldlen
-   IL_008e: conv.i4
-   IL_008f: blt.s IL_007a
-   IL_0091: ret
+   IL_007c: ldarg.0
+   IL_007d: ldfld Celeste.CliffsideWindFlag/Segment[] Celeste.CliffsideWindFlag::segments
+   IL_0082: ldlen
+   IL_0083: conv.i4
+   IL_0084: blt.s IL_006f
+   IL_0086: ret

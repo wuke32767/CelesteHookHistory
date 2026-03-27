@@ -128,18 +128,18 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.a
    IL_0125: ldarg.0
    IL_0126: ldc.i4.m1
    IL_0127: callvirt System.Boolean Celeste.Player::WallJumpCheck(System.Int32)
- + IL_1000b: brfalse IL_1000c @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_012c: brfalse IL_1000b @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
  - IL_012c: brfalse IL_0222 @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
    IL_0131: ldarg.0
    IL_0132: ldc.i4.1
    IL_0133: callvirt System.Void Celeste.Player::SuperWallJump(System.Int32)
    IL_0138: ldc.i4.0
    IL_0139: ret
- + IL_1000c: ldarg.0 @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
- + IL_1000d: call System.Boolean ExtendedVariants.Variants.WalllessWallbounce::WalllessWallbounceDashCheck(Celeste.Player) @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
- + IL_1000e: brfalse IL_0222 @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
- + IL_1000f: ldc.i4.0 @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
- + IL_10010: ret @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_1000b: ldarg.0 @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_1000c: call System.Boolean ExtendedVariants.Variants.WalllessWallbounce::WalllessWallbounceDashCheck(Celeste.Player) @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_1000d: brfalse IL_0222 @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_1000e: ldc.i4.0 @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_1000f: ret @ ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
    IL_013a: ldsfld Monocle.VirtualButton Celeste.Input::Jump
    IL_013f: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
    IL_0144: brfalse IL_0222
@@ -155,7 +155,7 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.a
    IL_0163: ldc.i4.1
    IL_0164: bne.un.s IL_01b2
    IL_0166: call System.Boolean Celeste.Input::get_GrabCheck()
- + IL_10011: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
+ + IL_10010: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
    IL_016b: brfalse.s IL_01b2
    IL_016d: ldarg.0
    IL_016e: ldfld System.Single Celeste.Player::Stamina
@@ -163,7 +163,7 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.a
    IL_0178: ble.un.s IL_01b2
    IL_017a: ldarg.0
    IL_017b: callvirt Celeste.Holdable Celeste.Player::get_Holding()
- + IL_10012: call Celeste.Holdable Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping::overrideHoldable(Celeste.Holdable) @ Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.allowHoldableClimbjumping(ILContext)
+ + IL_10011: call Celeste.Holdable Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping::overrideHoldable(Celeste.Holdable) @ Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.allowHoldableClimbjumping(ILContext)
    IL_0180: brtrue.s IL_01b2
    IL_0182: ldarg.0
    IL_0183: call Monocle.Scene Monocle.Entity::get_Scene()
@@ -193,7 +193,7 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.a
    IL_01ca: ldc.i4.m1
    IL_01cb: bne.un.s IL_0219
    IL_01cd: call System.Boolean Celeste.Input::get_GrabCheck()
- + IL_10013: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
+ + IL_10012: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
    IL_01d2: brfalse.s IL_0219
    IL_01d4: ldarg.0
    IL_01d5: ldfld System.Single Celeste.Player::Stamina
@@ -201,7 +201,7 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.a
    IL_01df: ble.un.s IL_0219
    IL_01e1: ldarg.0
    IL_01e2: callvirt Celeste.Holdable Celeste.Player::get_Holding()
- + IL_10014: call Celeste.Holdable Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping::overrideHoldable(Celeste.Holdable) @ Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.allowHoldableClimbjumping(ILContext)
+ + IL_10013: call Celeste.Holdable Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping::overrideHoldable(Celeste.Holdable) @ Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.allowHoldableClimbjumping(ILContext)
    IL_01e7: brtrue.s IL_0219
    IL_01e9: ldarg.0
    IL_01ea: call Monocle.Scene Monocle.Entity::get_Scene()

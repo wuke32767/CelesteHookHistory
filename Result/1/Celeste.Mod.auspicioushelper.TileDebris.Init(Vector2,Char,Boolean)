@@ -1,131 +1,131 @@
 IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: ldarg pos @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_0004: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_0009: ldarg.0
-   IL_000a: ldarg.1
-   IL_000b: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_0010: ldarg.0
-   IL_0011: ldarg.2
-   IL_0012: stfld System.Char Celeste.Mod.auspicioushelper.TileDebris::tileset
-   IL_0017: ldarg.0
-   IL_0018: ldarg.3
-   IL_0019: stfld System.Boolean Celeste.Mod.auspicioushelper.TileDebris::playSound
-   IL_001e: ldarg.0
-   IL_001f: ldsfld System.Random Monocle.Calc::Random
-   IL_0024: ldc.r4 0.6
-   IL_0029: ldc.r4 2.6
-   IL_002e: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
-   IL_0033: stfld System.Single Celeste.Mod.auspicioushelper.TileDebris::lifeTimer
-   IL_0038: ldarg.0
-   IL_0039: ldc.r4 1
-   IL_003e: stfld System.Single Celeste.Mod.auspicioushelper.TileDebris::alpha
-   IL_0043: ldarg.0
-   IL_0044: ldc.i4.0
-   IL_0045: stfld System.Boolean Celeste.Mod.auspicioushelper.TileDebris::hasHitGround
-   IL_004a: ldarg.0
-   IL_004b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
-   IL_0050: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.auspicioushelper.FastDebris::speed
-   IL_0055: ldarg.0
-   IL_0056: ldc.r4 0
-   IL_005b: stfld System.Single Celeste.Mod.auspicioushelper.TileDebris::fadeLerp
-   IL_0060: ldarg.0
-   IL_0061: ldsfld System.Random Monocle.Calc::Random
-   IL_0066: ldc.i4.1
-   IL_0067: ldc.i4.m1
-   IL_0068: call T Monocle.Calc::Choose<System.Int32>(System.Random,T,T)
-   IL_006d: conv.r4
-   IL_006e: stfld System.Single Celeste.Mod.auspicioushelper.TileDebris::rotateSign
-   IL_0073: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
-   IL_0078: ldloca.s V_0
-   IL_007a: ldarg.2
-   IL_007b: callvirt System.Boolean Celeste.Autotiler::TryGetCustomDebris(System.String&,System.Char)
-   IL_0080: brfalse.s IL_00b0
-   IL_0082: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_0087: ldstr "debris/"
-   IL_008c: ldloc.0
-   IL_008d: call System.String System.String::Concat(System.String,System.String)
-   IL_0092: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
-   IL_0097: stloc.1
-   IL_0098: ldarg.0
-   IL_0099: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_009e: ldsfld System.Random Monocle.Calc::Random
-   IL_00a3: ldloc.1
-   IL_00a4: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
-   IL_00a9: stfld Monocle.MTexture Monocle.Image::Texture
-   IL_00ae: br.s IL_011d
-   IL_00b0: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_00b5: ldstr "debris/"
-   IL_00ba: call System.ReadOnlySpan`1<System.Char> System.String::op_Implicit(System.String)
-   IL_00bf: ldarg.2
-   IL_00c0: stloc.2
-   IL_00c1: ldloca.s V_2
-   IL_00c3: newobj System.Void System.ReadOnlySpan`1<System.Char>::.ctor(T&)
-   IL_00c8: call System.String System.String::Concat(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>)
-   IL_00cd: callvirt System.Boolean Monocle.Atlas::Has(System.String)
-   IL_00d2: brfalse.s IL_0103
-   IL_00d4: ldarg.0
-   IL_00d5: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_00da: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_00df: ldstr "debris/"
-   IL_00e4: call System.ReadOnlySpan`1<System.Char> System.String::op_Implicit(System.String)
-   IL_00e9: ldarg.2
-   IL_00ea: stloc.2
-   IL_00eb: ldloca.s V_2
-   IL_00ed: newobj System.Void System.ReadOnlySpan`1<System.Char>::.ctor(T&)
-   IL_00f2: call System.String System.String::Concat(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>)
-   IL_00f7: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
-   IL_00fc: stfld Monocle.MTexture Monocle.Image::Texture
-   IL_0101: br.s IL_011d
-   IL_0103: ldarg.0
-   IL_0104: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_0109: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_010e: ldstr "debris/1"
-   IL_0113: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
-   IL_0118: stfld Monocle.MTexture Monocle.Image::Texture
-   IL_011d: ldarg.0
-   IL_011e: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_0123: callvirt Monocle.Image Monocle.Image::CenterOrigin()
-   IL_0128: pop
-   IL_0129: ldarg.0
-   IL_012a: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_012f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
-   IL_0134: ldarg.0
-   IL_0135: ldfld System.Single Celeste.Mod.auspicioushelper.TileDebris::alpha
-   IL_013a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_013f: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
-   IL_0144: ldarg.0
-   IL_0145: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_014a: ldsfld System.Random Monocle.Calc::Random
-   IL_014f: call System.Single Monocle.Calc::NextAngle(System.Random)
-   IL_0154: stfld System.Single Monocle.GraphicsComponent::Rotation
-   IL_0159: ldarg.0
-   IL_015a: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_015f: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
-   IL_0164: ldsfld System.Random Monocle.Calc::Random
-   IL_0169: ldc.r4 0.5
-   IL_016e: ldc.r4 1
-   IL_0173: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
-   IL_0178: stfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_017d: ldarg.0
-   IL_017e: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_0183: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
-   IL_0188: ldsfld System.Random Monocle.Calc::Random
-   IL_018d: ldc.r4 0.5
-   IL_0192: ldc.r4 1
-   IL_0197: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
-   IL_019c: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_01a1: ldarg.0
-   IL_01a2: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_01a7: ldsfld System.Random Monocle.Calc::Random
-   IL_01ac: ldc.r4 0.5
-   IL_01b1: call System.Boolean Monocle.Calc::Chance(System.Random,System.Single)
-   IL_01b6: callvirt System.Void Monocle.GraphicsComponent::set_FlipX(System.Boolean)
-   IL_01bb: ldarg.0
-   IL_01bc: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
-   IL_01c1: ldsfld System.Random Monocle.Calc::Random
-   IL_01c6: ldc.r4 0.5
-   IL_01cb: call System.Boolean Monocle.Calc::Chance(System.Random,System.Single)
-   IL_01d0: callvirt System.Void Monocle.GraphicsComponent::set_FlipY(System.Boolean)
-   IL_01d5: ldarg.0
- + IL_01d6: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_01db: ret
+ + IL_10001: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0007: ldarg.0
+   IL_0008: ldarg.2
+   IL_0009: stfld System.Char Celeste.Mod.auspicioushelper.TileDebris::tileset
+   IL_000e: ldarg.0
+   IL_000f: ldarg.3
+   IL_0010: stfld System.Boolean Celeste.Mod.auspicioushelper.TileDebris::playSound
+   IL_0015: ldarg.0
+   IL_0016: ldsfld System.Random Monocle.Calc::Random
+   IL_001b: ldc.r4 0.6
+   IL_0020: ldc.r4 2.6
+   IL_0025: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_002a: stfld System.Single Celeste.Mod.auspicioushelper.TileDebris::lifeTimer
+   IL_002f: ldarg.0
+   IL_0030: ldc.r4 1
+   IL_0035: stfld System.Single Celeste.Mod.auspicioushelper.TileDebris::alpha
+   IL_003a: ldarg.0
+   IL_003b: ldc.i4.0
+   IL_003c: stfld System.Boolean Celeste.Mod.auspicioushelper.TileDebris::hasHitGround
+   IL_0041: ldarg.0
+   IL_0042: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0047: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.auspicioushelper.FastDebris::speed
+   IL_004c: ldarg.0
+   IL_004d: ldc.r4 0
+   IL_0052: stfld System.Single Celeste.Mod.auspicioushelper.TileDebris::fadeLerp
+   IL_0057: ldarg.0
+   IL_0058: ldsfld System.Random Monocle.Calc::Random
+   IL_005d: ldc.i4.1
+   IL_005e: ldc.i4.m1
+   IL_005f: call T Monocle.Calc::Choose<System.Int32>(System.Random,T,T)
+   IL_0064: conv.r4
+   IL_0065: stfld System.Single Celeste.Mod.auspicioushelper.TileDebris::rotateSign
+   IL_006a: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_006f: ldloca.s V_0
+   IL_0071: ldarg.2
+   IL_0072: callvirt System.Boolean Celeste.Autotiler::TryGetCustomDebris(System.String&,System.Char)
+   IL_0077: brfalse.s IL_00a7
+   IL_0079: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_007e: ldstr "debris/"
+   IL_0083: ldloc.0
+   IL_0084: call System.String System.String::Concat(System.String,System.String)
+   IL_0089: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_008e: stloc.1
+   IL_008f: ldarg.0
+   IL_0090: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_0095: ldsfld System.Random Monocle.Calc::Random
+   IL_009a: ldloc.1
+   IL_009b: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_00a0: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_00a5: br.s IL_0114
+   IL_00a7: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_00ac: ldstr "debris/"
+   IL_00b1: call System.ReadOnlySpan`1<System.Char> System.String::op_Implicit(System.String)
+   IL_00b6: ldarg.2
+   IL_00b7: stloc.2
+   IL_00b8: ldloca.s V_2
+   IL_00ba: newobj System.Void System.ReadOnlySpan`1<System.Char>::.ctor(T&)
+   IL_00bf: call System.String System.String::Concat(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>)
+   IL_00c4: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_00c9: brfalse.s IL_00fa
+   IL_00cb: ldarg.0
+   IL_00cc: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_00d1: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_00d6: ldstr "debris/"
+   IL_00db: call System.ReadOnlySpan`1<System.Char> System.String::op_Implicit(System.String)
+   IL_00e0: ldarg.2
+   IL_00e1: stloc.2
+   IL_00e2: ldloca.s V_2
+   IL_00e4: newobj System.Void System.ReadOnlySpan`1<System.Char>::.ctor(T&)
+   IL_00e9: call System.String System.String::Concat(System.ReadOnlySpan`1<System.Char>,System.ReadOnlySpan`1<System.Char>)
+   IL_00ee: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_00f3: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_00f8: br.s IL_0114
+   IL_00fa: ldarg.0
+   IL_00fb: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_0100: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0105: ldstr "debris/1"
+   IL_010a: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_010f: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_0114: ldarg.0
+   IL_0115: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_011a: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_011f: pop
+   IL_0120: ldarg.0
+   IL_0121: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_0126: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_012b: ldarg.0
+   IL_012c: ldfld System.Single Celeste.Mod.auspicioushelper.TileDebris::alpha
+   IL_0131: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0136: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_013b: ldarg.0
+   IL_013c: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_0141: ldsfld System.Random Monocle.Calc::Random
+   IL_0146: call System.Single Monocle.Calc::NextAngle(System.Random)
+   IL_014b: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_0150: ldarg.0
+   IL_0151: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_0156: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_015b: ldsfld System.Random Monocle.Calc::Random
+   IL_0160: ldc.r4 0.5
+   IL_0165: ldc.r4 1
+   IL_016a: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_016f: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0174: ldarg.0
+   IL_0175: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_017a: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_017f: ldsfld System.Random Monocle.Calc::Random
+   IL_0184: ldc.r4 0.5
+   IL_0189: ldc.r4 1
+   IL_018e: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_0193: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0198: ldarg.0
+   IL_0199: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_019e: ldsfld System.Random Monocle.Calc::Random
+   IL_01a3: ldc.r4 0.5
+   IL_01a8: call System.Boolean Monocle.Calc::Chance(System.Random,System.Single)
+   IL_01ad: callvirt System.Void Monocle.GraphicsComponent::set_FlipX(System.Boolean)
+   IL_01b2: ldarg.0
+   IL_01b3: ldfld Monocle.Image Celeste.Mod.auspicioushelper.TileDebris::image
+   IL_01b8: ldsfld System.Random Monocle.Calc::Random
+   IL_01bd: ldc.r4 0.5
+   IL_01c2: call System.Boolean Monocle.Calc::Chance(System.Random,System.Single)
+   IL_01c7: callvirt System.Void Monocle.GraphicsComponent::set_FlipY(System.Boolean)
+   IL_01cc: ldarg.0
+ + IL_10002: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_01cd: ret
