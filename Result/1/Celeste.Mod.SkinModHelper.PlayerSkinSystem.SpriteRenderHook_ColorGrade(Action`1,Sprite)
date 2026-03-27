@@ -37,15 +37,15 @@ IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_0056: ldc.i4.1
    IL_0057: stloc.3
    IL_0058: ldloc.3
-   IL_0059: brfalse IL_01c5
+   IL_0059: brfalse IL_01b9
    IL_005e: nop
    IL_005f: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.Mod.SkinModHelper.SkinsSystem::FxColorGrading_SMH
    IL_0064: stloc.s V_4
    IL_0066: ldloc.2
    IL_0067: ldnull
    IL_0068: cgt.un
-   IL_006a: stloc.s V_6
-   IL_006c: ldloc.s V_6
+   IL_006a: stloc.s V_12
+   IL_006c: ldloc.s V_12
    IL_006e: brfalse.s IL_00bd
    IL_0070: nop
    IL_0071: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
@@ -94,8 +94,8 @@ IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_0101: br.s IL_0109
    IL_0103: ldloc.0
    IL_0104: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.CharacterConfig::effect_hairColor
-   IL_0109: stloc.s V_7
-   IL_010b: ldloca.s V_7
+   IL_0109: stloc.s V_13
+   IL_010b: ldloca.s V_13
    IL_010d: call Microsoft.Xna.Framework.Vector4 Microsoft.Xna.Framework.Color::ToVector4()
    IL_0112: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector4)
    IL_0117: nop
@@ -115,42 +115,46 @@ IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_0147: callvirt System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::get_TintMaskWithHair()
    IL_014c: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Boolean)
    IL_0151: nop
-   IL_0152: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
-   IL_0157: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
-   IL_015c: ldstr "transformMatrix"
-   IL_0161: callvirt T MonoMod.Utils.DynamicData::Get<Microsoft.Xna.Framework.Matrix>(System.String)
-   IL_0166: stloc.s V_5
-   IL_0168: call System.Void Celeste.GameplayRenderer::End()
-   IL_016d: nop
-   IL_016e: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
-   IL_0173: ldc.i4.0
-   IL_0174: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
-   IL_0179: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointWrap
-   IL_017e: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::None
-   IL_0183: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
-   IL_0188: ldloc.s V_4
-   IL_018a: ldloc.s V_5
-   IL_018c: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
-   IL_0191: nop
-   IL_0192: ldarg.0
-   IL_0193: ldarg.1
-   IL_0194: callvirt System.Void System.Action`1<Monocle.Sprite>::Invoke(T)
-   IL_0199: nop
-   IL_019a: call System.Void Celeste.GameplayRenderer::End()
-   IL_019f: nop
-   IL_01a0: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
-   IL_01a5: ldc.i4.0
-   IL_01a6: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
-   IL_01ab: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointWrap
-   IL_01b0: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::None
-   IL_01b5: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
-   IL_01ba: ldnull
-   IL_01bb: ldloc.s V_5
-   IL_01bd: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
-   IL_01c2: nop
-   IL_01c3: br.s IL_01cd
-   IL_01c5: ldarg.0
-   IL_01c6: ldarg.1
-   IL_01c7: callvirt System.Void System.Action`1<Monocle.Sprite>::Invoke(T)
-   IL_01cc: nop
-   IL_01cd: ret
+   IL_0152: ldloca.s V_5
+   IL_0154: ldloca.s V_6
+   IL_0156: ldloca.s V_7
+   IL_0158: ldloca.s V_8
+   IL_015a: ldloca.s V_9
+   IL_015c: ldloca.s V_10
+   IL_015e: ldloca.s V_11
+   IL_0160: call System.Void Celeste.Mod.SkinModHelper.Extensions::GetCurrentSpriteBatch(Microsoft.Xna.Framework.Graphics.SpriteSortMode&,Microsoft.Xna.Framework.Graphics.BlendState&,Microsoft.Xna.Framework.Graphics.SamplerState&,Microsoft.Xna.Framework.Graphics.DepthStencilState&,Microsoft.Xna.Framework.Graphics.RasterizerState&,Microsoft.Xna.Framework.Graphics.Effect&,Microsoft.Xna.Framework.Matrix&)
+   IL_0165: nop
+   IL_0166: call System.Void Celeste.GameplayRenderer::End()
+   IL_016b: nop
+   IL_016c: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0171: ldc.i4.0
+   IL_0172: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_0177: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointWrap
+   IL_017c: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::None
+   IL_0181: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
+   IL_0186: ldloc.s V_4
+   IL_0188: ldloc.s V_11
+   IL_018a: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
+   IL_018f: nop
+   IL_0190: ldarg.0
+   IL_0191: ldarg.1
+   IL_0192: callvirt System.Void System.Action`1<Monocle.Sprite>::Invoke(T)
+   IL_0197: nop
+   IL_0198: call System.Void Celeste.GameplayRenderer::End()
+   IL_019d: nop
+   IL_019e: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_01a3: ldloc.s V_5
+   IL_01a5: ldloc.s V_6
+   IL_01a7: ldloc.s V_7
+   IL_01a9: ldloc.s V_8
+   IL_01ab: ldloc.s V_9
+   IL_01ad: ldloc.s V_10
+   IL_01af: ldloc.s V_11
+   IL_01b1: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
+   IL_01b6: nop
+   IL_01b7: br.s IL_01c1
+   IL_01b9: ldarg.0
+   IL_01ba: ldarg.1
+   IL_01bb: callvirt System.Void System.Action`1<Monocle.Sprite>::Invoke(T)
+   IL_01c0: nop
+   IL_01c1: ret
