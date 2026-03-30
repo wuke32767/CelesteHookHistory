@@ -1,7 +1,7 @@
-On: Celeste.Mod.XaphanHelper.Entities.TimedStrawberry.OnStrawberryOnAnimate(orig_OnAnimate,Strawberry,String)
-IL: ExtendedVariants.Variants.AllStrawberriesAreGoldens.patchAllGoldenFlags(ILContext)
-IL: Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
-IL: Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILContext)
+On: [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.TimedStrawberry.OnStrawberryOnAnimate(orig_OnAnimate,Strawberry,String)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.AllStrawberriesAreGoldens.patchAllGoldenFlags(ILContext)
+IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Boolean Celeste.Strawberry::flyingAway
    IL_0006: brtrue.s IL_0042
@@ -33,7 +33,7 @@ IL: Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILCont
    IL_0052: br.s IL_0071
    IL_0054: ldarg.0
    IL_0055: callvirt System.Boolean Celeste.Strawberry::get_Golden()
- + IL_10000: call System.Boolean ExtendedVariants.Variants.AllStrawberriesAreGoldens::strawberryHasGoldenCollectBehavior(System.Boolean) @ ExtendedVariants.Variants.AllStrawberriesAreGoldens.patchAllGoldenFlags(ILContext)
+ + IL_10000: call System.Boolean ExtendedVariants.Variants.AllStrawberriesAreGoldens::strawberryHasGoldenCollectBehavior(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.AllStrawberriesAreGoldens.patchAllGoldenFlags(ILContext)
    IL_005a: brfalse.s IL_0061
    IL_005c: ldc.i4.s 30
    IL_005e: stloc.0
@@ -50,8 +50,8 @@ IL: Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILCont
    IL_0072: ldfld Monocle.Sprite Celeste.Strawberry::sprite
    IL_0077: callvirt System.Int32 Monocle.Sprite::get_CurrentAnimationFrame()
    IL_007c: ldloc.0
- + IL_10001: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILContext)
- + IL_10002: call System.Int32 Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::interceptPulse(System.Int32,Celeste.Strawberry) @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILContext)
+ + IL_10001: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILContext)
+ + IL_10002: call System.Int32 Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::interceptPulse(System.Int32,Celeste.Strawberry) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILContext)
    IL_007d: bne.un IL_0122
    IL_0082: ldarg.0
    IL_0083: ldfld Monocle.Tween Celeste.Strawberry::lightTween
@@ -66,8 +66,8 @@ IL: Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILCont
    IL_009e: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>()
    IL_00a3: brfalse.s IL_00e4
    IL_00a5: ldstr "event:/game/general/strawberry_pulse"
- + IL_10003: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
- + IL_10004: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryPulseSound(System.String,Celeste.Strawberry) @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10003: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10004: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryPulseSound(System.String,Celeste.Strawberry) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
    IL_00aa: ldarg.0
    IL_00ab: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
    IL_00b0: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
@@ -87,8 +87,8 @@ IL: Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.toggleStrawberryPulse(ILCont
    IL_00e2: pop
    IL_00e3: ret
    IL_00e4: ldstr "event:/game/general/strawberry_pulse"
- + IL_10005: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
- + IL_10006: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryPulseSound(System.String,Celeste.Strawberry) @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10005: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10006: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryPulseSound(System.String,Celeste.Strawberry) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
    IL_00e9: ldarg.0
    IL_00ea: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
    IL_00ef: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)

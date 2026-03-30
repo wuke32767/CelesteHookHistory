@@ -1,8 +1,8 @@
-On: Celeste.Mod.Spirialis.TimePlayerSettings.CustomSummitLaunchUpdate(orig_SummitLaunchUpdate,Player)
-On: FrostHelper.CustomSpinner.Player_SummitLaunchUpdate(orig_SummitLaunchUpdate,Player)
-On: Celeste.Mod.Randomizer.RandoModule.SummitLaunchReset(orig_SummitLaunchUpdate,Player)
-IL: VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
-IL: Celeste.Mod.KyfexHelper.CustomDirectionBadelineBoost.customBoostPos2(ILContext)
+On: [Spirialis::]Celeste.Mod.Spirialis.TimePlayerSettings.CustomSummitLaunchUpdate(orig_SummitLaunchUpdate,Player)
+On: [FrostTempleHelper::]FrostHelper.CustomSpinner.Player_SummitLaunchUpdate(orig_SummitLaunchUpdate,Player)
+On: [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SummitLaunchReset(orig_SummitLaunchUpdate,Player)
+IL: [VivHelper::]VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
+IL: [KyfexHelper::]Celeste.Mod.KyfexHelper.CustomDirectionBadelineBoost.customBoostPos2(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldarg.0
    IL_0002: ldfld System.Single Celeste.Player::summitLaunchParticleTimer
@@ -45,7 +45,7 @@ IL: Celeste.Mod.KyfexHelper.CustomDirectionBadelineBoost.customBoostPos2(ILConte
    IL_0081: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
    IL_0086: ldc.r4 240
    IL_008b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
- + IL_10000: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.KyfexHelper.CustomDirectionBadelineBoost::replaceSpeed(Microsoft.Xna.Framework.Vector2) @ Celeste.Mod.KyfexHelper.CustomDirectionBadelineBoost.customBoostPos2(ILContext)
+ + IL_10000: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.KyfexHelper.CustomDirectionBadelineBoost::replaceSpeed(Microsoft.Xna.Framework.Vector2) @ [KyfexHelper::]Celeste.Mod.KyfexHelper.CustomDirectionBadelineBoost.customBoostPos2(ILContext)
    IL_0090: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0095: ldarg.0
    IL_0096: ldfld Celeste.Level Celeste.Player::level
@@ -93,11 +93,11 @@ IL: Celeste.Mod.KyfexHelper.CustomDirectionBadelineBoost.customBoostPos2(ILConte
    IL_011b: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
    IL_0120: ldc.r4 0.01
    IL_0125: call System.Void Celeste.Celeste::Freeze(System.Single)
- + IL_10001: ldarg.0 @ VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
- + IL_10002: ldc.i4 0 @ VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
- + IL_10003: ldc.i4 0 @ VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
- + IL_10004: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
-       => Invoke: VivHelper.VivHelperModule+<>c.<Player_SummitLaunchUpdate>b__77_0(Player)
- + IL_10005: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
+ + IL_10001: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
+ + IL_10002: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
+ + IL_10003: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
+ + IL_10004: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
+       => Invoke: [VivHelper::]VivHelper.VivHelperModule+<>c.<Player_SummitLaunchUpdate>b__77_0(Player)
+ + IL_10005: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [VivHelper::]VivHelper.VivHelperModule.Player_SummitLaunchUpdate(ILContext)
    IL_012a: ldc.i4.s 10
    IL_012c: ret

@@ -1,9 +1,9 @@
-On: Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateOffSprites(orig_CreateSprites,CrystalStaticSpinner)
-IL: Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
-IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-IL: Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
- + IL_10000: ldarg.0 @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_10001: call DynamicMethod!Initialize_HookBefore!System.Void TAS.Gameplay.SimplifiedGraphics::Initialize_HookBefore(Celeste.CrystalStaticSpinner) @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+On: [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateOffSprites(orig_CreateSprites,CrystalStaticSpinner)
+IL: [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+IL: [TASHelper::]Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_10000: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: call DynamicMethod!Initialize_HookBefore!System.Void TAS.Gameplay.SimplifiedGraphics::Initialize_HookBefore(Celeste.CrystalStaticSpinner) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Boolean Celeste.CrystalStaticSpinner::expanded
    IL_0006: brtrue IL_0285
@@ -14,8 +14,8 @@ IL: Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILC
    IL_001b: ldsfld System.Collections.Generic.Dictionary`2<Celeste.CrystalColor,System.String> Celeste.CrystalStaticSpinner::fgTextureLookup
    IL_0020: ldarg.0
    IL_0021: ldfld Celeste.CrystalColor Celeste.CrystalStaticSpinner::color
- + IL_10002: ldarg.0 @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
- + IL_10003: call Celeste.CrystalColor Celeste.Mod.DashToggleHelper.DashToggleHelperModule::DTSpinnerImage(Celeste.CrystalColor,Celeste.CrystalStaticSpinner) @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_10002: ldarg.0 @ [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_10003: call Celeste.CrystalColor Celeste.Mod.DashToggleHelper.DashToggleHelperModule::DTSpinnerImage(Celeste.CrystalColor,Celeste.CrystalStaticSpinner) @ [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
    IL_0026: callvirt TValue System.Collections.Generic.Dictionary`2<Celeste.CrystalColor,System.String>::get_Item(TKey)
    IL_002b: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
    IL_0030: stloc.0
@@ -24,8 +24,8 @@ IL: Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILC
    IL_0037: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
    IL_003c: stloc.1
    IL_003d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
- + IL_10004: ldarg.0 @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
- + IL_10005: call Microsoft.Xna.Framework.Color Celeste.Mod.DashToggleHelper.DashToggleHelperModule::DTSpinnerColor(Microsoft.Xna.Framework.Color,Celeste.CrystalStaticSpinner) @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_10004: ldarg.0 @ [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_10005: call Microsoft.Xna.Framework.Color Celeste.Mod.DashToggleHelper.DashToggleHelperModule::DTSpinnerColor(Microsoft.Xna.Framework.Color,Celeste.CrystalStaticSpinner) @ [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
    IL_0042: stloc.2
    IL_0043: ldarg.0
    IL_0044: ldfld Celeste.CrystalColor Celeste.CrystalStaticSpinner::color
@@ -175,11 +175,11 @@ IL: Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILC
    IL_0202: call System.Single Microsoft.Xna.Framework.Vector2::LengthSquared()
    IL_0207: ldc.r4 576
    IL_020c: bge.un.s IL_023b
- + IL_10006: ldloc V_4 @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
- + IL_10007: call System.Boolean Celeste.Mod.DashToggleHelper.DashToggleHelperModule::isDTSpinner(Celeste.CrystalStaticSpinner) @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
- + IL_10008: ldarg.0 @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
- + IL_10009: call System.Boolean Celeste.Mod.DashToggleHelper.DashToggleHelperModule::isDTSpinner(Celeste.CrystalStaticSpinner) @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
- + IL_1000a: bne.un IL_023b @ Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_10006: ldloc V_4 @ [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_10007: call System.Boolean Celeste.Mod.DashToggleHelper.DashToggleHelperModule::isDTSpinner(Celeste.CrystalStaticSpinner) @ [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_10008: ldarg.0 @ [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_10009: call System.Boolean Celeste.Mod.DashToggleHelper.DashToggleHelperModule::isDTSpinner(Celeste.CrystalStaticSpinner) @ [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
+ + IL_1000a: bne.un IL_023b @ [DashToggleHelper::]Celeste.Mod.DashToggleHelper.DashToggleHelperModule.CreateSpritesOverride(ILContext)
    IL_020e: ldarg.0
    IL_020f: ldarg.0
    IL_0210: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
@@ -216,5 +216,5 @@ IL: Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILC
    IL_027a: ldc.i4.1
    IL_027b: stfld System.Boolean Celeste.CrystalStaticSpinner::expanded
    IL_0280: call System.Void Monocle.Calc::PopRandom()
- + IL_1000b: call System.Void Celeste.Mod.TASHelper.Gameplay.Spinner.SimplifiedSpinner::CallNeedClearSprites() @ Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
+ + IL_1000b: call System.Void Celeste.Mod.TASHelper.Gameplay.Spinner.SimplifiedSpinner::CallNeedClearSprites() @ [TASHelper::]Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
    IL_0285: ret

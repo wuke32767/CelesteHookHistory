@@ -1,11 +1,11 @@
-On: Celeste.Mod.XaphanHelper.Hooks.MergedChaptersGoldenStrawberry.onStrawberryOnPlayer(orig_OnPlayer,Strawberry,Player)
-On: Celeste.Mod.XaphanHelper.Entities.Drone.onStrawberryOnPlayer(orig_OnPlayer,Strawberry,Player)
-On: Celeste.Mod.XaphanHelper.XaphanModule.modStrawberryOnPlayer(orig_OnPlayer,Strawberry,Player)
-On: Celeste.Mod.ConsistencyTracker.ConsistencyTrackerModule.Strawberry_OnPlayer(orig_OnPlayer,Strawberry,Player)
-On: Celeste.Mod.Randomizer.RandoModule.PatchCollectBerry(orig_OnPlayer,Strawberry,Player)
-On: Celeste.Mod.ArphimigonHelper.ShieldedGoldenBerry.OnPlayer(orig_OnPlayer,Strawberry,Player)
-On: ExtendedVariants.Variants.AllStrawberriesAreGoldens.onStrawberryCollected(orig_OnPlayer,Strawberry,Player)
-IL: Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+On: [XaphanHelper::]Celeste.Mod.XaphanHelper.Hooks.MergedChaptersGoldenStrawberry.onStrawberryOnPlayer(orig_OnPlayer,Strawberry,Player)
+On: [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Drone.onStrawberryOnPlayer(orig_OnPlayer,Strawberry,Player)
+On: [XaphanHelper::]Celeste.Mod.XaphanHelper.XaphanModule.modStrawberryOnPlayer(orig_OnPlayer,Strawberry,Player)
+On: [ConsistencyTracker::]Celeste.Mod.ConsistencyTracker.ConsistencyTrackerModule.Strawberry_OnPlayer(orig_OnPlayer,Strawberry,Player)
+On: [Randomizer::]Celeste.Mod.Randomizer.RandoModule.PatchCollectBerry(orig_OnPlayer,Strawberry,Player)
+On: [toybox::]Celeste.Mod.ArphimigonHelper.ShieldedGoldenBerry.OnPlayer(orig_OnPlayer,Strawberry,Player)
+On: [ExtendedVariantMode::]ExtendedVariants.Variants.AllStrawberriesAreGoldens.onStrawberryCollected(orig_OnPlayer,Strawberry,Player)
+IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld Celeste.Follower Celeste.Strawberry::Follower
    IL_0006: ldfld Celeste.Leader Celeste.Follower::Leader
@@ -61,12 +61,12 @@ IL: Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILC
    IL_00a3: ldfld System.Boolean Celeste.Strawberry::isGhostBerry
    IL_00a8: brtrue.s IL_00b1
    IL_00aa: ldstr "event:/game/general/strawberry_touch"
- + IL_10000: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
- + IL_10001: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryTouchSound(System.String,Celeste.Strawberry) @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10000: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10001: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryTouchSound(System.String,Celeste.Strawberry) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
    IL_00af: br.s IL_00b6
    IL_00b1: ldstr "event:/game/general/strawberry_blue_touch"
- + IL_10002: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
- + IL_10003: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryBlueTouchSound(System.String,Celeste.Strawberry) @ Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10002: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10003: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryBlueTouchSound(System.String,Celeste.Strawberry) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
    IL_00b6: ldarg.0
    IL_00b7: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
    IL_00bc: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)

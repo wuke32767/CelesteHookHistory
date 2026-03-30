@@ -1,17 +1,17 @@
-On: Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_get_CanDash(Func`2,Player)
-On: ExtendedVariants.Variants.DashRestriction.modCanDash(Func`2,Player)
-On: ExtendedVariants.Variants.DashDirection.modCanDash(Func`2,Player)
-On: Celeste.Mod.FemtoHelper.FemtoModule.ModCanDash(OrigCanDash,Player)
-On: vitmod.NoDashTrigger.Player_CanDash(orig_CanDash,Player)
-On: Celeste.Mod.JungleHelper.Entities.Lantern.playerCanDash(orig_CanDash,Player)
-IL: ExtendedVariants.Variants.DisableDashCooldown.modCanDash(ILContext)
+On: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_get_CanDash(Func`2,Player)
+On: [ExtendedVariantMode::]ExtendedVariants.Variants.DashRestriction.modCanDash(Func`2,Player)
+On: [ExtendedVariantMode::]ExtendedVariants.Variants.DashDirection.modCanDash(Func`2,Player)
+On: [FemtoHelper::]Celeste.Mod.FemtoHelper.FemtoModule.ModCanDash(OrigCanDash,Player)
+On: [vitmod::]vitmod.NoDashTrigger.Player_CanDash(orig_CanDash,Player)
+On: [JungleHelper::]Celeste.Mod.JungleHelper.Entities.Lantern.playerCanDash(orig_CanDash,Player)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.DisableDashCooldown.modCanDash(ILContext)
    IL_0000: call System.Boolean Celeste.Input::get_CrouchDashPressed()
    IL_0005: brtrue.s IL_000e
    IL_0007: call System.Boolean Celeste.Input::get_DashPressed()
    IL_000c: brfalse.s IL_005d
    IL_000e: ldarg.0
    IL_000f: ldfld System.Single Celeste.Player::dashCooldownTimer
- + IL_10000: call System.Single ExtendedVariants.Variants.DisableDashCooldown::modDashCooldownTimer(System.Single) @ ExtendedVariants.Variants.DisableDashCooldown.modCanDash(ILContext)
+ + IL_10000: call System.Single ExtendedVariants.Variants.DisableDashCooldown::modDashCooldownTimer(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.DisableDashCooldown.modCanDash(ILContext)
    IL_0014: ldc.r4 0
    IL_0019: bgt.un.s IL_005d
    IL_001b: ldarg.0

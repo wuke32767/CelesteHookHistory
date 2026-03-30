@@ -1,13 +1,13 @@
-On: Celeste.Mod.StrawberryJam2021.Triggers.DashCountTrigger.ModDraw(orig_Draw,Vector2,Color,Single)
-On: Celeste.Mod.SkinModHelper.SomePatches.DeathEffectDrawHook(orig_Draw,Vector2,Color,Single)
-On: Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.DeathEffect_Draw(orig_Draw,Vector2,Color,Single)
-IL: SkinModHelper.Module.SkinModHelperModule.DeathEffectDrawHook(ILContext)
-IL: Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
- + IL_10000: call System.Boolean Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker::ShouldUseSingleColorDeathEffect() @ Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
- + IL_10001: brfalse IL_0000 @ Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
- + IL_10002: ldarg.1 @ Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
- + IL_10003: stloc.0 @ Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
- + IL_10004: br IL_002b @ Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
+On: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.DashCountTrigger.ModDraw(orig_Draw,Vector2,Color,Single)
+On: [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SomePatches.DeathEffectDrawHook(orig_Draw,Vector2,Color,Single)
+On: [FewerVisualDistractions::]Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.DeathEffect_Draw(orig_Draw,Vector2,Color,Single)
+IL: [SkinModHelper::]SkinModHelper.Module.SkinModHelperModule.DeathEffectDrawHook(ILContext)
+IL: [FewerVisualDistractions::]Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
+ + IL_10000: call System.Boolean Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker::ShouldUseSingleColorDeathEffect() @ [FewerVisualDistractions::]Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
+ + IL_10001: brfalse IL_0000 @ [FewerVisualDistractions::]Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
+ + IL_10002: ldarg.1 @ [FewerVisualDistractions::]Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
+ + IL_10003: stloc.0 @ [FewerVisualDistractions::]Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
+ + IL_10004: br IL_002b @ [FewerVisualDistractions::]Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEffect_Draw(ILContext)
    IL_0000: ldarg.2
    IL_0001: ldc.r4 10
    IL_0006: mul
@@ -23,7 +23,7 @@ IL: Celeste.Mod.FewerVisualDistractions.Patches.DeathEffectTweaker.patch_DeathEf
    IL_002a: stloc.0
    IL_002b: ldsfld Monocle.Atlas Celeste.GFX::Game
    IL_0030: ldstr "characters/player/hair00"
- + IL_10005: call System.String SkinModHelper.Module.SkinModHelperModule::ReplaceDeathParticle(System.String) @ SkinModHelper.Module.SkinModHelperModule.DeathEffectDrawHook(ILContext)
+ + IL_10005: call System.String SkinModHelper.Module.SkinModHelperModule::ReplaceDeathParticle(System.String) @ [SkinModHelper::]SkinModHelper.Module.SkinModHelperModule.DeathEffectDrawHook(ILContext)
    IL_0035: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
    IL_003a: stloc.1
    IL_003b: ldarg.2

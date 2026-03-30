@@ -1,12 +1,12 @@
-IL: Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
-IL: FrostHelper.CustomFeather.modFeatherState(ILContext)
-IL: ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
-IL: ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
-IL: ExtendedVariants.Variants.JumpBoost.ChangeJumpHBoost(ILContext)
-IL: FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
- + IL_10000: ldarg this @ FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
- + IL_10001: ldc.i4 16 @ FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
- + IL_10002: call System.Void FrostHelper.Triggers.Activator.OnJumpActivator::OnJump(Celeste.Player,FrostHelper.Triggers.Activator.OnJumpActivator/JumpTypes) @ FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
+IL: [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+IL: [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.JumpBoost.ChangeJumpHBoost(ILContext)
+IL: [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
+ + IL_10000: ldarg this @ [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
+ + IL_10001: ldc.i4 16 @ [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
+ + IL_10002: call System.Void FrostHelper.Triggers.Activator.OnJumpActivator::OnJump(Celeste.Player,FrostHelper.Triggers.Activator.OnJumpActivator/JumpTypes) @ [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0006: callvirt System.Int32 Monocle.StateMachine::get_State()
@@ -30,15 +30,15 @@ IL: FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILCont
    IL_00a8: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_00ad: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_00b2: ldc.r4 -60
- + IL_10003: call System.Single ExtendedVariants.Variants.RegularHiccups::determineHiccupStrengthFactor() @ ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
- + IL_10004: mul @ ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
+ + IL_10003: call System.Single ExtendedVariants.Variants.RegularHiccups::determineHiccupStrengthFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
+ + IL_10004: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
    IL_00b7: ble.un.s IL_0107
    IL_00b9: ldarg.0
    IL_00ba: ldarg.0
    IL_00bb: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_00c0: ldc.r4 -60
- + IL_10005: call System.Single ExtendedVariants.Variants.RegularHiccups::determineHiccupStrengthFactor() @ ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
- + IL_10006: mul @ ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
+ + IL_10005: call System.Single ExtendedVariants.Variants.RegularHiccups::determineHiccupStrengthFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
+ + IL_10006: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
    IL_00c5: dup
    IL_00c6: stloc.1
    IL_00c7: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
@@ -46,12 +46,12 @@ IL: FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILCont
    IL_00cd: stfld System.Single Celeste.Player::varJumpSpeed
    IL_00d2: ldarg.0
    IL_00d3: ldc.r4 0.15
- + IL_10007: ldc.i4 0 @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_10008: ldc.i4 0 @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_10009: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
-       => Invoke: Celeste.Mod.XaphanHelper.Entities.Waterfall+<>c.<modVarJumpTimer>b__18_0(Single)
- + IL_1000a: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_1000b: call System.Single ExtendedVariants.Variants.JumpDuration::applyJumpDuration(System.Single) @ ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
+ + IL_10007: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10008: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10009: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+       => Invoke: [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall+<>c.<modVarJumpTimer>b__18_0(Single)
+ + IL_1000a: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_1000b: call System.Single ExtendedVariants.Variants.JumpDuration::applyJumpDuration(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
    IL_00d8: stfld System.Single Celeste.Player::varJumpTimer
    IL_00dd: ldarg.0
    IL_00de: ldc.i4.1
@@ -81,8 +81,8 @@ IL: FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILCont
    IL_012b: ldarg.0
    IL_012c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0131: ldc.r4 -60
- + IL_1000c: call System.Single ExtendedVariants.Variants.RegularHiccups::determineHiccupStrengthFactor() @ ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
- + IL_1000d: mul @ ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
+ + IL_1000c: call System.Single ExtendedVariants.Variants.RegularHiccups::determineHiccupStrengthFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
+ + IL_1000d: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.RegularHiccups.modHiccupJump(ILContext)
    IL_0136: dup
    IL_0137: stloc.1
    IL_0138: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
@@ -90,12 +90,12 @@ IL: FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILCont
    IL_013e: stfld System.Single Celeste.Player::varJumpSpeed
    IL_0143: ldarg.0
    IL_0144: ldc.r4 0.15
- + IL_1000e: ldc.i4 0 @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_1000f: ldc.i4 0 @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_10010: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
-       => Invoke: Celeste.Mod.XaphanHelper.Entities.Waterfall+<>c.<modVarJumpTimer>b__18_0(Single)
- + IL_10011: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_10012: call System.Single ExtendedVariants.Variants.JumpDuration::applyJumpDuration(System.Single) @ ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
+ + IL_1000e: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_1000f: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10010: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+       => Invoke: [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall+<>c.<modVarJumpTimer>b__18_0(Single)
+ + IL_10011: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10012: call System.Single ExtendedVariants.Variants.JumpDuration::applyJumpDuration(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
    IL_0149: stfld System.Single Celeste.Player::varJumpTimer
    IL_014e: ldarg.0
    IL_014f: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed

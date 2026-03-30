@@ -1,8 +1,8 @@
-On: Celeste.Mod.Spirialis.TimePlayerSettings.CustomLaunchUpdate(orig_LaunchUpdate,Player)
-On: Celeste.Mod.Aqua.Core.PlayerStates.Player_LaunchUpdate(orig_LaunchUpdate,Player)
-IL: Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
-IL: ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
-IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.AllowCrouchedHoldableGrabbing.patch_Player_LaunchUpdate(ILContext)
+On: [Spirialis::]Celeste.Mod.Spirialis.TimePlayerSettings.CustomLaunchUpdate(orig_LaunchUpdate,Player)
+On: [Aqua::]Celeste.Mod.Aqua.Core.PlayerStates.Player_LaunchUpdate(orig_LaunchUpdate,Player)
+IL: [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
+IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.AllowCrouchedHoldableGrabbing.patch_Player_LaunchUpdate(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldflda System.Nullable`1<System.Single> Celeste.Player::launchApproachX
    IL_0006: call System.Boolean System.Nullable`1<System.Single>::get_HasValue()
@@ -23,14 +23,14 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.AllowCrouchedHoldableGrabb
    IL_0033: callvirt System.Int32 Celeste.Player::StartDash()
    IL_0038: ret
    IL_0039: call System.Boolean Celeste.Input::get_GrabCheck()
- + IL_10000: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
+ + IL_10000: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
    IL_003e: brfalse.s IL_00a7
    IL_0040: ldarg.0
    IL_0041: callvirt System.Boolean Celeste.Player::get_IsTired()
    IL_0046: brtrue.s IL_00a7
    IL_0048: ldarg.0
    IL_0049: callvirt System.Boolean Celeste.Player::get_Ducking()
- + IL_10001: call System.Boolean Celeste.Mod.GooberHelper.Options.Physics.Entities.AllowCrouchedHoldableGrabbing::overrideGetDucking(System.Boolean) @ Celeste.Mod.GooberHelper.Options.Physics.Entities.AllowCrouchedHoldableGrabbing.patch_Player_LaunchUpdate(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.GooberHelper.Options.Physics.Entities.AllowCrouchedHoldableGrabbing::overrideGetDucking(System.Boolean) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.AllowCrouchedHoldableGrabbing.patch_Player_LaunchUpdate(ILContext)
    IL_004e: brtrue.s IL_00a7
    IL_0050: ldarg.0
    IL_0051: call Monocle.Scene Monocle.Entity::get_Scene()
@@ -63,11 +63,11 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.AllowCrouchedHoldableGrabb
    IL_00a1: callvirt System.Void System.IDisposable::Dispose()
    IL_00a6: endfinally
    IL_00a7: ldarg.0
- + IL_10002: call System.Boolean Celeste.Mod.ProgHelper.PlayerExtensions::TryWarpToThrowablePortal(Celeste.Player) @ Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
- + IL_10003: brfalse IL_10006 @ Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
- + IL_10004: ldc.i4.8 @ Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
- + IL_10005: ret @ Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
- + IL_10006: ldarg.0 @ Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
+ + IL_10002: call System.Boolean Celeste.Mod.ProgHelper.PlayerExtensions::TryWarpToThrowablePortal(Celeste.Player) @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
+ + IL_10003: brfalse IL_10006 @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
+ + IL_10004: ldc.i4.8 @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
+ + IL_10005: ret @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
+ + IL_10006: ldarg.0 @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_LaunchUpdate_il(ILContext)
    IL_00a8: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_00ad: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_00b2: ldc.r4 0

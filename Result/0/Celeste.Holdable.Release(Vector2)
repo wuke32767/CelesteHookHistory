@@ -1,21 +1,21 @@
-On: VivHelper.Entities.HoldableBarrier.OnRelease(orig_Release,Holdable,Vector2)
-On: Celeste.Mod.FemtoHelper.Entities.SmwHoldable.hook_Release(orig_Release,Holdable,Vector2)
-On: Celeste.Mod.XaphanHelper.XaphanModule.onHoldableRelease(orig_Release,Holdable,Vector2)
-On: ExtendedVariants.Variants.ConsistentThrowing.MakeHoldableOffsetConsistent(orig_Release,Holdable,Vector2)
-On: Celeste.Mod.GooberHelper.Options.GeneralHooks.HoldableRelease.patch_Holdable_Release(orig_Release,Holdable,Vector2)
-IL: ExtendedVariants.Variants.DelayBeforeRegrabbing.modHoldableRelease(ILContext)
-IL: Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
+On: [VivHelper::]VivHelper.Entities.HoldableBarrier.OnRelease(orig_Release,Holdable,Vector2)
+On: [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.SmwHoldable.hook_Release(orig_Release,Holdable,Vector2)
+On: [XaphanHelper::]Celeste.Mod.XaphanHelper.XaphanModule.onHoldableRelease(orig_Release,Holdable,Vector2)
+On: [ExtendedVariantMode::]ExtendedVariants.Variants.ConsistentThrowing.MakeHoldableOffsetConsistent(orig_Release,Holdable,Vector2)
+On: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.HoldableRelease.patch_Holdable_Release(orig_Release,Holdable,Vector2)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.DelayBeforeRegrabbing.modHoldableRelease(ILContext)
+IL: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
    IL_0000: ldarg.0
    IL_0001: call Monocle.Entity Monocle.Component::get_Entity()
    IL_0006: callvirt System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>()
    IL_000b: brfalse IL_00ae
- + IL_10000: ldarg.0 @ Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
- + IL_10001: ldc.i4 0 @ Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
- + IL_10002: ldc.i4 0 @ Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
- + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
-       => Invoke: Celeste.Mod.EeveeHelper.MiscHooks+<>c.<Holdable_Release>b__19_0(Holdable)
- + IL_10004: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Holdable>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
- + IL_10005: brtrue.s IL_00ae @ Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
+ + IL_10000: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
+ + IL_10001: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
+ + IL_10002: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
+ + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
+       => Invoke: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks+<>c.<Holdable_Release>b__19_0(Holdable)
+ + IL_10004: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Holdable>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
+ + IL_10005: brtrue.s IL_00ae @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
    IL_0010: ldarg.1
    IL_0011: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_0016: ldc.r4 0
@@ -92,7 +92,7 @@ IL: Celeste.Mod.EeveeHelper.MiscHooks.Holdable_Release(ILContext)
    IL_00d1: ldarg.0
    IL_00d2: ldarg.0
    IL_00d3: ldfld System.Single Celeste.Holdable::cannotHoldDelay
- + IL_10006: call System.Single ExtendedVariants.Variants.DelayBeforeRegrabbing::editDelay(System.Single) @ ExtendedVariants.Variants.DelayBeforeRegrabbing.modHoldableRelease(ILContext)
+ + IL_10006: call System.Single ExtendedVariants.Variants.DelayBeforeRegrabbing::editDelay(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.DelayBeforeRegrabbing.modHoldableRelease(ILContext)
    IL_00d8: stfld System.Single Celeste.Holdable::cannotHoldTimer
    IL_00dd: ldarg.0
    IL_00de: ldfld System.Action`1<Microsoft.Xna.Framework.Vector2> Celeste.Holdable::OnRelease

@@ -1,9 +1,9 @@
-IL: ExtendedVariants.Variants.WindCrouchMove.modWindMove(ILContext)
-IL: FrostHelper.Entities.Boosters.GenericCustomBooster.modBoosterState(ILContext)
-IL: Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
- + IL_10000: ldarg.0 @ Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
- + IL_10001: ldarg.1 @ Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
- + IL_10002: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing::setWindBoost(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.WindCrouchMove.modWindMove(ILContext)
+IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modBoosterState(ILContext)
+IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
+ + IL_10000: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
+ + IL_10001: ldarg.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
+ + IL_10002: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing::setWindBoost(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Boolean Celeste.Player::JustRespawned
    IL_0006: brtrue IL_0258
@@ -18,14 +18,14 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_P
    IL_0027: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_002c: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_0031: ldc.i4.4
- + IL_10003: ldarg.0 @ FrostHelper.Entities.Boosters.GenericCustomBooster.modBoosterState(ILContext)
- + IL_10004: call System.Int32 FrostHelper.FrostModule::GetBoosterState(System.Int32,Celeste.Player) @ FrostHelper.Entities.Boosters.GenericCustomBooster.modBoosterState(ILContext)
+ + IL_10003: ldarg.0 @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modBoosterState(ILContext)
+ + IL_10004: call System.Int32 FrostHelper.FrostModule::GetBoosterState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modBoosterState(ILContext)
    IL_0032: beq IL_0258
    IL_0037: ldarg.0
    IL_0038: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_003d: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_0042: ldc.i4.2
- + IL_10005: call System.Int32 Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing::overrideStateCondition(System.Int32) @ Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
+ + IL_10005: call System.Int32 Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing::overrideStateCondition(System.Int32) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_Player_WindMove(ILContext)
    IL_0043: beq IL_0258
    IL_0048: ldarg.0
    IL_0049: ldfld Monocle.StateMachine Celeste.Player::StateMachine
@@ -68,7 +68,7 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Other.AllowWindWhileDashing.patch_P
    IL_00cf: brtrue IL_018e
    IL_00d4: ldarg.0
    IL_00d5: callvirt System.Boolean Celeste.Player::get_Ducking()
- + IL_10006: call System.Boolean ExtendedVariants.Variants.WindCrouchMove::modDuckCheck(System.Boolean) @ ExtendedVariants.Variants.WindCrouchMove.modWindMove(ILContext)
+ + IL_10006: call System.Boolean ExtendedVariants.Variants.WindCrouchMove::modDuckCheck(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.WindCrouchMove.modWindMove(ILContext)
    IL_00da: brfalse.s IL_00f4
    IL_00dc: ldarg.0
    IL_00dd: ldfld System.Boolean Celeste.Player::onGround

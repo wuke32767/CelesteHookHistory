@@ -1,7 +1,7 @@
-On: Celeste.Mod.viddiesToolbox.ViddiesToolboxModule.Input_GetAimVector(orig_GetAimVector,Facings)
-On: vitmod.ForceDashCrystal.Input_GetAimVector(orig_GetAimVector,Facings)
-IL: Celeste.Mod.Aqua.Core.InputExtensions.Input_ILGetAimVector(ILContext)
-IL: Celeste.Mod.SSMQoLMod.Modifications.CorrectAnalogDashAngle.IL_Input_GetAimVector(ILContext)
+On: [viddiesToolbox::]Celeste.Mod.viddiesToolbox.ViddiesToolboxModule.Input_GetAimVector(orig_GetAimVector,Facings)
+On: [vitmod::]vitmod.ForceDashCrystal.Input_GetAimVector(orig_GetAimVector,Facings)
+IL: [Aqua::]Celeste.Mod.Aqua.Core.InputExtensions.Input_ILGetAimVector(ILContext)
+IL: [SSMQoLMod::]Celeste.Mod.SSMQoLMod.Modifications.CorrectAnalogDashAngle.IL_Input_GetAimVector(ILContext)
    IL_0000: ldsfld Monocle.VirtualJoystick Celeste.Input::Aim
    IL_0005: callvirt Microsoft.Xna.Framework.Vector2 Monocle.VirtualJoystick::get_Value()
    IL_000a: stloc.0
@@ -37,8 +37,8 @@ IL: Celeste.Mod.SSMQoLMod.Modifications.CorrectAnalogDashAngle.IL_Input_GetAimVe
    IL_0075: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
    IL_007a: stloc.1
    IL_007b: ldloc.1
- + IL_10000: call System.Int32 Celeste.Mod.Aqua.Core.InputExtensions::GetGravityCoefficient() @ Celeste.Mod.Aqua.Core.InputExtensions.Input_ILGetAimVector(ILContext)
- + IL_10001: mul @ Celeste.Mod.Aqua.Core.InputExtensions.Input_ILGetAimVector(ILContext)
+ + IL_10000: call System.Int32 Celeste.Mod.Aqua.Core.InputExtensions::GetGravityCoefficient() @ [Aqua::]Celeste.Mod.Aqua.Core.InputExtensions.Input_ILGetAimVector(ILContext)
+ + IL_10001: mul @ [Aqua::]Celeste.Mod.Aqua.Core.InputExtensions.Input_ILGetAimVector(ILContext)
    IL_007c: ldc.r4 0
    IL_0081: blt.s IL_0086
    IL_0083: ldc.i4.0
@@ -48,7 +48,7 @@ IL: Celeste.Mod.SSMQoLMod.Modifications.CorrectAnalogDashAngle.IL_Input_GetAimVe
    IL_0088: ldc.r4 0.3926991
    IL_008d: ldloc.2
    IL_008e: conv.r4
- + IL_10002: call System.Single Celeste.Mod.SSMQoLMod.Modifications.CorrectAnalogDashAngle::CorrectAngleCalculation(System.Single) @ Celeste.Mod.SSMQoLMod.Modifications.CorrectAnalogDashAngle.IL_Input_GetAimVector(ILContext)
+ + IL_10002: call System.Single Celeste.Mod.SSMQoLMod.Modifications.CorrectAnalogDashAngle::CorrectAngleCalculation(System.Single) @ [SSMQoLMod::]Celeste.Mod.SSMQoLMod.Modifications.CorrectAnalogDashAngle.IL_Input_GetAimVector(ILContext)
    IL_008f: ldc.r4 0.08726646
    IL_0094: mul
    IL_0095: sub

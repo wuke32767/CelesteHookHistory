@@ -1,7 +1,7 @@
-IL: ExtendedVariants.Variants.PickupDuration.hookPickupCoroutine(ILContext)
-IL: Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
-IL: Celeste.Mod.FemtoHelper.Entities.SmwHoldable.PickupRoutineHook(ILContext)
-IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion.patch_Player_PickupCoroutine(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.PickupDuration.hookPickupCoroutine(ILContext)
+IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+IL: [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.SmwHoldable.PickupRoutineHook(ILContext)
+IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion.patch_Player_PickupCoroutine(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Int32 Celeste.Player/<PickupCoroutine>d__472::<>1__state
    IL_0006: stloc.0
@@ -69,8 +69,8 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion.patch
    IL_00bb: ldarg.0
    IL_00bc: ldloc.1
    IL_00bd: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
- + IL_10000: dup @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10001: call System.Void Celeste.Mod.auspicioushelper.CustomSpikes::SetOldSpeed(Microsoft.Xna.Framework.Vector2) @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10000: dup @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.auspicioushelper.CustomSpikes::SetOldSpeed(Microsoft.Xna.Framework.Vector2) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_00c2: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player/<PickupCoroutine>d__472::<oldSpeed>5__2
    IL_00c7: ldarg.0
    IL_00c8: ldloc.1
@@ -116,9 +116,9 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion.patch
    IL_0144: ldc.i4.1
    IL_0145: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeInOut
    IL_014a: ldc.r4 0.16
- + IL_10002: call System.Single ExtendedVariants.Variants.PickupDuration::applyPickupDurationMultiplier(System.Single) @ ExtendedVariants.Variants.PickupDuration.hookPickupCoroutine(ILContext)
- + IL_10003: ldloc V_1 @ Celeste.Mod.FemtoHelper.Entities.SmwHoldable.PickupRoutineHook(ILContext)
- + IL_10004: call System.Single Celeste.Mod.FemtoHelper.Entities.SmwHoldable::ModPickupSpeed(System.Single,Celeste.Player) @ Celeste.Mod.FemtoHelper.Entities.SmwHoldable.PickupRoutineHook(ILContext)
+ + IL_10002: call System.Single ExtendedVariants.Variants.PickupDuration::applyPickupDurationMultiplier(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.PickupDuration.hookPickupCoroutine(ILContext)
+ + IL_10003: ldloc V_1 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.SmwHoldable.PickupRoutineHook(ILContext)
+ + IL_10004: call System.Single Celeste.Mod.FemtoHelper.Entities.SmwHoldable::ModPickupSpeed(System.Single,Celeste.Player) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.SmwHoldable.PickupRoutineHook(ILContext)
    IL_014f: ldc.i4.1
    IL_0150: call Monocle.Tween Monocle.Tween::Create(Monocle.Tween/TweenMode,Monocle.Ease/Easer,System.Single,System.Boolean)
    IL_0155: stloc.s V_6
@@ -145,10 +145,10 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion.patch
    IL_018f: ldloc.1
    IL_0190: ldarg.0
    IL_0191: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player/<PickupCoroutine>d__472::<oldSpeed>5__2
- + IL_10005: ldloc.1 @ Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion.patch_Player_PickupCoroutine(ILContext)
- + IL_10006: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion::overrideSpeed(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion.patch_Player_PickupCoroutine(ILContext)
+ + IL_10005: ldloc.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion.patch_Player_PickupCoroutine(ILContext)
+ + IL_10006: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion::overrideSpeed(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.PickupSpeedInversion.patch_Player_PickupCoroutine(ILContext)
    IL_0196: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
- + IL_10007: call System.Void Celeste.Mod.auspicioushelper.CustomSpikes::RemoveOldSpeed() @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10007: call System.Void Celeste.Mod.auspicioushelper.CustomSpikes::RemoveOldSpeed() @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_019b: ldloc.1
    IL_019c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_01a1: ldloc.1

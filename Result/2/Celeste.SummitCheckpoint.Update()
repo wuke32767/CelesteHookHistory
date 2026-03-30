@@ -1,9 +1,9 @@
-On: Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager.UpdateTimerStateOnTouchFlag(orig_Update,SummitCheckpoint)
-On: Celeste.Mod.SpeedrunTool.TeleportRoom.TeleportRoomUtils.SummitCheckpointOnUpdate(orig_Update,SummitCheckpoint)
-On: Celeste.Mod.OrigFlagSound.OrigFlagSound.hook_update(orig_Update,SummitCheckpoint)
-IL: GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
-IL: Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry.hookUpdateLevelStartDashes(ILContext)
-IL: ExtendedVariants.Variants.RestoreDashesOnRespawn.updateDashCountOnRespawnPointChange(ILContext)
+On: [SpeedrunTool::]Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager.UpdateTimerStateOnTouchFlag(orig_Update,SummitCheckpoint)
+On: [SpeedrunTool::]Celeste.Mod.SpeedrunTool.TeleportRoom.TeleportRoomUtils.SummitCheckpointOnUpdate(orig_Update,SummitCheckpoint)
+On: [OrigFlagSound::]Celeste.Mod.OrigFlagSound.OrigFlagSound.hook_update(orig_Update,SummitCheckpoint)
+IL: [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
+IL: [JungleHelper::]Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry.hookUpdateLevelStartDashes(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.RestoreDashesOnRespawn.updateDashCountOnRespawnPointChange(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Boolean Celeste.SummitCheckpoint::Activated
    IL_0006: brtrue IL_00e2
@@ -24,12 +24,12 @@ IL: ExtendedVariants.Variants.RestoreDashesOnRespawn.updateDashCountOnRespawnPoi
    IL_0039: ldarg.0
    IL_003a: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_003f: isinst Celeste.Level
- + IL_10000: ldloc.0 @ GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
- + IL_10001: ldarg.0 @ GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
- + IL_10002: call System.Boolean GoldenTrainer.GoldenTrainerModule::SummitCheckpointUpdateHook(Celeste.Player,Celeste.SummitCheckpoint) @ GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
- + IL_10003: brfalse IL_0044 @ GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
- + IL_10004: pop @ GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
- + IL_10005: br IL_00e2 @ GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
+ + IL_10000: ldloc.0 @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
+ + IL_10001: ldarg.0 @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
+ + IL_10002: call System.Boolean GoldenTrainer.GoldenTrainerModule::SummitCheckpointUpdateHook(Celeste.Player,Celeste.SummitCheckpoint) @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
+ + IL_10003: brfalse IL_0044 @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
+ + IL_10004: pop @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
+ + IL_10005: br IL_00e2 @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.SummitCheckpointHandler(ILContext)
    IL_0044: ldarg.0
    IL_0045: ldc.i4.1
    IL_0046: stfld System.Boolean Celeste.SummitCheckpoint::Activated
@@ -47,12 +47,12 @@ IL: ExtendedVariants.Variants.RestoreDashesOnRespawn.updateDashCountOnRespawnPoi
    IL_0072: ldarg.0
    IL_0073: ldfld Microsoft.Xna.Framework.Vector2 Celeste.SummitCheckpoint::respawn
    IL_0078: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Vector2>::.ctor(T)
- + IL_10006: call System.Void ExtendedVariants.Variants.RestoreDashesOnRespawn::saveDashCountOnLastRespawn() @ ExtendedVariants.Variants.RestoreDashesOnRespawn.updateDashCountOnRespawnPointChange(ILContext)
+ + IL_10006: call System.Void ExtendedVariants.Variants.RestoreDashesOnRespawn::saveDashCountOnLastRespawn() @ [ExtendedVariantMode::]ExtendedVariants.Variants.RestoreDashesOnRespawn.updateDashCountOnRespawnPointChange(ILContext)
    IL_007d: stfld System.Nullable`1<Microsoft.Xna.Framework.Vector2> Celeste.Session::RespawnPoint
    IL_0082: dup
    IL_0083: ldfld Celeste.Session Celeste.Level::Session
    IL_0088: callvirt System.Void Celeste.Session::UpdateLevelStartDashes()
- + IL_10007: call System.Void Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry::registerGrabHappened() @ Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry.hookUpdateLevelStartDashes(ILContext)
+ + IL_10007: call System.Void Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry::registerGrabHappened() @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry.hookUpdateLevelStartDashes(ILContext)
    IL_008d: dup
    IL_008e: ldfld Celeste.Session Celeste.Level::Session
    IL_0093: ldc.i4.1

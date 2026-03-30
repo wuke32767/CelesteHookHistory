@@ -1,9 +1,9 @@
-On: Celeste.Mod.ChronoHelper.Entities.EeveeHelperExtension.EeveeHelperHooks.Collide_Check_Entity_Entity(orig_Check_Entity_Entity,Entity,Entity)
-On: Celeste.Mod.Aqua.Core.CollideExtensions.Collide_CheckTwoEntities(orig_Check_Entity_Entity,Entity,Entity)
-On: BoosterField.BoosterCollide(orig_Check_Entity_Entity,Entity,Entity)
-On: Celeste.Mod.izumisQOL.NoClipModule.CheckEntity(orig_Check_Entity_Entity,Entity,Entity)
-IL: Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
-IL: Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
+On: [ChronoHelper::]Celeste.Mod.ChronoHelper.Entities.EeveeHelperExtension.EeveeHelperHooks.Collide_Check_Entity_Entity(orig_Check_Entity_Entity,Entity,Entity)
+On: [Aqua::]Celeste.Mod.Aqua.Core.CollideExtensions.Collide_CheckTwoEntities(orig_Check_Entity_Entity,Entity,Entity)
+On: [ScugHelper::]BoosterField.BoosterCollide(orig_Check_Entity_Entity,Entity,Entity)
+On: [izumisQOL::]Celeste.Mod.izumisQOL.NoClipModule.CheckEntity(orig_Check_Entity_Entity,Entity,Entity)
+IL: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
    IL_0000: ldarg.0
    IL_0001: callvirt Monocle.Collider Monocle.Entity::get_Collider()
    IL_0006: brfalse.s IL_0010
@@ -15,17 +15,17 @@ IL: Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_
    IL_0012: ldarg.0
    IL_0013: ldarg.1
    IL_0014: beq.s IL_002b
- + IL_10000: ldarg.0 @ Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
- + IL_10001: ldarg.1 @ Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
- + IL_10002: call System.Boolean Celeste.Mod.EeveeHelper.MiscHooks::CheckContainers(Monocle.Entity,Monocle.Entity) @ Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
- + IL_10003: brtrue IL_002b @ Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10000: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10001: ldarg.1 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10002: call System.Boolean Celeste.Mod.EeveeHelper.MiscHooks::CheckContainers(Monocle.Entity,Monocle.Entity) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10003: brtrue IL_002b @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
    IL_0016: ldarg.1
    IL_0017: ldfld System.Boolean Monocle.Entity::Collidable
    IL_001c: brfalse.s IL_002b
- + IL_10004: ldarg.0 @ Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
- + IL_10005: ldarg.1 @ Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
- + IL_10006: call System.Boolean Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController::ShouldDisableCollision(Monocle.Entity,Monocle.Entity) @ Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
- + IL_10007: brtrue IL_002b @ Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
+ + IL_10004: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
+ + IL_10005: ldarg.1 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
+ + IL_10006: call System.Boolean Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController::ShouldDisableCollision(Monocle.Entity,Monocle.Entity) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
+ + IL_10007: brtrue IL_002b @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.ReturnBubbleBehaviorController.IL_Collide_Check(ILContext)
    IL_001e: ldarg.0
    IL_001f: callvirt Monocle.Collider Monocle.Entity::get_Collider()
    IL_0024: ldarg.1

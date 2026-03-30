@@ -1,9 +1,9 @@
-On: Celeste.Mod.DebugConsole.DebugConsole.RenderHook(orig_RenderCore,Engine)
-On: TAS.Gameplay.CenterCamera.On_Engine_RenderCore(orig_RenderCore,Engine)
-On: Celeste.Mod.TASRecorder.VideoCapture.On_Engine_RenderCore(orig_RenderCore,Engine)
-On: Celeste.Mod.ImGuiHelper.ImGuiHelperModule.Engine_RenderCore(orig_RenderCore,Engine)
-IL: Celeste.Mod.TASRecorder.VideoCapture.IL_Engine_RenderCore(ILContext)
-IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+On: [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole.RenderHook(orig_RenderCore,Engine)
+On: [CelesteTAS-EverestInterop::]TAS.Gameplay.CenterCamera.On_Engine_RenderCore(orig_RenderCore,Engine)
+On: [TASRecorder::]Celeste.Mod.TASRecorder.VideoCapture.On_Engine_RenderCore(orig_RenderCore,Engine)
+On: [ImGuiHelper::]Celeste.Mod.ImGuiHelper.ImGuiHelperModule.Engine_RenderCore(orig_RenderCore,Engine)
+IL: [TASRecorder::]Celeste.Mod.TASRecorder.VideoCapture.IL_Engine_RenderCore(ILContext)
+IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld Monocle.Scene Monocle.Engine::scene
    IL_0006: brfalse.s IL_0013
@@ -31,5 +31,5 @@ IL: TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_0052: ldarg.0
    IL_0053: ldfld Monocle.Scene Monocle.Engine::scene
    IL_0058: callvirt System.Void Monocle.Scene::AfterRender()
- + IL_10000: call DynamicMethod!Load_HookAfter!System.Void TAS.Gameplay.Events::Load_HookAfter() @ TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10000: call DynamicMethod!Load_HookAfter!System.Void TAS.Gameplay.Events::Load_HookAfter() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_005d: ret

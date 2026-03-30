@@ -1,8 +1,8 @@
-On: Celeste.Mod.Procedurline.TextureCacheEvictor.SceneTransitionHook(orig_OnSceneTransition,Engine,Scene,Scene)
-On: TAS.Gameplay.Hitboxes.TriggerHitbox.On_Engine_OnSceneTransition(orig_OnSceneTransition,Engine,Scene,Scene)
-IL: TAS.Gameplay.Optimization.FastForwardOptimization.SkipGC(ILContext)
- + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_IgnoreGarbageCollect() @ TAS.Gameplay.Optimization.FastForwardOptimization.SkipGC(ILContext)
- + IL_10001: brtrue IL_000a @ TAS.Gameplay.Optimization.FastForwardOptimization.SkipGC(ILContext)
+On: [Procedurline::]Celeste.Mod.Procedurline.TextureCacheEvictor.SceneTransitionHook(orig_OnSceneTransition,Engine,Scene,Scene)
+On: [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.TriggerHitbox.On_Engine_OnSceneTransition(orig_OnSceneTransition,Engine,Scene,Scene)
+IL: [CelesteTAS-EverestInterop::]TAS.Gameplay.Optimization.FastForwardOptimization.SkipGC(ILContext)
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_IgnoreGarbageCollect() @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Optimization.FastForwardOptimization.SkipGC(ILContext)
+ + IL_10001: brtrue IL_000a @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Optimization.FastForwardOptimization.SkipGC(ILContext)
    IL_0000: call System.Void System.GC::Collect()
    IL_0005: call System.Void System.GC::WaitForPendingFinalizers()
    IL_000a: ldc.r4 1

@@ -1,8 +1,8 @@
-On: Celeste.Mod.PandorasBox.CloneSpawner.VirtualButton_Update(orig_Update,VirtualButton)
-On: vitmod.NoMoveTrigger.VirtualButton_Update(orig_Update,VirtualButton)
-IL: ExtendedVariants.Variants.GameSpeed.modVirtualButtonUpdate(ILContext)
-IL: ExtendedVariants.Variants.AlternativeBuffering.VirtualButton_Update_il(ILContext)
-IL: ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
+On: [PandorasBox::]Celeste.Mod.PandorasBox.CloneSpawner.VirtualButton_Update(orig_Update,VirtualButton)
+On: [vitmod::]vitmod.NoMoveTrigger.VirtualButton_Update(orig_Update,VirtualButton)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.GameSpeed.modVirtualButtonUpdate(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.AlternativeBuffering.VirtualButton_Update_il(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldc.i4.0
    IL_0002: stfld System.Boolean Monocle.VirtualButton::consumed
@@ -11,8 +11,8 @@ IL: ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
    IL_0009: ldfld System.Single Monocle.VirtualButton::bufferCounter
    IL_000e: call System.Single Monocle.Engine::get_DeltaTime()
    IL_0013: sub
- + IL_10000: ldarg.0 @ ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
- + IL_10001: call System.Single ExtendedVariants.Variants.MultiBuffering::computeBufferCounter(System.Single,Monocle.VirtualButton) @ ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10000: ldarg.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10001: call System.Single ExtendedVariants.Variants.MultiBuffering::computeBufferCounter(System.Single,Monocle.VirtualButton) @ [ExtendedVariantMode::]ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
    IL_0014: stfld System.Single Monocle.VirtualButton::bufferCounter
    IL_0019: ldc.i4.0
    IL_001a: stloc.0
@@ -27,10 +27,10 @@ IL: ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
    IL_0034: ldarg.0
    IL_0035: ldarg.0
    IL_0036: ldfld System.Single Monocle.VirtualButton::BufferTime
- + IL_10002: ldarg.0 @ ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
- + IL_10003: ldarg.0 @ ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
- + IL_10004: ldfld System.Single Monocle.VirtualButton::bufferCounter @ ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
- + IL_10005: call System.Single ExtendedVariants.Variants.MultiBuffering::computeBufferTime(System.Single,Monocle.VirtualButton,System.Single) @ ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10002: ldarg.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10003: ldarg.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10004: ldfld System.Single Monocle.VirtualButton::bufferCounter @ [ExtendedVariantMode::]ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10005: call System.Single ExtendedVariants.Variants.MultiBuffering::computeBufferTime(System.Single,Monocle.VirtualButton,System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
    IL_003b: stfld System.Single Monocle.VirtualButton::bufferCounter
    IL_0040: ldc.i4.1
    IL_0041: stloc.0
@@ -91,12 +91,12 @@ IL: ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
    IL_00ce: stfld System.Single Monocle.VirtualButton::repeatCounter
    IL_00d3: ldarg.0
    IL_00d4: ldc.r4 0
- + IL_10006: ldarg.0 @ ExtendedVariants.Variants.AlternativeBuffering.VirtualButton_Update_il(ILContext)
- + IL_10007: ldfld System.Single Monocle.VirtualButton::bufferCounter @ ExtendedVariants.Variants.AlternativeBuffering.VirtualButton_Update_il(ILContext)
- + IL_10008: call System.Single ExtendedVariants.Variants.AlternativeBuffering::modBufferCounter(System.Single,System.Single) @ ExtendedVariants.Variants.AlternativeBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10006: ldarg.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.AlternativeBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10007: ldfld System.Single Monocle.VirtualButton::bufferCounter @ [ExtendedVariantMode::]ExtendedVariants.Variants.AlternativeBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10008: call System.Single ExtendedVariants.Variants.AlternativeBuffering::modBufferCounter(System.Single,System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.AlternativeBuffering.VirtualButton_Update_il(ILContext)
    IL_00d9: stfld System.Single Monocle.VirtualButton::bufferCounter
- + IL_10009: ldarg.0 @ ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
- + IL_1000a: call System.Void ExtendedVariants.Variants.MultiBuffering::clearBufferQueue(Monocle.VirtualButton) @ ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
+ + IL_10009: ldarg.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
+ + IL_1000a: call System.Void ExtendedVariants.Variants.MultiBuffering::clearBufferQueue(Monocle.VirtualButton) @ [ExtendedVariantMode::]ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
    IL_00de: ret
    IL_00df: ldarg.0
    IL_00e0: ldfld System.Boolean Monocle.VirtualButton::canRepeat
@@ -118,7 +118,7 @@ IL: ExtendedVariants.Variants.MultiBuffering.VirtualButton_Update_il(ILContext)
    IL_010a: ldarg.0
    IL_010b: ldfld System.Single Monocle.VirtualButton::repeatCounter
    IL_0110: call System.Single Monocle.Engine::get_DeltaTime()
- + IL_1000b: call System.Single ExtendedVariants.Variants.GameSpeed::getRepeatTimerDeltaTime(System.Single) @ ExtendedVariants.Variants.GameSpeed.modVirtualButtonUpdate(ILContext)
+ + IL_1000b: call System.Single ExtendedVariants.Variants.GameSpeed::getRepeatTimerDeltaTime(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.GameSpeed.modVirtualButtonUpdate(ILContext)
    IL_0115: sub
    IL_0116: stfld System.Single Monocle.VirtualButton::repeatCounter
    IL_011b: ldarg.0

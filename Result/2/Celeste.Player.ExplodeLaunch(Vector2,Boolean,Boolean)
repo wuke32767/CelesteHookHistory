@@ -1,11 +1,11 @@
-On: ExtendedVariants.Variants.ExplodeLaunchSpeed.correctExplodeLaunchSpeed(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
-On: PinballBooster.ExplodeLaunchOnHook(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
-IL: Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
-IL: Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea.Player_ExplodeLaunch(ILContext)
-IL: PinballBooster.ExplodeLaunchILHook(ILContext)
-IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
- + IL_10000: ldarg.0 @ Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
- + IL_10001: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation::setOriginalSpeed(Celeste.Player) @ Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
+On: [ExtendedVariantMode::]ExtendedVariants.Variants.ExplodeLaunchSpeed.correctExplodeLaunchSpeed(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
+On: [ScugHelper::]PinballBooster.ExplodeLaunchOnHook(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
+IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
+IL: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea.Player_ExplodeLaunch(ILContext)
+IL: [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
+IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
+ + IL_10000: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation::setOriginalSpeed(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
    IL_0000: ldc.i4.2
    IL_0001: ldc.i4.1
    IL_0002: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
@@ -21,8 +21,8 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreserva
    IL_0029: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
    IL_002e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
    IL_0033: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
- + IL_10002: ldarg.0 @ Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea.Player_ExplodeLaunch(ILContext)
- + IL_10003: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea::ModDirection(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea.Player_ExplodeLaunch(ILContext)
+ + IL_10002: ldarg.0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea.Player_ExplodeLaunch(ILContext)
+ + IL_10003: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea::ModDirection(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea.Player_ExplodeLaunch(ILContext)
    IL_0038: stloc.0
    IL_0039: ldloc.0
    IL_003a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
@@ -74,9 +74,9 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreserva
    IL_00c9: ldc.r4 280
    IL_00ce: ldloc.0
    IL_00cf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
- + IL_10004: ldarg.0 @ Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
- + IL_10005: ldarg.1 @ Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
- + IL_10006: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer::modExplodeLaunch(Microsoft.Xna.Framework.Vector2,Celeste.Player,Microsoft.Xna.Framework.Vector2) @ Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
+ + IL_10004: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
+ + IL_10005: ldarg.1 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
+ + IL_10006: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer::modExplodeLaunch(Microsoft.Xna.Framework.Vector2,Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
    IL_00d4: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_00d9: ldarg.0
    IL_00da: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
@@ -94,8 +94,8 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreserva
    IL_010b: ldarg.0
    IL_010c: ldc.i4.1
    IL_010d: stfld System.Boolean Celeste.Player::AutoJump
- + IL_10007: ldarg.0 @ Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
- + IL_10008: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation::doStuff(Celeste.Player) @ Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
+ + IL_10007: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
+ + IL_10008: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation::doStuff(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
    IL_0112: ldarg.0
    IL_0113: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0118: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
@@ -137,11 +137,11 @@ IL: Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreserva
    IL_018f: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
    IL_0194: call Celeste.SlashFx Celeste.SlashFx::Burst(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_0199: pop
- + IL_10009: ldarg.0 @ PinballBooster.ExplodeLaunchILHook(ILContext)
- + IL_1000a: call System.Boolean PinballBooster::<ExplodeLaunchILHook>g__Delegate|17_2(Celeste.Player) @ PinballBooster.ExplodeLaunchILHook(ILContext)
- + IL_1000b: brfalse IL_019a @ PinballBooster.ExplodeLaunchILHook(ILContext)
- + IL_1000c: ldloc.0 @ PinballBooster.ExplodeLaunchILHook(ILContext)
- + IL_1000d: ret @ PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_10009: ldarg.0 @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_1000a: call System.Boolean PinballBooster::<ExplodeLaunchILHook>g__Delegate|17_2(Celeste.Player) @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_1000b: brfalse IL_019a @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_1000c: ldloc.0 @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_1000d: ret @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
    IL_019a: ldarg.0
    IL_019b: callvirt Celeste.PlayerInventory Celeste.Player::get_Inventory()
    IL_01a0: ldfld System.Boolean Celeste.PlayerInventory::NoRefills

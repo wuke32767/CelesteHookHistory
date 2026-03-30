@@ -1,11 +1,11 @@
-On: Celeste.Mod.VanillaEditHelper.VanillaEditHelperModule.AreaDataOnLoad(orig_Load)
-On: Celeste.Mod.Randomizer.RandoModule.InitRandoData(orig_Load)
-On: Celeste.Mod.Procedurline.Demo.DemoMap.AreaDataLoadHook(orig_Load)
-On: Celeste.Mod.Aqua.Core.LevelExtrasLoader.AreaData_Load(orig_Load)
-On: AltSidesHelper.AltSidesHelperModule.PostAreaLoad(orig_Load)
-IL: Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule.HookAreaDataLoad(ILContext)
-IL: ChroniaHelper.ChroniaHelperModule.HookAreaDataLoad(ILContext)
-IL: Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+On: [VanillaEditHelper::]Celeste.Mod.VanillaEditHelper.VanillaEditHelperModule.AreaDataOnLoad(orig_Load)
+On: [Randomizer::]Celeste.Mod.Randomizer.RandoModule.InitRandoData(orig_Load)
+On: [Procedurline::]Celeste.Mod.Procedurline.Demo.DemoMap.AreaDataLoadHook(orig_Load)
+On: [Aqua::]Celeste.Mod.Aqua.Core.LevelExtrasLoader.AreaData_Load(orig_Load)
+On: [AltSidesHelper::]AltSidesHelper.AltSidesHelperModule.PostAreaLoad(orig_Load)
+IL: [HelperTestMapHider::]Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule.HookAreaDataLoad(ILContext)
+IL: [ChroniaHelper::]ChroniaHelper.ChroniaHelperModule.HookAreaDataLoad(ILContext)
+IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_0000: call System.Void Celeste.AreaData::orig_Load()
    IL_0005: ldsfld System.Collections.Generic.List`1<Celeste.AreaData> Celeste.AreaData::Areas
    IL_000a: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.AreaData>::GetEnumerator()
@@ -106,20 +106,20 @@ IL: Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(
    IL_0108: ldloc.s V_9
    IL_010a: callvirt T System.Collections.Generic.IEnumerator`1<Celeste.Mod.ModAsset>::get_Current()
    IL_010f: stloc.s V_10
- + IL_10000: ldloc V_10 @ ChroniaHelper.ChroniaHelperModule.HookAreaDataLoad(ILContext)
- + IL_10001: call System.Boolean ChroniaHelper.ChroniaHelperModule::IsFromHelpers(Celeste.Mod.ModAsset) @ ChroniaHelper.ChroniaHelperModule.HookAreaDataLoad(ILContext)
- + IL_10002: brtrue IL_04e7 @ ChroniaHelper.ChroniaHelperModule.HookAreaDataLoad(ILContext)
- + IL_10003: ldloc V_10 @ Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule.HookAreaDataLoad(ILContext)
- + IL_10004: call System.Boolean Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule::IsFromHelpers(Celeste.Mod.ModAsset) @ Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule.HookAreaDataLoad(ILContext)
- + IL_10005: brtrue IL_04e7 @ Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule.HookAreaDataLoad(ILContext)
+ + IL_10000: ldloc V_10 @ [ChroniaHelper::]ChroniaHelper.ChroniaHelperModule.HookAreaDataLoad(ILContext)
+ + IL_10001: call System.Boolean ChroniaHelper.ChroniaHelperModule::IsFromHelpers(Celeste.Mod.ModAsset) @ [ChroniaHelper::]ChroniaHelper.ChroniaHelperModule.HookAreaDataLoad(ILContext)
+ + IL_10002: brtrue IL_04e7 @ [ChroniaHelper::]ChroniaHelper.ChroniaHelperModule.HookAreaDataLoad(ILContext)
+ + IL_10003: ldloc V_10 @ [HelperTestMapHider::]Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule.HookAreaDataLoad(ILContext)
+ + IL_10004: call System.Boolean Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule::IsFromHelpers(Celeste.Mod.ModAsset) @ [HelperTestMapHider::]Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule.HookAreaDataLoad(ILContext)
+ + IL_10005: brtrue IL_04e7 @ [HelperTestMapHider::]Celeste.Mod.HelperTestMapHider.HelperTestMapHiderModule.HookAreaDataLoad(ILContext)
    IL_0111: ldloc.s V_10
    IL_0113: ldfld System.String Celeste.Mod.ModAsset::PathVirtual
    IL_0118: ldc.i4.5
    IL_0119: callvirt System.String System.String::Substring(System.Int32)
    IL_011e: stloc.s V_11
- + IL_10006: ldloc V_11 @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10007: call System.Boolean Celeste.Mod.auspicioushelper.MapHider::check(System.String) @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10008: brtrue IL_04e7 @ Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10006: ldloc V_11 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10007: call System.Boolean Celeste.Mod.auspicioushelper.MapHider::check(System.String) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10008: brtrue IL_04e7 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_0120: newobj System.Void Celeste.AreaData::.ctor()
    IL_0125: stloc.s V_12
    IL_0127: ldloc.s V_12

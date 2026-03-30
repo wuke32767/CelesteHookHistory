@@ -1,18 +1,18 @@
-On: ExtendedVariants.Variants.Stamina.modPlayerUseRefill(orig_UseRefill,Player,Boolean)
-On: VivHelper.Entities.RefillCancel.Player_UseRefill(orig_UseRefill,Player,Boolean)
-On: Celeste.Mod.ProgHelper.PlayerExtensions.Player_UseRefill(orig_UseRefill,Player,Boolean)
-On: LuckyHelper.Entities.Misc.DummyPlayer.PlayerOnUseRefill(orig_UseRefill,Player,Boolean)
-On: Celeste.Mod.XaphanHelper.Entities.CustomRefill.modUseRefill(orig_UseRefill,Player,Boolean)
-On: Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.modUseRefill(orig_UseRefill,Player,Boolean)
-On: Celeste.Mod.Randomizer.RandoModule.NeverRefillZeroDashes(orig_UseRefill,Player,Boolean)
-On: Celeste.Mod.DJMapHelper.Entities.ColorfulRefill.PlayerUseRefill(orig_UseRefill,Player,Boolean)
-On: Celeste.Mod.CommunalHelper.States.Elytra.Player_UseRefill(orig_UseRefill,Player,Boolean)
-On: Celeste.Mod.ShroomHelper.Entities.OneDashWingedStrawberry.Player_UseRefill(orig_UseRefill,Player,Boolean)
-IL: ExtendedVariants.Variants.DashCount.modUseRefill(ILContext)
-IL: ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
+On: [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.modPlayerUseRefill(orig_UseRefill,Player,Boolean)
+On: [VivHelper::]VivHelper.Entities.RefillCancel.Player_UseRefill(orig_UseRefill,Player,Boolean)
+On: [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_UseRefill(orig_UseRefill,Player,Boolean)
+On: [LuckyHelper::]LuckyHelper.Entities.Misc.DummyPlayer.PlayerOnUseRefill(orig_UseRefill,Player,Boolean)
+On: [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.CustomRefill.modUseRefill(orig_UseRefill,Player,Boolean)
+On: [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.modUseRefill(orig_UseRefill,Player,Boolean)
+On: [Randomizer::]Celeste.Mod.Randomizer.RandoModule.NeverRefillZeroDashes(orig_UseRefill,Player,Boolean)
+On: [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.ColorfulRefill.PlayerUseRefill(orig_UseRefill,Player,Boolean)
+On: [CommunalHelper::]Celeste.Mod.CommunalHelper.States.Elytra.Player_UseRefill(orig_UseRefill,Player,Boolean)
+On: [ShroomHelper::]Celeste.Mod.ShroomHelper.Entities.OneDashWingedStrawberry.Player_UseRefill(orig_UseRefill,Player,Boolean)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.DashCount.modUseRefill(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
    IL_0000: ldarg.0
    IL_0001: callvirt System.Int32 Celeste.Player::get_MaxDashes()
- + IL_10000: call System.Int32 ExtendedVariants.Variants.DashCount::determineDashCount(System.Int32) @ ExtendedVariants.Variants.DashCount.modUseRefill(ILContext)
+ + IL_10000: call System.Int32 ExtendedVariants.Variants.DashCount::determineDashCount(System.Int32) @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashCount.modUseRefill(ILContext)
    IL_0006: stloc.0
    IL_0007: ldarg.1
    IL_0008: brfalse.s IL_000c
@@ -22,8 +22,8 @@ IL: ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
    IL_000d: ldfld System.Int32 Celeste.Player::Dashes
    IL_0012: ldloc.0
    IL_0013: blt.s IL_0022
- + IL_10001: call System.Boolean ExtendedVariants.Variants.JumpCount::jumpNeedsRefilling() @ ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
- + IL_10002: brtrue.s IL_0022 @ ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
+ + IL_10001: call System.Boolean ExtendedVariants.Variants.JumpCount::jumpNeedsRefilling() @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
+ + IL_10002: brtrue.s IL_0022 @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
    IL_0015: ldarg.0
    IL_0016: ldfld System.Single Celeste.Player::Stamina
    IL_001b: ldc.r4 20
@@ -31,7 +31,7 @@ IL: ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
    IL_0022: ldarg.0
    IL_0023: ldloc.0
    IL_0024: stfld System.Int32 Celeste.Player::Dashes
- + IL_10003: call System.Void ExtendedVariants.Variants.DashCount::triggerOnDashRefill() @ ExtendedVariants.Variants.DashCount.modUseRefill(ILContext)
+ + IL_10003: call System.Void ExtendedVariants.Variants.DashCount::triggerOnDashRefill() @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashCount.modUseRefill(ILContext)
    IL_0029: ldarg.0
    IL_002a: callvirt System.Void Celeste.Player::RefillStamina()
    IL_002f: ldc.i4.1

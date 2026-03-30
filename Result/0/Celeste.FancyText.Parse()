@@ -1,9 +1,9 @@
-On: BrokemiaHelper.PersistentMiniTextbox.FancyText_Parse(orig_Parse,FancyText)
-On: Bitsbolts.Components.FancyTextExt.OnFancyTextParse(OnFancyTextParse_orig,FancyText)
-IL: Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
-IL: PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
-IL: Celeste.Mod.SkinModHelper.SomePatches.ilFancyTextParse(ILContext)
-IL: Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+On: [BrokemiaHelper::]BrokemiaHelper.PersistentMiniTextbox.FancyText_Parse(orig_Parse,FancyText)
+On: [libbitsbolts::]Bitsbolts.Components.FancyTextExt.OnFancyTextParse(OnFancyTextParse_orig,FancyText)
+IL: [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
+IL: [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+IL: [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SomePatches.ilFancyTextParse(ILContext)
+IL: [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.String Celeste.FancyText::text
    IL_0006: ldarg.0
@@ -255,10 +255,10 @@ IL: Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedC
    IL_02b0: stfld System.Single Celeste.FancyText::currentDelay
    IL_02b5: br IL_08f1
    IL_02ba: ldloc.s V_7
- + IL_10000: dup @ Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
- + IL_10001: ldarg.0 @ Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
- + IL_10002: ldloc.s V_8 @ Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
- + IL_10003: call System.Void Bitsbolts.Components.FancyTextExt::OnFancyTextParseParam(System.String,Celeste.FancyText,System.Collections.Generic.List`1<System.String>) @ Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
+ + IL_10000: dup @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
+ + IL_10001: ldarg.0 @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
+ + IL_10002: ldloc.s V_8 @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
+ + IL_10003: call System.Void Bitsbolts.Components.FancyTextExt::OnFancyTextParseParam(System.String,Celeste.FancyText,System.Collections.Generic.List`1<System.String>) @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
    IL_02bc: ldstr "/>>"
    IL_02c1: callvirt System.Boolean System.String::Equals(System.String)
    IL_02c6: brfalse.s IL_02d8
@@ -392,7 +392,7 @@ IL: Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedC
    IL_0466: brtrue.s IL_0473
    IL_0468: ldloc.s V_13
    IL_046a: ldloc.s V_15
- + IL_10004: call System.String Celeste.Mod.SkinModHelper.SomePatches::<ilFancyTextParse>g___findPortraitSkin|3_0(System.String) @ Celeste.Mod.SkinModHelper.SomePatches.ilFancyTextParse(ILContext)
+ + IL_10004: call System.String Celeste.Mod.SkinModHelper.SomePatches::<ilFancyTextParse>g___findPortraitSkin|3_0(System.String) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SomePatches.ilFancyTextParse(ILContext)
    IL_046c: stfld System.String Celeste.FancyText/Portrait::Sprite
    IL_0471: br.s IL_047c
    IL_0473: ldloc.s V_13
@@ -680,20 +680,20 @@ IL: Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedC
    IL_07f5: add
    IL_07f6: stfld System.Single Celeste.FancyText::currentPosition
    IL_07fb: br IL_08f1
- + IL_10005: ldarg.0 @ Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
- + IL_10006: ldloc V_7 @ Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
- + IL_10007: ldloc V_8 @ Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
- + IL_10008: call System.Boolean Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText::TryMatchObfuscatedCommand(Celeste.FancyText,System.String,System.Collections.Generic.List`1<System.String>) @ Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
- + IL_10009: brtrue IL_08f1 @ Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_10005: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_10006: ldloc V_7 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_10007: ldloc V_8 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_10008: call System.Boolean Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText::TryMatchObfuscatedCommand(Celeste.FancyText,System.String,System.Collections.Generic.List`1<System.String>) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_10009: brtrue IL_08f1 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
    IL_0800: ldloc.s V_7
- + IL_1000a: ldarg.0 @ PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_1000b: ldloc.s V_7 @ PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_1000c: ldloc.s V_8 @ PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_1000d: ldc.i4 0 @ PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_1000e: ldc.i4 0 @ PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_1000f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
-       => Invoke: PrismaticHelper.Cutscenes.ParserHooks+<>c.<ParsePhTriggers>b__6_0(FancyText,String,List`1)
- + IL_10010: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.FancyText,System.String,System.Collections.Generic.List`1<System.String>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_1000a: ldarg.0 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_1000b: ldloc.s V_7 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_1000c: ldloc.s V_8 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_1000d: ldc.i4 0 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_1000e: ldc.i4 0 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_1000f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+       => Invoke: [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks+<>c.<ParsePhTriggers>b__6_0(FancyText,String,List`1)
+ + IL_10010: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.FancyText,System.String,System.Collections.Generic.List`1<System.String>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
    IL_0802: ldstr "savedata"
    IL_0807: callvirt System.Boolean System.String::Equals(System.String)
    IL_080c: brfalse IL_08f1

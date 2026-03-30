@@ -1,6 +1,6 @@
-On: Celeste.Mod.RebindPeriod.RebindPeriodModule.CustomConsole(orig_UpdateClosed,Commands)
-On: Celeste.Mod.ImGuiHelper.ImGuiHelperModule.Commands_UpdateClosed(orig_UpdateClosed,Commands)
-IL: VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
+On: [rebindperiod::]Celeste.Mod.RebindPeriod.RebindPeriodModule.CustomConsole(orig_UpdateClosed,Commands)
+On: [ImGuiHelper::]Celeste.Mod.ImGuiHelper.ImGuiHelperModule.Commands_UpdateClosed(orig_UpdateClosed,Commands)
+IL: [VivHelper::]VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Boolean Monocle.Commands::installedListener
    IL_0006: brfalse.s IL_0020
@@ -21,11 +21,11 @@ IL: VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
    IL_0031: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
    IL_0036: callvirt Celeste.Mod.ButtonBinding Celeste.Mod.Core.CoreModuleSettings::get_DebugConsole()
    IL_003b: callvirt System.Boolean Celeste.Mod.ButtonBinding::get_Pressed()
- + IL_10000: ldc.i4 0 @ VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
- + IL_10001: ldc.i4 0 @ VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
- + IL_10002: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
-       => Invoke: VivHelper.VivHelperModule+<>c.<Commands_UpdateClosed>b__110_0(Boolean)
- + IL_10003: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,System.Boolean>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
+ + IL_10000: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
+ + IL_10001: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
+ + IL_10002: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
+       => Invoke: [VivHelper::]VivHelper.VivHelperModule+<>c.<Commands_UpdateClosed>b__110_0(Boolean)
+ + IL_10003: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,System.Boolean>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [VivHelper::]VivHelper.VivHelperModule.Commands_UpdateClosed(ILContext)
    IL_0040: brtrue.s IL_0053
    IL_0042: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
    IL_0047: callvirt Celeste.Mod.ButtonBinding Celeste.Mod.Core.CoreModuleSettings::get_ToggleDebugConsole()

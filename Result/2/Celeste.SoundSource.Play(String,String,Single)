@@ -1,7 +1,7 @@
-On: LuckyHelper.Triggers.AudioAdjustTrigger.SoundSourceOnPlay(orig_Play,SoundSource,String,String,Single)
-On: ChaosEnsues.Entry.SoundSource_Play(orig_Play,SoundSource,String,String,Single)
-On: Celeste.Mod.FewerVisualDistractions.Patches.FarewellTweaker.SoundSource_Play(orig_Play,SoundSource,String,String,Single)
-IL: Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
+On: [LuckyHelper::]LuckyHelper.Triggers.AudioAdjustTrigger.SoundSourceOnPlay(orig_Play,SoundSource,String,String,Single)
+On: [ChaosEnsues::]ChaosEnsues.Entry.SoundSource_Play(orig_Play,SoundSource,String,String,Single)
+On: [FewerVisualDistractions::]Celeste.Mod.FewerVisualDistractions.Patches.FarewellTweaker.SoundSource_Play(orig_Play,SoundSource,String,String,Single)
+IL: [LylyraHelper::]Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldc.i4.1
    IL_0002: callvirt Celeste.SoundSource Celeste.SoundSource::Stop(System.Boolean)
@@ -13,8 +13,8 @@ IL: Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Pl
    IL_0010: call FMOD.Studio.EventDescription Celeste.Audio::GetEventDescription(System.String)
    IL_0015: stloc.0
    IL_0016: ldloc.0
- + IL_10000: ldarg.0 @ Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
- + IL_10001: call FMOD.Studio.EventDescription Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger::ReplaceEventDescription(FMOD.Studio.EventDescription,Celeste.SoundSource) @ Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
+ + IL_10000: ldarg.0 @ [LylyraHelper::]Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
+ + IL_10001: call FMOD.Studio.EventDescription Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger::ReplaceEventDescription(FMOD.Studio.EventDescription,Celeste.SoundSource) @ [LylyraHelper::]Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
    IL_0017: ldnull
    IL_0018: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
    IL_001d: brfalse.s IL_0046
@@ -35,8 +35,8 @@ IL: Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Pl
    IL_0045: pop
    IL_0046: ldarg.0
    IL_0047: ldfld FMOD.Studio.EventInstance Celeste.SoundSource::instance
- + IL_10002: ldarg.0 @ Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
- + IL_10003: call FMOD.Studio.EventInstance Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger::ReplaceEventInstance(FMOD.Studio.EventInstance,Celeste.SoundSource) @ Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
+ + IL_10002: ldarg.0 @ [LylyraHelper::]Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
+ + IL_10003: call FMOD.Studio.EventInstance Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger::ReplaceEventInstance(FMOD.Studio.EventInstance,Celeste.SoundSource) @ [LylyraHelper::]Celeste.Mod.LylyraHelper.Code.Triggers.MuteSoundSourceTrigger.SoundSource_Play(ILContext)
    IL_004c: ldnull
    IL_004d: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
    IL_0052: brfalse.s IL_00ad

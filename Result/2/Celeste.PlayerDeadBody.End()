@@ -1,9 +1,9 @@
-On: Celeste.Mod.XaphanHelper.Hooks.MergedChaptersGoldenStrawberry.onPlayerDeadBodyEnd(orig_End,PlayerDeadBody)
-On: Celeste.Mod.SpeedrunTool.DeathStatistics.DeathStatisticsManager.PlayerDeadBodyOnEnd(orig_End,PlayerDeadBody)
-On: Celeste.Mod.SpeedrunTool.SaveLoad.StateManager.AutoLoadStateWhenDeath(orig_End,PlayerDeadBody)
-On: Celeste.Mod.HardcoreMode.HMModule.On_PlayerDeadBody_End(orig_End,PlayerDeadBody)
-IL: Bitsbolts.Triggers.ChangeRespawnCrossRoom.ILPlayerDeadBodyEnd(ILContext)
-IL: Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
+On: [XaphanHelper::]Celeste.Mod.XaphanHelper.Hooks.MergedChaptersGoldenStrawberry.onPlayerDeadBodyEnd(orig_End,PlayerDeadBody)
+On: [SpeedrunTool::]Celeste.Mod.SpeedrunTool.DeathStatistics.DeathStatisticsManager.PlayerDeadBodyOnEnd(orig_End,PlayerDeadBody)
+On: [SpeedrunTool::]Celeste.Mod.SpeedrunTool.SaveLoad.StateManager.AutoLoadStateWhenDeath(orig_End,PlayerDeadBody)
+On: [HardcoreMode::]Celeste.Mod.HardcoreMode.HMModule.On_PlayerDeadBody_End(orig_End,PlayerDeadBody)
+IL: [libbitsbolts::]Bitsbolts.Triggers.ChangeRespawnCrossRoom.ILPlayerDeadBodyEnd(ILContext)
+IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Boolean Celeste.PlayerDeadBody::finished
    IL_0006: brtrue.s IL_003e
@@ -20,14 +20,14 @@ IL: Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
    IL_001f: ldloc.0
    IL_0020: ldftn System.Void Celeste.Level::Reload()
    IL_0026: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
- + IL_10000: ldarg.0 @ Bitsbolts.Triggers.ChangeRespawnCrossRoom.ILPlayerDeadBodyEnd(ILContext)
- + IL_10001: call System.Action Bitsbolts.Triggers.ChangeRespawnCrossRoom::<ILPlayerDeadBodyEnd>m__3(System.Action,Celeste.PlayerDeadBody) @ Bitsbolts.Triggers.ChangeRespawnCrossRoom.ILPlayerDeadBodyEnd(ILContext)
+ + IL_10000: ldarg.0 @ [libbitsbolts::]Bitsbolts.Triggers.ChangeRespawnCrossRoom.ILPlayerDeadBodyEnd(ILContext)
+ + IL_10001: call System.Action Bitsbolts.Triggers.ChangeRespawnCrossRoom::<ILPlayerDeadBodyEnd>m__3(System.Action,Celeste.PlayerDeadBody) @ [libbitsbolts::]Bitsbolts.Triggers.ChangeRespawnCrossRoom.ILPlayerDeadBodyEnd(ILContext)
    IL_002b: stfld System.Action Celeste.PlayerDeadBody::DeathAction
- + IL_10002: call System.Boolean Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::CheckPlayerDeathSkipRemovePlayer() @ Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
- + IL_10003: brfalse.s IL_0030 @ Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
- + IL_10004: ldarg.0 @ Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
- + IL_10005: call System.Void Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::OnPlayerDeathSkipRemovePlayer(Celeste.PlayerDeadBody) @ Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
- + IL_10006: ret @ Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
+ + IL_10002: call System.Boolean Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::CheckPlayerDeathSkipRemovePlayer() @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
+ + IL_10003: brfalse.s IL_0030 @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
+ + IL_10004: ldarg.0 @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
+ + IL_10005: call System.Void Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::OnPlayerDeathSkipRemovePlayer(Celeste.PlayerDeadBody) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
+ + IL_10006: ret @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyEnd(ILContext)
    IL_0030: ldloc.0
    IL_0031: ldc.i4.0
    IL_0032: ldarg.0

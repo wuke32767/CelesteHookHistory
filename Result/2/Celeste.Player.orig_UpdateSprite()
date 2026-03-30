@@ -1,13 +1,13 @@
-On: Celeste.Mod.GooberHelper.Options.GeneralHooks.PlayerRender.patch_Player_UpdateSprite(orig_UpdateSprite,Player)
-IL: Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
-IL: Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
-IL: Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
-IL: Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
-IL: ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
-IL: ExtendedVariants.Variants.Friction.modUpdateSprite(ILContext)
-IL: Celeste.Mod.Skateline.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
-IL: FrostHelper.CustomFeather.modFeatherState(ILContext)
-IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+On: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.PlayerRender.patch_Player_UpdateSprite(orig_UpdateSprite,Player)
+IL: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
+IL: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
+IL: [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+IL: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
+IL: [ExtendedVariantMode::]ExtendedVariants.Variants.Friction.modUpdateSprite(ILContext)
+IL: [Skateline::]Celeste.Mod.Skateline.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+IL: [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
+IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_0006: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
@@ -57,18 +57,18 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_00b4: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_00b9: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_00be: ldc.i4.s 19
- + IL_10000: ldarg.0 @ FrostHelper.CustomFeather.modFeatherState(ILContext)
- + IL_10001: call System.Int32 FrostHelper.FrostModule::GetFeatherState(System.Int32,Celeste.Player) @ FrostHelper.CustomFeather.modFeatherState(ILContext)
+ + IL_10000: ldarg.0 @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
+ + IL_10001: call System.Int32 FrostHelper.FrostModule::GetFeatherState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
    IL_00c0: beq IL_096e
    IL_00c5: ldarg.0
- + IL_10002: dup @ Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
- + IL_10003: ldc.i4 -1 @ Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
- + IL_10004: ldc.i4 0 @ Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
- + IL_10005: ldc.i4 0 @ Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
- + IL_10006: call System.Object MonoMod.Utils.DynamicReferenceManager::GetValue(System.Int32,System.Int32) @ Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+ + IL_10002: dup @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+ + IL_10003: ldc.i4 -1 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+ + IL_10004: ldc.i4 0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+ + IL_10005: ldc.i4 0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+ + IL_10006: call System.Object MonoMod.Utils.DynamicReferenceManager::GetValue(System.Int32,System.Int32) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
         Reference: 
- + IL_10007: call System.Boolean Celeste.Mod.aonHelper.Helpers.HookHelper::<ModifyStateCheck>g__StateCheck|5_4(Celeste.Player,System.Int32,System.Func`2<Celeste.Player,System.Boolean>) @ Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
- + IL_10008: brtrue IL_1002b @ Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+ + IL_10007: call System.Boolean Celeste.Mod.aonHelper.Helpers.HookHelper::<ModifyStateCheck>g__StateCheck|5_4(Celeste.Player,System.Int32,System.Func`2<Celeste.Player,System.Boolean>) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+ + IL_10008: brtrue IL_1002b @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
    IL_00c6: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_00cb: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_00d0: ldc.i4.s 21
@@ -144,19 +144,19 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_01ab: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
    IL_01b0: br IL_096e
    IL_01b5: ldarg.0
- + IL_10009: dup @ Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
- + IL_1000a: ldc.i4 0 @ Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
- + IL_1000b: ldc.i4 0 @ Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
- + IL_1000c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
-       => Invoke: Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<CheckState>b__55_0(Player)
- + IL_1000d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
- + IL_1000e: brtrue IL_10010 @ Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
+ + IL_10009: dup @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
+ + IL_1000a: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
+ + IL_1000b: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
+ + IL_1000c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
+       => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<CheckState>b__55_0(Player)
+ + IL_1000d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
+ + IL_1000e: brtrue IL_10010 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
    IL_01b6: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_01bb: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_01c0: ldc.i4.s 9
    IL_01c2: bne.un.s IL_020f
- + IL_1000f: br IL_01c4 @ Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
- + IL_10010: pop @ Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
+ + IL_1000f: br IL_01c4 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
+ + IL_10010: pop @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
    IL_01c4: ldarg.0
    IL_01c5: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_01ca: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
@@ -266,14 +266,14 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_0336: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_033b: ldc.i4.1
    IL_033c: bne.un IL_0418
- + IL_10011: ldarg.0 @ Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
- + IL_10012: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
- + IL_10013: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
- + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
-       => Invoke: Celeste.Mod.CommunalHelper.Components.Pushable+<>c.<Player_orig_UpdateSprite>b__26_0(Player)
- + IL_10015: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
- + IL_10016: brfalse.s IL_0341 @ Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
- + IL_10017: ret @ Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
+ + IL_10011: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
+ + IL_10012: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
+ + IL_10013: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
+ + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
+       => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.Pushable+<>c.<Player_orig_UpdateSprite>b__26_0(Player)
+ + IL_10015: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
+ + IL_10016: brfalse.s IL_0341 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
+ + IL_10017: ret @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.Pushable.Player_orig_UpdateSprite(ILContext)
    IL_0341: ldarg.0
    IL_0342: ldfld System.Int32 Celeste.Player::lastClimbMove
    IL_0347: ldc.i4.0
@@ -397,8 +397,8 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_04bb: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_04c0: call System.Single System.Math::Abs(System.Single)
    IL_04c5: ldc.r4 25
- + IL_10018: pop @ ExtendedVariants.Variants.Friction.modUpdateSprite(ILContext)
- + IL_10019: call System.Single ExtendedVariants.Variants.Friction::getIdleAnimationThreshold() @ ExtendedVariants.Variants.Friction.modUpdateSprite(ILContext)
+ + IL_10018: pop @ [ExtendedVariantMode::]ExtendedVariants.Variants.Friction.modUpdateSprite(ILContext)
+ + IL_10019: call System.Single ExtendedVariants.Variants.Friction::getIdleAnimationThreshold() @ [ExtendedVariantMode::]ExtendedVariants.Variants.Friction.modUpdateSprite(ILContext)
    IL_04ca: bgt.un IL_06bf
    IL_04cf: ldarg.0
    IL_04d0: ldfld System.Int32 Celeste.Player::moveX
@@ -557,11 +557,11 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_06c7: ldarg.0
    IL_06c8: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_06cd: ldstr "runSlow_carry"
- + IL_1001a: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
- + IL_1001b: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
- + IL_1001c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
-       => Invoke: Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger+<>c.<Player_origUpdateSprite>b__6_2(String)
- + IL_1001d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+ + IL_1001a: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+ + IL_1001b: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+ + IL_1001c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+       => Invoke: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger+<>c.<Player_origUpdateSprite>b__6_2(String)
+ + IL_1001d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
    IL_06d2: ldc.i4.0
    IL_06d3: ldc.i4.0
    IL_06d4: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
@@ -655,11 +655,11 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_080d: ldarg.0
    IL_080e: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_0813: ldstr "runSlow"
- + IL_1001e: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
- + IL_1001f: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
- + IL_10020: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
-       => Invoke: Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger+<>c.<Player_origUpdateSprite>b__6_0(String)
- + IL_10021: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+ + IL_1001e: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+ + IL_1001f: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+ + IL_10020: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+       => Invoke: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger+<>c.<Player_origUpdateSprite>b__6_0(String)
+ + IL_10021: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
    IL_0818: ldc.i4.0
    IL_0819: ldc.i4.0
    IL_081a: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
@@ -667,11 +667,11 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_0824: ldarg.0
    IL_0825: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_082a: ldstr "runFast"
- + IL_10022: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
- + IL_10023: ldc.i4 0 @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
- + IL_10024: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
-       => Invoke: Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger+<>c.<Player_origUpdateSprite>b__6_0(String)
- + IL_10025: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+ + IL_10022: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+ + IL_10023: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+ + IL_10024: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
+       => Invoke: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger+<>c.<Player_origUpdateSprite>b__6_0(String)
+ + IL_10025: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.SkateboardTrigger.Player_origUpdateSprite(ILContext)
    IL_082f: ldc.i4.0
    IL_0830: ldc.i4.0
    IL_0831: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
@@ -747,10 +747,10 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_090c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0911: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_0916: ldc.r4 160
- + IL_10026: call System.Single ExtendedVariants.Variants.FallSpeed::mixFallSpeedAndGravity() @ ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
- + IL_10027: mul @ ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
- + IL_10028: ldc.r4 0.1 @ ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
- + IL_10029: sub @ ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
+ + IL_10026: call System.Single ExtendedVariants.Variants.FallSpeed::mixFallSpeedAndGravity() @ [ExtendedVariantMode::]ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
+ + IL_10027: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
+ + IL_10028: ldc.r4 0.1 @ [ExtendedVariantMode::]ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
+ + IL_10029: sub @ [ExtendedVariantMode::]ExtendedVariants.Variants.FallSpeed.modUpdateSprite(ILContext)
    IL_091b: bge.s IL_092a
    IL_091d: ldarg.0
    IL_091e: ldfld Celeste.Level Celeste.Player::level
@@ -778,8 +778,8 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_0967: ldc.i4.0
    IL_0968: ldc.i4.0
    IL_0969: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
- + IL_1002a: br IL_096e @ Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
- + IL_1002b: pop @ Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+ + IL_1002a: br IL_096e @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
+ + IL_1002b: pop @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILContext)
    IL_096e: ldarg.0
    IL_096f: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0974: callvirt System.Int32 Monocle.StateMachine::get_State()
@@ -792,22 +792,22 @@ IL: Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_UpdateSprite(ILConte
    IL_098a: ldarg.0
    IL_098b: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_0990: ldc.r4 0.5
- + IL_1002c: ldarg.0 @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
- + IL_1002d: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
- + IL_1002e: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
- + IL_1002f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
-       => Invoke: Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger+<>c.<HookPlayerUpdateSprite>b__4_0(Single,Player)
- + IL_10030: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+ + IL_1002c: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+ + IL_1002d: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+ + IL_1002e: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+ + IL_1002f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+       => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger+<>c.<HookPlayerUpdateSprite>b__4_0(Single,Player)
+ + IL_10030: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
    IL_0995: stfld System.Single Monocle.Sprite::Rate
    IL_099a: ret
    IL_099b: ldarg.0
    IL_099c: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_09a1: ldc.r4 1
- + IL_10031: ldarg.0 @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
- + IL_10032: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
- + IL_10033: ldc.i4 0 @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
- + IL_10034: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
-       => Invoke: Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger+<>c.<HookPlayerUpdateSprite>b__4_0(Single,Player)
- + IL_10035: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+ + IL_10031: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+ + IL_10032: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+ + IL_10033: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+ + IL_10034: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
+       => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger+<>c.<HookPlayerUpdateSprite>b__4_0(Single,Player)
+ + IL_10035: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.AffectSpriteTrigger.HookPlayerUpdateSprite(ILContext)
    IL_09a6: stfld System.Single Monocle.Sprite::Rate
    IL_09ab: ret
