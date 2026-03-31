@@ -6,6 +6,7 @@ On: [BounceHelper::]Celeste.Mod.BounceHelper.BounceHelperModule.modSpringOnColli
 IL: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_2(ILContext)
 IL: [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
 IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.SpringSpeedThresholdController.Spring_OnCollide(ILContext)
    IL_0000: ldarg.1
  + IL_10000: dup @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_2(ILContext)
  + IL_10001: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_2(ILContext)
@@ -31,14 +32,16 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
    IL_0021: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0026: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_002b: ldc.r4 0
+ + IL_10008: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.SpringSpeedThresholdController.Spring_OnCollide(ILContext)
+ + IL_10009: call System.Single Celeste.Mod.aonHelper.Entities.Controllers.SpringSpeedThresholdController::<Spring_OnCollide>g__DetermineYSpeedThreshold|6_4(System.Single,Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.SpringSpeedThresholdController.Spring_OnCollide(ILContext)
    IL_0030: blt.un.s IL_009a
    IL_0032: ldarg.0
- + IL_10008: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10009: ldarg.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_1000a: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_1000b: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_1000c: ldarg.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_1000d: call System.Void ChroniaHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_1000a: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_1000b: ldarg.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_1000c: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_1000d: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_1000e: ldarg.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_1000f: call System.Void ChroniaHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
    IL_0033: callvirt System.Void Celeste.Spring::BounceAnimate()
    IL_0038: ldarg.1
    IL_0039: ldarg.0
@@ -58,12 +61,12 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
    IL_005c: callvirt System.Boolean Celeste.Player::SideBounce(System.Int32,System.Single,System.Single)
    IL_0061: brfalse.s IL_009a
    IL_0063: ldarg.0
- + IL_1000e: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_1000f: ldarg.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10010: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10011: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10012: ldarg.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10013: call System.Void ChroniaHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10010: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10011: ldarg.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10012: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10013: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10014: ldarg.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10015: call System.Void ChroniaHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
    IL_0064: callvirt System.Void Celeste.Spring::BounceAnimate()
    IL_0069: ret
    IL_006a: ldarg.0
@@ -79,12 +82,12 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
    IL_0081: callvirt System.Boolean Celeste.Player::SideBounce(System.Int32,System.Single,System.Single)
    IL_0086: brfalse.s IL_009a
    IL_0088: ldarg.0
- + IL_10014: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10015: ldarg.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10016: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10017: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10018: ldarg.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
- + IL_10019: call System.Void ChroniaHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10016: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10017: ldarg.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10018: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10019: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_1001a: ldarg.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_1001b: call System.Void ChroniaHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
    IL_0089: callvirt System.Void Celeste.Spring::BounceAnimate()
    IL_008e: ret
    IL_008f: ldstr "Orientation not supported!"

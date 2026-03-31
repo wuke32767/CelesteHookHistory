@@ -22,6 +22,8 @@ IL: [ExtendedVariantMode::]ExtendedVariants.Variants.ClimbJumpStaminaCost.onPlay
 IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookCameraTarget(ILContext)
 IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SpikeRefillController.HookSpikeRefillPrevention(ILContext)
 IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.MovementOvershootAssistant.HookOrigUpdate(ILContext)
+IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.Player_orig_Update(ILContext)
+IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
 IL: [EmHelper::]Celeste.Mod.EmHelper.Module.EmHelper.Walkeline_triggerupdate(ILContext)
 IL: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.ReverseKillbox.IL_ChangeCameraTargetCalls(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
@@ -29,8 +31,6 @@ IL: [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.CheckDangerousSpikes
 IL: [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.Entities.SantaBoostHandler.PlayerOrigUpdate(ILContext)
-IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
-IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.DreamDashThroughTransitionController.Player_orig_Update(ILContext)
 IL: [ChroniaHelper::]YoctoHelper.Hooks.NoCoyoteTimeHook.NoCoyoteTime(ILContext)
 IL: [ChroniaHelper::]ChroniaHelper.Entities.AdvancedSpikes.PlayerOnOrigUpdate(ILContext)
 IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
@@ -769,14 +769,14 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
  + IL_1005e: call System.Int32 FrostHelper.FrostModule::GetRedDashState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
    IL_0749: beq.s IL_0795
    IL_074b: ldarg.0
- + IL_1005f: dup @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
- + IL_10060: ldc.i4 -1 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
- + IL_10061: ldc.i4 0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
- + IL_10062: ldc.i4 0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
- + IL_10063: call System.Object MonoMod.Utils.DynamicReferenceManager::GetValue(System.Int32,System.Int32) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
+ + IL_1005f: dup @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
+ + IL_10060: ldc.i4 -1 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
+ + IL_10061: ldc.i4 0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
+ + IL_10062: ldc.i4 0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
+ + IL_10063: call System.Object MonoMod.Utils.DynamicReferenceManager::GetValue(System.Int32,System.Int32) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
         Reference: 
- + IL_10064: call System.Boolean Celeste.Mod.aonHelper.Helpers.HookHelper::<ModifyStateCheck>g__StateCheck|5_4(Celeste.Player,System.Int32,System.Func`2<Celeste.Player,System.Boolean>) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
- + IL_10065: brtrue IL_10068 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
+ + IL_10064: call System.Boolean Celeste.Mod.aonHelper.Helpers.HookHelper::<ModifyStateCheck>g__StateCheck|5_4(Celeste.Player,System.Int32,System.Func`2<Celeste.Player,System.Boolean>) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
+ + IL_10065: brtrue IL_10068 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
    IL_074c: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0751: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_0756: ldc.i4.6
@@ -801,8 +801,8 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_078d: ldarg.0
    IL_078e: ldloc.s V_4
    IL_0790: stfld Celeste.Facings Celeste.Player::Facing
- + IL_10067: br IL_0795 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
- + IL_10068: pop @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DarkerMatter.Player_orig_Update(ILContext)
+ + IL_10067: br IL_0795 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
+ + IL_10068: pop @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Misc.DarkerMatter.Player_orig_Update(ILContext)
    IL_0795: ldarg.0
    IL_0796: ldarg.0
    IL_0797: ldfld Celeste.Facings Celeste.Player::Facing
@@ -1758,9 +1758,9 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_11be: ldarg.0
    IL_11bf: callvirt System.Boolean Celeste.Player::get_Dead()
    IL_11c4: brtrue.s IL_11e9
- + IL_100dc: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DreamDashThroughTransitionController.Player_orig_Update(ILContext)
- + IL_100dd: call System.Boolean Celeste.Mod.aonHelper.Entities.DreamDashThroughTransitionController::ShouldAffectStateCheck(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DreamDashThroughTransitionController.Player_orig_Update(ILContext)
- + IL_100de: brtrue IL_11d5 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.DreamDashThroughTransitionController.Player_orig_Update(ILContext)
+ + IL_100dc: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.Player_orig_Update(ILContext)
+ + IL_100dd: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController::ShouldAffectStateCheck(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.Player_orig_Update(ILContext)
+ + IL_100de: brtrue IL_11d5 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.Player_orig_Update(ILContext)
    IL_11c6: ldarg.0
    IL_11c7: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_11cc: callvirt System.Int32 Monocle.StateMachine::get_State()
