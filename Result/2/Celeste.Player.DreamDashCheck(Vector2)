@@ -4,13 +4,17 @@ On: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Pla
 On: [AurorasHelper::]Celeste.Mod.AurorasHelper.AurorasHelperModule.Player_DreamDashCheck(orig_DreamDashCheck,Player,Vector2)
 IL: [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
 IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
-IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_10000: call System.Void Notice::ThisMethodIsGreatlyModifiedByMe_InformMeBeforeYouILHookIt_ToPreventHookCollision() @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
+IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10000: call System.Void Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer::It's still too chaotic here. Please take care of this method.() @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10001: ldarg.0 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10002: ldarg.1 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10003: call Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/State Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer::Precheck(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10004: stloc V_8 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
    IL_0000: ldarg.0
    IL_0001: callvirt Celeste.PlayerInventory Celeste.Player::get_Inventory()
    IL_0006: ldfld System.Boolean Celeste.PlayerInventory::DreamDash
- + IL_10001: ldarg.0 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_10002: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/Player_DreamDashCheck_Helper::HasDreamDash(System.Boolean,Celeste.Player) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
+ + IL_10005: ldloca V_8 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10006: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer::CheckEnabled(System.Boolean,Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/State&) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
    IL_000b: brfalse IL_01c8
    IL_0010: ldarg.0
    IL_0011: callvirt System.Boolean Celeste.Player::get_DashAttacking()
@@ -22,8 +26,6 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Pla
    IL_0027: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_002c: call System.Int32 System.Math::Sign(System.Single)
    IL_0031: conv.r4
- + IL_10003: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/Player_DreamDashCheck_Helper::HasEntryAngle(System.Single,System.Single) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_10004: ldc.i4 1 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
    IL_0032: beq.s IL_0050
    IL_0034: ldarg.1
    IL_0035: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
@@ -32,36 +34,40 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Pla
    IL_0040: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_0045: call System.Int32 System.Math::Sign(System.Single)
    IL_004a: conv.r4
- + IL_10005: ldarg.0 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_10006: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/Player_DreamDashCheck_Helper::HasEntryAngle2(System.Single,System.Single,Celeste.Player) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_10007: ldc.i4 1 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
-   IL_004b: bne.un IL_01c8
+   IL_004b: bne.un IL_10025
    IL_0050: ldarg.0
    IL_0051: ldarg.0
    IL_0052: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
    IL_0057: ldarg.1
    IL_0058: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
- - IL_005d: call T Monocle.Entity::CollideFirst<Celeste.DreamBlock>(Microsoft.Xna.Framework.Vector2) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_10008: call Celeste.DreamBlock Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/Player_DreamDashCheck_Helper::CollideFirst(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
+   IL_005d: call T Monocle.Entity::CollideFirst<Celeste.DreamBlock>(Microsoft.Xna.Framework.Vector2)
+ + IL_10007: ldloca V_8 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10008: ldarg.0 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10009: call Monocle.Entity Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer::TryReplace(Celeste.DreamBlock,Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/State&,Celeste.Player) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
    IL_0062: stloc.0
- + IL_10009: ldloc.0 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_1000a: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/Player_DreamDashCheck_Helper::CheckPriority(Celeste.DreamBlock) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_1000b: brtrue IL_014c @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
+ + IL_1000a: ldloc.0 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_1000b: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer::CheckPriority(Celeste.DreamBlock) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_1000c: brtrue IL_014c @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
    IL_0063: ldloc.0
    IL_0064: brfalse IL_01c8
- + IL_1000c: ldloc.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
- + IL_1000d: call System.Boolean ChroniaHelper.Entities.TeraDreamBlock::PlayerActivate(Celeste.DreamBlock) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
- + IL_1000e: brfalse IL_01c8 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
- + IL_1000f: ldloc.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
- + IL_10010: call System.Boolean Celeste.Mod.TeraHelper.Entities.TeraDreamBlock::PlayerActivate(Celeste.DreamBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
- + IL_10011: brfalse IL_01c8 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
+ + IL_1000d: ldloc.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
+ + IL_1000e: call System.Boolean ChroniaHelper.Entities.TeraDreamBlock::PlayerActivate(Celeste.DreamBlock) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
+ + IL_1000f: brfalse IL_01c8 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
+ + IL_10010: ldloc.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
+ + IL_10011: call System.Boolean Celeste.Mod.TeraHelper.Entities.TeraDreamBlock::PlayerActivate(Celeste.DreamBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
+ + IL_10012: brfalse IL_01c8 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDreamBlock.TeraDreamCheck(ILContext)
    IL_0069: ldarg.0
    IL_006a: ldarg.0
    IL_006b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
    IL_0070: ldarg.1
    IL_0071: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
- - IL_0076: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid,Celeste.DreamBlock>(Microsoft.Xna.Framework.Vector2) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_10012: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/Player_DreamDashCheck_Helper::CollideCheck(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
+ + IL_10013: dup @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10014: stloc V_9 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+   IL_0076: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid,Celeste.DreamBlock>(Microsoft.Xna.Framework.Vector2)
+ + IL_10015: ldloca V_8 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10016: ldloc V_9 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10017: ldarg.0 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10018: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer::ExactlyWhatImDoing(System.Boolean,Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/State&,Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
    IL_007b: brfalse IL_01bf
    IL_0080: ldloca.s V_1
    IL_0082: ldarg.1
@@ -125,8 +131,13 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Pla
    IL_0126: stloc.s V_5
    IL_0128: ldarg.0
    IL_0129: ldloc.s V_5
- - IL_012b: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid,Celeste.DreamBlock>(Microsoft.Xna.Framework.Vector2) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_10013: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/Player_DreamDashCheck_Helper::CollideCheck(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
+ + IL_10019: dup @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_1001a: stloc V_9 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+   IL_012b: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid,Celeste.DreamBlock>(Microsoft.Xna.Framework.Vector2)
+ + IL_1001b: ldloca V_8 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_1001c: ldloc V_9 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_1001d: ldarg.0 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_1001e: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer::ExactlyWhatImDoing(System.Boolean,Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/State&,Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
    IL_0130: brtrue.s IL_0155
    IL_0132: ldarg.0
    IL_0133: ldarg.0
@@ -166,8 +177,13 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Pla
    IL_0183: stloc.s V_7
    IL_0185: ldarg.0
    IL_0186: ldloc.s V_7
- - IL_0188: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid,Celeste.DreamBlock>(Microsoft.Xna.Framework.Vector2) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
- + IL_10014: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/Player_DreamDashCheck_Helper::CollideCheck(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheck(ILContext)
+ + IL_1001f: dup @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10020: stloc V_9 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+   IL_0188: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid,Celeste.DreamBlock>(Microsoft.Xna.Framework.Vector2)
+ + IL_10021: ldloca V_8 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10022: ldloc V_9 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10023: ldarg.0 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10024: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer::ExactlyWhatImDoing(System.Boolean,Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/State&,Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
    IL_018d: brtrue.s IL_01b2
    IL_018f: ldarg.0
    IL_0190: ldarg.0
@@ -197,5 +213,11 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Pla
    IL_01c1: stfld Celeste.DreamBlock Celeste.Player::dreamBlock
    IL_01c6: ldc.i4.1
    IL_01c7: ret
+ + IL_10025: nop @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10026: ldloca V_8 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10027: call System.Boolean Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer::CheckEntryAngle(Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer/State&) @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10028: brtrue IL_0050 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_10029: br IL_01c8 @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
+ + IL_1002a: nop @ [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DreamDashCheckTwice(ILContext)
    IL_01c8: ldc.i4.0
    IL_01c9: ret
