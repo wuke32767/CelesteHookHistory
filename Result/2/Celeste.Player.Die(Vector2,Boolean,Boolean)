@@ -53,7 +53,6 @@ On: [vitmod::]vitmod.VitModule.Player_Die(orig_Die,Player,Vector2,Boolean,Boolea
 On: [vitmod::]vitmod.EnergyBooster.Player_Die(orig_Die,Player,Vector2,Boolean,Boolean)
 On: [vitmod::]vitmod.BombTimerTrigger.Player_Die(orig_Die,Player,Vector2,Boolean,Boolean)
 On: [auspicioushelper::]Celeste.Mod.auspicioushelper.ConditionalStrawb.handleDie(orig_Die,Player,Vector2,Boolean,Boolean)
-On: [AdamsAddons::]Celeste.Mod.AdamsAddons.Entities.PortalDashRefill.modDie(orig_Die,Player,Vector2,Boolean,Boolean)
 On: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.On_Player_Die(orig_Die,Player,Vector2,Boolean,Boolean)
 On: [ScuffedHelper::]Celeste.Mod.ScuffedHelper.MovableRespawn.Mod_PlayerDie(orig_Die,Player,Vector2,Boolean,Boolean)
 On: [ScuffedHelper::]Celeste.Mod.ScuffedHelper.MovableRespawn.modPlayerDie(orig_Die,Player,Vector2,Boolean,Boolean)
@@ -80,41 +79,44 @@ On: [Anonhelper::]Celeste.Mod.Anonhelper.CustomDashHooks.CustomDashDeath(orig_Di
    IL_0010: callvirt Celeste.PlayerDeadBody Celeste.Player::orig_Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
    IL_0015: stloc.1
    IL_0016: ldloc.1
-   IL_0017: brfalse.s IL_007a
+   IL_0017: brfalse.s IL_0082
    IL_0019: ldarg.0
    IL_001a: call System.Void Celeste.Mod.Everest/Events/Player::Die(Celeste.Player)
    IL_001f: ldarg.0
    IL_0020: ldfld System.Int32 Celeste.Player::framesAlive
    IL_0025: ldc.i4.6
-   IL_0026: bge.s IL_007a
+   IL_0026: bge.s IL_0082
    IL_0028: ldloc.0
-   IL_0029: brfalse.s IL_007a
+   IL_0029: brfalse.s IL_0082
    IL_002b: ldsfld System.Int32 Celeste.Player::diedInGBJ
    IL_0030: ldc.i4.1
    IL_0031: add
    IL_0032: stsfld System.Int32 Celeste.Player::diedInGBJ
    IL_0037: ldsfld System.Int32 Celeste.Player::diedInGBJ
-   IL_003c: brfalse.s IL_007a
+   IL_003c: brfalse.s IL_0082
    IL_003e: ldsfld System.Int32 Celeste.Player::diedInGBJ
    IL_0043: ldc.i4.2
    IL_0044: rem
-   IL_0045: brtrue.s IL_007a
+   IL_0045: brtrue.s IL_0082
    IL_0047: ldloc.0
    IL_0048: ldfld Celeste.Session Celeste.Level::Session
    IL_004d: ldfld Celeste.AreaKey Celeste.Session::Area
    IL_0052: call System.String Celeste.AreaKeyExt::GetLevelSet(Celeste.AreaKey)
    IL_0057: ldstr "Celeste"
    IL_005c: call System.Boolean System.String::op_Inequality(System.String,System.String)
-   IL_0061: brfalse.s IL_007a
+   IL_0061: brfalse.s IL_0082
    IL_0063: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
    IL_0068: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_DisableAntiSoftlock()
-   IL_006d: brtrue.s IL_007a
-   IL_006f: ldloc.0
-   IL_0070: ldc.i4.0
-   IL_0071: ldc.i4.0
-   IL_0072: ldc.i4.0
-   IL_0073: callvirt System.Void Celeste.Level::Pause(System.Int32,System.Boolean,System.Boolean)
-   IL_0078: ldnull
-   IL_0079: ret
-   IL_007a: ldloc.1
-   IL_007b: ret
+   IL_006d: brtrue.s IL_0082
+   IL_006f: ldarg.0
+   IL_0070: call System.Boolean Celeste.Mod.Everest/Events/Player::PauseInGBJ(Celeste.Player)
+   IL_0075: brtrue.s IL_0080
+   IL_0077: ldloc.0
+   IL_0078: ldc.i4.0
+   IL_0079: ldc.i4.0
+   IL_007a: ldc.i4.0
+   IL_007b: callvirt System.Void Celeste.Level::Pause(System.Int32,System.Boolean,System.Boolean)
+   IL_0080: ldnull
+   IL_0081: ret
+   IL_0082: ldloc.1
+   IL_0083: ret

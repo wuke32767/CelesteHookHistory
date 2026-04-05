@@ -173,53 +173,7 @@ On: [ChaosEnsues::]ChaosEnsues.Entry.Audio_Init(orig_Init)
    IL_0255: constrained. System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<System.String,FMOD.Studio.Bank>
    IL_025b: callvirt System.Void System.IDisposable::Dispose()
    IL_0260: endfinally
-   IL_0261: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.ModAsset> Celeste.Mod.Everest/Content::Map
-   IL_0266: stloc.s V_11
-   IL_0268: ldc.i4.0
-   IL_0269: stloc.s V_12
-   IL_026b: ldloc.s V_11
-   IL_026d: ldloca.s V_12
-   IL_026f: call System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
-   IL_0274: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.ModAsset> Celeste.Mod.Everest/Content::Map
-   IL_0279: callvirt System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.ModAsset>::get_Values()
-   IL_027e: ldsfld System.Func`2<Celeste.Mod.ModAsset,System.Boolean> Celeste.Audio/<>c::<>9__19_0
-   IL_0283: dup
-   IL_0284: brtrue.s IL_029d
-   IL_0286: pop
-   IL_0287: ldsfld Celeste.Audio/<>c Celeste.Audio/<>c::<>9
-   IL_028c: ldftn System.Boolean Celeste.Audio/<>c::<Init>b__19_0(Celeste.Mod.ModAsset)
-   IL_0292: newobj System.Void System.Func`2<Celeste.Mod.ModAsset,System.Boolean>::.ctor(System.Object,System.IntPtr)
-   IL_0297: dup
-   IL_0298: stsfld System.Func`2<Celeste.Mod.ModAsset,System.Boolean> Celeste.Audio/<>c::<>9__19_0
-   IL_029d: call System.Collections.Generic.IEnumerable`1<TSource> System.Linq.Enumerable::Where<Celeste.Mod.ModAsset>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
-   IL_02a2: callvirt System.Collections.Generic.IEnumerator`1<T> System.Collections.Generic.IEnumerable`1<Celeste.Mod.ModAsset>::GetEnumerator()
-   IL_02a7: stloc.s V_13
-   IL_02a9: br.s IL_02cf
-   IL_02ab: ldloc.s V_13
-   IL_02ad: callvirt T System.Collections.Generic.IEnumerator`1<Celeste.Mod.ModAsset>::get_Current()
-   IL_02b2: stloc.s V_14
-   IL_02b4: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Audio::ingestedModBankPaths
-   IL_02b9: ldloc.s V_14
-   IL_02bb: ldfld System.String Celeste.Mod.ModAsset::PathVirtual
-   IL_02c0: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Contains(T)
-   IL_02c5: brtrue.s IL_02cf
-   IL_02c7: ldloc.s V_14
-   IL_02c9: call FMOD.Studio.Bank Celeste.Audio::IngestBank(Celeste.Mod.ModAsset)
-   IL_02ce: pop
-   IL_02cf: ldloc.s V_13
-   IL_02d1: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()
-   IL_02d6: brtrue.s IL_02ab
-   IL_02d8: leave.s IL_02f2
-   IL_02da: ldloc.s V_13
-   IL_02dc: brfalse.s IL_02e5
-   IL_02de: ldloc.s V_13
-   IL_02e0: callvirt System.Void System.IDisposable::Dispose()
-   IL_02e5: endfinally
-   IL_02e6: ldloc.s V_12
-   IL_02e8: brfalse.s IL_02f1
-   IL_02ea: ldloc.s V_11
-   IL_02ec: call System.Void System.Threading.Monitor::Exit(System.Object)
-   IL_02f1: endfinally
-   IL_02f2: ldc.i4.1
-   IL_02f3: call System.Void Celeste.Audio::set_AudioInitialized(System.Boolean)
-   IL_02f8: ret
+   IL_0261: call System.Void Celeste.Audio::IngestNewBanks()
+   IL_0266: ldc.i4.1
+   IL_0267: call System.Void Celeste.Audio::set_AudioInitialized(System.Boolean)
+   IL_026c: ret

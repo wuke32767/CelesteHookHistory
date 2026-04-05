@@ -9,32 +9,40 @@ IL: [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SkinsSystem.ilAtlas_get_Item(
  + IL_10003: call System.String Celeste.Mod.SkinModHelper.nonBankReskin::GetSkinWithPath(Monocle.Atlas,System.String,System.Boolean) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SkinsSystem.ilAtlas_get_Item(ILContext)
    IL_0007: ldloca.s V_0
    IL_0009: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Monocle.MTexture>::TryGetValue(TKey,TValue&)
-   IL_000e: brtrue.s IL_0054
-   IL_0010: ldstr "Atlas"
-   IL_0015: stloc.1
-   IL_0016: ldloc.1
-   IL_0017: ldc.i4.s 39
-   IL_0019: ldc.i4.2
-   IL_001a: ldloc.1
-   IL_001b: ldloca.s V_3
-   IL_001d: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_000e: brtrue.s IL_0062
+   IL_0010: ldarg.0
+   IL_0011: ldarg.1
+   IL_0012: call Monocle.MTexture Celeste.Mod.Everest/Events/Atlas::GetCustomFallback(Monocle.Atlas,System.String)
+   IL_0017: stloc.1
+   IL_0018: ldloc.1
+   IL_0019: brfalse.s IL_001d
+   IL_001b: ldloc.1
+   IL_001c: ret
+   IL_001d: ldstr "Atlas"
    IL_0022: stloc.2
-   IL_0023: ldloc.3
-   IL_0024: brfalse.s IL_0047
-   IL_0026: ldloca.s V_2
-   IL_0028: ldstr "Requested texture that does not exist: "
-   IL_002d: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
-   IL_0032: ldloca.s V_2
-   IL_0034: ldarg.0
-   IL_0035: ldfld System.String Monocle.Atlas::RelativeDataPath
-   IL_003a: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
-   IL_003f: ldloca.s V_2
-   IL_0041: ldarg.1
-   IL_0042: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
-   IL_0047: ldloc.2
-   IL_0048: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
-   IL_004d: ldarg.0
-   IL_004e: callvirt Monocle.MTexture Monocle.Atlas::GetFallback()
-   IL_0053: ret
-   IL_0054: ldloc.0
-   IL_0055: ret
+   IL_0023: ldloc.2
+   IL_0024: ldc.i4.s 39
+   IL_0026: ldc.i4.2
+   IL_0027: ldloc.2
+   IL_0028: ldloca.s V_4
+   IL_002a: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_002f: stloc.3
+   IL_0030: ldloc.s V_4
+   IL_0032: brfalse.s IL_0055
+   IL_0034: ldloca.s V_3
+   IL_0036: ldstr "Requested texture that does not exist: "
+   IL_003b: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0040: ldloca.s V_3
+   IL_0042: ldarg.0
+   IL_0043: ldfld System.String Monocle.Atlas::RelativeDataPath
+   IL_0048: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_004d: ldloca.s V_3
+   IL_004f: ldarg.1
+   IL_0050: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0055: ldloc.3
+   IL_0056: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_005b: ldarg.0
+   IL_005c: callvirt Monocle.MTexture Monocle.Atlas::GetFallback()
+   IL_0061: ret
+   IL_0062: ldloc.0
+   IL_0063: ret
