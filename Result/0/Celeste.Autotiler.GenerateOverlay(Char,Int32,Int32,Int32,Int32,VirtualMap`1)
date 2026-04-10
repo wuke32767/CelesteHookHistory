@@ -1,0 +1,53 @@
+On: [auspicioushelper::]Celeste.Mod.auspicioushelper.templateFiller+PaddedMap.Hook(orig_GenerateOverlay,Autotiler,Char,Int32,Int32,Int32,Int32,VirtualMap`1)
+   IL_0000: ldarg.2
+   IL_0001: stloc.0
+   IL_0002: br.s IL_003e
+   IL_0004: ldarg.3
+   IL_0005: stloc.1
+   IL_0006: br.s IL_002d
+   IL_0008: ldarg.s mapData
+   IL_000a: ldloc.0
+   IL_000b: ldloc.1
+   IL_000c: callvirt System.Boolean Monocle.VirtualMap`1<System.Char>::AnyInSegmentAtTile(System.Int32,System.Int32)
+   IL_0011: brtrue.s IL_0023
+   IL_0013: ldarg.s mapData
+   IL_0015: ldloc.0
+   IL_0016: ldloc.1
+   IL_0017: ldarg.s mapData
+   IL_0019: ldfld T Monocle.VirtualMap`1<System.Char>::EmptyValue
+   IL_001e: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0023: ldloc.1
+   IL_0024: ldc.i4.s 50
+   IL_0026: div
+   IL_0027: ldc.i4.1
+   IL_0028: add
+   IL_0029: ldc.i4.s 50
+   IL_002b: mul
+   IL_002c: stloc.1
+   IL_002d: ldloc.1
+   IL_002e: ldarg.3
+   IL_002f: ldarg.s tilesY
+   IL_0031: add
+   IL_0032: blt.s IL_0008
+   IL_0034: ldloc.0
+   IL_0035: ldc.i4.s 50
+   IL_0037: div
+   IL_0038: ldc.i4.1
+   IL_0039: add
+   IL_003a: ldc.i4.s 50
+   IL_003c: mul
+   IL_003d: stloc.0
+   IL_003e: ldloc.0
+   IL_003f: ldarg.2
+   IL_0040: ldarg.s tilesX
+   IL_0042: add
+   IL_0043: blt.s IL_0004
+   IL_0045: ldarg.0
+   IL_0046: ldarg.1
+   IL_0047: ldarg.2
+   IL_0048: ldarg.3
+   IL_0049: ldarg.s tilesX
+   IL_004b: ldarg.s tilesY
+   IL_004d: ldarg.s mapData
+   IL_004f: callvirt Celeste.Autotiler/Generated Celeste.Autotiler::orig_GenerateOverlay(System.Char,System.Int32,System.Int32,System.Int32,System.Int32,Monocle.VirtualMap`1<System.Char>)
+   IL_0054: ret
