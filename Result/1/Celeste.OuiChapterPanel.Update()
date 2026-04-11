@@ -1,0 +1,36 @@
+On: [AurorasHelper::]Celeste.Mod.AurorasHelper.AurorasHelperModule.OuiChapterPanel_Update(orig_Update,OuiChapterPanel)
+   IL_0000: ldarg.0
+   IL_0001: call System.Boolean Celeste.Oui::get_Selected()
+   IL_0006: brfalse.s IL_0035
+   IL_0008: ldarg.0
+   IL_0009: ldfld System.Boolean Celeste.Oui::Focused
+   IL_000e: brfalse.s IL_0035
+   IL_0010: ldsfld Monocle.VirtualButton Celeste.Input::QuickRestart
+   IL_0015: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
+   IL_001a: brfalse.s IL_0035
+   IL_001c: ldarg.0
+   IL_001d: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_0022: callvirt T Celeste.Overworld::Goto<Celeste.OuiChapterSelect>()
+   IL_0027: pop
+   IL_0028: ldarg.0
+   IL_0029: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_002e: callvirt T Celeste.Overworld::Goto<Celeste.Mod.UI.OuiMapSearch>()
+   IL_0033: pop
+   IL_0034: ret
+   IL_0035: ldarg.0
+   IL_0036: ldfld System.Boolean Celeste.OuiChapterPanel::instantClose
+   IL_003b: brfalse.s IL_0058
+   IL_003d: ldarg.0
+   IL_003e: call Celeste.Overworld Celeste.Oui::get_Overworld()
+   IL_0043: callvirt T Celeste.Overworld::Goto<Celeste.OuiChapterSelect>()
+   IL_0048: pop
+   IL_0049: ldarg.0
+   IL_004a: ldc.i4.0
+   IL_004b: stfld System.Boolean Monocle.Entity::Visible
+   IL_0050: ldarg.0
+   IL_0051: ldc.i4.0
+   IL_0052: stfld System.Boolean Celeste.OuiChapterPanel::instantClose
+   IL_0057: ret
+   IL_0058: ldarg.0
+   IL_0059: callvirt System.Void Celeste.OuiChapterPanel::orig_Update()
+   IL_005e: ret
