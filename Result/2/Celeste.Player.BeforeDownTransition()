@@ -9,26 +9,21 @@ IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTran
  + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.Player_BeforeDownTransition(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<CheckState>b__55_0(Player)
  + IL_10004: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.Player_BeforeDownTransition(ILContext)
- + IL_10005: brtrue IL_10017 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.Player_BeforeDownTransition(ILContext)
+ + IL_10005: brtrue IL_10013 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.Player_BeforeDownTransition(ILContext)
  + IL_10006: dup @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
- + IL_10007: ldc.i4 9 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
- + IL_10008: ldc.i4 0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
- + IL_10009: ldc.i4 0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
- + IL_1000a: call System.Object MonoMod.Utils.DynamicReferenceManager::GetValue(System.Int32,System.Int32) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
-       => Invoke: [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.ShouldAffectStateCheck(Player)
- + IL_1000b: call System.Boolean Celeste.Mod.aonHelper.Helpers.HookHelper::<ModifyStateCheck>g__StateCheck|5_4(Celeste.Player,System.Int32,System.Func`2<Celeste.Player,System.Boolean>) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
- + IL_1000c: brtrue IL_10019 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
+ + IL_10007: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController::IsAffectedAndDreamDashing(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
+ + IL_10008: brtrue IL_10015 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
    IL_0001: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0006: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_000b: ldc.i4.5
- + IL_1000d: ldarg.0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
- + IL_1000e: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
- + IL_1000f: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
- + IL_10010: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
+ + IL_10009: ldarg.0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
+ + IL_1000a: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
+ + IL_1000b: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
+ + IL_1000c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
        => Invoke: [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<TranslateRedDash>b__2_0(Int32,Player)
- + IL_10011: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Int32,System.Int32,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
- + IL_10012: ldarg.0 @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
- + IL_10013: call System.Int32 FrostHelper.FrostModule::GetRedDashState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
+ + IL_1000d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Int32,System.Int32,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_0(ILContext)
+ + IL_1000e: ldarg.0 @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
+ + IL_1000f: call System.Int32 FrostHelper.FrostModule::GetRedDashState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
    IL_000c: beq.s IL_006a
    IL_000e: ldarg.0
    IL_000f: ldfld Monocle.StateMachine Celeste.Player::StateMachine
@@ -39,8 +34,8 @@ IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTran
    IL_001e: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0023: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_0028: ldc.i4.s 19
- + IL_10014: ldarg.0 @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
- + IL_10015: call System.Int32 FrostHelper.FrostModule::GetFeatherState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
+ + IL_10010: ldarg.0 @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
+ + IL_10011: call System.Int32 FrostHelper.FrostModule::GetFeatherState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
    IL_002a: beq.s IL_006a
    IL_002c: ldarg.0
    IL_002d: ldfld Monocle.StateMachine Celeste.Player::StateMachine
@@ -60,10 +55,10 @@ IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTran
    IL_005f: ldarg.0
    IL_0060: ldc.r4 0
    IL_0065: stfld System.Single Celeste.Player::varJumpTimer
- + IL_10016: br IL_006a @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.Player_BeforeDownTransition(ILContext)
- + IL_10017: pop @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.Player_BeforeDownTransition(ILContext)
- + IL_10018: br IL_006a @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
- + IL_10019: pop @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
+ + IL_10012: br IL_006a @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.Player_BeforeDownTransition(ILContext)
+ + IL_10013: pop @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash.Player_BeforeDownTransition(ILContext)
+ + IL_10014: br IL_006a @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
+ + IL_10015: pop @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_BeforeDownTransition(ILContext)
    IL_006a: ldarg.0
    IL_006b: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_0070: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
