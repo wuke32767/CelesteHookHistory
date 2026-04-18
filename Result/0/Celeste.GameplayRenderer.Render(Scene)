@@ -3,10 +3,10 @@ IL: [CommunalHelper::]Celeste.Mod.CommunalHelper.Triggers.StrawberryJam.ShowHitb
 IL: [StrawberryTool::]Celeste.Mod.StrawberryTool.Feature.Detector.DetectorUtils.GameplayRendererOnRender(ILContext)
 IL: [VidPlayer::]Celeste.Mod.VidPlayer.GameplayHudRenderer.ILGameplayRenderer(ILContext)
 IL: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Triggers.ShowHitboxTrigger.PatchGameplayRendererRender(ILContext)
-IL: [ScugHelper::]DebugViewTrigger.RenderHook(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.HideGameplay.GameplayRenderer_Render(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.Hitboxes.HitboxFixer.GameplayRendererOnRender(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.DebugViewTrigger.RenderHook(ILContext)
    IL_0000: call System.Void Celeste.GameplayRenderer::Begin()
  + IL_10000: call System.Boolean TAS.EverestInterop.HideGameplay::IsHideGamePlay() @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.HideGameplay.GameplayRenderer_Render(ILContext)
  + IL_10001: brtrue IL_0025 @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.HideGameplay.GameplayRenderer_Render(ILContext)
@@ -31,10 +31,10 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.Hitboxes.HitboxToggle.Gamepl
  - IL_002a: brtrue.s IL_0038 @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
    IL_002c: call Monocle.Commands Monocle.Engine::get_Commands()
    IL_0031: ldfld System.Boolean Monocle.Commands::Open
- + IL_1000a: or @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
- + IL_1000b: call System.Boolean TAS.EverestInterop.Hitboxes.HitboxToggle::IsShowHitbox(System.Boolean) @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
- + IL_1000c: call System.Boolean DebugViewTrigger::<RenderHook>g__Delegate|5_1() @ [ScugHelper::]DebugViewTrigger.RenderHook(ILContext)
- + IL_1000d: or @ [ScugHelper::]DebugViewTrigger.RenderHook(ILContext)
+ + IL_1000a: call System.Boolean Celeste.Mod.ScugHelper.Entities.DebugViewTrigger::<RenderHook>g__Delegate|5_1() @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.DebugViewTrigger.RenderHook(ILContext)
+ + IL_1000b: or @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.DebugViewTrigger.RenderHook(ILContext)
+ + IL_1000c: or @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
+ + IL_1000d: call System.Boolean TAS.EverestInterop.Hitboxes.HitboxToggle::IsShowHitbox(System.Boolean) @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.Hitboxes.HitboxToggle.GameplayRendererOnRender(ILContext)
    IL_0036: brfalse.s IL_10011
    IL_0038: ldarg.1
    IL_0039: callvirt Monocle.EntityList Monocle.Scene::get_Entities()

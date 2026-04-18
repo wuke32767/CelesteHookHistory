@@ -23,8 +23,8 @@ IL: [ExtendedVariantMode::]ExtendedVariants.Variants.ClimbUpSpeed.onPlayerClimbU
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.ClimbDownSpeed.onPlayerClimbUpdate(ILContext)
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.ClimbUpStaminaDrainRate.onPlayerClimbUpdate(ILContext)
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.ClimbHoldStaminaDrainRate.onPlayerClimbUpdate(ILContext)
-IL: [ScugHelper::]Gripwall.ClimbUpdateHook(ILContext)
 IL: [Vithelpery::]Celeste.Mod.Vithelpery.Entities.DownwardsWallBooster.Player_ClimbUpdate(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Gripwall.ClimbUpdateHook(ILContext)
 IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.ClimbingSpeedPreservation.patch_Player_ClimbUpdate(ILContext)
 IL: [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
@@ -176,11 +176,11 @@ IL: [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.
    IL_0129: callvirt System.Void Celeste.Player::ClimbHop()
    IL_012e: ldc.i4.0
    IL_012f: ret
- + IL_1002a: ldarg.0 @ [ScugHelper::]Gripwall.ClimbUpdateHook(ILContext)
- + IL_1002b: call System.Boolean Gripwall::<ClimbUpdateHook>g__Delegate|24_2(Celeste.Player) @ [ScugHelper::]Gripwall.ClimbUpdateHook(ILContext)
- + IL_1002c: brfalse IL_0130 @ [ScugHelper::]Gripwall.ClimbUpdateHook(ILContext)
- + IL_1002d: ldc.i4 1 @ [ScugHelper::]Gripwall.ClimbUpdateHook(ILContext)
- + IL_1002e: ret @ [ScugHelper::]Gripwall.ClimbUpdateHook(ILContext)
+ + IL_1002a: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Gripwall.ClimbUpdateHook(ILContext)
+ + IL_1002b: call System.Boolean Celeste.Mod.ScugHelper.Entities.Gripwall::<ClimbUpdateHook>g__Delegate|24_2(Celeste.Player) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Gripwall.ClimbUpdateHook(ILContext)
+ + IL_1002c: brfalse IL_0130 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Gripwall.ClimbUpdateHook(ILContext)
+ + IL_1002d: ldc.i4 1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Gripwall.ClimbUpdateHook(ILContext)
+ + IL_1002e: ret @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Gripwall.ClimbUpdateHook(ILContext)
    IL_0130: ldarg.0
    IL_0131: callvirt Celeste.WallBooster Celeste.Player::WallBoosterCheck()
    IL_0136: stloc.0

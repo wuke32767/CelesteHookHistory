@@ -1,8 +1,8 @@
 On: [ExtendedVariantMode::]ExtendedVariants.Variants.ExplodeLaunchSpeed.correctExplodeLaunchSpeed(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
-On: [ScugHelper::]PinballBooster.ExplodeLaunchOnHook(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
+On: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.ExplodeLaunchOnHook(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
 IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
 IL: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea.Player_ExplodeLaunch(ILContext)
-IL: [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.ExplodeLaunchILHook(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
  + IL_10000: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
  + IL_10001: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation::setOriginalSpeed(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
@@ -137,11 +137,11 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLau
    IL_018f: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
    IL_0194: call Celeste.SlashFx Celeste.SlashFx::Burst(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_0199: pop
- + IL_10009: ldarg.0 @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
- + IL_1000a: call System.Boolean PinballBooster::<ExplodeLaunchILHook>g__Delegate|17_2(Celeste.Player) @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
- + IL_1000b: brfalse IL_019a @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
- + IL_1000c: ldloc.0 @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
- + IL_1000d: ret @ [ScugHelper::]PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_10009: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_1000a: call System.Boolean Celeste.Mod.ScugHelper.Entities.PinballBooster::<ExplodeLaunchILHook>g__Delegate|17_2(Celeste.Player) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_1000b: brfalse IL_019a @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_1000c: ldloc.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.ExplodeLaunchILHook(ILContext)
+ + IL_1000d: ret @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.ExplodeLaunchILHook(ILContext)
    IL_019a: ldarg.0
    IL_019b: callvirt Celeste.PlayerInventory Celeste.Player::get_Inventory()
    IL_01a0: ldfld System.Boolean Celeste.PlayerInventory::NoRefills

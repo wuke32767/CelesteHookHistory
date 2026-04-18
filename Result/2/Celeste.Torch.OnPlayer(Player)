@@ -1,0 +1,62 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Actions.ActionHooks.OnTorch(orig_OnPlayer,Torch,Player)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Torch::lit
+   IL_0006: brtrue IL_00c2
+   IL_000b: ldstr "event:/game/05_mirror_temple/torch_activate"
+   IL_0010: ldarg.0
+   IL_0011: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0016: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_001b: pop
+   IL_001c: ldarg.0
+   IL_001d: ldc.i4.1
+   IL_001e: stfld System.Boolean Celeste.Torch::lit
+   IL_0023: ldarg.0
+   IL_0024: ldfld Celeste.BloomPoint Celeste.Torch::bloom
+   IL_0029: ldc.i4.1
+   IL_002a: stfld System.Boolean Monocle.Component::Visible
+   IL_002f: ldarg.0
+   IL_0030: ldfld Celeste.VertexLight Celeste.Torch::light
+   IL_0035: ldc.i4.1
+   IL_0036: stfld System.Boolean Monocle.Component::Visible
+   IL_003b: ldarg.0
+   IL_003c: ldc.i4.0
+   IL_003d: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0042: ldarg.0
+   IL_0043: ldfld Monocle.Sprite Celeste.Torch::sprite
+   IL_0048: ldstr "turnOn"
+   IL_004d: ldc.i4.0
+   IL_004e: ldc.i4.0
+   IL_004f: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0054: ldc.i4.1
+   IL_0055: ldsfld Monocle.Ease/Easer Monocle.Ease::BackOut
+   IL_005a: ldc.r4 1
+   IL_005f: ldc.i4.1
+   IL_0060: call Monocle.Tween Monocle.Tween::Create(Monocle.Tween/TweenMode,Monocle.Ease/Easer,System.Single,System.Boolean)
+   IL_0065: stloc.0
+   IL_0066: ldloc.0
+   IL_0067: ldarg.0
+   IL_0068: ldftn System.Void Celeste.Torch::<OnPlayer>b__15_0(Monocle.Tween)
+   IL_006e: newobj System.Void System.Action`1<Monocle.Tween>::.ctor(System.Object,System.IntPtr)
+   IL_0073: stfld System.Action`1<Monocle.Tween> Monocle.Tween::OnUpdate
+   IL_0078: ldarg.0
+   IL_0079: ldloc.0
+   IL_007a: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_007f: ldarg.0
+   IL_0080: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0085: ldfld Celeste.Session Celeste.Level::Session
+   IL_008a: ldarg.0
+   IL_008b: callvirt System.String Celeste.Torch::get_FlagName()
+   IL_0090: ldc.i4.1
+   IL_0091: callvirt System.Void Celeste.Session::SetFlag(System.String,System.Boolean)
+   IL_0096: ldarg.0
+   IL_0097: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_009c: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_00a1: ldsfld Monocle.ParticleType Celeste.Torch::P_OnLight
+   IL_00a6: ldc.i4.s 12
+   IL_00a8: ldarg.0
+   IL_00a9: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ae: ldc.r4 3
+   IL_00b3: ldc.r4 3
+   IL_00b8: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00bd: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00c2: ret

@@ -2,7 +2,7 @@ On: PL_VirtualRedir<Celeste.Refill::Respawn>?0()
 On: [Aqua::]Celeste.Mod.Aqua.Core.RefillExtensions.Refill_Respawn(orig_Respawn,Refill)
 IL: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DashStateRefill.Refill_Respawn(ILContext)
 IL: [Procedurline::]Celeste.Mod.Procedurline.PatchUtils+<>c__DisplayClass11_0.<PatchSFX>b__0(ILContext)
-IL: [ScugHelper::]GroundedRefill.RespawnHook(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.GroundedRefill.RespawnHook(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Boolean Monocle.Entity::Collidable
    IL_0006: brtrue IL_008a
@@ -23,9 +23,9 @@ IL: [ScugHelper::]GroundedRefill.RespawnHook(ILContext)
    IL_0032: ldarg.0
    IL_0033: ldfld Monocle.Wiggler Celeste.Refill::wiggler
    IL_0038: callvirt System.Void Monocle.Wiggler::Start()
- + IL_10000: ldarg.0 @ [ScugHelper::]GroundedRefill.RespawnHook(ILContext)
- + IL_10001: call System.Boolean GroundedRefill::<RespawnHook>g__Delegate|11_2(Celeste.Refill) @ [ScugHelper::]GroundedRefill.RespawnHook(ILContext)
- + IL_10002: brfalse IL_10017 @ [ScugHelper::]GroundedRefill.RespawnHook(ILContext)
+ + IL_10000: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.GroundedRefill.RespawnHook(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.ScugHelper.Entities.GroundedRefill::<RespawnHook>g__Delegate|11_2(Celeste.Refill) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.GroundedRefill.RespawnHook(ILContext)
+ + IL_10002: brfalse IL_10017 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.GroundedRefill.RespawnHook(ILContext)
    IL_003d: ldarg.0
    IL_003e: ldfld System.Boolean Celeste.Refill::twoDashes
    IL_0043: brtrue.s IL_004c
