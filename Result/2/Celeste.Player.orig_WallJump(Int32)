@@ -13,6 +13,7 @@ IL: [ExtendedVariantMode::]ExtendedVariants.Variants.HorizontalWallJumpDuration.
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.DisableNeutralJumping.modWallJump(ILContext)
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.LiftboostProtection.Player_orig_WallJump_il(ILContext)
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.JumpBoost.ChangeWallJumpHSpeed(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
 IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Miscellaneous.BufferDelayVisualization.hookConsumeBuffer(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
@@ -97,20 +98,30 @@ IL: [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHo
  + IL_1001d: brfalse.s IL_0096 @ [ExtendedVariantMode::]ExtendedVariants.Variants.DisableNeutralJumping.modWallJump(ILContext)
  + IL_1001e: ldarg.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.DisableNeutralJumping.modWallJump(ILContext)
    IL_008f: ldfld System.Int32 Celeste.Player::moveX
- + IL_1001f: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
- + IL_10020: ldarg.1 @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
- + IL_10021: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
- + IL_10022: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
- + IL_10023: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
+ + IL_1001f: pop @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
+ + IL_10020: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
+ + IL_10021: call System.Boolean Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster::NeutralJumpCheck(Celeste.Player) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
+ + IL_10022: brfalse.s IL_0096 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
+ + IL_10023: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
+ + IL_10024: ldc.i4 0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
+ + IL_10025: ldc.i4 0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
+ + IL_10026: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
+       => Invoke: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster+<>c.<ModWallJump>b__11_3(Player)
+ + IL_10027: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Int32,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NeutrallessWallBooster.ModWallJump(ILContext)
+ + IL_10028: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
+ + IL_10029: ldarg.1 @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
+ + IL_1002a: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
+ + IL_1002b: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
+ + IL_1002c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
        => Invoke: [VivHelper::]VivHelper.VivHelperModule+<>c.<DisableNeutralsOnHoldable>b__106_0(Int32,Player,Int32)
- + IL_10024: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<System.Int32,System.Int32,Celeste.Player,System.Int32>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
+ + IL_1002d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<System.Int32,System.Int32,Celeste.Player,System.Int32>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [VivHelper::]VivHelper.VivHelperModule.DisableNeutralsOnHoldable(ILContext)
    IL_0094: brfalse.s IL_00a8
    IL_0096: ldarg.0
    IL_0097: ldarg.1
    IL_0098: stfld System.Int32 Celeste.Player::forceMoveX
    IL_009d: ldarg.0
    IL_009e: ldc.r4 0.16
- + IL_10025: call System.Single ExtendedVariants.Variants.HorizontalWallJumpDuration::applyHorizontalWallJumpDuration(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.HorizontalWallJumpDuration.modForceMoveXTimer(ILContext)
+ + IL_1002e: call System.Single ExtendedVariants.Variants.HorizontalWallJumpDuration::applyHorizontalWallJumpDuration(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.HorizontalWallJumpDuration.modForceMoveXTimer(ILContext)
    IL_00a3: stfld System.Single Celeste.Player::forceMoveXTimer
    IL_00a8: ldarg.0
    IL_00a9: call Microsoft.Xna.Framework.Vector2 Celeste.Actor::get_LiftSpeed()
@@ -135,25 +146,25 @@ IL: [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHo
    IL_00e6: ldarg.0
    IL_00e7: ldloc.2
    IL_00e8: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Platform::LiftSpeed
- + IL_10026: ldloc.2 @ [ExtendedVariantMode::]ExtendedVariants.Variants.LiftboostProtection.Player_orig_WallJump_il(ILContext)
- + IL_10027: ldarg.1 @ [ExtendedVariantMode::]ExtendedVariants.Variants.LiftboostProtection.Player_orig_WallJump_il(ILContext)
- + IL_10028: call Microsoft.Xna.Framework.Vector2 ExtendedVariants.Variants.LiftboostProtection::applyCorrectedLiftSpeedX(Microsoft.Xna.Framework.Vector2,Celeste.Solid,System.Int32) @ [ExtendedVariantMode::]ExtendedVariants.Variants.LiftboostProtection.Player_orig_WallJump_il(ILContext)
+ + IL_1002f: ldloc.2 @ [ExtendedVariantMode::]ExtendedVariants.Variants.LiftboostProtection.Player_orig_WallJump_il(ILContext)
+ + IL_10030: ldarg.1 @ [ExtendedVariantMode::]ExtendedVariants.Variants.LiftboostProtection.Player_orig_WallJump_il(ILContext)
+ + IL_10031: call Microsoft.Xna.Framework.Vector2 ExtendedVariants.Variants.LiftboostProtection::applyCorrectedLiftSpeedX(Microsoft.Xna.Framework.Vector2,Celeste.Solid,System.Int32) @ [ExtendedVariantMode::]ExtendedVariants.Variants.LiftboostProtection.Player_orig_WallJump_il(ILContext)
    IL_00ed: call System.Void Celeste.Actor::set_LiftSpeed(Microsoft.Xna.Framework.Vector2)
    IL_00f2: ldarg.0
    IL_00f3: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_00f8: ldc.r4 130
- + IL_10029: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
- + IL_1002a: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
- + IL_1002b: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
+ + IL_10032: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
+ + IL_10033: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
+ + IL_10034: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
        => Invoke: [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule+<>c.<WallJumpHook>b__17_3(Single)
- + IL_1002c: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
- + IL_1002d: call System.Single ExtendedVariants.Variants.JumpBoost::ApplyWallJumpHSpeedMultiplier(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpBoost.ChangeWallJumpHSpeed(ILContext)
- + IL_1002e: call System.Single ExtendedVariants.Variants.SpeedX::determineSpeedXFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modWallJump(ILContext)
- + IL_1002f: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modWallJump(ILContext)
- + IL_10030: call System.Single Celeste.Mod.XaphanHelper.Entities.Liquid::determineSpeedXFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modWallJump(ILContext)
- + IL_10031: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modWallJump(ILContext)
- + IL_10032: call System.Single Celeste.Mod.XaphanHelper.Upgrades.GravityJacket::determineSpeedXFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modWallJump(ILContext)
- + IL_10033: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modWallJump(ILContext)
+ + IL_10035: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
+ + IL_10036: call System.Single ExtendedVariants.Variants.JumpBoost::ApplyWallJumpHSpeedMultiplier(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpBoost.ChangeWallJumpHSpeed(ILContext)
+ + IL_10037: call System.Single ExtendedVariants.Variants.SpeedX::determineSpeedXFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modWallJump(ILContext)
+ + IL_10038: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modWallJump(ILContext)
+ + IL_10039: call System.Single Celeste.Mod.XaphanHelper.Entities.Liquid::determineSpeedXFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modWallJump(ILContext)
+ + IL_1003a: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modWallJump(ILContext)
+ + IL_1003b: call System.Single Celeste.Mod.XaphanHelper.Upgrades.GravityJacket::determineSpeedXFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modWallJump(ILContext)
+ + IL_1003c: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modWallJump(ILContext)
    IL_00fd: ldarg.1
    IL_00fe: conv.r4
    IL_00ff: mul
@@ -161,35 +172,35 @@ IL: [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHo
    IL_0105: ldarg.0
    IL_0106: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_010b: ldc.r4 -105
- + IL_10034: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
- + IL_10035: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
- + IL_10036: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
+ + IL_1003d: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
+ + IL_1003e: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
+ + IL_1003f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
        => Invoke: [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule+<>c.<WallJumpHook>b__17_5(Single)
- + IL_10037: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
- + IL_10038: call System.Single ExtendedVariants.Variants.JumpHeight::determineJumpHeightFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpHeight.modWallJump(ILContext)
- + IL_10039: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpHeight.modWallJump(ILContext)
- + IL_1003a: call System.Single Celeste.Mod.XaphanHelper.Entities.Liquid::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modWallJump(ILContext)
- + IL_1003b: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modWallJump(ILContext)
- + IL_1003c: call System.Single Celeste.Mod.XaphanHelper.Upgrades.GravityJacket::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modWallJump(ILContext)
- + IL_1003d: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modWallJump(ILContext)
- + IL_1003e: call System.Single Celeste.Mod.XaphanHelper.Upgrades.JumpBoost::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.JumpBoost.ilWallJump(ILContext)
- + IL_1003f: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.JumpBoost.ilWallJump(ILContext)
+ + IL_10040: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHook(ILContext)
+ + IL_10041: call System.Single ExtendedVariants.Variants.JumpHeight::determineJumpHeightFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpHeight.modWallJump(ILContext)
+ + IL_10042: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpHeight.modWallJump(ILContext)
+ + IL_10043: call System.Single Celeste.Mod.XaphanHelper.Entities.Liquid::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modWallJump(ILContext)
+ + IL_10044: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modWallJump(ILContext)
+ + IL_10045: call System.Single Celeste.Mod.XaphanHelper.Upgrades.GravityJacket::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modWallJump(ILContext)
+ + IL_10046: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modWallJump(ILContext)
+ + IL_10047: call System.Single Celeste.Mod.XaphanHelper.Upgrades.JumpBoost::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.JumpBoost.ilWallJump(ILContext)
+ + IL_10048: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.JumpBoost.ilWallJump(ILContext)
    IL_0110: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
- + IL_10040: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
- + IL_10041: ldc.i4 0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
- + IL_10042: call System.Void Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed::setPlayerSpeed(Celeste.Player,System.Boolean) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
+ + IL_10049: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
+ + IL_1004a: ldc.i4 0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
+ + IL_1004b: call System.Void Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed::setPlayerSpeed(Celeste.Player,System.Boolean) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
    IL_0115: ldarg.0
- + IL_10043: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.WallJump.patch_Player_WallJump(ILContext)
- + IL_10044: ldarg.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.WallJump.patch_Player_WallJump(ILContext)
- + IL_10045: call System.Void Celeste.Mod.GooberHelper.Options.GeneralHooks.WallJump::setPlayerSpeed(Celeste.Player,System.Int32) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.WallJump.patch_Player_WallJump(ILContext)
+ + IL_1004c: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.WallJump.patch_Player_WallJump(ILContext)
+ + IL_1004d: ldarg.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.WallJump.patch_Player_WallJump(ILContext)
+ + IL_1004e: call System.Void Celeste.Mod.GooberHelper.Options.GeneralHooks.WallJump::setPlayerSpeed(Celeste.Player,System.Int32) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.WallJump.patch_Player_WallJump(ILContext)
    IL_0116: ldarg.0
    IL_0117: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_011c: ldarg.0
    IL_011d: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Player::get_LiftBoost()
    IL_0122: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_0127: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
- + IL_10046: ldarg.0 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10047: call System.Void Celeste.Mod.auspicioushelper.LiftspeedThing::BoostOnce(Celeste.Player) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_1004f: ldarg.0 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10050: call System.Void Celeste.Mod.auspicioushelper.LiftspeedThing::BoostOnce(Celeste.Player) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_012c: ldarg.0
    IL_012d: ldarg.0
    IL_012e: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
@@ -235,13 +246,13 @@ IL: [LuckyHelper::]LuckyHelper.Modules.PlayerMovementControllerModule.WallJumpHo
    IL_01a3: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
    IL_01a8: pop
    IL_01a9: ldloc.1
- + IL_10048: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
- + IL_10049: ldarg.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
- + IL_1004a: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
- + IL_1004b: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
- + IL_1004c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
+ + IL_10051: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
+ + IL_10052: ldarg.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
+ + IL_10053: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
+ + IL_10054: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
+ + IL_10055: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry+<>c.<Player_orig_WallJump>b__45_1(Platform,Player,Int32)
- + IL_1004d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<Celeste.Platform,Celeste.Platform,Celeste.Player,System.Int32>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
+ + IL_10056: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<Celeste.Platform,Celeste.Platform,Celeste.Player,System.Int32>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamTunnelEntry.Player_orig_WallJump(ILContext)
    IL_01aa: isinst Celeste.DreamBlock
    IL_01af: brfalse.s IL_01d5
    IL_01b1: ldloc.1
