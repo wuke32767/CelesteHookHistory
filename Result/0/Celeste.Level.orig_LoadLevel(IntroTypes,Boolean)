@@ -8,6 +8,7 @@ IL: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxD
 IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookGetFullCameraTarget(ILContext)
 IL: [JungleHelper::]Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry.hookUpdateLevelStartDashes(ILContext)
 IL: [JungleHelper::]Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock.hookLoadLevel(ILContext)
+IL: [Killbind::]Celeste.Mod.Killbind.KillbindModule.LoadLevelInstantWipe(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
 IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.Finder.LLILHook(ILContext)
 IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
@@ -4659,6 +4660,9 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3f89: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
    IL_3f8e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_3f93: stsfld Microsoft.Xna.Framework.Vector2 Celeste.SpotlightWipe::FocusPoint
+ + IL_10070: ldarg.1 @ [Killbind::]Celeste.Mod.Killbind.KillbindModule.LoadLevelInstantWipe(ILContext)
+ + IL_10071: call System.Boolean Celeste.Mod.Killbind.KillbindModule::<LoadLevelInstantWipe>g__Delegate|20_1(Celeste.Player/IntroTypes) @ [Killbind::]Celeste.Mod.Killbind.KillbindModule.LoadLevelInstantWipe(ILContext)
+ + IL_10072: brtrue IL_3fb4 @ [Killbind::]Celeste.Mod.Killbind.KillbindModule.LoadLevelInstantWipe(ILContext)
    IL_3f98: ldarg.1
    IL_3f99: ldc.i4.1
    IL_3f9a: beq.s IL_3fab
@@ -4722,11 +4726,11 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_403c: callvirt System.Boolean Celeste.Level::get_ShouldCreateCassetteManager()
    IL_4041: brfalse.s IL_405b
    IL_4043: ldarg.0
- + IL_10070: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
- + IL_10071: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
- + IL_10072: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
+ + IL_10073: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
+ + IL_10074: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
+ + IL_10075: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController+<>c.<Level_orig_LoadLevel>b__24_2(Level)
- + IL_10073: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Celeste.Level,Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
+ + IL_10076: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Celeste.Level,Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
    IL_4044: call Monocle.Tracker Monocle.Scene::get_Tracker()
    IL_4049: callvirt T Monocle.Tracker::GetEntity<Celeste.CassetteBlockManager>()
    IL_404e: stloc.s V_58

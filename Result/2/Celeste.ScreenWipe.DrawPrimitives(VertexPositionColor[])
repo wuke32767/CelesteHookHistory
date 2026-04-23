@@ -1,0 +1,19 @@
+On: [Killbind::]Celeste.Mod.Killbind.KillbindModule.ScreenWipeDrawPrimitives(orig_DrawPrimitives,VertexPositionColor[])
+   IL_0000: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0005: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_000a: callvirt Microsoft.Xna.Framework.Graphics.Viewport Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Viewport()
+   IL_000f: stloc.0
+   IL_0010: ldloca.s V_0
+   IL_0012: call System.Int32 Microsoft.Xna.Framework.Graphics.Viewport::get_Width()
+   IL_0017: conv.r4
+   IL_0018: ldc.r4 1920
+   IL_001d: div
+   IL_001e: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateScale(System.Single)
+   IL_0023: ldarg.0
+   IL_0024: ldarg.0
+   IL_0025: ldlen
+   IL_0026: conv.i4
+   IL_0027: ldnull
+   IL_0028: ldnull
+   IL_0029: call System.Void Celeste.GFX::DrawVertices<Microsoft.Xna.Framework.Graphics.VertexPositionColor>(Microsoft.Xna.Framework.Matrix,T[],System.Int32,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_002e: ret
