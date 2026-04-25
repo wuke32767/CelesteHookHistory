@@ -8,13 +8,13 @@ On: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCracked
 On: [ExtendedVariantMode::]ExtendedVariants.Variants.DontRefillDashOnGround.patchPufferExplode(orig_Explode,Puffer)
 On: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch.onPufferExplode(orig_Explode,Puffer)
 On: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onPufferExplode(orig_Explode,Puffer)
-On: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.On_Explode(orig_Explode,Puffer)
 On: [GooberHelper::]Celeste.Mod.GooberHelper.Entities.FluidSimulation.patch_Puffer_Explode(orig_Explode,Puffer)
 On: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.CrystalBombBadelineBoss.On_Puffer_Explode(orig_Explode,Puffer)
+On: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.On_Puffer_Explode(orig_Explode,Puffer)
 IL: [FrostTempleHelper::]FrostHelper.DirectionalPuffer.Puffer_Explode(ILContext)
 IL: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
-IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
 IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Components.ExplodeHittable.IL_Puffer_Explode(ILContext)
+IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10000: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10001: call DynamicMethod!Initialize_HookBefore!System.Void TAS.EverestInterop.Hitboxes.HitboxOptimized::Initialize_HookBefore(Celeste.Puffer) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
@@ -37,7 +37,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHo
    IL_0030: ldc.i4.0
    IL_0031: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
  + IL_10002: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Components.ExplodeHittable.IL_Puffer_Explode(ILContext)
- + IL_10003: call System.Void Celeste.Mod.SorbetHelper.Components.ExplodeHittable::activateExplodeHittables(Monocle.Entity) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Components.ExplodeHittable.IL_Puffer_Explode(ILContext)
+ + IL_10003: call System.Void Celeste.Mod.SorbetHelper.Components.ExplodeHittable::ActivateExplodeHittables(Monocle.Entity) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Components.ExplodeHittable.IL_Puffer_Explode(ILContext)
    IL_0036: ldarg.0
    IL_0037: call T Monocle.Entity::CollideFirst<Celeste.Player>()
    IL_003c: stloc.1
