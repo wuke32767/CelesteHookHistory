@@ -1,0 +1,40 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.FragileSeeker.OnTrail(orig_CreateTrail,Seeker)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.Sprite Celeste.Seeker::sprite
+   IL_0006: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_000b: stloc.0
+   IL_000c: ldarg.0
+   IL_000d: ldfld Monocle.Sprite Celeste.Seeker::sprite
+   IL_0012: dup
+   IL_0013: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0018: ldc.r4 1
+   IL_001d: ldc.r4 0.3
+   IL_0022: ldarg.0
+   IL_0023: ldfld Monocle.Wiggler Celeste.Seeker::scaleWiggler
+   IL_0028: callvirt System.Single Monocle.Wiggler::get_Value()
+   IL_002d: mul
+   IL_002e: sub
+   IL_002f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0034: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0039: ldarg.0
+   IL_003a: ldfld Monocle.Sprite Celeste.Seeker::sprite
+   IL_003f: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0044: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0049: dup
+   IL_004a: ldind.r4
+   IL_004b: ldarg.0
+   IL_004c: ldfld System.Int32 Celeste.Seeker::spriteFacing
+   IL_0051: conv.r4
+   IL_0052: mul
+   IL_0053: stind.r4
+   IL_0054: ldarg.0
+   IL_0055: ldsfld Microsoft.Xna.Framework.Color Celeste.Seeker::TrailColor
+   IL_005a: ldc.r4 0.5
+   IL_005f: ldc.i4.0
+   IL_0060: ldc.i4.0
+   IL_0061: call System.Void Celeste.TrailManager::Add(Monocle.Entity,Microsoft.Xna.Framework.Color,System.Single,System.Boolean,System.Boolean)
+   IL_0066: ldarg.0
+   IL_0067: ldfld Monocle.Sprite Celeste.Seeker::sprite
+   IL_006c: ldloc.0
+   IL_006d: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0072: ret
