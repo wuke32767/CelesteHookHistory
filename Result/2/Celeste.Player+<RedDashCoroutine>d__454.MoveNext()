@@ -1,4 +1,5 @@
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.DashSpeed.modDashSpeed(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.OnPlayerDashCoro(ILContext)
 IL: [ChroniaHelper::]ChroniaHelper.Entities.CustomBooster.Player_RedDashHook(ILContext)
 IL: [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_RedDashHook(ILContext)
 IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_RedDashCoroutine(ILContext)
@@ -50,10 +51,12 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpee
  + IL_10009: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [ChroniaHelper::]ChroniaHelper.Entities.CustomBooster.Player_RedDashHook(ILContext)
        => Invoke: [ChroniaHelper::]ChroniaHelper.Entities.CustomBooster+<>c.<Player_RedDashHook>b__41_0(Single)
  + IL_1000a: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [ChroniaHelper::]ChroniaHelper.Entities.CustomBooster.Player_RedDashHook(ILContext)
- + IL_1000b: call System.Single ExtendedVariants.Variants.DashSpeed::getDashSpeedMultiplier() @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashSpeed.modDashSpeed(ILContext)
- + IL_1000c: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashSpeed.modDashSpeed(ILContext)
- + IL_1000d: ldloc.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpeedPreservation.modifyDashSpeedThing(ILContext)
- + IL_1000e: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpeedPreservation::overrideSpeed(System.Single,Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpeedPreservation.modifyDashSpeedThing(ILContext)
+ + IL_1000b: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.OnPlayerDashCoro(ILContext)
+ + IL_1000c: call System.Single Celeste.Mod.ScugHelper.Entities.PinballBooster::<OnPlayerDashCoro>g__ReplaceFloat|27_0(System.Single,Celeste.Player) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.OnPlayerDashCoro(ILContext)
+ + IL_1000d: call System.Single ExtendedVariants.Variants.DashSpeed::getDashSpeedMultiplier() @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashSpeed.modDashSpeed(ILContext)
+ + IL_1000e: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashSpeed.modDashSpeed(ILContext)
+ + IL_1000f: ldloc.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpeedPreservation.modifyDashSpeedThing(ILContext)
+ + IL_10010: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpeedPreservation::overrideSpeed(System.Single,Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpeedPreservation.modifyDashSpeedThing(ILContext)
    IL_0047: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_004c: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0051: ldloc.1
@@ -70,7 +73,7 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpee
    IL_006c: ldloc.1
    IL_006d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
    IL_0072: ldc.r4 0.2
- + IL_1000f: call System.Single Celeste.Mod.EndHelper.EndHelperModule::GetScreenShakeReplacementIntensity(System.Single) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_RedDashCoroutine(ILContext)
+ + IL_10011: call System.Single Celeste.Mod.EndHelper.EndHelperModule::GetScreenShakeReplacementIntensity(System.Single) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_RedDashCoroutine(ILContext)
    IL_0077: callvirt System.Void Celeste.Level::DirectionalShake(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_007c: ldloc.1
    IL_007d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
