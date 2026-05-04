@@ -52,6 +52,7 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DownDemoDas
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.Cobwob.patch_Player_Update(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalRetention.patch_Player_Update(ILContext)
 IL: [LuckyHelper::]LuckyHelper.Triggers.CameraUpdateHelper.OnPlayerOrigUpdate(ILContext)
+IL: [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.Player_orig_Update(ILContext)
 IL: [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
 IL: [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
 IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Player_Update(ILContext)
@@ -1606,6 +1607,9 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
  + IL_100b7: brtrue IL_1110 @ [LuckyHelper::]LuckyHelper.Triggers.CameraUpdateHelper.OnPlayerOrigUpdate(ILContext)
    IL_105f: ldarg.0
    IL_1060: callvirt System.Boolean Celeste.Player::get_InControl()
+ + IL_100b8: ldarg.0 @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.Player_orig_Update(ILContext)
+ + IL_100b9: call System.Boolean Celeste.Mod.BitsHelper.AlterEgo::IsCurrent(Celeste.Player) @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.Player_orig_Update(ILContext)
+ + IL_100ba: and @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.Player_orig_Update(ILContext)
    IL_1065: brtrue.s IL_1072
    IL_1067: ldarg.0
    IL_1068: ldfld System.Boolean Celeste.Player::ForceCameraUpdate
@@ -1614,21 +1618,21 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_1073: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_1078: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_107d: ldc.i4.s 18
- + IL_100b8: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
- + IL_100b9: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
- + IL_100ba: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
- + IL_100bb: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
+ + IL_100bb: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
+ + IL_100bc: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
+ + IL_100bd: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
+ + IL_100be: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
        => Invoke: [VivHelper::]VivHelper.VivHelperModule+<>c.<Player_origUpdate>b__89_2(Int32,Player)
- + IL_100bc: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Int32,System.Int32,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
+ + IL_100bf: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Int32,System.Int32,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VivHelper::]VivHelper.VivHelperModule.Player_origUpdate(ILContext)
    IL_107f: bne.un.s IL_1099
    IL_1081: ldarg.0
    IL_1082: ldfld Celeste.Level Celeste.Player::level
    IL_1087: ldfld Monocle.Camera Celeste.Level::Camera
    IL_108c: ldarg.0
    IL_108d: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Player::get_CameraTarget()
- + IL_100bd: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.SSMHelper.Entities.ReverseKillbox::ModifyCameraTarget(Microsoft.Xna.Framework.Vector2) @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.ReverseKillbox.IL_ChangeCameraTargetCalls(ILContext)
- + IL_100be: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookCameraTarget(ILContext)
- + IL_100bf: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.XaphanHelper.Triggers.CameraBlocker::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Triggers.CameraBlocker.ilHookCameraTarget(ILContext)
+ + IL_100c0: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.SSMHelper.Entities.ReverseKillbox::ModifyCameraTarget(Microsoft.Xna.Framework.Vector2) @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.ReverseKillbox.IL_ChangeCameraTargetCalls(ILContext)
+ + IL_100c1: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookCameraTarget(ILContext)
+ + IL_100c2: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.XaphanHelper.Triggers.CameraBlocker::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Triggers.CameraBlocker.ilHookCameraTarget(ILContext)
    IL_1092: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
    IL_1097: br.s IL_1110
    IL_1099: ldarg.0
@@ -1638,9 +1642,9 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_10a9: stloc.s V_11
    IL_10ab: ldarg.0
    IL_10ac: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Player::get_CameraTarget()
- + IL_100c0: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.SSMHelper.Entities.ReverseKillbox::ModifyCameraTarget(Microsoft.Xna.Framework.Vector2) @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.ReverseKillbox.IL_ChangeCameraTargetCalls(ILContext)
- + IL_100c1: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookCameraTarget(ILContext)
- + IL_100c2: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.XaphanHelper.Triggers.CameraBlocker::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Triggers.CameraBlocker.ilHookCameraTarget(ILContext)
+ + IL_100c3: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.SSMHelper.Entities.ReverseKillbox::ModifyCameraTarget(Microsoft.Xna.Framework.Vector2) @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.ReverseKillbox.IL_ChangeCameraTargetCalls(ILContext)
+ + IL_100c4: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookCameraTarget(ILContext)
+ + IL_100c5: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.XaphanHelper.Triggers.CameraBlocker::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Triggers.CameraBlocker.ilHookCameraTarget(ILContext)
    IL_10b1: stloc.s V_12
    IL_10b3: ldarg.0
    IL_10b4: ldfld Monocle.StateMachine Celeste.Player::StateMachine
@@ -1661,37 +1665,37 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_10e6: ldc.r4 1
    IL_10eb: ldc.r4 0.01
    IL_10f0: ldloc.s V_13
- + IL_100c3: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
- + IL_100c4: call System.Single Celeste.Mod.MaxHelpingHand.Triggers.CameraCatchupSpeedTrigger::replaceCatchupSpeed(System.Single,Celeste.Player) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
- + IL_100c5: ldarg.0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
- + IL_100c6: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
- + IL_100c7: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
- + IL_100c8: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
+ + IL_100c6: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
+ + IL_100c7: call System.Single Celeste.Mod.MaxHelpingHand.Triggers.CameraCatchupSpeedTrigger::replaceCatchupSpeed(System.Single,Celeste.Player) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
+ + IL_100c8: ldarg.0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
+ + IL_100c9: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
+ + IL_100ca: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
+ + IL_100cb: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
        => Invoke: [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash+<>c.<modPlayerOrigUpdate>b__19_0(Single,Player)
- + IL_100c9: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
- + IL_100ca: ldarg.0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
- + IL_100cb: ldc.i4 0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
- + IL_100cc: ldc.i4 0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
- + IL_100cd: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
+ + IL_100cc: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modPlayerOrigUpdate(ILContext)
+ + IL_100cd: ldarg.0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
+ + IL_100ce: ldc.i4 0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
+ + IL_100cf: ldc.i4 0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
+ + IL_100d0: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
        => Invoke: [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger+<>c.<modPlayerOrigUpdate>b__3_3(Single,Player)
- + IL_100ce: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
+ + IL_100d1: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.CameraCatchupSpeedTrigger.modPlayerOrigUpdate(ILContext)
    IL_10f2: div
    IL_10f3: conv.r8
    IL_10f4: call System.Single Monocle.Engine::get_DeltaTime()
- + IL_100cf: ldc.i4 0 @ [vitmod::]vitmod.VitModule.Player_IL_Update(ILContext)
- + IL_100d0: ldc.i4 0 @ [vitmod::]vitmod.VitModule.Player_IL_Update(ILContext)
- + IL_100d1: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [vitmod::]vitmod.VitModule.Player_IL_Update(ILContext)
+ + IL_100d2: ldc.i4 0 @ [vitmod::]vitmod.VitModule.Player_IL_Update(ILContext)
+ + IL_100d3: ldc.i4 0 @ [vitmod::]vitmod.VitModule.Player_IL_Update(ILContext)
+ + IL_100d4: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [vitmod::]vitmod.VitModule.Player_IL_Update(ILContext)
        => Invoke: [vitmod::]vitmod.VitModule.<Player_IL_Update>b__26_0(Single)
- + IL_100d2: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [vitmod::]vitmod.VitModule.Player_IL_Update(ILContext)
+ + IL_100d5: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [vitmod::]vitmod.VitModule.Player_IL_Update(ILContext)
    IL_10f9: conv.r8
    IL_10fa: call System.Double System.Math::Pow(System.Double,System.Double)
    IL_10ff: conv.r4
    IL_1100: sub
    IL_1101: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_1106: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
- + IL_100d3: ldarg.0 @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
- + IL_100d4: ldloc.s V_12 @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
- + IL_100d5: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.ProgHelper.PlayerExtensions::ApplyCameraConstraints(Microsoft.Xna.Framework.Vector2,Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
+ + IL_100d6: ldarg.0 @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
+ + IL_100d7: ldloc.s V_12 @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
+ + IL_100d8: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.ProgHelper.PlayerExtensions::ApplyCameraConstraints(Microsoft.Xna.Framework.Vector2,Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
    IL_110b: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
    IL_1110: ldarg.0
    IL_1111: callvirt System.Boolean Celeste.Player::get_Dead()
@@ -1712,19 +1716,19 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_1142: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_1147: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
    IL_114c: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.PlayerCollider>()
- + IL_100d6: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_100d7: call System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::StoreActualColliderState(Monocle.Entity) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_100d9: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_100da: call System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::StoreActualColliderState(Monocle.Entity) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
    IL_1151: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
    IL_1156: stloc.2
    IL_1157: br.s IL_1182
    IL_1159: ldloca.s V_2
    IL_115b: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
    IL_1160: castclass Celeste.PlayerCollider
- + IL_100d8: dup @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_100d9: call Monocle.Entity Monocle.Component::get_Entity() @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_100da: call System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::StoreActualColliderState(Monocle.Entity) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_100db: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_100dc: call DynamicMethod!IL_Player_origUpdate_StoreActualColliderStateForOtherEntities!System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::IL_Player_origUpdate_StoreActualColliderStateForOtherEntities(Celeste.Player) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_100db: dup @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_100dc: call Monocle.Entity Monocle.Component::get_Entity() @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_100dd: call System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::StoreActualColliderState(Monocle.Entity) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_100de: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_100df: call DynamicMethod!IL_Player_origUpdate_StoreActualColliderStateForOtherEntities!System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::IL_Player_origUpdate_StoreActualColliderStateForOtherEntities(Celeste.Player) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
    IL_1165: ldarg.0
    IL_1166: callvirt System.Boolean Celeste.PlayerCollider::Check(Celeste.Player)
    IL_116b: brfalse.s IL_1182
@@ -1760,9 +1764,9 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_11be: ldarg.0
    IL_11bf: callvirt System.Boolean Celeste.Player::get_Dead()
    IL_11c4: brtrue.s IL_11e9
- + IL_100dd: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
- + IL_100de: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController::ShouldAffectStateCheck(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
- + IL_100df: brtrue IL_11d5 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
+ + IL_100e0: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
+ + IL_100e1: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController::ShouldAffectStateCheck(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
+ + IL_100e2: brtrue IL_11d5 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
    IL_11c6: ldarg.0
    IL_11c7: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_11cc: callvirt System.Int32 Monocle.StateMachine::get_State()
@@ -1854,8 +1858,8 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_12c8: ldarg.0
    IL_12c9: ldc.i4.0
    IL_12ca: stfld System.Boolean Celeste.Player::windMovedUp
- + IL_100e0: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
- + IL_100e1: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBarrier::CollideBarrier(Celeste.Player) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
- + IL_100e2: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
- + IL_100e3: call System.Void ChroniaHelper.Entities.TeraBarrier::CollideBarrier(Celeste.Player) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
+ + IL_100e3: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
+ + IL_100e4: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBarrier::CollideBarrier(Celeste.Player) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
+ + IL_100e5: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
+ + IL_100e6: call System.Void ChroniaHelper.Entities.TeraBarrier::CollideBarrier(Celeste.Player) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
    IL_12cf: ret

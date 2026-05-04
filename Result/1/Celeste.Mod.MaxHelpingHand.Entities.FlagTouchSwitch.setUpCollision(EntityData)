@@ -1,0 +1,48 @@
+On: [BitsHelper::]Celeste.Mod.BitsHelper.BubbleCollider.OnFlagTouchSwitchCtor(Action`2,FlagTouchSwitch,EntityData)
+   IL_0000: ldarg.0
+   IL_0001: ldc.r4 16
+   IL_0006: ldc.r4 16
+   IL_000b: ldc.r4 -8
+   IL_0010: ldc.r4 -8
+   IL_0015: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_001a: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_001f: ldarg.1
+   IL_0020: ldstr "playerCanActivate"
+   IL_0025: ldc.i4.1
+   IL_0026: callvirt System.Boolean Celeste.EntityData::Bool(System.String,System.Boolean)
+   IL_002b: brfalse.s IL_005e
+   IL_002d: ldarg.0
+   IL_002e: ldarg.0
+   IL_002f: ldftn System.Void Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::onPlayer(Celeste.Player)
+   IL_0035: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_003a: ldnull
+   IL_003b: ldc.r4 30
+   IL_0040: ldc.r4 30
+   IL_0045: ldc.r4 -15
+   IL_004a: ldc.r4 -15
+   IL_004f: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0054: newobj System.Void Celeste.PlayerCollider::.ctor(System.Action`1<Celeste.Player>,Monocle.Collider,Monocle.Collider)
+   IL_0059: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_005e: ldarg.0
+   IL_005f: ldarg.0
+   IL_0060: ldftn System.Void Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::onHoldable(Celeste.Holdable)
+   IL_0066: newobj System.Void System.Action`1<Celeste.Holdable>::.ctor(System.Object,System.IntPtr)
+   IL_006b: ldc.r4 20
+   IL_0070: ldc.r4 20
+   IL_0075: ldc.r4 -10
+   IL_007a: ldc.r4 -10
+   IL_007f: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0084: newobj System.Void Celeste.HoldableCollider::.ctor(System.Action`1<Celeste.Holdable>,Monocle.Collider)
+   IL_0089: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_008e: ldarg.0
+   IL_008f: ldarg.0
+   IL_0090: ldftn System.Void Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::onSeeker(Celeste.Seeker)
+   IL_0096: newobj System.Void System.Action`1<Celeste.Seeker>::.ctor(System.Object,System.IntPtr)
+   IL_009b: ldc.r4 24
+   IL_00a0: ldc.r4 24
+   IL_00a5: ldc.r4 -12
+   IL_00aa: ldc.r4 -12
+   IL_00af: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_00b4: newobj System.Void Celeste.SeekerCollider::.ctor(System.Action`1<Celeste.Seeker>,Monocle.Collider)
+   IL_00b9: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00be: ret
