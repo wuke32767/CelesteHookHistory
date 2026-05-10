@@ -1,0 +1,63 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.EditorHideController.OnRenderOutline(orig_RenderOutline,LevelTemplate,Camera)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Boolean Celeste.Editor.LevelTemplate::IsVisible(Monocle.Camera)
+   IL_0007: brtrue.s IL_000a
+   IL_0009: ret
+   IL_000a: ldc.r4 1
+   IL_000f: ldarg.1
+   IL_0010: callvirt System.Single Monocle.Camera::get_Zoom()
+   IL_0015: div
+   IL_0016: ldc.r4 2
+   IL_001b: mul
+   IL_001c: stloc.0
+   IL_001d: ldarg.0
+   IL_001e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0023: callvirt System.Boolean Celeste.Editor.LevelTemplate::Check(Microsoft.Xna.Framework.Vector2)
+   IL_0028: brfalse.s IL_005a
+   IL_002a: ldarg.0
+   IL_002b: ldarg.0
+   IL_002c: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
+   IL_0031: ldc.i4.1
+   IL_0032: add
+   IL_0033: conv.r4
+   IL_0034: ldarg.0
+   IL_0035: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
+   IL_003a: ldc.i4.1
+   IL_003b: add
+   IL_003c: conv.r4
+   IL_003d: ldarg.0
+   IL_003e: ldfld System.Int32 Celeste.Editor.LevelTemplate::Width
+   IL_0043: ldc.i4.2
+   IL_0044: sub
+   IL_0045: conv.r4
+   IL_0046: ldarg.0
+   IL_0047: ldfld System.Int32 Celeste.Editor.LevelTemplate::Height
+   IL_004c: ldc.i4.2
+   IL_004d: sub
+   IL_004e: conv.r4
+   IL_004f: ldloc.0
+   IL_0050: ldsfld Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::firstBorderColor
+   IL_0055: callvirt System.Void Celeste.Editor.LevelTemplate::Outline(System.Single,System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_005a: ldarg.0
+   IL_005b: ldarg.0
+   IL_005c: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
+   IL_0061: conv.r4
+   IL_0062: ldarg.0
+   IL_0063: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
+   IL_0068: conv.r4
+   IL_0069: ldarg.0
+   IL_006a: ldfld System.Int32 Celeste.Editor.LevelTemplate::Width
+   IL_006f: conv.r4
+   IL_0070: ldarg.0
+   IL_0071: ldfld System.Int32 Celeste.Editor.LevelTemplate::Height
+   IL_0076: conv.r4
+   IL_0077: ldloc.0
+   IL_0078: ldarg.0
+   IL_0079: ldfld System.Boolean Celeste.Editor.LevelTemplate::Dummy
+   IL_007e: brtrue.s IL_0087
+   IL_0080: ldsfld Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::inactiveBorderColor
+   IL_0085: br.s IL_008c
+   IL_0087: ldsfld Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::dummyInactiveBorderColor
+   IL_008c: callvirt System.Void Celeste.Editor.LevelTemplate::Outline(System.Single,System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0091: ret

@@ -1,0 +1,12 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.SpecialSessionVariables.SpecialSessionVariables.OnGetSlider(orig_GetSlider,Session,String)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Session/Slider> Celeste.Session::_Sliders
+   IL_0006: ldarg.1
+   IL_0007: ldloca.s V_0
+   IL_0009: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Celeste.Session/Slider>::TryGetValue(TKey,TValue&)
+   IL_000e: brfalse.s IL_0017
+   IL_0010: ldloc.0
+   IL_0011: ldfld System.Single Celeste.Session/Slider::_Value
+   IL_0016: ret
+   IL_0017: ldc.r4 0
+   IL_001c: ret

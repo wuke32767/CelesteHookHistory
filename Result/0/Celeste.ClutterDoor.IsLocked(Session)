@@ -1,0 +1,11 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.FlagClutterDoor.OnIsLocked(orig_IsLocked,ClutterDoor,Session)
+   IL_0000: ldarg.1
+   IL_0001: ldstr "oshiro_clutter_door_open"
+   IL_0006: callvirt System.Boolean Celeste.Session::GetFlag(System.String)
+   IL_000b: brfalse.s IL_0015
+   IL_000d: ldarg.0
+   IL_000e: ldarg.1
+   IL_000f: callvirt System.Boolean Celeste.ClutterDoor::IsComplete(Celeste.Session)
+   IL_0014: ret
+   IL_0015: ldc.i4.1
+   IL_0016: ret

@@ -1,0 +1,46 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.FlagClutterDoor.OnUpdate(orig_Update,ClutterDoor)
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: stloc.0
+   IL_000c: ldloc.0
+   IL_000d: callvirt System.Boolean Celeste.Level::get_Transitioning()
+   IL_0012: brfalse.s IL_002c
+   IL_0014: ldarg.0
+   IL_0015: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Player>()
+   IL_001a: brfalse.s IL_002c
+   IL_001c: ldarg.0
+   IL_001d: ldc.i4.0
+   IL_001e: stfld System.Boolean Monocle.Entity::Visible
+   IL_0023: ldarg.0
+   IL_0024: ldc.i4.0
+   IL_0025: stfld System.Boolean Monocle.Entity::Collidable
+   IL_002a: br.s IL_0074
+   IL_002c: ldarg.0
+   IL_002d: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0032: brtrue.s IL_0074
+   IL_0034: ldarg.0
+   IL_0035: ldloc.0
+   IL_0036: ldfld Celeste.Session Celeste.Level::Session
+   IL_003b: callvirt System.Boolean Celeste.ClutterDoor::IsLocked(Celeste.Session)
+   IL_0040: brfalse.s IL_0074
+   IL_0042: ldarg.0
+   IL_0043: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Player>()
+   IL_0048: brtrue.s IL_0074
+   IL_004a: ldarg.0
+   IL_004b: ldc.i4.1
+   IL_004c: stfld System.Boolean Monocle.Entity::Visible
+   IL_0051: ldarg.0
+   IL_0052: ldc.i4.1
+   IL_0053: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0058: ldarg.0
+   IL_0059: ldfld Monocle.Wiggler Celeste.ClutterDoor::wiggler
+   IL_005e: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0063: ldstr "event:/game/03_resort/forcefield_bump"
+   IL_0068: ldarg.0
+   IL_0069: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_006e: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0073: pop
+   IL_0074: ldarg.0
+   IL_0075: call System.Void Celeste.Solid::Update()
+   IL_007a: ret
