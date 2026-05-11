@@ -1,5 +1,6 @@
 On: [GooberHelper::]Celeste.Mod.GooberHelper.Settings.Root.DebugMapPhysicsUtils.MapEditorHooks.patch_MapEditor_Render(orig_Render,MapEditor)
 IL: [VivHelper::]VivHelper.Entities.SpawnPointHooks.MapEditor_Render(ILContext)
+IL: [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.SessionHeart+SessionHeartInEditor.hook_orig_Render(ILContext)
    IL_0000: ldarg.0
    IL_0001: callvirt System.Void Celeste.Editor.MapEditor::UpdateMouse()
    IL_0006: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
@@ -410,6 +411,8 @@ IL: [VivHelper::]VivHelper.Entities.SpawnPointHooks.MapEditor_Render(ILContext)
    IL_058c: callvirt System.Void System.IDisposable::Dispose()
    IL_0591: endfinally
    IL_0592: ldarg.0
+ + IL_10004: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.SessionHeart+SessionHeartInEditor.hook_orig_Render(ILContext)
+ + IL_10005: call System.Void Celeste.Mod.FemtoHelper.Entities.SessionHeart/SessionHeartInEditor::ImplementHeartKey(Celeste.Editor.MapEditor) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.SessionHeart+SessionHeartInEditor.hook_orig_Render(ILContext)
    IL_0593: ldfld System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate> Celeste.Editor.MapEditor::hovered
    IL_0598: callvirt System.Int32 System.Collections.Generic.HashSet`1<Celeste.Editor.LevelTemplate>::get_Count()
    IL_059d: brtrue IL_0637

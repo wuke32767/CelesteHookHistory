@@ -17,20 +17,16 @@ IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHo
    IL_0022: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
  + IL_10000: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHook(ILContext)
  + IL_10001: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHook(ILContext)
- + IL_10002: ldc.i4 0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHook(ILContext)
- + IL_10003: ldc.i4 0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHook(ILContext)
- + IL_10004: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHook(ILContext)
-       => Invoke: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube+<>c.<GetCameraTargetHook>b__27_1(Player,Vector2)
- + IL_10005: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<Microsoft.Xna.Framework.Vector2,Celeste.Player,Microsoft.Xna.Framework.Vector2>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHook(ILContext)
- + IL_10006: stloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHook(ILContext)
- + IL_10007: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
- + IL_10008: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController::<IL_Player_get_CameraTarget>g__ShouldDisableAutoCameraOffset|8_19(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
- + IL_10009: brtrue IL_0036 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
+ + IL_10002: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.ScugHelper.Entities.TungstenCube::<GetCameraTargetHook>g__Del|27_1(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHook(ILContext)
+ + IL_10003: stloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHook(ILContext)
+ + IL_10004: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
+ + IL_10005: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController::<IL_Player_get_CameraTarget>g__ShouldDisableAutoCameraOffset|8_19(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
+ + IL_10006: brtrue IL_0036 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
    IL_0027: ldarg.0
    IL_0028: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_002d: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_0032: ldc.i4.s 18
-   IL_0034: beq.s IL_1000a
+   IL_0034: beq.s IL_10007
    IL_0036: ldloc.1
    IL_0037: ldarg.0
    IL_0038: ldfld Celeste.Level Celeste.Player::level
@@ -43,9 +39,9 @@ IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHo
    IL_0057: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
    IL_005c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_0061: stloc.1
- + IL_1000a: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
- + IL_1000b: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController::<IL_Player_get_CameraTarget>g__ShouldDisableAutoCameraOffset|8_19(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
- + IL_1000c: brtrue IL_013c @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
+ + IL_10007: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
+ + IL_10008: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController::<IL_Player_get_CameraTarget>g__ShouldDisableAutoCameraOffset|8_19(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
+ + IL_10009: brtrue IL_013c @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DisableAutoCameraOffsetController.IL_Player_get_CameraTarget(ILContext)
    IL_0062: ldarg.0
    IL_0063: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0068: callvirt System.Int32 Monocle.StateMachine::get_State()
@@ -79,9 +75,9 @@ IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHo
    IL_00b4: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_00b9: ldc.i4.5
    IL_00ba: bne.un.s IL_00fc
- + IL_1000d: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.CustomBooster.Player_get_CameraTarget(ILContext)
- + IL_1000e: call System.Boolean Celeste.Mod.CommunalHelper.Entities.CustomBooster::DoesNotAffectCamera(Celeste.Player) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.CustomBooster.Player_get_CameraTarget(ILContext)
- + IL_1000f: brtrue IL_00fc @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.CustomBooster.Player_get_CameraTarget(ILContext)
+ + IL_1000a: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.CustomBooster.Player_get_CameraTarget(ILContext)
+ + IL_1000b: call System.Boolean Celeste.Mod.CommunalHelper.Entities.CustomBooster::DoesNotAffectCamera(Celeste.Player) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.CustomBooster.Player_get_CameraTarget(ILContext)
+ + IL_1000c: brtrue IL_00fc @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.CustomBooster.Player_get_CameraTarget(ILContext)
    IL_00bc: ldloca.s V_1
    IL_00be: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
    IL_00c3: dup
@@ -215,9 +211,9 @@ IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHo
    IL_0248: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_024d: ldarg.0
    IL_024e: ldfld System.Boolean Celeste.Player::EnforceLevelBounds
- + IL_10010: ldarg.0 @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
- + IL_10011: call System.Boolean Bitsbolts.Triggers.UnlockCamera::<ILPlayerCameraTarget>m__1(Celeste.Player) @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
- + IL_10012: and @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_1000d: ldarg.0 @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_1000e: call System.Boolean Bitsbolts.Triggers.UnlockCamera::<ILPlayerCameraTarget>m__1(Celeste.Player) @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_1000f: and @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
    IL_0253: brfalse IL_02da
    IL_0258: ldloca.s V_0
    IL_025a: ldloc.1
@@ -405,8 +401,8 @@ IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHo
    IL_04aa: stloc.s V_5
    IL_04ac: ldloc.s V_5
    IL_04ae: ldfld System.Boolean Monocle.Entity::Collidable
- + IL_10013: call System.Boolean Bitsbolts.Triggers.UnlockCamera::<ILPlayerCameraTarget>m__4() @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
- + IL_10014: and @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_10010: call System.Boolean Bitsbolts.Triggers.UnlockCamera::<ILPlayerCameraTarget>m__4() @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_10011: and @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
    IL_04b3: brfalse.s IL_0501
    IL_04b5: ldarg.0
    IL_04b6: call System.Single Monocle.Entity::get_Top()
