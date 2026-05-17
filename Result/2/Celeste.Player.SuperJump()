@@ -30,6 +30,7 @@ IL: [ExtendedVariantMode::]ExtendedVariants.Variants.JumpHeight.modSuperJump(ILC
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modSuperJump(ILContext)
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.HyperdashSpeed.modSuperJump(ILContext)
+IL: [DawnHelper::]Celeste.Mod.DawnHelper.Entities.CoyoteBlock.bullshit(ILContext)
 IL: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.TweakManagers.ChangeDashSpeedOnce.SuperJumpPatch(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
@@ -92,16 +93,18 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSp
  + IL_10018: call System.Single FrostHelper.TweakManagers.ChangeDashSpeedOnce::GetSuperJumpSpeed(System.Single) @ [FrostTempleHelper::]FrostHelper.TweakManagers.ChangeDashSpeedOnce.SuperJumpPatch(ILContext)
  + IL_10019: ldarg.0 @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
  + IL_1001a: call System.Single Celeste.Mod.SSMHelper.Entities.DashBoostField::ModifySpeed(System.Single,Celeste.Player) @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
- + IL_1001b: call System.Single ExtendedVariants.Variants.HyperdashSpeed::determineHyperdashSpeedFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.HyperdashSpeed.modSuperJump(ILContext)
- + IL_1001c: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.HyperdashSpeed.modSuperJump(ILContext)
- + IL_1001d: call System.Single ExtendedVariants.Variants.SpeedX::determineSpeedXFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modSuperJump(ILContext)
- + IL_1001e: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modSuperJump(ILContext)
- + IL_1001f: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
- + IL_10020: call System.Single Celeste.Mod.StrawberryJam2021.Entities.DashBoostField::ModifySpeed(System.Single,Celeste.Player) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
- + IL_10021: call System.Single Celeste.Mod.XaphanHelper.Entities.Liquid::determineSpeedXFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modSuperJump(ILContext)
- + IL_10022: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modSuperJump(ILContext)
- + IL_10023: call System.Single Celeste.Mod.XaphanHelper.Upgrades.GravityJacket::determineSpeedXFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modSuperJump(ILContext)
- + IL_10024: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modSuperJump(ILContext)
+ + IL_1001b: ldarg.0 @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.CoyoteBlock.bullshit(ILContext)
+ + IL_1001c: call System.Single Celeste.Mod.DawnHelper.Entities.CoyoteBlock::spead(System.Single,Celeste.Player) @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.CoyoteBlock.bullshit(ILContext)
+ + IL_1001d: call System.Single ExtendedVariants.Variants.HyperdashSpeed::determineHyperdashSpeedFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.HyperdashSpeed.modSuperJump(ILContext)
+ + IL_1001e: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.HyperdashSpeed.modSuperJump(ILContext)
+ + IL_1001f: call System.Single ExtendedVariants.Variants.SpeedX::determineSpeedXFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modSuperJump(ILContext)
+ + IL_10020: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modSuperJump(ILContext)
+ + IL_10021: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
+ + IL_10022: call System.Single Celeste.Mod.StrawberryJam2021.Entities.DashBoostField::ModifySpeed(System.Single,Celeste.Player) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
+ + IL_10023: call System.Single Celeste.Mod.XaphanHelper.Entities.Liquid::determineSpeedXFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modSuperJump(ILContext)
+ + IL_10024: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modSuperJump(ILContext)
+ + IL_10025: call System.Single Celeste.Mod.XaphanHelper.Upgrades.GravityJacket::determineSpeedXFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modSuperJump(ILContext)
+ + IL_10026: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modSuperJump(ILContext)
    IL_005e: ldarg.0
    IL_005f: ldfld Celeste.Facings Celeste.Player::Facing
    IL_0064: conv.r4
@@ -110,27 +113,27 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSp
    IL_006b: ldarg.0
    IL_006c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0071: ldc.r4 -105
- + IL_10025: call System.Single ExtendedVariants.Variants.JumpHeight::determineJumpHeightFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpHeight.modSuperJump(ILContext)
- + IL_10026: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpHeight.modSuperJump(ILContext)
- + IL_10027: call System.Single Celeste.Mod.XaphanHelper.Entities.Liquid::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modSuperJump(ILContext)
- + IL_10028: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modSuperJump(ILContext)
- + IL_10029: call System.Single Celeste.Mod.XaphanHelper.Upgrades.GravityJacket::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modSuperJump(ILContext)
- + IL_1002a: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modSuperJump(ILContext)
+ + IL_10027: call System.Single ExtendedVariants.Variants.JumpHeight::determineJumpHeightFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpHeight.modSuperJump(ILContext)
+ + IL_10028: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpHeight.modSuperJump(ILContext)
+ + IL_10029: call System.Single Celeste.Mod.XaphanHelper.Entities.Liquid::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modSuperJump(ILContext)
+ + IL_1002a: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Liquid.modSuperJump(ILContext)
+ + IL_1002b: call System.Single Celeste.Mod.XaphanHelper.Upgrades.GravityJacket::determineJumpHeightFactor() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modSuperJump(ILContext)
+ + IL_1002c: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modSuperJump(ILContext)
    IL_0076: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_007b: ldarg.0
- + IL_1002b: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
- + IL_1002c: ldc.i4 1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
- + IL_1002d: call System.Void Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed::setPlayerSpeed(Celeste.Player,System.Boolean) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
- + IL_1002e: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.SuperJump.patch_Player_SuperJump(ILContext)
- + IL_1002f: call System.Void Celeste.Mod.GooberHelper.Options.GeneralHooks.SuperJump::setPlayerSpeed(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.SuperJump.patch_Player_SuperJump(ILContext)
+ + IL_1002d: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
+ + IL_1002e: ldc.i4 1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
+ + IL_1002f: call System.Void Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed::setPlayerSpeed(Celeste.Player,System.Boolean) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
+ + IL_10030: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.SuperJump.patch_Player_SuperJump(ILContext)
+ + IL_10031: call System.Void Celeste.Mod.GooberHelper.Options.GeneralHooks.SuperJump::setPlayerSpeed(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.SuperJump.patch_Player_SuperJump(ILContext)
    IL_007c: ldarg.0
    IL_007d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0082: ldarg.0
    IL_0083: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Player::get_LiftBoost()
    IL_0088: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_008d: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
- + IL_10030: ldarg.0 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10031: call System.Void Celeste.Mod.auspicioushelper.LiftspeedThing::BoostOnce(Celeste.Player) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10032: ldarg.0 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10033: call System.Void Celeste.Mod.auspicioushelper.LiftspeedThing::BoostOnce(Celeste.Player) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_0092: ldarg.0
    IL_0093: ldc.r4 0.55
    IL_0098: stfld System.Single Celeste.Player::gliderBoostTimer
@@ -189,8 +192,8 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSp
    IL_0137: ldarg.0
    IL_0138: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_013d: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
- + IL_10032: ldarg.0 @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerSuperJump(ILContext)
- + IL_10033: call System.Void Bitsbolts.Components.UnboundedDashing::<ILPlayerSuperJump>m__D(Celeste.Player) @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerSuperJump(ILContext)
+ + IL_10034: ldarg.0 @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerSuperJump(ILContext)
+ + IL_10035: call System.Void Bitsbolts.Components.UnboundedDashing::<ILPlayerSuperJump>m__D(Celeste.Player) @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerSuperJump(ILContext)
    IL_0142: stfld System.Single Celeste.Player::varJumpSpeed
    IL_0147: ldarg.0
    IL_0148: ldc.i4.1
