@@ -34,6 +34,7 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelLoaderOnLoadingThrea
 IL: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DarkMatterHooks.LevelLoader_LoadingThread(ILContext)
 IL: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CrystallineHelperTimeFreezeMusicController.LevelLoader_LoadingThread(ILContext)
 IL: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NoTilesController.ILLoadingThread(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld Celeste.Session Celeste.LevelLoader::session
    IL_0006: callvirt Celeste.MapData Celeste.Session::get_MapData()
@@ -377,6 +378,10 @@ IL: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(IL
    IL_04bf: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
    IL_04c4: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Autotiler::LevelBounds
    IL_04c9: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::Clear()
+ + IL_10000: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NoTilesController.ILLoadingThread(ILContext)
+ + IL_10001: ldloc.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NoTilesController.ILLoadingThread(ILContext)
+ + IL_10002: call System.Boolean Celeste.Mod.ScugHelper.Entities.NoTilesController::CheckForAnyNTC(Celeste.LevelLoader,Celeste.MapData) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NoTilesController.ILLoadingThread(ILContext)
+ + IL_10003: brtrue IL_1135 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NoTilesController.ILLoadingThread(ILContext)
    IL_04ce: ldloc.2
    IL_04cf: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
    IL_04d4: ldloc.2
@@ -609,10 +614,10 @@ IL: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(IL
    IL_071b: callvirt System.Void System.IDisposable::Dispose()
    IL_0720: endfinally
    IL_0721: ldloc.0
- + IL_10000: ldloc.0 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelLoaderOnLoadingThread(ILContext)
- + IL_10001: ldloc V_13 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelLoaderOnLoadingThread(ILContext)
- + IL_10002: ldloc V_14 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelLoaderOnLoadingThread(ILContext)
- + IL_10003: call System.Void LuckyHelper.Entities.Room.PasteRoom::ReplaceFgBgTiles(Celeste.MapData,Monocle.VirtualMap`1<System.Char>,Monocle.VirtualMap`1<System.Char>) @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelLoaderOnLoadingThread(ILContext)
+ + IL_10004: ldloc.0 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelLoaderOnLoadingThread(ILContext)
+ + IL_10005: ldloc V_13 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelLoaderOnLoadingThread(ILContext)
+ + IL_10006: ldloc V_14 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelLoaderOnLoadingThread(ILContext)
+ + IL_10007: call System.Void LuckyHelper.Entities.Room.PasteRoom::ReplaceFgBgTiles(Celeste.MapData,Monocle.VirtualMap`1<System.Char>,Monocle.VirtualMap`1<System.Char>) @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelLoaderOnLoadingThread(ILContext)
    IL_0722: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.MapData::Filler
    IL_0727: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::GetEnumerator()
    IL_072c: stloc.s V_33
@@ -1482,14 +1487,14 @@ IL: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(IL
    IL_0f66: ldloc.s V_17
    IL_0f68: ldloc.s V_13
    IL_0f6a: newobj System.Void Celeste.BackgroundTiles::.ctor(Microsoft.Xna.Framework.Vector2,Monocle.VirtualMap`1<System.Char>)
- + IL_10004: dup @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_10005: ldarg.0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_10006: ldloc.s V_13 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_10007: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_10008: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_10009: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10008: dup @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10009: ldarg.0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_1000a: ldloc.s V_13 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_1000b: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_1000c: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_1000d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
        => Invoke: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule+<>c.<HookLevelLoad>b__18_1(BackgroundTiles,LevelLoader,VirtualMap`1)
- + IL_1000a: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.BackgroundTiles,Celeste.LevelLoader,Monocle.VirtualMap`1<System.Char>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_1000e: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.BackgroundTiles,Celeste.LevelLoader,Monocle.VirtualMap`1<System.Char>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
    IL_0f6f: dup
    IL_0f70: stloc.s V_18
    IL_0f72: dup
@@ -1504,14 +1509,14 @@ IL: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(IL
    IL_0f8d: ldloc.s V_17
    IL_0f8f: ldloc.s V_14
    IL_0f91: newobj System.Void Celeste.SolidTiles::.ctor(Microsoft.Xna.Framework.Vector2,Monocle.VirtualMap`1<System.Char>)
- + IL_1000b: dup @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_1000c: ldarg.0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_1000d: ldloc.s V_14 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_1000e: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_1000f: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
- + IL_10010: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_1000f: dup @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10010: ldarg.0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10011: ldloc.s V_14 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10012: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10013: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
        => Invoke: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule+<>c.<HookLevelLoad>b__18_3(SolidTiles,LevelLoader,VirtualMap`1)
- + IL_10011: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.SolidTiles,Celeste.LevelLoader,Monocle.VirtualMap`1<System.Char>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10015: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.SolidTiles,Celeste.LevelLoader,Monocle.VirtualMap`1<System.Char>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
    IL_0f96: dup
    IL_0f97: stloc.s V_19
    IL_0f99: dup
@@ -1667,10 +1672,10 @@ IL: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(IL
    IL_1175: ldarg.0
    IL_1176: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
    IL_117b: call System.Void Celeste.Mod.Everest/Events/LevelLoader::LoadingThread(Celeste.Level)
- + IL_10012: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DarkMatterHooks.LevelLoader_LoadingThread(ILContext)
- + IL_10013: call System.Void Celeste.Mod.StrawberryJam2021.Entities.DarkMatterHooks::LoadingThreadMod(Celeste.LevelLoader) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DarkMatterHooks.LevelLoader_LoadingThread(ILContext)
- + IL_10014: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CrystallineHelperTimeFreezeMusicController.LevelLoader_LoadingThread(ILContext)
- + IL_10015: call System.Void Celeste.Mod.StrawberryJam2021.Entities.CrystallineHelperTimeFreezeMusicController::LoadingThreadModifier(Celeste.LevelLoader) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CrystallineHelperTimeFreezeMusicController.LevelLoader_LoadingThread(ILContext)
+ + IL_10016: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DarkMatterHooks.LevelLoader_LoadingThread(ILContext)
+ + IL_10017: call System.Void Celeste.Mod.StrawberryJam2021.Entities.DarkMatterHooks::LoadingThreadMod(Celeste.LevelLoader) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DarkMatterHooks.LevelLoader_LoadingThread(ILContext)
+ + IL_10018: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CrystallineHelperTimeFreezeMusicController.LevelLoader_LoadingThread(ILContext)
+ + IL_10019: call System.Void Celeste.Mod.StrawberryJam2021.Entities.CrystallineHelperTimeFreezeMusicController::LoadingThreadModifier(Celeste.LevelLoader) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CrystallineHelperTimeFreezeMusicController.LevelLoader_LoadingThread(ILContext)
    IL_1180: ldarg.0
    IL_1181: ldc.i4.1
    IL_1182: callvirt System.Void Celeste.LevelLoader::set_Loaded(System.Boolean)
