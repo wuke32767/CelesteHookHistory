@@ -1,6 +1,7 @@
 IL: [Procedurline::]Celeste.Mod.Procedurline.Demo.DemoMap.HideChapterModifier(ILContext)
 IL: [Procedurline::]Celeste.Mod.Procedurline.Demo.DemoMap.EverestHotFix2(ILContext)
 IL: [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modMapSearch(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.MapHider.modMapSearch(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldc.i4.0
    IL_0002: stfld System.Int32 Celeste.Mod.UI.OuiMapSearch::itemCount
@@ -144,9 +145,12 @@ IL: [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modMapSearch(ILContext)
    IL_015c: ldfld Celeste.AreaData Celeste.Mod.UI.OuiMapSearch/<>c__DisplayClass29_0::area
    IL_0161: ldc.i4.0
    IL_0162: callvirt System.Boolean Celeste.AreaData::HasMode(Celeste.AreaMode)
- + IL_10014: ldloc.s V_13 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modMapSearch(ILContext)
- + IL_10015: ldfld Celeste.AreaData Celeste.Mod.UI.OuiMapSearch/<>c__DisplayClass29_0::area @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modMapSearch(ILContext)
- + IL_10016: call System.Boolean Celeste.Mod.CollabUtils2.LobbyHelper::hideCollabMapsFromSearchAndList(System.Boolean,Celeste.AreaData) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modMapSearch(ILContext)
+ + IL_10014: ldloc.s V_13 @ [ScugHelper::]Celeste.Mod.ScugHelper.MapHider.modMapSearch(ILContext)
+ + IL_10015: ldfld Celeste.AreaData Celeste.Mod.UI.OuiMapSearch/<>c__DisplayClass29_0::area @ [ScugHelper::]Celeste.Mod.ScugHelper.MapHider.modMapSearch(ILContext)
+ + IL_10016: call System.Boolean Celeste.Mod.ScugHelper.MapHider::HideScugHelper(System.Boolean,Celeste.AreaData) @ [ScugHelper::]Celeste.Mod.ScugHelper.MapHider.modMapSearch(ILContext)
+ + IL_10017: ldloc.s V_13 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modMapSearch(ILContext)
+ + IL_10018: ldfld Celeste.AreaData Celeste.Mod.UI.OuiMapSearch/<>c__DisplayClass29_0::area @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modMapSearch(ILContext)
+ + IL_10019: call System.Boolean Celeste.Mod.CollabUtils2.LobbyHelper::hideCollabMapsFromSearchAndList(System.Boolean,Celeste.AreaData) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modMapSearch(ILContext)
    IL_0167: brfalse IL_04b3
    IL_016c: ldloc.s V_6
    IL_016e: ldfld System.Boolean Celeste.SaveData::DebugMode

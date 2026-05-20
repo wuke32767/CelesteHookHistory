@@ -1,6 +1,7 @@
 IL: [Procedurline::]Celeste.Mod.Procedurline.Demo.DemoMap.HideChapterModifier(ILContext)
 IL: [Procedurline::]Celeste.Mod.Procedurline.Demo.DemoMap.EverestHotFix1(ILContext)
 IL: [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modLevelSetSwitch(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.MapHider.modLevelSetSwitch(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Int32 Celeste.Mod.UI.OuiHelper_ChapterSelect_LevelSet/<Enter>d__2::<>1__state
    IL_0006: stloc.0
@@ -79,8 +80,10 @@ IL: [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modLevelSetSwitch(ILCon
    IL_00b0: callvirt System.String Celeste.AreaData::get_LevelSet()
    IL_00b5: ldloc.3
    IL_00b6: call System.Boolean System.String::op_Inequality(System.String,System.String)
- + IL_10007: ldloc.s V_6 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modLevelSetSwitch(ILContext)
- + IL_10008: call System.Boolean Celeste.Mod.CollabUtils2.LobbyHelper::checkCollabLevelSets(System.Boolean,Celeste.AreaData) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modLevelSetSwitch(ILContext)
+ + IL_10007: ldloc.s V_6 @ [ScugHelper::]Celeste.Mod.ScugHelper.MapHider.modLevelSetSwitch(ILContext)
+ + IL_10008: call System.Boolean Celeste.Mod.ScugHelper.MapHider::HideScugHelper(System.Boolean,Celeste.AreaData) @ [ScugHelper::]Celeste.Mod.ScugHelper.MapHider.modLevelSetSwitch(ILContext)
+ + IL_10009: ldloc.s V_6 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modLevelSetSwitch(ILContext)
+ + IL_1000a: call System.Boolean Celeste.Mod.CollabUtils2.LobbyHelper::checkCollabLevelSets(System.Boolean,Celeste.AreaData) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.LobbyHelper.modLevelSetSwitch(ILContext)
    IL_00bb: brfalse.s IL_00d1
    IL_00bd: ldsfld Celeste.SaveData Celeste.SaveData::Instance
    IL_00c2: ldloc.s V_6
