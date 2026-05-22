@@ -1,4 +1,5 @@
 On: [LylyraHelper::]Celeste.Mod.LylyraHelper.Entities.Scissors.BumperSlice(orig_Update,Bumper)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NewAngleBumper.ILUpdate(ILContext)
    IL_0000: ldarg.0
    IL_0001: call System.Void Monocle.Entity::Update()
    IL_0006: ldarg.0
@@ -49,6 +50,9 @@ On: [LylyraHelper::]Celeste.Mod.LylyraHelper.Entities.Scissors.BumperSlice(orig_
    IL_0098: ldc.r4 0.05
    IL_009d: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
    IL_00a2: brfalse IL_011b
+ + IL_10000: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NewAngleBumper.ILUpdate(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.ScugHelper.Entities.NewAngleBumper::<ILUpdate>g__BumperCheck|13_3(Celeste.Bumper) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NewAngleBumper.ILUpdate(ILContext)
+ + IL_10002: brtrue IL_011b @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.NewAngleBumper.ILUpdate(ILContext)
    IL_00a7: ldsfld System.Random Monocle.Calc::Random
    IL_00ac: call System.Single Monocle.Calc::NextAngle(System.Random)
    IL_00b1: stloc.0
