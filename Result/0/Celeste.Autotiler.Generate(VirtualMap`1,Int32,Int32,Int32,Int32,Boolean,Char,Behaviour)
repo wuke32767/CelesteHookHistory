@@ -1,5 +1,6 @@
 On: [XaphanHelper::]Celeste.Mod.XaphanHelper.Hooks.TilesetsSwap.onAutotilerGenerate(orig_Generate,Autotiler,VirtualMap`1,Int32,Int32,Int32,Int32,Boolean,Char,Behaviour)
 On: [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.CapturingHook(orig_Generate,Autotiler,VirtualMap`1,Int32,Int32,Int32,Int32,Boolean,Char,Behaviour)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
 IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
    IL_0000: ldc.i4.8
    IL_0001: ldc.i4.8
@@ -93,6 +94,9 @@ IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(I
  + IL_10007: brtrue IL_00c3 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
  + IL_10008: pop @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
    IL_00b2: ldsfld System.Random Monocle.Calc::Random
+ + IL_10009: ldloc V_5 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
+ + IL_1000a: ldloc V_7 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
+ + IL_1000b: call System.Random Celeste.Mod.ScugHelper.Entities.ProceduralTilemap::<ILGenerate>g__SeedRandoIfDeterministic|61_0(System.Random,System.Int32,System.Int32) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
    IL_00b7: ldloc.s V_9
    IL_00b9: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Autotiler/Tiles::Textures
    IL_00be: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
@@ -108,6 +112,9 @@ IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(I
    IL_00d8: ldarg.3
    IL_00d9: sub
    IL_00da: ldsfld System.Random Monocle.Calc::Random
+ + IL_1000c: ldloc V_5 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
+ + IL_1000d: ldloc V_7 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
+ + IL_1000e: call System.Random Celeste.Mod.ScugHelper.Entities.ProceduralTilemap::<ILGenerate>g__SeedRandoIfDeterministic|61_0(System.Random,System.Int32,System.Int32) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
    IL_00df: ldloc.s V_9
    IL_00e1: ldfld System.Collections.Generic.List`1<System.String> Celeste.Autotiler/Tiles::OverlapSprites
    IL_00e6: call T Monocle.Calc::Choose<System.String>(System.Random,System.Collections.Generic.List`1<T>)
@@ -172,16 +179,19 @@ IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(I
    IL_016b: ldloc.s V_11
    IL_016d: ldarg.3
    IL_016e: sub
- + IL_10009: dup @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
- + IL_1000a: ldloc V_10 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
- + IL_1000b: ldarg startX @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
- + IL_1000c: sub @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
- + IL_1000d: ldloc V_12 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
- + IL_1000e: call Monocle.MTexture Celeste.Mod.auspicioushelper.PartialTiles::HookChoose(System.Int32,System.Int32,Celeste.Autotiler/Tiles) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
  + IL_1000f: dup @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
- + IL_10010: brtrue IL_0180 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
- + IL_10011: pop @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10010: ldloc V_10 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10011: ldarg startX @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10012: sub @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10013: ldloc V_12 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10014: call Monocle.MTexture Celeste.Mod.auspicioushelper.PartialTiles::HookChoose(System.Int32,System.Int32,Celeste.Autotiler/Tiles) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10015: dup @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10016: brtrue IL_0180 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
+ + IL_10017: pop @ [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(ILContext)
    IL_016f: ldsfld System.Random Monocle.Calc::Random
+ + IL_10018: ldloc V_5 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
+ + IL_10019: ldloc V_7 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
+ + IL_1001a: call System.Random Celeste.Mod.ScugHelper.Entities.ProceduralTilemap::<ILGenerate>g__SeedRandoIfDeterministic|61_0(System.Random,System.Int32,System.Int32) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
    IL_0174: ldloc.s V_12
    IL_0176: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Autotiler/Tiles::Textures
    IL_017b: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
@@ -197,6 +207,9 @@ IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.PartialTiles.GenerateHook(I
    IL_0195: ldarg.3
    IL_0196: sub
    IL_0197: ldsfld System.Random Monocle.Calc::Random
+ + IL_1001b: ldloc V_5 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
+ + IL_1001c: ldloc V_7 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
+ + IL_1001d: call System.Random Celeste.Mod.ScugHelper.Entities.ProceduralTilemap::<ILGenerate>g__SeedRandoIfDeterministic|61_0(System.Random,System.Int32,System.Int32) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.ProceduralTilemap.ILGenerate(ILContext)
    IL_019c: ldloc.s V_12
    IL_019e: ldfld System.Collections.Generic.List`1<System.String> Celeste.Autotiler/Tiles::OverlapSprites
    IL_01a3: call T Monocle.Calc::Choose<System.String>(System.Random,System.Collections.Generic.List`1<T>)

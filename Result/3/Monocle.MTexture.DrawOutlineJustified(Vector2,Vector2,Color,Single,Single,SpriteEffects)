@@ -1,0 +1,89 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.GladelineApocalypse+<>c.<LoadHooks>b__0_41(orig_DrawOutlineJustified_Vector2_Vector2_Color_float_float_SpriteEffects,MTexture,Vector2,Vector2,Color,Single,Single,SpriteEffects)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Single Monocle.MTexture::get_ScaleFix()
+   IL_0006: stloc.0
+   IL_0007: ldarg.s scale
+   IL_0009: ldloc.0
+   IL_000a: mul
+   IL_000b: starg.s scale
+   IL_000d: ldarg.0
+   IL_000e: callvirt Microsoft.Xna.Framework.Rectangle Monocle.MTexture::get_ClipRect()
+   IL_0013: stloc.1
+   IL_0014: ldarg.0
+   IL_0015: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_001a: conv.r4
+   IL_001b: ldarg.2
+   IL_001c: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0021: mul
+   IL_0022: ldarg.0
+   IL_0023: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_0028: conv.r4
+   IL_0029: ldarg.2
+   IL_002a: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_002f: mul
+   IL_0030: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0035: ldarg.0
+   IL_0036: callvirt Microsoft.Xna.Framework.Vector2 Monocle.MTexture::get_DrawOffset()
+   IL_003b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0040: ldloc.0
+   IL_0041: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0046: stloc.2
+   IL_0047: ldc.i4.m1
+   IL_0048: stloc.3
+   IL_0049: br.s IL_00a2
+   IL_004b: ldc.i4.m1
+   IL_004c: stloc.s V_4
+   IL_004e: br.s IL_0099
+   IL_0050: ldloc.3
+   IL_0051: brtrue.s IL_0057
+   IL_0053: ldloc.s V_4
+   IL_0055: brfalse.s IL_0093
+   IL_0057: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_005c: ldarg.0
+   IL_005d: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_0062: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0067: ldarg.1
+   IL_0068: ldloc.3
+   IL_0069: conv.r4
+   IL_006a: ldloc.s V_4
+   IL_006c: conv.r4
+   IL_006d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0072: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0077: ldloc.1
+   IL_0078: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_007d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0082: ldarg.s rotation
+   IL_0084: ldloc.2
+   IL_0085: ldarg.s scale
+   IL_0087: ldarg.s flip
+   IL_0089: ldc.r4 0
+   IL_008e: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)
+   IL_0093: ldloc.s V_4
+   IL_0095: ldc.i4.1
+   IL_0096: add
+   IL_0097: stloc.s V_4
+   IL_0099: ldloc.s V_4
+   IL_009b: ldc.i4.1
+   IL_009c: ble.s IL_0050
+   IL_009e: ldloc.3
+   IL_009f: ldc.i4.1
+   IL_00a0: add
+   IL_00a1: stloc.3
+   IL_00a2: ldloc.3
+   IL_00a3: ldc.i4.1
+   IL_00a4: ble.s IL_004b
+   IL_00a6: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_00ab: ldarg.0
+   IL_00ac: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_00b1: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_00b6: ldarg.1
+   IL_00b7: ldloc.1
+   IL_00b8: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_00bd: ldarg.3
+   IL_00be: ldarg.s rotation
+   IL_00c0: ldloc.2
+   IL_00c1: ldarg.s scale
+   IL_00c3: ldarg.s flip
+   IL_00c5: ldc.r4 0
+   IL_00ca: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)
+   IL_00cf: ret

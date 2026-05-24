@@ -1,0 +1,89 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.GladelineApocalypse+<>c.<LoadHooks>b__0_36(orig_DrawOutlineJustified_Vector2_Vector2_Color_Vector2,MTexture,Vector2,Vector2,Color,Vector2)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Single Monocle.MTexture::get_ScaleFix()
+   IL_0006: stloc.0
+   IL_0007: ldarg.s scale
+   IL_0009: ldloc.0
+   IL_000a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_000f: starg.s scale
+   IL_0011: ldarg.0
+   IL_0012: callvirt Microsoft.Xna.Framework.Rectangle Monocle.MTexture::get_ClipRect()
+   IL_0017: stloc.1
+   IL_0018: ldarg.0
+   IL_0019: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_001e: conv.r4
+   IL_001f: ldarg.2
+   IL_0020: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0025: mul
+   IL_0026: ldarg.0
+   IL_0027: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_002c: conv.r4
+   IL_002d: ldarg.2
+   IL_002e: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0033: mul
+   IL_0034: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0039: ldarg.0
+   IL_003a: callvirt Microsoft.Xna.Framework.Vector2 Monocle.MTexture::get_DrawOffset()
+   IL_003f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0044: ldloc.0
+   IL_0045: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_004a: stloc.2
+   IL_004b: ldc.i4.m1
+   IL_004c: stloc.3
+   IL_004d: br.s IL_00a8
+   IL_004f: ldc.i4.m1
+   IL_0050: stloc.s V_4
+   IL_0052: br.s IL_009f
+   IL_0054: ldloc.3
+   IL_0055: brtrue.s IL_005b
+   IL_0057: ldloc.s V_4
+   IL_0059: brfalse.s IL_0099
+   IL_005b: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0060: ldarg.0
+   IL_0061: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_0066: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_006b: ldarg.1
+   IL_006c: ldloc.3
+   IL_006d: conv.r4
+   IL_006e: ldloc.s V_4
+   IL_0070: conv.r4
+   IL_0071: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0076: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_007b: ldloc.1
+   IL_007c: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_0081: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0086: ldc.r4 0
+   IL_008b: ldloc.2
+   IL_008c: ldarg.s scale
+   IL_008e: ldc.i4.0
+   IL_008f: ldc.r4 0
+   IL_0094: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)
+   IL_0099: ldloc.s V_4
+   IL_009b: ldc.i4.1
+   IL_009c: add
+   IL_009d: stloc.s V_4
+   IL_009f: ldloc.s V_4
+   IL_00a1: ldc.i4.1
+   IL_00a2: ble.s IL_0054
+   IL_00a4: ldloc.3
+   IL_00a5: ldc.i4.1
+   IL_00a6: add
+   IL_00a7: stloc.3
+   IL_00a8: ldloc.3
+   IL_00a9: ldc.i4.1
+   IL_00aa: ble.s IL_004f
+   IL_00ac: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_00b1: ldarg.0
+   IL_00b2: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_00b7: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_00bc: ldarg.1
+   IL_00bd: ldloc.1
+   IL_00be: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_00c3: ldarg.3
+   IL_00c4: ldc.r4 0
+   IL_00c9: ldloc.2
+   IL_00ca: ldarg.s scale
+   IL_00cc: ldc.i4.0
+   IL_00cd: ldc.r4 0
+   IL_00d2: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)
+   IL_00d7: ret

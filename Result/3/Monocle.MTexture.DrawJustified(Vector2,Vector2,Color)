@@ -1,0 +1,37 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.GladelineApocalypse+<>c.<LoadHooks>b__0_27(orig_DrawJustified_Vector2_Vector2_Color,MTexture,Vector2,Vector2,Color)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Single Monocle.MTexture::get_ScaleFix()
+   IL_0006: stloc.0
+   IL_0007: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_000c: ldarg.0
+   IL_000d: callvirt Monocle.VirtualTexture Monocle.MTexture::get_Texture()
+   IL_0012: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0017: ldarg.1
+   IL_0018: ldarg.0
+   IL_0019: callvirt Microsoft.Xna.Framework.Rectangle Monocle.MTexture::get_ClipRect()
+   IL_001e: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
+   IL_0023: ldarg.3
+   IL_0024: ldc.r4 0
+   IL_0029: ldarg.0
+   IL_002a: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_002f: conv.r4
+   IL_0030: ldarg.2
+   IL_0031: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0036: mul
+   IL_0037: ldarg.0
+   IL_0038: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_003d: conv.r4
+   IL_003e: ldarg.2
+   IL_003f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0044: mul
+   IL_0045: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_004a: ldarg.0
+   IL_004b: callvirt Microsoft.Xna.Framework.Vector2 Monocle.MTexture::get_DrawOffset()
+   IL_0050: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0055: ldloc.0
+   IL_0056: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_005b: ldloc.0
+   IL_005c: ldc.i4.0
+   IL_005d: ldc.r4 0
+   IL_0062: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)
+   IL_0067: ret
