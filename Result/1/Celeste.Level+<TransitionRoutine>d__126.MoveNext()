@@ -2,6 +2,7 @@ IL: [XaphanHelper::]Celeste.Mod.XaphanHelper.Triggers.CameraBlocker.ilHookGetFul
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.RestoreDashesOnRespawn.updateDashCountOnRespawnPointChange(ILContext)
 IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookGetFullCameraTarget(ILContext)
 IL: [SaladimHelper::]Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger.OnLevelTransitionRoutineILHook(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.InstantRoomTransitions.ILLevelTransition(ILContext)
 IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRoutine(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Int32 Celeste.Level/<TransitionRoutine>d__126::<>1__state
@@ -121,6 +122,8 @@ IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRou
    IL_0170: call System.Void Celeste.Level::_GCCollect()
    IL_0175: ldarg.0
    IL_0176: ldc.r4 0
+ + IL_10002: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.InstantRoomTransitions.ILLevelTransition(ILContext)
+ + IL_10003: call System.Single Celeste.Mod.ScugHelper.InstantRoomTransitions::<ILLevelTransition>g__SwapForInstant|3_2(System.Single,Celeste.Level) @ [ScugHelper::]Celeste.Mod.ScugHelper.InstantRoomTransitions.ILLevelTransition(ILContext)
    IL_017b: stfld System.Single Celeste.Level/<TransitionRoutine>d__126::<cameraAt>5__5
    IL_0180: ldarg.0
    IL_0181: ldloc.1
@@ -184,7 +187,7 @@ IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRou
    IL_0238: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Level/<TransitionRoutine>d__126::<playerTo>5__7
    IL_023d: ldloc.s V_5
    IL_023f: callvirt System.Boolean Celeste.Level::IsInBounds(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
- + IL_10002: call System.Boolean Celeste.Mod.EndHelper.EndHelperModule::ShouldRunLoopBool(System.Boolean) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRoutine(ILContext)
+ + IL_10004: call System.Boolean Celeste.Mod.EndHelper.EndHelperModule::ShouldRunLoopBool(System.Boolean) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRoutine(ILContext)
    IL_0244: brfalse.s IL_021f
    IL_0246: ldarg.0
    IL_0247: ldloc.1
@@ -193,8 +196,8 @@ IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRou
    IL_024e: ldarg.0
    IL_024f: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Level/<TransitionRoutine>d__126::<playerTo>5__7
    IL_0254: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Level::GetFullCameraTargetAt(Celeste.Player,Microsoft.Xna.Framework.Vector2)
- + IL_10003: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookGetFullCameraTarget(ILContext)
- + IL_10004: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.XaphanHelper.Triggers.CameraBlocker::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Triggers.CameraBlocker.ilHookGetFullCameraTarget(ILContext)
+ + IL_10005: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookGetFullCameraTarget(ILContext)
+ + IL_10006: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.XaphanHelper.Triggers.CameraBlocker::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Triggers.CameraBlocker.ilHookGetFullCameraTarget(ILContext)
    IL_0259: stfld Microsoft.Xna.Framework.Vector2 Celeste.Level/<TransitionRoutine>d__126::<cameraTo>5__8
    IL_025e: ldarg.0
    IL_025f: ldfld Celeste.Player Celeste.Level/<TransitionRoutine>d__126::<player>5__2
@@ -393,14 +396,14 @@ IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRou
    IL_04af: call System.Single Monocle.Engine::get_DeltaTime()
    IL_04b4: ldloc.1
    IL_04b5: ldfld System.Single Celeste.Level::NextTransitionDuration
- + IL_10005: call System.Single Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger::ModTransitionCameraDuration(System.Single) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger.OnLevelTransitionRoutineILHook(ILContext)
+ + IL_10007: call System.Single Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger::ModTransitionCameraDuration(System.Single) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger.OnLevelTransitionRoutineILHook(ILContext)
    IL_04ba: div
    IL_04bb: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
    IL_04c0: stfld System.Single Celeste.Level/<TransitionRoutine>d__126::<cameraAt>5__5
    IL_04c5: ldarg.0
    IL_04c6: ldfld System.Single Celeste.Level/<TransitionRoutine>d__126::<cameraAt>5__5
    IL_04cb: ldc.r4 0.9
- + IL_10006: call System.Single Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger::ModTransitionCameraThreshold(System.Single) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger.OnLevelTransitionRoutineILHook(ILContext)
+ + IL_10008: call System.Single Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger::ModTransitionCameraThreshold(System.Single) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger.OnLevelTransitionRoutineILHook(ILContext)
    IL_04d0: ble.un.s IL_04e5
    IL_04d2: ldloc.1
    IL_04d3: ldfld Monocle.Camera Celeste.Level::Camera
@@ -415,7 +418,7 @@ IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRou
    IL_04f1: ldarg.0
    IL_04f2: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Level/<TransitionRoutine>d__126::<cameraTo>5__8
    IL_04f7: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
- + IL_10007: call Monocle.Ease/Easer Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger::ModTransitionEaser(Monocle.Ease/Easer) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger.OnLevelTransitionRoutineILHook(ILContext)
+ + IL_10009: call Monocle.Ease/Easer Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger::ModTransitionEaser(Monocle.Ease/Easer) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger.OnLevelTransitionRoutineILHook(ILContext)
    IL_04fc: ldarg.0
    IL_04fd: ldfld System.Single Celeste.Level/<TransitionRoutine>d__126::<cameraAt>5__5
    IL_0502: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
@@ -508,7 +511,7 @@ IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRou
    IL_0612: ldarg.0
    IL_0613: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Level/<TransitionRoutine>d__126::direction
    IL_0618: callvirt System.Boolean Celeste.Player::TransitionTo(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
- + IL_10008: call System.Boolean Celeste.Mod.EndHelper.EndHelperModule::ShouldRunLoopBool(System.Boolean) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRoutine(ILContext)
+ + IL_1000a: call System.Boolean Celeste.Mod.EndHelper.EndHelperModule::ShouldRunLoopBool(System.Boolean) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRoutine(ILContext)
    IL_061d: brfalse IL_0481
    IL_0622: ldarg.0
    IL_0623: ldfld System.Single Celeste.Level/<TransitionRoutine>d__126::<cameraAt>5__5
@@ -608,7 +611,7 @@ IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRou
    IL_073f: ldloc.s V_14
    IL_0741: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::ClosestTo(System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>,Microsoft.Xna.Framework.Vector2)
    IL_0746: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Vector2>::.ctor(T)
- + IL_10009: call System.Void ExtendedVariants.Variants.RestoreDashesOnRespawn::saveDashCountOnLastRespawn() @ [ExtendedVariantMode::]ExtendedVariants.Variants.RestoreDashesOnRespawn.updateDashCountOnRespawnPointChange(ILContext)
+ + IL_1000b: call System.Void ExtendedVariants.Variants.RestoreDashesOnRespawn::saveDashCountOnLastRespawn() @ [ExtendedVariantMode::]ExtendedVariants.Variants.RestoreDashesOnRespawn.updateDashCountOnRespawnPointChange(ILContext)
    IL_074b: stfld System.Nullable`1<Microsoft.Xna.Framework.Vector2> Celeste.Session::RespawnPoint
    IL_0750: ldarg.0
    IL_0751: ldfld Celeste.Player Celeste.Level/<TransitionRoutine>d__126::<player>5__2
@@ -662,6 +665,6 @@ IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_OrigTransitionRou
    IL_0800: ldloc.1
    IL_0801: ldnull
    IL_0802: stfld Monocle.Coroutine Celeste.Level::transition
- + IL_1000a: call System.Void Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger::ModEndTransition() @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger.OnLevelTransitionRoutineILHook(ILContext)
+ + IL_1000c: call System.Void Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger::ModEndTransition() @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Triggers.TransitionEasingTrigger.OnLevelTransitionRoutineILHook(ILContext)
    IL_0807: ldc.i4.0
    IL_0808: ret
