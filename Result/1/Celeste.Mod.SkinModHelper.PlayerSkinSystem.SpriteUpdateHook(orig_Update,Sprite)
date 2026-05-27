@@ -1,0 +1,225 @@
+IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.1
+   IL_0003: callvirt System.Void On.Monocle.Sprite/orig_Update::Invoke(Monocle.Sprite)
+   IL_0008: nop
+   IL_0009: ldarg.1
+   IL_000a: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
+   IL_000f: stloc.0
+   IL_0010: ldloc.0
+   IL_0011: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.CharacterConfig::playerHair
+   IL_0016: brfalse.s IL_0027
+   IL_0018: call Celeste.Player Celeste.Mod.SkinModHelper.SkinsSystem::get__Player()
+   IL_001d: stloc.1
+   IL_001e: ldloc.1
+   IL_001f: ldnull
+   IL_0020: cgt.un
+   IL_0022: ldc.i4.0
+   IL_0023: ceq
+   IL_0025: br.s IL_0028
+   IL_0027: ldc.i4.1
+   IL_0028: stloc.2
+   IL_0029: ldloc.2
+   IL_002a: brfalse.s IL_0031
+   IL_002c: br IL_023c
+   IL_0031: ldloc.0
+   IL_0032: callvirt System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::get_TintMaskWithHair()
+   IL_0037: stloc.3
+   IL_0038: ldloc.3
+   IL_0039: brfalse.s IL_004e
+   IL_003b: nop
+   IL_003c: ldloc.0
+   IL_003d: ldloc.1
+   IL_003e: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0043: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_0048: stfld Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.CharacterConfig::effect_hairColor
+   IL_004d: nop
+   IL_004e: ldloc.0
+   IL_004f: callvirt System.Boolean Celeste.Mod.SkinModHelper.CharacterConfig::get_ColorGradingSuchAsPlayer()
+   IL_0054: stloc.s V_4
+   IL_0056: ldloc.s V_4
+   IL_0058: brfalse IL_023c
+   IL_005d: nop
+   IL_005e: ldloc.0
+   IL_005f: stloc.s V_9
+   IL_0061: ldloc.s V_9
+   IL_0063: ldfld Monocle.Atlas Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Atlas
+   IL_0068: dup
+   IL_0069: brtrue.s IL_00a5
+   IL_006b: pop
+   IL_006c: ldloc.s V_9
+   IL_006e: ldsfld System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Sprite,System.Collections.Generic.List`1<System.Object>> Celeste.Mod.SkinModHelper.SkinsSystem::SpriteDataCache
+   IL_0073: ldarg.1
+   IL_0074: ldloca.s V_6
+   IL_0076: callvirt System.Boolean System.Runtime.CompilerServices.ConditionalWeakTable`2<Monocle.Sprite,System.Collections.Generic.List`1<System.Object>>::TryGetValue(TKey,TValue&)
+   IL_007b: brfalse.s IL_0087
+   IL_007d: ldloc.s V_6
+   IL_007f: callvirt System.Int32 System.Collections.Generic.List`1<System.Object>::get_Count()
+   IL_0084: ldc.i4.1
+   IL_0085: blt.s IL_0096
+   IL_0087: ldloc.s V_6
+   IL_0089: ldc.i4.0
+   IL_008a: callvirt T System.Collections.Generic.List`1<System.Object>::get_Item(System.Int32)
+   IL_008f: isinst Monocle.Atlas
+   IL_0094: br.s IL_009b
+   IL_0096: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_009b: dup
+   IL_009c: stloc.s V_10
+   IL_009e: stfld Monocle.Atlas Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Atlas
+   IL_00a3: ldloc.s V_10
+   IL_00a5: stloc.s V_5
+   IL_00a7: ldloc.0
+   IL_00a8: ldloc.0
+   IL_00a9: ldfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Path
+   IL_00ae: brfalse.s IL_00bd
+   IL_00b0: ldloc.0
+   IL_00b1: ldfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Path
+   IL_00b6: call System.String Celeste.Mod.SkinModHelper.SkinsSystem::getAnimationRootPath(System.String)
+   IL_00bb: br.s IL_00d2
+   IL_00bd: ldarg.1
+   IL_00be: ldstr "idle"
+   IL_00c3: call System.String Celeste.Mod.SkinModHelper.SkinsSystem::getAnimationRootPath(Monocle.Sprite,System.String)
+   IL_00c8: ldstr "ColorGrading/"
+   IL_00cd: call System.String System.String::Concat(System.String,System.String)
+   IL_00d2: dup
+   IL_00d3: stloc.s V_11
+   IL_00d5: stfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Path
+   IL_00da: ldloc.s V_11
+   IL_00dc: stloc.s V_7
+   IL_00de: ldloc.s V_5
+   IL_00e0: ldfld System.String Monocle.Atlas::RelativeDataPath
+   IL_00e5: ldloc.s V_7
+   IL_00e7: call System.String System.String::Concat(System.String,System.String)
+   IL_00ec: call System.Int32 Celeste.Mod.SkinModHelper.PlayerSkinSystem::getCGLimit(System.String)
+   IL_00f1: stloc.s V_8
+   IL_00f3: ldloc.s V_8
+   IL_00f5: ldc.i4.0
+   IL_00f6: cgt
+   IL_00f8: stloc.s V_12
+   IL_00fa: ldloc.s V_12
+   IL_00fc: brfalse IL_023b
+   IL_0101: nop
+   IL_0102: ldloc.1
+   IL_0103: ldfld System.Nullable`1<Microsoft.Xna.Framework.Color> Celeste.Player::OverrideHairColor
+   IL_0108: stloc.s V_16
+   IL_010a: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::UsedHairColor
+   IL_010f: stloc.s V_17
+   IL_0111: ldloca.s V_16
+   IL_0113: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Color>::get_HasValue()
+   IL_0118: brtrue.s IL_011d
+   IL_011a: ldc.i4.0
+   IL_011b: br.s IL_0137
+   IL_011d: ldloca.s V_16
+   IL_011f: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Color>::get_HasValue()
+   IL_0124: brtrue.s IL_0129
+   IL_0126: ldc.i4.1
+   IL_0127: br.s IL_0137
+   IL_0129: ldloca.s V_16
+   IL_012b: call T System.Nullable`1<Microsoft.Xna.Framework.Color>::GetValueOrDefault()
+   IL_0130: ldloc.s V_17
+   IL_0132: call System.Boolean Microsoft.Xna.Framework.Color::op_Equality(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_0137: stloc.s V_15
+   IL_0139: ldloc.s V_15
+   IL_013b: brfalse.s IL_0142
+   IL_013d: ldc.i4.0
+   IL_013e: stloc.s V_13
+   IL_0140: br.s IL_0170
+   IL_0142: ldloc.1
+   IL_0143: callvirt System.Int32 Celeste.Player::get_MaxDashes()
+   IL_0148: ldc.i4.0
+   IL_0149: bgt.s IL_0156
+   IL_014b: ldloc.1
+   IL_014c: ldfld System.Int32 Celeste.Player::lastDashes
+   IL_0151: ldc.i4.2
+   IL_0152: clt
+   IL_0154: br.s IL_0157
+   IL_0156: ldc.i4.0
+   IL_0157: stloc.s V_18
+   IL_0159: ldloc.s V_18
+   IL_015b: brfalse.s IL_0162
+   IL_015d: ldc.i4.1
+   IL_015e: stloc.s V_13
+   IL_0160: br.s IL_0170
+   IL_0162: ldloc.1
+   IL_0163: ldfld System.Int32 Celeste.Player::lastDashes
+   IL_0168: ldc.i4.0
+   IL_0169: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_016e: stloc.s V_13
+   IL_0170: ldloc.s V_7
+   IL_0172: ldstr "dash"
+   IL_0177: call System.String System.String::Concat(System.String,System.String)
+   IL_017c: stloc.s V_14
+   IL_017e: ldloc.s V_13
+   IL_0180: ldc.i4.0
+   IL_0181: ldloc.s V_8
+   IL_0183: call System.Int32 Monocle.Calc::Clamp(System.Int32,System.Int32,System.Int32)
+   IL_0188: stloc.s V_13
+   IL_018a: br.s IL_0192
+   IL_018c: ldloc.s V_13
+   IL_018e: ldc.i4.1
+   IL_018f: sub
+   IL_0190: stloc.s V_13
+   IL_0192: ldloc.s V_13
+   IL_0194: ldc.i4.2
+   IL_0195: ble.s IL_01b1
+   IL_0197: ldloc.s V_5
+   IL_0199: ldloc.s V_14
+   IL_019b: ldloca.s V_13
+   IL_019d: call System.String System.Int32::ToString()
+   IL_01a2: call System.String System.String::Concat(System.String,System.String)
+   IL_01a7: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_01ac: ldc.i4.0
+   IL_01ad: ceq
+   IL_01af: br.s IL_01b2
+   IL_01b1: ldc.i4.0
+   IL_01b2: stloc.s V_19
+   IL_01b4: ldloc.s V_19
+   IL_01b6: brtrue.s IL_018c
+   IL_01b8: ldloc.0
+   IL_01b9: ldloc.s V_14
+   IL_01bb: ldloca.s V_13
+   IL_01bd: call System.String System.Int32::ToString()
+   IL_01c2: call System.String System.String::Concat(System.String,System.String)
+   IL_01c7: stfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Path
+   IL_01cc: ldloc.1
+   IL_01cd: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_01d2: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_01d7: ldfld System.Boolean Celeste.Mod.SkinModHelper.HairConfig::HairFlashing
+   IL_01dc: stloc.s V_20
+   IL_01de: ldloc.s V_20
+   IL_01e0: brfalse.s IL_023a
+   IL_01e2: nop
+   IL_01e3: ldloc.s V_7
+   IL_01e5: ldstr "flash"
+   IL_01ea: call System.String System.String::Concat(System.String,System.String)
+   IL_01ef: stloc.s V_14
+   IL_01f1: ldloc.s V_5
+   IL_01f3: ldloc.s V_14
+   IL_01f5: ldloca.s V_13
+   IL_01f7: call System.String System.Int32::ToString()
+   IL_01fc: call System.String System.String::Concat(System.String,System.String)
+   IL_0201: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_0206: stloc.s V_21
+   IL_0208: ldloc.s V_21
+   IL_020a: brfalse.s IL_0222
+   IL_020c: ldloc.0
+   IL_020d: ldloc.s V_14
+   IL_020f: ldloca.s V_13
+   IL_0211: call System.String System.Int32::ToString()
+   IL_0216: call System.String System.String::Concat(System.String,System.String)
+   IL_021b: stfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Path
+   IL_0220: br.s IL_0239
+   IL_0222: ldloc.s V_5
+   IL_0224: ldloc.s V_14
+   IL_0226: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_022b: stloc.s V_22
+   IL_022d: ldloc.s V_22
+   IL_022f: brfalse.s IL_0239
+   IL_0231: ldloc.0
+   IL_0232: ldloc.s V_14
+   IL_0234: stfld System.String Celeste.Mod.SkinModHelper.CharacterConfig::ColorGrade_Path
+   IL_0239: nop
+   IL_023a: nop
+   IL_023b: nop
+   IL_023c: ret

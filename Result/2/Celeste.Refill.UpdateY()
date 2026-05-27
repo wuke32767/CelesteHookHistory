@@ -1,0 +1,22 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.RefillRectangle.OnUpdateY(orig_UpdateY,Refill)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.Sprite Celeste.Refill::flash
+   IL_0006: ldarg.0
+   IL_0007: ldfld Monocle.Sprite Celeste.Refill::sprite
+   IL_000c: ldarg.0
+   IL_000d: ldfld Celeste.BloomPoint Celeste.Refill::bloom
+   IL_0012: ldarg.0
+   IL_0013: ldfld Monocle.SineWave Celeste.Refill::sine
+   IL_0018: callvirt System.Single Monocle.SineWave::get_Value()
+   IL_001d: ldc.r4 2
+   IL_0022: mul
+   IL_0023: dup
+   IL_0024: stloc.1
+   IL_0025: callvirt System.Void Celeste.BloomPoint::set_Y(System.Single)
+   IL_002a: ldloc.1
+   IL_002b: dup
+   IL_002c: stloc.0
+   IL_002d: callvirt System.Void Monocle.GraphicsComponent::set_Y(System.Single)
+   IL_0032: ldloc.0
+   IL_0033: callvirt System.Void Monocle.GraphicsComponent::set_Y(System.Single)
+   IL_0038: ret
