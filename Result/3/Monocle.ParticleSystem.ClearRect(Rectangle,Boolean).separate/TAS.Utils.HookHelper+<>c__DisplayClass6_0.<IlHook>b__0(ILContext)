@@ -1,0 +1,57 @@
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldc.i4.0
+   IL_0001: stloc.0
+   IL_0002: br.s IL_0072
+   IL_0004: ldarg.0
+   IL_0005: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_000a: ldloc.0
+   IL_000b: ldelema Monocle.Particle
+   IL_0010: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Particle::Position
+   IL_0015: stloc.1
+   IL_0016: ldloc.1
+   IL_0017: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001c: ldarga.s rect
+   IL_001e: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0023: conv.r4
+   IL_0024: ble.un.s IL_0058
+   IL_0026: ldloc.1
+   IL_0027: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_002c: ldarga.s rect
+   IL_002e: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0033: conv.r4
+   IL_0034: ble.un.s IL_0058
+   IL_0036: ldloc.1
+   IL_0037: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_003c: ldarga.s rect
+   IL_003e: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0043: conv.r4
+   IL_0044: bge.un.s IL_0058
+   IL_0046: ldloc.1
+   IL_0047: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_004c: ldarga.s rect
+   IL_004e: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0053: conv.r4
+   IL_0054: clt
+   IL_0056: br.s IL_0059
+   IL_0058: ldc.i4.0
+   IL_0059: ldarg.2
+   IL_005a: bne.un.s IL_006e
+   IL_005c: ldarg.0
+   IL_005d: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_0062: ldloc.0
+   IL_0063: ldelema Monocle.Particle
+   IL_0068: ldc.i4.0
+   IL_0069: stfld System.Boolean Monocle.Particle::Active
+   IL_006e: ldloc.0
+   IL_006f: ldc.i4.1
+   IL_0070: add
+   IL_0071: stloc.0
+   IL_0072: ldloc.0
+   IL_0073: ldarg.0
+   IL_0074: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_0079: ldlen
+   IL_007a: conv.i4
+   IL_007b: blt IL_0004
+   IL_0080: ret

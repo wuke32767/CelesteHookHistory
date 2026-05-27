@@ -1,0 +1,62 @@
+   IL_0000: ldc.i4.1
+   IL_0001: call System.Void Celeste.SaveData::InitializeDebugMode(System.Boolean)
+   IL_0006: ldloca.s V_0
+   IL_0008: ldarg.1
+   IL_0009: ldarg.0
+   IL_000a: call System.Void Celeste.AreaKey::.ctor(System.Int32,Celeste.AreaMode)
+   IL_000f: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0014: castclass Celeste.SaveData
+   IL_0019: ldloc.0
+   IL_001a: stfld Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_001f: ldloc.0
+   IL_0020: ldnull
+   IL_0021: ldnull
+   IL_0022: newobj System.Void Celeste.Session::.ctor(Celeste.AreaKey,System.String,Celeste.AreaStats)
+   IL_0027: stloc.1
+   IL_0028: ldarg.2
+   IL_0029: brfalse.s IL_0080
+   IL_002b: ldloc.1
+   IL_002c: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_0031: ldarg.2
+   IL_0032: callvirt Celeste.LevelData Celeste.MapData::Get(System.String)
+   IL_0037: brfalse.s IL_0080
+   IL_0039: ldloc.0
+   IL_003a: ldarg.2
+   IL_003b: call Celeste.CheckpointData Celeste.AreaData::GetCheckpoint(Celeste.AreaKey,System.String)
+   IL_0040: brfalse.s IL_0054
+   IL_0042: ldloc.0
+   IL_0043: ldarg.2
+   IL_0044: ldnull
+   IL_0045: newobj System.Void Celeste.Session::.ctor(Celeste.AreaKey,System.String,Celeste.AreaStats)
+   IL_004a: dup
+   IL_004b: ldnull
+   IL_004c: stfld System.String Celeste.Session::StartCheckpoint
+   IL_0051: stloc.1
+   IL_0052: br.s IL_005b
+   IL_0054: ldloc.1
+   IL_0055: ldarg.2
+   IL_0056: stfld System.String Celeste.Session::Level
+   IL_005b: ldarg.2
+   IL_005c: ldloc.1
+   IL_005d: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_0062: callvirt Celeste.LevelData Celeste.MapData::StartLevel()
+   IL_0067: ldfld System.String Celeste.LevelData::Name
+   IL_006c: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0071: stloc.2
+   IL_0072: ldloc.1
+   IL_0073: ldloc.2
+   IL_0074: stfld System.Boolean Celeste.Session::FirstLevel
+   IL_0079: ldloc.1
+   IL_007a: ldloc.2
+   IL_007b: stfld System.Boolean Celeste.Session::StartedFromBeginning
+   IL_0080: ldloc.1
+   IL_0081: ldloca.s V_3
+   IL_0083: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector2>
+   IL_0089: ldloc.3
+ + IL_10000: stloc V_4 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10001: dup @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10002: call System.Void Celeste.Mod.auspicioushelper.auspicioushelperModule::OnEnter(Celeste.Session) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_10003: ldloc V_4 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+   IL_008a: newobj System.Void Celeste.LevelLoader::.ctor(Celeste.Session,System.Nullable`1<Microsoft.Xna.Framework.Vector2>)
+   IL_008f: call System.Void Monocle.Engine::set_Scene(Monocle.Scene)
+   IL_0094: ret

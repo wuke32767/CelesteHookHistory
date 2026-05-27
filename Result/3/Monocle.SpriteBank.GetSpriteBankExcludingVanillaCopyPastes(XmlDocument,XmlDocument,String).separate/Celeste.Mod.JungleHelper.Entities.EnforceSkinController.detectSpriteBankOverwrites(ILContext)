@@ -1,0 +1,180 @@
+   IL_0000: ldarg.0
+   IL_0001: ldstr "Sprites"
+   IL_0006: callvirt System.Xml.XmlElement System.Xml.XmlNode::get_Item(System.String)
+   IL_000b: stloc.0
+   IL_000c: ldarg.1
+   IL_000d: ldstr "Sprites"
+   IL_0012: callvirt System.Xml.XmlElement System.Xml.XmlNode::get_Item(System.String)
+   IL_0017: stloc.1
+   IL_0018: newobj System.Void System.Collections.Generic.List`1<System.Xml.XmlNode>::.ctor()
+   IL_001d: stloc.2
+   IL_001e: newobj System.Void System.Collections.Generic.List`1<System.String>::.ctor()
+   IL_0023: stloc.3
+   IL_0024: ldloc.1
+   IL_0025: call System.Collections.Generic.List`1<System.Xml.XmlNode> Monocle.SpriteBank::getChildElements(System.Xml.XmlNode)
+   IL_002a: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<System.Xml.XmlNode>::GetEnumerator()
+   IL_002f: stloc.s V_4
+   IL_0031: br IL_0152
+   IL_0036: ldloca.s V_4
+   IL_0038: call T System.Collections.Generic.List`1/Enumerator<System.Xml.XmlNode>::get_Current()
+   IL_003d: stloc.s V_5
+   IL_003f: ldloc.0
+   IL_0040: ldloc.s V_5
+   IL_0042: callvirt System.String System.Xml.XmlNode::get_Name()
+   IL_0047: callvirt System.Xml.XmlNode System.Xml.XmlNode::SelectSingleNode(System.String)
+   IL_004c: stloc.s V_6
+   IL_004e: ldloc.s V_6
+   IL_0050: brfalse IL_00f6
+   IL_0055: ldloc.s V_6
+   IL_0057: ldloc.s V_5
+   IL_0059: call System.Boolean Monocle.SpriteBank::xmlNodesAreIdentical(System.Xml.XmlNode,System.Xml.XmlNode)
+   IL_005e: brfalse.s IL_006d
+   IL_0060: ldloc.2
+   IL_0061: ldloc.s V_5
+   IL_0063: callvirt System.Void System.Collections.Generic.List`1<System.Xml.XmlNode>::Add(T)
+   IL_0068: br IL_0152
+   IL_006d: ldstr "SpriteBank"
+   IL_0072: stloc.s V_8
+   IL_0074: ldloc.s V_8
+   IL_0076: ldc.i4.s 35
+   IL_0078: ldc.i4.2
+   IL_0079: ldloc.s V_8
+   IL_007b: ldloca.s V_10
+   IL_007d: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0082: stloc.s V_9
+   IL_0084: ldloc.s V_10
+   IL_0086: brfalse.s IL_00c2
+   IL_0088: ldloca.s V_9
+   IL_008a: ldstr "Sprite ""
+   IL_008f: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_0094: ldloca.s V_9
+   IL_0096: ldloc.s V_5
+   IL_0098: callvirt System.String System.Xml.XmlNode::get_Name()
+ + IL_10000: dup @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.EnforceSkinController.detectSpriteBankOverwrites(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.JungleHelper.Entities.EnforceSkinController::addOverwrittenSpriteBank(System.String) @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.EnforceSkinController.detectSpriteBankOverwrites(ILContext)
+   IL_009d: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted(System.String)
+   IL_00a2: ldloca.s V_9
+   IL_00a4: ldstr "" will be overridden with "
+   IL_00a9: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_00ae: ldloca.s V_9
+   IL_00b0: ldarg.2
+   IL_00b1: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted(System.String)
+   IL_00b6: ldloca.s V_9
+   IL_00b8: ldstr "."
+   IL_00bd: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_00c2: ldloc.s V_9
+   IL_00c4: call System.Void Celeste.Mod.Logger::Verbose(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>)
+   IL_00c9: ldloc.s V_5
+   IL_00cb: callvirt System.Xml.XmlAttributeCollection System.Xml.XmlNode::get_Attributes()
+   IL_00d0: ldstr "copy"
+   IL_00d5: callvirt System.Xml.XmlAttribute System.Xml.XmlAttributeCollection::get_ItemOf(System.String)
+   IL_00da: dup
+   IL_00db: brtrue.s IL_00e1
+   IL_00dd: pop
+   IL_00de: ldnull
+   IL_00df: br.s IL_00e6
+   IL_00e1: callvirt System.String System.Xml.XmlNode::get_Value()
+   IL_00e6: stloc.s V_7
+   IL_00e8: ldloc.s V_7
+   IL_00ea: brfalse.s IL_0152
+   IL_00ec: ldloc.3
+   IL_00ed: ldloc.s V_7
+   IL_00ef: callvirt System.Void System.Collections.Generic.List`1<System.String>::Add(T)
+   IL_00f4: br.s IL_0152
+   IL_00f6: ldstr "SpriteBank"
+   IL_00fb: stloc.s V_8
+   IL_00fd: ldloc.s V_8
+   IL_00ff: ldc.i4.s 30
+   IL_0101: ldc.i4.2
+   IL_0102: ldloc.s V_8
+   IL_0104: ldloca.s V_10
+   IL_0106: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_010b: stloc.s V_9
+   IL_010d: ldloc.s V_10
+   IL_010f: brfalse.s IL_014b
+   IL_0111: ldloca.s V_9
+   IL_0113: ldstr "Sprite ""
+   IL_0118: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_011d: ldloca.s V_9
+   IL_011f: ldloc.s V_5
+   IL_0121: callvirt System.String System.Xml.XmlNode::get_Name()
+   IL_0126: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted(System.String)
+   IL_012b: ldloca.s V_9
+   IL_012d: ldstr "" will be added from "
+   IL_0132: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_0137: ldloca.s V_9
+   IL_0139: ldarg.2
+   IL_013a: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted(System.String)
+   IL_013f: ldloca.s V_9
+   IL_0141: ldstr "."
+   IL_0146: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_014b: ldloc.s V_9
+   IL_014d: call System.Void Celeste.Mod.Logger::Verbose(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>)
+   IL_0152: ldloca.s V_4
+   IL_0154: call System.Boolean System.Collections.Generic.List`1/Enumerator<System.Xml.XmlNode>::MoveNext()
+   IL_0159: brtrue IL_0036
+   IL_015e: leave.s IL_016e
+   IL_0160: ldloca.s V_4
+   IL_0162: constrained. System.Collections.Generic.List`1/Enumerator<System.Xml.XmlNode>
+   IL_0168: callvirt System.Void System.IDisposable::Dispose()
+   IL_016d: endfinally
+   IL_016e: ldloc.2
+   IL_016f: callvirt T[] System.Collections.Generic.List`1<System.Xml.XmlNode>::ToArray()
+   IL_0174: stloc.s V_11
+   IL_0176: ldc.i4.0
+   IL_0177: stloc.s V_12
+   IL_0179: br IL_0201
+   IL_017e: ldloc.s V_11
+   IL_0180: ldloc.s V_12
+   IL_0182: ldelem.ref
+   IL_0183: stloc.s V_13
+   IL_0185: ldloc.3
+   IL_0186: ldloc.s V_13
+   IL_0188: callvirt System.String System.Xml.XmlNode::get_Name()
+   IL_018d: callvirt System.Boolean System.Collections.Generic.List`1<System.String>::Contains(T)
+   IL_0192: brfalse.s IL_01f2
+   IL_0194: ldstr "SpriteBank"
+   IL_0199: stloc.s V_8
+   IL_019b: ldloc.s V_8
+   IL_019d: ldc.i4.s 75
+   IL_019f: ldc.i4.2
+   IL_01a0: ldloc.s V_8
+   IL_01a2: ldloca.s V_10
+   IL_01a4: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_01a9: stloc.s V_9
+   IL_01ab: ldloc.s V_10
+   IL_01ad: brfalse.s IL_01e9
+   IL_01af: ldloca.s V_9
+   IL_01b1: ldstr "Sprite ""
+   IL_01b6: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_01bb: ldloca.s V_9
+   IL_01bd: ldloc.s V_13
+   IL_01bf: callvirt System.String System.Xml.XmlNode::get_Name()
+   IL_01c4: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted(System.String)
+   IL_01c9: ldloca.s V_9
+   IL_01cb: ldstr "" will be overridden with "
+   IL_01d0: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_01d5: ldloca.s V_9
+   IL_01d7: ldarg.2
+   IL_01d8: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendFormatted(System.String)
+   IL_01dd: ldloca.s V_9
+   IL_01df: ldstr ", because it is copied by another sprite."
+   IL_01e4: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>::AppendLiteral(System.String)
+   IL_01e9: ldloc.s V_9
+   IL_01eb: call System.Void Celeste.Mod.Logger::Verbose(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Verbose>)
+   IL_01f0: br.s IL_01fb
+   IL_01f2: ldloc.1
+   IL_01f3: ldloc.s V_13
+   IL_01f5: callvirt System.Xml.XmlNode System.Xml.XmlNode::RemoveChild(System.Xml.XmlNode)
+   IL_01fa: pop
+   IL_01fb: ldloc.s V_12
+   IL_01fd: ldc.i4.1
+   IL_01fe: add
+   IL_01ff: stloc.s V_12
+   IL_0201: ldloc.s V_12
+   IL_0203: ldloc.s V_11
+   IL_0205: ldlen
+   IL_0206: conv.i4
+   IL_0207: blt IL_017e
+   IL_020c: ldarg.1
+   IL_020d: ret

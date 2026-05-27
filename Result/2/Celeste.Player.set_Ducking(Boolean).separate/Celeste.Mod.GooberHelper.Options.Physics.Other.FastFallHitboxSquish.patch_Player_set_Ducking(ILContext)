@@ -1,0 +1,23 @@
+ + IL_10000: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.FastFallHitboxSquish.patch_Player_set_Ducking(ILContext)
+ + IL_10001: ldarg.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.FastFallHitboxSquish.patch_Player_set_Ducking(ILContext)
+ + IL_10002: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Other.FastFallHitboxSquish::maybeUncompressHitboxesOnFalseDucking(Celeste.Player,System.Boolean) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.FastFallHitboxSquish.patch_Player_set_Ducking(ILContext)
+   IL_0000: ldarg.1
+   IL_0001: brfalse.s IL_001c
+   IL_0003: ldarg.0
+   IL_0004: ldarg.0
+   IL_0005: ldfld Monocle.Hitbox Celeste.Player::duckHitbox
+   IL_000a: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_000f: ldarg.0
+   IL_0010: ldarg.0
+   IL_0011: ldfld Monocle.Hitbox Celeste.Player::duckHurtbox
+   IL_0016: stfld Monocle.Hitbox Celeste.Player::hurtbox
+   IL_001b: ret
+   IL_001c: ldarg.0
+   IL_001d: ldarg.0
+   IL_001e: ldfld Monocle.Hitbox Celeste.Player::normalHitbox
+   IL_0023: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0028: ldarg.0
+   IL_0029: ldarg.0
+   IL_002a: ldfld Monocle.Hitbox Celeste.Player::normalHurtbox
+   IL_002f: stfld Monocle.Hitbox Celeste.Player::hurtbox
+   IL_0034: ret

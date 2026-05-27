@@ -1,0 +1,90 @@
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0007: stloc.0
+   IL_0008: ldloc.0
+   IL_0009: isinst Celeste.Player
+   IL_000e: brtrue.s IL_001a
+   IL_0010: ldloc.0
+   IL_0011: isinst Celeste.PlayerDeadBody
+   IL_0016: brtrue.s IL_001a
+   IL_0018: br.s IL_001e
+   IL_001a: ldc.i4.1
+   IL_001b: stloc.1
+   IL_001c: br.s IL_0020
+   IL_001e: ldc.i4.0
+   IL_001f: stloc.1
+   IL_0020: ldloc.1
+   IL_0021: brtrue.s IL_0038
+   IL_0023: ldarg.1
+   IL_0024: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
+   IL_0029: ldstr "isGhost"
+   IL_002e: callvirt System.Object MonoMod.Utils.DynamicData::Get(System.String)
+   IL_0033: ldnull
+   IL_0034: ceq
+   IL_0036: br.s IL_0039
+   IL_0038: ldc.i4.0
+   IL_0039: stloc.2
+   IL_003a: ldloc.2
+   IL_003b: brfalse IL_00d9
+   IL_0040: nop
+   IL_0041: ldarg.1
+   IL_0042: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
+   IL_0047: stloc.3
+   IL_0048: ldloc.3
+   IL_0049: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.CharacterConfig::playerHair
+   IL_004e: stloc.s V_4
+   IL_0050: ldloc.s V_4
+   IL_0052: ldnull
+   IL_0053: cgt.un
+   IL_0055: stloc.s V_5
+   IL_0057: ldloc.s V_5
+   IL_0059: brfalse IL_00d8
+   IL_005e: nop
+   IL_005f: ldloc.3
+   IL_0060: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.SkinModHelper.CharacterConfig::get_SilhouetteMode()
+   IL_0065: stloc.s V_7
+   IL_0067: ldc.i4.1
+   IL_0068: stloc.1
+   IL_0069: ldloca.s V_7
+   IL_006b: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_0070: ldloc.1
+   IL_0071: ceq
+   IL_0073: ldloca.s V_7
+   IL_0075: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_007a: and
+   IL_007b: stloc.s V_6
+   IL_007d: ldloc.s V_6
+   IL_007f: brfalse.s IL_009c
+   IL_0081: ldarg.1
+   IL_0082: ldloc.s V_4
+   IL_0084: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_0089: ldloc.s V_4
+   IL_008b: ldfld System.Single Celeste.PlayerHair::Alpha
+   IL_0090: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0095: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_009a: br.s IL_00d7
+   IL_009c: ldarg.1
+   IL_009d: ldfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00a2: ldloc.s V_4
+   IL_00a4: ldfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_00a9: ldloc.s V_4
+   IL_00ab: ldfld System.Single Celeste.PlayerHair::Alpha
+   IL_00b0: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00b5: call System.Boolean Microsoft.Xna.Framework.Color::op_Equality(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_00ba: stloc.s V_8
+   IL_00bc: ldloc.s V_8
+   IL_00be: brfalse.s IL_00d7
+   IL_00c0: ldarg.1
+   IL_00c1: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00c6: ldloc.s V_4
+   IL_00c8: ldfld System.Single Celeste.PlayerHair::Alpha
+   IL_00cd: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00d2: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_00d7: nop
+   IL_00d8: nop
+   IL_00d9: ldarg.0
+   IL_00da: ldarg.1
+   IL_00db: callvirt System.Void On.Celeste.PlayerSprite/orig_Render::Invoke(Celeste.PlayerSprite)
+   IL_00e0: nop
+   IL_00e1: ret

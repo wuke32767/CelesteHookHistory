@@ -1,0 +1,154 @@
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::.ctor()
+   IL_0006: ldarg.0
+   IL_0007: ldsfld Monocle.BitTag Celeste.Tags::HUD
+   IL_000c: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0011: ldsfld Monocle.BitTag Celeste.Tags::TransitionUpdate
+   IL_0016: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_001b: or
+   IL_001c: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_0021: ldarg.0
+   IL_0022: ldc.r4 112
+   IL_0027: stfld System.Single Celeste.MiniTextbox::portraitSize
+   IL_002c: ldarg.0
+   IL_002d: ldsfld Monocle.Atlas Celeste.GFX::Portraits
+   IL_0032: ldstr "textbox/default_mini"
+ + IL_10000: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.DefaultTextboxPathHook.ILHookMiniTextboxCtor(ILContext)
+ + IL_10001: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.DefaultTextboxPathHook.ILHookMiniTextboxCtor(ILContext)
+ + IL_10002: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [LuckyHelper::]LuckyHelper.Modules.DefaultTextboxPathHook.ILHookMiniTextboxCtor(ILContext)
+       => Invoke: [LuckyHelper::]LuckyHelper.Modules.DefaultTextboxPathHook+<>c.<HookDefaultMiniTextboxPath>b__7_1(String)
+ + IL_10003: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [LuckyHelper::]LuckyHelper.Modules.DefaultTextboxPathHook.ILHookMiniTextboxCtor(ILContext)
+   IL_0037: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_003c: stfld Monocle.MTexture Celeste.MiniTextbox::box
+   IL_0041: ldarg.0
+   IL_0042: ldarg.1
+   IL_0043: callvirt System.String System.String::Trim()
+   IL_0048: ldnull
+   IL_0049: call System.String Celeste.Dialog::Get(System.String,Celeste.Language)
+   IL_004e: ldc.r4 1688
+   IL_0053: ldarg.0
+   IL_0054: ldfld System.Single Celeste.MiniTextbox::portraitSize
+   IL_0059: sub
+   IL_005a: ldc.r4 32
+   IL_005f: sub
+   IL_0060: conv.i4
+   IL_0061: ldc.i4.2
+   IL_0062: ldc.r4 1
+   IL_0067: ldloca.s V_1
+   IL_0069: initobj System.Nullable`1<Microsoft.Xna.Framework.Color>
+   IL_006f: ldloc.1
+   IL_0070: ldnull
+   IL_0071: call Celeste.FancyText/Text Celeste.FancyText::Parse(System.String,System.Int32,System.Int32,System.Single,System.Nullable`1<Microsoft.Xna.Framework.Color>,Celeste.Language)
+   IL_0076: stfld Celeste.FancyText/Text Celeste.MiniTextbox::text
+   IL_007b: ldarg.0
+   IL_007c: ldfld Celeste.FancyText/Text Celeste.MiniTextbox::text
+   IL_0081: ldfld System.Collections.Generic.List`1<Celeste.FancyText/Node> Celeste.FancyText/Text::Nodes
+   IL_0086: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.FancyText/Node>::GetEnumerator()
+   IL_008b: stloc.2
+   IL_008c: br IL_0173
+   IL_0091: ldloca.s V_2
+   IL_0093: call T System.Collections.Generic.List`1/Enumerator<Celeste.FancyText/Node>::get_Current()
+   IL_0098: stloc.3
+   IL_0099: ldloc.3
+   IL_009a: isinst Celeste.FancyText/Portrait
+   IL_009f: brfalse IL_0173
+   IL_00a4: ldloc.3
+   IL_00a5: isinst Celeste.FancyText/Portrait
+   IL_00aa: stloc.s V_4
+   IL_00ac: ldarg.0
+   IL_00ad: ldloc.s V_4
+   IL_00af: stfld Celeste.FancyText/Portrait Celeste.MiniTextbox::portraitData
+   IL_00b4: ldarg.0
+   IL_00b5: ldsfld Monocle.SpriteBank Celeste.GFX::PortraitsSpriteBank
+   IL_00ba: ldstr "portrait_"
+   IL_00bf: ldloc.s V_4
+   IL_00c1: ldfld System.String Celeste.FancyText/Portrait::Sprite
+   IL_00c6: call System.String System.String::Concat(System.String,System.String)
+   IL_00cb: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_00d0: stfld Monocle.Sprite Celeste.MiniTextbox::portrait
+   IL_00d5: ldsfld Monocle.SpriteBank Celeste.GFX::PortraitsSpriteBank
+   IL_00da: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_00df: ldstr "portrait_"
+   IL_00e4: ldloc.s V_4
+   IL_00e6: ldfld System.String Celeste.FancyText/Portrait::Sprite
+   IL_00eb: call System.String System.String::Concat(System.String,System.String)
+   IL_00f0: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::get_Item(TKey)
+   IL_00f5: ldfld System.Collections.Generic.List`1<Monocle.SpriteDataSource> Monocle.SpriteData::Sources
+   IL_00fa: ldc.i4.0
+   IL_00fb: callvirt T System.Collections.Generic.List`1<Monocle.SpriteDataSource>::get_Item(System.Int32)
+   IL_0100: ldfld System.Xml.XmlElement Monocle.SpriteDataSource::XML
+   IL_0105: stloc.s V_5
+   IL_0107: ldarg.0
+   IL_0108: ldarg.0
+   IL_0109: ldfld System.Single Celeste.MiniTextbox::portraitSize
+   IL_010e: ldloc.s V_5
+   IL_0110: ldstr "size"
+   IL_0115: ldc.r4 160
+   IL_011a: call System.Single Monocle.Calc::AttrFloat(System.Xml.XmlElement,System.String,System.Single)
+   IL_011f: div
+   IL_0120: stfld System.Single Celeste.MiniTextbox::portraitScale
+   IL_0125: ldstr "textbox/"
+   IL_012a: ldloc.s V_5
+   IL_012c: ldstr "textbox"
+   IL_0131: ldstr "default"
+   IL_0136: call System.String Monocle.Calc::Attr(System.Xml.XmlElement,System.String,System.String)
+   IL_013b: ldstr "_mini"
+   IL_0140: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0145: stloc.s V_6
+   IL_0147: ldsfld Monocle.Atlas Celeste.GFX::Portraits
+   IL_014c: ldloc.s V_6
+   IL_014e: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_0153: brfalse.s IL_0167
+   IL_0155: ldarg.0
+   IL_0156: ldsfld Monocle.Atlas Celeste.GFX::Portraits
+   IL_015b: ldloc.s V_6
+   IL_015d: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0162: stfld Monocle.MTexture Celeste.MiniTextbox::box
+   IL_0167: ldarg.0
+   IL_0168: ldarg.0
+   IL_0169: ldfld Monocle.Sprite Celeste.MiniTextbox::portrait
+   IL_016e: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0173: ldloca.s V_2
+   IL_0175: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.FancyText/Node>::MoveNext()
+   IL_017a: brtrue IL_0091
+   IL_017f: leave.s IL_018f
+   IL_0181: ldloca.s V_2
+   IL_0183: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.FancyText/Node>
+   IL_0189: callvirt System.Void System.IDisposable::Dispose()
+   IL_018e: endfinally
+   IL_018f: ldarg.0
+   IL_0190: ldarg.0
+   IL_0191: ldarg.0
+   IL_0192: callvirt System.Collections.IEnumerator Celeste.MiniTextbox::Routine()
+   IL_0197: ldc.i4.1
+   IL_0198: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_019d: dup
+   IL_019e: stloc.s V_7
+   IL_01a0: stfld Monocle.Coroutine Celeste.MiniTextbox::routine
+   IL_01a5: ldloc.s V_7
+   IL_01a7: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01ac: ldarg.0
+   IL_01ad: ldfld Monocle.Coroutine Celeste.MiniTextbox::routine
+   IL_01b2: ldc.i4.1
+   IL_01b3: stfld System.Boolean Monocle.Coroutine::UseRawDeltaTime
+   IL_01b8: newobj System.Void Celeste.TransitionListener::.ctor()
+   IL_01bd: stloc.0
+   IL_01be: ldloc.0
+   IL_01bf: ldarg.0
+   IL_01c0: ldftn System.Void Celeste.MiniTextbox::<.ctor>b__17_0()
+   IL_01c6: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_01cb: stfld System.Action Celeste.TransitionListener::OnOutBegin
+   IL_01d0: ldarg.0
+   IL_01d1: ldloc.0
+   IL_01d2: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01d7: ldsfld FMOD.Studio.EventInstance Celeste.Level::DialogSnapshot
+   IL_01dc: ldnull
+   IL_01dd: call System.Boolean FMOD.Studio.HandleBase::op_Equality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_01e2: brfalse.s IL_01f4
+   IL_01e4: ldstr "snapshot:/dialogue_in_progress"
+   IL_01e9: ldc.i4.0
+   IL_01ea: call FMOD.Studio.EventInstance Celeste.Audio::CreateSnapshot(System.String,System.Boolean)
+   IL_01ef: stsfld FMOD.Studio.EventInstance Celeste.Level::DialogSnapshot
+   IL_01f4: ldsfld FMOD.Studio.EventInstance Celeste.Level::DialogSnapshot
+   IL_01f9: call System.Void Celeste.Audio::ResumeSnapshot(FMOD.Studio.EventInstance)
+   IL_01fe: ret

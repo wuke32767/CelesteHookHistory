@@ -1,0 +1,46 @@
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.SoundSource Celeste.Player::dreamSfxLoop
+   IL_0006: brtrue.s IL_001c
+   IL_0008: ldarg.0
+   IL_0009: ldarg.0
+   IL_000a: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_000f: dup
+   IL_0010: stloc.0
+   IL_0011: stfld Celeste.SoundSource Celeste.Player::dreamSfxLoop
+   IL_0016: ldloc.0
+   IL_0017: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_001c: ldarg.0
+   IL_001d: ldarg.0
+   IL_001e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_0023: ldc.r4 240
+   IL_0028: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_002d: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0032: ldarg.0
+   IL_0033: ldc.i4.1
+   IL_0034: stfld System.Boolean Celeste.Actor::TreatNaive
+   IL_0039: ldarg.0
+   IL_003a: ldc.i4 -12000
+   IL_003f: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0044: ldarg.0
+   IL_0045: ldc.r4 0.1
+   IL_004a: stfld System.Single Celeste.Player::dreamDashCanEndTimer
+   IL_004f: ldarg.0
+   IL_0050: ldc.r4 110
+ + IL_10000: ldarg.0 @ [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
+ + IL_10001: call System.Single Celeste.Mod.Microlith57Misc.Components.CappedStamina::ModMaxStamina(System.Single,Celeste.Player) @ [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
+   IL_0055: stfld System.Single Celeste.Player::Stamina
+   IL_005a: ldarg.0
+   IL_005b: ldc.i4.0
+   IL_005c: stfld System.Boolean Celeste.Player::dreamJump
+   IL_0061: ldarg.0
+   IL_0062: ldstr "event:/char/madeline/dreamblock_enter"
+   IL_0067: ldnull
+   IL_0068: ldc.r4 0
+   IL_006d: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
+   IL_0072: pop
+   IL_0073: ldarg.0
+   IL_0074: ldarg.0
+   IL_0075: ldfld Celeste.SoundSource Celeste.Player::dreamSfxLoop
+   IL_007a: ldstr "event:/char/madeline/dreamblock_travel"
+   IL_007f: callvirt System.Void Celeste.Player::Loop(Celeste.SoundSource,System.String)
+   IL_0084: ret

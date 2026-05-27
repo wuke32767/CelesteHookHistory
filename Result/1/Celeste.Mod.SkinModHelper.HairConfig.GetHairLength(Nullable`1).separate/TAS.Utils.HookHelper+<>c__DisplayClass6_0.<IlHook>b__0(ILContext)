@@ -1,0 +1,63 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Boolean Celeste.Mod.SkinModHelper.HairConfig::LengthsActive
+   IL_0007: brfalse.s IL_001d
+   IL_0009: ldarga.s get_dashes
+   IL_000b: call System.Boolean System.Nullable`1<System.Int32>::get_HasValue()
+   IL_0010: brfalse.s IL_001d
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Collections.Generic.Dictionary`2<System.Int32,System.Int32> Celeste.Mod.SkinModHelper.HairConfig::ActualHairLengths
+   IL_0018: ldnull
+   IL_0019: ceq
+   IL_001b: br.s IL_001e
+   IL_001d: ldc.i4.1
+   IL_001e: stloc.2
+   IL_001f: ldloc.2
+   IL_0020: brfalse.s IL_0030
+   IL_0022: nop
+   IL_0023: ldloca.s V_3
+   IL_0025: initobj System.Nullable`1<System.Int32>
+   IL_002b: ldloc.3
+   IL_002c: stloc.s V_4
+   IL_002e: br.s IL_0084
+   IL_0030: ldarg.0
+   IL_0031: ldfld System.Int32 Celeste.Mod.SkinModHelper.HairConfig::_AttrDasheslimit
+   IL_0036: ldarga.s get_dashes
+   IL_0038: call T System.Nullable`1<System.Int32>::get_Value()
+   IL_003d: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0042: stloc.0
+   IL_0043: nop
+   IL_0044: ldarg.0
+   IL_0045: ldfld System.Collections.Generic.Dictionary`2<System.Int32,System.Int32> Celeste.Mod.SkinModHelper.HairConfig::ActualHairLengths
+   IL_004a: ldloc.0
+   IL_004b: ldloca.s V_1
+   IL_004d: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.Int32,System.Int32>::TryGetValue(TKey,TValue&)
+   IL_0052: stloc.s V_5
+   IL_0054: ldloc.s V_5
+   IL_0056: brfalse.s IL_0063
+   IL_0058: nop
+   IL_0059: ldloc.1
+   IL_005a: newobj System.Void System.Nullable`1<System.Int32>::.ctor(T)
+   IL_005f: stloc.s V_4
+   IL_0061: br.s IL_0084
+   IL_0063: ldloc.0
+   IL_0064: ldc.i4.2
+   IL_0065: cgt
+   IL_0067: ldc.i4.0
+   IL_0068: ceq
+   IL_006a: stloc.s V_6
+   IL_006c: ldloc.s V_6
+   IL_006e: brfalse.s IL_007e
+   IL_0070: nop
+   IL_0071: ldloca.s V_3
+   IL_0073: initobj System.Nullable`1<System.Int32>
+   IL_0079: ldloc.3
+   IL_007a: stloc.s V_4
+   IL_007c: br.s IL_0084
+   IL_007e: ldloc.0
+   IL_007f: ldc.i4.1
+   IL_0080: sub
+   IL_0081: stloc.0
+   IL_0082: br.s IL_0043
+   IL_0084: ldloc.s V_4
+   IL_0086: ret

@@ -1,0 +1,43 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: newobj System.Void MonoMod.Cil.ILCursor::.ctor(MonoMod.Cil.ILContext)
+   IL_0007: stloc.0
+   IL_0008: ldloc.0
+   IL_0009: ldc.i4.2
+   IL_000a: ldc.i4.1
+   IL_000b: newarr System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>
+   IL_0010: dup
+   IL_0011: ldc.i4.0
+   IL_0012: ldsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__34_0
+   IL_0017: dup
+   IL_0018: brtrue.s IL_0031
+   IL_001a: pop
+   IL_001b: ldsfld Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9
+   IL_0020: ldftn System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<patch_SpriteMode_Badeline>b__34_0(Mono.Cecil.Cil.Instruction)
+   IL_0026: newobj System.Void System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_002b: dup
+   IL_002c: stsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__34_0
+   IL_0031: stelem.ref
+   IL_0032: callvirt System.Boolean MonoMod.Cil.ILCursor::TryGotoNext(MonoMod.Cil.MoveType,System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>[])
+   IL_0037: stloc.1
+   IL_0038: ldloc.1
+   IL_0039: brfalse.s IL_006b
+   IL_003b: nop
+   IL_003c: ldloc.0
+   IL_003d: ldsfld Mono.Cecil.Cil.OpCode Mono.Cecil.Cil.OpCodes::Ldarg_0
+   IL_0042: callvirt MonoMod.Cil.ILCursor MonoMod.Cil.ILCursor::Emit(Mono.Cecil.Cil.OpCode)
+   IL_0047: pop
+   IL_0048: ldloc.0
+   IL_0049: ldsfld System.Func`3<Celeste.PlayerSpriteMode,Celeste.Player,Celeste.PlayerSpriteMode> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<29>___patchSpriteMode_Bad
+   IL_004e: dup
+   IL_004f: brtrue.s IL_0064
+   IL_0051: pop
+   IL_0052: ldnull
+   IL_0053: ldftn Celeste.PlayerSpriteMode Celeste.Mod.SkinModHelper.PlayerSkinSystem::_patchSpriteMode_Bad(Celeste.PlayerSpriteMode,Celeste.Player)
+   IL_0059: newobj System.Void System.Func`3<Celeste.PlayerSpriteMode,Celeste.Player,Celeste.PlayerSpriteMode>::.ctor(System.Object,System.IntPtr)
+   IL_005e: dup
+   IL_005f: stsfld System.Func`3<Celeste.PlayerSpriteMode,Celeste.Player,Celeste.PlayerSpriteMode> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<29>___patchSpriteMode_Bad
+   IL_0064: callvirt System.Int32 MonoMod.Cil.ILCursor::EmitDelegate<System.Func`3<Celeste.PlayerSpriteMode,Celeste.Player,Celeste.PlayerSpriteMode>>(T)
+   IL_0069: pop
+   IL_006a: nop
+   IL_006b: ret

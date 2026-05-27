@@ -1,0 +1,23 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetPlayerSkinName(System.Int32)
+   IL_0007: dup
+   IL_0008: brtrue.s IL_0018
+   IL_000a: pop
+   IL_000b: ldarg.0
+   IL_000c: ldc.i4.1
+   IL_000d: beq.s IL_0015
+   IL_000f: ldarg.0
+   IL_0010: ldc.i4.4
+   IL_0011: ceq
+   IL_0013: br.s IL_0016
+   IL_0015: ldc.i4.1
+   IL_0016: br.s IL_0022
+   IL_0018: ldstr "_NB"
+   IL_001d: callvirt System.Boolean System.String::EndsWith(System.String)
+   IL_0022: ldc.i4.0
+   IL_0023: ceq
+   IL_0025: stloc.0
+   IL_0026: br.s IL_0028
+   IL_0028: ldloc.0
+   IL_0029: ret

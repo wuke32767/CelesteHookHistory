@@ -1,0 +1,31 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: brtrue.s IL_0030
+   IL_0004: ldarg.1
+   IL_0005: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_000a: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_000f: ldfld System.Boolean Celeste.Mod.SkinModHelper.HairConfig::HasZeroDashFlash
+   IL_0014: brfalse.s IL_0030
+   IL_0016: ldarg.1
+   IL_0017: ldfld System.Int32 Celeste.Player::lastDashes
+   IL_001c: brtrue.s IL_002d
+   IL_001e: ldarg.1
+   IL_001f: ldfld System.Single Celeste.Player::hairFlashTimer
+   IL_0024: ldc.r4 0
+   IL_0029: cgt
+   IL_002b: br.s IL_002e
+   IL_002d: ldc.i4.1
+   IL_002e: br.s IL_0031
+   IL_0030: ldc.i4.0
+   IL_0031: stloc.0
+   IL_0032: ldloc.0
+   IL_0033: brfalse.s IL_003a
+   IL_0035: nop
+   IL_0036: ldc.i4.1
+   IL_0037: stloc.1
+   IL_0038: br.s IL_003e
+   IL_003a: ldarg.0
+   IL_003b: stloc.1
+   IL_003c: br.s IL_003e
+   IL_003e: ldloc.1
+   IL_003f: ret

@@ -1,0 +1,30 @@
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ldarg amount @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10003: call DynamicMethod!Initialize_SimulateRandomRangeCalls!System.Void TAS.Gameplay.Optimization.FastForwardOptimization::Initialize_SimulateRandomRangeCalls(System.Int32) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10004: ldarg type @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10005: call DynamicMethod!Initialize_SimulateTypeCreateCalls!System.Void TAS.Gameplay.Optimization.FastForwardOptimization::Initialize_SimulateTypeCreateCalls(Monocle.ParticleType) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10006: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldc.i4.0
+   IL_0001: stloc.0
+   IL_0002: br.s IL_002b
+   IL_0004: ldarg.0
+   IL_0005: ldarg.1
+   IL_0006: ldsfld System.Random Monocle.Calc::Random
+   IL_000b: ldarg.3
+   IL_000c: ldarg.s positionRange
+   IL_000e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0013: ldarg.3
+   IL_0014: ldarg.s positionRange
+   IL_0016: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_001b: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Range(System.Random,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0020: ldarg.s direction
+   IL_0022: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0027: ldloc.0
+   IL_0028: ldc.i4.1
+   IL_0029: add
+   IL_002a: stloc.0
+   IL_002b: ldloc.0
+   IL_002c: ldarg.2
+   IL_002d: blt.s IL_0004
+   IL_002f: ret

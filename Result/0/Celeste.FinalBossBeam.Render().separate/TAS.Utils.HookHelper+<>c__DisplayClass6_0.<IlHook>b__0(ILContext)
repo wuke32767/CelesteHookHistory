@@ -1,0 +1,209 @@
+ + IL_10000: call DynamicMethod!Initialize_SkipMethod!System.Boolean TAS.Gameplay.SimplifiedGraphics::Initialize_SkipMethod() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.FinalBoss Celeste.FinalBossBeam::boss
+   IL_0006: callvirt Microsoft.Xna.Framework.Vector2 Celeste.FinalBoss::get_BeamOrigin()
+   IL_000b: stloc.0
+   IL_000c: ldarg.0
+   IL_000d: ldfld System.Single Celeste.FinalBossBeam::angle
+   IL_0012: ldarg.0
+   IL_0013: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamSprite
+   IL_0018: callvirt System.Single Monocle.Image::get_Width()
+   IL_001d: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_0022: stloc.1
+   IL_0023: ldarg.0
+   IL_0024: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamSprite
+   IL_0029: ldarg.0
+   IL_002a: ldfld System.Single Celeste.FinalBossBeam::angle
+   IL_002f: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_0034: ldarg.0
+   IL_0035: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamSprite
+   IL_003a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_003f: ldarg.0
+   IL_0040: ldfld System.Single Celeste.FinalBossBeam::beamAlpha
+   IL_0045: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_004a: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_004f: ldarg.0
+   IL_0050: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamStartSprite
+   IL_0055: ldarg.0
+   IL_0056: ldfld System.Single Celeste.FinalBossBeam::angle
+   IL_005b: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_0060: ldarg.0
+   IL_0061: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamStartSprite
+   IL_0066: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_006b: ldarg.0
+   IL_006c: ldfld System.Single Celeste.FinalBossBeam::beamAlpha
+   IL_0071: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0076: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_007b: ldarg.0
+   IL_007c: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamSprite
+   IL_0081: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_0086: ldstr "shoot"
+   IL_008b: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0090: brfalse.s IL_00a9
+   IL_0092: ldloc.0
+   IL_0093: ldarg.0
+   IL_0094: ldfld System.Single Celeste.FinalBossBeam::angle
+   IL_0099: ldc.r4 8
+   IL_009e: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::AngleToVector(System.Single,System.Single)
+   IL_00a3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a8: stloc.0
+   IL_00a9: ldc.i4.0
+   IL_00aa: stloc.2
+   IL_00ab: br.s IL_00d0
+   IL_00ad: ldarg.0
+   IL_00ae: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamSprite
+   IL_00b3: ldloc.0
+   IL_00b4: callvirt System.Void Monocle.GraphicsComponent::set_RenderPosition(Microsoft.Xna.Framework.Vector2)
+   IL_00b9: ldarg.0
+   IL_00ba: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamSprite
+   IL_00bf: callvirt System.Void Monocle.Component::Render()
+   IL_00c4: ldloc.0
+   IL_00c5: ldloc.1
+   IL_00c6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00cb: stloc.0
+   IL_00cc: ldloc.2
+   IL_00cd: ldc.i4.1
+   IL_00ce: add
+   IL_00cf: stloc.2
+   IL_00d0: ldloc.2
+   IL_00d1: ldc.i4.s 15
+   IL_00d3: blt.s IL_00ad
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamSprite
+   IL_00db: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_00e0: ldstr "shoot"
+   IL_00e5: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_00ea: brfalse.s IL_010d
+   IL_00ec: ldarg.0
+   IL_00ed: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamStartSprite
+   IL_00f2: ldarg.0
+   IL_00f3: ldfld Celeste.FinalBoss Celeste.FinalBossBeam::boss
+   IL_00f8: callvirt Microsoft.Xna.Framework.Vector2 Celeste.FinalBoss::get_BeamOrigin()
+   IL_00fd: callvirt System.Void Monocle.GraphicsComponent::set_RenderPosition(Microsoft.Xna.Framework.Vector2)
+   IL_0102: ldarg.0
+   IL_0103: ldfld Monocle.Sprite Celeste.FinalBossBeam::beamStartSprite
+   IL_0108: callvirt System.Void Monocle.Component::Render()
+   IL_010d: call System.Void Celeste.GameplayRenderer::End()
+   IL_0112: ldloc.1
+   IL_0113: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_0118: stloc.3
+   IL_0119: ldloc.3
+   IL_011a: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Perpendicular(Microsoft.Xna.Framework.Vector2)
+   IL_011f: stloc.s V_4
+   IL_0121: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0126: ldarg.0
+   IL_0127: ldfld System.Single Celeste.FinalBossBeam::sideFadeAlpha
+   IL_012c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0131: ldc.r4 0.35
+   IL_0136: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_013b: stloc.s V_5
+   IL_013d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Transparent()
+   IL_0142: stloc.s V_6
+   IL_0144: ldloc.3
+   IL_0145: ldc.r4 4000
+   IL_014a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_014f: stloc.3
+   IL_0150: ldloc.s V_4
+   IL_0152: ldc.r4 120
+   IL_0157: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_015c: stloc.s V_4
+   IL_015e: ldc.i4.0
+   IL_015f: stloc.s V_7
+   IL_0161: ldarg.0
+   IL_0162: ldloca.s V_7
+   IL_0164: ldloc.0
+   IL_0165: ldloc.3
+   IL_0166: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_016b: ldloc.s V_4
+   IL_016d: ldc.r4 2
+   IL_0172: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0177: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_017c: ldloc.3
+   IL_017d: ldloc.s V_4
+   IL_017f: ldc.r4 2
+   IL_0184: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0189: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_018e: ldloc.3
+   IL_018f: ldloc.s V_4
+   IL_0191: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0196: ldloc.3
+   IL_0197: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_019c: ldloc.s V_4
+   IL_019e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01a3: ldloc.s V_5
+   IL_01a5: ldloc.s V_5
+   IL_01a7: callvirt System.Void Celeste.FinalBossBeam::Quad(System.Int32&,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_01ac: ldarg.0
+   IL_01ad: ldloca.s V_7
+   IL_01af: ldloc.0
+   IL_01b0: ldloc.3
+   IL_01b1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_01b6: ldloc.s V_4
+   IL_01b8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01bd: ldloc.3
+   IL_01be: ldloc.s V_4
+   IL_01c0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01c5: ldloc.3
+   IL_01c6: ldloc.3
+   IL_01c7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_01cc: ldloc.s V_5
+   IL_01ce: ldloc.s V_6
+   IL_01d0: callvirt System.Void Celeste.FinalBossBeam::Quad(System.Int32&,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_01d5: ldarg.0
+   IL_01d6: ldloca.s V_7
+   IL_01d8: ldloc.0
+   IL_01d9: ldloc.3
+   IL_01da: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_01df: ldloc.3
+   IL_01e0: ldloc.3
+   IL_01e1: ldloc.s V_4
+   IL_01e3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01e8: ldloc.3
+   IL_01e9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_01ee: ldloc.s V_4
+   IL_01f0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01f5: ldloc.s V_6
+   IL_01f7: ldloc.s V_5
+   IL_01f9: callvirt System.Void Celeste.FinalBossBeam::Quad(System.Int32&,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_01fe: ldarg.0
+   IL_01ff: ldloca.s V_7
+   IL_0201: ldloc.0
+   IL_0202: ldloc.3
+   IL_0203: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_0208: ldloc.s V_4
+   IL_020a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_020f: ldloc.3
+   IL_0210: ldloc.s V_4
+   IL_0212: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0217: ldloc.3
+   IL_0218: ldloc.s V_4
+   IL_021a: ldc.r4 2
+   IL_021f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0224: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0229: ldloc.3
+   IL_022a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_022f: ldloc.s V_4
+   IL_0231: ldc.r4 2
+   IL_0236: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_023b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0240: ldloc.s V_5
+   IL_0242: ldloc.s V_5
+   IL_0244: callvirt System.Void Celeste.FinalBossBeam::Quad(System.Int32&,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_0249: ldarg.0
+   IL_024a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_024f: isinst Celeste.Level
+   IL_0254: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0259: callvirt Microsoft.Xna.Framework.Matrix Monocle.Camera::get_Matrix()
+   IL_025e: ldarg.0
+   IL_025f: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.FinalBossBeam::fade
+   IL_0264: ldarg.0
+   IL_0265: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.FinalBossBeam::fade
+   IL_026a: ldlen
+   IL_026b: conv.i4
+   IL_026c: ldnull
+   IL_026d: ldnull
+   IL_026e: call System.Void Celeste.GFX::DrawVertices<Microsoft.Xna.Framework.Graphics.VertexPositionColor>(Microsoft.Xna.Framework.Matrix,T[],System.Int32,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_0273: call System.Void Celeste.GameplayRenderer::Begin()
+   IL_0278: ret

@@ -1,0 +1,92 @@
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedClutteredEntity() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Single Celeste.Wire::sineX
+   IL_000d: ldloc.0
+   IL_000e: ldfld System.Single Celeste.Level::WindSineTimer
+   IL_0013: ldc.r4 2
+   IL_0018: mul
+   IL_0019: add
+   IL_001a: conv.r8
+   IL_001b: call System.Double System.Math::Sin(System.Double)
+   IL_0020: conv.r4
+   IL_0021: ldarg.0
+   IL_0022: ldfld System.Single Celeste.Wire::sineY
+   IL_0027: ldloc.0
+   IL_0028: ldfld System.Single Celeste.Level::WindSineTimer
+   IL_002d: ldc.r4 2.8
+   IL_0032: mul
+   IL_0033: add
+   IL_0034: conv.r8
+   IL_0035: call System.Double System.Math::Sin(System.Double)
+   IL_003a: conv.r4
+   IL_003b: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0040: ldc.r4 8
+   IL_0045: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_004a: ldloc.0
+   IL_004b: callvirt System.Single Celeste.Level::get_VisualWind()
+   IL_0050: ldarg.0
+   IL_0051: ldfld System.Boolean Celeste.Wire::fixWindBehavior
+   IL_0056: brfalse.s IL_005e
+   IL_0058: ldc.r4 100
+   IL_005d: div
+   IL_005e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0063: stloc.1
+   IL_0064: ldarg.0
+   IL_0065: ldflda Monocle.SimpleCurve Celeste.Wire::Curve
+   IL_006a: ldarg.0
+   IL_006b: ldflda Monocle.SimpleCurve Celeste.Wire::Curve
+   IL_0070: ldfld Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::Begin
+   IL_0075: ldarg.0
+   IL_0076: ldflda Monocle.SimpleCurve Celeste.Wire::Curve
+   IL_007b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::End
+   IL_0080: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0085: ldc.r4 2
+   IL_008a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_008f: ldc.r4 0
+   IL_0094: ldc.r4 24
+   IL_0099: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_009e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a3: ldloc.1
+   IL_00a4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00a9: stfld Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::Control
+   IL_00ae: ldarg.0
+   IL_00af: call System.Boolean Celeste.Wire::IsVisible()
+   IL_00b4: brtrue.s IL_00b7
+   IL_00b6: ret
+   IL_00b7: ldarg.0
+   IL_00b8: ldflda Monocle.SimpleCurve Celeste.Wire::Curve
+   IL_00bd: ldfld Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::Begin
+   IL_00c2: stloc.2
+   IL_00c3: ldc.i4.1
+   IL_00c4: stloc.3
+   IL_00c5: br.s IL_00f5
+   IL_00c7: ldloc.3
+   IL_00c8: conv.r4
+   IL_00c9: ldc.r4 16
+   IL_00ce: div
+   IL_00cf: stloc.s V_4
+   IL_00d1: ldarg.0
+   IL_00d2: ldflda Monocle.SimpleCurve Celeste.Wire::Curve
+   IL_00d7: ldloc.s V_4
+   IL_00d9: call Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::GetPoint(System.Single)
+   IL_00de: stloc.s V_5
+   IL_00e0: ldloc.2
+   IL_00e1: ldloc.s V_5
+   IL_00e3: ldarg.0
+   IL_00e4: ldfld Microsoft.Xna.Framework.Color Celeste.Wire::Color
+   IL_00e9: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_00ee: ldloc.s V_5
+   IL_00f0: stloc.2
+   IL_00f1: ldloc.3
+   IL_00f2: ldc.i4.1
+   IL_00f3: add
+   IL_00f4: stloc.3
+   IL_00f5: ldloc.3
+   IL_00f6: ldc.i4.s 16
+   IL_00f8: ble.s IL_00c7
+   IL_00fa: ret

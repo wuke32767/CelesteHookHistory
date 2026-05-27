@@ -1,0 +1,254 @@
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.PixelFontSize Celeste.FancyText::size
+   IL_0006: ldarg.1
+   IL_0007: callvirt Microsoft.Xna.Framework.Vector2 Monocle.PixelFontSize::Measure(System.String)
+   IL_000c: ldarg.1
+   IL_000d: call Celeste.Mod.Helpers.UnicodeStringHelper/ListInt Celeste.Mod.Helpers.UnicodeStringHelper::ToCodePointList(System.String)
+   IL_0012: stloc V_6
+   IL_0016: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001b: ldarg.0
+   IL_001c: ldfld System.Single Celeste.FancyText::currentScale
+   IL_0021: mul
+   IL_0022: stloc.0
+   IL_0023: ldarg.0
+   IL_0024: ldfld System.Single Celeste.FancyText::currentPosition
+   IL_0029: ldloc.0
+   IL_002a: add
+   IL_002b: ldarg.0
+   IL_002c: ldfld System.Int32 Celeste.FancyText::maxLineWidth
+   IL_0031: conv.r4
+   IL_0032: ble.un.s IL_003a
+   IL_0034: ldarg.0
+   IL_0035: callvirt System.Void Celeste.FancyText::AddNewLine()
+   IL_003a: ldc.i4.0
+   IL_003b: stloc.1
+   IL_003c: br IL_02be
+   IL_0041: ldarg.0
+   IL_0042: ldfld System.Single Celeste.FancyText::currentPosition
+   IL_0047: ldc.r4 0
+   IL_004c: bne.un.s IL_005f
+   IL_004e: ldloc V_6
+   IL_0052: ldloc.1
+   IL_0053: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_0058: ldc.i4.s 32
+   IL_005a: beq IL_02ba
+   IL_005f: ldloc V_6
+   IL_0063: ldloc.1
+   IL_0064: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_0069: ldc.i4.s 92
+   IL_006b: beq IL_02ba
+   IL_0070: ldarg.0
+   IL_0071: ldfld Monocle.PixelFontSize Celeste.FancyText::size
+   IL_0076: ldloc V_6
+   IL_007a: ldloc.1
+   IL_007b: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_0080: callvirt Monocle.PixelFontCharacter Monocle.PixelFontSize::Get(System.Int32)
+   IL_0085: stloc.2
+   IL_0086: ldloc.2
+   IL_0087: brfalse IL_02ba
+   IL_008c: ldc.r4 0
+   IL_0091: stloc.3
+   IL_0092: ldloc.1
+   IL_0093: ldloc V_6
+   IL_0097: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Count()
+   IL_009c: ldc.i4.1
+   IL_009d: sub
+   IL_009e: bne.un.s IL_00fb
+   IL_00a0: ldloc.1
+   IL_00a1: brfalse.s IL_00b3
+   IL_00a3: ldloc V_6
+   IL_00a7: ldloc.1
+   IL_00a8: ldc.i4.1
+   IL_00a9: sub
+   IL_00aa: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_00af: ldc.i4.s 92
+   IL_00b1: beq.s IL_00fb
+   IL_00b3: ldarg.0
+   IL_00b4: ldarg.0
+   IL_00b5: ldfld Celeste.Language Celeste.FancyText::language
+   IL_00ba: ldfld System.String Celeste.Language::CommaCharacters
+   IL_00bf: ldloc V_6
+   IL_00c3: ldloc.1
+   IL_00c4: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_00c9: callvirt System.Boolean Celeste.FancyText::Contains(System.String,System.Char)
+   IL_00ce: brfalse.s IL_00d8
+   IL_00d0: ldc.r4 0.15
+   IL_00d5: stloc.3
+   IL_00d6: br.s IL_00fb
+   IL_00d8: ldarg.0
+   IL_00d9: ldarg.0
+   IL_00da: ldfld Celeste.Language Celeste.FancyText::language
+   IL_00df: ldfld System.String Celeste.Language::PeriodCharacters
+   IL_00e4: ldloc V_6
+   IL_00e8: ldloc.1
+   IL_00e9: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_00ee: callvirt System.Boolean Celeste.FancyText::Contains(System.String,System.Char)
+   IL_00f3: brfalse.s IL_00fb
+   IL_00f5: ldc.r4 0.3
+   IL_00fa: stloc.3
+   IL_00fb: ldarg.0
+   IL_00fc: ldfld Celeste.FancyText/Text Celeste.FancyText::group
+   IL_0101: ldfld System.Collections.Generic.List`1<Celeste.FancyText/Node> Celeste.FancyText/Text::Nodes
+   IL_0106: newobj System.Void Celeste.FancyText/Char::.ctor()
+   IL_010b: dup
+   IL_010c: ldarg.0
+   IL_010d: ldarg.0
+   IL_010e: ldfld System.Int32 Celeste.FancyText::currentCharIndex
+   IL_0113: stloc.s V_5
+   IL_0115: ldloc.s V_5
+   IL_0117: ldc.i4.1
+   IL_0118: add
+   IL_0119: stfld System.Int32 Celeste.FancyText::currentCharIndex
+   IL_011e: ldloc.s V_5
+   IL_0120: stfld System.Int32 Celeste.FancyText/Char::Index
+   IL_0125: dup
+   IL_0126: ldloc V_6
+   IL_012a: ldloc.1
+   IL_012b: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_0130: stfld System.Int32 Celeste.FancyText/Char::Character
+   IL_0135: dup
+   IL_0136: ldarg.0
+   IL_0137: ldfld System.Single Celeste.FancyText::currentPosition
+   IL_013c: stfld System.Single Celeste.FancyText/Char::Position
+   IL_0141: dup
+   IL_0142: ldarg.0
+   IL_0143: ldfld System.Int32 Celeste.FancyText::currentLine
+   IL_0148: stfld System.Int32 Celeste.FancyText/Char::Line
+   IL_014d: dup
+   IL_014e: ldarg.0
+   IL_014f: ldfld System.Int32 Celeste.FancyText::currentPage
+   IL_0154: stfld System.Int32 Celeste.FancyText/Char::Page
+   IL_0159: dup
+   IL_015a: ldarg.0
+   IL_015b: ldfld System.Boolean Celeste.FancyText::currentImpact
+   IL_0160: brtrue.s IL_016c
+   IL_0162: ldarg.0
+   IL_0163: ldfld System.Single Celeste.FancyText::currentDelay
+   IL_0168: ldloc.3
+   IL_0169: add
+   IL_016a: br.s IL_0171
+   IL_016c: ldc.r4 0.0034999999
+   IL_0171: stfld System.Single Celeste.FancyText/Char::Delay
+   IL_0176: dup
+   IL_0177: ldarg.0
+   IL_0178: ldfld Microsoft.Xna.Framework.Color Celeste.FancyText::currentColor
+   IL_017d: stfld Microsoft.Xna.Framework.Color Celeste.FancyText/Char::Color
+   IL_0182: dup
+   IL_0183: ldarg.0
+   IL_0184: ldfld System.Single Celeste.FancyText::currentScale
+   IL_0189: stfld System.Single Celeste.FancyText/Char::Scale
+   IL_018e: dup
+   IL_018f: ldarg.0
+   IL_0190: ldfld System.Boolean Celeste.FancyText::currentMessedUp
+   IL_0195: brtrue.s IL_019e
+   IL_0197: ldc.r4 0
+   IL_019c: br.s IL_01c0
+   IL_019e: ldsfld System.Random Monocle.Calc::Random
+   IL_01a3: ldc.i4.m1
+   IL_01a4: ldc.i4.1
+   IL_01a5: call T Monocle.Calc::Choose<System.Int32>(System.Random,T,T)
+   IL_01aa: conv.r4
+   IL_01ab: ldsfld System.Random Monocle.Calc::Random
+   IL_01b0: ldc.r4 0.17453292
+   IL_01b5: ldc.r4 0.34906584
+   IL_01ba: call T Monocle.Calc::Choose<System.Single>(System.Random,T,T)
+   IL_01bf: mul
+   IL_01c0: stfld System.Single Celeste.FancyText/Char::Rotation
+   IL_01c5: dup
+   IL_01c6: ldarg.0
+   IL_01c7: ldfld System.Boolean Celeste.FancyText::currentMessedUp
+   IL_01cc: brtrue.s IL_01d5
+   IL_01ce: ldc.r4 0
+   IL_01d3: br.s IL_01e6
+   IL_01d5: ldsfld System.Random Monocle.Calc::Random
+   IL_01da: ldc.i4.s -3
+   IL_01dc: ldc.i4.s -6
+   IL_01de: ldc.i4.3
+   IL_01df: ldc.i4.6
+   IL_01e0: call T Monocle.Calc::Choose<System.Int32>(System.Random,T,T,T,T)
+   IL_01e5: conv.r4
+   IL_01e6: stfld System.Single Celeste.FancyText/Char::YOffset
+   IL_01eb: dup
+   IL_01ec: ldarg.0
+   IL_01ed: ldfld System.Single Celeste.FancyText::startFade
+   IL_01f2: stfld System.Single Celeste.FancyText/Char::Fade
+   IL_01f7: dup
+   IL_01f8: ldarg.0
+   IL_01f9: ldfld System.Boolean Celeste.FancyText::currentShake
+   IL_01fe: stfld System.Boolean Celeste.FancyText/Char::Shake
+   IL_0203: dup
+   IL_0204: ldarg.0
+   IL_0205: ldfld System.Boolean Celeste.FancyText::currentImpact
+   IL_020a: stfld System.Boolean Celeste.FancyText/Char::Impact
+   IL_020f: dup
+   IL_0210: ldarg.0
+   IL_0211: ldfld System.Boolean Celeste.FancyText::currentWave
+   IL_0216: stfld System.Boolean Celeste.FancyText/Char::Wave
+   IL_021b: dup
+   IL_021c: ldarg.0
+   IL_021d: ldarg.0
+   IL_021e: ldfld Celeste.Language Celeste.FancyText::language
+   IL_0223: ldfld System.String Celeste.Language::CommaCharacters
+   IL_0228: ldloc V_6
+   IL_022c: ldloc.1
+   IL_022d: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_0232: callvirt System.Boolean Celeste.FancyText::Contains(System.String,System.Char)
+   IL_0237: brtrue.s IL_0256
+   IL_0239: ldarg.0
+   IL_023a: ldarg.0
+   IL_023b: ldfld Celeste.Language Celeste.FancyText::language
+   IL_0240: ldfld System.String Celeste.Language::PeriodCharacters
+   IL_0245: ldloc V_6
+   IL_0249: ldloc.1
+   IL_024a: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_024f: callvirt System.Boolean Celeste.FancyText::Contains(System.String,System.Char)
+   IL_0254: br.s IL_0257
+   IL_0256: ldc.i4.1
+   IL_0257: stfld System.Boolean Celeste.FancyText/Char::IsPunctuation
+ + IL_10000: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.InjectSpecialCharHook(ILContext)
+ + IL_10001: call Celeste.FancyText/Char Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText::SwapForSpecialChar(Celeste.FancyText/Char,Celeste.FancyText) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.InjectSpecialCharHook(ILContext)
+   IL_025c: callvirt System.Void System.Collections.Generic.List`1<Celeste.FancyText/Node>::Add(T)
+   IL_0261: ldarg.0
+   IL_0262: ldarg.0
+   IL_0263: ldfld System.Single Celeste.FancyText::currentPosition
+   IL_0268: ldloc.2
+   IL_0269: ldfld System.Int32 Monocle.PixelFontCharacter::XAdvance
+   IL_026e: conv.r4
+   IL_026f: ldarg.0
+   IL_0270: ldfld System.Single Celeste.FancyText::currentScale
+   IL_0275: mul
+   IL_0276: add
+   IL_0277: stfld System.Single Celeste.FancyText::currentPosition
+   IL_027c: ldloc.1
+   IL_027d: ldloc V_6
+   IL_0281: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Count()
+   IL_0286: ldc.i4.1
+   IL_0287: sub
+   IL_0288: bge.s IL_02ba
+   IL_028a: ldloc.2
+   IL_028b: ldfld System.Collections.Generic.Dictionary`2<System.Int32,System.Int32> Monocle.PixelFontCharacter::Kerning
+   IL_0290: ldloc V_6
+   IL_0294: ldloc.1
+   IL_0295: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Item(System.Int32)
+   IL_029a: ldloca.s V_4
+   IL_029c: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.Int32,System.Int32>::TryGetValue(TKey,TValue&)
+   IL_02a1: brfalse.s IL_02ba
+   IL_02a3: ldarg.0
+   IL_02a4: ldarg.0
+   IL_02a5: ldfld System.Single Celeste.FancyText::currentPosition
+   IL_02aa: ldloc.s V_4
+   IL_02ac: conv.r4
+   IL_02ad: ldarg.0
+   IL_02ae: ldfld System.Single Celeste.FancyText::currentScale
+   IL_02b3: mul
+   IL_02b4: add
+   IL_02b5: stfld System.Single Celeste.FancyText::currentPosition
+   IL_02ba: ldloc.1
+   IL_02bb: ldc.i4.1
+   IL_02bc: add
+   IL_02bd: stloc.1
+   IL_02be: ldloc.1
+   IL_02bf: ldloc V_6
+   IL_02c3: call System.Int32 Celeste.Mod.Helpers.UnicodeStringHelper/ListInt::get_Count()
+   IL_02c8: blt IL_0041
+   IL_02cd: ret

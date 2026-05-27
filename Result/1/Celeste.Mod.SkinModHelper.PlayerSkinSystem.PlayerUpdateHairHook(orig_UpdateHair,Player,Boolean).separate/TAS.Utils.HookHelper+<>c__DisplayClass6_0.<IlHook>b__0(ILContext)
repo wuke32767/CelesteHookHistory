@@ -1,0 +1,46 @@
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0007: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_000c: stloc.0
+   IL_000d: ldloc.0
+   IL_000e: ldc.i4.0
+   IL_000f: stfld System.Boolean Celeste.Mod.SkinModHelper.HairConfig::HairFlashing
+   IL_0014: ldarg.0
+   IL_0015: ldarg.1
+   IL_0016: ldarg.2
+   IL_0017: callvirt System.Void On.Celeste.Player/orig_UpdateHair::Invoke(Celeste.Player,System.Boolean)
+   IL_001c: nop
+   IL_001d: ldloc.0
+   IL_001e: ldarg.1
+   IL_001f: ldarg.1
+   IL_0020: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0025: call System.Nullable`1<System.Int32> Celeste.Mod.SkinModHelper.PlayerSkinSystem::GetDashCount(Monocle.Entity,Celeste.PlayerSprite)
+   IL_002a: dup
+   IL_002b: stloc.3
+   IL_002c: stfld System.Nullable`1<System.Int32> Celeste.Mod.SkinModHelper.HairConfig::lastDashes
+   IL_0031: ldloc.3
+   IL_0032: stloc.3
+   IL_0033: ldloca.s V_3
+   IL_0035: call T System.Nullable`1<System.Int32>::get_Value()
+   IL_003a: stloc.1
+   IL_003b: ldloc.0
+   IL_003c: ldloc.0
+   IL_003d: ldfld System.Boolean Celeste.Mod.SkinModHelper.HairConfig::HairFlashing
+   IL_0042: brtrue.s IL_0048
+   IL_0044: ldc.i4.s 100
+   IL_0046: br.s IL_004a
+   IL_0048: ldc.i4.s -102
+   IL_004a: ldloc.1
+   IL_004b: ldloca.s V_2
+   IL_004d: callvirt System.Boolean Celeste.Mod.SkinModHelper.HairConfig::GetHairColorWithSpecified(System.Int32,System.Int32,Microsoft.Xna.Framework.Color&)
+   IL_0052: stloc.s V_4
+   IL_0054: ldloc.s V_4
+   IL_0056: brfalse.s IL_0066
+   IL_0058: nop
+   IL_0059: ldarg.1
+   IL_005a: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_005f: ldloc.2
+   IL_0060: stfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_0065: nop
+   IL_0066: ret

@@ -1,0 +1,33 @@
+ + IL_10000: ldarg position @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0007: ldarg.0
+   IL_0008: ldfld Monocle.Image Celeste.Mod.auspicioushelper.Wrappers.SpinnerDebris::image
+   IL_000d: ldarg.0
+   IL_000e: ldarg.2
+   IL_000f: dup
+   IL_0010: stloc.0
+   IL_0011: stfld Microsoft.Xna.Framework.Color Celeste.Mod.auspicioushelper.Wrappers.SpinnerDebris::color
+   IL_0016: ldloc.0
+   IL_0017: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_001c: ldarg.0
+   IL_001d: ldfld Monocle.Image Celeste.Mod.auspicioushelper.Wrappers.SpinnerDebris::image
+   IL_0022: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0027: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_002c: ldarg.0
+   IL_002d: ldc.r4 0
+   IL_0032: stfld System.Single Celeste.Mod.auspicioushelper.Wrappers.SpinnerDebris::percent
+   IL_0037: ldarg.0
+   IL_0038: ldsfld System.Random Monocle.Calc::Random
+   IL_003d: ldc.r4 1
+   IL_0042: ldc.r4 2
+   IL_0047: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_004c: stfld System.Single Celeste.Mod.auspicioushelper.Wrappers.SpinnerDebris::duration
+   IL_0051: ldarg.0
+   IL_0052: ldarg.3
+   IL_0053: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.auspicioushelper.FastDebris::speed
+   IL_0058: ldarg.0
+ + IL_10002: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0059: ret

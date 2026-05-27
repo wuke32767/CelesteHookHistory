@@ -1,0 +1,35 @@
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Celeste.Trigger::OnEnter(Celeste.Player)
+   IL_0007: ldarg.0
+   IL_0008: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000d: isinst Celeste.Level
+   IL_0012: ldfld Celeste.Session Celeste.Level::Session
+   IL_0017: stloc.0
+   IL_0018: ldarg.0
+   IL_0019: callvirt System.Boolean Celeste.ChangeRespawnTrigger::SolidCheck()
+   IL_001e: brfalse.s IL_0063
+   IL_0020: ldloc.0
+   IL_0021: ldflda System.Nullable`1<Microsoft.Xna.Framework.Vector2> Celeste.Session::RespawnPoint
+   IL_0026: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Vector2>::get_HasValue()
+   IL_002b: brfalse.s IL_0045
+   IL_002d: ldloc.0
+   IL_002e: ldflda System.Nullable`1<Microsoft.Xna.Framework.Vector2> Celeste.Session::RespawnPoint
+   IL_0033: call T System.Nullable`1<Microsoft.Xna.Framework.Vector2>::get_Value()
+   IL_0038: ldarg.0
+   IL_0039: ldfld Microsoft.Xna.Framework.Vector2 Celeste.ChangeRespawnTrigger::Target
+   IL_003e: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0043: brfalse.s IL_0063
+   IL_0045: ldloc.0
+   IL_0046: ldc.i4.1
+   IL_0047: stfld System.Boolean Celeste.Session::HitCheckpoint
+   IL_004c: ldloc.0
+   IL_004d: ldarg.0
+   IL_004e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.ChangeRespawnTrigger::Target
+   IL_0053: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Vector2>::.ctor(T)
+   IL_0058: stfld System.Nullable`1<Microsoft.Xna.Framework.Vector2> Celeste.Session::RespawnPoint
+ + IL_10000: ldarg.0 @ [libbitsbolts::]Bitsbolts.Triggers.ChangeRespawnCrossRoom.ILChangeRespawnTriggerOnEnter(ILContext)
+ + IL_10001: call System.Void Bitsbolts.Triggers.ChangeRespawnCrossRoom::<ILChangeRespawnTriggerOnEnter>m__1(Celeste.ChangeRespawnTrigger) @ [libbitsbolts::]Bitsbolts.Triggers.ChangeRespawnCrossRoom.ILChangeRespawnTriggerOnEnter(ILContext)
+   IL_005d: ldloc.0
+   IL_005e: callvirt System.Void Celeste.Session::UpdateLevelStartDashes()
+   IL_0063: ret

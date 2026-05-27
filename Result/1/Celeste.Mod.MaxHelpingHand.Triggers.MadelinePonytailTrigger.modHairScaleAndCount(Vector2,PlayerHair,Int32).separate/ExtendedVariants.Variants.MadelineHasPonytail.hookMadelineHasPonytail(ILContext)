@@ -1,0 +1,38 @@
+   IL_0000: call Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule::get_Instance()
+   IL_0005: callvirt Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandSession Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule::get_Session()
+   IL_000a: callvirt System.Boolean Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandSession::get_MadelineHasPonytail()
+ + IL_10000: call System.Boolean ExtendedVariants.Variants.MadelineHasPonytail::applyMadelineHasPonytail(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.MadelineHasPonytail.hookMadelineHasPonytail(ILContext)
+   IL_000f: brfalse.s IL_0066
+   IL_0011: ldarg.1
+   IL_0012: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0017: isinst Celeste.Player
+   IL_001c: brfalse.s IL_0066
+   IL_001e: ldarg.2
+   IL_001f: brfalse.s IL_0066
+   IL_0021: ldc.r4 0.25
+   IL_0026: ldc.r4 1
+   IL_002b: ldarg.2
+   IL_002c: conv.r4
+   IL_002d: ldc.r4 6
+   IL_0032: div
+   IL_0033: sub
+   IL_0034: ldc.r4 0.6
+   IL_0039: mul
+   IL_003a: add
+   IL_003b: stloc.0
+   IL_003c: ldloc.0
+   IL_003d: ldc.r4 0.75
+   IL_0042: mul
+   IL_0043: ldarg.1
+   IL_0044: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+   IL_0049: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_004e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0053: call System.Single System.Math::Abs(System.Single)
+   IL_0058: mul
+   IL_0059: ldloc.0
+   IL_005a: ldc.r4 0.75
+   IL_005f: mul
+   IL_0060: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0065: ret
+   IL_0066: ldarg.0
+   IL_0067: ret

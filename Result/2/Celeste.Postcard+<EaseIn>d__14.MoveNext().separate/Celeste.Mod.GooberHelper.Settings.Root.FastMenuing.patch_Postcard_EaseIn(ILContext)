@@ -1,0 +1,125 @@
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Int32 Celeste.Postcard/<EaseIn>d__14::<>1__state
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld Celeste.Postcard Celeste.Postcard/<EaseIn>d__14::<>4__this
+   IL_000d: stloc.1
+   IL_000e: ldloc.0
+   IL_000f: brfalse.s IL_001a
+   IL_0011: ldloc.0
+   IL_0012: ldc.i4.1
+   IL_0013: beq IL_0120
+   IL_0018: ldc.i4.0
+   IL_0019: ret
+   IL_001a: ldarg.0
+   IL_001b: ldc.i4.m1
+   IL_001c: stfld System.Int32 Celeste.Postcard/<EaseIn>d__14::<>1__state
+   IL_0021: ldloc.1
+   IL_0022: ldfld System.String Celeste.Postcard::sfxEventIn
+   IL_0027: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
+   IL_002c: pop
+   IL_002d: call System.Int32 Monocle.Engine::get_Width()
+   IL_0032: conv.r4
+   IL_0033: call System.Int32 Monocle.Engine::get_Height()
+   IL_0038: conv.r4
+   IL_0039: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_003e: ldc.r4 2
+   IL_0043: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0048: stloc.2
+   IL_0049: ldarg.0
+   IL_004a: ldloc.2
+   IL_004b: ldc.r4 0
+   IL_0050: ldc.r4 200
+   IL_0055: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_005a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_005f: stfld Microsoft.Xna.Framework.Vector2 Celeste.Postcard/<EaseIn>d__14::<from>5__2
+   IL_0064: ldarg.0
+   IL_0065: ldloc.2
+   IL_0066: stfld Microsoft.Xna.Framework.Vector2 Celeste.Postcard/<EaseIn>d__14::<to>5__3
+   IL_006b: ldarg.0
+   IL_006c: ldc.r4 -0.1
+   IL_0071: stfld System.Single Celeste.Postcard/<EaseIn>d__14::<rFrom>5__4
+   IL_0076: ldarg.0
+   IL_0077: ldc.r4 0.05
+   IL_007c: stfld System.Single Celeste.Postcard/<EaseIn>d__14::<rTo>5__5
+   IL_0081: ldloc.1
+   IL_0082: ldc.i4.1
+   IL_0083: stfld System.Boolean Monocle.Entity::Visible
+   IL_0088: ldarg.0
+   IL_0089: ldc.r4 0
+   IL_008e: stfld System.Single Celeste.Postcard/<EaseIn>d__14::<p>5__6
+   IL_0093: br IL_013f
+   IL_0098: ldloc.1
+   IL_0099: ldarg.0
+   IL_009a: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Postcard/<EaseIn>d__14::<from>5__2
+   IL_009f: ldarg.0
+   IL_00a0: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Postcard/<EaseIn>d__14::<to>5__3
+   IL_00a5: ldarg.0
+   IL_00a6: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Postcard/<EaseIn>d__14::<from>5__2
+   IL_00ab: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00b0: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_00b5: ldarg.0
+   IL_00b6: ldfld System.Single Celeste.Postcard/<EaseIn>d__14::<p>5__6
+   IL_00bb: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_00c0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00c5: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00ca: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00cf: ldloc.1
+   IL_00d0: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_00d5: ldarg.0
+   IL_00d6: ldfld System.Single Celeste.Postcard/<EaseIn>d__14::<p>5__6
+   IL_00db: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_00e0: stfld System.Single Celeste.Postcard::alpha
+   IL_00e5: ldloc.1
+   IL_00e6: ldarg.0
+   IL_00e7: ldfld System.Single Celeste.Postcard/<EaseIn>d__14::<rFrom>5__4
+   IL_00ec: ldarg.0
+   IL_00ed: ldfld System.Single Celeste.Postcard/<EaseIn>d__14::<rTo>5__5
+   IL_00f2: ldarg.0
+   IL_00f3: ldfld System.Single Celeste.Postcard/<EaseIn>d__14::<rFrom>5__4
+   IL_00f8: sub
+   IL_00f9: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_00fe: ldarg.0
+   IL_00ff: ldfld System.Single Celeste.Postcard/<EaseIn>d__14::<p>5__6
+   IL_0104: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0109: mul
+   IL_010a: add
+   IL_010b: stfld System.Single Celeste.Postcard::rotation
+   IL_0110: ldarg.0
+   IL_0111: ldnull
+   IL_0112: stfld System.Object Celeste.Postcard/<EaseIn>d__14::<>2__current
+   IL_0117: ldarg.0
+   IL_0118: ldc.i4.1
+   IL_0119: stfld System.Int32 Celeste.Postcard/<EaseIn>d__14::<>1__state
+   IL_011e: ldc.i4.1
+   IL_011f: ret
+   IL_0120: ldarg.0
+   IL_0121: ldc.i4.m1
+   IL_0122: stfld System.Int32 Celeste.Postcard/<EaseIn>d__14::<>1__state
+   IL_0127: ldarg.0
+   IL_0128: ldarg.0
+   IL_0129: ldfld System.Single Celeste.Postcard/<EaseIn>d__14::<p>5__6
+   IL_012e: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0133: ldc.r4 0.8
+ + IL_10000: call System.Single Celeste.Mod.GooberHelper.Settings.Root.FastMenuing::getMultiplier() @ [GooberHelper::]Celeste.Mod.GooberHelper.Settings.Root.FastMenuing.patch_Postcard_EaseIn(ILContext)
+ + IL_10001: mul @ [GooberHelper::]Celeste.Mod.GooberHelper.Settings.Root.FastMenuing.patch_Postcard_EaseIn(ILContext)
+   IL_0138: mul
+   IL_0139: add
+   IL_013a: stfld System.Single Celeste.Postcard/<EaseIn>d__14::<p>5__6
+   IL_013f: ldarg.0
+   IL_0140: ldfld System.Single Celeste.Postcard/<EaseIn>d__14::<p>5__6
+   IL_0145: ldc.r4 1
+   IL_014a: blt IL_0098
+   IL_014f: ldloc.1
+   IL_0150: ldloc.1
+   IL_0151: ldloc.1
+   IL_0152: callvirt System.Collections.IEnumerator Celeste.Postcard::EaseButtinIn()
+   IL_0157: ldc.i4.1
+   IL_0158: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_015d: dup
+   IL_015e: stloc.3
+   IL_015f: stfld Monocle.Coroutine Celeste.Postcard::easeButtonIn
+   IL_0164: ldloc.3
+   IL_0165: callvirt System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_016a: ldc.i4.0
+   IL_016b: ret

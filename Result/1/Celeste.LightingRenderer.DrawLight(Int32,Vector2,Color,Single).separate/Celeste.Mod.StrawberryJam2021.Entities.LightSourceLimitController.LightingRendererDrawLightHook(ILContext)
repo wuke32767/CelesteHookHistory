@@ -1,0 +1,315 @@
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: callvirt Microsoft.Xna.Framework.Vector3 Celeste.LightingRenderer::GetCenter(System.Int32)
+   IL_0007: stloc.0
+   IL_0008: ldarg.0
+   IL_0009: ldarg.1
+   IL_000a: ldc.r4 1
+   IL_000f: ldc.r4 0
+   IL_0014: callvirt Microsoft.Xna.Framework.Color Celeste.LightingRenderer::GetMask(System.Int32,System.Single,System.Single)
+   IL_0019: stloc.1
+   IL_001a: ldarg.0
+   IL_001b: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_0020: ldarg.0
+   IL_0021: ldarg.0
+   IL_0022: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0027: stloc.2
+   IL_0028: ldloc.2
+   IL_0029: ldc.i4.1
+   IL_002a: add
+   IL_002b: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0030: ldloc.2
+   IL_0031: ldarg.0
+   IL_0032: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0037: stelem.i4
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_003e: ldarg.0
+   IL_003f: ldarg.0
+   IL_0040: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0045: stloc.2
+   IL_0046: ldloc.2
+   IL_0047: ldc.i4.1
+   IL_0048: add
+   IL_0049: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_004e: ldloc.2
+   IL_004f: ldarg.0
+   IL_0050: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0055: ldc.i4.1
+   IL_0056: add
+   IL_0057: stelem.i4
+   IL_0058: ldarg.0
+   IL_0059: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_005e: ldarg.0
+   IL_005f: ldarg.0
+   IL_0060: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0065: stloc.2
+   IL_0066: ldloc.2
+   IL_0067: ldc.i4.1
+   IL_0068: add
+   IL_0069: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_006e: ldloc.2
+   IL_006f: ldarg.0
+   IL_0070: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0075: ldc.i4.2
+   IL_0076: add
+   IL_0077: stelem.i4
+   IL_0078: ldarg.0
+   IL_0079: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_007e: ldarg.0
+   IL_007f: ldarg.0
+   IL_0080: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_0085: stloc.2
+   IL_0086: ldloc.2
+   IL_0087: ldc.i4.1
+   IL_0088: add
+   IL_0089: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_008e: ldloc.2
+   IL_008f: ldarg.0
+   IL_0090: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0095: stelem.i4
+   IL_0096: ldarg.0
+   IL_0097: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_009c: ldarg.0
+   IL_009d: ldarg.0
+   IL_009e: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_00a3: stloc.2
+   IL_00a4: ldloc.2
+   IL_00a5: ldc.i4.1
+   IL_00a6: add
+   IL_00a7: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_00ac: ldloc.2
+   IL_00ad: ldarg.0
+   IL_00ae: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_00b3: ldc.i4.2
+   IL_00b4: add
+   IL_00b5: stelem.i4
+   IL_00b6: ldarg.0
+   IL_00b7: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_00bc: ldarg.0
+   IL_00bd: ldarg.0
+   IL_00be: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_00c3: stloc.2
+   IL_00c4: ldloc.2
+   IL_00c5: ldc.i4.1
+   IL_00c6: add
+   IL_00c7: stfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_00cc: ldloc.2
+   IL_00cd: ldarg.0
+   IL_00ce: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_00d3: ldc.i4.3
+   IL_00d4: add
+   IL_00d5: stelem.i4
+   IL_00d6: ldarg.0
+   IL_00d7: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_00dc: ldarg.0
+   IL_00dd: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_00e2: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_00e7: ldarg.2
+   IL_00e8: ldarg.s radius
+   IL_00ea: neg
+   IL_00eb: ldarg.s radius
+   IL_00ed: neg
+   IL_00ee: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00f3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00f8: ldc.r4 0
+   IL_00fd: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0102: stfld Microsoft.Xna.Framework.Vector3 Celeste.LightingRenderer/VertexPositionColorMaskTexture::Position
+   IL_0107: ldarg.0
+   IL_0108: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_010d: ldarg.0
+   IL_010e: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0113: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_0118: ldarg.3
+   IL_0119: stfld Microsoft.Xna.Framework.Color Celeste.LightingRenderer/VertexPositionColorMaskTexture::Color
+   IL_011e: ldarg.0
+   IL_011f: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_0124: ldarg.0
+   IL_0125: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_012a: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_012f: ldloc.1
+   IL_0130: stfld Microsoft.Xna.Framework.Color Celeste.LightingRenderer/VertexPositionColorMaskTexture::Mask
+   IL_0135: ldarg.0
+   IL_0136: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_013b: ldarg.0
+   IL_013c: ldarg.0
+   IL_013d: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0142: stloc.2
+   IL_0143: ldloc.2
+   IL_0144: ldc.i4.1
+   IL_0145: add
+   IL_0146: stfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_014b: ldloc.2
+   IL_014c: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_0151: ldloc.0
+   IL_0152: ldfld System.Single Microsoft.Xna.Framework.Vector3::X
+   IL_0157: ldarg.s radius
+   IL_0159: sub
+   IL_015a: ldloc.0
+   IL_015b: ldfld System.Single Microsoft.Xna.Framework.Vector3::Y
+   IL_0160: ldarg.s radius
+   IL_0162: sub
+   IL_0163: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0168: ldc.r4 1024
+ + IL_10000: call System.Single Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetLightTextureSize(System.Single) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.LightingRendererDrawLightHook(ILContext)
+   IL_016d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0172: stfld Microsoft.Xna.Framework.Vector2 Celeste.LightingRenderer/VertexPositionColorMaskTexture::Texcoord
+   IL_0177: ldarg.0
+   IL_0178: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_017d: ldarg.0
+   IL_017e: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0183: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_0188: ldarg.2
+   IL_0189: ldarg.s radius
+   IL_018b: ldarg.s radius
+   IL_018d: neg
+   IL_018e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0193: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0198: ldc.r4 0
+   IL_019d: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01a2: stfld Microsoft.Xna.Framework.Vector3 Celeste.LightingRenderer/VertexPositionColorMaskTexture::Position
+   IL_01a7: ldarg.0
+   IL_01a8: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_01ad: ldarg.0
+   IL_01ae: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_01b3: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_01b8: ldarg.3
+   IL_01b9: stfld Microsoft.Xna.Framework.Color Celeste.LightingRenderer/VertexPositionColorMaskTexture::Color
+   IL_01be: ldarg.0
+   IL_01bf: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_01c4: ldarg.0
+   IL_01c5: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_01ca: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_01cf: ldloc.1
+   IL_01d0: stfld Microsoft.Xna.Framework.Color Celeste.LightingRenderer/VertexPositionColorMaskTexture::Mask
+   IL_01d5: ldarg.0
+   IL_01d6: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_01db: ldarg.0
+   IL_01dc: ldarg.0
+   IL_01dd: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_01e2: stloc.2
+   IL_01e3: ldloc.2
+   IL_01e4: ldc.i4.1
+   IL_01e5: add
+   IL_01e6: stfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_01eb: ldloc.2
+   IL_01ec: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_01f1: ldloc.0
+   IL_01f2: ldfld System.Single Microsoft.Xna.Framework.Vector3::X
+   IL_01f7: ldarg.s radius
+   IL_01f9: add
+   IL_01fa: ldloc.0
+   IL_01fb: ldfld System.Single Microsoft.Xna.Framework.Vector3::Y
+   IL_0200: ldarg.s radius
+   IL_0202: sub
+   IL_0203: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0208: ldc.r4 1024
+ + IL_10001: call System.Single Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetLightTextureSize(System.Single) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.LightingRendererDrawLightHook(ILContext)
+   IL_020d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0212: stfld Microsoft.Xna.Framework.Vector2 Celeste.LightingRenderer/VertexPositionColorMaskTexture::Texcoord
+   IL_0217: ldarg.0
+   IL_0218: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_021d: ldarg.0
+   IL_021e: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0223: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_0228: ldarg.2
+   IL_0229: ldarg.s radius
+   IL_022b: ldarg.s radius
+   IL_022d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0232: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0237: ldc.r4 0
+   IL_023c: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0241: stfld Microsoft.Xna.Framework.Vector3 Celeste.LightingRenderer/VertexPositionColorMaskTexture::Position
+   IL_0246: ldarg.0
+   IL_0247: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_024c: ldarg.0
+   IL_024d: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0252: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_0257: ldarg.3
+   IL_0258: stfld Microsoft.Xna.Framework.Color Celeste.LightingRenderer/VertexPositionColorMaskTexture::Color
+   IL_025d: ldarg.0
+   IL_025e: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_0263: ldarg.0
+   IL_0264: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0269: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_026e: ldloc.1
+   IL_026f: stfld Microsoft.Xna.Framework.Color Celeste.LightingRenderer/VertexPositionColorMaskTexture::Mask
+   IL_0274: ldarg.0
+   IL_0275: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_027a: ldarg.0
+   IL_027b: ldarg.0
+   IL_027c: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0281: stloc.2
+   IL_0282: ldloc.2
+   IL_0283: ldc.i4.1
+   IL_0284: add
+   IL_0285: stfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_028a: ldloc.2
+   IL_028b: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_0290: ldloc.0
+   IL_0291: ldfld System.Single Microsoft.Xna.Framework.Vector3::X
+   IL_0296: ldarg.s radius
+   IL_0298: add
+   IL_0299: ldloc.0
+   IL_029a: ldfld System.Single Microsoft.Xna.Framework.Vector3::Y
+   IL_029f: ldarg.s radius
+   IL_02a1: add
+   IL_02a2: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_02a7: ldc.r4 1024
+ + IL_10002: call System.Single Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetLightTextureSize(System.Single) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.LightingRendererDrawLightHook(ILContext)
+   IL_02ac: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02b1: stfld Microsoft.Xna.Framework.Vector2 Celeste.LightingRenderer/VertexPositionColorMaskTexture::Texcoord
+   IL_02b6: ldarg.0
+   IL_02b7: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_02bc: ldarg.0
+   IL_02bd: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_02c2: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_02c7: ldarg.2
+   IL_02c8: ldarg.s radius
+   IL_02ca: neg
+   IL_02cb: ldarg.s radius
+   IL_02cd: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_02d2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02d7: ldc.r4 0
+   IL_02dc: newobj System.Void Microsoft.Xna.Framework.Vector3::.ctor(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02e1: stfld Microsoft.Xna.Framework.Vector3 Celeste.LightingRenderer/VertexPositionColorMaskTexture::Position
+   IL_02e6: ldarg.0
+   IL_02e7: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_02ec: ldarg.0
+   IL_02ed: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_02f2: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_02f7: ldarg.3
+   IL_02f8: stfld Microsoft.Xna.Framework.Color Celeste.LightingRenderer/VertexPositionColorMaskTexture::Color
+   IL_02fd: ldarg.0
+   IL_02fe: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_0303: ldarg.0
+   IL_0304: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0309: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_030e: ldloc.1
+   IL_030f: stfld Microsoft.Xna.Framework.Color Celeste.LightingRenderer/VertexPositionColorMaskTexture::Mask
+   IL_0314: ldarg.0
+   IL_0315: ldfld Celeste.LightingRenderer/VertexPositionColorMaskTexture[] Celeste.LightingRenderer::resultVerts
+   IL_031a: ldarg.0
+   IL_031b: ldarg.0
+   IL_031c: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0321: stloc.2
+   IL_0322: ldloc.2
+   IL_0323: ldc.i4.1
+   IL_0324: add
+   IL_0325: stfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_032a: ldloc.2
+   IL_032b: ldelema Celeste.LightingRenderer/VertexPositionColorMaskTexture
+   IL_0330: ldloc.0
+   IL_0331: ldfld System.Single Microsoft.Xna.Framework.Vector3::X
+   IL_0336: ldarg.s radius
+   IL_0338: sub
+   IL_0339: ldloc.0
+   IL_033a: ldfld System.Single Microsoft.Xna.Framework.Vector3::Y
+   IL_033f: ldarg.s radius
+   IL_0341: add
+   IL_0342: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0347: ldc.r4 1024
+ + IL_10003: call System.Single Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetLightTextureSize(System.Single) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.LightingRendererDrawLightHook(ILContext)
+   IL_034c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0351: stfld Microsoft.Xna.Framework.Vector2 Celeste.LightingRenderer/VertexPositionColorMaskTexture::Texcoord
+   IL_0356: ret

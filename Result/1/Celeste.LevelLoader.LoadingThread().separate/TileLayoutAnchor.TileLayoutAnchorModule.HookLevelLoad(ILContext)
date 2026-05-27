@@ -1,0 +1,1633 @@
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_0006: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_000b: stloc.0
+   IL_000c: ldarg.0
+   IL_000d: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_0012: call Celeste.AreaData Celeste.AreaData::Get(Celeste.Session)
+   IL_0017: stloc.1
+   IL_0018: ldarg.0
+   IL_0019: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_001e: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_0023: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0028: brtrue.s IL_003a
+   IL_002a: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_002f: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0034: ldc.i4.0
+   IL_0035: stfld Celeste.Assists/DashModes Celeste.Assists::DashMode
+   IL_003a: ldarg.0
+   IL_003b: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0040: ldarg.0
+   IL_0041: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0046: newobj System.Void Celeste.GameplayRenderer::.ctor()
+   IL_004b: dup
+   IL_004c: stloc.3
+   IL_004d: stfld Celeste.GameplayRenderer Celeste.Level::GameplayRenderer
+   IL_0052: ldloc.3
+   IL_0053: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_0058: ldarg.0
+   IL_0059: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_005e: ldarg.0
+   IL_005f: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0064: newobj System.Void Celeste.LightingRenderer::.ctor()
+   IL_0069: dup
+   IL_006a: stloc.s V_4
+   IL_006c: stfld Celeste.LightingRenderer Celeste.Level::Lighting
+   IL_0071: ldloc.s V_4
+   IL_0073: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_0078: ldarg.0
+   IL_0079: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_007e: ldarg.0
+   IL_007f: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0084: newobj System.Void Celeste.BloomRenderer::.ctor()
+   IL_0089: dup
+   IL_008a: stloc.s V_5
+   IL_008c: stfld Celeste.BloomRenderer Celeste.Level::Bloom
+   IL_0091: ldloc.s V_5
+   IL_0093: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_0098: ldarg.0
+   IL_0099: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_009e: ldarg.0
+   IL_009f: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_00a4: newobj System.Void Celeste.DisplacementRenderer::.ctor()
+   IL_00a9: dup
+   IL_00aa: stloc.s V_6
+   IL_00ac: stfld Celeste.DisplacementRenderer Celeste.Level::Displacement
+   IL_00b1: ldloc.s V_6
+   IL_00b3: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_00b8: ldarg.0
+   IL_00b9: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_00be: ldarg.0
+   IL_00bf: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_00c4: newobj System.Void Celeste.BackdropRenderer::.ctor()
+   IL_00c9: dup
+   IL_00ca: stloc.s V_7
+   IL_00cc: stfld Celeste.BackdropRenderer Celeste.Level::Background
+   IL_00d1: ldloc.s V_7
+   IL_00d3: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_00d8: ldarg.0
+   IL_00d9: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_00de: ldarg.0
+   IL_00df: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_00e4: newobj System.Void Celeste.BackdropRenderer::.ctor()
+   IL_00e9: dup
+   IL_00ea: stloc.s V_7
+   IL_00ec: stfld Celeste.BackdropRenderer Celeste.Level::Foreground
+   IL_00f1: ldloc.s V_7
+   IL_00f3: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_00f8: ldarg.0
+   IL_00f9: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_00fe: newobj System.Void Celeste.DustEdges::.ctor()
+   IL_0103: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0108: ldarg.0
+   IL_0109: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_010e: newobj System.Void Celeste.WaterSurface::.ctor()
+   IL_0113: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0118: ldarg.0
+   IL_0119: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_011e: newobj System.Void Celeste.MirrorSurfaces::.ctor()
+   IL_0123: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0128: ldarg.0
+   IL_0129: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_012e: newobj System.Void Celeste.GlassBlockBg::.ctor()
+   IL_0133: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0138: ldarg.0
+   IL_0139: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_013e: newobj System.Void Celeste.LightningRenderer::.ctor()
+   IL_0143: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0148: ldarg.0
+   IL_0149: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_014e: newobj System.Void Celeste.SeekerBarrierRenderer::.ctor()
+   IL_0153: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0158: ldarg.0
+   IL_0159: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_015e: ldarg.0
+   IL_015f: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0164: newobj System.Void Celeste.Mod.UI.SubHudRenderer::.ctor()
+   IL_0169: dup
+   IL_016a: stloc.s V_83
+   IL_016c: stfld Celeste.Mod.UI.SubHudRenderer Celeste.Level::SubHudRenderer
+   IL_0171: ldloc.s V_83
+   IL_0173: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_0178: ldarg.0
+   IL_0179: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_017e: ldarg.0
+   IL_017f: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0184: newobj System.Void Celeste.HudRenderer::.ctor()
+   IL_0189: dup
+   IL_018a: stloc.s V_8
+   IL_018c: stfld Celeste.HudRenderer Celeste.Level::HudRenderer
+   IL_0191: ldloc.s V_8
+   IL_0193: callvirt System.Void Monocle.Scene::Add(Monocle.Renderer)
+   IL_0198: ldarg.0
+   IL_0199: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_019e: ldflda Celeste.AreaKey Celeste.Session::Area
+   IL_01a3: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_01a8: ldc.i4.s 9
+   IL_01aa: beq.s IL_01b7
+   IL_01ac: ldloc V_0
+   IL_01b0: call System.Boolean Celeste.LevelLoader::_ShouldAddIceTileOverlay(Celeste.MapData)
+   IL_01b5: brfalse.s IL_01c7
+   IL_01b7: ldarg.0
+   IL_01b8: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_01bd: newobj System.Void Celeste.IceTileOverlay::.ctor()
+   IL_01c2: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_01c7: ldarg.0
+   IL_01c8: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_01cd: ldarg.0
+   IL_01ce: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_01d3: ldfld Celeste.LightingRenderer Celeste.Level::Lighting
+   IL_01d8: ldloc.1
+   IL_01d9: ldfld System.Single Celeste.AreaData::DarknessAlpha
+   IL_01de: dup
+   IL_01df: stloc.s V_9
+   IL_01e1: stfld System.Single Celeste.LightingRenderer::Alpha
+   IL_01e6: ldloc.s V_9
+   IL_01e8: stfld System.Single Celeste.Level::BaseLightingAlpha
+   IL_01ed: ldarg.0
+   IL_01ee: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_01f3: ldfld Celeste.BloomRenderer Celeste.Level::Bloom
+   IL_01f8: ldloc.1
+   IL_01f9: ldfld System.Single Celeste.AreaData::BloomBase
+   IL_01fe: stfld System.Single Celeste.BloomRenderer::Base
+   IL_0203: ldarg.0
+   IL_0204: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0209: ldfld Celeste.BloomRenderer Celeste.Level::Bloom
+   IL_020e: ldloc.1
+   IL_020f: ldfld System.Single Celeste.AreaData::BloomStrength
+   IL_0214: stfld System.Single Celeste.BloomRenderer::Strength
+   IL_0219: ldarg.0
+   IL_021a: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_021f: ldloc.0
+   IL_0220: ldfld Microsoft.Xna.Framework.Color Celeste.MapData::BackgroundColor
+   IL_0225: stfld Microsoft.Xna.Framework.Color Celeste.Level::BackgroundColor
+   IL_022a: ldarg.0
+   IL_022b: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0230: ldfld Celeste.BackdropRenderer Celeste.Level::Background
+   IL_0235: ldloc.0
+   IL_0236: ldloc.0
+   IL_0237: ldfld Celeste.BinaryPacker/Element Celeste.MapData::Background
+   IL_023c: callvirt System.Collections.Generic.List`1<Celeste.Backdrop> Celeste.MapData::CreateBackdrops(Celeste.BinaryPacker/Element)
+   IL_0241: stfld System.Collections.Generic.List`1<Celeste.Backdrop> Celeste.BackdropRenderer::Backdrops
+   IL_0246: ldarg.0
+   IL_0247: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_024c: ldfld Celeste.BackdropRenderer Celeste.Level::Background
+   IL_0251: ldfld System.Collections.Generic.List`1<Celeste.Backdrop> Celeste.BackdropRenderer::Backdrops
+   IL_0256: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Backdrop>::GetEnumerator()
+   IL_025b: stloc.s V_10
+   IL_025d: br.s IL_0276
+   IL_025f: ldloca.s V_10
+   IL_0261: call T System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>::get_Current()
+   IL_0266: ldarg.0
+   IL_0267: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_026c: ldfld Celeste.BackdropRenderer Celeste.Level::Background
+   IL_0271: stfld Celeste.BackdropRenderer Celeste.Backdrop::Renderer
+   IL_0276: ldloca.s V_10
+   IL_0278: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>::MoveNext()
+   IL_027d: brtrue.s IL_025f
+   IL_027f: leave.s IL_028f
+   IL_0281: ldloca.s V_10
+   IL_0283: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>
+   IL_0289: callvirt System.Void System.IDisposable::Dispose()
+   IL_028e: endfinally
+   IL_028f: ldarg.0
+   IL_0290: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0295: ldfld Celeste.BackdropRenderer Celeste.Level::Foreground
+   IL_029a: ldloc.0
+   IL_029b: ldloc.0
+   IL_029c: ldfld Celeste.BinaryPacker/Element Celeste.MapData::Foreground
+   IL_02a1: callvirt System.Collections.Generic.List`1<Celeste.Backdrop> Celeste.MapData::CreateBackdrops(Celeste.BinaryPacker/Element)
+   IL_02a6: stfld System.Collections.Generic.List`1<Celeste.Backdrop> Celeste.BackdropRenderer::Backdrops
+   IL_02ab: ldarg.0
+   IL_02ac: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_02b1: ldfld Celeste.BackdropRenderer Celeste.Level::Foreground
+   IL_02b6: ldfld System.Collections.Generic.List`1<Celeste.Backdrop> Celeste.BackdropRenderer::Backdrops
+   IL_02bb: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Backdrop>::GetEnumerator()
+   IL_02c0: stloc.s V_10
+   IL_02c2: br.s IL_02db
+   IL_02c4: ldloca.s V_10
+   IL_02c6: call T System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>::get_Current()
+   IL_02cb: ldarg.0
+   IL_02cc: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_02d1: ldfld Celeste.BackdropRenderer Celeste.Level::Foreground
+   IL_02d6: stfld Celeste.BackdropRenderer Celeste.Backdrop::Renderer
+   IL_02db: ldloca.s V_10
+   IL_02dd: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>::MoveNext()
+   IL_02e2: brtrue.s IL_02c4
+   IL_02e4: leave.s IL_02f4
+   IL_02e6: ldloca.s V_10
+   IL_02e8: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>
+   IL_02ee: callvirt System.Void System.IDisposable::Dispose()
+   IL_02f3: endfinally
+   IL_02f4: ldarg.0
+   IL_02f5: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_02fa: callvirt Monocle.RendererList Monocle.Scene::get_RendererList()
+   IL_02ff: callvirt System.Void Monocle.RendererList::UpdateLists()
+   IL_0304: ldarg.0
+   IL_0305: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_030a: ldarg.0
+   IL_030b: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0310: newobj System.Void Celeste.FormationBackdrop::.ctor()
+   IL_0315: dup
+   IL_0316: stloc.s V_11
+   IL_0318: stfld Celeste.FormationBackdrop Celeste.Level::FormationBackdrop
+   IL_031d: ldloc.s V_11
+   IL_031f: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0324: ldarg.0
+   IL_0325: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_032a: ldarg.0
+   IL_032b: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0330: ldfld Celeste.GameplayRenderer Celeste.Level::GameplayRenderer
+   IL_0335: ldfld Monocle.Camera Celeste.GameplayRenderer::Camera
+   IL_033a: stfld Monocle.Camera Celeste.Level::Camera
+   IL_033f: ldarg.0
+   IL_0340: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0345: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_034a: call System.Void Celeste.Audio::SetCamera(Monocle.Camera)
+   IL_034f: ldarg.0
+   IL_0350: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0355: ldarg.0
+   IL_0356: ldfld Celeste.Session Celeste.LevelLoader::session
+   IL_035b: stfld Celeste.Session Celeste.Level::Session
+   IL_0360: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0365: ldarg.0
+   IL_0366: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_036b: ldfld Celeste.Session Celeste.Level::Session
+   IL_0370: callvirt System.Void Celeste.SaveData::StartSession(Celeste.Session)
+   IL_0375: ldarg.0
+   IL_0376: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_037b: ldc.i4 -8000
+   IL_0380: ldc.i4 400
+   IL_0385: newobj System.Void Monocle.ParticleSystem::.ctor(System.Int32,System.Int32)
+   IL_038a: stfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_038f: ldarg.0
+   IL_0390: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0395: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_039a: ldsfld Monocle.BitTag Celeste.Tags::Global
+   IL_039f: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_03a4: callvirt System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_03a9: ldarg.0
+   IL_03aa: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_03af: ldarg.0
+   IL_03b0: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_03b5: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_03ba: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_03bf: ldarg.0
+   IL_03c0: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_03c5: ldc.i4 8000
+   IL_03ca: ldc.i4 400
+   IL_03cf: newobj System.Void Monocle.ParticleSystem::.ctor(System.Int32,System.Int32)
+   IL_03d4: stfld Monocle.ParticleSystem Celeste.Level::ParticlesBG
+   IL_03d9: ldarg.0
+   IL_03da: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_03df: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesBG
+   IL_03e4: ldsfld Monocle.BitTag Celeste.Tags::Global
+   IL_03e9: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_03ee: callvirt System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_03f3: ldarg.0
+   IL_03f4: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_03f9: ldarg.0
+   IL_03fa: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_03ff: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesBG
+   IL_0404: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0409: ldarg.0
+   IL_040a: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_040f: ldc.i4 -50000
+   IL_0414: ldc.i4 800
+   IL_0419: newobj System.Void Monocle.ParticleSystem::.ctor(System.Int32,System.Int32)
+   IL_041e: stfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_0423: ldarg.0
+   IL_0424: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0429: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_042e: ldsfld Monocle.BitTag Celeste.Tags::Global
+   IL_0433: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0438: callvirt System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_043d: ldarg.0
+   IL_043e: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0443: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_0448: newobj System.Void Celeste.MirrorReflection::.ctor()
+   IL_044d: callvirt System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0452: ldarg.0
+   IL_0453: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0458: ldarg.0
+   IL_0459: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_045e: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
+   IL_0463: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0468: ldarg.0
+   IL_0469: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_046e: ldarg.0
+   IL_046f: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0474: newobj System.Void Celeste.TotalStrawberriesDisplay::.ctor()
+   IL_0479: dup
+   IL_047a: stloc.s V_12
+   IL_047c: stfld Celeste.TotalStrawberriesDisplay Celeste.Level::strawberriesDisplay
+   IL_0481: ldloc.s V_12
+   IL_0483: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0488: ldarg.0
+   IL_0489: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_048e: newobj System.Void Celeste.SpeedrunTimerDisplay::.ctor()
+   IL_0493: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0498: ldarg.0
+   IL_0499: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_049e: newobj System.Void Celeste.GameplayStats::.ctor()
+   IL_04a3: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_04a8: ldarg.0
+   IL_04a9: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_04ae: newobj System.Void Celeste.GrabbyIcon::.ctor()
+   IL_04b3: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_04b8: ldloc.0
+   IL_04b9: callvirt Microsoft.Xna.Framework.Rectangle Celeste.MapData::get_TileBounds()
+   IL_04be: stloc.2
+   IL_04bf: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_04c4: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Autotiler::LevelBounds
+   IL_04c9: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::Clear()
+   IL_04ce: ldloc.2
+   IL_04cf: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_04d4: ldloc.2
+   IL_04d5: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_04da: ldc.i4.s 48
+   IL_04dc: newobj System.Void Monocle.VirtualMap`1<System.Char>::.ctor(System.Int32,System.Int32,T)
+   IL_04e1: stloc.s V_13
+   IL_04e3: ldloc.2
+   IL_04e4: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_04e9: ldloc.2
+   IL_04ea: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_04ef: ldc.i4.s 48
+   IL_04f1: newobj System.Void Monocle.VirtualMap`1<System.Char>::.ctor(System.Int32,System.Int32,T)
+   IL_04f6: stloc.s V_14
+   IL_04f8: ldloc.2
+   IL_04f9: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_04fe: ldloc.2
+   IL_04ff: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_0504: ldc.i4.0
+   IL_0505: newobj System.Void Monocle.VirtualMap`1<System.Boolean>::.ctor(System.Int32,System.Int32,T)
+   IL_050a: stloc.s V_15
+   IL_050c: ldstr "\r\n|\n\r|\n|\r"
+   IL_0511: newobj System.Void System.Text.RegularExpressions.Regex::.ctor(System.String)
+   IL_0516: stloc.s V_16
+   IL_0518: ldloc.0
+   IL_0519: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_051e: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.LevelData>::GetEnumerator()
+   IL_0523: stloc.s V_20
+   IL_0525: br IL_0705
+   IL_052a: ldloca.s V_20
+   IL_052c: call T System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::get_Current()
+   IL_0531: stloc.s V_21
+   IL_0533: ldloc.s V_21
+   IL_0535: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_053a: stloc.s V_24
+   IL_053c: ldloca.s V_24
+   IL_053e: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0543: stloc.s V_22
+   IL_0545: ldloc.s V_21
+   IL_0547: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_054c: stloc.s V_24
+   IL_054e: ldloca.s V_24
+   IL_0550: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0555: stloc.s V_23
+   IL_0557: ldloc.s V_16
+   IL_0559: ldloc.s V_21
+   IL_055b: ldfld System.String Celeste.LevelData::Bg
+   IL_0560: callvirt System.String[] System.Text.RegularExpressions.Regex::Split(System.String)
+   IL_0565: stloc.s V_25
+   IL_0567: ldloc.s V_23
+   IL_0569: stloc.s V_26
+   IL_056b: br.s IL_05be
+   IL_056d: ldloc.s V_22
+   IL_056f: stloc.s V_27
+   IL_0571: br.s IL_05a4
+   IL_0573: ldloc.s V_13
+   IL_0575: ldloc.s V_27
+   IL_0577: ldloc.2
+   IL_0578: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_057d: sub
+   IL_057e: ldloc.s V_26
+   IL_0580: ldloc.2
+   IL_0581: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0586: sub
+   IL_0587: ldloc.s V_25
+   IL_0589: ldloc.s V_26
+   IL_058b: ldloc.s V_23
+   IL_058d: sub
+   IL_058e: ldelem.ref
+   IL_058f: ldloc.s V_27
+   IL_0591: ldloc.s V_22
+   IL_0593: sub
+   IL_0594: callvirt System.Char System.String::get_Chars(System.Int32)
+   IL_0599: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_059e: ldloc.s V_27
+   IL_05a0: ldc.i4.1
+   IL_05a1: add
+   IL_05a2: stloc.s V_27
+   IL_05a4: ldloc.s V_27
+   IL_05a6: ldloc.s V_22
+   IL_05a8: ldloc.s V_25
+   IL_05aa: ldloc.s V_26
+   IL_05ac: ldloc.s V_23
+   IL_05ae: sub
+   IL_05af: ldelem.ref
+   IL_05b0: callvirt System.Int32 System.String::get_Length()
+   IL_05b5: add
+   IL_05b6: blt.s IL_0573
+   IL_05b8: ldloc.s V_26
+   IL_05ba: ldc.i4.1
+   IL_05bb: add
+   IL_05bc: stloc.s V_26
+   IL_05be: ldloc.s V_26
+   IL_05c0: ldloc.s V_23
+   IL_05c2: ldloc.s V_25
+   IL_05c4: ldlen
+   IL_05c5: conv.i4
+   IL_05c6: add
+   IL_05c7: blt.s IL_056d
+   IL_05c9: ldloc.s V_16
+   IL_05cb: ldloc.s V_21
+   IL_05cd: ldfld System.String Celeste.LevelData::Solids
+   IL_05d2: callvirt System.String[] System.Text.RegularExpressions.Regex::Split(System.String)
+   IL_05d7: stloc.s V_28
+   IL_05d9: ldloc.s V_23
+   IL_05db: stloc.s V_29
+   IL_05dd: br.s IL_0630
+   IL_05df: ldloc.s V_22
+   IL_05e1: stloc.s V_30
+   IL_05e3: br.s IL_0616
+   IL_05e5: ldloc.s V_14
+   IL_05e7: ldloc.s V_30
+   IL_05e9: ldloc.2
+   IL_05ea: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_05ef: sub
+   IL_05f0: ldloc.s V_29
+   IL_05f2: ldloc.2
+   IL_05f3: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_05f8: sub
+   IL_05f9: ldloc.s V_28
+   IL_05fb: ldloc.s V_29
+   IL_05fd: ldloc.s V_23
+   IL_05ff: sub
+   IL_0600: ldelem.ref
+   IL_0601: ldloc.s V_30
+   IL_0603: ldloc.s V_22
+   IL_0605: sub
+   IL_0606: callvirt System.Char System.String::get_Chars(System.Int32)
+   IL_060b: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0610: ldloc.s V_30
+   IL_0612: ldc.i4.1
+   IL_0613: add
+   IL_0614: stloc.s V_30
+   IL_0616: ldloc.s V_30
+   IL_0618: ldloc.s V_22
+   IL_061a: ldloc.s V_28
+   IL_061c: ldloc.s V_29
+   IL_061e: ldloc.s V_23
+   IL_0620: sub
+   IL_0621: ldelem.ref
+   IL_0622: callvirt System.Int32 System.String::get_Length()
+   IL_0627: add
+   IL_0628: blt.s IL_05e5
+   IL_062a: ldloc.s V_29
+   IL_062c: ldc.i4.1
+   IL_062d: add
+   IL_062e: stloc.s V_29
+   IL_0630: ldloc.s V_29
+   IL_0632: ldloc.s V_23
+   IL_0634: ldloc.s V_28
+   IL_0636: ldlen
+   IL_0637: conv.i4
+   IL_0638: add
+   IL_0639: blt.s IL_05df
+   IL_063b: ldloc.s V_21
+   IL_063d: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0642: stloc.s V_24
+   IL_0644: ldloca.s V_24
+   IL_0646: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_064b: stloc.s V_31
+   IL_064d: br.s IL_069f
+   IL_064f: ldloc.s V_21
+   IL_0651: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0656: stloc.s V_24
+   IL_0658: ldloca.s V_24
+   IL_065a: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_065f: stloc.s V_32
+   IL_0661: br.s IL_0685
+   IL_0663: ldloc.s V_15
+   IL_0665: ldloc.s V_31
+   IL_0667: ldloca.s V_2
+   IL_0669: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_066e: sub
+   IL_066f: ldloc.s V_32
+   IL_0671: ldloca.s V_2
+   IL_0673: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0678: sub
+   IL_0679: ldc.i4.1
+   IL_067a: callvirt System.Void Monocle.VirtualMap`1<System.Boolean>::set_Item(System.Int32,System.Int32,T)
+   IL_067f: ldloc.s V_32
+   IL_0681: ldc.i4.1
+   IL_0682: add
+   IL_0683: stloc.s V_32
+   IL_0685: ldloc.s V_32
+   IL_0687: ldloc.s V_21
+   IL_0689: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_068e: stloc.s V_24
+   IL_0690: ldloca.s V_24
+   IL_0692: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0697: blt.s IL_0663
+   IL_0699: ldloc.s V_31
+   IL_069b: ldc.i4.1
+   IL_069c: add
+   IL_069d: stloc.s V_31
+   IL_069f: ldloc.s V_31
+   IL_06a1: ldloc.s V_21
+   IL_06a3: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_06a8: stloc.s V_24
+   IL_06aa: ldloca.s V_24
+   IL_06ac: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_06b1: blt.s IL_064f
+   IL_06b3: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_06b8: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Autotiler::LevelBounds
+   IL_06bd: ldloc.s V_21
+   IL_06bf: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_06c4: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_06c9: ldloc.2
+   IL_06ca: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_06cf: sub
+   IL_06d0: ldloc.s V_21
+   IL_06d2: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_06d7: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_06dc: ldloc.2
+   IL_06dd: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_06e2: sub
+   IL_06e3: ldloc.s V_21
+   IL_06e5: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_06ea: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_06ef: ldloc.s V_21
+   IL_06f1: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_06f6: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_06fb: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0700: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::Add(T)
+   IL_0705: ldloca.s V_20
+   IL_0707: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::MoveNext()
+   IL_070c: brtrue IL_052a
+   IL_0711: leave.s IL_0721
+   IL_0713: ldloca.s V_20
+   IL_0715: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>
+   IL_071b: callvirt System.Void System.IDisposable::Dispose()
+   IL_0720: endfinally
+   IL_0721: ldloc.0
+   IL_0722: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.MapData::Filler
+   IL_0727: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::GetEnumerator()
+   IL_072c: stloc.s V_33
+   IL_072e: br IL_08d3
+   IL_0733: ldloca.s V_33
+   IL_0735: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::get_Current()
+   IL_073a: stloc.s V_34
+   IL_073c: ldloca.s V_34
+   IL_073e: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0743: stloc.s V_35
+   IL_0745: br IL_08c5
+   IL_074a: ldloca.s V_34
+   IL_074c: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0751: stloc.s V_36
+   IL_0753: br IL_08b1
+   IL_0758: ldc.i4.s 48
+   IL_075a: stloc.s V_37
+   IL_075c: ldloca.s V_34
+   IL_075e: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0763: ldloc.2
+   IL_0764: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0769: sub
+   IL_076a: ldc.i4.0
+   IL_076b: ble.s IL_0799
+   IL_076d: ldloc.s V_14
+   IL_076f: ldloc.s V_35
+   IL_0771: ldloc.2
+   IL_0772: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0777: sub
+   IL_0778: ldloca.s V_34
+   IL_077a: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_077f: ldloc.2
+   IL_0780: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0785: sub
+   IL_0786: ldc.i4.1
+   IL_0787: sub
+   IL_0788: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_078d: stloc.s V_38
+   IL_078f: ldloc.s V_38
+   IL_0791: ldc.i4.s 48
+   IL_0793: beq.s IL_0799
+   IL_0795: ldloc.s V_38
+   IL_0797: stloc.s V_37
+   IL_0799: ldloc.s V_37
+   IL_079b: ldc.i4.s 48
+   IL_079d: bne.un.s IL_07dc
+   IL_079f: ldloca.s V_34
+   IL_07a1: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_07a6: ldloc.2
+   IL_07a7: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_07ac: sub
+   IL_07ad: ldc.i4.0
+   IL_07ae: ble.s IL_07dc
+   IL_07b0: ldloc.s V_14
+   IL_07b2: ldloca.s V_34
+   IL_07b4: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_07b9: ldloc.2
+   IL_07ba: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_07bf: sub
+   IL_07c0: ldc.i4.1
+   IL_07c1: sub
+   IL_07c2: ldloc.s V_36
+   IL_07c4: ldloc.2
+   IL_07c5: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_07ca: sub
+   IL_07cb: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_07d0: stloc.s V_39
+   IL_07d2: ldloc.s V_39
+   IL_07d4: ldc.i4.s 48
+   IL_07d6: beq.s IL_07dc
+   IL_07d8: ldloc.s V_39
+   IL_07da: stloc.s V_37
+   IL_07dc: ldloc.s V_37
+   IL_07de: ldc.i4.s 48
+   IL_07e0: bne.un.s IL_0824
+   IL_07e2: ldloca.s V_34
+   IL_07e4: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_07e9: ldloc.2
+   IL_07ea: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_07ef: sub
+   IL_07f0: ldloc.2
+   IL_07f1: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_07f6: ldc.i4.1
+   IL_07f7: sub
+   IL_07f8: bge.s IL_0824
+   IL_07fa: ldloc.s V_14
+   IL_07fc: ldloca.s V_34
+   IL_07fe: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0803: ldloc.2
+   IL_0804: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0809: sub
+   IL_080a: ldloc.s V_36
+   IL_080c: ldloc.2
+   IL_080d: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0812: sub
+   IL_0813: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0818: stloc.s V_40
+   IL_081a: ldloc.s V_40
+   IL_081c: ldc.i4.s 48
+   IL_081e: beq.s IL_0824
+   IL_0820: ldloc.s V_40
+   IL_0822: stloc.s V_37
+   IL_0824: ldloc.s V_37
+   IL_0826: ldc.i4.s 48
+   IL_0828: bne.un.s IL_086c
+   IL_082a: ldloca.s V_34
+   IL_082c: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0831: ldloc.2
+   IL_0832: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0837: sub
+   IL_0838: ldloc.2
+   IL_0839: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_083e: ldc.i4.1
+   IL_083f: sub
+   IL_0840: bge.s IL_086c
+   IL_0842: ldloc.s V_14
+   IL_0844: ldloc.s V_35
+   IL_0846: ldloc.2
+   IL_0847: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_084c: sub
+   IL_084d: ldloca.s V_34
+   IL_084f: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0854: ldloc.2
+   IL_0855: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_085a: sub
+   IL_085b: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0860: stloc.s V_41
+   IL_0862: ldloc.s V_41
+   IL_0864: ldc.i4.s 48
+   IL_0866: beq.s IL_086c
+   IL_0868: ldloc.s V_41
+   IL_086a: stloc.s V_37
+   IL_086c: ldloc.s V_37
+   IL_086e: ldc.i4.s 48
+   IL_0870: bne.un.s IL_0876
+   IL_0872: ldc.i4.s 49
+   IL_0874: stloc.s V_37
+   IL_0876: ldloc.s V_14
+   IL_0878: ldloc.s V_35
+   IL_087a: ldloc.2
+   IL_087b: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0880: sub
+   IL_0881: ldloc.s V_36
+   IL_0883: ldloc.2
+   IL_0884: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0889: sub
+   IL_088a: ldloc.s V_37
+   IL_088c: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0891: ldloc.s V_15
+   IL_0893: ldloc.s V_35
+   IL_0895: ldloc.2
+   IL_0896: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_089b: sub
+   IL_089c: ldloc.s V_36
+   IL_089e: ldloc.2
+   IL_089f: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_08a4: sub
+   IL_08a5: ldc.i4.1
+   IL_08a6: callvirt System.Void Monocle.VirtualMap`1<System.Boolean>::set_Item(System.Int32,System.Int32,T)
+   IL_08ab: ldloc.s V_36
+   IL_08ad: ldc.i4.1
+   IL_08ae: add
+   IL_08af: stloc.s V_36
+   IL_08b1: ldloc.s V_36
+   IL_08b3: ldloca.s V_34
+   IL_08b5: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_08ba: blt IL_0758
+   IL_08bf: ldloc.s V_35
+   IL_08c1: ldc.i4.1
+   IL_08c2: add
+   IL_08c3: stloc.s V_35
+   IL_08c5: ldloc.s V_35
+   IL_08c7: ldloca.s V_34
+   IL_08c9: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_08ce: blt IL_074a
+   IL_08d3: ldloca.s V_33
+   IL_08d5: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::MoveNext()
+   IL_08da: brtrue IL_0733
+   IL_08df: leave.s IL_08ef
+   IL_08e1: ldloca.s V_33
+   IL_08e3: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>
+   IL_08e9: callvirt System.Void System.IDisposable::Dispose()
+   IL_08ee: endfinally
+   IL_08ef: ldloc.0
+   IL_08f0: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_08f5: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.LevelData>::GetEnumerator()
+   IL_08fa: stloc.s V_20
+   IL_08fc: br IL_0b5e
+   IL_0901: ldloca.s V_20
+   IL_0903: call T System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::get_Current()
+   IL_0908: stloc.s V_42
+   IL_090a: ldloc.s V_42
+   IL_090c: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0911: stloc.s V_24
+   IL_0913: ldloca.s V_24
+   IL_0915: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_091a: stloc.s V_43
+   IL_091c: br IL_0a1b
+   IL_0921: ldloc.s V_42
+   IL_0923: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0928: stloc.s V_24
+   IL_092a: ldloca.s V_24
+   IL_092c: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0931: stloc.s V_44
+   IL_0933: ldloc.s V_13
+   IL_0935: ldloc.s V_43
+   IL_0937: ldloc.2
+   IL_0938: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_093d: sub
+   IL_093e: ldloc.s V_44
+   IL_0940: ldloc.2
+   IL_0941: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0946: sub
+   IL_0947: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_094c: stloc.s V_45
+   IL_094e: ldc.i4.1
+   IL_094f: stloc.s V_47
+   IL_0951: br.s IL_0977
+   IL_0953: ldloc.s V_13
+   IL_0955: ldloc.s V_43
+   IL_0957: ldloc.2
+   IL_0958: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_095d: sub
+   IL_095e: ldloc.s V_44
+   IL_0960: ldloc.2
+   IL_0961: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0966: sub
+   IL_0967: ldloc.s V_47
+   IL_0969: sub
+   IL_096a: ldloc.s V_45
+   IL_096c: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0971: ldloc.s V_47
+   IL_0973: ldc.i4.1
+   IL_0974: add
+   IL_0975: stloc.s V_47
+   IL_0977: ldloc.s V_47
+   IL_0979: ldc.i4.4
+   IL_097a: bge.s IL_099a
+   IL_097c: ldloc.s V_15
+   IL_097e: ldloc.s V_43
+   IL_0980: ldloc.2
+   IL_0981: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0986: sub
+   IL_0987: ldloc.s V_44
+   IL_0989: ldloc.2
+   IL_098a: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_098f: sub
+   IL_0990: ldloc.s V_47
+   IL_0992: sub
+   IL_0993: callvirt T Monocle.VirtualMap`1<System.Boolean>::get_Item(System.Int32,System.Int32)
+   IL_0998: brfalse.s IL_0953
+   IL_099a: ldloc.s V_42
+   IL_099c: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_09a1: stloc.s V_24
+   IL_09a3: ldloca.s V_24
+   IL_09a5: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_09aa: ldc.i4.1
+   IL_09ab: sub
+   IL_09ac: stloc.s V_44
+   IL_09ae: ldloc.s V_13
+   IL_09b0: ldloc.s V_43
+   IL_09b2: ldloc.2
+   IL_09b3: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_09b8: sub
+   IL_09b9: ldloc.s V_44
+   IL_09bb: ldloc.2
+   IL_09bc: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_09c1: sub
+   IL_09c2: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_09c7: stloc.s V_46
+   IL_09c9: ldc.i4.1
+   IL_09ca: stloc.s V_48
+   IL_09cc: br.s IL_09f2
+   IL_09ce: ldloc.s V_13
+   IL_09d0: ldloc.s V_43
+   IL_09d2: ldloc.2
+   IL_09d3: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_09d8: sub
+   IL_09d9: ldloc.s V_44
+   IL_09db: ldloc.2
+   IL_09dc: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_09e1: sub
+   IL_09e2: ldloc.s V_48
+   IL_09e4: add
+   IL_09e5: ldloc.s V_46
+   IL_09e7: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_09ec: ldloc.s V_48
+   IL_09ee: ldc.i4.1
+   IL_09ef: add
+   IL_09f0: stloc.s V_48
+   IL_09f2: ldloc.s V_48
+   IL_09f4: ldc.i4.4
+   IL_09f5: bge.s IL_0a15
+   IL_09f7: ldloc.s V_15
+   IL_09f9: ldloc.s V_43
+   IL_09fb: ldloc.2
+   IL_09fc: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0a01: sub
+   IL_0a02: ldloc.s V_44
+   IL_0a04: ldloc.2
+   IL_0a05: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0a0a: sub
+   IL_0a0b: ldloc.s V_48
+   IL_0a0d: add
+   IL_0a0e: callvirt T Monocle.VirtualMap`1<System.Boolean>::get_Item(System.Int32,System.Int32)
+   IL_0a13: brfalse.s IL_09ce
+   IL_0a15: ldloc.s V_43
+   IL_0a17: ldc.i4.1
+   IL_0a18: add
+   IL_0a19: stloc.s V_43
+   IL_0a1b: ldloc.s V_43
+   IL_0a1d: ldloc.s V_42
+   IL_0a1f: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0a24: stloc.s V_24
+   IL_0a26: ldloca.s V_24
+   IL_0a28: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0a2d: blt IL_0921
+   IL_0a32: ldloc.s V_42
+   IL_0a34: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0a39: stloc.s V_24
+   IL_0a3b: ldloca.s V_24
+   IL_0a3d: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0a42: ldc.i4.4
+   IL_0a43: sub
+   IL_0a44: stloc.s V_49
+   IL_0a46: br IL_0b45
+   IL_0a4b: ldloc.s V_42
+   IL_0a4d: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0a52: stloc.s V_24
+   IL_0a54: ldloca.s V_24
+   IL_0a56: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0a5b: stloc.s V_50
+   IL_0a5d: ldloc.s V_13
+   IL_0a5f: ldloc.s V_50
+   IL_0a61: ldloc.2
+   IL_0a62: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0a67: sub
+   IL_0a68: ldloc.s V_49
+   IL_0a6a: ldloc.2
+   IL_0a6b: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0a70: sub
+   IL_0a71: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0a76: stloc.s V_51
+   IL_0a78: ldc.i4.1
+   IL_0a79: stloc.s V_53
+   IL_0a7b: br.s IL_0aa1
+   IL_0a7d: ldloc.s V_13
+   IL_0a7f: ldloc.s V_50
+   IL_0a81: ldloc.2
+   IL_0a82: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0a87: sub
+   IL_0a88: ldloc.s V_53
+   IL_0a8a: sub
+   IL_0a8b: ldloc.s V_49
+   IL_0a8d: ldloc.2
+   IL_0a8e: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0a93: sub
+   IL_0a94: ldloc.s V_51
+   IL_0a96: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0a9b: ldloc.s V_53
+   IL_0a9d: ldc.i4.1
+   IL_0a9e: add
+   IL_0a9f: stloc.s V_53
+   IL_0aa1: ldloc.s V_53
+   IL_0aa3: ldc.i4.4
+   IL_0aa4: bge.s IL_0ac4
+   IL_0aa6: ldloc.s V_15
+   IL_0aa8: ldloc.s V_50
+   IL_0aaa: ldloc.2
+   IL_0aab: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0ab0: sub
+   IL_0ab1: ldloc.s V_53
+   IL_0ab3: sub
+   IL_0ab4: ldloc.s V_49
+   IL_0ab6: ldloc.2
+   IL_0ab7: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0abc: sub
+   IL_0abd: callvirt T Monocle.VirtualMap`1<System.Boolean>::get_Item(System.Int32,System.Int32)
+   IL_0ac2: brfalse.s IL_0a7d
+   IL_0ac4: ldloc.s V_42
+   IL_0ac6: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0acb: stloc.s V_24
+   IL_0acd: ldloca.s V_24
+   IL_0acf: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0ad4: ldc.i4.1
+   IL_0ad5: sub
+   IL_0ad6: stloc.s V_50
+   IL_0ad8: ldloc.s V_13
+   IL_0ada: ldloc.s V_50
+   IL_0adc: ldloc.2
+   IL_0add: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0ae2: sub
+   IL_0ae3: ldloc.s V_49
+   IL_0ae5: ldloc.2
+   IL_0ae6: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0aeb: sub
+   IL_0aec: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0af1: stloc.s V_52
+   IL_0af3: ldc.i4.1
+   IL_0af4: stloc.s V_54
+   IL_0af6: br.s IL_0b1c
+   IL_0af8: ldloc.s V_13
+   IL_0afa: ldloc.s V_50
+   IL_0afc: ldloc.2
+   IL_0afd: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0b02: sub
+   IL_0b03: ldloc.s V_54
+   IL_0b05: add
+   IL_0b06: ldloc.s V_49
+   IL_0b08: ldloc.2
+   IL_0b09: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0b0e: sub
+   IL_0b0f: ldloc.s V_52
+   IL_0b11: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0b16: ldloc.s V_54
+   IL_0b18: ldc.i4.1
+   IL_0b19: add
+   IL_0b1a: stloc.s V_54
+   IL_0b1c: ldloc.s V_54
+   IL_0b1e: ldc.i4.4
+   IL_0b1f: bge.s IL_0b3f
+   IL_0b21: ldloc.s V_15
+   IL_0b23: ldloc.s V_50
+   IL_0b25: ldloc.2
+   IL_0b26: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0b2b: sub
+   IL_0b2c: ldloc.s V_54
+   IL_0b2e: add
+   IL_0b2f: ldloc.s V_49
+   IL_0b31: ldloc.2
+   IL_0b32: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0b37: sub
+   IL_0b38: callvirt T Monocle.VirtualMap`1<System.Boolean>::get_Item(System.Int32,System.Int32)
+   IL_0b3d: brfalse.s IL_0af8
+   IL_0b3f: ldloc.s V_49
+   IL_0b41: ldc.i4.1
+   IL_0b42: add
+   IL_0b43: stloc.s V_49
+   IL_0b45: ldloc.s V_49
+   IL_0b47: ldloc.s V_42
+   IL_0b49: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0b4e: stloc.s V_24
+   IL_0b50: ldloca.s V_24
+   IL_0b52: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0b57: ldc.i4.4
+   IL_0b58: add
+   IL_0b59: blt IL_0a4b
+   IL_0b5e: ldloca.s V_20
+   IL_0b60: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::MoveNext()
+   IL_0b65: brtrue IL_0901
+   IL_0b6a: leave.s IL_0b7a
+   IL_0b6c: ldloca.s V_20
+   IL_0b6e: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>
+   IL_0b74: callvirt System.Void System.IDisposable::Dispose()
+   IL_0b79: endfinally
+   IL_0b7a: ldloc.0
+   IL_0b7b: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_0b80: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.LevelData>::GetEnumerator()
+   IL_0b85: stloc.s V_20
+   IL_0b87: br IL_0c83
+   IL_0b8c: ldloca.s V_20
+   IL_0b8e: call T System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::get_Current()
+   IL_0b93: stloc.s V_55
+   IL_0b95: ldloc.s V_55
+   IL_0b97: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0b9c: stloc.s V_24
+   IL_0b9e: ldloca.s V_24
+   IL_0ba0: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0ba5: stloc.s V_56
+   IL_0ba7: br IL_0c6c
+   IL_0bac: ldloc.s V_55
+   IL_0bae: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0bb3: stloc.s V_24
+   IL_0bb5: ldloca.s V_24
+   IL_0bb7: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0bbc: stloc.s V_57
+   IL_0bbe: ldloc.s V_14
+   IL_0bc0: ldloc.s V_56
+   IL_0bc2: ldloc.2
+   IL_0bc3: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0bc8: sub
+   IL_0bc9: ldloc.s V_57
+   IL_0bcb: ldloc.2
+   IL_0bcc: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0bd1: sub
+   IL_0bd2: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0bd7: ldc.i4.s 48
+   IL_0bd9: bne.un.s IL_0c08
+   IL_0bdb: ldc.i4.1
+   IL_0bdc: stloc.s V_58
+   IL_0bde: br.s IL_0c03
+   IL_0be0: ldloc.s V_15
+   IL_0be2: ldloc.s V_56
+   IL_0be4: ldloc.2
+   IL_0be5: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0bea: sub
+   IL_0beb: ldloc.s V_57
+   IL_0bed: ldloc.2
+   IL_0bee: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0bf3: sub
+   IL_0bf4: ldloc.s V_58
+   IL_0bf6: sub
+   IL_0bf7: ldc.i4.1
+   IL_0bf8: callvirt System.Void Monocle.VirtualMap`1<System.Boolean>::set_Item(System.Int32,System.Int32,T)
+   IL_0bfd: ldloc.s V_58
+   IL_0bff: ldc.i4.1
+   IL_0c00: add
+   IL_0c01: stloc.s V_58
+   IL_0c03: ldloc.s V_58
+   IL_0c05: ldc.i4.8
+   IL_0c06: blt.s IL_0be0
+   IL_0c08: ldloc.s V_55
+   IL_0c0a: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0c0f: stloc.s V_24
+   IL_0c11: ldloca.s V_24
+   IL_0c13: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0c18: ldc.i4.1
+   IL_0c19: sub
+   IL_0c1a: stloc.s V_57
+   IL_0c1c: ldloc.s V_14
+   IL_0c1e: ldloc.s V_56
+   IL_0c20: ldloc.2
+   IL_0c21: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0c26: sub
+   IL_0c27: ldloc.s V_57
+   IL_0c29: ldloc.2
+   IL_0c2a: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0c2f: sub
+   IL_0c30: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0c35: ldc.i4.s 48
+   IL_0c37: bne.un.s IL_0c66
+   IL_0c39: ldc.i4.1
+   IL_0c3a: stloc.s V_59
+   IL_0c3c: br.s IL_0c61
+   IL_0c3e: ldloc.s V_15
+   IL_0c40: ldloc.s V_56
+   IL_0c42: ldloc.2
+   IL_0c43: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0c48: sub
+   IL_0c49: ldloc.s V_57
+   IL_0c4b: ldloc.2
+   IL_0c4c: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0c51: sub
+   IL_0c52: ldloc.s V_59
+   IL_0c54: add
+   IL_0c55: ldc.i4.1
+   IL_0c56: callvirt System.Void Monocle.VirtualMap`1<System.Boolean>::set_Item(System.Int32,System.Int32,T)
+   IL_0c5b: ldloc.s V_59
+   IL_0c5d: ldc.i4.1
+   IL_0c5e: add
+   IL_0c5f: stloc.s V_59
+   IL_0c61: ldloc.s V_59
+   IL_0c63: ldc.i4.8
+   IL_0c64: blt.s IL_0c3e
+   IL_0c66: ldloc.s V_56
+   IL_0c68: ldc.i4.1
+   IL_0c69: add
+   IL_0c6a: stloc.s V_56
+   IL_0c6c: ldloc.s V_56
+   IL_0c6e: ldloc.s V_55
+   IL_0c70: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0c75: stloc.s V_24
+   IL_0c77: ldloca.s V_24
+   IL_0c79: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0c7e: blt IL_0bac
+   IL_0c83: ldloca.s V_20
+   IL_0c85: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::MoveNext()
+   IL_0c8a: brtrue IL_0b8c
+   IL_0c8f: leave.s IL_0c9f
+   IL_0c91: ldloca.s V_20
+   IL_0c93: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>
+   IL_0c99: callvirt System.Void System.IDisposable::Dispose()
+   IL_0c9e: endfinally
+   IL_0c9f: ldloc.0
+   IL_0ca0: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_0ca5: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.LevelData>::GetEnumerator()
+   IL_0caa: stloc.s V_20
+   IL_0cac: br IL_0f0e
+   IL_0cb1: ldloca.s V_20
+   IL_0cb3: call T System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::get_Current()
+   IL_0cb8: stloc.s V_60
+   IL_0cba: ldloc.s V_60
+   IL_0cbc: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0cc1: stloc.s V_24
+   IL_0cc3: ldloca.s V_24
+   IL_0cc5: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0cca: stloc.s V_61
+   IL_0ccc: br IL_0dcb
+   IL_0cd1: ldloc.s V_60
+   IL_0cd3: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0cd8: stloc.s V_24
+   IL_0cda: ldloca.s V_24
+   IL_0cdc: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0ce1: stloc.s V_62
+   IL_0ce3: ldloc.s V_14
+   IL_0ce5: ldloc.s V_61
+   IL_0ce7: ldloc.2
+   IL_0ce8: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0ced: sub
+   IL_0cee: ldloc.s V_62
+   IL_0cf0: ldloc.2
+   IL_0cf1: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0cf6: sub
+   IL_0cf7: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0cfc: stloc.s V_63
+   IL_0cfe: ldc.i4.1
+   IL_0cff: stloc.s V_65
+   IL_0d01: br.s IL_0d27
+   IL_0d03: ldloc.s V_14
+   IL_0d05: ldloc.s V_61
+   IL_0d07: ldloc.2
+   IL_0d08: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0d0d: sub
+   IL_0d0e: ldloc.s V_62
+   IL_0d10: ldloc.2
+   IL_0d11: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0d16: sub
+   IL_0d17: ldloc.s V_65
+   IL_0d19: sub
+   IL_0d1a: ldloc.s V_63
+   IL_0d1c: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0d21: ldloc.s V_65
+   IL_0d23: ldc.i4.1
+   IL_0d24: add
+   IL_0d25: stloc.s V_65
+   IL_0d27: ldloc.s V_65
+   IL_0d29: ldc.i4.4
+   IL_0d2a: bge.s IL_0d4a
+   IL_0d2c: ldloc.s V_15
+   IL_0d2e: ldloc.s V_61
+   IL_0d30: ldloc.2
+   IL_0d31: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0d36: sub
+   IL_0d37: ldloc.s V_62
+   IL_0d39: ldloc.2
+   IL_0d3a: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0d3f: sub
+   IL_0d40: ldloc.s V_65
+   IL_0d42: sub
+   IL_0d43: callvirt T Monocle.VirtualMap`1<System.Boolean>::get_Item(System.Int32,System.Int32)
+   IL_0d48: brfalse.s IL_0d03
+   IL_0d4a: ldloc.s V_60
+   IL_0d4c: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0d51: stloc.s V_24
+   IL_0d53: ldloca.s V_24
+   IL_0d55: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0d5a: ldc.i4.1
+   IL_0d5b: sub
+   IL_0d5c: stloc.s V_62
+   IL_0d5e: ldloc.s V_14
+   IL_0d60: ldloc.s V_61
+   IL_0d62: ldloc.2
+   IL_0d63: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0d68: sub
+   IL_0d69: ldloc.s V_62
+   IL_0d6b: ldloc.2
+   IL_0d6c: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0d71: sub
+   IL_0d72: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0d77: stloc.s V_64
+   IL_0d79: ldc.i4.1
+   IL_0d7a: stloc.s V_66
+   IL_0d7c: br.s IL_0da2
+   IL_0d7e: ldloc.s V_14
+   IL_0d80: ldloc.s V_61
+   IL_0d82: ldloc.2
+   IL_0d83: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0d88: sub
+   IL_0d89: ldloc.s V_62
+   IL_0d8b: ldloc.2
+   IL_0d8c: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0d91: sub
+   IL_0d92: ldloc.s V_66
+   IL_0d94: add
+   IL_0d95: ldloc.s V_64
+   IL_0d97: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0d9c: ldloc.s V_66
+   IL_0d9e: ldc.i4.1
+   IL_0d9f: add
+   IL_0da0: stloc.s V_66
+   IL_0da2: ldloc.s V_66
+   IL_0da4: ldc.i4.4
+   IL_0da5: bge.s IL_0dc5
+   IL_0da7: ldloc.s V_15
+   IL_0da9: ldloc.s V_61
+   IL_0dab: ldloc.2
+   IL_0dac: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0db1: sub
+   IL_0db2: ldloc.s V_62
+   IL_0db4: ldloc.2
+   IL_0db5: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0dba: sub
+   IL_0dbb: ldloc.s V_66
+   IL_0dbd: add
+   IL_0dbe: callvirt T Monocle.VirtualMap`1<System.Boolean>::get_Item(System.Int32,System.Int32)
+   IL_0dc3: brfalse.s IL_0d7e
+   IL_0dc5: ldloc.s V_61
+   IL_0dc7: ldc.i4.1
+   IL_0dc8: add
+   IL_0dc9: stloc.s V_61
+   IL_0dcb: ldloc.s V_61
+   IL_0dcd: ldloc.s V_60
+   IL_0dcf: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0dd4: stloc.s V_24
+   IL_0dd6: ldloca.s V_24
+   IL_0dd8: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0ddd: blt IL_0cd1
+   IL_0de2: ldloc.s V_60
+   IL_0de4: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0de9: stloc.s V_24
+   IL_0deb: ldloca.s V_24
+   IL_0ded: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0df2: ldc.i4.4
+   IL_0df3: sub
+   IL_0df4: stloc.s V_67
+   IL_0df6: br IL_0ef5
+   IL_0dfb: ldloc.s V_60
+   IL_0dfd: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0e02: stloc.s V_24
+   IL_0e04: ldloca.s V_24
+   IL_0e06: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0e0b: stloc.s V_68
+   IL_0e0d: ldloc.s V_14
+   IL_0e0f: ldloc.s V_68
+   IL_0e11: ldloc.2
+   IL_0e12: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0e17: sub
+   IL_0e18: ldloc.s V_67
+   IL_0e1a: ldloc.2
+   IL_0e1b: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0e20: sub
+   IL_0e21: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0e26: stloc.s V_69
+   IL_0e28: ldc.i4.1
+   IL_0e29: stloc.s V_71
+   IL_0e2b: br.s IL_0e51
+   IL_0e2d: ldloc.s V_14
+   IL_0e2f: ldloc.s V_68
+   IL_0e31: ldloc.2
+   IL_0e32: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0e37: sub
+   IL_0e38: ldloc.s V_71
+   IL_0e3a: sub
+   IL_0e3b: ldloc.s V_67
+   IL_0e3d: ldloc.2
+   IL_0e3e: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0e43: sub
+   IL_0e44: ldloc.s V_69
+   IL_0e46: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0e4b: ldloc.s V_71
+   IL_0e4d: ldc.i4.1
+   IL_0e4e: add
+   IL_0e4f: stloc.s V_71
+   IL_0e51: ldloc.s V_71
+   IL_0e53: ldc.i4.4
+   IL_0e54: bge.s IL_0e74
+   IL_0e56: ldloc.s V_15
+   IL_0e58: ldloc.s V_68
+   IL_0e5a: ldloc.2
+   IL_0e5b: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0e60: sub
+   IL_0e61: ldloc.s V_71
+   IL_0e63: sub
+   IL_0e64: ldloc.s V_67
+   IL_0e66: ldloc.2
+   IL_0e67: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0e6c: sub
+   IL_0e6d: callvirt T Monocle.VirtualMap`1<System.Boolean>::get_Item(System.Int32,System.Int32)
+   IL_0e72: brfalse.s IL_0e2d
+   IL_0e74: ldloc.s V_60
+   IL_0e76: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0e7b: stloc.s V_24
+   IL_0e7d: ldloca.s V_24
+   IL_0e7f: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0e84: ldc.i4.1
+   IL_0e85: sub
+   IL_0e86: stloc.s V_68
+   IL_0e88: ldloc.s V_14
+   IL_0e8a: ldloc.s V_68
+   IL_0e8c: ldloc.2
+   IL_0e8d: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0e92: sub
+   IL_0e93: ldloc.s V_67
+   IL_0e95: ldloc.2
+   IL_0e96: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0e9b: sub
+   IL_0e9c: callvirt T Monocle.VirtualMap`1<System.Char>::get_Item(System.Int32,System.Int32)
+   IL_0ea1: stloc.s V_70
+   IL_0ea3: ldc.i4.1
+   IL_0ea4: stloc.s V_72
+   IL_0ea6: br.s IL_0ecc
+   IL_0ea8: ldloc.s V_14
+   IL_0eaa: ldloc.s V_68
+   IL_0eac: ldloc.2
+   IL_0ead: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0eb2: sub
+   IL_0eb3: ldloc.s V_72
+   IL_0eb5: add
+   IL_0eb6: ldloc.s V_67
+   IL_0eb8: ldloc.2
+   IL_0eb9: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0ebe: sub
+   IL_0ebf: ldloc.s V_70
+   IL_0ec1: callvirt System.Void Monocle.VirtualMap`1<System.Char>::set_Item(System.Int32,System.Int32,T)
+   IL_0ec6: ldloc.s V_72
+   IL_0ec8: ldc.i4.1
+   IL_0ec9: add
+   IL_0eca: stloc.s V_72
+   IL_0ecc: ldloc.s V_72
+   IL_0ece: ldc.i4.4
+   IL_0ecf: bge.s IL_0eef
+   IL_0ed1: ldloc.s V_15
+   IL_0ed3: ldloc.s V_68
+   IL_0ed5: ldloc.2
+   IL_0ed6: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0edb: sub
+   IL_0edc: ldloc.s V_72
+   IL_0ede: add
+   IL_0edf: ldloc.s V_67
+   IL_0ee1: ldloc.2
+   IL_0ee2: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0ee7: sub
+   IL_0ee8: callvirt T Monocle.VirtualMap`1<System.Boolean>::get_Item(System.Int32,System.Int32)
+   IL_0eed: brfalse.s IL_0ea8
+   IL_0eef: ldloc.s V_67
+   IL_0ef1: ldc.i4.1
+   IL_0ef2: add
+   IL_0ef3: stloc.s V_67
+   IL_0ef5: ldloc.s V_67
+   IL_0ef7: ldloc.s V_60
+   IL_0ef9: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_0efe: stloc.s V_24
+   IL_0f00: ldloca.s V_24
+   IL_0f02: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0f07: ldc.i4.4
+   IL_0f08: add
+   IL_0f09: blt IL_0dfb
+   IL_0f0e: ldloca.s V_20
+   IL_0f10: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::MoveNext()
+   IL_0f15: brtrue IL_0cb1
+   IL_0f1a: leave.s IL_0f2a
+   IL_0f1c: ldloca.s V_20
+   IL_0f1e: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>
+   IL_0f24: callvirt System.Void System.IDisposable::Dispose()
+   IL_0f29: endfinally
+   IL_0f2a: ldloc.2
+   IL_0f2b: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0f30: conv.r4
+   IL_0f31: ldloc.2
+   IL_0f32: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0f37: conv.r4
+   IL_0f38: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0f3d: ldc.r4 8
+   IL_0f42: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0f47: stloc.s V_17
+   IL_0f49: ldloc.0
+   IL_0f4a: callvirt System.Int32 Celeste.MapData::get_LoadSeed()
+   IL_0f4f: call System.Void Monocle.Calc::PushRandom(System.Int32)
+   IL_0f54: ldnull
+   IL_0f55: stloc.s V_18
+   IL_0f57: ldnull
+   IL_0f58: stloc.s V_19
+   IL_0f5a: ldarg.0
+   IL_0f5b: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0f60: ldarg.0
+   IL_0f61: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0f66: ldloc.s V_17
+   IL_0f68: ldloc.s V_13
+   IL_0f6a: newobj System.Void Celeste.BackgroundTiles::.ctor(Microsoft.Xna.Framework.Vector2,Monocle.VirtualMap`1<System.Char>)
+ + IL_10000: dup @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10001: ldarg.0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10002: ldloc.s V_13 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10003: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10004: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10005: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+       => Invoke: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule+<>c.<HookLevelLoad>b__18_1(BackgroundTiles,LevelLoader,VirtualMap`1)
+ + IL_10006: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.BackgroundTiles,Celeste.LevelLoader,Monocle.VirtualMap`1<System.Char>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+   IL_0f6f: dup
+   IL_0f70: stloc.s V_18
+   IL_0f72: dup
+   IL_0f73: stloc.s V_73
+   IL_0f75: stfld Celeste.BackgroundTiles Celeste.Level::BgTiles
+   IL_0f7a: ldloc.s V_73
+   IL_0f7c: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0f81: ldarg.0
+   IL_0f82: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0f87: ldarg.0
+   IL_0f88: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0f8d: ldloc.s V_17
+   IL_0f8f: ldloc.s V_14
+   IL_0f91: newobj System.Void Celeste.SolidTiles::.ctor(Microsoft.Xna.Framework.Vector2,Monocle.VirtualMap`1<System.Char>)
+ + IL_10007: dup @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10008: ldarg.0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_10009: ldloc.s V_14 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_1000a: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_1000b: ldc.i4 0 @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+ + IL_1000c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+       => Invoke: [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule+<>c.<HookLevelLoad>b__18_3(SolidTiles,LevelLoader,VirtualMap`1)
+ + IL_1000d: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.SolidTiles,Celeste.LevelLoader,Monocle.VirtualMap`1<System.Char>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ [TileLayoutAnchor::]TileLayoutAnchor.TileLayoutAnchorModule.HookLevelLoad(ILContext)
+   IL_0f96: dup
+   IL_0f97: stloc.s V_19
+   IL_0f99: dup
+   IL_0f9a: stloc.s V_74
+   IL_0f9c: stfld Celeste.SolidTiles Celeste.Level::SolidTiles
+   IL_0fa1: ldloc.s V_74
+   IL_0fa3: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0fa8: ldarg.0
+   IL_0fa9: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0fae: ldloc.s V_13
+   IL_0fb0: stfld Monocle.VirtualMap`1<System.Char> Celeste.Level::BgData
+   IL_0fb5: ldarg.0
+   IL_0fb6: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0fbb: ldloc.s V_14
+   IL_0fbd: stfld Monocle.VirtualMap`1<System.Char> Celeste.Level::SolidsData
+   IL_0fc2: call System.Void Monocle.Calc::PopRandom()
+   IL_0fc7: ldloc.s V_17
+   IL_0fc9: newobj System.Void Monocle.Entity::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0fce: ldarg.0
+   IL_0fcf: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0fd4: ldc.i4.8
+   IL_0fd5: ldc.i4.8
+   IL_0fd6: ldloc.2
+   IL_0fd7: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_0fdc: ldloc.2
+   IL_0fdd: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_0fe2: newobj System.Void Monocle.TileGrid::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0fe7: dup
+   IL_0fe8: stloc.s V_75
+   IL_0fea: stfld Monocle.TileGrid Celeste.Level::FgTilesLightMask
+   IL_0fef: ldloc.s V_75
+   IL_0ff1: callvirt System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0ff6: ldarg.0
+   IL_0ff7: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0ffc: ldfld Monocle.TileGrid Celeste.Level::FgTilesLightMask
+   IL_1001: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_1006: stfld Microsoft.Xna.Framework.Color Monocle.TileGrid::Color
+   IL_100b: ldloc.0
+   IL_100c: ldfld System.Collections.Generic.List`1<Celeste.LevelData> Celeste.MapData::Levels
+   IL_1011: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.LevelData>::GetEnumerator()
+   IL_1016: stloc.s V_20
+   IL_1018: br IL_1119
+   IL_101d: ldloca.s V_20
+   IL_101f: call T System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::get_Current()
+   IL_1024: stloc.s V_76
+   IL_1026: ldloc.s V_76
+   IL_1028: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_102d: stloc.s V_24
+   IL_102f: ldloca.s V_24
+   IL_1031: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_1036: stloc.s V_77
+   IL_1038: ldloc.s V_76
+   IL_103a: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_103f: stloc.s V_24
+   IL_1041: ldloca.s V_24
+   IL_1043: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_1048: stloc.s V_78
+   IL_104a: ldloc.s V_76
+   IL_104c: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_1051: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_1056: stloc.s V_79
+   IL_1058: ldloc.s V_76
+   IL_105a: callvirt Microsoft.Xna.Framework.Rectangle Celeste.LevelData::get_TileBounds()
+   IL_105f: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Height
+   IL_1064: stloc.s V_80
+   IL_1066: ldloc.s V_76
+   IL_1068: ldfld System.String Celeste.LevelData::BgTiles
+   IL_106d: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_1072: brtrue.s IL_10ab
+   IL_1074: ldloc.s V_76
+   IL_1076: ldfld System.String Celeste.LevelData::BgTiles
+   IL_107b: ldloc.s V_79
+   IL_107d: ldloc.s V_80
+   IL_107f: call System.Int32[0...,0...] Monocle.Calc::ReadCSVIntGrid(System.String,System.Int32,System.Int32)
+   IL_1084: stloc.s V_81
+   IL_1086: ldloc.s V_18
+   IL_1088: ldfld Monocle.TileGrid Celeste.BackgroundTiles::Tiles
+   IL_108d: ldsfld Monocle.Tileset Celeste.GFX::SceneryTiles
+   IL_1092: ldloc.s V_81
+   IL_1094: ldloc.s V_77
+   IL_1096: ldloc.2
+   IL_1097: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_109c: sub
+   IL_109d: ldloc.s V_78
+   IL_109f: ldloc.2
+   IL_10a0: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_10a5: sub
+   IL_10a6: callvirt System.Void Monocle.TileGrid::Overlay(Monocle.Tileset,System.Int32[0...,0...],System.Int32,System.Int32)
+   IL_10ab: ldloc.s V_76
+   IL_10ad: ldfld System.String Celeste.LevelData::FgTiles
+   IL_10b2: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_10b7: brtrue.s IL_1119
+   IL_10b9: ldloc.s V_76
+   IL_10bb: ldfld System.String Celeste.LevelData::FgTiles
+   IL_10c0: ldloc.s V_79
+   IL_10c2: ldloc.s V_80
+   IL_10c4: call System.Int32[0...,0...] Monocle.Calc::ReadCSVIntGrid(System.String,System.Int32,System.Int32)
+   IL_10c9: stloc.s V_82
+   IL_10cb: ldloc.s V_19
+   IL_10cd: ldfld Monocle.TileGrid Celeste.SolidTiles::Tiles
+   IL_10d2: ldsfld Monocle.Tileset Celeste.GFX::SceneryTiles
+   IL_10d7: ldloc.s V_82
+   IL_10d9: ldloc.s V_77
+   IL_10db: ldloc.2
+   IL_10dc: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_10e1: sub
+   IL_10e2: ldloc.s V_78
+   IL_10e4: ldloc.2
+   IL_10e5: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_10ea: sub
+   IL_10eb: callvirt System.Void Monocle.TileGrid::Overlay(Monocle.Tileset,System.Int32[0...,0...],System.Int32,System.Int32)
+   IL_10f0: ldarg.0
+   IL_10f1: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_10f6: ldfld Monocle.TileGrid Celeste.Level::FgTilesLightMask
+   IL_10fb: ldsfld Monocle.Tileset Celeste.GFX::SceneryTiles
+   IL_1100: ldloc.s V_82
+   IL_1102: ldloc.s V_77
+   IL_1104: ldloc.2
+   IL_1105: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_110a: sub
+   IL_110b: ldloc.s V_78
+   IL_110d: ldloc.2
+   IL_110e: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_1113: sub
+   IL_1114: callvirt System.Void Monocle.TileGrid::Overlay(Monocle.Tileset,System.Int32[0...,0...],System.Int32,System.Int32)
+   IL_1119: ldloca.s V_20
+   IL_111b: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>::MoveNext()
+   IL_1120: brtrue IL_101d
+   IL_1125: leave.s IL_1135
+   IL_1127: ldloca.s V_20
+   IL_1129: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.LevelData>
+   IL_112f: callvirt System.Void System.IDisposable::Dispose()
+   IL_1134: endfinally
+   IL_1135: ldloc.1
+   IL_1136: ldfld System.Action`1<Celeste.Level> Celeste.AreaData::OnLevelBegin
+   IL_113b: brfalse.s IL_114e
+   IL_113d: ldloc.1
+   IL_113e: ldfld System.Action`1<Celeste.Level> Celeste.AreaData::OnLevelBegin
+   IL_1143: ldarg.0
+   IL_1144: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_1149: callvirt System.Void System.Action`1<Celeste.Level>::Invoke(T)
+   IL_114e: ldarg.0
+   IL_114f: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_1154: ldarg.0
+   IL_1155: ldfld System.Nullable`1<Microsoft.Xna.Framework.Vector2> Celeste.LevelLoader::startPosition
+   IL_115a: stfld System.Nullable`1<Microsoft.Xna.Framework.Vector2> Celeste.Level::StartPosition
+   IL_115f: ldarg.0
+   IL_1160: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_1165: ldarg.0
+   IL_1166: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_116b: newobj System.Void Celeste.Pathfinder::.ctor(Celeste.Level)
+   IL_1170: stfld Celeste.Pathfinder Celeste.Level::Pathfinder
+   IL_1175: ldarg.0
+   IL_1176: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_117b: call System.Void Celeste.Mod.Everest/Events/LevelLoader::LoadingThread(Celeste.Level)
+   IL_1180: ldarg.0
+   IL_1181: ldc.i4.1
+   IL_1182: callvirt System.Void Celeste.LevelLoader::set_Loaded(System.Boolean)
+   IL_1187: ret

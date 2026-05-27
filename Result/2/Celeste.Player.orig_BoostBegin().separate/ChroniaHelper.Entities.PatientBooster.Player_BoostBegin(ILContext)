@@ -1,0 +1,20 @@
+   IL_0000: ldarg.0
+ + IL_10000: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_BoostBegin(ILContext)
+ + IL_10001: ldc.i4 0 @ [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_BoostBegin(ILContext)
+ + IL_10002: ldc.i4 0 @ [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_BoostBegin(ILContext)
+ + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_BoostBegin(ILContext)
+       => Invoke: [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster+<>c.<Player_BoostBegin>b__37_0(Player)
+ + IL_10004: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_BoostBegin(ILContext)
+ + IL_10005: brfalse IL_0001 @ [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_BoostBegin(ILContext)
+ + IL_10006: pop @ [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_BoostBegin(ILContext)
+ + IL_10007: br IL_000d @ [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_BoostBegin(ILContext)
+   IL_0001: callvirt System.Boolean Celeste.Player::RefillDash()
+   IL_0006: pop
+   IL_0007: ldarg.0
+   IL_0008: callvirt System.Void Celeste.Player::RefillStamina()
+   IL_000d: ldarg.0
+   IL_000e: callvirt Celeste.Holdable Celeste.Player::get_Holding()
+   IL_0013: brfalse.s IL_001b
+   IL_0015: ldarg.0
+   IL_0016: callvirt System.Void Celeste.Player::Drop()
+   IL_001b: ret

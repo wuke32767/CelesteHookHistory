@@ -1,0 +1,128 @@
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Celeste.Actor::.ctor(Microsoft.Xna.Framework.Vector2)
+   IL_0007: ldarg.0
+   IL_0008: ldarg.2
+   IL_0009: stfld System.Boolean Celeste.Glider::bubble
+   IL_000e: ldarg.0
+   IL_000f: ldarg.3
+   IL_0010: stfld System.Boolean Celeste.Glider::tutorial
+   IL_0015: ldarg.0
+   IL_0016: ldarg.0
+   IL_0017: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_001c: stfld Microsoft.Xna.Framework.Vector2 Celeste.Glider::startPos
+   IL_0021: ldarg.0
+   IL_0022: ldc.r4 8
+   IL_0027: ldc.r4 10
+   IL_002c: ldc.r4 -4
+   IL_0031: ldc.r4 -10
+   IL_0036: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_003b: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_0040: ldarg.0
+   IL_0041: ldarg.0
+   IL_0042: ldftn System.Void Celeste.Glider::OnCollideH(Celeste.CollisionData)
+   IL_0048: newobj System.Void Celeste.Collision::.ctor(System.Object,System.IntPtr)
+   IL_004d: stfld Celeste.Collision Celeste.Glider::onCollideH
+   IL_0052: ldarg.0
+   IL_0053: ldarg.0
+   IL_0054: ldftn System.Void Celeste.Glider::OnCollideV(Celeste.CollisionData)
+   IL_005a: newobj System.Void Celeste.Collision::.ctor(System.Object,System.IntPtr)
+   IL_005f: stfld Celeste.Collision Celeste.Glider::onCollideV
+   IL_0064: ldarg.0
+   IL_0065: ldarg.0
+   IL_0066: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_006b: ldstr "glider"
+   IL_0070: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_0075: dup
+   IL_0076: stloc.0
+   IL_0077: stfld Monocle.Sprite Celeste.Glider::sprite
+   IL_007c: ldloc.0
+   IL_007d: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0082: ldarg.0
+   IL_0083: ldarg.0
+   IL_0084: ldc.r4 0.25
+   IL_0089: ldc.r4 4
+   IL_008e: ldnull
+   IL_008f: ldc.i4.0
+   IL_0090: ldc.i4.0
+   IL_0091: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_0096: dup
+   IL_0097: stloc.1
+   IL_0098: stfld Monocle.Wiggler Celeste.Glider::wiggler
+   IL_009d: ldloc.1
+   IL_009e: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00a3: ldarg.0
+   IL_00a4: ldc.i4.s -5
+   IL_00a6: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_00ab: ldarg.0
+   IL_00ac: ldarg.0
+   IL_00ad: ldc.r4 0.3
+   IL_00b2: newobj System.Void Celeste.Holdable::.ctor(System.Single)
+   IL_00b7: dup
+   IL_00b8: stloc.2
+   IL_00b9: stfld Celeste.Holdable Celeste.Glider::Hold
+   IL_00be: ldloc.2
+   IL_00bf: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00c4: ldarg.0
+   IL_00c5: ldfld Celeste.Holdable Celeste.Glider::Hold
+   IL_00ca: ldc.r4 20
+   IL_00cf: ldc.r4 22
+   IL_00d4: ldc.r4 -10
+   IL_00d9: ldc.r4 -16
+   IL_00de: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_00e3: stfld Monocle.Collider Celeste.Holdable::PickupCollider
+   IL_00e8: ldarg.0
+   IL_00e9: ldfld Celeste.Holdable Celeste.Glider::Hold
+   IL_00ee: ldc.i4.1
+   IL_00ef: stfld System.Boolean Celeste.Holdable::SlowFall
+   IL_00f4: ldarg.0
+   IL_00f5: ldfld Celeste.Holdable Celeste.Glider::Hold
+   IL_00fa: ldc.i4.0
+   IL_00fb: stfld System.Boolean Celeste.Holdable::SlowRun
+   IL_0100: ldarg.0
+   IL_0101: ldfld Celeste.Holdable Celeste.Glider::Hold
+   IL_0106: ldarg.0
+   IL_0107: ldftn System.Void Celeste.Glider::OnPickup()
+   IL_010d: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0112: stfld System.Action Celeste.Holdable::OnPickup
+   IL_0117: ldarg.0
+   IL_0118: ldfld Celeste.Holdable Celeste.Glider::Hold
+   IL_011d: ldarg.0
+   IL_011e: ldftn System.Void Celeste.Glider::OnRelease(Microsoft.Xna.Framework.Vector2)
+   IL_0124: newobj System.Void System.Action`1<Microsoft.Xna.Framework.Vector2>::.ctor(System.Object,System.IntPtr)
+   IL_0129: stfld System.Action`1<Microsoft.Xna.Framework.Vector2> Celeste.Holdable::OnRelease
+   IL_012e: ldarg.0
+   IL_012f: ldfld Celeste.Holdable Celeste.Glider::Hold
+   IL_0134: ldarg.0
+   IL_0135: ldftn Microsoft.Xna.Framework.Vector2 Celeste.Glider::<.ctor>b__23_0()
+   IL_013b: newobj System.Void System.Func`1<Microsoft.Xna.Framework.Vector2>::.ctor(System.Object,System.IntPtr)
+   IL_0140: stfld System.Func`1<Microsoft.Xna.Framework.Vector2> Celeste.Holdable::SpeedGetter
+   IL_0145: ldarg.0
+   IL_0146: ldfld Celeste.Holdable Celeste.Glider::Hold
+   IL_014b: ldarg.0
+   IL_014c: ldftn System.Boolean Celeste.Glider::HitSpring(Celeste.Spring)
+   IL_0152: newobj System.Void System.Func`2<Celeste.Spring,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0157: stfld System.Func`2<Celeste.Spring,System.Boolean> Celeste.Holdable::OnHitSpring
+   IL_015c: ldarg.0
+   IL_015d: ldc.r4 0.3
+   IL_0162: ldc.r4 0
+   IL_0167: newobj System.Void Monocle.SineWave::.ctor(System.Single,System.Single)
+   IL_016c: stfld Monocle.SineWave Celeste.Glider::platformSine
+   IL_0171: ldarg.0
+   IL_0172: ldarg.0
+   IL_0173: ldfld Monocle.SineWave Celeste.Glider::platformSine
+   IL_0178: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_017d: ldarg.0
+   IL_017e: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_0183: stfld Celeste.SoundSource Celeste.Glider::fallingSfx
+   IL_0188: ldarg.0
+   IL_0189: ldarg.0
+   IL_018a: ldfld Celeste.SoundSource Celeste.Glider::fallingSfx
+   IL_018f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0194: ldarg.0
+   IL_0195: ldarg.0
+   IL_0196: ldftn System.Void Celeste.Glider::WindMode(Microsoft.Xna.Framework.Vector2)
+   IL_019c: newobj System.Void System.Action`1<Microsoft.Xna.Framework.Vector2>::.ctor(System.Object,System.IntPtr)
+   IL_01a1: newobj System.Void Celeste.WindMover::.ctor(System.Action`1<Microsoft.Xna.Framework.Vector2>)
+   IL_01a6: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_01ab: ret

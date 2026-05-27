@@ -1,0 +1,430 @@
+   IL_0000: nop
+   IL_0001: ldsfld On.Monocle.SpriteBank/hook_CreateOn Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<0>__SpriteBankCreateOn
+   IL_0006: dup
+   IL_0007: brtrue.s IL_001c
+   IL_0009: pop
+   IL_000a: ldnull
+   IL_000b: ldftn Monocle.Sprite Celeste.Mod.SkinModHelper.PlayerSkinSystem::SpriteBankCreateOn(On.Monocle.SpriteBank/orig_CreateOn,Monocle.SpriteBank,Monocle.Sprite,System.String)
+   IL_0011: newobj System.Void On.Monocle.SpriteBank/hook_CreateOn::.ctor(System.Object,System.IntPtr)
+   IL_0016: dup
+   IL_0017: stsfld On.Monocle.SpriteBank/hook_CreateOn Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<0>__SpriteBankCreateOn
+   IL_001c: call System.Void On.Monocle.SpriteBank::add_CreateOn(On.Monocle.SpriteBank/hook_CreateOn)
+   IL_0021: nop
+   IL_0022: ldsfld On.Celeste.PlayerSprite/hook_ctor Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<1>__on_PlayerSprite_ctor
+   IL_0027: dup
+   IL_0028: brtrue.s IL_003d
+   IL_002a: pop
+   IL_002b: ldnull
+   IL_002c: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::on_PlayerSprite_ctor(On.Celeste.PlayerSprite/orig_ctor,Celeste.PlayerSprite,Celeste.PlayerSpriteMode)
+   IL_0032: newobj System.Void On.Celeste.PlayerSprite/hook_ctor::.ctor(System.Object,System.IntPtr)
+   IL_0037: dup
+   IL_0038: stsfld On.Celeste.PlayerSprite/hook_ctor Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<1>__on_PlayerSprite_ctor
+   IL_003d: call System.Void On.Celeste.PlayerSprite::add_ctor(On.Celeste.PlayerSprite/hook_ctor)
+   IL_0042: nop
+   IL_0043: newobj System.Void Celeste.Mod.Helpers.LegacyMonoMod.LegacyDetourContext::.ctor()
+   IL_0048: dup
+   IL_0049: ldfld System.Collections.Generic.List`1<System.String> Celeste.Mod.Helpers.LegacyMonoMod.LegacyDetourContext::Before
+   IL_004e: ldstr "*"
+   IL_0053: callvirt System.Void System.Collections.Generic.List`1<System.String>::Add(T)
+   IL_0058: nop
+   IL_0059: stloc.0
+   IL_005a: nop
+   IL_005b: ldsfld On.Celeste.PlayerSprite/hook_CreateFramesMetadata Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<2>__on_PlayerSprite_CreateFramesMetadata
+   IL_0060: dup
+   IL_0061: brtrue.s IL_0076
+   IL_0063: pop
+   IL_0064: ldnull
+   IL_0065: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::on_PlayerSprite_CreateFramesMetadata(On.Celeste.PlayerSprite/orig_CreateFramesMetadata,System.String)
+   IL_006b: newobj System.Void On.Celeste.PlayerSprite/hook_CreateFramesMetadata::.ctor(System.Object,System.IntPtr)
+   IL_0070: dup
+   IL_0071: stsfld On.Celeste.PlayerSprite/hook_CreateFramesMetadata Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<2>__on_PlayerSprite_CreateFramesMetadata
+   IL_0076: call System.Void On.Celeste.PlayerSprite::add_CreateFramesMetadata(On.Celeste.PlayerSprite/hook_CreateFramesMetadata)
+   IL_007b: nop
+   IL_007c: nop
+   IL_007d: leave.s IL_008a
+   IL_007f: ldloc.0
+   IL_0080: brfalse.s IL_0089
+   IL_0082: ldloc.0
+   IL_0083: callvirt System.Void System.IDisposable::Dispose()
+   IL_0088: nop
+   IL_0089: endfinally
+   IL_008a: newobj System.Void Celeste.Mod.Helpers.LegacyMonoMod.LegacyDetourContext::.ctor()
+   IL_008f: dup
+   IL_0090: ldfld System.Collections.Generic.List`1<System.String> Celeste.Mod.Helpers.LegacyMonoMod.LegacyDetourContext::After
+   IL_0095: ldstr "*"
+   IL_009a: callvirt System.Void System.Collections.Generic.List`1<System.String>::Add(T)
+   IL_009f: nop
+   IL_00a0: stloc.1
+   IL_00a1: nop
+   IL_00a2: ldsfld On.Celeste.Player/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<3>__PlayerUpdateHook
+   IL_00a7: dup
+   IL_00a8: brtrue.s IL_00bd
+   IL_00aa: pop
+   IL_00ab: ldnull
+   IL_00ac: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerUpdateHook(On.Celeste.Player/orig_Update,Celeste.Player)
+   IL_00b2: newobj System.Void On.Celeste.Player/hook_Update::.ctor(System.Object,System.IntPtr)
+   IL_00b7: dup
+   IL_00b8: stsfld On.Celeste.Player/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<3>__PlayerUpdateHook
+   IL_00bd: call System.Void On.Celeste.Player::add_Update(On.Celeste.Player/hook_Update)
+   IL_00c2: nop
+   IL_00c3: nop
+   IL_00c4: leave.s IL_00d1
+   IL_00c6: ldloc.1
+   IL_00c7: brfalse.s IL_00d0
+   IL_00c9: ldloc.1
+   IL_00ca: callvirt System.Void System.IDisposable::Dispose()
+   IL_00cf: nop
+   IL_00d0: endfinally
+   IL_00d1: ldsfld On.Celeste.Player/hook_UpdateHair Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<4>__PlayerUpdateHairHook
+   IL_00d6: dup
+   IL_00d7: brtrue.s IL_00ec
+   IL_00d9: pop
+   IL_00da: ldnull
+   IL_00db: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerUpdateHairHook(On.Celeste.Player/orig_UpdateHair,Celeste.Player,System.Boolean)
+   IL_00e1: newobj System.Void On.Celeste.Player/hook_UpdateHair::.ctor(System.Object,System.IntPtr)
+   IL_00e6: dup
+   IL_00e7: stsfld On.Celeste.Player/hook_UpdateHair Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<4>__PlayerUpdateHairHook
+   IL_00ec: call System.Void On.Celeste.Player::add_UpdateHair(On.Celeste.Player/hook_UpdateHair)
+   IL_00f1: nop
+   IL_00f2: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<5>__ilPlayerUpdateHairHook
+   IL_00f7: dup
+   IL_00f8: brtrue.s IL_010d
+   IL_00fa: pop
+   IL_00fb: ldnull
+   IL_00fc: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::ilPlayerUpdateHairHook(MonoMod.Cil.ILContext)
+   IL_0102: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_0107: dup
+   IL_0108: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<5>__ilPlayerUpdateHairHook
+   IL_010d: call System.Void IL.Celeste.Player::add_UpdateHair(MonoMod.Cil.ILContext/Manipulator)
+   IL_0112: nop
+   IL_0113: ldsfld On.Celeste.Player/hook_GetTrailColor Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<6>__PlayerGetTrailColorHook
+   IL_0118: dup
+   IL_0119: brtrue.s IL_012e
+   IL_011b: pop
+   IL_011c: ldnull
+   IL_011d: ldftn Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerGetTrailColorHook(On.Celeste.Player/orig_GetTrailColor,Celeste.Player,System.Boolean)
+   IL_0123: newobj System.Void On.Celeste.Player/hook_GetTrailColor::.ctor(System.Object,System.IntPtr)
+   IL_0128: dup
+   IL_0129: stsfld On.Celeste.Player/hook_GetTrailColor Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<6>__PlayerGetTrailColorHook
+   IL_012e: call System.Void On.Celeste.Player::add_GetTrailColor(On.Celeste.Player/hook_GetTrailColor)
+   IL_0133: nop
+   IL_0134: ldsfld On.Celeste.Player/hook_StartDash Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<7>__PlayerStartDashHook
+   IL_0139: dup
+   IL_013a: brtrue.s IL_014f
+   IL_013c: pop
+   IL_013d: ldnull
+   IL_013e: ldftn System.Int32 Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerStartDashHook(On.Celeste.Player/orig_StartDash,Celeste.Player)
+   IL_0144: newobj System.Void On.Celeste.Player/hook_StartDash::.ctor(System.Object,System.IntPtr)
+   IL_0149: dup
+   IL_014a: stsfld On.Celeste.Player/hook_StartDash Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<7>__PlayerStartDashHook
+   IL_014f: call System.Void On.Celeste.Player::add_StartDash(On.Celeste.Player/hook_StartDash)
+   IL_0154: nop
+   IL_0155: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<8>__PlayerDashUpdateIlHook
+   IL_015a: dup
+   IL_015b: brtrue.s IL_0170
+   IL_015d: pop
+   IL_015e: ldnull
+   IL_015f: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerDashUpdateIlHook(MonoMod.Cil.ILContext)
+   IL_0165: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_016a: dup
+   IL_016b: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<8>__PlayerDashUpdateIlHook
+   IL_0170: call System.Void IL.Celeste.Player::add_DashUpdate(MonoMod.Cil.ILContext/Manipulator)
+   IL_0175: nop
+   IL_0176: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<9>__PlayerRenderIlHook_Color
+   IL_017b: dup
+   IL_017c: brtrue.s IL_0191
+   IL_017e: pop
+   IL_017f: ldnull
+   IL_0180: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerRenderIlHook_Color(MonoMod.Cil.ILContext)
+   IL_0186: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_018b: dup
+   IL_018c: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<9>__PlayerRenderIlHook_Color
+   IL_0191: call System.Void IL.Celeste.Player::add_Render(MonoMod.Cil.ILContext/Manipulator)
+   IL_0196: nop
+   IL_0197: ldsfld On.Celeste.PlayerHair/hook_Render Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<10>__PlayerHairRenderHook
+   IL_019c: dup
+   IL_019d: brtrue.s IL_01b2
+   IL_019f: pop
+   IL_01a0: ldnull
+   IL_01a1: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerHairRenderHook(On.Celeste.PlayerHair/orig_Render,Celeste.PlayerHair)
+   IL_01a7: newobj System.Void On.Celeste.PlayerHair/hook_Render::.ctor(System.Object,System.IntPtr)
+   IL_01ac: dup
+   IL_01ad: stsfld On.Celeste.PlayerHair/hook_Render Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<10>__PlayerHairRenderHook
+   IL_01b2: call System.Void On.Celeste.PlayerHair::add_Render(On.Celeste.PlayerHair/hook_Render)
+   IL_01b7: nop
+   IL_01b8: ldsfld On.Celeste.PlayerSprite/hook_Render Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<11>__PlayerSpriteRenderHook
+   IL_01bd: dup
+   IL_01be: brtrue.s IL_01d3
+   IL_01c0: pop
+   IL_01c1: ldnull
+   IL_01c2: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerSpriteRenderHook(On.Celeste.PlayerSprite/orig_Render,Celeste.PlayerSprite)
+   IL_01c8: newobj System.Void On.Celeste.PlayerSprite/hook_Render::.ctor(System.Object,System.IntPtr)
+   IL_01cd: dup
+   IL_01ce: stsfld On.Celeste.PlayerSprite/hook_Render Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<11>__PlayerSpriteRenderHook
+   IL_01d3: call System.Void On.Celeste.PlayerSprite::add_Render(On.Celeste.PlayerSprite/hook_Render)
+   IL_01d8: nop
+   IL_01d9: ldsfld On.Celeste.PlayerDeadBody/hook_ctor Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<12>__PlayerDeadBodyCtor
+   IL_01de: dup
+   IL_01df: brtrue.s IL_01f4
+   IL_01e1: pop
+   IL_01e2: ldnull
+   IL_01e3: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerDeadBodyCtor(On.Celeste.PlayerDeadBody/orig_ctor,Celeste.PlayerDeadBody,Celeste.Player,Microsoft.Xna.Framework.Vector2)
+   IL_01e9: newobj System.Void On.Celeste.PlayerDeadBody/hook_ctor::.ctor(System.Object,System.IntPtr)
+   IL_01ee: dup
+   IL_01ef: stsfld On.Celeste.PlayerDeadBody/hook_ctor Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<12>__PlayerDeadBodyCtor
+   IL_01f4: call System.Void On.Celeste.PlayerDeadBody::add_ctor(On.Celeste.PlayerDeadBody/hook_ctor)
+   IL_01f9: nop
+   IL_01fa: ldsfld On.Celeste.PlayerHair/hook_Render Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<13>__PlayerHairRenderHook_ColorGrade
+   IL_01ff: dup
+   IL_0200: brtrue.s IL_0215
+   IL_0202: pop
+   IL_0203: ldnull
+   IL_0204: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerHairRenderHook_ColorGrade(On.Celeste.PlayerHair/orig_Render,Celeste.PlayerHair)
+   IL_020a: newobj System.Void On.Celeste.PlayerHair/hook_Render::.ctor(System.Object,System.IntPtr)
+   IL_020f: dup
+   IL_0210: stsfld On.Celeste.PlayerHair/hook_Render Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<13>__PlayerHairRenderHook_ColorGrade
+   IL_0215: call System.Void On.Celeste.PlayerHair::add_Render(On.Celeste.PlayerHair/hook_Render)
+   IL_021a: nop
+   IL_021b: ldsfld System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyHook> Celeste.Mod.SkinModHelper.SkinModHelperModule::doneHooks
+   IL_0220: ldtoken Monocle.Sprite
+   IL_0225: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_022a: ldstr "Render"
+   IL_022f: ldc.i4.s 20
+   IL_0231: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String,System.Reflection.BindingFlags)
+   IL_0236: ldsfld System.Action`2<System.Action`1<Monocle.Sprite>,Monocle.Sprite> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<14>__SpriteRenderHook_ColorGrade
+   IL_023b: dup
+   IL_023c: brtrue.s IL_0251
+   IL_023e: pop
+   IL_023f: ldnull
+   IL_0240: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::SpriteRenderHook_ColorGrade(System.Action`1<Monocle.Sprite>,Monocle.Sprite)
+   IL_0246: newobj System.Void System.Action`2<System.Action`1<Monocle.Sprite>,Monocle.Sprite>::.ctor(System.Object,System.IntPtr)
+   IL_024b: dup
+   IL_024c: stsfld System.Action`2<System.Action`1<Monocle.Sprite>,Monocle.Sprite> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<14>__SpriteRenderHook_ColorGrade
+   IL_0251: newobj System.Void Celeste.Mod.Helpers.LegacyMonoMod.LegacyHook::.ctor(System.Reflection.MethodBase,System.Delegate)
+   IL_0256: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyHook>::Add(T)
+   IL_025b: nop
+   IL_025c: ldsfld On.Celeste.Lookout/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<15>__LookoutUpdateHook_ColorGrade
+   IL_0261: dup
+   IL_0262: brtrue.s IL_0277
+   IL_0264: pop
+   IL_0265: ldnull
+   IL_0266: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::LookoutUpdateHook_ColorGrade(On.Celeste.Lookout/orig_Update,Celeste.Lookout)
+   IL_026c: newobj System.Void On.Celeste.Lookout/hook_Update::.ctor(System.Object,System.IntPtr)
+   IL_0271: dup
+   IL_0272: stsfld On.Celeste.Lookout/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<15>__LookoutUpdateHook_ColorGrade
+   IL_0277: call System.Void On.Celeste.Lookout::add_Update(On.Celeste.Lookout/hook_Update)
+   IL_027c: nop
+   IL_027d: ldsfld On.Celeste.Payphone/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<16>__PayphoneUpdateHook_ColorGrade
+   IL_0282: dup
+   IL_0283: brtrue.s IL_0298
+   IL_0285: pop
+   IL_0286: ldnull
+   IL_0287: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PayphoneUpdateHook_ColorGrade(On.Celeste.Payphone/orig_Update,Celeste.Payphone)
+   IL_028d: newobj System.Void On.Celeste.Payphone/hook_Update::.ctor(System.Object,System.IntPtr)
+   IL_0292: dup
+   IL_0293: stsfld On.Celeste.Payphone/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<16>__PayphoneUpdateHook_ColorGrade
+   IL_0298: call System.Void On.Celeste.Payphone::add_Update(On.Celeste.Payphone/hook_Update)
+   IL_029d: nop
+   IL_029e: ldsfld On.Monocle.Sprite/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<17>__SpriteUpdateHook
+   IL_02a3: dup
+   IL_02a4: brtrue.s IL_02b9
+   IL_02a6: pop
+   IL_02a7: ldnull
+   IL_02a8: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::SpriteUpdateHook(On.Monocle.Sprite/orig_Update,Monocle.Sprite)
+   IL_02ae: newobj System.Void On.Monocle.Sprite/hook_Update::.ctor(System.Object,System.IntPtr)
+   IL_02b3: dup
+   IL_02b4: stsfld On.Monocle.Sprite/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<17>__SpriteUpdateHook
+   IL_02b9: call System.Void On.Monocle.Sprite::add_Update(On.Monocle.Sprite/hook_Update)
+   IL_02be: nop
+   IL_02bf: ldsfld On.Celeste.PlayerHair/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<18>__PlayerHairUpdateHook
+   IL_02c4: dup
+   IL_02c5: brtrue.s IL_02da
+   IL_02c7: pop
+   IL_02c8: ldnull
+   IL_02c9: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerHairUpdateHook(On.Celeste.PlayerHair/orig_Update,Celeste.PlayerHair)
+   IL_02cf: newobj System.Void On.Celeste.PlayerHair/hook_Update::.ctor(System.Object,System.IntPtr)
+   IL_02d4: dup
+   IL_02d5: stsfld On.Celeste.PlayerHair/hook_Update Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<18>__PlayerHairUpdateHook
+   IL_02da: call System.Void On.Celeste.PlayerHair::add_Update(On.Celeste.PlayerHair/hook_Update)
+   IL_02df: nop
+   IL_02e0: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<19>__il_PlayerHair_Render
+   IL_02e5: dup
+   IL_02e6: brtrue.s IL_02fb
+   IL_02e8: pop
+   IL_02e9: ldnull
+   IL_02ea: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::il_PlayerHair_Render(MonoMod.Cil.ILContext)
+   IL_02f0: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_02f5: dup
+   IL_02f6: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<19>__il_PlayerHair_Render
+   IL_02fb: call System.Void IL.Celeste.PlayerHair::add_Render(MonoMod.Cil.ILContext/Manipulator)
+   IL_0300: nop
+   IL_0301: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<20>__il_PlayerHair_AfterUpdate
+   IL_0306: dup
+   IL_0307: brtrue.s IL_031c
+   IL_0309: pop
+   IL_030a: ldnull
+   IL_030b: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::il_PlayerHair_AfterUpdate(MonoMod.Cil.ILContext)
+   IL_0311: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_0316: dup
+   IL_0317: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<20>__il_PlayerHair_AfterUpdate
+   IL_031c: call System.Void IL.Celeste.PlayerHair::add_AfterUpdate(MonoMod.Cil.ILContext/Manipulator)
+   IL_0321: nop
+   IL_0322: ldsfld On.Celeste.PlayerHair/hook_GetHairColor Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<21>__PlayerHairGetHairColorHook
+   IL_0327: dup
+   IL_0328: brtrue.s IL_033d
+   IL_032a: pop
+   IL_032b: ldnull
+   IL_032c: ldftn Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerHairGetHairColorHook(On.Celeste.PlayerHair/orig_GetHairColor,Celeste.PlayerHair,System.Int32)
+   IL_0332: newobj System.Void On.Celeste.PlayerHair/hook_GetHairColor::.ctor(System.Object,System.IntPtr)
+   IL_0337: dup
+   IL_0338: stsfld On.Celeste.PlayerHair/hook_GetHairColor Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<21>__PlayerHairGetHairColorHook
+   IL_033d: call System.Void On.Celeste.PlayerHair::add_GetHairColor(On.Celeste.PlayerHair/hook_GetHairColor)
+   IL_0342: nop
+   IL_0343: ldsfld On.Celeste.PlayerHair/hook_GetHairTexture Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<22>__PlayerHairGetHairTextureHook
+   IL_0348: dup
+   IL_0349: brtrue.s IL_035e
+   IL_034b: pop
+   IL_034c: ldnull
+   IL_034d: ldftn Monocle.MTexture Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerHairGetHairTextureHook(On.Celeste.PlayerHair/orig_GetHairTexture,Celeste.PlayerHair,System.Int32)
+   IL_0353: newobj System.Void On.Celeste.PlayerHair/hook_GetHairTexture::.ctor(System.Object,System.IntPtr)
+   IL_0358: dup
+   IL_0359: stsfld On.Celeste.PlayerHair/hook_GetHairTexture Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<22>__PlayerHairGetHairTextureHook
+   IL_035e: call System.Void On.Celeste.PlayerHair::add_GetHairTexture(On.Celeste.PlayerHair/hook_GetHairTexture)
+   IL_0363: nop
+   IL_0364: ldsfld On.Celeste.PlayerHair/hook_GetHairScale Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<23>__PlayerHairGetHairScaleHook
+   IL_0369: dup
+   IL_036a: brtrue.s IL_037f
+   IL_036c: pop
+   IL_036d: ldnull
+   IL_036e: ldftn Microsoft.Xna.Framework.Vector2 Celeste.Mod.SkinModHelper.PlayerSkinSystem::PlayerHairGetHairScaleHook(On.Celeste.PlayerHair/orig_GetHairScale,Celeste.PlayerHair,System.Int32)
+   IL_0374: newobj System.Void On.Celeste.PlayerHair/hook_GetHairScale::.ctor(System.Object,System.IntPtr)
+   IL_0379: dup
+   IL_037a: stsfld On.Celeste.PlayerHair/hook_GetHairScale Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<23>__PlayerHairGetHairScaleHook
+   IL_037f: call System.Void On.Celeste.PlayerHair::add_GetHairScale(On.Celeste.PlayerHair/hook_GetHairScale)
+   IL_0384: nop
+   IL_0385: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<24>__patch_SpriteMode_Badeline
+   IL_038a: dup
+   IL_038b: brtrue.s IL_03a0
+   IL_038d: pop
+   IL_038e: ldnull
+   IL_038f: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::patch_SpriteMode_Badeline(MonoMod.Cil.ILContext)
+   IL_0395: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_039a: dup
+   IL_039b: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<24>__patch_SpriteMode_Badeline
+   IL_03a0: call System.Void IL.Celeste.Player::add_UpdateHair(MonoMod.Cil.ILContext/Manipulator)
+   IL_03a5: nop
+   IL_03a6: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<24>__patch_SpriteMode_Badeline
+   IL_03ab: dup
+   IL_03ac: brtrue.s IL_03c1
+   IL_03ae: pop
+   IL_03af: ldnull
+   IL_03b0: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::patch_SpriteMode_Badeline(MonoMod.Cil.ILContext)
+   IL_03b6: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_03bb: dup
+   IL_03bc: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<24>__patch_SpriteMode_Badeline
+   IL_03c1: call System.Void IL.Celeste.Player::add_DashUpdate(MonoMod.Cil.ILContext/Manipulator)
+   IL_03c6: nop
+   IL_03c7: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<24>__patch_SpriteMode_Badeline
+   IL_03cc: dup
+   IL_03cd: brtrue.s IL_03e2
+   IL_03cf: pop
+   IL_03d0: ldnull
+   IL_03d1: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::patch_SpriteMode_Badeline(MonoMod.Cil.ILContext)
+   IL_03d7: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_03dc: dup
+   IL_03dd: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<24>__patch_SpriteMode_Badeline
+   IL_03e2: call System.Void IL.Celeste.Player::add_GetTrailColor(MonoMod.Cil.ILContext/Manipulator)
+   IL_03e7: nop
+   IL_03e8: ldsfld System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyILHook> Celeste.Mod.SkinModHelper.SkinModHelperModule::doneILHooks
+   IL_03ed: ldtoken Celeste.Player
+   IL_03f2: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_03f7: ldstr "orig_Update"
+   IL_03fc: ldc.i4.s 20
+   IL_03fe: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String,System.Reflection.BindingFlags)
+   IL_0403: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<25>__ilPlayerOrig_Update
+   IL_0408: dup
+   IL_0409: brtrue.s IL_041e
+   IL_040b: pop
+   IL_040c: ldnull
+   IL_040d: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::ilPlayerOrig_Update(MonoMod.Cil.ILContext)
+   IL_0413: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_0418: dup
+   IL_0419: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<25>__ilPlayerOrig_Update
+   IL_041e: newobj System.Void Celeste.Mod.Helpers.LegacyMonoMod.LegacyILHook::.ctor(System.Reflection.MethodBase,MonoMod.Cil.ILContext/Manipulator)
+   IL_0423: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyILHook>::Add(T)
+   IL_0428: nop
+   IL_0429: ldsfld System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyILHook> Celeste.Mod.SkinModHelper.SkinModHelperModule::doneILHooks
+   IL_042e: ldtoken Celeste.Player
+   IL_0433: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_0438: ldstr "<.ctor>b__280_1"
+   IL_043d: ldc.i4.s 36
+   IL_043f: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String,System.Reflection.BindingFlags)
+   IL_0444: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<26>__ilPlayer_b__280_1
+   IL_0449: dup
+   IL_044a: brtrue.s IL_045f
+   IL_044c: pop
+   IL_044d: ldnull
+   IL_044e: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::ilPlayer_b__280_1(MonoMod.Cil.ILContext)
+   IL_0454: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_0459: dup
+   IL_045a: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<26>__ilPlayer_b__280_1
+   IL_045f: newobj System.Void Celeste.Mod.Helpers.LegacyMonoMod.LegacyILHook::.ctor(System.Reflection.MethodBase,MonoMod.Cil.ILContext/Manipulator)
+   IL_0464: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyILHook>::Add(T)
+   IL_0469: nop
+   IL_046a: ldsfld System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyILHook> Celeste.Mod.SkinModHelper.SkinModHelperModule::doneILHooks
+   IL_046f: ldtoken Celeste.Player
+   IL_0474: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_0479: ldstr "<.ctor>b__280_2"
+   IL_047e: ldc.i4.s 36
+   IL_0480: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String,System.Reflection.BindingFlags)
+   IL_0485: ldsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<27>__ilPlayer_b__280_2
+   IL_048a: dup
+   IL_048b: brtrue.s IL_04a0
+   IL_048d: pop
+   IL_048e: ldnull
+   IL_048f: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::ilPlayer_b__280_2(MonoMod.Cil.ILContext)
+   IL_0495: newobj System.Void MonoMod.Cil.ILContext/Manipulator::.ctor(System.Object,System.IntPtr)
+   IL_049a: dup
+   IL_049b: stsfld MonoMod.Cil.ILContext/Manipulator Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>O::<27>__ilPlayer_b__280_2
+   IL_04a0: newobj System.Void Celeste.Mod.Helpers.LegacyMonoMod.LegacyILHook::.ctor(System.Reflection.MethodBase,MonoMod.Cil.ILContext/Manipulator)
+   IL_04a5: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyILHook>::Add(T)
+   IL_04aa: nop
+   IL_04ab: ldsfld System.Boolean Celeste.Mod.SkinModHelper.SkinModHelperModule::JungleHelperInstalled
+   IL_04b0: stloc.2
+   IL_04b1: ldloc.2
+   IL_04b2: brfalse.s IL_0530
+   IL_04b4: nop
+   IL_04b5: call System.Collections.ObjectModel.ReadOnlyCollection`1<Celeste.Mod.EverestModule> Celeste.Mod.Everest::get_Modules()
+   IL_04ba: ldsfld System.Func`2<Celeste.Mod.EverestModule,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__0_0
+   IL_04bf: dup
+   IL_04c0: brtrue.s IL_04d9
+   IL_04c2: pop
+   IL_04c3: ldsfld Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9
+   IL_04c8: ldftn System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<Load>b__0_0(Celeste.Mod.EverestModule)
+   IL_04ce: newobj System.Void System.Func`2<Celeste.Mod.EverestModule,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_04d3: dup
+   IL_04d4: stsfld System.Func`2<Celeste.Mod.EverestModule,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__0_0
+   IL_04d9: call System.Collections.Generic.IEnumerable`1<TSource> System.Linq.Enumerable::Where<Celeste.Mod.EverestModule>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_04de: call TSource System.Linq.Enumerable::First<Celeste.Mod.EverestModule>(System.Collections.Generic.IEnumerable`1<TSource>)
+   IL_04e3: callvirt System.Type System.Object::GetType()
+   IL_04e8: callvirt System.Reflection.Assembly System.Type::get_Assembly()
+   IL_04ed: stloc.3
+   IL_04ee: ldloc.3
+   IL_04ef: ldstr "Celeste.Mod.JungleHelper.Entities.EnforceSkinController"
+   IL_04f4: callvirt System.Type System.Reflection.Assembly::GetType(System.String)
+   IL_04f9: stloc.s V_4
+   IL_04fb: ldsfld System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyHook> Celeste.Mod.SkinModHelper.SkinModHelperModule::doneHooks
+   IL_0500: ldloc.s V_4
+   IL_0502: ldstr "HasLantern"
+   IL_0507: ldc.i4.s 24
+   IL_0509: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String,System.Reflection.BindingFlags)
+   IL_050e: ldtoken Celeste.Mod.SkinModHelper.PlayerSkinSystem
+   IL_0513: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+   IL_0518: ldstr "HasLantern"
+   IL_051d: ldc.i4.s 24
+   IL_051f: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String,System.Reflection.BindingFlags)
+   IL_0524: newobj System.Void Celeste.Mod.Helpers.LegacyMonoMod.LegacyHook::.ctor(System.Reflection.MethodBase,System.Reflection.MethodInfo)
+   IL_0529: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.Helpers.LegacyMonoMod.LegacyHook>::Add(T)
+   IL_052e: nop
+   IL_052f: nop
+   IL_0530: ret

@@ -1,0 +1,37 @@
+ + IL_10000: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.TriggerSpikeCheck(ILContext)
+ + IL_10001: ldfld Celeste.TriggerSpikes Celeste.TriggerSpikes/SpikeInfo::Parent @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.TriggerSpikeCheck(ILContext)
+ + IL_10002: ldarg.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.TriggerSpikeCheck(ILContext)
+ + IL_10003: call System.Boolean ChroniaHelper.Entities.TeraBlock::TriggerSpikeTeraCheck(Celeste.TriggerSpikes,Celeste.Player) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.TriggerSpikeCheck(ILContext)
+ + IL_10004: brfalse IL_0051 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraBlock.TriggerSpikeCheck(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.TriggerSpikes/SpikeInfo::Triggered
+   IL_0006: brtrue.s IL_0038
+   IL_0008: ldstr "event:/game/03_resort/fluff_tendril_touch"
+   IL_000d: ldarg.0
+   IL_000e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.TriggerSpikes/SpikeInfo::WorldPosition
+   IL_0013: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0018: pop
+   IL_0019: ldarg.0
+   IL_001a: ldc.i4.1
+   IL_001b: stfld System.Boolean Celeste.TriggerSpikes/SpikeInfo::Triggered
+   IL_0020: ldarg.0
+   IL_0021: ldc.r4 0.4
+   IL_0026: stfld System.Single Celeste.TriggerSpikes/SpikeInfo::DelayTimer
+   IL_002b: ldarg.0
+   IL_002c: ldc.r4 6
+   IL_0031: stfld System.Single Celeste.TriggerSpikes/SpikeInfo::RetractTimer
+   IL_0036: br.s IL_0051
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Single Celeste.TriggerSpikes/SpikeInfo::Lerp
+   IL_003e: ldc.r4 1
+   IL_0043: blt.un.s IL_0051
+   IL_0045: ldarg.1
+   IL_0046: ldarg.2
+   IL_0047: ldc.i4.0
+   IL_0048: ldc.i4.1
+   IL_0049: callvirt Celeste.PlayerDeadBody Celeste.Player::Die(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean)
+   IL_004e: pop
+   IL_004f: ldc.i4.1
+   IL_0050: ret
+   IL_0051: ldc.i4.0
+   IL_0052: ret

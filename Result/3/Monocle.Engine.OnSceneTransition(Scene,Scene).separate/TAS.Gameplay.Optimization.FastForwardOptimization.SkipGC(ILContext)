@@ -1,0 +1,9 @@
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_IgnoreGarbageCollect() @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Optimization.FastForwardOptimization.SkipGC(ILContext)
+ + IL_10001: brtrue IL_000a @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Optimization.FastForwardOptimization.SkipGC(ILContext)
+   IL_0000: call System.Void System.GC::Collect()
+   IL_0005: call System.Void System.GC::WaitForPendingFinalizers()
+   IL_000a: ldc.r4 1
+   IL_000f: stsfld System.Single Monocle.Engine::TimeRate
+   IL_0014: ldc.i4.0
+   IL_0015: stsfld System.Boolean Monocle.Engine::DashAssistFreeze
+   IL_001a: ret

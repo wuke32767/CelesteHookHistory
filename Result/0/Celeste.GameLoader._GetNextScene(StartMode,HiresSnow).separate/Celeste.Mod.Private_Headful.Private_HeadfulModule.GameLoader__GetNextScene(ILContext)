@@ -1,0 +1,33 @@
+   IL_0000: call System.Void Celeste.GameLoader::checkModSaveDataBackups()
+   IL_0005: ldc.i4.0
+   IL_0006: stloc.0
+   IL_0007: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_000c: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_AutoUpdateModsOnStartup()
+   IL_0011: brfalse.s IL_0038
+   IL_0013: call System.Boolean Celeste.Mod.Everest/Flags::get_IsHeadless()
+ + IL_10000: pop @ [Private_Headful::]Celeste.Mod.Private_Headful.Private_HeadfulModule.GameLoader__GetNextScene(ILContext)
+ + IL_10001: ldc.i4 0 @ [Private_Headful::]Celeste.Mod.Private_Headful.Private_HeadfulModule.GameLoader__GetNextScene(ILContext)
+   IL_0018: brtrue.s IL_0038
+   IL_001a: call System.Boolean Celeste.Mod.Helpers.ModUpdaterHelper::IsAsyncUpdateCheckingDone()
+   IL_001f: brtrue.s IL_0025
+   IL_0021: ldc.i4.1
+   IL_0022: stloc.0
+   IL_0023: br.s IL_0038
+   IL_0025: call System.Collections.Generic.SortedDictionary`2<Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata> Celeste.Mod.Helpers.ModUpdaterHelper::GetAsyncLoadedModUpdates()
+   IL_002a: stloc.1
+   IL_002b: ldloc.1
+   IL_002c: brfalse.s IL_0038
+   IL_002e: ldloc.1
+   IL_002f: callvirt System.Int32 System.Collections.Generic.SortedDictionary`2<Celeste.Mod.Helpers.ModUpdateInfo,Celeste.Mod.EverestModuleMetadata>::get_Count()
+   IL_0034: brfalse.s IL_0038
+   IL_0036: ldc.i4.1
+   IL_0037: stloc.0
+   IL_0038: ldloc.0
+   IL_0039: brfalse.s IL_0042
+   IL_003b: ldarg.1
+   IL_003c: newobj System.Void Celeste.Mod.UI.AutoModUpdater::.ctor(Celeste.HiresSnow)
+   IL_0041: ret
+   IL_0042: ldarg.0
+   IL_0043: ldarg.1
+   IL_0044: newobj System.Void Celeste.OverworldLoader::.ctor(Celeste.Overworld/StartMode,Celeste.HiresSnow)
+   IL_0049: ret

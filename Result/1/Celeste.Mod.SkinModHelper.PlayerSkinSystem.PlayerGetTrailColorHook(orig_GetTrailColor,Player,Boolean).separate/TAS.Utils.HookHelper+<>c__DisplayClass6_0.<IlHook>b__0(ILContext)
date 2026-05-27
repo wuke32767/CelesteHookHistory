@@ -1,0 +1,27 @@
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0007: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_000c: stloc.0
+   IL_000d: ldarg.1
+   IL_000e: call System.Int32 Celeste.Mod.SkinModHelper.PlayerSkinSystem::GetStartedDashingCount(Celeste.Player)
+   IL_0013: stloc.1
+   IL_0014: ldloc.0
+   IL_0015: ldc.i4.s 101
+   IL_0017: ldloc.1
+   IL_0018: ldloca.s V_2
+   IL_001a: callvirt System.Boolean Celeste.Mod.SkinModHelper.HairConfig::Safe_GetHairColor(System.Int32,System.Int32,Microsoft.Xna.Framework.Color&)
+   IL_001f: stloc.3
+   IL_0020: ldloc.3
+   IL_0021: brfalse.s IL_0028
+   IL_0023: ldloc.2
+   IL_0024: stloc.s V_4
+   IL_0026: br.s IL_0034
+   IL_0028: ldarg.0
+   IL_0029: ldarg.1
+   IL_002a: ldarg.2
+   IL_002b: callvirt Microsoft.Xna.Framework.Color On.Celeste.Player/orig_GetTrailColor::Invoke(Celeste.Player,System.Boolean)
+   IL_0030: stloc.s V_4
+   IL_0032: br.s IL_0034
+   IL_0034: ldloc.s V_4
+   IL_0036: ret

@@ -1,0 +1,120 @@
+   IL_0000: ldsfld System.Boolean Monocle.Engine::DashAssistFreeze
+   IL_0005: brtrue.s IL_003b
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Boolean Celeste.PlayerDashAssist::paused
+   IL_000d: brfalse.s IL_003a
+   IL_000f: ldarg.0
+   IL_0010: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0015: ldfld System.Boolean Monocle.Scene::Paused
+   IL_001a: brtrue.s IL_0022
+   IL_001c: ldc.i4.0
+   IL_001d: call System.Void Celeste.Audio::set_PauseGameplaySfx(System.Boolean)
+   IL_0022: ldarg.0
+   IL_0023: callvirt System.Void Celeste.PlayerDashAssist::DisableSnapshot()
+   IL_0028: ldarg.0
+   IL_0029: ldc.r4 0
+   IL_002e: stfld System.Single Celeste.PlayerDashAssist::timer
+   IL_0033: ldarg.0
+   IL_0034: ldc.i4.0
+   IL_0035: stfld System.Boolean Celeste.PlayerDashAssist::paused
+   IL_003a: ret
+   IL_003b: ldarg.0
+   IL_003c: ldc.i4.1
+   IL_003d: stfld System.Boolean Celeste.PlayerDashAssist::paused
+   IL_0042: ldc.i4.1
+   IL_0043: call System.Void Celeste.Audio::set_PauseGameplaySfx(System.Boolean)
+   IL_0048: ldarg.0
+   IL_0049: ldarg.0
+   IL_004a: ldfld System.Single Celeste.PlayerDashAssist::timer
+   IL_004f: call System.Single Monocle.Engine::get_RawDeltaTime()
+   IL_0054: add
+   IL_0055: stfld System.Single Celeste.PlayerDashAssist::timer
+   IL_005a: ldarg.0
+   IL_005b: ldfld System.Single Celeste.PlayerDashAssist::timer
+   IL_0060: ldc.r4 0.2
+   IL_0065: ble.un.s IL_007b
+   IL_0067: ldarg.0
+   IL_0068: ldfld FMOD.Studio.EventInstance Celeste.PlayerDashAssist::snapshot
+   IL_006d: ldnull
+   IL_006e: call System.Boolean FMOD.Studio.HandleBase::op_Equality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_0073: brfalse.s IL_007b
+   IL_0075: ldarg.0
+   IL_0076: callvirt System.Void Celeste.PlayerDashAssist::EnableSnapshot()
+   IL_007b: ldarg.0
+   IL_007c: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0081: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0086: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_008b: stloc.0
+   IL_008c: ldloc.0
+   IL_008d: brtrue.s IL_0090
+   IL_008f: ret
+   IL_0090: ldloc.0
+   IL_0091: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_0096: call Microsoft.Xna.Framework.Vector2 Celeste.Input::GetAimVector(Celeste.Facings)
+ + IL_10000: ldloc.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.DashAngleRestrictionTrigger.ILDashAssistUpdate(ILContext)
+ + IL_10001: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.ScugHelper.Entities.DashAngleRestrictionTrigger::<ILDashAssistUpdate>g__DashPrecision|10_1(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.DashAngleRestrictionTrigger.ILDashAssistUpdate(ILContext)
+   IL_009b: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_00a0: stloc.1
+   IL_00a1: ldloc.1
+   IL_00a2: ldarg.0
+   IL_00a3: ldfld System.Single Celeste.PlayerDashAssist::Direction
+   IL_00a8: call System.Single Monocle.Calc::AbsAngleDiff(System.Single,System.Single)
+   IL_00ad: ldc.r4 1.5807964
+   IL_00b2: blt.un.s IL_00c8
+   IL_00b4: ldarg.0
+   IL_00b5: ldloc.1
+   IL_00b6: stfld System.Single Celeste.PlayerDashAssist::Direction
+   IL_00bb: ldarg.0
+   IL_00bc: ldc.r4 0
+   IL_00c1: stfld System.Single Celeste.PlayerDashAssist::Scale
+   IL_00c6: br.s IL_00e5
+   IL_00c8: ldarg.0
+   IL_00c9: ldarg.0
+   IL_00ca: ldfld System.Single Celeste.PlayerDashAssist::Direction
+   IL_00cf: ldloc.1
+   IL_00d0: ldc.r4 18.849556
+   IL_00d5: call System.Single Monocle.Engine::get_RawDeltaTime()
+   IL_00da: mul
+   IL_00db: call System.Single Monocle.Calc::AngleApproach(System.Single,System.Single,System.Single)
+   IL_00e0: stfld System.Single Celeste.PlayerDashAssist::Direction
+   IL_00e5: ldarg.0
+   IL_00e6: ldarg.0
+   IL_00e7: ldfld System.Single Celeste.PlayerDashAssist::Scale
+   IL_00ec: ldc.r4 1
+   IL_00f1: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00f6: ldc.r4 4
+   IL_00fb: mul
+   IL_00fc: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0101: stfld System.Single Celeste.PlayerDashAssist::Scale
+   IL_0106: ldc.i4.1
+   IL_0107: ldc.i4.8
+   IL_0108: ldloc.1
+   IL_0109: ldc.r4 0.7853982
+   IL_010e: div
+   IL_010f: conv.r8
+   IL_0110: call System.Double System.Math::Round(System.Double)
+   IL_0115: conv.i4
+   IL_0116: add
+   IL_0117: ldc.i4.8
+   IL_0118: rem
+   IL_0119: add
+   IL_011a: stloc.2
+   IL_011b: ldarg.0
+   IL_011c: ldfld System.Int32 Celeste.PlayerDashAssist::lastIndex
+   IL_0121: brfalse.s IL_0144
+   IL_0123: ldarg.0
+   IL_0124: ldfld System.Int32 Celeste.PlayerDashAssist::lastIndex
+   IL_0129: ldloc.2
+   IL_012a: beq.s IL_0144
+   IL_012c: ldstr "event:/game/general/assist_dash_aim"
+   IL_0131: ldloc.0
+   IL_0132: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0137: ldstr "dash_direction"
+   IL_013c: ldloc.2
+   IL_013d: conv.r4
+   IL_013e: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2,System.String,System.Single)
+   IL_0143: pop
+   IL_0144: ldarg.0
+   IL_0145: ldloc.2
+   IL_0146: stfld System.Int32 Celeste.PlayerDashAssist::lastIndex
+   IL_014b: ret

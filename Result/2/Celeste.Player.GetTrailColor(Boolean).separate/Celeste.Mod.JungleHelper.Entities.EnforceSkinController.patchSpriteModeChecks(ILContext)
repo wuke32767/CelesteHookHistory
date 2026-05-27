@@ -1,0 +1,18 @@
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0006: callvirt Celeste.PlayerSpriteMode Celeste.PlayerSprite::get_Mode()
+ + IL_10000: call Celeste.PlayerSpriteMode Celeste.Mod.JungleHelper.Entities.EnforceSkinController::masqueradeAsBadeline(Celeste.PlayerSpriteMode) @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.EnforceSkinController.patchSpriteModeChecks(ILContext)
+   IL_000b: ldc.i4.3
+   IL_000c: bne.un.s IL_001d
+   IL_000e: ldarg.1
+   IL_000f: brtrue.s IL_0017
+   IL_0011: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::UsedBadelineHairColor
+   IL_0016: ret
+   IL_0017: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::NormalBadelineHairColor
+   IL_001c: ret
+   IL_001d: ldarg.1
+   IL_001e: brtrue.s IL_0026
+   IL_0020: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::UsedHairColor
+   IL_0025: ret
+   IL_0026: ldsfld Microsoft.Xna.Framework.Color Celeste.Player::NormalHairColor
+   IL_002b: ret

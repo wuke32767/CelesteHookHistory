@@ -1,0 +1,123 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.1
+   IL_0003: callvirt System.Void On.Celeste.PlayerSprite/orig_CreateFramesMetadata::Invoke(System.String)
+   IL_0008: nop
+   IL_0009: ldarg.1
+   IL_000a: ldstr "player"
+   IL_000f: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0014: stloc.3
+   IL_0015: ldloc.3
+   IL_0016: brfalse.s IL_0025
+   IL_0018: nop
+   IL_0019: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Mod.SkinModHelper.SkinsSystem::IDHasHairMetadate
+   IL_001e: callvirt System.Void System.Collections.Generic.HashSet`1<System.String>::Clear()
+   IL_0023: nop
+   IL_0024: nop
+   IL_0025: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Mod.SkinModHelper.SkinsSystem::IDHasHairMetadate
+   IL_002a: ldarg.1
+   IL_002b: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Add(T)
+   IL_0030: pop
+   IL_0031: newobj System.Void System.Collections.Generic.List`1<System.String>::.ctor()
+   IL_0036: stloc.0
+   IL_0037: nop
+   IL_0038: ldsfld System.Collections.Generic.HashSet`1<System.ValueTuple`2<System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>>> Celeste.Mod.SkinModHelper.PlayerSkinSystem::patchPlayerSprite_List
+   IL_003d: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<System.ValueTuple`2<System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>>>::GetEnumerator()
+   IL_0042: stloc.s V_4
+   IL_0044: br.s IL_00aa
+   IL_0046: ldloca.s V_4
+   IL_0048: call T System.Collections.Generic.HashSet`1/Enumerator<System.ValueTuple`2<System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>>>::get_Current()
+   IL_004d: stloc.s V_5
+   IL_004f: nop
+   IL_0050: ldloc.s V_5
+   IL_0052: ldfld T2 System.ValueTuple`2<System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>>::Item2
+   IL_0057: callvirt System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2<System.String,System.String>::get_Values()
+   IL_005c: ldarg.1
+   IL_005d: call System.Boolean System.Linq.Enumerable::Contains<System.String>(System.Collections.Generic.IEnumerable`1<TSource>,TSource)
+   IL_0062: brtrue.s IL_0073
+   IL_0064: ldarg.1
+   IL_0065: ldloc.s V_5
+   IL_0067: ldfld T1 System.ValueTuple`2<System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>>::Item1
+   IL_006c: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0071: br.s IL_0074
+   IL_0073: ldc.i4.1
+   IL_0074: stloc.s V_7
+   IL_0076: ldloc.s V_7
+   IL_0078: brfalse.s IL_007f
+   IL_007a: leave IL_0152
+   IL_007f: ldloc.s V_5
+   IL_0081: ldfld T2 System.ValueTuple`2<System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>>::Item2
+   IL_0086: ldarg.1
+   IL_0087: ldloca.s V_6
+   IL_0089: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.String>::TryGetValue(TKey,TValue&)
+   IL_008e: ldc.i4.0
+   IL_008f: ceq
+   IL_0091: stloc.s V_8
+   IL_0093: ldloc.s V_8
+   IL_0095: brfalse.s IL_00a0
+   IL_0097: ldloc.s V_5
+   IL_0099: ldfld T1 System.ValueTuple`2<System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>>::Item1
+   IL_009e: stloc.s V_6
+   IL_00a0: ldloc.0
+   IL_00a1: ldloc.s V_6
+   IL_00a3: callvirt System.Void System.Collections.Generic.List`1<System.String>::Add(T)
+   IL_00a8: nop
+   IL_00a9: nop
+   IL_00aa: ldloca.s V_4
+   IL_00ac: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<System.ValueTuple`2<System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>>>::MoveNext()
+   IL_00b1: brtrue.s IL_0046
+   IL_00b3: leave.s IL_00c4
+   IL_00b5: ldloca.s V_4
+   IL_00b7: constrained. System.Collections.Generic.HashSet`1/Enumerator<System.ValueTuple`2<System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>>>
+   IL_00bd: callvirt System.Void System.IDisposable::Dispose()
+   IL_00c2: nop
+   IL_00c3: endfinally
+   IL_00c4: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_00c9: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_00ce: ldarg.1
+   IL_00cf: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::get_Item(TKey)
+   IL_00d4: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_00d9: stloc.1
+   IL_00da: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_00df: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_00e4: ldstr "SkinModHelper_PlayerAnimFill"
+   IL_00e9: ldloca.s V_2
+   IL_00eb: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::TryGetValue(TKey,TValue&)
+   IL_00f0: stloc.s V_9
+   IL_00f2: ldloc.s V_9
+   IL_00f4: brfalse.s IL_0105
+   IL_00f6: nop
+   IL_00f7: ldloc.2
+   IL_00f8: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_00fd: ldloc.1
+   IL_00fe: call System.Void Celeste.Mod.SkinModHelper.SkinsSystem::PatchSprite(Monocle.Sprite,Monocle.Sprite)
+   IL_0103: nop
+   IL_0104: nop
+   IL_0105: nop
+   IL_0106: ldloc.0
+   IL_0107: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<System.String>::GetEnumerator()
+   IL_010c: stloc.s V_10
+   IL_010e: br.s IL_0138
+   IL_0110: ldloca.s V_10
+   IL_0112: call T System.Collections.Generic.List`1/Enumerator<System.String>::get_Current()
+   IL_0117: stloc.s V_11
+   IL_0119: nop
+   IL_011a: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_011f: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData> Monocle.SpriteBank::SpriteData
+   IL_0124: ldloc.s V_11
+   IL_0126: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Monocle.SpriteData>::get_Item(TKey)
+   IL_012b: ldfld Monocle.Sprite Monocle.SpriteData::Sprite
+   IL_0130: ldloc.1
+   IL_0131: call System.Void Celeste.Mod.SkinModHelper.SkinsSystem::PatchSprite(Monocle.Sprite,Monocle.Sprite)
+   IL_0136: nop
+   IL_0137: nop
+   IL_0138: ldloca.s V_10
+   IL_013a: call System.Boolean System.Collections.Generic.List`1/Enumerator<System.String>::MoveNext()
+   IL_013f: brtrue.s IL_0110
+   IL_0141: leave.s IL_0152
+   IL_0143: ldloca.s V_10
+   IL_0145: constrained. System.Collections.Generic.List`1/Enumerator<System.String>
+   IL_014b: callvirt System.Void System.IDisposable::Dispose()
+   IL_0150: nop
+   IL_0151: endfinally
+   IL_0152: ret

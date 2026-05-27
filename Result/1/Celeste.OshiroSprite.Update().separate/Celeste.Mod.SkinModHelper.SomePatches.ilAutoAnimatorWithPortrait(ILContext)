@@ -1,0 +1,107 @@
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Sprite::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Boolean Celeste.OshiroSprite::AllowSpriteChanges
+   IL_000c: brfalse IL_0089
+   IL_0011: ldarg.0
+   IL_0012: call Monocle.Scene Monocle.Component::get_Scene()
+   IL_0017: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_001c: callvirt T Monocle.Tracker::GetEntity<Celeste.Textbox>()
+   IL_0021: stloc.0
+   IL_0022: ldloc.0
+   IL_0023: brfalse.s IL_0089
+   IL_0025: ldloc.0
+   IL_0026: callvirt System.String Celeste.Textbox::get_PortraitName()
+   IL_002b: ldstr "oshiro"
+ + IL_10000: call System.String Celeste.Mod.SkinModHelper.SomePatches::_findPortraitSkin(System.String) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SomePatches.ilAutoAnimatorWithPortrait(ILContext)
+   IL_0030: ldc.i4.5
+   IL_0031: callvirt System.Boolean System.String::Equals(System.String,System.StringComparison)
+   IL_0036: brfalse.s IL_006b
+   IL_0038: ldloc.0
+   IL_0039: callvirt System.String Celeste.Textbox::get_PortraitAnimation()
+   IL_003e: ldstr "side"
+   IL_0043: ldc.i4.5
+   IL_0044: callvirt System.Boolean System.String::StartsWith(System.String,System.StringComparison)
+   IL_0049: brfalse.s IL_006b
+   IL_004b: ldarg.0
+   IL_004c: call System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_0051: ldstr "idle"
+   IL_0056: callvirt System.Boolean System.String::Equals(System.String)
+   IL_005b: brfalse.s IL_0089
+   IL_005d: ldarg.0
+   IL_005e: ldstr "side"
+   IL_0063: ldc.i4.1
+   IL_0064: callvirt System.Void Celeste.OshiroSprite::Pop(System.String,System.Boolean)
+   IL_0069: br.s IL_0089
+   IL_006b: ldarg.0
+   IL_006c: call System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_0071: ldstr "side"
+   IL_0076: callvirt System.Boolean System.String::Equals(System.String)
+   IL_007b: brfalse.s IL_0089
+   IL_007d: ldarg.0
+   IL_007e: ldstr "idle"
+   IL_0083: ldc.i4.1
+   IL_0084: callvirt System.Void Celeste.OshiroSprite::Pop(System.String,System.Boolean)
+   IL_0089: ldarg.0
+   IL_008a: ldfld System.Boolean Celeste.OshiroSprite::AllowTurnInvisible
+   IL_008f: brfalse IL_012d
+   IL_0094: ldarg.0
+   IL_0095: ldfld System.Boolean Monocle.Component::Visible
+   IL_009a: brfalse IL_012d
+   IL_009f: ldarg.0
+   IL_00a0: call Monocle.Scene Monocle.Component::get_Scene()
+   IL_00a5: isinst Celeste.Level
+   IL_00aa: stloc.1
+   IL_00ab: ldarg.0
+   IL_00ac: ldarg.0
+   IL_00ad: call Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::get_RenderPosition()
+   IL_00b2: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00b7: ldloc.1
+   IL_00b8: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00bd: stloc.2
+   IL_00be: ldloca.s V_2
+   IL_00c0: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_00c5: ldc.i4.8
+   IL_00c6: sub
+   IL_00c7: conv.r4
+   IL_00c8: ble.un.s IL_0127
+   IL_00ca: ldarg.0
+   IL_00cb: call Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::get_RenderPosition()
+   IL_00d0: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00d5: ldloc.1
+   IL_00d6: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00db: stloc.2
+   IL_00dc: ldloca.s V_2
+   IL_00de: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_00e3: ldc.i4.8
+   IL_00e4: sub
+   IL_00e5: conv.r4
+   IL_00e6: ble.un.s IL_0127
+   IL_00e8: ldarg.0
+   IL_00e9: call Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::get_RenderPosition()
+   IL_00ee: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00f3: ldloc.1
+   IL_00f4: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_00f9: stloc.2
+   IL_00fa: ldloca.s V_2
+   IL_00fc: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Right()
+   IL_0101: ldc.i4.8
+   IL_0102: add
+   IL_0103: conv.r4
+   IL_0104: bge.un.s IL_0127
+   IL_0106: ldarg.0
+   IL_0107: call Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::get_RenderPosition()
+   IL_010c: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0111: ldloc.1
+   IL_0112: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0117: stloc.2
+   IL_0118: ldloca.s V_2
+   IL_011a: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_011f: ldc.i4.s 16
+   IL_0121: add
+   IL_0122: conv.r4
+   IL_0123: clt
+   IL_0125: br.s IL_0128
+   IL_0127: ldc.i4.0
+   IL_0128: stfld System.Boolean Monocle.Component::Visible
+   IL_012d: ret

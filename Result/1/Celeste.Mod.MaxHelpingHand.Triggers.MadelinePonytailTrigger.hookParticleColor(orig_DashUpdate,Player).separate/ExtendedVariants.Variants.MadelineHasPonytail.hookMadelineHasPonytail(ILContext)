@@ -1,0 +1,25 @@
+   IL_0000: call Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule::get_Instance()
+   IL_0005: callvirt Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandSession Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule::get_Session()
+   IL_000a: callvirt System.Boolean Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandSession::get_MadelineHasPonytail()
+ + IL_10000: call System.Boolean ExtendedVariants.Variants.MadelineHasPonytail::applyMadelineHasPonytail(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.MadelineHasPonytail.hookMadelineHasPonytail(ILContext)
+   IL_000f: brtrue.s IL_0019
+   IL_0011: ldarg.0
+   IL_0012: ldarg.1
+   IL_0013: callvirt System.Int32 On.Celeste.Player/orig_DashUpdate::Invoke(Celeste.Player)
+   IL_0018: ret
+   IL_0019: ldsfld Monocle.ParticleType Celeste.Player::P_DashB
+   IL_001e: stloc.0
+   IL_001f: ldsfld Monocle.ParticleType Celeste.Player::P_DashBadB
+   IL_0024: stloc.1
+   IL_0025: ldsfld Monocle.ParticleType Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger::hairParticle
+   IL_002a: stsfld Monocle.ParticleType Celeste.Player::P_DashB
+   IL_002f: ldsfld Monocle.ParticleType Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger::hairParticle
+   IL_0034: stsfld Monocle.ParticleType Celeste.Player::P_DashBadB
+   IL_0039: ldarg.0
+   IL_003a: ldarg.1
+   IL_003b: callvirt System.Int32 On.Celeste.Player/orig_DashUpdate::Invoke(Celeste.Player)
+   IL_0040: ldloc.0
+   IL_0041: stsfld Monocle.ParticleType Celeste.Player::P_DashB
+   IL_0046: ldloc.1
+   IL_0047: stsfld Monocle.ParticleType Celeste.Player::P_DashBadB
+   IL_004c: ret

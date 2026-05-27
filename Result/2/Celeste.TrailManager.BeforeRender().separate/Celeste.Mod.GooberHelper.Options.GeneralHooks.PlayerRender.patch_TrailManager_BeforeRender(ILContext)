@@ -1,0 +1,240 @@
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.TrailManager::dirty
+   IL_0006: brtrue.s IL_0009
+   IL_0008: ret
+   IL_0009: ldarg.0
+   IL_000a: ldfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_000f: brtrue.s IL_002e
+   IL_0011: ldarg.0
+   IL_0012: ldstr "trail-manager"
+   IL_0017: ldc.i4 512
+   IL_001c: ldc.i4 512
+   IL_0021: ldc.i4.0
+   IL_0022: ldc.i4.1
+   IL_0023: ldc.i4.0
+   IL_0024: call Monocle.VirtualRenderTarget Monocle.VirtualContent::CreateRenderTarget(System.String,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32)
+   IL_0029: stfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_002e: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0033: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0038: ldarg.0
+   IL_0039: ldfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_003e: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_0043: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTarget(Microsoft.Xna.Framework.Graphics.RenderTarget2D)
+   IL_0048: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_004d: ldc.i4.0
+   IL_004e: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Celeste.LightingRenderer::OccludeBlendState
+   IL_0053: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_0058: ldc.i4.0
+   IL_0059: stloc.0
+   IL_005a: br.s IL_00a5
+   IL_005c: ldarg.0
+   IL_005d: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_0062: ldloc.0
+   IL_0063: ldelem.ref
+   IL_0064: brfalse.s IL_00a1
+   IL_0066: ldarg.0
+   IL_0067: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_006c: ldloc.0
+   IL_006d: ldelem.ref
+   IL_006e: ldfld System.Boolean Celeste.TrailManager/Snapshot::Drawn
+   IL_0073: brtrue.s IL_00a1
+   IL_0075: ldc.r4 0
+   IL_007a: ldc.r4 0
+   IL_007f: ldarg.0
+   IL_0080: ldfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_0085: callvirt System.Int32 Monocle.VirtualAsset::get_Width()
+   IL_008a: conv.r4
+   IL_008b: ldarg.0
+   IL_008c: ldfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_0091: callvirt System.Int32 Monocle.VirtualAsset::get_Height()
+   IL_0096: conv.r4
+   IL_0097: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Transparent()
+   IL_009c: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00a1: ldloc.0
+   IL_00a2: ldc.i4.1
+   IL_00a3: add
+   IL_00a4: stloc.0
+   IL_00a5: ldloc.0
+   IL_00a6: ldarg.0
+   IL_00a7: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_00ac: ldlen
+   IL_00ad: conv.i4
+   IL_00ae: blt.s IL_005c
+   IL_00b0: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_00b5: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_00ba: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_00bf: ldc.i4.0
+   IL_00c0: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_00c5: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::PointClamp
+   IL_00ca: ldnull
+   IL_00cb: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
+   IL_00d0: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState)
+ + IL_10000: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.PlayerRender.patch_TrailManager_BeforeRender(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.GooberHelper.Options.GeneralHooks.PlayerRender::rotateTrailManagerMatrix(Celeste.TrailManager) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.PlayerRender.patch_TrailManager_BeforeRender(ILContext)
+   IL_00d5: ldc.i4.0
+   IL_00d6: stloc.1
+   IL_00d7: br IL_024e
+   IL_00dc: ldarg.0
+   IL_00dd: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_00e2: ldloc.1
+   IL_00e3: ldelem.ref
+   IL_00e4: brfalse IL_024a
+   IL_00e9: ldarg.0
+   IL_00ea: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_00ef: ldloc.1
+   IL_00f0: ldelem.ref
+   IL_00f1: ldfld System.Boolean Celeste.TrailManager/Snapshot::Drawn
+   IL_00f6: brtrue IL_024a
+   IL_00fb: ldarg.0
+   IL_00fc: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_0101: ldloc.1
+   IL_0102: ldelem.ref
+   IL_0103: stloc.2
+   IL_0104: ldarg.0
+   IL_0105: ldfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_010a: callvirt System.Int32 Monocle.VirtualAsset::get_Width()
+   IL_010f: conv.r4
+   IL_0110: ldc.r4 0.5
+   IL_0115: mul
+   IL_0116: ldarg.0
+   IL_0117: ldfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_011c: callvirt System.Int32 Monocle.VirtualAsset::get_Height()
+   IL_0121: conv.r4
+   IL_0122: ldc.r4 0.5
+   IL_0127: mul
+   IL_0128: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_012d: ldloc.2
+   IL_012e: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0133: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0138: stloc.3
+   IL_0139: ldloc.2
+   IL_013a: ldfld Celeste.PlayerHair Celeste.TrailManager/Snapshot::Hair
+   IL_013f: brfalse IL_01df
+   IL_0144: ldc.i4.0
+   IL_0145: stloc.s V_5
+   IL_0147: br.s IL_0178
+   IL_0149: ldloc.2
+   IL_014a: ldfld Celeste.PlayerHair Celeste.TrailManager/Snapshot::Hair
+   IL_014f: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_0154: stloc.s V_6
+   IL_0156: ldloc.s V_5
+   IL_0158: stloc.s V_7
+   IL_015a: ldloc.s V_6
+   IL_015c: ldloc.s V_7
+   IL_015e: ldloc.s V_6
+   IL_0160: ldloc.s V_7
+   IL_0162: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_0167: ldloc.3
+   IL_0168: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_016d: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::set_Item(System.Int32,T)
+   IL_0172: ldloc.s V_5
+   IL_0174: ldc.i4.1
+   IL_0175: add
+   IL_0176: stloc.s V_5
+   IL_0178: ldloc.s V_5
+   IL_017a: ldloc.2
+   IL_017b: ldfld Celeste.PlayerHair Celeste.TrailManager/Snapshot::Hair
+   IL_0180: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_0185: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Count()
+   IL_018a: blt.s IL_0149
+   IL_018c: ldloc.2
+   IL_018d: ldfld Celeste.PlayerHair Celeste.TrailManager/Snapshot::Hair
+   IL_0192: callvirt System.Void Monocle.Component::Render()
+   IL_0197: ldc.i4.0
+   IL_0198: stloc.s V_8
+   IL_019a: br.s IL_01cb
+   IL_019c: ldloc.2
+   IL_019d: ldfld Celeste.PlayerHair Celeste.TrailManager/Snapshot::Hair
+   IL_01a2: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_01a7: stloc.s V_6
+   IL_01a9: ldloc.s V_8
+   IL_01ab: stloc.s V_7
+   IL_01ad: ldloc.s V_6
+   IL_01af: ldloc.s V_7
+   IL_01b1: ldloc.s V_6
+   IL_01b3: ldloc.s V_7
+   IL_01b5: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_01ba: ldloc.3
+   IL_01bb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01c0: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::set_Item(System.Int32,T)
+   IL_01c5: ldloc.s V_8
+   IL_01c7: ldc.i4.1
+   IL_01c8: add
+   IL_01c9: stloc.s V_8
+   IL_01cb: ldloc.s V_8
+   IL_01cd: ldloc.2
+   IL_01ce: ldfld Celeste.PlayerHair Celeste.TrailManager/Snapshot::Hair
+   IL_01d3: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_01d8: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Count()
+   IL_01dd: blt.s IL_019c
+   IL_01df: ldloc.2
+   IL_01e0: ldfld Monocle.Image Celeste.TrailManager/Snapshot::Sprite
+   IL_01e5: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_01ea: stloc.s V_4
+   IL_01ec: ldloc.2
+   IL_01ed: ldfld Monocle.Image Celeste.TrailManager/Snapshot::Sprite
+   IL_01f2: ldloc.2
+   IL_01f3: ldfld Microsoft.Xna.Framework.Vector2 Celeste.TrailManager/Snapshot::SpriteScale
+   IL_01f8: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_01fd: ldloc.2
+   IL_01fe: ldfld Monocle.Image Celeste.TrailManager/Snapshot::Sprite
+   IL_0203: dup
+   IL_0204: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0209: ldloc.3
+   IL_020a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_020f: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0214: ldloc.2
+   IL_0215: ldfld Monocle.Image Celeste.TrailManager/Snapshot::Sprite
+   IL_021a: callvirt System.Void Monocle.Component::Render()
+   IL_021f: ldloc.2
+   IL_0220: ldfld Monocle.Image Celeste.TrailManager/Snapshot::Sprite
+   IL_0225: ldloc.s V_4
+   IL_0227: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_022c: ldloc.2
+   IL_022d: ldfld Monocle.Image Celeste.TrailManager/Snapshot::Sprite
+   IL_0232: dup
+   IL_0233: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0238: ldloc.3
+   IL_0239: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_023e: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0243: ldloc.2
+   IL_0244: ldc.i4.1
+   IL_0245: stfld System.Boolean Celeste.TrailManager/Snapshot::Drawn
+   IL_024a: ldloc.1
+   IL_024b: ldc.i4.1
+   IL_024c: add
+   IL_024d: stloc.1
+   IL_024e: ldloc.1
+   IL_024f: ldarg.0
+   IL_0250: ldfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_0255: ldlen
+   IL_0256: conv.i4
+   IL_0257: blt IL_00dc
+   IL_025c: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0261: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_0266: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_026b: ldc.i4.0
+   IL_026c: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Celeste.TrailManager::MaxBlendState
+   IL_0271: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_0276: ldc.r4 0
+   IL_027b: ldc.r4 0
+   IL_0280: ldarg.0
+   IL_0281: ldfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_0286: callvirt System.Int32 Monocle.VirtualAsset::get_Width()
+   IL_028b: conv.r4
+   IL_028c: ldarg.0
+   IL_028d: ldfld Monocle.VirtualRenderTarget Celeste.TrailManager::buffer
+   IL_0292: callvirt System.Int32 Monocle.VirtualAsset::get_Height()
+   IL_0297: conv.r4
+   IL_0298: ldc.r4 1
+   IL_029d: ldc.r4 1
+   IL_02a2: ldc.r4 1
+   IL_02a7: ldc.r4 1
+   IL_02ac: newobj System.Void Microsoft.Xna.Framework.Color::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_02b1: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_02b6: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_02bb: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_02c0: ldarg.0
+   IL_02c1: ldc.i4.0
+   IL_02c2: stfld System.Boolean Celeste.TrailManager::dirty
+   IL_02c7: ret

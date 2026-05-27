@@ -1,0 +1,46 @@
+   IL_0000: nop
+   IL_0001: ldloca.s V_0
+   IL_0003: initobj System.Nullable`1<Microsoft.Xna.Framework.Color>
+   IL_0009: ldarg.2
+   IL_000a: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_000f: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
+   IL_0014: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.SkinModHelper.CharacterConfig::get_SilhouetteMode()
+   IL_0019: stloc.2
+   IL_001a: ldc.i4.1
+   IL_001b: stloc.3
+   IL_001c: ldloca.s V_2
+   IL_001e: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_0023: ldloc.3
+   IL_0024: ceq
+   IL_0026: ldloca.s V_2
+   IL_0028: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_002d: and
+   IL_002e: stloc.1
+   IL_002f: ldloc.1
+   IL_0030: brfalse.s IL_0046
+   IL_0032: nop
+   IL_0033: ldloca.s V_0
+   IL_0035: ldarg.2
+   IL_0036: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_003b: ldfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0040: call System.Void System.Nullable`1<Microsoft.Xna.Framework.Color>::.ctor(T)
+   IL_0045: nop
+   IL_0046: ldarg.0
+   IL_0047: ldarg.1
+   IL_0048: ldarg.2
+   IL_0049: ldarg.3
+   IL_004a: callvirt System.Void On.Celeste.PlayerDeadBody/orig_ctor::Invoke(Celeste.PlayerDeadBody,Celeste.Player,Microsoft.Xna.Framework.Vector2)
+   IL_004f: nop
+   IL_0050: ldloca.s V_0
+   IL_0052: call System.Boolean System.Nullable`1<Microsoft.Xna.Framework.Color>::get_HasValue()
+   IL_0057: stloc.s V_4
+   IL_0059: ldloc.s V_4
+   IL_005b: brfalse.s IL_0071
+   IL_005d: nop
+   IL_005e: ldarg.2
+   IL_005f: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0064: ldloca.s V_0
+   IL_0066: call T System.Nullable`1<Microsoft.Xna.Framework.Color>::get_Value()
+   IL_006b: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0070: nop
+   IL_0071: ret

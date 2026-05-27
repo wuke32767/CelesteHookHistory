@@ -1,0 +1,898 @@
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Celeste.OuiJournalPage::.ctor(Celeste.OuiJournal)
+   IL_0007: call System.Boolean Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::shouldDisplaySpeedBerryColumn()
+   IL_000c: stloc.0
+   IL_000d: ldarg.0
+   IL_000e: ldstr "page"
+   IL_0013: stfld System.String Celeste.OuiJournalPage::PageTexture
+   IL_0018: ldarg.0
+   IL_0019: newobj System.Void Celeste.OuiJournalPage/Table::.ctor()
+   IL_001e: ldstr "journal_progress"
+   IL_0023: ldnull
+   IL_0024: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0029: ldc.r4 0
+   IL_002e: ldc.r4 0.5
+   IL_0033: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0038: ldc.r4 1
+   IL_003d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0042: ldc.r4 0.7
+   IL_0047: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_004c: ldc.r4 420
+   IL_0051: ldc.i4.0
+   IL_0052: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0057: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_005c: ldc.r4 20
+   IL_0061: newobj System.Void Celeste.OuiJournalPage/EmptyCell::.ctor(System.Single)
+   IL_0066: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_006b: ldc.r4 64
+   IL_0070: newobj System.Void Celeste.OuiJournalPage/EmptyCell::.ctor(System.Single)
+   IL_0075: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_007a: ldstr "strawberry"
+   IL_007f: ldc.r4 150
+   IL_0084: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_0089: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_008e: ldstr "skullblue"
+   IL_0093: ldc.r4 100
+   IL_0098: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_009d: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_00a2: ldstr "CollabUtils2MinDeaths/SpringCollab2020/1-Beginner"
+   IL_00a7: ldc.r4 100
+   IL_00ac: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_00b1: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_00b6: stfld Celeste.OuiJournalPage/Table Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::table
+   IL_00bb: call System.Boolean Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::IsDashCountEnabled()
+   IL_00c0: brfalse.s IL_00dd
+   IL_00c2: ldarg.0
+   IL_00c3: ldfld Celeste.OuiJournalPage/Table Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::table
+   IL_00c8: ldstr "max480/DashCountMod/dashes"
+   IL_00cd: ldc.r4 80
+   IL_00d2: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_00d7: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_00dc: pop
+   IL_00dd: ldarg.0
+   IL_00de: ldfld Celeste.OuiJournalPage/Table Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::table
+   IL_00e3: ldstr "time"
+   IL_00e8: ldc.r4 220
+   IL_00ed: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_00f2: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_00f7: ldstr "CollabUtils2/speed_berry_pbs_heading"
+   IL_00fc: ldc.r4 220
+   IL_0101: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_0106: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_010b: ldc.r4 30
+   IL_0110: newobj System.Void Celeste.OuiJournalPage/EmptyCell::.ctor(System.Single)
+   IL_0115: callvirt Celeste.OuiJournalPage/Table Celeste.OuiJournalPage/Table::AddColumn(Celeste.OuiJournalPage/Cell)
+   IL_011a: pop
+   IL_011b: ldc.i4.0
+   IL_011c: stloc.1
+   IL_011d: ldc.i4.0
+   IL_011e: stloc.2
+   IL_011f: ldc.i4.0
+   IL_0120: stloc.3
+   IL_0121: ldc.i4.0
+   IL_0122: stloc.s V_4
+   IL_0124: ldc.i4.0
+   IL_0125: conv.i8
+   IL_0126: stloc.s V_5
+   IL_0128: ldc.i4.0
+   IL_0129: conv.i8
+   IL_012a: stloc.s V_6
+   IL_012c: ldc.i4.1
+   IL_012d: stloc.s V_7
+   IL_012f: ldc.i4.1
+   IL_0130: stloc.s V_8
+   IL_0132: ldc.i4.1
+   IL_0133: stloc.s V_9
+   IL_0135: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_013a: callvirt System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.SaveData::get_Areas_Safe()
+   IL_013f: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.AreaStats>::GetEnumerator()
+   IL_0144: stloc.s V_11
+   IL_0146: br IL_0896
+   IL_014b: ldloca.s V_11
+   IL_014d: call T System.Collections.Generic.List`1/Enumerator<Celeste.AreaStats>::get_Current()
+   IL_0152: stloc.s V_12
+   IL_0154: ldloc.s V_12
+   IL_0156: callvirt System.Int32 Celeste.AreaStats::get_ID_Safe()
+   IL_015b: call Celeste.AreaData Celeste.AreaData::Get(System.Int32)
+   IL_0160: stloc.s V_13
+   IL_0162: ldloc.s V_13
+   IL_0164: callvirt System.String Celeste.AreaData::get_LevelSet()
+   IL_0169: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_016e: callvirt System.String Celeste.SaveData::get_LevelSet()
+   IL_0173: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0178: brfalse IL_0896
+   IL_017d: ldloc.s V_13
+   IL_017f: ldfld System.String Celeste.AreaData::SID
+   IL_0184: call System.String Celeste.Mod.CollabUtils2.LobbyHelper::GetLobbyLevelSet(System.String)
+   IL_0189: stloc.s V_14
+   IL_018b: ldnull
+   IL_018c: stloc.s V_15
+   IL_018e: ldloc.s V_14
+   IL_0190: brfalse.s IL_01a0
+   IL_0192: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0197: ldloc.s V_14
+   IL_0199: callvirt Celeste.LevelSetStats Celeste.SaveData::GetLevelSetStatsFor(System.String)
+   IL_019e: stloc.s V_15
+   IL_01a0: ldloc.s V_12
+   IL_01a2: callvirt System.Int32 Celeste.AreaStats::get_TotalStrawberries()
+   IL_01a7: stloc.s V_16
+   IL_01a9: ldloc.s V_13
+   IL_01ab: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_01b0: ldc.i4.0
+   IL_01b1: ldelem.ref
+   IL_01b2: ldfld System.Int32 Celeste.ModeProperties::TotalStrawberries
+   IL_01b7: stloc.s V_17
+   IL_01b9: ldloc.s V_12
+   IL_01bb: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_01c0: ldc.i4.0
+   IL_01c1: ldelem.ref
+   IL_01c2: ldfld System.Int32 Celeste.AreaModeStats::Deaths
+   IL_01c7: stloc.s V_18
+   IL_01c9: ldc.i4.0
+   IL_01ca: stloc.s V_19
+   IL_01cc: call System.Boolean Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::DisplaysTotalDashes()
+   IL_01d1: brtrue.s IL_01d6
+   IL_01d3: ldc.i4.0
+   IL_01d4: br.s IL_01dd
+   IL_01d6: ldloc.s V_12
+   IL_01d8: call System.Int32 Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::GetLevelDashesForJournalProgress(Celeste.AreaStats)
+   IL_01dd: stloc.s V_20
+   IL_01df: ldloc.s V_12
+   IL_01e1: callvirt System.Int64 Celeste.AreaStats::get_TotalTimePlayed()
+   IL_01e6: stloc.s V_21
+   IL_01e8: ldc.i4.0
+   IL_01e9: conv.i8
+   IL_01ea: stloc.s V_22
+   IL_01ec: ldc.i4.1
+   IL_01ed: stloc.s V_23
+   IL_01ef: ldc.i4.1
+   IL_01f0: stloc.s V_24
+   IL_01f2: ldc.i4.1
+   IL_01f3: stloc.s V_25
+   IL_01f5: ldc.i4.1
+   IL_01f6: stloc.s V_26
+   IL_01f8: ldloc.s V_15
+   IL_01fa: brtrue.s IL_01ff
+   IL_01fc: ldnull
+   IL_01fd: br.s IL_0206
+   IL_01ff: ldloc.s V_15
+   IL_0201: ldfld System.Collections.Generic.List`1<Celeste.AreaStats> Celeste.LevelSetStats::Areas
+ + IL_10000: ldc.i4 0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.GrandmasterHeartSideHelper.modOverworldJournal(ILContext)
+ + IL_10001: ldc.i4 0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.GrandmasterHeartSideHelper.modOverworldJournal(ILContext)
+ + IL_10002: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.GrandmasterHeartSideHelper.modOverworldJournal(ILContext)
+       => Invoke: [SpringCollab2020::]Celeste.Mod.SpringCollab2020.GrandmasterHeartSideHelper+<>c.<modOverworldJournal>b__8_0(List`1)
+ + IL_10003: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Collections.Generic.List`1<Celeste.AreaStats>,System.Collections.Generic.List`1<Celeste.AreaStats>>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.GrandmasterHeartSideHelper.modOverworldJournal(ILContext)
+   IL_0206: dup
+   IL_0207: brtrue.s IL_020f
+   IL_0209: pop
+   IL_020a: newobj System.Void System.Collections.Generic.List`1<Celeste.AreaStats>::.ctor()
+   IL_020f: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.AreaStats>::GetEnumerator()
+   IL_0214: stloc.s V_32
+   IL_0216: br IL_03ba
+   IL_021b: ldloca.s V_32
+   IL_021d: call T System.Collections.Generic.List`1/Enumerator<Celeste.AreaStats>::get_Current()
+   IL_0222: stloc.s V_33
+   IL_0224: newobj System.Void Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld/<>c__DisplayClass5_0::.ctor()
+   IL_0229: stloc.s V_34
+   IL_022b: ldloc.s V_34
+   IL_022d: ldloc.s V_33
+   IL_022f: callvirt System.Int32 Celeste.AreaStats::get_ID_Safe()
+   IL_0234: call Celeste.AreaData Celeste.AreaData::Get(System.Int32)
+   IL_0239: stfld Celeste.AreaData Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld/<>c__DisplayClass5_0::lobbyAreaData
+   IL_023e: ldloc.s V_16
+   IL_0240: ldloc.s V_33
+   IL_0242: callvirt System.Int32 Celeste.AreaStats::get_TotalStrawberries()
+   IL_0247: add
+   IL_0248: stloc.s V_16
+   IL_024a: ldloc.s V_17
+   IL_024c: ldloc.s V_34
+   IL_024e: ldfld Celeste.AreaData Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld/<>c__DisplayClass5_0::lobbyAreaData
+   IL_0253: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_0258: ldc.i4.0
+   IL_0259: ldelem.ref
+   IL_025a: ldfld System.Int32 Celeste.ModeProperties::TotalStrawberries
+   IL_025f: add
+   IL_0260: stloc.s V_17
+   IL_0262: ldloc.s V_18
+   IL_0264: ldloc.s V_33
+   IL_0266: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_026b: ldc.i4.0
+   IL_026c: ldelem.ref
+   IL_026d: ldfld System.Int32 Celeste.AreaModeStats::Deaths
+   IL_0272: add
+   IL_0273: stloc.s V_18
+   IL_0275: ldloc.s V_21
+   IL_0277: ldloc.s V_33
+   IL_0279: callvirt System.Int64 Celeste.AreaStats::get_TotalTimePlayed()
+   IL_027e: add
+   IL_027f: stloc.s V_21
+   IL_0281: ldloc.s V_26
+   IL_0283: ldloc.s V_33
+   IL_0285: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_028a: ldc.i4.0
+   IL_028b: ldelem.ref
+   IL_028c: ldfld System.Boolean Celeste.AreaModeStats::SingleRunCompleted
+   IL_0291: and
+   IL_0292: stloc.s V_26
+   IL_0294: ldloc.0
+   IL_0295: brfalse.s IL_02eb
+   IL_0297: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.CollabUtils2.CollabMapDataProcessor/SpeedBerryInfo> Celeste.Mod.CollabUtils2.CollabMapDataProcessor::SpeedBerries
+   IL_029c: ldloc.s V_33
+   IL_029e: ldfld System.String Celeste.AreaStats::SID
+   IL_02a3: ldloca.s V_38
+   IL_02a5: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.CollabUtils2.CollabMapDataProcessor/SpeedBerryInfo>::TryGetValue(TKey,TValue&)
+   IL_02aa: brfalse.s IL_02e6
+   IL_02ac: ldsfld Celeste.Mod.CollabUtils2.CollabModule Celeste.Mod.CollabUtils2.CollabModule::Instance
+   IL_02b1: callvirt Celeste.Mod.CollabUtils2.CollabSaveData Celeste.Mod.CollabUtils2.CollabModule::get_SaveData()
+   IL_02b6: callvirt System.Collections.Generic.Dictionary`2<System.String,System.Int64> Celeste.Mod.CollabUtils2.CollabSaveData::get_SpeedBerryPBs()
+   IL_02bb: ldloc.s V_33
+   IL_02bd: ldfld System.String Celeste.AreaStats::SID
+   IL_02c2: ldloca.s V_39
+   IL_02c4: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.Int64>::TryGetValue(TKey,TValue&)
+   IL_02c9: brfalse.s IL_02e6
+   IL_02cb: ldloc.s V_38
+   IL_02cd: ldloc.s V_39
+   IL_02cf: call System.Int32 Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::getRankLevel(Celeste.Mod.CollabUtils2.CollabMapDataProcessor/SpeedBerryInfo,System.Int64)
+   IL_02d4: ldloc.s V_24
+   IL_02d6: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_02db: stloc.s V_24
+   IL_02dd: ldloc.s V_22
+   IL_02df: ldloc.s V_39
+   IL_02e1: add
+   IL_02e2: stloc.s V_22
+   IL_02e4: br.s IL_0319
+   IL_02e6: ldc.i4.4
+   IL_02e7: stloc.s V_24
+   IL_02e9: br.s IL_0319
+   IL_02eb: ldloc.s V_33
+   IL_02ed: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_02f2: ldc.i4.0
+   IL_02f3: ldelem.ref
+   IL_02f4: ldfld System.Int64 Celeste.AreaModeStats::BestTime
+   IL_02f9: conv.r4
+   IL_02fa: ldc.r4 0
+   IL_02ff: ble.un.s IL_0316
+   IL_0301: ldloc.s V_22
+   IL_0303: ldloc.s V_33
+   IL_0305: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_030a: ldc.i4.0
+   IL_030b: ldelem.ref
+   IL_030c: ldfld System.Int64 Celeste.AreaModeStats::BestTime
+   IL_0311: add
+   IL_0312: stloc.s V_22
+   IL_0314: br.s IL_0319
+   IL_0316: ldc.i4.4
+   IL_0317: stloc.s V_24
+   IL_0319: ldloc.s V_33
+   IL_031b: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_0320: ldc.i4.0
+   IL_0321: ldelem.ref
+   IL_0322: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.AreaModeStats::Strawberries
+   IL_0327: ldloc.s V_34
+   IL_0329: ldftn System.Boolean Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld/<>c__DisplayClass5_0::<.ctor>b__0(Celeste.EntityID)
+   IL_032f: newobj System.Void System.Func`2<Celeste.EntityID,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0334: call System.Boolean System.Linq.Enumerable::Any<Celeste.EntityID>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+   IL_0339: ldc.i4.0
+   IL_033a: ceq
+   IL_033c: ldsfld System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.Dictionary`2<System.String,Celeste.EntityID>> Celeste.Mod.CollabUtils2.CollabMapDataProcessor::SilverBerries
+   IL_0341: ldloc.s V_33
+   IL_0343: callvirt System.String Celeste.AreaStats::get_LevelSet()
+   IL_0348: ldloca.s V_36
+   IL_034a: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.Dictionary`2<System.String,Celeste.EntityID>>::TryGetValue(TKey,TValue&)
+   IL_034f: brfalse.s IL_037d
+   IL_0351: ldloc.s V_36
+   IL_0353: ldloc.s V_33
+   IL_0355: ldfld System.String Celeste.AreaStats::SID
+   IL_035a: ldloca.s V_37
+   IL_035c: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Celeste.EntityID>::TryGetValue(TKey,TValue&)
+   IL_0361: brfalse.s IL_037d
+   IL_0363: ldloc.s V_33
+   IL_0365: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_036a: ldc.i4.0
+   IL_036b: ldelem.ref
+   IL_036c: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.AreaModeStats::Strawberries
+   IL_0371: ldloc.s V_37
+   IL_0373: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Contains(T)
+   IL_0378: ldc.i4.0
+   IL_0379: ceq
+   IL_037b: br.s IL_037e
+   IL_037d: ldc.i4.1
+   IL_037e: stloc.s V_35
+   IL_0380: ldloc.s V_35
+   IL_0382: and
+   IL_0383: brfalse.s IL_039b
+   IL_0385: ldc.i4.0
+   IL_0386: stloc.s V_25
+   IL_0388: ldloc.s V_19
+   IL_038a: ldloc.s V_33
+   IL_038c: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_0391: ldc.i4.0
+   IL_0392: ldelem.ref
+   IL_0393: ldfld System.Int32 Celeste.AreaModeStats::BestDeaths
+   IL_0398: add
+   IL_0399: stloc.s V_19
+   IL_039b: ldloc.s V_20
+   IL_039d: ldloc.s V_33
+   IL_039f: call System.Int32 Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::GetLevelDashesForJournalProgress(Celeste.AreaStats)
+   IL_03a4: add
+   IL_03a5: stloc.s V_20
+   IL_03a7: ldloc.s V_33
+   IL_03a9: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_03ae: ldc.i4.0
+   IL_03af: ldelem.ref
+   IL_03b0: ldfld System.Boolean Celeste.AreaModeStats::HeartGem
+   IL_03b5: brtrue.s IL_03ba
+   IL_03b7: ldc.i4.0
+   IL_03b8: stloc.s V_23
+   IL_03ba: ldloca.s V_32
+   IL_03bc: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.AreaStats>::MoveNext()
+   IL_03c1: brtrue IL_021b
+   IL_03c6: leave.s IL_03d6
+   IL_03c8: ldloca.s V_32
+   IL_03ca: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.AreaStats>
+   IL_03d0: callvirt System.Void System.IDisposable::Dispose()
+   IL_03d5: endfinally
+   IL_03d6: ldnull
+   IL_03d7: stloc.s V_27
+   IL_03d9: ldloc.s V_16
+   IL_03db: ldc.i4.0
+   IL_03dc: bgt.s IL_03e3
+   IL_03de: ldloc.s V_17
+   IL_03e0: ldc.i4.0
+   IL_03e1: ble.s IL_0407
+   IL_03e3: ldloca.s V_16
+   IL_03e5: call System.String System.Int32::ToString()
+   IL_03ea: stloc.s V_27
+   IL_03ec: ldloc.s V_23
+   IL_03ee: brfalse.s IL_040e
+   IL_03f0: ldloc.s V_27
+   IL_03f2: ldstr "/"
+   IL_03f7: ldloca.s V_17
+   IL_03f9: call System.String System.Int32::ToString()
+   IL_03fe: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0403: stloc.s V_27
+   IL_0405: br.s IL_040e
+   IL_0407: ldstr "-"
+   IL_040c: stloc.s V_27
+   IL_040e: ldloc.s V_14
+   IL_0410: dup
+   IL_0411: brtrue.s IL_041b
+   IL_0413: pop
+   IL_0414: ldloc.s V_13
+   IL_0416: ldfld System.String Celeste.AreaData::SID
+   IL_041b: stloc.s V_28
+   IL_041d: ldsfld Monocle.Atlas Celeste.MTN::Journal
+   IL_0422: ldstr "CollabUtils2Hearts/"
+   IL_0427: ldloc.s V_28
+   IL_0429: call System.String System.String::Concat(System.String,System.String)
+   IL_042e: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_0433: brtrue.s IL_043c
+   IL_0435: ldstr "heartgem0"
+   IL_043a: br.s IL_0448
+   IL_043c: ldstr "CollabUtils2Hearts/"
+   IL_0441: ldloc.s V_28
+   IL_0443: call System.String System.String::Concat(System.String,System.String)
+   IL_0448: stloc.s V_29
+   IL_044a: ldloc.s V_13
+   IL_044c: ldfld System.String Celeste.AreaData::Name
+   IL_0451: ldnull
+   IL_0452: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0457: stloc.s V_30
+   IL_0459: ldloc.s V_13
+   IL_045b: ldfld System.String Celeste.AreaData::Name
+   IL_0460: ldstr "_journal"
+   IL_0465: call System.String System.String::Concat(System.String,System.String)
+   IL_046a: ldnull
+   IL_046b: call System.Boolean Celeste.Dialog::Has(System.String,Celeste.Language)
+   IL_0470: brfalse.s IL_048b
+   IL_0472: ldloc.s V_13
+   IL_0474: ldfld System.String Celeste.AreaData::Name
+   IL_0479: ldstr "_journal"
+   IL_047e: call System.String System.String::Concat(System.String,System.String)
+   IL_0483: ldnull
+   IL_0484: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0489: stloc.s V_30
+   IL_048b: ldarg.0
+   IL_048c: ldfld Celeste.OuiJournalPage/Table Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::table
+   IL_0491: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Table::AddRow()
+   IL_0496: ldloc.s V_30
+   IL_0498: ldc.r4 1
+   IL_049d: ldc.r4 0.5
+   IL_04a2: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04a7: ldc.r4 0.6
+   IL_04ac: ldarg.0
+   IL_04ad: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_04b2: ldc.r4 0
+   IL_04b7: ldc.i4.0
+   IL_04b8: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_04bd: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_04c2: ldnull
+   IL_04c3: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_04c8: ldloc.s V_12
+   IL_04ca: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_04cf: ldc.i4.0
+   IL_04d0: ldelem.ref
+   IL_04d1: ldfld System.Boolean Celeste.AreaModeStats::HeartGem
+   IL_04d6: brtrue.s IL_04df
+   IL_04d8: ldstr "dot"
+   IL_04dd: br.s IL_04e1
+   IL_04df: ldloc.s V_29
+   IL_04e1: ldc.r4 0
+   IL_04e6: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_04eb: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_04f0: ldloc.s V_27
+   IL_04f2: ldarg.0
+   IL_04f3: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_04f8: ldc.r4 0.5
+   IL_04fd: ldarg.0
+   IL_04fe: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_0503: ldc.r4 0
+   IL_0508: ldc.i4.0
+   IL_0509: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_050e: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0513: stloc.s V_31
+   IL_0515: ldloc.s V_21
+   IL_0517: ldc.i4.0
+   IL_0518: conv.i8
+   IL_0519: ble.s IL_0548
+   IL_051b: ldloc.s V_31
+   IL_051d: ldloc.s V_18
+   IL_051f: call System.String Celeste.Dialog::Deaths(System.Int32)
+   IL_0524: ldarg.0
+   IL_0525: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_052a: ldc.r4 0.5
+   IL_052f: ldarg.0
+   IL_0530: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_0535: ldc.r4 0
+   IL_053a: ldc.i4.0
+   IL_053b: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0540: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0545: pop
+   IL_0546: br.s IL_055f
+   IL_0548: ldloc.s V_31
+   IL_054a: ldstr "dot"
+   IL_054f: ldc.r4 0
+   IL_0554: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_0559: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_055e: pop
+   IL_055f: ldloc.s V_23
+   IL_0561: brfalse IL_0631
+   IL_0566: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_056b: ldloc.s V_13
+   IL_056d: ldc.i4.0
+   IL_056e: call Celeste.AreaKey Celeste.AreaDataExt::ToKey(Celeste.AreaData,Celeste.AreaMode)
+   IL_0573: callvirt Celeste.AreaStats Celeste.SaveData::GetAreaStatsFor(Celeste.AreaKey)
+   IL_0578: pop
+   IL_0579: ldloc.s V_15
+   IL_057b: brtrue.s IL_05ca
+   IL_057d: ldloc.s V_31
+   IL_057f: ldloc.s V_12
+   IL_0581: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_0586: ldc.i4.0
+   IL_0587: ldelem.ref
+   IL_0588: ldfld System.Int32 Celeste.AreaModeStats::BestDeaths
+   IL_058d: call System.String Celeste.Dialog::Deaths(System.Int32)
+   IL_0592: ldarg.0
+   IL_0593: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_0598: ldc.r4 0.5
+   IL_059d: ldarg.0
+   IL_059e: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_05a3: ldc.r4 0
+   IL_05a8: ldc.i4.0
+   IL_05a9: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_05ae: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_05b3: pop
+   IL_05b4: ldloc.3
+   IL_05b5: ldloc.s V_12
+   IL_05b7: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_05bc: ldc.i4.0
+   IL_05bd: ldelem.ref
+   IL_05be: ldfld System.Int32 Celeste.AreaModeStats::BestDeaths
+   IL_05c3: add
+   IL_05c4: stloc.3
+   IL_05c5: br IL_064b
+   IL_05ca: ldloc.s V_25
+   IL_05cc: brfalse.s IL_05e7
+   IL_05ce: ldloc.s V_31
+   IL_05d0: ldstr "CollabUtils2/golden_strawberry"
+   IL_05d5: ldc.r4 0
+   IL_05da: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_05df: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_05e4: pop
+   IL_05e5: br.s IL_064b
+   IL_05e7: ldloc.s V_26
+   IL_05e9: brfalse.s IL_0618
+   IL_05eb: ldloc.s V_31
+   IL_05ed: ldloc.s V_19
+   IL_05ef: call System.String Celeste.Dialog::Deaths(System.Int32)
+   IL_05f4: ldarg.0
+   IL_05f5: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_05fa: ldc.r4 0.5
+   IL_05ff: ldarg.0
+   IL_0600: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_0605: ldc.r4 0
+   IL_060a: ldc.i4.0
+   IL_060b: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0610: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0615: pop
+   IL_0616: br.s IL_064b
+   IL_0618: ldloc.s V_31
+   IL_061a: ldstr "dot"
+   IL_061f: ldc.r4 0
+   IL_0624: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_0629: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_062e: pop
+   IL_062f: br.s IL_064b
+   IL_0631: ldloc.s V_31
+   IL_0633: ldstr "dot"
+   IL_0638: ldc.r4 0
+   IL_063d: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_0642: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0647: pop
+   IL_0648: ldc.i4.0
+   IL_0649: stloc.s V_7
+   IL_064b: call System.Boolean Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::IsDashCountEnabled()
+   IL_0650: brfalse IL_0736
+   IL_0655: ldloc.s V_15
+   IL_0657: brtrue IL_06d8
+   IL_065c: call System.Boolean Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::DisplaysTotalDashes()
+   IL_0661: brfalse.s IL_066e
+   IL_0663: ldloc.s V_12
+   IL_0665: callvirt System.Int64 Celeste.AreaStats::get_TotalTimePlayed()
+   IL_066a: ldc.i4.0
+   IL_066b: conv.i8
+   IL_066c: bgt.s IL_067e
+   IL_066e: ldloc.s V_12
+   IL_0670: ldfld Celeste.AreaModeStats[] Celeste.AreaStats::Modes
+   IL_0675: ldc.i4.0
+   IL_0676: ldelem.ref
+   IL_0677: ldfld System.Boolean Celeste.AreaModeStats::SingleRunCompleted
+   IL_067c: brfalse.s IL_06bf
+   IL_067e: ldloc.s V_31
+   IL_0680: ldloc.s V_12
+   IL_0682: call System.Int32 Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::GetLevelDashesForJournalProgress(Celeste.AreaStats)
+   IL_0687: call System.String Celeste.Dialog::Deaths(System.Int32)
+   IL_068c: ldarg.0
+   IL_068d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_0692: ldc.r4 0.5
+   IL_0697: ldarg.0
+   IL_0698: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_069d: ldc.r4 0
+   IL_06a2: ldc.i4.0
+   IL_06a3: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_06a8: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_06ad: pop
+   IL_06ae: ldloc.s V_4
+   IL_06b0: ldloc.s V_12
+   IL_06b2: call System.Int32 Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::GetLevelDashesForJournalProgress(Celeste.AreaStats)
+   IL_06b7: add
+   IL_06b8: stloc.s V_4
+   IL_06ba: br IL_0736
+   IL_06bf: ldloc.s V_31
+   IL_06c1: ldstr "dot"
+   IL_06c6: ldc.r4 0
+   IL_06cb: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_06d0: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_06d5: pop
+   IL_06d6: br.s IL_0736
+   IL_06d8: call System.Boolean Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::DisplaysTotalDashes()
+   IL_06dd: brfalse.s IL_06ec
+   IL_06df: ldloc.s V_12
+   IL_06e1: callvirt System.Int64 Celeste.AreaStats::get_TotalTimePlayed()
+   IL_06e6: ldc.i4.0
+   IL_06e7: conv.i8
+   IL_06e8: cgt
+   IL_06ea: br.s IL_06ed
+   IL_06ec: ldc.i4.0
+   IL_06ed: ldloc.s V_26
+   IL_06ef: or
+   IL_06f0: brfalse.s IL_071f
+   IL_06f2: ldloc.s V_31
+   IL_06f4: ldloc.s V_20
+   IL_06f6: call System.String Celeste.Dialog::Deaths(System.Int32)
+   IL_06fb: ldarg.0
+   IL_06fc: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_0701: ldc.r4 0.5
+   IL_0706: ldarg.0
+   IL_0707: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_070c: ldc.r4 0
+   IL_0711: ldc.i4.0
+   IL_0712: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0717: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_071c: pop
+   IL_071d: br.s IL_0736
+   IL_071f: ldloc.s V_31
+   IL_0721: ldstr "dot"
+   IL_0726: ldc.r4 0
+   IL_072b: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_0730: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0735: pop
+   IL_0736: ldloc.s V_21
+   IL_0738: ldc.i4.0
+   IL_0739: conv.i8
+   IL_073a: ble.s IL_0769
+   IL_073c: ldloc.s V_31
+   IL_073e: ldloc.s V_21
+   IL_0740: call System.String Celeste.Dialog::Time(System.Int64)
+   IL_0745: ldarg.0
+   IL_0746: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_074b: ldc.r4 0.5
+   IL_0750: ldarg.0
+   IL_0751: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_0756: ldc.r4 0
+   IL_075b: ldc.i4.0
+   IL_075c: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0761: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0766: pop
+   IL_0767: br.s IL_0780
+   IL_0769: ldloc.s V_31
+   IL_076b: ldstr "dot"
+   IL_0770: ldc.r4 0
+   IL_0775: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_077a: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_077f: pop
+   IL_0780: ldloc.s V_15
+   IL_0782: brtrue.s IL_07b8
+   IL_0784: ldloc.s V_31
+   IL_0786: ldstr "-"
+   IL_078b: ldarg.0
+   IL_078c: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_0791: ldc.r4 0.5
+   IL_0796: ldarg.0
+   IL_0797: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_079c: ldc.r4 0
+   IL_07a1: ldc.i4.0
+   IL_07a2: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_07a7: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_07ac: ldnull
+   IL_07ad: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_07b2: pop
+   IL_07b3: br IL_086b
+   IL_07b8: ldloc.s V_24
+   IL_07ba: ldc.i4.4
+   IL_07bb: bge IL_084b
+   IL_07c0: ldloc.0
+   IL_07c1: brfalse.s IL_0811
+   IL_07c3: ldloc.s V_31
+   IL_07c5: ldloc.s V_22
+   IL_07c7: call System.String Celeste.Dialog::Time(System.Int64)
+   IL_07cc: ldarg.0
+   IL_07cd: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_07d2: ldc.r4 0.5
+   IL_07d7: ldloc.s V_24
+   IL_07d9: call Microsoft.Xna.Framework.Color Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::getRankColor(System.Int32)
+   IL_07de: ldc.r4 0
+   IL_07e3: ldc.i4.0
+   IL_07e4: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_07e9: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_07ee: pop
+   IL_07ef: ldloc.s V_31
+   IL_07f1: ldloc.s V_24
+   IL_07f3: call System.String Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::getRankIcon(System.Int32)
+   IL_07f8: ldc.r4 0
+   IL_07fd: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_0802: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0807: pop
+   IL_0808: ldloc.s V_6
+   IL_080a: ldloc.s V_22
+   IL_080c: add
+   IL_080d: stloc.s V_6
+   IL_080f: br.s IL_086b
+   IL_0811: ldloc.s V_31
+   IL_0813: ldloc.s V_22
+   IL_0815: call System.String Celeste.Dialog::Time(System.Int64)
+   IL_081a: ldarg.0
+   IL_081b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_0820: ldc.r4 0.5
+   IL_0825: ldarg.0
+   IL_0826: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_082b: ldc.r4 0
+   IL_0830: ldc.i4.0
+   IL_0831: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0836: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_083b: ldnull
+   IL_083c: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0841: pop
+   IL_0842: ldloc.s V_6
+   IL_0844: ldloc.s V_22
+   IL_0846: add
+   IL_0847: stloc.s V_6
+   IL_0849: br.s IL_086b
+   IL_084b: ldloc.s V_31
+   IL_084d: ldstr "dot"
+   IL_0852: ldc.r4 0
+   IL_0857: newobj System.Void Celeste.OuiJournalPage/IconCell::.ctor(System.String,System.Single)
+   IL_085c: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0861: ldnull
+   IL_0862: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0867: pop
+   IL_0868: ldc.i4.0
+   IL_0869: stloc.s V_8
+   IL_086b: ldloc.1
+   IL_086c: ldloc.s V_16
+   IL_086e: add
+   IL_086f: stloc.1
+   IL_0870: ldloc.2
+   IL_0871: ldloc.s V_18
+   IL_0873: add
+   IL_0874: stloc.2
+   IL_0875: ldloc.3
+   IL_0876: ldloc.s V_19
+   IL_0878: add
+   IL_0879: stloc.3
+   IL_087a: ldloc.s V_4
+   IL_087c: ldloc.s V_20
+   IL_087e: add
+   IL_087f: stloc.s V_4
+   IL_0881: ldloc.s V_5
+   IL_0883: ldloc.s V_21
+   IL_0885: add
+   IL_0886: stloc.s V_5
+   IL_0888: ldloc.s V_9
+   IL_088a: ldloc.s V_26
+   IL_088c: and
+   IL_088d: stloc.s V_9
+   IL_088f: ldloc.s V_23
+   IL_0891: brtrue.s IL_0896
+   IL_0893: ldc.i4.0
+   IL_0894: stloc.s V_7
+   IL_0896: ldloca.s V_11
+   IL_0898: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.AreaStats>::MoveNext()
+   IL_089d: brtrue IL_014b
+   IL_08a2: leave.s IL_08b2
+   IL_08a4: ldloca.s V_11
+   IL_08a6: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.AreaStats>
+   IL_08ac: callvirt System.Void System.IDisposable::Dispose()
+   IL_08b1: endfinally
+   IL_08b2: ldarg.0
+   IL_08b3: ldfld Celeste.OuiJournalPage/Table Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::table
+   IL_08b8: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Table::AddRow()
+   IL_08bd: pop
+   IL_08be: ldarg.0
+   IL_08bf: ldfld Celeste.OuiJournalPage/Table Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::table
+   IL_08c4: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Table::AddRow()
+   IL_08c9: ldstr "journal_totals"
+   IL_08ce: ldnull
+   IL_08cf: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_08d4: ldc.r4 1
+   IL_08d9: ldc.r4 0.5
+   IL_08de: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_08e3: ldc.r4 0.7
+   IL_08e8: ldarg.0
+   IL_08e9: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_08ee: ldc.r4 0
+   IL_08f3: ldc.i4.0
+   IL_08f4: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_08f9: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_08fe: ldnull
+   IL_08ff: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0904: ldnull
+   IL_0905: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_090a: ldloca.s V_1
+   IL_090c: call System.String System.Int32::ToString()
+   IL_0911: ldarg.0
+   IL_0912: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_0917: ldc.r4 0.6
+   IL_091c: ldarg.0
+   IL_091d: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_0922: ldc.r4 0
+   IL_0927: ldc.i4.0
+   IL_0928: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_092d: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0932: ldloc.2
+   IL_0933: call System.String Celeste.Dialog::Deaths(System.Int32)
+   IL_0938: ldarg.0
+   IL_0939: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_093e: ldc.r4 0.6
+   IL_0943: ldarg.0
+   IL_0944: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_0949: ldc.r4 0
+   IL_094e: ldc.i4.0
+   IL_094f: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0954: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0959: ldloc.s V_7
+   IL_095b: ldloc.s V_9
+   IL_095d: and
+   IL_095e: brtrue.s IL_0967
+   IL_0960: ldstr "-"
+   IL_0965: br.s IL_096d
+   IL_0967: ldloc.3
+   IL_0968: call System.String Celeste.Dialog::Deaths(System.Int32)
+   IL_096d: ldarg.0
+   IL_096e: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_0973: ldc.r4 0.6
+   IL_0978: ldarg.0
+   IL_0979: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_097e: ldc.r4 0
+   IL_0983: ldc.i4.0
+   IL_0984: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0989: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_098e: stloc.s V_10
+   IL_0990: call System.Boolean Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::IsDashCountEnabled()
+   IL_0995: brfalse.s IL_09d7
+   IL_0997: ldloc.s V_10
+   IL_0999: call System.Boolean Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressDashCountMod::DisplaysTotalDashes()
+   IL_099e: brtrue.s IL_09ae
+   IL_09a0: ldloc.s V_7
+   IL_09a2: ldloc.s V_9
+   IL_09a4: and
+   IL_09a5: brtrue.s IL_09ae
+   IL_09a7: ldstr "-"
+   IL_09ac: br.s IL_09b5
+   IL_09ae: ldloc.s V_4
+   IL_09b0: call System.String Celeste.Dialog::Deaths(System.Int32)
+   IL_09b5: ldarg.0
+   IL_09b6: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_09bb: ldc.r4 0.6
+   IL_09c0: ldarg.0
+   IL_09c1: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_09c6: ldc.r4 0
+   IL_09cb: ldc.i4.0
+   IL_09cc: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_09d1: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_09d6: pop
+   IL_09d7: ldloc.s V_10
+   IL_09d9: ldloc.s V_5
+   IL_09db: call System.String Celeste.Dialog::Time(System.Int64)
+   IL_09e0: ldarg.0
+   IL_09e1: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_09e6: ldc.r4 0.6
+   IL_09eb: ldarg.0
+   IL_09ec: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_09f1: ldc.r4 0
+   IL_09f6: ldc.i4.0
+   IL_09f7: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_09fc: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0a01: ldloc.s V_8
+   IL_0a03: brtrue.s IL_0a0c
+   IL_0a05: ldstr "-"
+   IL_0a0a: br.s IL_0a13
+   IL_0a0c: ldloc.s V_6
+   IL_0a0e: call System.String Celeste.Dialog::Time(System.Int64)
+   IL_0a13: ldarg.0
+   IL_0a14: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_0a19: ldc.r4 0.6
+   IL_0a1e: ldarg.0
+   IL_0a1f: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_0a24: ldc.r4 0
+   IL_0a29: ldc.i4.0
+   IL_0a2a: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0a2f: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0a34: ldnull
+   IL_0a35: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0a3a: pop
+   IL_0a3b: ldc.i4.1
+   IL_0a3c: stloc.s V_40
+   IL_0a3e: br.s IL_0a4f
+   IL_0a40: ldloc.s V_10
+   IL_0a42: ldnull
+   IL_0a43: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0a48: pop
+   IL_0a49: ldloc.s V_40
+   IL_0a4b: ldc.i4.1
+   IL_0a4c: add
+   IL_0a4d: stloc.s V_40
+   IL_0a4f: ldloc.s V_40
+   IL_0a51: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0a56: callvirt System.Int32 Celeste.SaveData::get_UnlockedModes()
+   IL_0a5b: blt.s IL_0a40
+   IL_0a5d: ldloc.s V_10
+   IL_0a5f: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0a64: ldfld System.Int64 Celeste.SaveData::Time
+   IL_0a69: call System.String Celeste.Dialog::Time(System.Int64)
+   IL_0a6e: ldarg.0
+   IL_0a6f: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiJournalPage::TextJustify
+   IL_0a74: ldc.r4 0.6
+   IL_0a79: ldarg.0
+   IL_0a7a: ldfld Microsoft.Xna.Framework.Color Celeste.OuiJournalPage::TextColor
+   IL_0a7f: ldc.r4 0
+   IL_0a84: ldc.i4.0
+   IL_0a85: newobj System.Void Celeste.OuiJournalPage/TextCell::.ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Single,System.Boolean)
+   IL_0a8a: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Row::Add(Celeste.OuiJournalPage/Cell)
+   IL_0a8f: pop
+   IL_0a90: ldarg.0
+   IL_0a91: ldfld Celeste.OuiJournalPage/Table Celeste.Mod.CollabUtils2.UI.OuiJournalCollabProgressInOverworld::table
+   IL_0a96: callvirt Celeste.OuiJournalPage/Row Celeste.OuiJournalPage/Table::AddRow()
+   IL_0a9b: pop
+   IL_0a9c: ret

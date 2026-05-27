@@ -1,0 +1,74 @@
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.LightingRenderer::StartDrawingPrimitives()
+   IL_0006: ldc.i4.0
+   IL_0007: stloc.0
+   IL_0008: br.s IL_0029
+   IL_000a: ldarg.0
+   IL_000b: ldfld Celeste.VertexLight[] Celeste.LightingRenderer::lights
+   IL_0010: ldloc.0
+   IL_0011: ldelem.ref
+   IL_0012: stloc.1
+   IL_0013: ldloc.1
+   IL_0014: brfalse.s IL_0025
+   IL_0016: ldloc.1
+   IL_0017: ldfld System.Boolean Celeste.VertexLight::Dirty
+   IL_001c: brfalse.s IL_0025
+   IL_001e: ldarg.0
+   IL_001f: ldloc.0
+   IL_0020: callvirt System.Void Celeste.LightingRenderer::SetClear(System.Int32)
+   IL_0025: ldloc.0
+   IL_0026: ldc.i4.1
+   IL_0027: add
+   IL_0028: stloc.0
+   IL_0029: ldloc.0
+   IL_002a: ldc.i4.s 64
+ + IL_10000: call System.Int32 Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController::GetArraySize(System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.LightSourceLimitController.GeneralLightLimitOverrideHook(ILContext)
+   IL_002c: blt.s IL_000a
+   IL_002e: ldarg.0
+   IL_002f: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_0034: ldc.i4.0
+   IL_0035: ble IL_00d0
+   IL_003a: call Monocle.Engine Monocle.Engine::get_Instance()
+   IL_003f: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_0044: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Celeste.LightingRenderer::OccludeBlendState
+   IL_0049: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_BlendState(Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_004e: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxPrimitive
+   IL_0053: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_0058: ldstr "World"
+   IL_005d: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0062: ldarg.1
+   IL_0063: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Matrix)
+   IL_0068: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxPrimitive
+   IL_006d: callvirt Microsoft.Xna.Framework.Graphics.EffectTechnique Microsoft.Xna.Framework.Graphics.Effect::get_CurrentTechnique()
+   IL_0072: callvirt Microsoft.Xna.Framework.Graphics.EffectPassCollection Microsoft.Xna.Framework.Graphics.EffectTechnique::get_Passes()
+   IL_0077: callvirt System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Graphics.EffectPass> Microsoft.Xna.Framework.Graphics.EffectPassCollection::GetEnumerator()
+   IL_007c: stloc.2
+   IL_007d: br.s IL_00b7
+   IL_007f: ldloca.s V_2
+   IL_0081: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Graphics.EffectPass>::get_Current()
+   IL_0086: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectPass::Apply()
+   IL_008b: call Monocle.Engine Monocle.Engine::get_Instance()
+   IL_0090: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
+   IL_0095: ldc.i4.0
+   IL_0096: ldarg.0
+   IL_0097: ldfld Microsoft.Xna.Framework.Graphics.VertexPositionColor[] Celeste.LightingRenderer::verts
+   IL_009c: ldc.i4.0
+   IL_009d: ldarg.0
+   IL_009e: ldfld System.Int32 Celeste.LightingRenderer::vertexCount
+   IL_00a3: ldarg.0
+   IL_00a4: ldfld System.Int32[] Celeste.LightingRenderer::indices
+   IL_00a9: ldc.i4.0
+   IL_00aa: ldarg.0
+   IL_00ab: ldfld System.Int32 Celeste.LightingRenderer::indexCount
+   IL_00b0: ldc.i4.3
+   IL_00b1: div
+   IL_00b2: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::DrawUserIndexedPrimitives<Microsoft.Xna.Framework.Graphics.VertexPositionColor>(Microsoft.Xna.Framework.Graphics.PrimitiveType,T[],System.Int32,System.Int32,System.Int32[],System.Int32,System.Int32)
+   IL_00b7: ldloca.s V_2
+   IL_00b9: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Graphics.EffectPass>::MoveNext()
+   IL_00be: brtrue.s IL_007f
+   IL_00c0: leave.s IL_00d0
+   IL_00c2: ldloca.s V_2
+   IL_00c4: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Graphics.EffectPass>
+   IL_00ca: callvirt System.Void System.IDisposable::Dispose()
+   IL_00cf: endfinally
+   IL_00d0: ret

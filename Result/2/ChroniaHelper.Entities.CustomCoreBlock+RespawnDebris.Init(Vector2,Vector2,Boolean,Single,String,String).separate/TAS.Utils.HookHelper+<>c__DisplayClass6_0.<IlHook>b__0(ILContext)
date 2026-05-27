@@ -1,0 +1,68 @@
+ + IL_10000: ldarg from @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0006: ldarg.3
+   IL_0007: brtrue.s IL_000d
+   IL_0009: ldarg.s fireRubble
+   IL_000b: br.s IL_000f
+   IL_000d: ldarg.s iceRubble
+   IL_000f: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0014: stloc.0
+   IL_0015: call System.Random ChroniaHelper.Utils.RandomUtils::get_Random()
+   IL_001a: ldloc.0
+   IL_001b: call T Monocle.Calc::Choose<Monocle.MTexture>(System.Random,System.Collections.Generic.List`1<T>)
+   IL_0020: stloc.1
+   IL_0021: ldarg.0
+   IL_0022: ldfld Monocle.Image ChroniaHelper.Entities.CustomCoreBlock/RespawnDebris::sprite
+   IL_0027: ldnull
+   IL_0028: ceq
+   IL_002a: stloc.2
+   IL_002b: ldloc.2
+   IL_002c: brfalse.s IL_0054
+   IL_002e: nop
+   IL_002f: ldarg.0
+   IL_0030: ldarg.0
+   IL_0031: ldloc.1
+   IL_0032: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_0037: dup
+   IL_0038: stloc.3
+   IL_0039: stfld Monocle.Image ChroniaHelper.Entities.CustomCoreBlock/RespawnDebris::sprite
+   IL_003e: ldloc.3
+   IL_003f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0044: nop
+   IL_0045: ldarg.0
+   IL_0046: ldfld Monocle.Image ChroniaHelper.Entities.CustomCoreBlock/RespawnDebris::sprite
+   IL_004b: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0050: pop
+   IL_0051: nop
+   IL_0052: br.s IL_0062
+   IL_0054: nop
+   IL_0055: ldarg.0
+   IL_0056: ldfld Monocle.Image ChroniaHelper.Entities.CustomCoreBlock/RespawnDebris::sprite
+   IL_005b: ldloc.1
+   IL_005c: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_0061: nop
+   IL_0062: ldarg.0
+   IL_0063: ldarg.0
+   IL_0064: ldarg.1
+   IL_0065: dup
+   IL_0066: stloc.s V_4
+   IL_0068: stfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.CustomCoreBlock/RespawnDebris::from
+   IL_006d: ldloc.s V_4
+   IL_006f: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0074: ldarg.0
+   IL_0075: ldc.r4 0
+   IL_007a: stfld System.Single ChroniaHelper.Entities.CustomCoreBlock/RespawnDebris::percent
+   IL_007f: ldarg.0
+   IL_0080: ldarg.2
+   IL_0081: stfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.CustomCoreBlock/RespawnDebris::to
+   IL_0086: ldarg.0
+   IL_0087: ldarg.s duration
+   IL_0089: stfld System.Single ChroniaHelper.Entities.CustomCoreBlock/RespawnDebris::duration
+   IL_008e: ldarg.0
+   IL_008f: stloc.s V_5
+   IL_0091: br.s IL_0093
+   IL_0093: ldloc.s V_5
+ + IL_10002: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0095: ret

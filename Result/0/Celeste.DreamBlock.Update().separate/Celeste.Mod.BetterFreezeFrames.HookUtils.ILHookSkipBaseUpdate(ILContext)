@@ -1,0 +1,43 @@
+ + IL_10000: ldsfld System.Boolean Celeste.Mod.BetterFreezeFrames.BetterFreezeFramesModule::FreezeUpdating @ [BetterFreezeFrames::]Celeste.Mod.BetterFreezeFrames.HookUtils.ILHookSkipBaseUpdate(ILContext)
+ + IL_10001: brtrue IL_0006 @ [BetterFreezeFrames::]Celeste.Mod.BetterFreezeFrames.HookUtils.ILHookSkipBaseUpdate(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Celeste.Solid::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Boolean Celeste.DreamBlock::playerHasDreamDash
+   IL_000c: brfalse.s IL_007f
+   IL_000e: ldarg.0
+   IL_000f: ldarg.0
+   IL_0010: ldfld System.Single Celeste.DreamBlock::animTimer
+   IL_0015: ldc.r4 6
+   IL_001a: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_001f: mul
+   IL_0020: add
+   IL_0021: stfld System.Single Celeste.DreamBlock::animTimer
+   IL_0026: ldarg.0
+   IL_0027: ldarg.0
+   IL_0028: ldfld System.Single Celeste.DreamBlock::wobbleEase
+   IL_002d: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0032: ldc.r4 2
+   IL_0037: mul
+   IL_0038: add
+   IL_0039: stfld System.Single Celeste.DreamBlock::wobbleEase
+   IL_003e: ldarg.0
+   IL_003f: ldfld System.Single Celeste.DreamBlock::wobbleEase
+   IL_0044: ldc.r4 1
+   IL_0049: ble.un.s IL_0077
+   IL_004b: ldarg.0
+   IL_004c: ldc.r4 0
+   IL_0051: stfld System.Single Celeste.DreamBlock::wobbleEase
+   IL_0056: ldarg.0
+   IL_0057: ldarg.0
+   IL_0058: ldfld System.Single Celeste.DreamBlock::wobbleTo
+   IL_005d: stfld System.Single Celeste.DreamBlock::wobbleFrom
+   IL_0062: ldarg.0
+   IL_0063: ldsfld System.Random Monocle.Calc::Random
+   IL_0068: ldc.r4 6.2831855
+   IL_006d: call System.Single Monocle.Calc::NextFloat(System.Random,System.Single)
+   IL_0072: stfld System.Single Celeste.DreamBlock::wobbleTo
+   IL_0077: ldarg.0
+   IL_0078: ldc.i4.s 12
+   IL_007a: stfld System.Int32 Celeste.Platform::SurfaceSoundIndex
+   IL_007f: ret

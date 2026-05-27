@@ -1,0 +1,102 @@
+   IL_0000: ldarg.1
+   IL_0001: ldfld Celeste.Spring/Orientations Celeste.Spring::Orientation
+   IL_0006: stloc.0
+   IL_0007: ldloc.0
+   IL_0008: switch IL_0019,IL_006e,IL_00ce
+   IL_0019: ldarg.0
+   IL_001a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_001f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0024: ldc.r4 0
+ + IL_10000: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.IL_Puffer_HitSpring(ILContext)
+ + IL_10001: call System.Single Celeste.Mod.SorbetHelper.Entities.PufferTweaksController::<IL_Puffer_HitSpring>g__ModifyUpwardsThreshold|16_3(System.Single,Celeste.Puffer) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.IL_Puffer_HitSpring(ILContext)
+   IL_0029: blt.un.s IL_006c
+   IL_002b: ldarg.0
+   IL_002c: ldc.r4 224
+   IL_0031: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0036: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_003b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_0040: callvirt System.Void Celeste.Puffer::GotoHitSpeed(Microsoft.Xna.Framework.Vector2)
+   IL_0045: ldarg.0
+   IL_0046: ldarg.1
+   IL_0047: callvirt System.Single Monocle.Entity::get_CenterX()
+   IL_004c: ldc.r4 4
+   IL_0051: ldnull
+   IL_0052: call System.Void Celeste.Actor::MoveTowardsX(System.Single,System.Single,Celeste.Collision)
+   IL_0057: ldarg.0
+   IL_0058: ldfld Monocle.Wiggler Celeste.Puffer::bounceWiggler
+   IL_005d: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0062: ldarg.0
+   IL_0063: ldc.i4.1
+   IL_0064: ldc.i4.0
+   IL_0065: callvirt System.Void Celeste.Puffer::Alert(System.Boolean,System.Boolean)
+   IL_006a: ldc.i4.1
+   IL_006b: ret
+   IL_006c: ldc.i4.0
+   IL_006d: ret
+   IL_006e: ldarg.0
+   IL_006f: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_0074: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0079: ldc.r4 60
+ + IL_10002: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.IL_Puffer_HitSpring(ILContext)
+ + IL_10003: call System.Single Celeste.Mod.SorbetHelper.Entities.PufferTweaksController::<IL_Puffer_HitSpring>g__ModifyRightThreshold|16_4(System.Single,Celeste.Puffer) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.IL_Puffer_HitSpring(ILContext)
+   IL_007e: bgt.un.s IL_00cc
+   IL_0080: ldarg.0
+   IL_0081: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::facing
+   IL_0086: ldc.r4 1
+   IL_008b: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0090: ldarg.0
+   IL_0091: ldc.r4 280
+   IL_0096: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_009b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_00a0: callvirt System.Void Celeste.Puffer::GotoHitSpeed(Microsoft.Xna.Framework.Vector2)
+   IL_00a5: ldarg.0
+   IL_00a6: ldarg.1
+   IL_00a7: callvirt System.Single Monocle.Entity::get_CenterY()
+   IL_00ac: ldc.r4 4
+   IL_00b1: ldnull
+   IL_00b2: call System.Void Celeste.Actor::MoveTowardsY(System.Single,System.Single,Celeste.Collision)
+   IL_00b7: ldarg.0
+   IL_00b8: ldfld Monocle.Wiggler Celeste.Puffer::bounceWiggler
+   IL_00bd: callvirt System.Void Monocle.Wiggler::Start()
+   IL_00c2: ldarg.0
+   IL_00c3: ldc.i4.1
+   IL_00c4: ldc.i4.0
+   IL_00c5: callvirt System.Void Celeste.Puffer::Alert(System.Boolean,System.Boolean)
+   IL_00ca: ldc.i4.1
+   IL_00cb: ret
+   IL_00cc: ldc.i4.0
+   IL_00cd: ret
+   IL_00ce: ldarg.0
+   IL_00cf: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_00d4: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00d9: ldc.r4 -60
+ + IL_10004: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.IL_Puffer_HitSpring(ILContext)
+ + IL_10005: call System.Single Celeste.Mod.SorbetHelper.Entities.PufferTweaksController::<IL_Puffer_HitSpring>g__ModifyLeftThreshold|16_5(System.Single,Celeste.Puffer) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.IL_Puffer_HitSpring(ILContext)
+   IL_00de: blt.un.s IL_0131
+   IL_00e0: ldarg.0
+   IL_00e1: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::facing
+   IL_00e6: ldc.r4 -1
+   IL_00eb: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00f0: ldarg.0
+   IL_00f1: ldc.r4 280
+   IL_00f6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_00fb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_0100: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_0105: callvirt System.Void Celeste.Puffer::GotoHitSpeed(Microsoft.Xna.Framework.Vector2)
+   IL_010a: ldarg.0
+   IL_010b: ldarg.1
+   IL_010c: callvirt System.Single Monocle.Entity::get_CenterY()
+   IL_0111: ldc.r4 4
+   IL_0116: ldnull
+   IL_0117: call System.Void Celeste.Actor::MoveTowardsY(System.Single,System.Single,Celeste.Collision)
+   IL_011c: ldarg.0
+   IL_011d: ldfld Monocle.Wiggler Celeste.Puffer::bounceWiggler
+   IL_0122: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0127: ldarg.0
+   IL_0128: ldc.i4.1
+   IL_0129: ldc.i4.0
+   IL_012a: callvirt System.Void Celeste.Puffer::Alert(System.Boolean,System.Boolean)
+   IL_012f: ldc.i4.1
+   IL_0130: ret
+   IL_0131: ldc.i4.0
+   IL_0132: ret

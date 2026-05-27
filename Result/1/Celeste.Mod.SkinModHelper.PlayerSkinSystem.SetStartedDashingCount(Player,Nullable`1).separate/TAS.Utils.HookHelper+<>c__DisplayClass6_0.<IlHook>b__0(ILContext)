@@ -1,0 +1,28 @@
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: stloc.1
+   IL_0003: ldloca.s V_1
+   IL_0005: call System.Boolean System.Nullable`1<System.Int32>::get_HasValue()
+   IL_000a: brtrue.s IL_0016
+   IL_000c: ldarg.0
+   IL_000d: ldfld System.Int32 Celeste.Player::Dashes
+   IL_0012: ldc.i4.1
+   IL_0013: sub
+   IL_0014: br.s IL_001d
+   IL_0016: ldloca.s V_1
+   IL_0018: call T System.Nullable`1<System.Int32>::GetValueOrDefault()
+   IL_001d: ldc.i4.0
+   IL_001e: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_0023: stloc.0
+   IL_0024: ldarg.0
+   IL_0025: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
+   IL_002a: ldstr "TrailDashCount"
+   IL_002f: ldloc.0
+   IL_0030: box System.Int32
+   IL_0035: callvirt System.Void MonoMod.Utils.DynamicData::Set(System.String,System.Object)
+   IL_003a: nop
+   IL_003b: ldloc.0
+   IL_003c: stloc.2
+   IL_003d: br.s IL_003f
+   IL_003f: ldloc.2
+   IL_0040: ret

@@ -1,0 +1,364 @@
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Celeste.Actor::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Single Celeste.Puffer::eyeSpin
+   IL_000d: ldc.r4 0
+   IL_0012: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0017: ldc.r4 1.5
+   IL_001c: mul
+   IL_001d: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0022: stfld System.Single Celeste.Puffer::eyeSpin
+   IL_0027: ldarg.0
+   IL_0028: ldarg.0
+   IL_0029: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::scale
+   IL_002e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0033: ldc.r4 1
+   IL_0038: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_003d: mul
+   IL_003e: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0043: stfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::scale
+   IL_0048: ldarg.0
+   IL_0049: ldfld System.Single Celeste.Puffer::cannotHitTimer
+   IL_004e: ldc.r4 0
+   IL_0053: ble.un.s IL_0067
+   IL_0055: ldarg.0
+   IL_0056: ldarg.0
+   IL_0057: ldfld System.Single Celeste.Puffer::cannotHitTimer
+   IL_005c: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0061: sub
+   IL_0062: stfld System.Single Celeste.Puffer::cannotHitTimer
+   IL_0067: ldarg.0
+   IL_0068: ldfld Celeste.Puffer/States Celeste.Puffer::state
+   IL_006d: ldc.i4.2
+   IL_006e: beq.s IL_008f
+   IL_0070: ldarg.0
+   IL_0071: ldfld System.Single Celeste.Puffer::cantExplodeTimer
+   IL_0076: ldc.r4 0
+   IL_007b: ble.un.s IL_008f
+   IL_007d: ldarg.0
+   IL_007e: ldarg.0
+   IL_007f: ldfld System.Single Celeste.Puffer::cantExplodeTimer
+   IL_0084: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0089: sub
+   IL_008a: stfld System.Single Celeste.Puffer::cantExplodeTimer
+   IL_008f: ldarg.0
+   IL_0090: ldfld System.Single Celeste.Puffer::alertTimer
+   IL_0095: ldc.r4 0
+   IL_009a: ble.un.s IL_00ae
+   IL_009c: ldarg.0
+   IL_009d: ldarg.0
+   IL_009e: ldfld System.Single Celeste.Puffer::alertTimer
+   IL_00a3: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00a8: sub
+   IL_00a9: stfld System.Single Celeste.Puffer::alertTimer
+   IL_00ae: ldarg.0
+   IL_00af: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00b4: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_00b9: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_00be: stloc.0
+   IL_00bf: ldloc.0
+   IL_00c0: brtrue.s IL_00e5
+   IL_00c2: ldarg.0
+   IL_00c3: ldarg.0
+   IL_00c4: ldfld System.Single Celeste.Puffer::playerAliveFade
+   IL_00c9: ldc.r4 0
+   IL_00ce: ldc.r4 1
+   IL_00d3: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00d8: mul
+   IL_00d9: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_00de: stfld System.Single Celeste.Puffer::playerAliveFade
+   IL_00e3: br.s IL_0112
+   IL_00e5: ldarg.0
+   IL_00e6: ldarg.0
+   IL_00e7: ldfld System.Single Celeste.Puffer::playerAliveFade
+   IL_00ec: ldc.r4 1
+   IL_00f1: ldc.r4 1
+   IL_00f6: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00fb: mul
+   IL_00fc: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0101: stfld System.Single Celeste.Puffer::playerAliveFade
+   IL_0106: ldarg.0
+   IL_0107: ldloc.0
+   IL_0108: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_010d: stfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::lastPlayerPos
+   IL_0112: ldarg.0
+   IL_0113: ldfld Celeste.Puffer/States Celeste.Puffer::state
+   IL_0118: stloc.1
+   IL_0119: ldloc.1
+   IL_011a: switch IL_012c,IL_026e,IL_03ce
+   IL_012b: ret
+   IL_012c: ldarg.0
+   IL_012d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0132: ldarg.0
+   IL_0133: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::lastSinePosition
+   IL_0138: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_013d: brfalse.s IL_0161
+   IL_013f: ldarg.0
+   IL_0140: ldarg.0
+   IL_0141: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::anchorPosition
+   IL_0146: ldarg.0
+   IL_0147: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_014c: ldarg.0
+   IL_014d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::lastSinePosition
+   IL_0152: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0157: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_015c: stfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::anchorPosition
+   IL_0161: ldarg.0
+   IL_0162: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::anchorPosition
+   IL_0167: ldarg.0
+   IL_0168: ldfld Monocle.SineWave Celeste.Puffer::idleSine
+   IL_016d: callvirt System.Single Monocle.SineWave::get_Value()
+   IL_0172: ldc.r4 3
+   IL_0177: mul
+   IL_0178: ldarg.0
+   IL_0179: ldfld Monocle.SineWave Celeste.Puffer::idleSine
+   IL_017e: callvirt System.Single Monocle.SineWave::get_ValueOverTwo()
+   IL_0183: ldc.r4 2
+   IL_0188: mul
+   IL_0189: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_018e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0193: stloc.2
+   IL_0194: ldarg.0
+   IL_0195: ldloc.2
+   IL_0196: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_019b: ldnull
+   IL_019c: call System.Void Celeste.Actor::MoveToX(System.Single,Celeste.Collision)
+   IL_01a1: ldarg.0
+   IL_01a2: ldloc.2
+   IL_01a3: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_01a8: ldnull
+   IL_01a9: call System.Void Celeste.Actor::MoveToY(System.Single,Celeste.Collision)
+   IL_01ae: ldarg.0
+   IL_01af: ldarg.0
+   IL_01b0: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_01b5: stfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::lastSinePosition
+   IL_01ba: ldarg.0
+   IL_01bb: callvirt System.Boolean Celeste.Puffer::ProximityExplodeCheck()
+   IL_01c0: brfalse.s IL_01cf
+   IL_01c2: ldarg.0
+   IL_01c3: callvirt System.Void Celeste.Puffer::Explode()
+   IL_01c8: ldarg.0
+   IL_01c9: callvirt System.Void Celeste.Puffer::GotoGone()
+   IL_01ce: ret
+   IL_01cf: ldarg.0
+   IL_01d0: callvirt System.Boolean Celeste.Puffer::AlertedCheck()
+   IL_01d5: brfalse.s IL_01e1
+   IL_01d7: ldarg.0
+   IL_01d8: ldc.i4.0
+   IL_01d9: ldc.i4.1
+   IL_01da: callvirt System.Void Celeste.Puffer::Alert(System.Boolean,System.Boolean)
+   IL_01df: br.s IL_0228
+   IL_01e1: ldarg.0
+   IL_01e2: ldfld Monocle.Sprite Celeste.Puffer::sprite
+   IL_01e7: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_01ec: ldstr "alerted"
+   IL_01f1: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_01f6: brfalse.s IL_0228
+   IL_01f8: ldarg.0
+   IL_01f9: ldfld System.Single Celeste.Puffer::alertTimer
+   IL_01fe: ldc.r4 0
+   IL_0203: bgt.un.s IL_0228
+   IL_0205: ldstr "event:/new_content/game/10_farewell/puffer_shrink"
+   IL_020a: ldarg.0
+   IL_020b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0210: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0215: pop
+   IL_0216: ldarg.0
+   IL_0217: ldfld Monocle.Sprite Celeste.Puffer::sprite
+   IL_021c: ldstr "unalert"
+   IL_0221: ldc.i4.0
+   IL_0222: ldc.i4.0
+   IL_0223: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0228: ldarg.0
+   IL_0229: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_022e: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0233: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.PufferCollider>()
+   IL_0238: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
+   IL_023d: stloc.3
+   IL_023e: br.s IL_0252
+   IL_0240: ldloca.s V_3
+   IL_0242: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
+   IL_0247: castclass Celeste.PufferCollider
+   IL_024c: ldarg.0
+   IL_024d: callvirt System.Void Celeste.PufferCollider::Check(Celeste.Puffer)
+   IL_0252: ldloca.s V_3
+   IL_0254: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Component>::MoveNext()
+   IL_0259: brtrue.s IL_0240
+   IL_025b: leave IL_0482
+   IL_0260: ldloca.s V_3
+   IL_0262: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+   IL_0268: callvirt System.Void System.IDisposable::Dispose()
+   IL_026d: endfinally
+   IL_026e: ldarg.0
+   IL_026f: ldarg.0
+   IL_0270: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0275: stfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::lastSpeedPosition
+   IL_027a: ldarg.0
+   IL_027b: ldarg.0
+   IL_027c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_0281: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0286: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_028b: mul
+   IL_028c: ldarg.0
+   IL_028d: ldfld Celeste.Collision Celeste.Puffer::onCollideH
+   IL_0292: ldnull
+   IL_0293: call System.Boolean Celeste.Actor::MoveH(System.Single,Celeste.Collision,Celeste.Solid)
+   IL_0298: pop
+   IL_0299: ldarg.0
+   IL_029a: ldarg.0
+   IL_029b: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_02a0: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_02a5: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_02aa: mul
+   IL_02ab: ldarg.0
+   IL_02ac: ldftn System.Void Celeste.Puffer::OnCollideV(Celeste.CollisionData)
+   IL_02b2: newobj System.Void Celeste.Collision::.ctor(System.Object,System.IntPtr)
+   IL_02b7: ldnull
+   IL_02b8: call System.Boolean Celeste.Actor::MoveV(System.Single,Celeste.Collision,Celeste.Solid)
+   IL_02bd: pop
+   IL_02be: ldarg.0
+   IL_02bf: ldarg.0
+   IL_02c0: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02c5: stfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::anchorPosition
+   IL_02ca: ldarg.0
+   IL_02cb: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_02d0: ldarg.0
+   IL_02d1: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_02d6: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_02db: ldc.r4 0
+   IL_02e0: ldc.r4 150
+   IL_02e5: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_02ea: mul
+   IL_02eb: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_02f0: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_02f5: ldarg.0
+   IL_02f6: ldarg.0
+   IL_02f7: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_02fc: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0301: ldc.r4 320
+   IL_0306: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_030b: mul
+   IL_030c: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0311: stfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_0316: ldarg.0
+   IL_0317: callvirt System.Boolean Celeste.Puffer::ProximityExplodeCheck()
+   IL_031c: brfalse.s IL_032b
+   IL_031e: ldarg.0
+   IL_031f: callvirt System.Void Celeste.Puffer::Explode()
+   IL_0324: ldarg.0
+   IL_0325: callvirt System.Void Celeste.Puffer::GotoGone()
+   IL_032a: ret
+   IL_032b: ldarg.0
+   IL_032c: call System.Single Monocle.Entity::get_Top()
+   IL_0331: ldarg.0
+   IL_0332: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0337: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_033c: stloc.s V_4
+   IL_033e: ldloca.s V_4
+   IL_0340: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Bottom()
+   IL_0345: ldc.i4.5
+   IL_0346: add
+   IL_0347: conv.r4
+   IL_0348: blt.un.s IL_0363
+   IL_034a: ldarg.0
+   IL_034b: ldfld Monocle.Sprite Celeste.Puffer::sprite
+   IL_0350: ldstr "hidden"
+   IL_0355: ldc.i4.0
+   IL_0356: ldc.i4.0
+   IL_0357: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_035c: ldarg.0
+   IL_035d: callvirt System.Void Celeste.Puffer::GotoGone()
+   IL_0362: ret
+   IL_0363: ldarg.0
+   IL_0364: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0369: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_036e: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.PufferCollider>()
+   IL_0373: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
+   IL_0378: stloc.3
+   IL_0379: br.s IL_038d
+   IL_037b: ldloca.s V_3
+   IL_037d: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
+   IL_0382: castclass Celeste.PufferCollider
+   IL_0387: ldarg.0
+   IL_0388: callvirt System.Void Celeste.PufferCollider::Check(Celeste.Puffer)
+   IL_038d: ldloca.s V_3
+   IL_038f: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Component>::MoveNext()
+   IL_0394: brtrue.s IL_037b
+   IL_0396: leave.s IL_03a6
+   IL_0398: ldloca.s V_3
+   IL_039a: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+   IL_03a0: callvirt System.Void System.IDisposable::Dispose()
+   IL_03a5: endfinally
+   IL_03a6: ldarg.0
+   IL_03a7: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Puffer::hitSpeed
+   IL_03ac: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_03b1: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Equality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03b6: brfalse IL_0482
+   IL_03bb: ldarg.0
+   IL_03bc: call System.Void Celeste.Actor::ZeroRemainderX()
+   IL_03c1: ldarg.0
+   IL_03c2: call System.Void Celeste.Actor::ZeroRemainderY()
+   IL_03c7: ldarg.0
+   IL_03c8: callvirt System.Void Celeste.Puffer::GotoIdle()
+   IL_03cd: ret
+   IL_03ce: ldarg.0
+   IL_03cf: ldfld System.Single Celeste.Puffer::goneTimer
+   IL_03d4: stloc.s V_5
+   IL_03d6: ldarg.0
+   IL_03d7: ldarg.0
+   IL_03d8: ldfld System.Single Celeste.Puffer::goneTimer
+   IL_03dd: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_03e2: sub
+   IL_03e3: stfld System.Single Celeste.Puffer::goneTimer
+   IL_03e8: ldarg.0
+   IL_03e9: ldfld System.Single Celeste.Puffer::goneTimer
+   IL_03ee: ldc.r4 0.5
+   IL_03f3: bgt.un.s IL_045c
+   IL_03f5: ldloc.s V_5
+   IL_03f7: ldc.r4 0.5
+   IL_03fc: ble.un.s IL_0422
+   IL_03fe: ldarg.0
+   IL_03ff: ldflda Monocle.SimpleCurve Celeste.Puffer::returnCurve
+   IL_0404: ldc.i4.8
+   IL_0405: call System.Single Monocle.SimpleCurve::GetLengthParametric(System.Int32)
+   IL_040a: ldc.r4 8
+   IL_040f: ble.un.s IL_0422
+   IL_0411: ldstr "event:/new_content/game/10_farewell/puffer_return"
+   IL_0416: ldarg.0
+   IL_0417: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_041c: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0421: pop
+   IL_0422: ldarg.0
+   IL_0423: ldarg.0
+   IL_0424: ldflda Monocle.SimpleCurve Celeste.Puffer::returnCurve
+   IL_0429: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeInOut
+   IL_042e: ldarg.0
+   IL_042f: ldfld System.Single Celeste.Puffer::goneTimer
+   IL_0434: ldc.r4 0.5
+   IL_0439: ldc.r4 0
+   IL_043e: ldc.r4 0
+   IL_0443: ldc.r4 1
+   IL_0448: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_044d: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0452: call Microsoft.Xna.Framework.Vector2 Monocle.SimpleCurve::GetPoint(System.Single)
+   IL_0457: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_045c: ldarg.0
+   IL_045d: ldfld System.Single Celeste.Puffer::goneTimer
+   IL_0462: ldc.r4 0
+   IL_0467: bgt.un.s IL_0482
+ + IL_10000: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.IL_Puffer_Update(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.SorbetHelper.Entities.PufferTweaksController::<IL_Puffer_Update>g__CheckForSolid|13_1(Celeste.Puffer) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.IL_Puffer_Update(ILContext)
+ + IL_10002: brtrue IL_0482 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.IL_Puffer_Update(ILContext)
+   IL_0469: ldarg.0
+   IL_046a: ldarg.0
+   IL_046b: ldc.i4.1
+   IL_046c: dup
+   IL_046d: stloc.s V_6
+   IL_046f: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0474: ldloc.s V_6
+   IL_0476: stfld System.Boolean Monocle.Entity::Visible
+   IL_047b: ldarg.0
+   IL_047c: callvirt System.Void Celeste.Puffer::GotoIdle()
+   IL_0481: ret
+   IL_0482: ret

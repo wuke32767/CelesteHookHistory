@@ -1,0 +1,49 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: newobj System.Void MonoMod.Cil.ILCursor::.ctor(MonoMod.Cil.ILContext)
+   IL_0007: stloc.0
+   IL_0008: nop
+   IL_0009: ldloc.0
+   IL_000a: ldsfld Mono.Cecil.Cil.OpCode Mono.Cecil.Cil.OpCodes::Ldarg_0
+   IL_000f: callvirt MonoMod.Cil.ILCursor MonoMod.Cil.ILCursor::Emit(Mono.Cecil.Cil.OpCode)
+   IL_0014: pop
+   IL_0015: ldloc.0
+   IL_0016: ldnull
+   IL_0017: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::<il_PlayerHair_AfterUpdate>g__SetHairLength|26_0(Celeste.PlayerHair)
+   IL_001d: newobj System.Void System.Action`1<Celeste.PlayerHair>::.ctor(System.Object,System.IntPtr)
+   IL_0022: callvirt System.Int32 MonoMod.Cil.ILCursor::EmitDelegate<System.Action`1<Celeste.PlayerHair>>(T)
+   IL_0027: pop
+   IL_0028: nop
+   IL_0029: ldloc.0
+   IL_002a: ldc.i4.0
+   IL_002b: ldc.i4.1
+   IL_002c: newarr System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>
+   IL_0031: dup
+   IL_0032: ldc.i4.0
+   IL_0033: ldsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__26_2
+   IL_0038: dup
+   IL_0039: brtrue.s IL_0052
+   IL_003b: pop
+   IL_003c: ldsfld Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9
+   IL_0041: ldftn System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<il_PlayerHair_AfterUpdate>b__26_2(Mono.Cecil.Cil.Instruction)
+   IL_0047: newobj System.Void System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_004c: dup
+   IL_004d: stsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__26_2
+   IL_0052: stelem.ref
+   IL_0053: callvirt System.Boolean MonoMod.Cil.ILCursor::TryGotoNext(MonoMod.Cil.MoveType,System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>[])
+   IL_0058: stloc.1
+   IL_0059: ldloc.1
+   IL_005a: brfalse.s IL_007d
+   IL_005c: nop
+   IL_005d: ldloc.0
+   IL_005e: ldsfld Mono.Cecil.Cil.OpCode Mono.Cecil.Cil.OpCodes::Ldarg_0
+   IL_0063: callvirt MonoMod.Cil.ILCursor MonoMod.Cil.ILCursor::Emit(Mono.Cecil.Cil.OpCode)
+   IL_0068: pop
+   IL_0069: ldloc.0
+   IL_006a: ldnull
+   IL_006b: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::<il_PlayerHair_AfterUpdate>g__hairGrowsOptimize|26_1(Celeste.PlayerHair)
+   IL_0071: newobj System.Void System.Action`1<Celeste.PlayerHair>::.ctor(System.Object,System.IntPtr)
+   IL_0076: callvirt System.Int32 MonoMod.Cil.ILCursor::EmitDelegate<System.Action`1<Celeste.PlayerHair>>(T)
+   IL_007b: pop
+   IL_007c: nop
+   IL_007d: ret

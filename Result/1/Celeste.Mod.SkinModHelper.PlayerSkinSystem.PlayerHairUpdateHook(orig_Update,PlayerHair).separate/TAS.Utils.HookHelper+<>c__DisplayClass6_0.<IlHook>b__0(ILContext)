@@ -1,0 +1,23 @@
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_0007: stloc.0
+   IL_0008: ldloc.0
+   IL_0009: ldfld System.Action Celeste.Mod.SkinModHelper.HairConfig::OnHairUpdate
+   IL_000e: dup
+   IL_000f: brtrue.s IL_0014
+   IL_0011: pop
+   IL_0012: br.s IL_001a
+   IL_0014: callvirt System.Void System.Action::Invoke()
+   IL_0019: nop
+   IL_001a: ldarg.1
+   IL_001b: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10000: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0020: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
+   IL_0025: ldarg.1
+   IL_0026: stfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.CharacterConfig::playerHair
+   IL_002b: ldarg.0
+   IL_002c: ldarg.1
+   IL_002d: callvirt System.Void On.Celeste.PlayerHair/orig_Update::Invoke(Celeste.PlayerHair)
+   IL_0032: nop
+   IL_0033: ret

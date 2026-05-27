@@ -1,0 +1,94 @@
+   IL_0000: nop
+   IL_0001: ldarg.2
+   IL_0002: ldc.i4.0
+   IL_0003: cgt
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: brfalse IL_00e0
+   IL_000c: nop
+   IL_000d: ldarg.0
+   IL_000e: callvirt Celeste.Mod.SkinModHelper.HairConfig/HairFlipModes Celeste.Mod.SkinModHelper.HairConfig::get_HairFlipMode()
+   IL_0013: stloc.3
+   IL_0014: ldloc.3
+   IL_0015: stloc.2
+   IL_0016: ldloc.2
+   IL_0017: ldc.i4.1
+   IL_0018: sub
+   IL_0019: switch IL_002f,IL_004b,IL_0093
+   IL_002a: br IL_00dd
+   IL_002f: ldarga.s scale
+   IL_0031: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0036: dup
+   IL_0037: ldind.r4
+   IL_0038: ldarg.0
+   IL_0039: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.HairConfig::attached
+   IL_003e: ldfld Celeste.Facings Celeste.PlayerHair::Facing
+   IL_0043: conv.r4
+   IL_0044: mul
+   IL_0045: stind.r4
+   IL_0046: br IL_00df
+   IL_004b: ldarg.0
+   IL_004c: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.HairConfig::attached
+   IL_0051: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_0056: ldarg.2
+   IL_0057: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_005c: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0061: ldarg.0
+   IL_0062: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.HairConfig::attached
+   IL_0067: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_006c: ldc.i4.0
+   IL_006d: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_0072: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0077: sub
+   IL_0078: stloc.1
+   IL_0079: ldarga.s scale
+   IL_007b: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0080: dup
+   IL_0081: ldind.r4
+   IL_0082: ldloc.1
+   IL_0083: ldc.r4 0
+   IL_0088: blt.s IL_008d
+   IL_008a: ldc.i4.m1
+   IL_008b: br.s IL_008e
+   IL_008d: ldc.i4.1
+   IL_008e: conv.r4
+   IL_008f: mul
+   IL_0090: stind.r4
+   IL_0091: br.s IL_00df
+   IL_0093: ldarg.0
+   IL_0094: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.HairConfig::attached
+   IL_0099: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_009e: ldarg.2
+   IL_009f: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_00a4: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00a9: ldarg.0
+   IL_00aa: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.HairConfig::attached
+   IL_00af: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_00b4: ldarg.2
+   IL_00b5: ldc.i4.1
+   IL_00b6: sub
+   IL_00b7: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_00bc: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00c1: sub
+   IL_00c2: stloc.1
+   IL_00c3: ldarga.s scale
+   IL_00c5: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00ca: dup
+   IL_00cb: ldind.r4
+   IL_00cc: ldloc.1
+   IL_00cd: ldc.r4 0
+   IL_00d2: blt.s IL_00d7
+   IL_00d4: ldc.i4.m1
+   IL_00d5: br.s IL_00d8
+   IL_00d7: ldc.i4.1
+   IL_00d8: conv.r4
+   IL_00d9: mul
+   IL_00da: stind.r4
+   IL_00db: br.s IL_00df
+   IL_00dd: br.s IL_00df
+   IL_00df: nop
+   IL_00e0: ldarg.1
+   IL_00e1: stloc.s V_4
+   IL_00e3: br.s IL_00e5
+   IL_00e5: ldloc.s V_4
+   IL_00e7: ret

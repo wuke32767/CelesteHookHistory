@@ -1,0 +1,13 @@
+   IL_0000: ldarg.1
+   IL_0001: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0006: call Celeste.Mod.SkinModHelper.CharacterConfig Celeste.Mod.SkinModHelper.CharacterConfig::For(Monocle.Image)
+   IL_000b: ldfld System.Nullable`1<System.Single> Celeste.Mod.SkinModHelper.CharacterConfig::IdleAnimationChance
+   IL_0010: stloc.0
+   IL_0011: ldloca.s V_0
+   IL_0013: call System.Boolean System.Nullable`1<System.Single>::get_HasValue()
+   IL_0018: brtrue.s IL_001d
+   IL_001a: ldarg.0
+   IL_001b: br.s IL_0024
+   IL_001d: ldloca.s V_0
+   IL_001f: call T System.Nullable`1<System.Single>::GetValueOrDefault()
+   IL_0024: ret

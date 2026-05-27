@@ -1,0 +1,137 @@
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_0006: callvirt T Monocle.Entity::Get<Monocle.Sprite>()
+   IL_000b: stloc.0
+   IL_000c: ldarg.0
+   IL_000d: call Monocle.Scene Monocle.Component::get_Scene()
+   IL_0012: brfalse IL_0175
+   IL_0017: ldloc.0
+   IL_0018: brfalse IL_0175
+   IL_001d: ldc.i4.0
+   IL_001e: stloc.1
+   IL_001f: ldarg.0
+   IL_0020: call Monocle.Scene Monocle.Component::get_Scene()
+   IL_0025: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_002a: callvirt T Monocle.Tracker::GetEntity<Celeste.Textbox>()
+   IL_002f: stloc.2
+   IL_0030: ldarg.0
+   IL_0031: ldfld System.Boolean Celeste.BadelineAutoAnimator::Enabled
+   IL_0036: brfalse IL_010e
+   IL_003b: ldloc.2
+   IL_003c: brfalse IL_010e
+   IL_0041: ldloc.2
+   IL_0042: callvirt System.String Celeste.Textbox::get_PortraitName()
+   IL_0047: ldc.i4.1
+   IL_0048: newarr System.String
+   IL_004d: dup
+   IL_004e: ldc.i4.0
+   IL_004f: ldstr "badeline"
+ + IL_10000: call System.String Celeste.Mod.SkinModHelper.SomePatches::_findPortraitSkin(System.String) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SomePatches.ilAutoAnimatorWithPortrait(ILContext)
+   IL_0054: stelem.ref
+   IL_0055: call System.Boolean Monocle.Calc::IsIgnoreCase(System.String,System.String[])
+   IL_005a: brfalse IL_010e
+   IL_005f: ldloc.2
+   IL_0060: callvirt System.String Celeste.Textbox::get_PortraitAnimation()
+   IL_0065: ldc.i4.1
+   IL_0066: newarr System.String
+   IL_006b: dup
+   IL_006c: ldc.i4.0
+   IL_006d: ldstr "scoff"
+   IL_0072: stelem.ref
+   IL_0073: call System.Boolean Monocle.Calc::IsIgnoreCase(System.String,System.String[])
+   IL_0078: brfalse.s IL_00a6
+   IL_007a: ldarg.0
+   IL_007b: ldfld System.Boolean Celeste.BadelineAutoAnimator::wasSyncingSprite
+   IL_0080: brtrue.s IL_008e
+   IL_0082: ldarg.0
+   IL_0083: ldloc.0
+   IL_0084: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_0089: stfld System.String Celeste.BadelineAutoAnimator::lastAnimation
+   IL_008e: ldloc.0
+   IL_008f: ldstr "laugh"
+   IL_0094: ldc.i4.0
+   IL_0095: ldc.i4.0
+   IL_0096: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_009b: ldarg.0
+   IL_009c: ldc.i4.1
+   IL_009d: dup
+   IL_009e: stloc.1
+   IL_009f: stfld System.Boolean Celeste.BadelineAutoAnimator::wasSyncingSprite
+   IL_00a4: br.s IL_010e
+   IL_00a6: ldloc.2
+   IL_00a7: callvirt System.String Celeste.Textbox::get_PortraitAnimation()
+   IL_00ac: ldc.i4.4
+   IL_00ad: newarr System.String
+   IL_00b2: dup
+   IL_00b3: ldc.i4.0
+   IL_00b4: ldstr "yell"
+   IL_00b9: stelem.ref
+   IL_00ba: dup
+   IL_00bb: ldc.i4.1
+   IL_00bc: ldstr "freakA"
+   IL_00c1: stelem.ref
+   IL_00c2: dup
+   IL_00c3: ldc.i4.2
+   IL_00c4: ldstr "freakB"
+   IL_00c9: stelem.ref
+   IL_00ca: dup
+   IL_00cb: ldc.i4.3
+   IL_00cc: ldstr "freakC"
+   IL_00d1: stelem.ref
+   IL_00d2: call System.Boolean Monocle.Calc::IsIgnoreCase(System.String,System.String[])
+   IL_00d7: brfalse.s IL_010e
+   IL_00d9: ldarg.0
+   IL_00da: ldfld System.Boolean Celeste.BadelineAutoAnimator::wasSyncingSprite
+   IL_00df: brtrue.s IL_00f8
+   IL_00e1: ldarg.0
+   IL_00e2: ldfld Monocle.Wiggler Celeste.BadelineAutoAnimator::pop
+   IL_00e7: callvirt System.Void Monocle.Wiggler::Start()
+   IL_00ec: ldarg.0
+   IL_00ed: ldloc.0
+   IL_00ee: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_00f3: stfld System.String Celeste.BadelineAutoAnimator::lastAnimation
+   IL_00f8: ldloc.0
+   IL_00f9: ldstr "angry"
+   IL_00fe: ldc.i4.0
+   IL_00ff: ldc.i4.0
+   IL_0100: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0105: ldarg.0
+   IL_0106: ldc.i4.1
+   IL_0107: dup
+   IL_0108: stloc.1
+   IL_0109: stfld System.Boolean Celeste.BadelineAutoAnimator::wasSyncingSprite
+   IL_010e: ldarg.0
+   IL_010f: ldfld System.Boolean Celeste.BadelineAutoAnimator::wasSyncingSprite
+   IL_0114: brfalse.s IL_0175
+   IL_0116: ldloc.1
+   IL_0117: brtrue.s IL_0175
+   IL_0119: ldarg.0
+   IL_011a: ldc.i4.0
+   IL_011b: stfld System.Boolean Celeste.BadelineAutoAnimator::wasSyncingSprite
+   IL_0120: ldarg.0
+   IL_0121: ldfld System.String Celeste.BadelineAutoAnimator::lastAnimation
+   IL_0126: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_012b: brtrue.s IL_013f
+   IL_012d: ldarg.0
+   IL_012e: ldfld System.String Celeste.BadelineAutoAnimator::lastAnimation
+   IL_0133: ldstr "spin"
+   IL_0138: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_013d: brfalse.s IL_014a
+   IL_013f: ldarg.0
+   IL_0140: ldstr "fallSlow"
+   IL_0145: stfld System.String Celeste.BadelineAutoAnimator::lastAnimation
+   IL_014a: ldloc.0
+   IL_014b: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_0150: ldstr "angry"
+   IL_0155: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_015a: brfalse.s IL_0167
+   IL_015c: ldarg.0
+   IL_015d: ldfld Monocle.Wiggler Celeste.BadelineAutoAnimator::pop
+   IL_0162: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0167: ldloc.0
+   IL_0168: ldarg.0
+   IL_0169: ldfld System.String Celeste.BadelineAutoAnimator::lastAnimation
+   IL_016e: ldc.i4.0
+   IL_016f: ldc.i4.0
+   IL_0170: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0175: ret

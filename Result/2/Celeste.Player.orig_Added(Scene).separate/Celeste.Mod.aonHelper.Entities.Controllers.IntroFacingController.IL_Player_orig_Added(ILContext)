@@ -1,0 +1,124 @@
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldarg.0
+   IL_0009: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_000e: stfld Celeste.Level Celeste.Player::level
+   IL_0013: ldarg.0
+   IL_0014: ldarg.0
+   IL_0015: ldarg.0
+   IL_0016: callvirt System.Int32 Celeste.Player::get_MaxDashes()
+   IL_001b: dup
+   IL_001c: stloc.0
+   IL_001d: stfld System.Int32 Celeste.Player::Dashes
+   IL_0022: ldloc.0
+   IL_0023: stfld System.Int32 Celeste.Player::lastDashes
+   IL_0028: ldarg.0
+   IL_0029: call T Monocle.Entity::CollideFirst<Celeste.SpawnFacingTrigger>()
+   IL_002e: stloc.1
+   IL_002f: ldloc.1
+   IL_0030: brfalse.s IL_0040
+   IL_0032: ldarg.0
+   IL_0033: ldloc.1
+   IL_0034: ldfld Celeste.Facings Celeste.SpawnFacingTrigger::Facing
+   IL_0039: stfld Celeste.Facings Celeste.Player::Facing
+   IL_003e: br.s IL_0071
+   IL_0040: ldarg.0
+   IL_0041: call System.Single Monocle.Entity::get_X()
+   IL_0046: ldarg.0
+   IL_0047: ldfld Celeste.Level Celeste.Player::level
+   IL_004c: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0051: stloc.2
+   IL_0052: ldloca.s V_2
+   IL_0054: call Microsoft.Xna.Framework.Point Microsoft.Xna.Framework.Rectangle::get_Center()
+   IL_0059: ldfld System.Int32 Microsoft.Xna.Framework.Point::X
+   IL_005e: conv.r4
+   IL_005f: ble.un.s IL_0071
+   IL_0061: ldarg.0
+   IL_0062: ldfld Celeste.Player/IntroTypes Celeste.Player::IntroType
+   IL_0067: ldc.i4.8
+   IL_0068: beq.s IL_0071
+   IL_006a: ldarg.0
+   IL_006b: ldc.i4.m1
+   IL_006c: stfld Celeste.Facings Celeste.Player::Facing
+   IL_0071: ldarg.0
+   IL_0072: ldfld Celeste.Player/IntroTypes Celeste.Player::IntroType
+   IL_0077: stloc.3
+   IL_0078: ldloc.3
+   IL_0079: ldc.i4.1
+   IL_007a: sub
+   IL_007b: switch IL_00a9,IL_00c2,IL_00db,IL_00f1,IL_0100,IL_0136,IL_0145,IL_0128,IL_014d
+   IL_00a4: br IL_10000
+   IL_00a9: ldarg.0
+   IL_00aa: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00af: ldc.i4.s 14
+   IL_00b1: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_00b6: ldarg.0
+   IL_00b7: ldc.i4.1
+   IL_00b8: stfld System.Boolean Celeste.Player::JustRespawned
+   IL_00bd: br IL_10000
+   IL_00c2: ldarg.0
+   IL_00c3: ldc.i4.1
+   IL_00c4: stfld Celeste.Facings Celeste.Player::IntroWalkDirection
+   IL_00c9: ldarg.0
+   IL_00ca: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00cf: ldc.i4.s 12
+   IL_00d1: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_00d6: br IL_10000
+   IL_00db: ldarg.0
+   IL_00dc: ldc.i4.m1
+   IL_00dd: stfld Celeste.Facings Celeste.Player::IntroWalkDirection
+   IL_00e2: ldarg.0
+   IL_00e3: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00e8: ldc.i4.s 12
+   IL_00ea: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_00ef: br.s IL_10000
+   IL_00f1: ldarg.0
+   IL_00f2: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00f7: ldc.i4.s 13
+   IL_00f9: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_00fe: br.s IL_10000
+   IL_0100: ldarg.0
+   IL_0101: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0106: ldstr "asleep"
+   IL_010b: ldc.i4.0
+   IL_010c: ldc.i4.0
+   IL_010d: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0112: ldarg.0
+   IL_0113: ldc.i4.1
+   IL_0114: stfld Celeste.Facings Celeste.Player::Facing
+   IL_0119: ldarg.0
+   IL_011a: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_011f: ldc.i4.s 15
+   IL_0121: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_0126: br.s IL_10000
+   IL_0128: ldarg.0
+   IL_0129: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_012e: ldc.i4.0
+   IL_012f: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_0134: br.s IL_10000
+   IL_0136: ldarg.0
+   IL_0137: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_013c: ldc.i4.s 18
+   IL_013e: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_0143: br.s IL_10000
+   IL_0145: ldarg.0
+   IL_0146: callvirt System.Void Celeste.Player::StartTempleMirrorVoidSleep()
+   IL_014b: br.s IL_10000
+   IL_014d: ldarg.0
+   IL_014e: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0153: ldc.i4.s 25
+   IL_0155: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+ + IL_10000: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.IntroFacingController.IL_Player_orig_Added(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.aonHelper.Entities.Controllers.IntroFacingController::<IL_Player_orig_Added>g__SetPlayerFacing|7_3(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.IntroFacingController.IL_Player_orig_Added(ILContext)
+   IL_015a: ldarg.0
+   IL_015b: ldc.i4.0
+   IL_015c: stfld Celeste.Player/IntroTypes Celeste.Player::IntroType
+   IL_0161: ldarg.0
+   IL_0162: callvirt System.Void Celeste.Player::StartHair()
+   IL_0167: ldarg.0
+   IL_0168: ldarg.0
+   IL_0169: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_016e: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::PreviousPosition
+   IL_0173: ret

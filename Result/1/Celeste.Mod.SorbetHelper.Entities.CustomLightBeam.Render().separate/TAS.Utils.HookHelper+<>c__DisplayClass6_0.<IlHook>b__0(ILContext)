@@ -1,0 +1,162 @@
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedClutteredEntity() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Render()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Single Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::alpha
+   IL_000c: ldc.r4 0
+   IL_0011: bgt.un.s IL_0014
+   IL_0013: ret
+   IL_0014: ldarg.0
+   IL_0015: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_001a: ldarg.0
+   IL_001b: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::get_RenderPosition()
+   IL_0020: newobj System.Void Celeste.Mod.SorbetHelper.Utils.SetTemporaryValue`1<Microsoft.Xna.Framework.Vector2>::.ctor(T&,T)
+   IL_0025: stloc.0
+   IL_0026: ldarg.0
+   IL_0027: ldfld System.Int32 Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::lightLength
+   IL_002c: ldc.i4.4
+   IL_002d: sub
+   IL_002e: conv.r4
+   IL_002f: ldarg.0
+   IL_0030: ldfld System.Single Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::timer
+   IL_0035: ldc.r4 2
+   IL_003a: mul
+   IL_003b: call System.Single System.MathF::Sin(System.Single)
+   IL_0040: ldc.r4 4
+   IL_0045: mul
+   IL_0046: add
+   IL_0047: stloc.1
+   IL_0048: ldarg.0
+   IL_0049: ldfld System.Boolean Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::rainbow
+   IL_004e: brfalse.s IL_008c
+   IL_0050: ldarg.0
+   IL_0051: ldfld System.Boolean Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::rainbowSingleColor
+   IL_0056: brtrue.s IL_008c
+   IL_0058: ldc.i4.0
+   IL_0059: stloc.2
+   IL_005a: br.s IL_0081
+   IL_005c: ldarg.0
+   IL_005d: ldloc.2
+   IL_005e: conv.r4
+   IL_005f: ldarg.0
+   IL_0060: ldfld System.Int32 Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::lightWidth
+   IL_0065: conv.r4
+   IL_0066: ldc.r4 2
+   IL_006b: div
+   IL_006c: sub
+   IL_006d: ldc.r4 4
+   IL_0072: ldloc.1
+   IL_0073: ldc.r4 0.4
+   IL_0078: callvirt System.Void Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::DrawBeam(System.Single,System.Single,System.Single,System.Single)
+   IL_007d: ldloc.2
+   IL_007e: ldc.i4.4
+   IL_007f: add
+   IL_0080: stloc.2
+   IL_0081: ldloc.2
+   IL_0082: ldarg.0
+   IL_0083: ldfld System.Int32 Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::lightWidth
+   IL_0088: blt.s IL_005c
+   IL_008a: br.s IL_00a4
+   IL_008c: ldarg.0
+   IL_008d: ldc.r4 0
+   IL_0092: ldarg.0
+   IL_0093: ldfld System.Int32 Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::lightWidth
+   IL_0098: conv.r4
+   IL_0099: ldloc.1
+   IL_009a: ldc.r4 0.4
+   IL_009f: callvirt System.Void Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::DrawBeam(System.Single,System.Single,System.Single,System.Single)
+   IL_00a4: ldc.i4.0
+   IL_00a5: stloc.3
+   IL_00a6: br IL_0170
+   IL_00ab: ldarg.0
+   IL_00ac: ldfld System.Single Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::timer
+   IL_00b1: ldloc.3
+   IL_00b2: conv.r4
+   IL_00b3: ldc.r4 0.6
+   IL_00b8: mul
+   IL_00b9: add
+   IL_00ba: stloc.s V_4
+   IL_00bc: ldc.r4 4
+   IL_00c1: ldloc.s V_4
+   IL_00c3: ldc.r4 0.5
+   IL_00c8: mul
+   IL_00c9: ldc.r4 1.2
+   IL_00ce: add
+   IL_00cf: call System.Single System.MathF::Sin(System.Single)
+   IL_00d4: ldc.r4 4
+   IL_00d9: mul
+   IL_00da: add
+   IL_00db: stloc.s V_5
+   IL_00dd: ldloc.s V_4
+   IL_00df: ldloc.3
+   IL_00e0: ldc.i4.s 32
+   IL_00e2: mul
+   IL_00e3: conv.r4
+   IL_00e4: add
+   IL_00e5: ldc.r4 0.1
+   IL_00ea: mul
+   IL_00eb: ldloc.s V_4
+   IL_00ed: ldc.r4 0.05
+   IL_00f2: mul
+   IL_00f3: ldloc.3
+   IL_00f4: conv.r4
+   IL_00f5: ldc.r4 0.1
+   IL_00fa: mul
+   IL_00fb: add
+   IL_00fc: call System.Single System.MathF::Sin(System.Single)
+   IL_0101: ldc.r4 0.25
+   IL_0106: mul
+   IL_0107: add
+   IL_0108: call System.Single System.MathF::Sin(System.Single)
+   IL_010d: ldarg.0
+   IL_010e: ldfld System.Int32 Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::lightWidth
+   IL_0113: conv.r4
+   IL_0114: ldc.r4 2
+   IL_0119: div
+   IL_011a: ldloc.s V_5
+   IL_011c: ldc.r4 2
+   IL_0121: div
+   IL_0122: sub
+   IL_0123: mul
+   IL_0124: stloc.s V_6
+   IL_0126: ldarg.0
+   IL_0127: ldfld System.Int32 Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::lightLength
+   IL_012c: conv.r4
+   IL_012d: ldloc.s V_4
+   IL_012f: ldc.r4 0.25
+   IL_0134: mul
+   IL_0135: call System.Single System.MathF::Sin(System.Single)
+   IL_013a: ldc.r4 8
+   IL_013f: mul
+   IL_0140: add
+   IL_0141: stloc.s V_7
+   IL_0143: ldc.r4 0.6
+   IL_0148: ldloc.s V_4
+   IL_014a: ldc.r4 0.8
+   IL_014f: add
+   IL_0150: call System.Single System.MathF::Sin(System.Single)
+   IL_0155: ldc.r4 0.3
+   IL_015a: mul
+   IL_015b: add
+   IL_015c: stloc.s V_8
+   IL_015e: ldarg.0
+   IL_015f: ldloc.s V_6
+   IL_0161: ldloc.s V_5
+   IL_0163: ldloc.s V_7
+   IL_0165: ldloc.s V_8
+   IL_0167: callvirt System.Void Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::DrawBeam(System.Single,System.Single,System.Single,System.Single)
+   IL_016c: ldloc.3
+   IL_016d: ldc.i4.4
+   IL_016e: add
+   IL_016f: stloc.3
+   IL_0170: ldloc.3
+   IL_0171: ldarg.0
+   IL_0172: ldfld System.Int32 Celeste.Mod.SorbetHelper.Entities.CustomLightBeam::lightWidth
+   IL_0177: blt IL_00ab
+   IL_017c: leave.s IL_0186
+   IL_017e: ldloca.s V_0
+   IL_0180: call System.Void Celeste.Mod.SorbetHelper.Utils.SetTemporaryValue`1<Microsoft.Xna.Framework.Vector2>::Dispose()
+   IL_0185: endfinally
+   IL_0186: ret

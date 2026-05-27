@@ -1,0 +1,49 @@
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10002: ldarg amount @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10003: call DynamicMethod!Initialize_SimulateRandomRangeCalls!System.Void TAS.Gameplay.Optimization.FastForwardOptimization::Initialize_SimulateRandomRangeCalls(System.Int32) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10004: ldarg type @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10005: call DynamicMethod!Initialize_SimulateTypeCreateCalls!System.Void TAS.Gameplay.Optimization.FastForwardOptimization::Initialize_SimulateTypeCreateCalls(Monocle.ParticleType) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10006: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldc.i4.0
+   IL_0001: stloc.0
+   IL_0002: br.s IL_005c
+   IL_0004: ldarg.1
+   IL_0005: ldarg.0
+   IL_0006: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Int32 Monocle.ParticleSystem::nextSlot
+   IL_0011: ldelema Monocle.Particle
+   IL_0016: ldarg.2
+   IL_0017: ldsfld System.Random Monocle.Calc::Random
+   IL_001c: ldarg.s position
+   IL_001e: ldarg.s positionRange
+   IL_0020: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0025: ldarg.s position
+   IL_0027: ldarg.s positionRange
+   IL_0029: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_002e: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Range(System.Random,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0033: ldarg.s direction
+   IL_0035: ldarg.1
+   IL_0036: ldfld Microsoft.Xna.Framework.Color Monocle.ParticleType::Color
+   IL_003b: callvirt Monocle.Particle Monocle.ParticleType::Create(Monocle.Particle&,Monocle.Entity,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0040: pop
+   IL_0041: ldarg.0
+   IL_0042: ldarg.0
+   IL_0043: ldfld System.Int32 Monocle.ParticleSystem::nextSlot
+   IL_0048: ldc.i4.1
+   IL_0049: add
+   IL_004a: ldarg.0
+   IL_004b: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_0050: ldlen
+   IL_0051: conv.i4
+   IL_0052: rem
+   IL_0053: stfld System.Int32 Monocle.ParticleSystem::nextSlot
+   IL_0058: ldloc.0
+   IL_0059: ldc.i4.1
+   IL_005a: add
+   IL_005b: stloc.0
+   IL_005c: ldloc.0
+   IL_005d: ldarg.3
+   IL_005e: blt.s IL_0004
+   IL_0060: ret

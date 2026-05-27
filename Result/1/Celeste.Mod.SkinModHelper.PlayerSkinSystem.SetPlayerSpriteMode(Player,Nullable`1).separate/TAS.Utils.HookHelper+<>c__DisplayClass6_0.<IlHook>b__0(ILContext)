@@ -1,0 +1,47 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: brtrue.s IL_000b
+   IL_0004: call Celeste.Player Celeste.Mod.SkinModHelper.SkinsSystem::get__Player()
+   IL_0009: starg.s player
+   IL_000b: ldarg.0
+   IL_000c: ldnull
+   IL_000d: ceq
+   IL_000f: stloc.0
+   IL_0010: ldloc.0
+   IL_0011: brfalse.s IL_0016
+   IL_0013: nop
+   IL_0014: br.s IL_0064
+   IL_0016: ldarga.s mode
+   IL_0018: call T System.Nullable`1<Celeste.PlayerSpriteMode>::GetValueOrDefault()
+   IL_001d: stloc.1
+   IL_001e: ldarga.s mode
+   IL_0020: call System.Boolean System.Nullable`1<Celeste.PlayerSpriteMode>::get_HasValue()
+   IL_0025: brtrue.s IL_0038
+   IL_0027: ldarg.0
+   IL_0028: ldfld Celeste.PlayerSpriteMode Celeste.Player::DefaultSpriteMode
+   IL_002d: stloc.1
+   IL_002e: ldarga.s mode
+   IL_0030: ldloc.1
+   IL_0031: call System.Void System.Nullable`1<Celeste.PlayerSpriteMode>::.ctor(T)
+   IL_0036: br.s IL_0038
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Boolean Monocle.Entity::Active
+   IL_003e: stloc.2
+   IL_003f: ldloc.2
+   IL_0040: brfalse.s IL_0054
+   IL_0042: nop
+   IL_0043: ldarg.0
+   IL_0044: ldarga.s mode
+   IL_0046: call T System.Nullable`1<Celeste.PlayerSpriteMode>::get_Value()
+   IL_004b: callvirt System.Void Celeste.Player::ResetSpriteNextFrame(Celeste.PlayerSpriteMode)
+   IL_0050: nop
+   IL_0051: nop
+   IL_0052: br.s IL_0064
+   IL_0054: nop
+   IL_0055: ldarg.0
+   IL_0056: ldarga.s mode
+   IL_0058: call T System.Nullable`1<Celeste.PlayerSpriteMode>::get_Value()
+   IL_005d: callvirt System.Void Celeste.Player::ResetSprite(Celeste.PlayerSpriteMode)
+   IL_0062: nop
+   IL_0063: nop
+   IL_0064: ret

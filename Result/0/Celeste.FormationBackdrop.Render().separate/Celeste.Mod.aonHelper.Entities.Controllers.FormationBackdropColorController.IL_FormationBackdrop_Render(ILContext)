@@ -1,0 +1,35 @@
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: stloc.0
+   IL_000c: ldarg.0
+   IL_000d: ldfld System.Single Celeste.FormationBackdrop::fade
+   IL_0012: ldc.r4 0
+   IL_0017: ble.un.s IL_006f
+   IL_0019: ldloc.0
+   IL_001a: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_001f: callvirt System.Single Monocle.Camera::get_Left()
+   IL_0024: ldc.r4 1
+   IL_0029: sub
+   IL_002a: ldloc.0
+   IL_002b: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0030: callvirt System.Single Monocle.Camera::get_Top()
+   IL_0035: ldc.r4 1
+   IL_003a: sub
+   IL_003b: ldc.r4 322
+   IL_0040: ldc.r4 182
+   IL_0045: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+ + IL_10000: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FormationBackdropColorController.IL_FormationBackdrop_Render(ILContext)
+ + IL_10001: call Microsoft.Xna.Framework.Color Celeste.Mod.aonHelper.Entities.Controllers.FormationBackdropColorController::<IL_FormationBackdrop_Render>g__ChangeFormationBackdropColor|6_2(Microsoft.Xna.Framework.Color,Celeste.FormationBackdrop) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FormationBackdropColorController.IL_FormationBackdrop_Render(ILContext)
+   IL_004a: ldarg.0
+   IL_004b: ldfld System.Single Celeste.FormationBackdrop::fade
+   IL_0050: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0055: ldarg.0
+   IL_0056: ldfld System.Single Celeste.FormationBackdrop::Alpha
+   IL_005b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0060: ldc.r4 0.85
+ + IL_10002: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FormationBackdropColorController.IL_FormationBackdrop_Render(ILContext)
+ + IL_10003: call System.Single Celeste.Mod.aonHelper.Entities.Controllers.FormationBackdropColorController::<IL_FormationBackdrop_Render>g__ChangeFormationBackdropAlpha|6_3(System.Single,Celeste.FormationBackdrop) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FormationBackdropColorController.IL_FormationBackdrop_Render(ILContext)
+   IL_0065: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_006a: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_006f: ret

@@ -1,0 +1,378 @@
+ + IL_10000: ldsfld System.Random TAS.Gameplay.DesyncFix.SeededRandomness/SummitLaunchHandler::shakeRandom @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: call DynamicMethod!SeedMethod_PushRandom!System.Void TAS.Gameplay.DesyncFix.SeededRandomness/Handler::SeedMethod_PushRandom(System.Random) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>4__this
+   IL_000d: stloc.1
+   IL_000e: ldloc.0
+   IL_000f: switch IL_0036,IL_007b,IL_0161,IL_0189,IL_01a9,IL_0202,IL_0290,IL_0415
+   IL_0034: ldc.i4.0
+ + IL_10002: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0035: ret
+   IL_0036: ldarg.0
+   IL_0037: ldc.i4.m1
+   IL_0038: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_003d: ldarg.0
+   IL_003e: ldloc.1
+   IL_003f: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0044: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0049: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_004e: stfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0053: br.s IL_0082
+   IL_0055: ldarg.0
+   IL_0056: ldloc.1
+   IL_0057: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_005c: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0061: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0066: stfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_006b: ldarg.0
+   IL_006c: ldnull
+   IL_006d: stfld System.Object Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>2__current
+   IL_0072: ldarg.0
+   IL_0073: ldc.i4.1
+   IL_0074: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0079: ldc.i4.1
+ + IL_10003: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_007a: ret
+   IL_007b: ldarg.0
+   IL_007c: ldc.i4.m1
+   IL_007d: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0082: ldarg.0
+   IL_0083: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0088: brfalse.s IL_0055
+   IL_008a: ldarg.0
+   IL_008b: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0090: callvirt System.Single Monocle.Entity::get_Y()
+   IL_0095: ldloc.1
+   IL_0096: callvirt System.Single Monocle.Entity::get_Y()
+   IL_009b: bgt.s IL_0055
+   IL_009d: ldloc.1
+   IL_009e: ldc.i4.1
+   IL_009f: stfld System.Boolean Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::launchStarted
+   IL_00a4: ldloc.1
+   IL_00a5: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00aa: ldloc.1
+   IL_00ab: newobj System.Void Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/Streaks::.ctor(Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager)
+   IL_00b0: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_00b5: ldarg.0
+   IL_00b6: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_00bb: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_00c0: ldstr "launch"
+   IL_00c5: ldc.i4.0
+   IL_00c6: ldc.i4.0
+   IL_00c7: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_00cc: ldarg.0
+   IL_00cd: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_00d2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_00d7: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_00dc: ldarg.0
+   IL_00dd: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_00e2: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00e7: ldc.i4.s 11
+   IL_00e9: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_00ee: ldarg.0
+   IL_00ef: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_00f4: ldc.i4.0
+   IL_00f5: stfld System.Boolean Celeste.Player::DummyGravity
+   IL_00fa: ldarg.0
+   IL_00fb: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0100: ldc.i4.0
+   IL_0101: stfld System.Boolean Celeste.Player::DummyAutoAnimate
+   IL_0106: ldloc.1
+   IL_0107: ldfld System.Boolean Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::introLaunch
+   IL_010c: brfalse.s IL_016a
+   IL_010e: ldloc.1
+   IL_010f: ldc.r4 1
+   IL_0114: callvirt System.Void Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::FadeSnapTo(System.Single)
+   IL_0119: ldloc.1
+   IL_011a: ldfld Celeste.Level Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::level
+   IL_011f: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0124: ldarg.0
+   IL_0125: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_012a: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_012f: ldc.r4 -160
+   IL_0134: ldc.r4 -90
+   IL_0139: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_013e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0143: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
+   IL_0148: ldarg.0
+   IL_0149: ldc.r4 2.3
+   IL_014e: box System.Single
+   IL_0153: stfld System.Object Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>2__current
+   IL_0158: ldarg.0
+   IL_0159: ldc.i4.2
+   IL_015a: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_015f: ldc.i4.1
+ + IL_10004: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0160: ret
+   IL_0161: ldarg.0
+   IL_0162: ldc.i4.m1
+   IL_0163: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0168: br.s IL_01b0
+   IL_016a: ldarg.0
+   IL_016b: ldloc.1
+   IL_016c: ldc.r4 1
+   IL_0171: ldc.r4 0.8
+   IL_0176: callvirt System.Collections.IEnumerator Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::FadeTo(System.Single,System.Single)
+   IL_017b: stfld System.Object Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>2__current
+   IL_0180: ldarg.0
+   IL_0181: ldc.i4.3
+   IL_0182: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0187: ldc.i4.1
+ + IL_10005: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0188: ret
+   IL_0189: ldarg.0
+   IL_018a: ldc.i4.m1
+   IL_018b: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0190: ldarg.0
+   IL_0191: ldc.r4 0.5
+   IL_0196: box System.Single
+   IL_019b: stfld System.Object Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>2__current
+   IL_01a0: ldarg.0
+   IL_01a1: ldc.i4.4
+   IL_01a2: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_01a7: ldc.i4.1
+ + IL_10006: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_01a8: ret
+   IL_01a9: ldarg.0
+   IL_01aa: ldc.i4.m1
+   IL_01ab: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_01b0: ldloc.1
+   IL_01b1: ldfld Celeste.Level Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::level
+   IL_01b6: ldc.i4.0
+   IL_01b7: stfld System.Boolean Celeste.Level::CanRetry
+   IL_01bc: ldarg.0
+   IL_01bd: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_01c2: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_01c7: ldstr "launch"
+   IL_01cc: ldc.i4.0
+   IL_01cd: ldc.i4.0
+   IL_01ce: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_01d3: ldstr "event:/char/madeline/summit_flytonext"
+   IL_01d8: ldarg.0
+   IL_01d9: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_01de: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_01e3: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_01e8: pop
+   IL_01e9: ldarg.0
+   IL_01ea: ldc.r4 0.25
+   IL_01ef: box System.Single
+   IL_01f4: stfld System.Object Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>2__current
+   IL_01f9: ldarg.0
+   IL_01fa: ldc.i4.5
+   IL_01fb: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0200: ldc.i4.1
+ + IL_10007: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0201: ret
+   IL_0202: ldarg.0
+   IL_0203: ldc.i4.m1
+   IL_0204: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0209: ldarg.0
+   IL_020a: ldarg.0
+   IL_020b: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0210: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0215: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<from>5__3
+   IL_021a: ldarg.0
+   IL_021b: ldc.r4 0
+   IL_0220: stfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_0225: br IL_02af
+   IL_022a: ldarg.0
+   IL_022b: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0230: ldarg.0
+   IL_0231: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<from>5__3
+   IL_0236: ldarg.0
+   IL_0237: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<from>5__3
+   IL_023c: ldc.r4 0
+   IL_0241: ldc.r4 60
+   IL_0246: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_024b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0250: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeInOut
+   IL_0255: ldarg.0
+   IL_0256: ldfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_025b: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0260: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::Lerp(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0265: ldsfld System.Random Monocle.Calc::Random
+   IL_026a: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::ShakeVector(System.Random)
+   IL_026f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0274: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0279: ldc.i4.0
+   IL_027a: ldc.i4.0
+   IL_027b: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0280: ldarg.0
+   IL_0281: ldnull
+   IL_0282: stfld System.Object Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>2__current
+   IL_0287: ldarg.0
+   IL_0288: ldc.i4.6
+   IL_0289: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_028e: ldc.i4.1
+ + IL_10008: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_028f: ret
+   IL_0290: ldarg.0
+   IL_0291: ldc.i4.m1
+   IL_0292: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0297: ldarg.0
+   IL_0298: ldarg.0
+   IL_0299: ldfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_029e: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_02a3: ldc.r4 1
+   IL_02a8: div
+   IL_02a9: add
+   IL_02aa: stfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_02af: ldarg.0
+   IL_02b0: ldfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_02b5: ldc.r4 1
+   IL_02ba: blt IL_022a
+   IL_02bf: ldarg.0
+   IL_02c0: ldloc.1
+   IL_02c1: newobj System.Void Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/Fader::.ctor(Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager)
+   IL_02c6: stfld Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/Fader Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<fader>5__4
+   IL_02cb: ldloc.1
+   IL_02cc: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_02d1: ldarg.0
+   IL_02d2: ldfld Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/Fader Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<fader>5__4
+   IL_02d7: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_02dc: ldarg.0
+   IL_02dd: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_02e2: ldarg.0
+   IL_02e3: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<from>5__3
+   IL_02e8: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_02ed: callvirt System.Void Monocle.Entity::set_X(System.Single)
+   IL_02f2: ldarg.0
+   IL_02f3: ldarg.0
+   IL_02f4: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_02f9: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02fe: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<from>5__3
+   IL_0303: ldc.i4.2
+   IL_0304: ldc.i4.1
+   IL_0305: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_030a: ldarg.0
+   IL_030b: ldc.r4 0
+   IL_0310: stfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_0315: br IL_0434
+   IL_031a: ldarg.0
+   IL_031b: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0320: callvirt System.Single Monocle.Entity::get_Y()
+   IL_0325: stloc.2
+   IL_0326: ldarg.0
+   IL_0327: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_032c: ldarg.0
+   IL_032d: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<from>5__3
+   IL_0332: ldarg.0
+   IL_0333: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<from>5__3
+   IL_0338: ldc.r4 0
+   IL_033d: ldc.r4 -160
+   IL_0342: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0347: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_034c: ldsfld Monocle.Ease/Easer Monocle.Ease::SineIn
+   IL_0351: ldarg.0
+   IL_0352: ldfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_0357: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_035c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::Lerp(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0361: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0366: ldarg.0
+   IL_0367: ldfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_036c: ldc.r4 0
+   IL_0371: beq.s IL_038b
+   IL_0373: ldarg.0
+   IL_0374: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0379: callvirt System.Single Monocle.Entity::get_Y()
+   IL_037e: ldloc.2
+   IL_037f: ldc.r4 16
+   IL_0384: call System.Boolean Monocle.Calc::OnInterval(System.Single,System.Single,System.Single)
+   IL_0389: brfalse.s IL_03c9
+   IL_038b: ldloc.1
+   IL_038c: ldfld Celeste.Level Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::level
+   IL_0391: call Monocle.Pooler Monocle.Engine::get_Pooler()
+   IL_0396: callvirt T Monocle.Pooler::Create<Celeste.SpeedRing>()
+   IL_039b: ldarg.0
+   IL_039c: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_03a1: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_03a6: ldc.r4 0
+   IL_03ab: ldc.r4 -1
+   IL_03b0: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_03b5: call System.Single Monocle.Calc::Angle(Microsoft.Xna.Framework.Vector2)
+   IL_03ba: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_03bf: callvirt Celeste.SpeedRing Celeste.SpeedRing::Init(Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color)
+   IL_03c4: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_03c9: ldarg.0
+   IL_03ca: ldfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_03cf: ldc.r4 0.5
+   IL_03d4: blt.un.s IL_03f5
+   IL_03d6: ldarg.0
+   IL_03d7: ldfld Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/Fader Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<fader>5__4
+   IL_03dc: ldarg.0
+   IL_03dd: ldfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_03e2: ldc.r4 0.5
+   IL_03e7: sub
+   IL_03e8: ldc.r4 2
+   IL_03ed: mul
+   IL_03ee: stfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/Fader::Fade
+   IL_03f3: br.s IL_0405
+   IL_03f5: ldarg.0
+   IL_03f6: ldfld Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/Fader Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<fader>5__4
+   IL_03fb: ldc.r4 0
+   IL_0400: stfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/Fader::Fade
+   IL_0405: ldarg.0
+   IL_0406: ldnull
+   IL_0407: stfld System.Object Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>2__current
+   IL_040c: ldarg.0
+   IL_040d: ldc.i4.7
+   IL_040e: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_0413: ldc.i4.1
+ + IL_10009: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0414: ret
+   IL_0415: ldarg.0
+   IL_0416: ldc.i4.m1
+   IL_0417: stfld System.Int32 Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<>1__state
+   IL_041c: ldarg.0
+   IL_041d: ldarg.0
+   IL_041e: ldfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_0423: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0428: ldc.r4 0.5
+   IL_042d: div
+   IL_042e: add
+   IL_042f: stfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_0434: ldarg.0
+   IL_0435: ldfld System.Single Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<p>5__5
+   IL_043a: ldc.r4 1
+   IL_043f: blt IL_031a
+   IL_0444: ldloc.1
+   IL_0445: ldfld Celeste.Level Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::level
+   IL_044a: ldc.i4.1
+   IL_044b: stfld System.Boolean Celeste.Level::CanRetry
+   IL_0450: ldloc.1
+   IL_0451: ldc.i4.1
+   IL_0452: stfld System.Boolean Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::launchCompleted
+   IL_0457: ldarg.0
+   IL_0458: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_045d: ldloc.1
+   IL_045e: ldfld Celeste.Level Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::level
+   IL_0463: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
+   IL_0468: stloc.3
+   IL_0469: ldloca.s V_3
+   IL_046b: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0470: conv.r4
+   IL_0471: callvirt System.Void Monocle.Entity::set_Y(System.Single)
+   IL_0476: ldarg.0
+   IL_0477: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_047c: ldarg.0
+   IL_047d: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0482: callvirt System.Single Monocle.Entity::get_X()
+   IL_0487: callvirt System.Void Celeste.Player::SummitLaunch(System.Single)
+   IL_048c: ldarg.0
+   IL_048d: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_0492: ldc.i4.1
+   IL_0493: stfld System.Boolean Celeste.Player::DummyGravity
+   IL_0498: ldarg.0
+   IL_0499: ldfld Celeste.Player Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager/<Routine>d__13::<player>5__2
+   IL_049e: ldc.i4.1
+   IL_049f: stfld System.Boolean Celeste.Player::DummyAutoAnimate
+   IL_04a4: ldloc.1
+   IL_04a5: ldfld Celeste.Level Celeste.Mod.StrawberryJam2021.Entities.CustomAscendManager::level
+   IL_04aa: ldc.r4 0.05
+   IL_04af: stfld System.Single Celeste.Level::NextTransitionDuration
+   IL_04b4: ldc.i4.0
+ + IL_1000a: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_04b5: ret

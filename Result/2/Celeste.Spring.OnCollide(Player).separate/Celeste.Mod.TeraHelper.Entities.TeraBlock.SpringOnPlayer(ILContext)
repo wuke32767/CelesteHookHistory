@@ -1,0 +1,67 @@
+   IL_0000: ldarg.1
+   IL_0001: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0006: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_000b: ldc.i4.s 9
+   IL_000d: beq.s IL_0017
+   IL_000f: ldarg.0
+   IL_0010: ldfld System.Boolean Celeste.Spring::playerCanUse
+   IL_0015: brtrue.s IL_0018
+   IL_0017: ret
+   IL_0018: ldarg.0
+   IL_0019: ldfld Celeste.Spring/Orientations Celeste.Spring::Orientation
+   IL_001e: brtrue.s IL_0045
+   IL_0020: ldarg.1
+   IL_0021: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0026: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_002b: ldc.r4 0
+   IL_0030: blt.un.s IL_009a
+   IL_0032: ldarg.0
+ + IL_10000: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10001: ldarg.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10002: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+   IL_0033: callvirt System.Void Celeste.Spring::BounceAnimate()
+   IL_0038: ldarg.1
+   IL_0039: ldarg.0
+   IL_003a: call System.Single Monocle.Entity::get_Top()
+   IL_003f: callvirt System.Void Celeste.Player::SuperBounce(System.Single)
+   IL_0044: ret
+   IL_0045: ldarg.0
+   IL_0046: ldfld Celeste.Spring/Orientations Celeste.Spring::Orientation
+   IL_004b: ldc.i4.1
+   IL_004c: bne.un.s IL_006a
+   IL_004e: ldarg.1
+   IL_004f: ldc.i4.1
+   IL_0050: ldarg.0
+   IL_0051: call System.Single Monocle.Entity::get_Right()
+   IL_0056: ldarg.0
+   IL_0057: call System.Single Monocle.Entity::get_CenterY()
+   IL_005c: callvirt System.Boolean Celeste.Player::SideBounce(System.Int32,System.Single,System.Single)
+   IL_0061: brfalse.s IL_009a
+   IL_0063: ldarg.0
+ + IL_10003: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10004: ldarg.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10005: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+   IL_0064: callvirt System.Void Celeste.Spring::BounceAnimate()
+   IL_0069: ret
+   IL_006a: ldarg.0
+   IL_006b: ldfld Celeste.Spring/Orientations Celeste.Spring::Orientation
+   IL_0070: ldc.i4.2
+   IL_0071: bne.un.s IL_008f
+   IL_0073: ldarg.1
+   IL_0074: ldc.i4.m1
+   IL_0075: ldarg.0
+   IL_0076: call System.Single Monocle.Entity::get_Left()
+   IL_007b: ldarg.0
+   IL_007c: call System.Single Monocle.Entity::get_CenterY()
+   IL_0081: callvirt System.Boolean Celeste.Player::SideBounce(System.Int32,System.Single,System.Single)
+   IL_0086: brfalse.s IL_009a
+   IL_0088: ldarg.0
+ + IL_10006: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10007: ldarg.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+ + IL_10008: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::ActorUseSpring(Celeste.Spring,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.SpringOnPlayer(ILContext)
+   IL_0089: callvirt System.Void Celeste.Spring::BounceAnimate()
+   IL_008e: ret
+   IL_008f: ldstr "Orientation not supported!"
+   IL_0094: newobj System.Void System.Exception::.ctor(System.String)
+   IL_0099: throw
+   IL_009a: ret

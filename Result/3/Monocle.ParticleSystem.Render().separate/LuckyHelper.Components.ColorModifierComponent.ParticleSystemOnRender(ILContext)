@@ -1,0 +1,44 @@
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_0006: stloc.0
+   IL_0007: ldc.i4.0
+   IL_0008: stloc.1
+   IL_0009: br.s IL_0026
+   IL_000b: ldloc.0
+   IL_000c: ldloc.1
+   IL_000d: ldelem.any Monocle.Particle
+   IL_0012: stloc.2
+   IL_0013: ldloc.2
+   IL_0014: ldfld System.Boolean Monocle.Particle::Active
+   IL_0019: brfalse.s IL_0022
+ + IL_10000: ldarg.0 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_10001: ldloc V_1 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_10002: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_10003: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_10004: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+       => Invoke: [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent+<>c.<HookParticleSystemRender>b__35_1(ParticleSystem,Int32)
+ + IL_10005: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Boolean,Monocle.ParticleSystem,System.Int32>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_10006: brfalse IL_001b @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_10007: ldloc V_0 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_10008: ldloc V_1 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_10009: ldelem.any Monocle.Particle @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_1000a: stloc.2 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+   IL_001b: ldloca.s V_2
+   IL_001d: call System.Void Monocle.Particle::Render()
+ + IL_1000b: ldarg.0 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_1000c: ldloc V_1 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_1000d: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_1000e: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+ + IL_1000f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+       => Invoke: [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent+<>c.<HookParticleSystemRender>b__35_4(ParticleSystem,Int32)
+ + IL_10010: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<Monocle.ParticleSystem,System.Int32>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [LuckyHelper::]LuckyHelper.Components.ColorModifierComponent.ParticleSystemOnRender(ILContext)
+   IL_0022: ldloc.1
+   IL_0023: ldc.i4.1
+   IL_0024: add
+   IL_0025: stloc.1
+   IL_0026: ldloc.1
+   IL_0027: ldloc.0
+   IL_0028: ldlen
+   IL_0029: conv.i4
+   IL_002a: blt.s IL_000b
+   IL_002c: ret

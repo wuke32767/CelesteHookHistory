@@ -1,0 +1,16 @@
+   IL_0000: ldarg.0
+   IL_0001: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0006: ldc.r4 0
+   IL_000b: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0010: ldarg.0
+   IL_0011: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0016: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_001b: ldc.i4.5
+ + IL_10000: ldarg.0 @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modRedDashState(ILContext)
+ + IL_10001: call System.Int32 FrostHelper.FrostModule::GetRedDashState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modRedDashState(ILContext)
+   IL_001c: bne.un.s IL_002a
+   IL_001e: ldarg.0
+   IL_001f: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0024: ldc.i4.0
+   IL_0025: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_002a: ret

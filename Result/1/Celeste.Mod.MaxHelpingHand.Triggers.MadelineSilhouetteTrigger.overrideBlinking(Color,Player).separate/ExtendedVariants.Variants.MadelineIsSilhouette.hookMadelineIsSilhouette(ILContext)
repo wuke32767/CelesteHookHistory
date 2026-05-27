@@ -1,0 +1,16 @@
+   IL_0000: call Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule::get_Instance()
+   IL_0005: callvirt Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandSession Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandModule::get_Session()
+   IL_000a: callvirt System.Boolean Celeste.Mod.MaxHelpingHand.Module.MaxHelpingHandSession::get_MadelineIsSilhouette()
+ + IL_10000: call System.Boolean ExtendedVariants.Variants.MadelineIsSilhouette::applyMadelineIsSilhouette(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.MadelineIsSilhouette.hookMadelineIsSilhouette(ILContext)
+   IL_000f: brfalse.s IL_002c
+   IL_0011: ldarg.1
+   IL_0012: ldfld System.Int32 Celeste.Player::Dashes
+   IL_0017: brtrue.s IL_0020
+   IL_0019: ldsfld Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger::silhouetteOutOfStaminaZeroDashBlinkColor
+   IL_001e: starg.s color
+   IL_0020: ldarg.1
+   IL_0021: ldfld Celeste.PlayerHair Celeste.Player::Hair
+   IL_0026: ldarg.0
+   IL_0027: stfld Microsoft.Xna.Framework.Color Celeste.PlayerHair::Color
+   IL_002c: ldarg.0
+   IL_002d: ret

@@ -1,0 +1,61 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color> Celeste.Mod.SkinModHelper.HairConfig::ActualHairColors
+   IL_0007: brfalse.s IL_0014
+   IL_0009: ldarg.0
+   IL_000a: ldfld System.Boolean Celeste.Mod.SkinModHelper.HairConfig::ColorsActive
+   IL_000f: ldc.i4.0
+   IL_0010: ceq
+   IL_0012: br.s IL_0015
+   IL_0014: ldc.i4.1
+   IL_0015: stloc.0
+   IL_0016: ldloc.0
+   IL_0017: brfalse.s IL_0025
+   IL_0019: nop
+   IL_001a: ldarg.3
+   IL_001b: initobj Microsoft.Xna.Framework.Color
+   IL_0021: ldc.i4.0
+   IL_0022: stloc.1
+   IL_0023: br.s IL_0076
+   IL_0025: ldarg.0
+   IL_0026: ldfld System.Int32 Celeste.Mod.SkinModHelper.HairConfig::_AttrDasheslimit
+   IL_002b: ldarg.2
+   IL_002c: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0031: starg.s dashes
+   IL_0033: nop
+   IL_0034: ldarg.0
+   IL_0035: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color> Celeste.Mod.SkinModHelper.HairConfig::ActualHairColors
+   IL_003a: ldarg.2
+   IL_003b: ldarg.1
+   IL_003c: newobj System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_0041: ldarg.3
+   IL_0042: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Color>::TryGetValue(TKey,TValue&)
+   IL_0047: stloc.2
+   IL_0048: ldloc.2
+   IL_0049: brfalse.s IL_005f
+   IL_004b: nop
+   IL_004c: ldarg.3
+   IL_004d: ldobj Microsoft.Xna.Framework.Color
+   IL_0052: ldsfld Microsoft.Xna.Framework.Color Celeste.Mod.SkinModHelper.HairConfig::C_EmptyS
+   IL_0057: call System.Boolean Microsoft.Xna.Framework.Color::op_Inequality(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+   IL_005c: stloc.1
+   IL_005d: br.s IL_0076
+   IL_005f: ldarg.2
+   IL_0060: ldc.i4.2
+   IL_0061: cgt
+   IL_0063: ldc.i4.0
+   IL_0064: ceq
+   IL_0066: stloc.3
+   IL_0067: ldloc.3
+   IL_0068: brfalse.s IL_006f
+   IL_006a: nop
+   IL_006b: ldc.i4.0
+   IL_006c: stloc.1
+   IL_006d: br.s IL_0076
+   IL_006f: ldarg.2
+   IL_0070: ldc.i4.1
+   IL_0071: sub
+   IL_0072: starg.s dashes
+   IL_0074: br.s IL_0033
+   IL_0076: ldloc.1
+   IL_0077: ret

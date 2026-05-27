@@ -1,0 +1,38 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: newobj System.Void MonoMod.Cil.ILCursor::.ctor(MonoMod.Cil.ILContext)
+   IL_0007: stloc.0
+   IL_0008: nop
+   IL_0009: ldloc.0
+   IL_000a: ldc.i4.2
+   IL_000b: ldc.i4.1
+   IL_000c: newarr System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>
+   IL_0011: dup
+   IL_0012: ldc.i4.0
+   IL_0013: ldsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__13_1
+   IL_0018: dup
+   IL_0019: brtrue.s IL_0032
+   IL_001b: pop
+   IL_001c: ldsfld Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9
+   IL_0021: ldftn System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<ilPlayerOrig_Update>b__13_1(Mono.Cecil.Cil.Instruction)
+   IL_0027: newobj System.Void System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_002c: dup
+   IL_002d: stsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__13_1
+   IL_0032: stelem.ref
+   IL_0033: callvirt System.Boolean MonoMod.Cil.ILCursor::TryGotoNext(MonoMod.Cil.MoveType,System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>[])
+   IL_0038: stloc.1
+   IL_0039: ldloc.1
+   IL_003a: brfalse.s IL_005d
+   IL_003c: nop
+   IL_003d: ldloc.0
+   IL_003e: ldsfld Mono.Cecil.Cil.OpCode Mono.Cecil.Cil.OpCodes::Ldarg_0
+   IL_0043: callvirt MonoMod.Cil.ILCursor MonoMod.Cil.ILCursor::Emit(Mono.Cecil.Cil.OpCode)
+   IL_0048: pop
+   IL_0049: ldloc.0
+   IL_004a: ldnull
+   IL_004b: ldftn System.Int32 Celeste.Mod.SkinModHelper.PlayerSkinSystem::<ilPlayerOrig_Update>g___pHairFloating|13_0(System.Int32,Celeste.Player)
+   IL_0051: newobj System.Void System.Func`3<System.Int32,Celeste.Player,System.Int32>::.ctor(System.Object,System.IntPtr)
+   IL_0056: callvirt System.Int32 MonoMod.Cil.ILCursor::EmitDelegate<System.Func`3<System.Int32,Celeste.Player,System.Int32>>(T)
+   IL_005b: pop
+   IL_005c: nop
+   IL_005d: ret

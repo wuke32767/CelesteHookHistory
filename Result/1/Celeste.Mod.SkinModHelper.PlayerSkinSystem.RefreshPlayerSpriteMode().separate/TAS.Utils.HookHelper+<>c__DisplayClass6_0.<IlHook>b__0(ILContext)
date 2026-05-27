@@ -1,0 +1,40 @@
+   IL_0000: nop
+   IL_0001: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: ldnull
+   IL_000c: cgt.un
+   IL_000e: ldc.i4.0
+   IL_000f: ceq
+   IL_0011: stloc.0
+   IL_0012: ldloc.0
+   IL_0013: brfalse.s IL_0018
+   IL_0015: nop
+   IL_0016: br.s IL_005d
+   IL_0018: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_001d: dup
+   IL_001e: brtrue.s IL_0024
+   IL_0020: pop
+   IL_0021: ldc.i4.0
+   IL_0022: br.s IL_002e
+   IL_0024: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0029: ldfld System.Boolean Celeste.Assists::PlayAsBadeline
+   IL_002e: stloc.1
+   IL_002f: ldloc.1
+   IL_0030: brfalse.s IL_0047
+   IL_0032: nop
+   IL_0033: call Celeste.Player Celeste.Mod.SkinModHelper.SkinsSystem::get__Player()
+   IL_0038: ldc.i4.3
+   IL_0039: newobj System.Void System.Nullable`1<Celeste.PlayerSpriteMode>::.ctor(T)
+   IL_003e: call System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::SetPlayerSpriteMode(Celeste.Player,System.Nullable`1<Celeste.PlayerSpriteMode>)
+   IL_0043: nop
+   IL_0044: nop
+   IL_0045: br.s IL_005d
+   IL_0047: nop
+   IL_0048: call Celeste.Player Celeste.Mod.SkinModHelper.SkinsSystem::get__Player()
+   IL_004d: ldloca.s V_2
+   IL_004f: initobj System.Nullable`1<Celeste.PlayerSpriteMode>
+   IL_0055: ldloc.2
+   IL_0056: call System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::SetPlayerSpriteMode(Celeste.Player,System.Nullable`1<Celeste.PlayerSpriteMode>)
+   IL_005b: nop
+   IL_005c: nop
+   IL_005d: ret

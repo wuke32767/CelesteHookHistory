@@ -1,0 +1,72 @@
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: newobj System.Void MonoMod.Cil.ILCursor::.ctor(MonoMod.Cil.ILContext)
+   IL_0007: stloc.0
+   IL_0008: nop
+   IL_0009: nop
+   IL_000a: ldloc.0
+   IL_000b: ldc.i4.0
+   IL_000c: ldc.i4.1
+   IL_000d: newarr System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>
+   IL_0012: dup
+   IL_0013: ldc.i4.0
+   IL_0014: ldsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__8_2
+   IL_0019: dup
+   IL_001a: brtrue.s IL_0033
+   IL_001c: pop
+   IL_001d: ldsfld Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9
+   IL_0022: ldftn System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<ilPlayerUpdateHairHook>b__8_2(Mono.Cecil.Cil.Instruction)
+   IL_0028: newobj System.Void System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_002d: dup
+   IL_002e: stsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__8_2
+   IL_0033: stelem.ref
+   IL_0034: callvirt System.Boolean MonoMod.Cil.ILCursor::TryGotoNext(MonoMod.Cil.MoveType,System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>[])
+   IL_0039: stloc.1
+   IL_003a: ldloc.1
+   IL_003b: brfalse.s IL_005e
+   IL_003d: nop
+   IL_003e: ldloc.0
+   IL_003f: ldsfld Mono.Cecil.Cil.OpCode Mono.Cecil.Cil.OpCodes::Ldarg_0
+   IL_0044: callvirt MonoMod.Cil.ILCursor MonoMod.Cil.ILCursor::Emit(Mono.Cecil.Cil.OpCode)
+   IL_0049: pop
+   IL_004a: ldloc.0
+   IL_004b: ldnull
+   IL_004c: ldftn System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem::<ilPlayerUpdateHairHook>g__ZaroDashesFlash|8_0(System.Boolean,Celeste.Player)
+   IL_0052: newobj System.Void System.Func`3<System.Boolean,Celeste.Player,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_0057: callvirt System.Int32 MonoMod.Cil.ILCursor::EmitDelegate<System.Func`3<System.Boolean,Celeste.Player,System.Boolean>>(T)
+   IL_005c: pop
+   IL_005d: nop
+   IL_005e: br.s IL_0081
+   IL_0060: nop
+   IL_0061: ldloc.0
+   IL_0062: ldsfld Mono.Cecil.Cil.OpCode Mono.Cecil.Cil.OpCodes::Ldarg_0
+   IL_0067: callvirt MonoMod.Cil.ILCursor MonoMod.Cil.ILCursor::Emit(Mono.Cecil.Cil.OpCode)
+   IL_006c: pop
+   IL_006d: ldloc.0
+   IL_006e: ldnull
+   IL_006f: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::<ilPlayerUpdateHairHook>g__HairFlashing|8_1(Celeste.Player)
+   IL_0075: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_007a: callvirt System.Int32 MonoMod.Cil.ILCursor::EmitDelegate<System.Action`1<Celeste.Player>>(T)
+   IL_007f: pop
+   IL_0080: nop
+   IL_0081: ldloc.0
+   IL_0082: ldc.i4.2
+   IL_0083: ldc.i4.1
+   IL_0084: newarr System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>
+   IL_0089: dup
+   IL_008a: ldc.i4.0
+   IL_008b: ldsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__8_3
+   IL_0090: dup
+   IL_0091: brtrue.s IL_00aa
+   IL_0093: pop
+   IL_0094: ldsfld Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9
+   IL_0099: ldftn System.Boolean Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<ilPlayerUpdateHairHook>b__8_3(Mono.Cecil.Cil.Instruction)
+   IL_009f: newobj System.Void System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>::.ctor(System.Object,System.IntPtr)
+   IL_00a4: dup
+   IL_00a5: stsfld System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean> Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c::<>9__8_3
+   IL_00aa: stelem.ref
+   IL_00ab: callvirt System.Boolean MonoMod.Cil.ILCursor::TryGotoNext(MonoMod.Cil.MoveType,System.Func`2<Mono.Cecil.Cil.Instruction,System.Boolean>[])
+   IL_00b0: stloc.2
+   IL_00b1: ldloc.2
+   IL_00b2: brtrue.s IL_0060
+   IL_00b4: ret

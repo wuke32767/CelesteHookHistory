@@ -1,0 +1,356 @@
+   IL_0000: newobj System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.1
+   IL_0008: stfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_000d: nop
+   IL_000e: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0013: isinst Celeste.Level
+   IL_0018: dup
+   IL_0019: brtrue.s IL_0032
+   IL_001b: pop
+   IL_001c: call Monocle.Scene Monocle.Engine::get_Scene()
+   IL_0021: isinst Celeste.LevelLoader
+   IL_0026: dup
+   IL_0027: brtrue.s IL_002d
+   IL_0029: pop
+   IL_002a: ldnull
+   IL_002b: br.s IL_0032
+   IL_002d: callvirt Celeste.Level Celeste.LevelLoader::get_Level()
+   IL_0032: stloc.1
+   IL_0033: ldarg.2
+   IL_0034: ldc.i4.0
+   IL_0035: clt
+   IL_0037: stloc.2
+   IL_0038: ldloc.2
+   IL_0039: brtrue.s IL_0041
+   IL_003b: ldloc.1
+   IL_003c: ldnull
+   IL_003d: cgt.un
+   IL_003f: br.s IL_0042
+   IL_0041: ldc.i4.0
+   IL_0042: stloc.s V_6
+   IL_0044: ldloc.s V_6
+   IL_0046: brfalse.s IL_0091
+   IL_0048: nop
+   IL_0049: ldsfld System.Int32 Celeste.Mod.SkinModHelper.SkinsSystem::backpackSetting
+   IL_004e: ldc.i4.3
+   IL_004f: beq.s IL_008a
+   IL_0051: ldsfld System.Int32 Celeste.Mod.SkinModHelper.SkinsSystem::backpackSetting
+   IL_0056: brtrue.s IL_006a
+   IL_0058: ldloc.1
+   IL_0059: ldfld Celeste.Session Celeste.Level::Session
+   IL_005e: ldflda Celeste.PlayerInventory Celeste.Session::Inventory
+   IL_0063: ldfld System.Boolean Celeste.PlayerInventory::Backpack
+   IL_0068: brtrue.s IL_008a
+   IL_006a: ldsfld System.Int32 Celeste.Mod.SkinModHelper.SkinsSystem::backpackSetting
+   IL_006f: ldc.i4.1
+   IL_0070: bne.un.s IL_0087
+   IL_0072: ldloc.1
+   IL_0073: ldfld Celeste.Session Celeste.Level::Session
+   IL_0078: ldflda Celeste.PlayerInventory Celeste.Session::Inventory
+   IL_007d: ldfld System.Boolean Celeste.PlayerInventory::Backpack
+   IL_0082: ldc.i4.0
+   IL_0083: ceq
+   IL_0085: br.s IL_0088
+   IL_0087: ldc.i4.0
+   IL_0088: br.s IL_008b
+   IL_008a: ldc.i4.1
+   IL_008b: stsfld System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::backpackOn
+   IL_0090: nop
+   IL_0091: ldloc.2
+   IL_0092: stloc.s V_7
+   IL_0094: ldloc.s V_7
+   IL_0096: brfalse.s IL_00bb
+   IL_0098: nop
+   IL_0099: ldloc.0
+   IL_009a: ldfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_009f: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
+   IL_00a4: ldstr "isGhost"
+   IL_00a9: ldc.i4.1
+   IL_00aa: box System.Boolean
+   IL_00af: callvirt System.Void MonoMod.Utils.DynamicData::Set(System.String,System.Object)
+   IL_00b4: nop
+   IL_00b5: nop
+   IL_00b6: br IL_01ce
+   IL_00bb: nop
+   IL_00bc: ldnull
+   IL_00bd: stloc.s V_8
+   IL_00bf: ldarg.2
+   IL_00c0: stloc.s V_10
+   IL_00c2: ldloc.s V_10
+   IL_00c4: stloc.s V_9
+   IL_00c6: ldloc.s V_9
+   IL_00c8: switch IL_00f9,IL_00f9,IL_0160,IL_0104,IL_010e
+   IL_00e1: br.s IL_00e3
+   IL_00e3: ldloc.s V_9
+   IL_00e5: ldc.i4 444482
+   IL_00ea: beq.s IL_0118
+   IL_00ec: br.s IL_00ee
+   IL_00ee: ldloc.s V_9
+   IL_00f0: ldc.i4 444483
+   IL_00f5: beq.s IL_013d
+   IL_00f7: br.s IL_0160
+   IL_00f9: ldnull
+   IL_00fa: ldnull
+   IL_00fb: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetPlayerSkin(System.String,System.String)
+   IL_0100: stloc.s V_8
+   IL_0102: br.s IL_0162
+   IL_0104: ldnull
+   IL_0105: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetOtherselfSkin(System.String)
+   IL_010a: stloc.s V_8
+   IL_010c: br.s IL_0162
+   IL_010e: ldnull
+   IL_010f: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetSilhouetteSkin(System.String)
+   IL_0114: stloc.s V_8
+   IL_0116: br.s IL_0162
+   IL_0118: ldstr "_lantern"
+   IL_011d: ldnull
+   IL_011e: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetPlayerSkin(System.String,System.String)
+   IL_0123: dup
+   IL_0124: stloc.s V_8
+   IL_0126: ldnull
+   IL_0127: ldnull
+   IL_0128: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetPlayerSkin(System.String,System.String)
+   IL_012d: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0132: stloc.s V_11
+   IL_0134: ldloc.s V_11
+   IL_0136: brfalse.s IL_013b
+   IL_0138: ldnull
+   IL_0139: stloc.s V_8
+   IL_013b: br.s IL_0162
+   IL_013d: ldstr "_lantern"
+   IL_0142: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetOtherselfSkin(System.String)
+   IL_0147: dup
+   IL_0148: stloc.s V_8
+   IL_014a: ldnull
+   IL_014b: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetOtherselfSkin(System.String)
+   IL_0150: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0155: stloc.s V_12
+   IL_0157: ldloc.s V_12
+   IL_0159: brfalse.s IL_015e
+   IL_015b: ldnull
+   IL_015c: stloc.s V_8
+   IL_015e: br.s IL_0162
+   IL_0160: br.s IL_0162
+   IL_0162: ldloc.s V_8
+   IL_0164: ldnull
+   IL_0165: cgt.un
+   IL_0167: stloc.s V_13
+   IL_0169: ldloc.s V_13
+   IL_016b: brfalse.s IL_0199
+   IL_016d: nop
+   IL_016e: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.SkinModHelper.SkinModHelperConfig> Celeste.Mod.SkinModHelper.SkinsSystem::skinConfigs
+   IL_0173: ldsfld System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::backpackOn
+   IL_0178: brfalse.s IL_017e
+   IL_017a: ldloc.s V_8
+   IL_017c: br.s IL_018a
+   IL_017e: ldstr "_NB"
+   IL_0183: ldloc.s V_8
+   IL_0185: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetPlayerSkin(System.String,System.String)
+   IL_018a: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.SkinModHelper.SkinModHelperConfig>::get_Item(TKey)
+   IL_018f: ldfld System.Int32 Celeste.Mod.SkinModHelper.SkinModHelperConfig::hashValues
+   IL_0194: starg.s mode
+   IL_0196: nop
+   IL_0197: br.s IL_01cd
+   IL_0199: ldsfld System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::backpackOn
+   IL_019e: brtrue.s IL_01a6
+   IL_01a0: ldarg.2
+   IL_01a1: ldc.i4.0
+   IL_01a2: ceq
+   IL_01a4: br.s IL_01a7
+   IL_01a6: ldc.i4.0
+   IL_01a7: stloc.s V_14
+   IL_01a9: ldloc.s V_14
+   IL_01ab: brfalse.s IL_01b4
+   IL_01ad: nop
+   IL_01ae: ldc.i4.1
+   IL_01af: starg.s mode
+   IL_01b1: nop
+   IL_01b2: br.s IL_01cd
+   IL_01b4: ldsfld System.Boolean Celeste.Mod.SkinModHelper.SkinsSystem::backpackOn
+   IL_01b9: brfalse.s IL_01c1
+   IL_01bb: ldarg.2
+   IL_01bc: ldc.i4.1
+   IL_01bd: ceq
+   IL_01bf: br.s IL_01c2
+   IL_01c1: ldc.i4.0
+   IL_01c2: stloc.s V_15
+   IL_01c4: ldloc.s V_15
+   IL_01c6: brfalse.s IL_01cd
+   IL_01c8: nop
+   IL_01c9: ldc.i4.0
+   IL_01ca: starg.s mode
+   IL_01cc: nop
+   IL_01cd: nop
+   IL_01ce: ldarg.0
+   IL_01cf: ldloc.0
+   IL_01d0: ldfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_01d5: ldarg.2
+   IL_01d6: callvirt System.Void On.Celeste.PlayerSprite/orig_ctor::Invoke(Celeste.PlayerSprite,Celeste.PlayerSpriteMode)
+   IL_01db: nop
+   IL_01dc: ldloc.2
+   IL_01dd: brtrue.s IL_01e2
+   IL_01df: ldarg.2
+   IL_01e0: br.s IL_01e9
+   IL_01e2: ldc.i4 -2147483648
+   IL_01e7: ldarg.2
+   IL_01e8: add
+   IL_01e9: stloc.3
+   IL_01ea: ldloc.3
+   IL_01eb: call System.String Celeste.Mod.SkinModHelper.SkinModHelperModule::GetPlayerSkinName(System.Int32)
+   IL_01f0: stloc.s V_4
+   IL_01f2: ldloc.s V_4
+   IL_01f4: brfalse.s IL_0206
+   IL_01f6: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.SkinModHelper.SkinModHelperConfig> Celeste.Mod.SkinModHelper.SkinsSystem::skinConfigs
+   IL_01fb: ldloc.s V_4
+   IL_01fd: ldloca.s V_5
+   IL_01ff: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Celeste.Mod.SkinModHelper.SkinModHelperConfig>::TryGetValue(TKey,TValue&)
+   IL_0204: br.s IL_0207
+   IL_0206: ldc.i4.0
+   IL_0207: stloc.s V_16
+   IL_0209: ldloc.s V_16
+   IL_020b: brfalse.s IL_0280
+   IL_020d: nop
+   IL_020e: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_0213: ldloc.0
+   IL_0214: ldfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_0219: ldloc.0
+   IL_021a: ldfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_021f: ldloc.s V_5
+   IL_0221: callvirt System.String Celeste.Mod.SkinModHelper.SkinModHelperConfig::get_Character_ID()
+   IL_0226: dup
+   IL_0227: stloc.s V_17
+   IL_0229: stfld System.String Celeste.PlayerSprite::spriteName
+   IL_022e: ldloc.s V_17
+   IL_0230: callvirt Monocle.Sprite Monocle.SpriteBank::CreateOn(Monocle.Sprite,System.String)
+   IL_0235: pop
+   IL_0236: ldloc.s V_5
+   IL_0238: ldfld System.Boolean Celeste.Mod.SkinModHelper.SkinModHelperConfig::JungleLanternMode
+   IL_023d: stloc.s V_18
+   IL_023f: ldloc.s V_18
+   IL_0241: brfalse.s IL_027f
+   IL_0243: nop
+   IL_0244: ldloc.0
+   IL_0245: ldfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_024a: ldstr "idle"
+   IL_024f: ldc.i4.1
+   IL_0250: ldc.i4.0
+   IL_0251: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0256: nop
+   IL_0257: ldloc.0
+   IL_0258: ldfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_025d: dup
+   IL_025e: ldfld System.Action`1<System.String> Monocle.Sprite::OnFinish
+   IL_0263: ldloc.0
+   IL_0264: ldftn System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::<on_PlayerSprite_ctor>b__0(System.String)
+   IL_026a: newobj System.Void System.Action`1<System.String>::.ctor(System.Object,System.IntPtr)
+   IL_026f: call System.Delegate System.Delegate::Combine(System.Delegate,System.Delegate)
+   IL_0274: castclass System.Action`1<System.String>
+   IL_0279: stfld System.Action`1<System.String> Monocle.Sprite::OnFinish
+   IL_027e: nop
+   IL_027f: nop
+   IL_0280: ldloc.2
+   IL_0281: brfalse.s IL_029a
+   IL_0283: ldloc.0
+   IL_0284: ldfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_0289: ldfld System.String Celeste.PlayerSprite::spriteName
+   IL_028e: ldstr ""
+   IL_0293: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0298: br.s IL_029b
+   IL_029a: ldc.i4.0
+   IL_029b: stloc.s V_19
+   IL_029d: ldloc.s V_19
+   IL_029f: brfalse IL_032a
+   IL_02a4: nop
+   IL_02a5: ldc.i4.1
+   IL_02a6: ldstr "SkinModHelper"
+   IL_02ab: ldloca.s V_20
+   IL_02ad: ldc.i4.s 59
+   IL_02af: ldc.i4.1
+   IL_02b0: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_02b5: ldloca.s V_20
+   IL_02b7: ldstr "Someone in CelesteNet uses skin mod '"
+   IL_02bc: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_02c1: nop
+   IL_02c2: ldloca.s V_20
+   IL_02c4: ldloc.3
+   IL_02c5: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(T)
+   IL_02ca: nop
+   IL_02cb: ldloca.s V_20
+   IL_02cd: ldstr "' which you don't have"
+   IL_02d2: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_02d7: nop
+   IL_02d8: ldloca.s V_20
+   IL_02da: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_02df: call System.Void Celeste.Mod.Logger::Log(Celeste.Mod.LogLevel,System.String,System.String)
+   IL_02e4: nop
+   IL_02e5: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_02ea: ldloc.0
+   IL_02eb: ldfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_02f0: ldloc.0
+   IL_02f1: ldfld Celeste.PlayerSprite Celeste.Mod.SkinModHelper.PlayerSkinSystem/<>c__DisplayClass3_0::self
+   IL_02f6: ldloc.1
+   IL_02f7: brfalse.s IL_0312
+   IL_02f9: ldloc.1
+   IL_02fa: ldfld Celeste.Session Celeste.Level::Session
+   IL_02ff: ldflda Celeste.PlayerInventory Celeste.Session::Inventory
+   IL_0304: ldfld System.Boolean Celeste.PlayerInventory::Backpack
+   IL_0309: brtrue.s IL_0312
+   IL_030b: ldstr "player_no_backpack"
+   IL_0310: br.s IL_0317
+   IL_0312: ldstr "player"
+   IL_0317: dup
+   IL_0318: stloc.s V_17
+   IL_031a: stfld System.String Celeste.PlayerSprite::spriteName
+   IL_031f: ldloc.s V_17
+   IL_0321: callvirt Monocle.Sprite Monocle.SpriteBank::CreateOn(Monocle.Sprite,System.String)
+   IL_0326: pop
+   IL_0327: nop
+   IL_0328: br.s IL_039d
+   IL_032a: ldloc.2
+   IL_032b: stloc.s V_21
+   IL_032d: ldloc.s V_21
+   IL_032f: brfalse.s IL_0368
+   IL_0331: nop
+   IL_0332: ldc.i4.0
+   IL_0333: ldstr "SkinModHelper"
+   IL_0338: ldloca.s V_20
+   IL_033a: ldc.i4.s 16
+   IL_033c: ldc.i4.1
+   IL_033d: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_0342: ldloca.s V_20
+   IL_0344: ldstr "GhostModeValue: "
+   IL_0349: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_034e: nop
+   IL_034f: ldloca.s V_20
+   IL_0351: ldloc.3
+   IL_0352: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(T)
+   IL_0357: nop
+   IL_0358: ldloca.s V_20
+   IL_035a: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_035f: call System.Void Celeste.Mod.Logger::Log(Celeste.Mod.LogLevel,System.String,System.String)
+   IL_0364: nop
+   IL_0365: nop
+   IL_0366: br.s IL_039d
+   IL_0368: nop
+   IL_0369: ldc.i4.0
+   IL_036a: ldstr "SkinModHelper"
+   IL_036f: ldloca.s V_20
+   IL_0371: ldc.i4.s 17
+   IL_0373: ldc.i4.1
+   IL_0374: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_0379: ldloca.s V_20
+   IL_037b: ldstr "PlayerModeValue: "
+   IL_0380: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0385: nop
+   IL_0386: ldloca.s V_20
+   IL_0388: ldloc.3
+   IL_0389: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(T)
+   IL_038e: nop
+   IL_038f: ldloca.s V_20
+   IL_0391: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_0396: call System.Void Celeste.Mod.Logger::Log(Celeste.Mod.LogLevel,System.String,System.String)
+   IL_039b: nop
+   IL_039c: nop
+   IL_039d: ret
