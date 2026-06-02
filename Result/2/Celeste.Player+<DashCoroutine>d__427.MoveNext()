@@ -27,6 +27,7 @@ IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayC
 IL: [ChroniaHelper::]YoctoHelper.Hooks.KeepDashSpeedHook.KeepDashSpeed(ILContext)
 IL: [ChroniaHelper::]ChroniaHelper.Entities.CustomBooster.Player_GreenDashHook(ILContext)
 IL: [ChroniaHelper::]ChroniaHelper.Entities.PatientBooster.Player_GreenDashHook(ILContext)
+IL: [DawnHelper::]Celeste.Mod.DawnHelper.Entities.BlapSwock.IL_Player_DashCoroutine(ILContext)
 IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_DashCoroutine(ILContext)
 IL: [FemtoHelper::]Celeste.Mod.FemtoHelper.FemtoModule.ModDashSpeed(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpeedPreservation.modifyDashSpeedThing(ILContext)
@@ -509,17 +510,19 @@ IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.PlayerStateUtils.ILUltra(ILConte
    IL_04a1: brfalse.s IL_04c5
    IL_04a3: ldarg.0
    IL_04a4: ldc.r4 0.3
- + IL_10071: call System.Single Celeste.Mod.RandomDashLength.RandomDashLengthModule::determineDashLengthFactor() @ [RandomDashLength::]Celeste.Mod.RandomDashLength.RandomDashLengthModule.onDash(ILContext)
- + IL_10072: mul @ [RandomDashLength::]Celeste.Mod.RandomDashLength.RandomDashLengthModule.onDash(ILContext)
- + IL_10073: call System.Single ExtendedVariants.Variants.DashLength::determineDashLengthFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashLength.modDashLength(ILContext)
- + IL_10074: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashLength.modDashLength(ILContext)
- + IL_10075: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
- + IL_10076: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
- + IL_10077: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Single>>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_10071: ldloc.1 @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.BlapSwock.IL_Player_DashCoroutine(ILContext)
+ + IL_10072: call System.Single Celeste.Mod.DawnHelper.Entities.BlapSwock::DetermineDashLength(System.Single,Celeste.Player) @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.BlapSwock.IL_Player_DashCoroutine(ILContext)
+ + IL_10073: call System.Single Celeste.Mod.RandomDashLength.RandomDashLengthModule::determineDashLengthFactor() @ [RandomDashLength::]Celeste.Mod.RandomDashLength.RandomDashLengthModule.onDash(ILContext)
+ + IL_10074: mul @ [RandomDashLength::]Celeste.Mod.RandomDashLength.RandomDashLengthModule.onDash(ILContext)
+ + IL_10075: call System.Single ExtendedVariants.Variants.DashLength::determineDashLengthFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashLength.modDashLength(ILContext)
+ + IL_10076: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashLength.modDashLength(ILContext)
+ + IL_10077: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_10078: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_10079: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Single>>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
        => Invoke: [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.determineDashLengthFactor()
- + IL_10078: callvirt TResult System.Func`1<System.Single>::Invoke() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
- + IL_10079: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
- + IL_1007a: call System.Single TAS.GameInfo::SetDashTime(System.Single) @ [CelesteTAS-EverestInterop::]TAS.GameInfo.PlayerOnDashCoroutine(ILContext)
+ + IL_1007a: callvirt TResult System.Func`1<System.Single>::Invoke() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_1007b: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_1007c: call System.Single TAS.GameInfo::SetDashTime(System.Single) @ [CelesteTAS-EverestInterop::]TAS.GameInfo.PlayerOnDashCoroutine(ILContext)
    IL_04a9: box System.Single
    IL_04ae: stfld System.Object Celeste.Player/<DashCoroutine>d__427::<>2__current
    IL_04b3: ldarg.0
@@ -533,17 +536,19 @@ IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.PlayerStateUtils.ILUltra(ILConte
    IL_04c3: br.s IL_04e5
    IL_04c5: ldarg.0
    IL_04c6: ldc.r4 0.15
- + IL_1007b: call System.Single Celeste.Mod.RandomDashLength.RandomDashLengthModule::determineDashLengthFactor() @ [RandomDashLength::]Celeste.Mod.RandomDashLength.RandomDashLengthModule.onDash(ILContext)
- + IL_1007c: mul @ [RandomDashLength::]Celeste.Mod.RandomDashLength.RandomDashLengthModule.onDash(ILContext)
- + IL_1007d: call System.Single ExtendedVariants.Variants.DashLength::determineDashLengthFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashLength.modDashLength(ILContext)
- + IL_1007e: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashLength.modDashLength(ILContext)
- + IL_1007f: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
- + IL_10080: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
- + IL_10081: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Single>>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_1007d: ldloc.1 @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.BlapSwock.IL_Player_DashCoroutine(ILContext)
+ + IL_1007e: call System.Single Celeste.Mod.DawnHelper.Entities.BlapSwock::DetermineDashLength(System.Single,Celeste.Player) @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.BlapSwock.IL_Player_DashCoroutine(ILContext)
+ + IL_1007f: call System.Single Celeste.Mod.RandomDashLength.RandomDashLengthModule::determineDashLengthFactor() @ [RandomDashLength::]Celeste.Mod.RandomDashLength.RandomDashLengthModule.onDash(ILContext)
+ + IL_10080: mul @ [RandomDashLength::]Celeste.Mod.RandomDashLength.RandomDashLengthModule.onDash(ILContext)
+ + IL_10081: call System.Single ExtendedVariants.Variants.DashLength::determineDashLengthFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashLength.modDashLength(ILContext)
+ + IL_10082: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashLength.modDashLength(ILContext)
+ + IL_10083: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_10084: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_10085: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Single>>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
        => Invoke: [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.determineDashLengthFactor()
- + IL_10082: callvirt TResult System.Func`1<System.Single>::Invoke() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
- + IL_10083: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
- + IL_10084: call System.Single TAS.GameInfo::SetDashTime(System.Single) @ [CelesteTAS-EverestInterop::]TAS.GameInfo.PlayerOnDashCoroutine(ILContext)
+ + IL_10086: callvirt TResult System.Func`1<System.Single>::Invoke() @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_10087: mul @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.GravityJacket.modDashLength(ILContext)
+ + IL_10088: call System.Single TAS.GameInfo::SetDashTime(System.Single) @ [CelesteTAS-EverestInterop::]TAS.GameInfo.PlayerOnDashCoroutine(ILContext)
    IL_04cb: box System.Single
    IL_04d0: stfld System.Object Celeste.Player/<DashCoroutine>d__427::<>2__current
    IL_04d5: ldarg.0
@@ -566,22 +571,22 @@ IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.PlayerStateUtils.ILUltra(ILConte
    IL_04fe: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
    IL_0503: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_0508: ldc.r4 0
- + IL_10085: ldloc.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
- + IL_10086: ldc.i4 1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
- + IL_10087: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed::overrideCondition(System.Single,Celeste.Player,System.Int32) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
+ + IL_10089: ldloc.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
+ + IL_1008a: ldc.i4 1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
+ + IL_1008b: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed::overrideCondition(System.Single,Celeste.Player,System.Int32) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
    IL_050d: bgt.un.s IL_0559
- + IL_10088: call System.Boolean Celeste.Mod.ScugHelper.Entities.OverchargeRefill::HasOverchargeDash() @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.OnPlayerDashCoro(ILContext)
- + IL_10089: brtrue IL_0559 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.OnPlayerDashCoro(ILContext)
+ + IL_1008c: call System.Boolean Celeste.Mod.ScugHelper.Entities.OverchargeRefill::HasOverchargeDash() @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.OnPlayerDashCoro(ILContext)
+ + IL_1008d: brtrue IL_0559 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.OnPlayerDashCoro(ILContext)
    IL_050f: ldloc.1
    IL_0510: ldloc.1
    IL_0511: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
- + IL_1008a: ldloc.1 @ [FaerieHelper::]Celeste.Mod.FaerieHelper.Entities.CoriolisController.ModifiedCoroutineHook(ILContext)
- + IL_1008b: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.FaerieHelper.Entities.CoriolisController::CorrectedDashExit(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [FaerieHelper::]Celeste.Mod.FaerieHelper.Entities.CoriolisController.ModifiedCoroutineHook(ILContext)
+ + IL_1008e: ldloc.1 @ [FaerieHelper::]Celeste.Mod.FaerieHelper.Entities.CoriolisController.ModifiedCoroutineHook(ILContext)
+ + IL_1008f: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.FaerieHelper.Entities.CoriolisController::CorrectedDashExit(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [FaerieHelper::]Celeste.Mod.FaerieHelper.Entities.CoriolisController.ModifiedCoroutineHook(ILContext)
    IL_0516: ldc.r4 160
    IL_051b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
- + IL_1008c: ldarg.0 @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDashCoroutine(ILContext)
- + IL_1008d: ldfld Celeste.Player Celeste.Player/<DashCoroutine>d__427::<>4__this @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDashCoroutine(ILContext)
- + IL_1008e: call Microsoft.Xna.Framework.Vector2 Bitsbolts.Components.UnboundedDashing::<ILPlayerDashCoroutine>m__7(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDashCoroutine(ILContext)
+ + IL_10090: ldarg.0 @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDashCoroutine(ILContext)
+ + IL_10091: ldfld Celeste.Player Celeste.Player/<DashCoroutine>d__427::<>4__this @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDashCoroutine(ILContext)
+ + IL_10092: call Microsoft.Xna.Framework.Vector2 Bitsbolts.Components.UnboundedDashing::<ILPlayerDashCoroutine>m__7(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDashCoroutine(ILContext)
    IL_0520: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0525: ldloc.1
    IL_0526: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
@@ -607,9 +612,9 @@ IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.PlayerStateUtils.ILUltra(ILConte
    IL_055a: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_055f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_0564: ldc.r4 0
- + IL_1008f: ldloc.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
- + IL_10090: ldc.i4 2 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
- + IL_10091: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed::overrideCondition(System.Single,Celeste.Player,System.Int32) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
+ + IL_10093: ldloc.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
+ + IL_10094: ldc.i4 2 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
+ + IL_10095: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed::overrideCondition(System.Single,Celeste.Player,System.Int32) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.DashesDontResetSpeed.patch_Player_DashCoroutine(ILContext)
    IL_0569: bge.un.s IL_057f
    IL_056b: ldloc.1
    IL_056c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
