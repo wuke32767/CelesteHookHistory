@@ -1,0 +1,114 @@
+[V_0] Celeste.Player
+   IL_0000: ldarg.0
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Single Celeste.HeartGem::bounceSfxDelay
+   IL_0007: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_000c: sub
+   IL_000d: stfld System.Single Celeste.HeartGem::bounceSfxDelay
+   IL_0012: ldarg.0
+   IL_0013: ldarg.0
+   IL_0014: ldfld System.Single Celeste.HeartGem::timer
+   IL_0019: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_001e: add
+   IL_001f: stfld System.Single Celeste.HeartGem::timer
+ + IL_10000: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrystalHeart.modHeartGemUpdate(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrystalHeart::tryRotatedWiggle(Celeste.HeartGem) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrystalHeart.modHeartGemUpdate(ILContext)
+ + IL_10002: brtrue IL_007b @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrystalHeart.modHeartGemUpdate(ILContext)
+   IL_0024: ldarg.0
+   IL_0025: ldfld Monocle.Sprite Celeste.HeartGem::sprite
+   IL_002a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_002f: ldarg.0
+   IL_0030: ldfld System.Single Celeste.HeartGem::timer
+   IL_0035: ldc.r4 2
+   IL_003a: mul
+   IL_003b: conv.r8
+   IL_003c: call System.Double System.Math::Sin(System.Double)
+   IL_0041: conv.r4
+   IL_0042: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0047: ldc.r4 2
+   IL_004c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0051: ldarg.0
+   IL_0052: ldfld Microsoft.Xna.Framework.Vector2 Celeste.HeartGem::moveWiggleDir
+   IL_0057: ldarg.0
+   IL_0058: ldfld Monocle.Wiggler Celeste.HeartGem::moveWiggler
+   IL_005d: callvirt System.Single Monocle.Wiggler::get_Value()
+   IL_0062: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0067: ldc.r4 -8
+   IL_006c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0071: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0076: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_007b: ldarg.0
+   IL_007c: ldfld Monocle.Sprite Celeste.HeartGem::white
+   IL_0081: brfalse.s IL_00fa
+   IL_0083: ldarg.0
+   IL_0084: ldfld Monocle.Sprite Celeste.HeartGem::white
+   IL_0089: ldarg.0
+   IL_008a: ldfld Monocle.Sprite Celeste.HeartGem::sprite
+   IL_008f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0094: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_0099: ldarg.0
+   IL_009a: ldfld Monocle.Sprite Celeste.HeartGem::white
+   IL_009f: ldarg.0
+   IL_00a0: ldfld Monocle.Sprite Celeste.HeartGem::sprite
+   IL_00a5: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_00aa: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_00af: ldarg.0
+   IL_00b0: ldfld Monocle.Sprite Celeste.HeartGem::white
+   IL_00b5: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_00ba: ldarg.0
+   IL_00bb: ldfld Monocle.Sprite Celeste.HeartGem::sprite
+   IL_00c0: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_00c5: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_00ca: brfalse.s IL_00e4
+   IL_00cc: ldarg.0
+   IL_00cd: ldfld Monocle.Sprite Celeste.HeartGem::white
+   IL_00d2: ldarg.0
+   IL_00d3: ldfld Monocle.Sprite Celeste.HeartGem::sprite
+   IL_00d8: callvirt System.String Monocle.Sprite::get_CurrentAnimationID()
+   IL_00dd: ldc.i4.0
+   IL_00de: ldc.i4.0
+   IL_00df: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_00e4: ldarg.0
+   IL_00e5: ldfld Monocle.Sprite Celeste.HeartGem::white
+   IL_00ea: ldarg.0
+   IL_00eb: ldfld Monocle.Sprite Celeste.HeartGem::sprite
+   IL_00f0: callvirt System.Int32 Monocle.Sprite::get_CurrentAnimationFrame()
+   IL_00f5: callvirt System.Void Monocle.Sprite::SetAnimationFrame(System.Int32)
+   IL_00fa: ldarg.0
+   IL_00fb: ldfld System.Boolean Celeste.HeartGem::collected
+   IL_0100: brfalse.s IL_0124
+   IL_0102: ldarg.0
+   IL_0103: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0108: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_010d: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0112: stloc.0
+   IL_0113: ldloc.0
+   IL_0114: brfalse.s IL_011e
+   IL_0116: ldloc.0
+   IL_0117: callvirt System.Boolean Celeste.Player::get_Dead()
+   IL_011c: brfalse.s IL_0124
+   IL_011e: ldarg.0
+   IL_011f: callvirt System.Void Celeste.HeartGem::EndCutscene()
+   IL_0124: ldarg.0
+   IL_0125: call System.Void Monocle.Entity::Update()
+   IL_012a: ldarg.0
+   IL_012b: ldfld System.Boolean Celeste.HeartGem::collected
+   IL_0130: brtrue.s IL_0170
+   IL_0132: ldarg.0
+   IL_0133: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0138: ldc.r4 0.1
+   IL_013d: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_0142: brfalse.s IL_0170
+   IL_0144: ldarg.0
+   IL_0145: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_014a: ldfld Monocle.ParticleSystem Celeste.Level::Particles
+   IL_014f: ldarg.0
+   IL_0150: ldfld Monocle.ParticleType Celeste.HeartGem::shineParticle
+   IL_0155: ldc.i4.1
+   IL_0156: ldarg.0
+   IL_0157: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_015c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0161: ldc.r4 8
+   IL_0166: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_016b: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0170: ret
