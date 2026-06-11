@@ -16,6 +16,7 @@ IL: [LuckyHelper::]LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashBegin(ILCo
 IL: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.DashBoostField.IL_Player_DreamDashBegin(ILContext)
 IL: [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.patchOutStamina(ILContext)
 IL: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_DreamDashBegin(ILContext)
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.ILPlayerDreamDashBegin(ILContext)
 IL: [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
 [V_0] Celeste.SoundSource
 [V_1] Celeste.Mod.Procedurline.CustomDreamBlock
@@ -45,10 +46,12 @@ IL: [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.
        => Invoke: [LuckyHelper::]LuckyHelper.Entities.DreamZone_V2+<>c.<PlayerOnDreamDashBegin>b__41_1(Single,Player)
  + IL_10008: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [LuckyHelper::]LuckyHelper.Entities.DreamZone_V2.PlayerOnDreamDashBegin(ILContext)
    IL_0028: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
- + IL_10009: ldarg.0 @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDreamDashBegin(ILContext)
- + IL_1000a: call Microsoft.Xna.Framework.Vector2 Bitsbolts.Components.UnboundedDashing::<ILPlayerDreamDashBegin>m__12(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDreamDashBegin(ILContext)
- + IL_1000b: ldarg.0 @ [FrostTempleHelper::]FrostHelper.CustomDreamBlockV2.Player_DreamDashBegin(ILContext)
- + IL_1000c: call Microsoft.Xna.Framework.Vector2 FrostHelper.CustomDreamBlockV2::GetDreamDashSpeed(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomDreamBlockV2.Player_DreamDashBegin(ILContext)
+ + IL_10009: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.ILPlayerDreamDashBegin(ILContext)
+ + IL_1000a: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.ScugHelper.Entities.OverchargeRefill::<ILPlayerDreamDashBegin>g__GetNewSpeed|33_2(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.ILPlayerDreamDashBegin(ILContext)
+ + IL_1000b: ldarg.0 @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDreamDashBegin(ILContext)
+ + IL_1000c: call Microsoft.Xna.Framework.Vector2 Bitsbolts.Components.UnboundedDashing::<ILPlayerDreamDashBegin>m__12(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerDreamDashBegin(ILContext)
+ + IL_1000d: ldarg.0 @ [FrostTempleHelper::]FrostHelper.CustomDreamBlockV2.Player_DreamDashBegin(ILContext)
+ + IL_1000e: call Microsoft.Xna.Framework.Vector2 FrostHelper.CustomDreamBlockV2::GetDreamDashSpeed(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomDreamBlockV2.Player_DreamDashBegin(ILContext)
    IL_002d: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0032: ldarg.0
    IL_0033: ldc.i4.1
@@ -61,33 +64,33 @@ IL: [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.
    IL_004a: stfld System.Single Celeste.Player::dreamDashCanEndTimer
    IL_004f: ldarg.0
    IL_0050: ldc.r4 110
- + IL_1000d: ldarg.0 @ [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
- + IL_1000e: call System.Single Celeste.Mod.Microlith57Misc.Components.CappedStamina::ModMaxStamina(System.Single,Celeste.Player) @ [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
- + IL_1000f: call System.Single ExtendedVariants.Variants.Stamina::modStaminaAmount(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.patchOutStamina(ILContext)
- + IL_10010: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
- + IL_10011: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
- + IL_10012: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
+ + IL_1000f: ldarg.0 @ [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
+ + IL_10010: call System.Single Celeste.Mod.Microlith57Misc.Components.CappedStamina::ModMaxStamina(System.Single,Celeste.Player) @ [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.CappedStamina.HookPlayerMethods(ILContext)
+ + IL_10011: call System.Single ExtendedVariants.Variants.Stamina::modStaminaAmount(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.patchOutStamina(ILContext)
+ + IL_10012: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
+ + IL_10013: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
+ + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
        => Invoke: [XaphanHelper::]Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay+<>c.<patchOutStamina>b__31_0(Single)
- + IL_10013: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
+ + IL_10015: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.UI_Elements.UpgradesDisplay.patchOutStamina(ILContext)
    IL_0055: stfld System.Single Celeste.Player::Stamina
    IL_005a: ldarg.0
    IL_005b: ldc.i4.0
    IL_005c: stfld System.Boolean Celeste.Player::dreamJump
    IL_0061: ldarg.0
    IL_0062: ldstr "event:/char/madeline/dreamblock_enter"
- + IL_10014: ldloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10015: dup @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10016: brtrue IL_1001d @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10017: pop @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10018: ldarg.0 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10019: call T Monocle.Entity::CollideFirst<Celeste.DreamBlock>() @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1001a: isinst Celeste.Mod.Procedurline.CustomDreamBlock @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1001b: dup @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1001c: stloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1001d: brfalse IL_0067 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1001e: pop @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1001f: ldloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10020: callvirt System.String Celeste.Mod.Procedurline.CustomDreamBlock::get_EnterSFX() @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10016: ldloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10017: dup @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10018: brtrue IL_1001f @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10019: pop @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1001a: ldarg.0 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1001b: call T Monocle.Entity::CollideFirst<Celeste.DreamBlock>() @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1001c: isinst Celeste.Mod.Procedurline.CustomDreamBlock @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1001d: dup @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1001e: stloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1001f: brfalse IL_0067 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10020: pop @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10021: ldloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10022: callvirt System.String Celeste.Mod.Procedurline.CustomDreamBlock::get_EnterSFX() @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
    IL_0067: ldnull
    IL_0068: ldc.r4 0
    IL_006d: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
@@ -96,18 +99,18 @@ IL: [Microlith57MiscellaneousMechanics::]Celeste.Mod.Microlith57Misc.Components.
    IL_0074: ldarg.0
    IL_0075: ldfld Celeste.SoundSource Celeste.Player::dreamSfxLoop
    IL_007a: ldstr "event:/char/madeline/dreamblock_travel"
- + IL_10021: ldloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10022: dup @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10023: brtrue IL_1002a @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10024: pop @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10025: ldarg.0 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10026: call T Monocle.Entity::CollideFirst<Celeste.DreamBlock>() @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10027: isinst Celeste.Mod.Procedurline.CustomDreamBlock @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10028: dup @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_10029: stloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1002a: brfalse IL_007f @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1002b: pop @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1002c: ldloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
- + IL_1002d: callvirt System.String Celeste.Mod.Procedurline.CustomDreamBlock::get_TravelSFX() @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10023: ldloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10024: dup @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10025: brtrue IL_1002c @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10026: pop @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10027: ldarg.0 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10028: call T Monocle.Entity::CollideFirst<Celeste.DreamBlock>() @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_10029: isinst Celeste.Mod.Procedurline.CustomDreamBlock @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1002a: dup @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1002b: stloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1002c: brfalse IL_007f @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1002d: pop @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1002e: ldloc V_1 @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
+ + IL_1002f: callvirt System.String Celeste.Mod.Procedurline.CustomDreamBlock::get_TravelSFX() @ [Procedurline::]Celeste.Mod.Procedurline.CustomDreamBlock.DreamDashBeginModifier(ILContext)
    IL_007f: callvirt System.Void Celeste.Player::Loop(Celeste.SoundSource,System.String)
    IL_0084: ret

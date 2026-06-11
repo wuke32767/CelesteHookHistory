@@ -1,0 +1,219 @@
+IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.ILCommunalHelperPlayerDreamTunnelDashBegin(ILContext)
+[V_0] MonoMod.Utils.DynamicData
+[V_1] Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash/DreamTunnelDashConfiguration
+[V_2] Microsoft.Xna.Framework.Vector2
+[V_3] System.Single
+[V_4] Microsoft.Xna.Framework.Vector2
+[V_5] System.Single
+[V_6] System.Boolean
+[V_7] Celeste.SoundSource
+[V_8] System.Boolean
+[V_9] System.Boolean
+[V_10] System.Single
+[V_11] Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash/SpeedConfiguration
+[V_12] System.Boolean
+[V_13] System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+[V_14] Celeste.Mod.CommunalHelper.Components.DreamDashListener
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: call MonoMod.Utils.DynamicData Celeste.Mod.CommunalHelper.Extensions::GetData(Celeste.Player)
+   IL_0007: stloc.0
+   IL_0008: call Celeste.Mod.CommunalHelper.CommunalHelperSession Celeste.Mod.CommunalHelper.CommunalHelperModule::get_Session()
+   IL_000d: callvirt Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash/DreamTunnelDashConfiguration Celeste.Mod.CommunalHelper.CommunalHelperSession::get_CurrentDreamTunnelDashConfiguration()
+   IL_0012: stloc.1
+   IL_0013: ldarg.0
+   IL_0014: ldc.i4.0
+   IL_0015: callvirt System.Void Celeste.Player::set_StartedDashing(System.Boolean)
+   IL_001a: nop
+   IL_001b: ldarg.0
+   IL_001c: ldfld Celeste.SoundSource Celeste.Player::dreamSfxLoop
+   IL_0021: ldnull
+   IL_0022: ceq
+   IL_0024: stloc.s V_6
+   IL_0026: ldloc.s V_6
+   IL_0028: brfalse.s IL_0052
+   IL_002a: nop
+   IL_002b: ldarg.0
+   IL_002c: ldarg.0
+   IL_002d: newobj System.Void Celeste.SoundSource::.ctor()
+   IL_0032: dup
+   IL_0033: ldloc.1
+   IL_0034: ldfld System.Boolean Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash/DreamTunnelDashConfiguration::AllowTransitions
+   IL_0039: ldc.i4.0
+   IL_003a: ceq
+   IL_003c: stfld System.Boolean Celeste.SoundSource::DisposeOnTransition
+   IL_0041: dup
+   IL_0042: stloc.s V_7
+   IL_0044: stfld Celeste.SoundSource Celeste.Player::dreamSfxLoop
+   IL_0049: ldloc.s V_7
+   IL_004b: callvirt System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0050: nop
+   IL_0051: nop
+   IL_0052: ldarg.0
+   IL_0053: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_0058: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Sign(Microsoft.Xna.Framework.Vector2)
+   IL_005d: stloc.2
+   IL_005e: ldarg.0
+   IL_005f: callvirt System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid,Celeste.DreamBlock>()
+   IL_0064: brtrue.s IL_007a
+   IL_0066: ldarg.0
+   IL_0067: ldarg.0
+   IL_0068: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_006d: ldloc.2
+   IL_006e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0073: callvirt System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid,Celeste.DreamBlock>(Microsoft.Xna.Framework.Vector2)
+   IL_0078: br.s IL_007b
+   IL_007a: ldc.i4.0
+   IL_007b: stloc.s V_8
+   IL_007d: ldloc.s V_8
+   IL_007f: brfalse.s IL_008b
+   IL_0081: nop
+   IL_0082: ldarg.0
+   IL_0083: ldloc.2
+   IL_0084: callvirt System.Void Celeste.Actor::NaiveMove(Microsoft.Xna.Framework.Vector2)
+   IL_0089: nop
+   IL_008a: nop
+   IL_008b: ldarg.0
+   IL_008c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_0091: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0096: ldc.r4 0
+   IL_009b: cgt
+   IL_009d: stloc.s V_9
+   IL_009f: ldloc.s V_9
+   IL_00a1: brfalse.s IL_00ab
+   IL_00a3: ldarg.0
+   IL_00a4: ldc.i4.0
+   IL_00a5: callvirt System.Void Celeste.Player::set_Ducking(System.Boolean)
+   IL_00aa: nop
+   IL_00ab: ldarg.0
+   IL_00ac: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_00b1: call System.Single Microsoft.Xna.Framework.Vector2::Length()
+   IL_00b6: stloc.3
+   IL_00b7: ldloc.1
+   IL_00b8: ldfld System.Boolean Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash/DreamTunnelDashConfiguration::UseEntryDirection
+   IL_00bd: brfalse.s IL_00c7
+   IL_00bf: ldloc.3
+   IL_00c0: ldc.r4 240
+   IL_00c5: bgt.s IL_00cf
+   IL_00c7: ldarg.0
+   IL_00c8: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_00cd: br.s IL_00da
+   IL_00cf: ldarg.0
+   IL_00d0: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_00d5: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_00da: stloc.s V_4
+   IL_00dc: ldloc.1
+   IL_00dd: ldfld Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash/SpeedConfiguration Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash/DreamTunnelDashConfiguration::SpeedConfiguration
+   IL_00e2: stloc.s V_11
+   IL_00e4: ldc.i4.1
+   IL_00e5: brtrue.s IL_00e8
+   IL_00e7: nop
+   IL_00e8: ldloc.s V_11
+   IL_00ea: switch IL_00fd,IL_0106,IL_0115
+   IL_00fb: br.s IL_011f
+   IL_00fd: ldc.r4 240
+   IL_0102: stloc.s V_10
+   IL_0104: br.s IL_0128
+   IL_0106: ldloc.3
+   IL_0107: ldc.r4 240
+   IL_010c: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_0111: stloc.s V_10
+   IL_0113: br.s IL_0128
+   IL_0115: ldloc.1
+   IL_0116: ldfld System.Single Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash/DreamTunnelDashConfiguration::CustomSpeed
+   IL_011b: stloc.s V_10
+   IL_011d: br.s IL_0128
+   IL_011f: ldc.r4 0
+   IL_0124: stloc.s V_10
+   IL_0126: br.s IL_0128
+   IL_0128: ldc.i4.1
+   IL_0129: brtrue.s IL_012c
+   IL_012b: nop
+   IL_012c: ldloc.s V_10
+   IL_012e: stloc.s V_5
+   IL_0130: ldarg.0
+   IL_0131: ldloc.s V_4
+   IL_0133: ldloc.s V_5
+   IL_0135: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+ + IL_10000: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.ILCommunalHelperPlayerDreamTunnelDashBegin(ILContext)
+ + IL_10001: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.ScugHelper.Entities.OverchargeRefill::<ILCommunalHelperPlayerDreamTunnelDashBegin>g__GetNewSpeed|10_1(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.ILCommunalHelperPlayerDreamTunnelDashBegin(ILContext)
+   IL_013a: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_013f: ldarg.0
+   IL_0140: ldc.i4.1
+   IL_0141: stfld System.Boolean Celeste.Actor::TreatNaive
+   IL_0146: ldarg.0
+   IL_0147: ldc.i4 -12000
+   IL_014c: callvirt System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0151: nop
+   IL_0152: ldloc.0
+   IL_0153: ldstr "communalHelperDreamTunnelDashCanEndTimer"
+   IL_0158: ldc.r4 0.1
+   IL_015d: box System.Single
+   IL_0162: callvirt System.Void MonoMod.Utils.DynamicData::Set(System.String,System.Object)
+   IL_0167: nop
+   IL_0168: ldarg.0
+   IL_0169: ldc.r4 110
+   IL_016e: stfld System.Single Celeste.Player::Stamina
+   IL_0173: ldloc.0
+   IL_0174: ldstr "dreamJump"
+   IL_0179: ldc.i4.0
+   IL_017a: box System.Boolean
+   IL_017f: callvirt System.Void MonoMod.Utils.DynamicData::Set(System.String,System.Object)
+   IL_0184: nop
+   IL_0185: ldarg.0
+   IL_0186: ldstr "event:/char/madeline/dreamblock_enter"
+   IL_018b: ldnull
+   IL_018c: ldc.r4 0
+   IL_0191: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
+   IL_0196: pop
+   IL_0197: call System.Boolean Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash::get_FeatherMode()
+   IL_019c: stloc.s V_12
+   IL_019e: ldloc.s V_12
+   IL_01a0: brfalse.s IL_01b6
+   IL_01a2: ldarg.0
+   IL_01a3: ldarg.0
+   IL_01a4: ldfld Celeste.SoundSource Celeste.Player::dreamSfxLoop
+   IL_01a9: ldstr "event:/CommunalHelperEvents/game/connectedDreamBlock/dreamblock_fly_travel"
+   IL_01ae: callvirt System.Void Celeste.Player::Loop(Celeste.SoundSource,System.String)
+   IL_01b3: nop
+   IL_01b4: br.s IL_01c8
+   IL_01b6: ldarg.0
+   IL_01b7: ldarg.0
+   IL_01b8: ldfld Celeste.SoundSource Celeste.Player::dreamSfxLoop
+   IL_01bd: ldstr "event:/char/madeline/dreamblock_travel"
+   IL_01c2: callvirt System.Void Celeste.Player::Loop(Celeste.SoundSource,System.String)
+   IL_01c7: nop
+   IL_01c8: nop
+   IL_01c9: ldarg.0
+   IL_01ca: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_01cf: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_01d4: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.Mod.CommunalHelper.Components.DreamDashListener>()
+   IL_01d9: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
+   IL_01de: stloc.s V_13
+   IL_01e0: br.s IL_020b
+   IL_01e2: ldloca.s V_13
+   IL_01e4: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
+   IL_01e9: castclass Celeste.Mod.CommunalHelper.Components.DreamDashListener
+   IL_01ee: stloc.s V_14
+   IL_01f0: nop
+   IL_01f1: ldloc.s V_14
+   IL_01f3: ldfld System.Action`1<Microsoft.Xna.Framework.Vector2> Celeste.Mod.CommunalHelper.Components.DreamDashListener::OnDreamDash
+   IL_01f8: dup
+   IL_01f9: brtrue.s IL_01fe
+   IL_01fb: pop
+   IL_01fc: br.s IL_020a
+   IL_01fe: ldarg.0
+   IL_01ff: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_0204: callvirt System.Void System.Action`1<Microsoft.Xna.Framework.Vector2>::Invoke(T)
+   IL_0209: nop
+   IL_020a: nop
+   IL_020b: ldloca.s V_13
+   IL_020d: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Component>::MoveNext()
+   IL_0212: brtrue.s IL_01e2
+   IL_0214: leave.s IL_0225
+   IL_0216: ldloca.s V_13
+   IL_0218: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+   IL_021e: callvirt System.Void System.IDisposable::Dispose()
+   IL_0223: nop
+   IL_0224: endfinally
+   IL_0225: ret
