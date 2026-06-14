@@ -1,21 +1,3 @@
-On: [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule.OnLevelOrigLoadLevel(Action`3,Level,IntroTypes,Boolean)
-IL: [libbitsbolts::]Bitsbolts.Hooks.GlobalRoomLoader.ILLevelLoadLevel(ILContext)
-IL: [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
-IL: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
-IL: [XaphanHelper::]Celeste.Mod.XaphanHelper.Triggers.CameraBlocker.ilHookGetFullCameraTarget(ILContext)
-IL: [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
-IL: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
-IL: [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookGetFullCameraTarget(ILContext)
-IL: [JungleHelper::]Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry.hookUpdateLevelStartDashes(ILContext)
-IL: [JungleHelper::]Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock.hookLoadLevel(ILContext)
-IL: [Killbind::]Celeste.Mod.Killbind.KillbindModule.LoadLevelInstantWipe(ILContext)
-IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-        [CelesteTAS-EverestInterop::]TAS.Input.Commands.ConsoleCommand.HookLevelOrigLoadLevel(ILCursor,ILContext)
-IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger.ILLevelorig_LoadLevel(ILContext)
-IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
-IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
-IL: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
-IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHook(ILContext)
 [V_0] System.Boolean
 [V_1] System.Boolean
 [V_2] Celeste.LightningRenderer
@@ -79,9 +61,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
 [V_60] System.Int32[0...,0...]
 [V_61] System.Int32
 [V_62] System.Int32
- + IL_10000: ldarg.1 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_10001: ldc.i4 196083713 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_10002: beq IL_010f @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldc.i4.0
    IL_0002: stfld System.Boolean Celeste.Level::TimerHidden
@@ -191,11 +170,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_0131: ldfld Celeste.Session Celeste.Level::Session
    IL_0136: callvirt Celeste.LevelData Celeste.Session::get_LevelData()
    IL_013b: stloc.3
- + IL_10003: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_10004: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_10005: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Action>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
-       => Invoke: [VivHelper::]VivHelper.Entities.Collectible+<>c.<ParseCollectibleDecals>b__5_0()
- + IL_10006: callvirt System.Void System.Action::Invoke() @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
    IL_013c: ldloca.s V_4
    IL_013e: ldloc.3
    IL_013f: ldflda Microsoft.Xna.Framework.Rectangle Celeste.LevelData::Bounds
@@ -216,9 +190,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_016f: br.s IL_0172
    IL_0171: ldc.i4.1
    IL_0172: stloc.s V_5
- + IL_10007: ldarg.1 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_10008: ldc.i4 196083713 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_10009: beq IL_1000b @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
    IL_0174: ldarg.0
    IL_0175: ldloc.3
    IL_0176: ldfld System.Boolean Celeste.LevelData::Dark
@@ -396,7 +367,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_03a1: ldarg.0
    IL_03a2: ldfld Celeste.Session Celeste.Level::Session
    IL_03a7: callvirt System.Void Celeste.Session::UpdateLevelStartDashes()
- + IL_1000a: call System.Void Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry::registerGrabHappened() @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.GrablessGoldenBerry.hookUpdateLevelStartDashes(ILContext)
    IL_03ac: ldloca.s V_6
    IL_03ae: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector2>
    IL_03b4: ldarg.0
@@ -407,9 +377,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_03c5: ldfld Microsoft.Xna.Framework.Vector2 Celeste.LevelData::CameraOffset
    IL_03ca: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_03cf: stfld Microsoft.Xna.Framework.Vector2 Celeste.Level::CameraOffset
- + IL_1000b: ldarg.1 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_1000c: ldc.i4 196083714 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_1000d: beq IL_1000e @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
    IL_03d4: ldarg.0
    IL_03d5: call Monocle.EntityList Monocle.Scene::get_Entities()
    IL_03da: callvirt T Monocle.EntityList::FindFirst<Celeste.WindController>()
@@ -450,21 +417,12 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_043a: conv.r4
    IL_043b: newobj System.Void Celeste.Water::.ctor(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Boolean,System.Single,System.Single)
    IL_0440: call System.Void Monocle.Scene::Add(Monocle.Entity)
- + IL_1000e: ldarg.1 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_1000f: ldc.i4 196083713 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_10010: beq IL_10011 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
    IL_0445: ldarg.0
    IL_0446: ldloc.3
    IL_0447: ldfld System.Boolean Celeste.LevelData::Space
    IL_044c: stfld System.Boolean Celeste.Level::InSpace
- + IL_10011: ldarg.1 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_10012: ldc.i4 196083714 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_10013: beq IL_3e03 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
    IL_0451: ldarg.0
    IL_0452: ldfld System.Boolean Celeste.Level::InSpace
- + IL_10014: pop @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_10015: ldloc V_3 @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
- + IL_10016: ldfld System.Boolean Celeste.LevelData::Space @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
    IL_0457: brfalse.s IL_0464
    IL_0459: ldarg.0
    IL_045a: newobj System.Void Celeste.SpaceController::.ctor()
@@ -518,18 +476,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_04fe: endfinally
    IL_04ff: ldloc.3
    IL_0500: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.LevelData::Entities
- + IL_10017: ldloc.3 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHook(ILContext)
- + IL_10018: call System.Collections.Generic.List`1<Celeste.EntityData> LuckyHelper.Entities.Room.PasteRoom::InsertCopiedEntities(System.Collections.Generic.List`1<Celeste.EntityData>,Celeste.LevelData) @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHook(ILContext)
- + IL_10019: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1001a: ldarg.2 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1001b: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1001c: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1001d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
-       => Invoke: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks+<>c__DisplayClass12_0.<HookLevelEntityLoading>b__0(List`1,Level,Boolean)
- + IL_1001e: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<System.Collections.Generic.List`1<Celeste.EntityData>,System.Collections.Generic.List`1<Celeste.EntityData>,Celeste.Level,System.Boolean>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1001f: ldarg.0 @ [libbitsbolts::]Bitsbolts.Hooks.GlobalRoomLoader.ILLevelLoadLevel(ILContext)
- + IL_10020: ldarg.1 @ [libbitsbolts::]Bitsbolts.Hooks.GlobalRoomLoader.ILLevelLoadLevel(ILContext)
- + IL_10021: call System.Collections.Generic.List`1<Celeste.EntityData> Bitsbolts.Hooks.GlobalRoomLoader::<ILLevelLoadLevel>m__4(System.Collections.Generic.List`1<Celeste.EntityData>,Celeste.Level,Celeste.Player/IntroTypes) @ [libbitsbolts::]Bitsbolts.Hooks.GlobalRoomLoader.ILLevelLoadLevel(ILContext)
    IL_0505: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.EntityData>::GetEnumerator()
    IL_050a: stloc.s V_16
    IL_050c: br IL_34e9
@@ -537,12 +483,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_0513: call T System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::get_Current()
    IL_0518: stloc.s V_17
    IL_051a: ldloc.s V_17
- + IL_10022: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10023: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10024: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10025: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
-       => Invoke: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks+<>c.<HookLevelEntityLoading>b__12_1(EntityData,Level)
- + IL_10026: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<Celeste.EntityData,Celeste.EntityData,Celeste.Level>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
    IL_051c: ldfld System.Int32 Celeste.EntityData::ID
    IL_0521: stloc.s V_18
    IL_0523: ldloca.s V_19
@@ -567,15 +507,12 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_0563: stsfld Celeste.EntityID Celeste.Level::_currentEntityId
    IL_0568: dup
    IL_0569: ldarg.0
- + IL_10027: ldloc V_17 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10028: call System.Void Celeste.Mod.auspicioushelper.Finder::StartingLoad(Celeste.EntityData) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_056a: call System.Boolean Celeste.Level::LoadCustomEntity(Celeste.EntityData,Celeste.Level)
    IL_056f: brfalse.s IL_0579
    IL_0571: pop
    IL_0572: ldstr ""
    IL_0577: br.s IL_057e
    IL_0579: ldfld System.String Celeste.EntityData::Name
- + IL_10029: call System.String Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock::turnIntoRegularCassetteBlock(System.String) @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock.hookLoadLevel(ILContext)
    IL_057e: stloc.s V_20
    IL_0580: ldloc.s V_20
    IL_0582: call System.UInt32 <PrivateImplementationDetails>::ComputeStringHash(System.String)
@@ -2541,10 +2478,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_23be: ldloc.s V_17
    IL_23c0: ldloc.s V_4
    IL_23c2: ldloc.s V_19
- + IL_1002a: ldsfld System.Boolean Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock::IsSwingCassetteBlock @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock.hookLoadLevel(ILContext)
- + IL_1002b: brfalse IL_23c4 @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock.hookLoadLevel(ILContext)
- + IL_1002c: newobj System.Void Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock::.ctor(Celeste.EntityData,Microsoft.Xna.Framework.Vector2,Celeste.EntityID) @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock.hookLoadLevel(ILContext)
- + IL_1002d: br IL_23c9 @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock.hookLoadLevel(ILContext)
    IL_23c4: newobj System.Void Celeste.CassetteBlock::.ctor(Celeste.EntityData,Microsoft.Xna.Framework.Vector2,Celeste.EntityID)
    IL_23c9: stloc.s V_39
    IL_23cb: ldarg.0
@@ -3891,16 +3824,7 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_34df: newobj System.Void Celeste.NPC07X_Granny_Ending::.ctor(Celeste.EntityData,Microsoft.Xna.Framework.Vector2,System.Boolean)
    IL_34e4: call System.Void Monocle.Scene::Add(Monocle.Entity)
    IL_34e9: ldloca.s V_16
- + IL_1002e: ldloc V_17 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_1002f: ldarg.0 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10030: call System.Void Celeste.Mod.auspicioushelper.Finder::EndingLoad(Celeste.EntityData,Celeste.Level) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_34eb: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::MoveNext()
- + IL_10031: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10032: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10033: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10034: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
-       => Invoke: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks+<>c.<HookLevelEntityLoading>b__12_2(Level)
- + IL_10035: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
    IL_34f0: brtrue IL_0511
    IL_34f5: leave.s IL_3505
    IL_34f7: ldloca.s V_16
@@ -3914,16 +3838,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3515: stsfld System.Boolean Celeste.Level::_isLoadingTriggers
    IL_351a: ldloc.3
    IL_351b: ldfld System.Collections.Generic.List`1<Celeste.EntityData> Celeste.LevelData::Triggers
- + IL_10036: ldloc.3 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHook(ILContext)
- + IL_10037: call System.Collections.Generic.List`1<Celeste.EntityData> LuckyHelper.Entities.Room.PasteRoom::InsertCopiedTriggers(System.Collections.Generic.List`1<Celeste.EntityData>,Celeste.LevelData) @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHook(ILContext)
- + IL_10038: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10039: ldarg.2 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1003a: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1003b: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1003c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
-       => Invoke: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks+<>c__DisplayClass12_0.<HookLevelEntityLoading>b__0(List`1,Level,Boolean)
- + IL_1003d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<System.Collections.Generic.List`1<Celeste.EntityData>,System.Collections.Generic.List`1<Celeste.EntityData>,Celeste.Level,System.Boolean>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1003e: call System.Collections.Generic.List`1<Celeste.EntityData> Bitsbolts.Hooks.GlobalRoomLoader::<ILLevelLoadLevel>m__6(System.Collections.Generic.List`1<Celeste.EntityData>) @ [libbitsbolts::]Bitsbolts.Hooks.GlobalRoomLoader.ILLevelLoadLevel(ILContext)
    IL_3520: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.EntityData>::GetEnumerator()
    IL_3525: stloc.s V_16
    IL_3527: br IL_3c93
@@ -3931,12 +3845,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_352e: call T System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::get_Current()
    IL_3533: stloc.s V_46
    IL_3535: ldloc.s V_46
- + IL_1003f: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10040: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10041: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_10042: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
-       => Invoke: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks+<>c.<HookLevelEntityLoading>b__12_1(EntityData,Level)
- + IL_10043: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<Celeste.EntityData,Celeste.EntityData,Celeste.Level>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
    IL_3537: ldfld System.Int32 Celeste.EntityData::ID
    IL_353c: ldc.i4 10000000
    IL_3541: add
@@ -3964,8 +3872,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3589: stsfld Celeste.EntityID Celeste.Level::_currentEntityId
    IL_358e: dup
    IL_358f: ldarg.0
- + IL_10044: ldloc V_46 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10045: call System.Void Celeste.Mod.auspicioushelper.Finder::StartingLoadTrigger(Celeste.EntityData) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_3590: call System.Boolean Celeste.Level::LoadCustomEntity(Celeste.EntityData,Celeste.Level)
    IL_3595: brfalse.s IL_359f
    IL_3597: pop
@@ -4445,16 +4351,7 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3c89: newobj System.Void Celeste.DetachStrawberryTrigger::.ctor(Celeste.EntityData,Microsoft.Xna.Framework.Vector2)
    IL_3c8e: call System.Void Monocle.Scene::Add(Monocle.Entity)
    IL_3c93: ldloca.s V_16
- + IL_10046: ldloc V_46 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10047: ldarg.0 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10048: call System.Void Celeste.Mod.auspicioushelper.Finder::EndingLoad(Celeste.EntityData,Celeste.Level) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_3c95: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.EntityData>::MoveNext()
- + IL_10049: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1004a: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1004b: ldc.i4 0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
- + IL_1004c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
-       => Invoke: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks+<>c.<HookLevelEntityLoading>b__12_2(Level)
- + IL_1004d: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Level_orig_LoadLevel(ILContext)
    IL_3c9a: brtrue IL_352c
    IL_3c9f: leave.s IL_3caf
    IL_3ca1: ldloca.s V_16
@@ -4467,25 +4364,12 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3cba: stsfld System.Boolean Celeste.Level::_isLoadingTriggers
    IL_3cbf: ldloc.3
    IL_3cc0: ldfld System.Collections.Generic.List`1<Celeste.DecalData> Celeste.LevelData::FgDecals
- + IL_1004e: ldloc.3 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHook(ILContext)
- + IL_1004f: call System.Collections.Generic.List`1<Celeste.DecalData> LuckyHelper.Entities.Room.PasteRoom::InsertCopiedFgDecals(System.Collections.Generic.List`1<Celeste.DecalData>,Celeste.LevelData) @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHook(ILContext)
    IL_3cc5: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.DecalData>::GetEnumerator()
    IL_3cca: stloc.s V_50
    IL_3ccc: br.s IL_3d45
    IL_3cce: ldloca.s V_50
    IL_3cd0: call T System.Collections.Generic.List`1/Enumerator<Celeste.DecalData>::get_Current()
    IL_3cd5: stloc.s V_51
- + IL_10050: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10051: ldloc V_51 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10052: ldloc V_3 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10053: ldc.i4.1 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10054: call System.Boolean Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal::MakeParallaxGroup(Celeste.Level,Celeste.DecalData,Celeste.LevelData,System.Boolean) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10055: brtrue IL_3d45 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10056: ldarg.0 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_10057: ldloc V_51 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_10058: ldloc V_3 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_10059: call System.Boolean VivHelper.Entities.Collectible::ImplementCustomDecalToEntitySet(Celeste.Level,Celeste.DecalData,Celeste.LevelData) @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_1005a: brtrue IL_3d45 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
    IL_3cd7: ldarg.0
    IL_3cd8: ldloc.s V_51
    IL_3cda: ldfld System.String Celeste.DecalData::Texture
@@ -4503,9 +4387,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3d07: ldloc.s V_51
    IL_3d09: ldfld System.String Celeste.DecalData::ColorHex
    IL_3d0e: newobj System.Void Celeste.Decal::.ctor(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Int32,System.Single,System.String)
- + IL_1005b: dup @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_1005c: ldloc V_51 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_1005d: call System.Void Celeste.Mod.auspicioushelper.DecalMarker::FgLoad(Celeste.Decal,Celeste.DecalData) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_3d13: ldloc.s V_51
    IL_3d15: call System.Boolean Celeste.DecalData::HasDepth()
    IL_3d1a: brfalse.s IL_3d23
@@ -4533,25 +4414,12 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3d60: endfinally
    IL_3d61: ldloc.3
    IL_3d62: ldfld System.Collections.Generic.List`1<Celeste.DecalData> Celeste.LevelData::BgDecals
- + IL_1005e: ldloc.3 @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHook(ILContext)
- + IL_1005f: call System.Collections.Generic.List`1<Celeste.DecalData> LuckyHelper.Entities.Room.PasteRoom::InsertCopiedBgDecals(System.Collections.Generic.List`1<Celeste.DecalData>,Celeste.LevelData) @ [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHook(ILContext)
    IL_3d67: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.DecalData>::GetEnumerator()
    IL_3d6c: stloc.s V_50
    IL_3d6e: br.s IL_3de7
    IL_3d70: ldloca.s V_50
    IL_3d72: call T System.Collections.Generic.List`1/Enumerator<Celeste.DecalData>::get_Current()
    IL_3d77: stloc.s V_52
- + IL_10060: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10061: ldloc V_52 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10062: ldloc V_3 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10063: ldc.i4.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10064: call System.Boolean Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal::MakeParallaxGroup(Celeste.Level,Celeste.DecalData,Celeste.LevelData,System.Boolean) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10065: brtrue IL_3de7 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.GroupedParallaxDecal.MakeParallaxGroupsIL(ILContext)
- + IL_10066: ldarg.0 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_10067: ldloc V_52 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_10068: ldloc V_3 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_10069: call System.Boolean VivHelper.Entities.Collectible::ImplementCustomDecalToEntitySet(Celeste.Level,Celeste.DecalData,Celeste.LevelData) @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
- + IL_1006a: brtrue IL_3de7 @ [VivHelper::]VivHelper.Entities.Collectible.ParseCollectibleDecals(ILContext)
    IL_3d79: ldarg.0
    IL_3d7a: ldloc.s V_52
    IL_3d7c: ldfld System.String Celeste.DecalData::Texture
@@ -4569,9 +4437,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3da9: ldloc.s V_52
    IL_3dab: ldfld System.String Celeste.DecalData::ColorHex
    IL_3db0: newobj System.Void Celeste.Decal::.ctor(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Int32,System.Single,System.String)
- + IL_1006b: dup @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_1006c: ldloc V_52 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_1006d: call System.Void Celeste.Mod.auspicioushelper.DecalMarker::BgLoad(Celeste.Decal,Celeste.DecalData) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
    IL_3db5: ldloc.s V_52
    IL_3db7: call System.Boolean Celeste.DecalData::HasDepth()
    IL_3dbc: brfalse.s IL_3dc5
@@ -4598,7 +4463,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3dfd: callvirt System.Void System.IDisposable::Dispose()
    IL_3e02: endfinally
    IL_3e03: ldarg.1
- + IL_1006e: call System.Boolean Bitsbolts.PassageExt::<ILLevelLoadLevel>m__C(System.Int32) @ [libbitsbolts::]Bitsbolts.PassageExt.ILLevelLoadLevel(ILContext)
    IL_3e04: brfalse IL_4028
    IL_3e09: ldarg.0
    IL_3e0a: ldfld Celeste.Session Celeste.Level::Session
@@ -4661,7 +4525,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3ec4: call Celeste.Player Celeste.Level::LoadNewPlayerForLevel(Microsoft.Xna.Framework.Vector2,Celeste.PlayerSpriteMode,Celeste.Level)
    IL_3ec9: stloc.s V_53
    IL_3ecb: ldloc.s V_53
- + IL_1006f: call Celeste.Player TAS.Input.Commands.ConsoleCommand::SetPlayerRemainder(Celeste.Player) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
    IL_3ecd: ldarg.1
    IL_3ece: stfld Celeste.Player/IntroTypes Celeste.Player::IntroType
    IL_3ed3: ldarg.0
@@ -4683,8 +4546,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3efe: ldloc.s V_53
    IL_3f00: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
    IL_3f05: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Level::GetFullCameraTargetAt(Celeste.Player,Microsoft.Xna.Framework.Vector2)
- + IL_10070: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.OneWayCameraTrigger.ilHookGetFullCameraTarget(ILContext)
- + IL_10071: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.XaphanHelper.Triggers.CameraBlocker::modCameraTarget(Microsoft.Xna.Framework.Vector2) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Triggers.CameraBlocker.ilHookGetFullCameraTarget(ILContext)
    IL_3f0a: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
    IL_3f0f: ldarg.0
    IL_3f10: ldloc.s V_55
@@ -4727,13 +4588,10 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_3f89: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
    IL_3f8e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_3f93: stsfld Microsoft.Xna.Framework.Vector2 Celeste.SpotlightWipe::FocusPoint
- + IL_10072: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger.ILLevelorig_LoadLevel(ILContext)
- + IL_10073: ldarg.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger.ILLevelorig_LoadLevel(ILContext)
- + IL_10074: call System.Boolean Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger::<ILLevelorig_LoadLevel>g__Delegate|11_1(Celeste.Level,Celeste.Player/IntroTypes) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger.ILLevelorig_LoadLevel(ILContext)
- + IL_10075: brtrue IL_3fb4 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger.ILLevelorig_LoadLevel(ILContext)
- + IL_10076: ldarg.1 @ [Killbind::]Celeste.Mod.Killbind.KillbindModule.LoadLevelInstantWipe(ILContext)
- + IL_10077: call System.Boolean Celeste.Mod.Killbind.KillbindModule::<LoadLevelInstantWipe>g__Delegate|20_1(Celeste.Player/IntroTypes) @ [Killbind::]Celeste.Mod.Killbind.KillbindModule.LoadLevelInstantWipe(ILContext)
- + IL_10078: brtrue IL_3fb4 @ [Killbind::]Celeste.Mod.Killbind.KillbindModule.LoadLevelInstantWipe(ILContext)
+ + IL_10000: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger.ILLevelorig_LoadLevel(ILContext)
+ + IL_10001: ldarg.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger.ILLevelorig_LoadLevel(ILContext)
+ + IL_10002: call System.Boolean Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger::<ILLevelorig_LoadLevel>g__Delegate|11_1(Celeste.Level,Celeste.Player/IntroTypes) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger.ILLevelorig_LoadLevel(ILContext)
+ + IL_10003: brtrue IL_3fb4 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.LevelTeleportTrigger.ILLevelorig_LoadLevel(ILContext)
    IL_3f98: ldarg.1
    IL_3f99: ldc.i4.1
    IL_3f9a: beq.s IL_3fab
@@ -4797,11 +4655,6 @@ IL: [LuckyHelper::]LuckyHelper.Entities.Room.PasteRoom.LevelOnOirgLoadLevelILHoo
    IL_403c: callvirt System.Boolean Celeste.Level::get_ShouldCreateCassetteManager()
    IL_4041: brfalse.s IL_405b
    IL_4043: ldarg.0
- + IL_10079: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
- + IL_1007a: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
- + IL_1007b: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
-       => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController+<>c.<Level_orig_LoadLevel>b__24_2(Level)
- + IL_1007c: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Celeste.Level,Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ManualCassetteController.Level_orig_LoadLevel(ILContext)
    IL_4044: call Monocle.Tracker Monocle.Scene::get_Tracker()
    IL_4049: callvirt T Monocle.Tracker::GetEntity<Celeste.CassetteBlockManager>()
    IL_404e: stloc.s V_58
