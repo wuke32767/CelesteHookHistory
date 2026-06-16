@@ -1,0 +1,16 @@
+On: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.RaycastedAudioController.OnAudioLoop(orig_Loop_string_Vector2,String,Vector2)
+[V_0] FMOD.Studio.EventInstance
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Vector2>::.ctor(T)
+   IL_0007: call FMOD.Studio.EventInstance Celeste.Audio::CreateInstance(System.String,System.Nullable`1<Microsoft.Xna.Framework.Vector2>)
+   IL_000c: stloc.0
+   IL_000d: ldloc.0
+   IL_000e: ldnull
+   IL_000f: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_0014: brfalse.s IL_001d
+   IL_0016: ldloc.0
+   IL_0017: callvirt FMOD.RESULT FMOD.Studio.EventInstance::start()
+   IL_001c: pop
+   IL_001d: ldloc.0
+   IL_001e: ret
