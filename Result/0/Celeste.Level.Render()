@@ -40,7 +40,7 @@ IL: [ExtendedVariantMode::]ExtendedVariants.Variants.ForegroundEffectOpacity.mod
 IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
 IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.ILLevelRender(ILContext)
 IL: [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
-IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass87_0.<applyILHook>b__0(ILContext)
 IL: [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_Render(ILContext)
 IL: [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.LevelOnRender(ILContext)
@@ -95,8 +95,8 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_004f: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Level
    IL_0054: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
    IL_0059: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTarget(Microsoft.Xna.Framework.Graphics.RenderTarget2D)
- + IL_1000f: call System.Boolean Celeste.Mod.auspicioushelper.MaterialPipe::backdropReorderDetour() @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
- + IL_10010: brtrue IL_007f @ [auspicioushelper::]Celeste.Mod.auspicioushelper.OnLoad+ILHook+<>c__DisplayClass6_0.<apply>b__0(ILContext)
+ + IL_1000f: call System.Boolean Celeste.Mod.auspicioushelper.MaterialPipe::backdropReorderDetour() @ [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass87_0.<applyILHook>b__0(ILContext)
+ + IL_10010: brtrue IL_007f @ [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass87_0.<applyILHook>b__0(ILContext)
    IL_005e: call Monocle.Engine Monocle.Engine::get_Instance()
    IL_0063: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
    IL_0068: ldarg.0
@@ -144,7 +144,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
  + IL_10029: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Stylegrounds.HallOfMirrors.ILLevelRender(ILContext)
  + IL_1002a: call System.Void Celeste.Mod.ScugHelper.Stylegrounds.HallOfMirrors::SaveNoFGBuffer(Celeste.Level) @ [ScugHelper::]Celeste.Mod.ScugHelper.Stylegrounds.HallOfMirrors.ILLevelRender(ILContext)
  + IL_1002b: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
- + IL_1002c: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController::<IL_Level_Render>g__SkipBloomRendering|13_14(Celeste.Level) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
+ + IL_1002c: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController::<IL_Level_Render>g__SkipBloomRendering|18_14(Celeste.Level) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
  + IL_1002d: brtrue IL_1002e @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
    IL_00a4: ldarg.0
    IL_00a5: ldfld Celeste.BloomRenderer Celeste.Level::Bloom
@@ -152,7 +152,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_00af: ldarg.0
    IL_00b0: callvirt System.Void Celeste.BloomRenderer::Apply(Monocle.VirtualRenderTarget,Monocle.Scene)
  + IL_1002e: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
- + IL_1002f: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController::<IL_Level_Render>g__CustomForegroundRendering|13_15(Celeste.Level) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
+ + IL_1002f: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController::<IL_Level_Render>g__CustomForegroundRendering|18_15(Celeste.Level) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
  + IL_10030: brtrue IL_1004f @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
  + IL_10031: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
  + IL_10032: ldc.i4 2 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
@@ -192,7 +192,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
  + IL_1004d: ldarg.0 @ [Aqua::]Celeste.Mod.Aqua.Rendering.RenderHook.Level_ILRender(ILContext)
  + IL_1004e: call System.Void Celeste.Mod.Aqua.Rendering.RenderHook::RenderForeground(Celeste.Level) @ [Aqua::]Celeste.Mod.Aqua.Rendering.RenderHook.Level_ILRender(ILContext)
  + IL_1004f: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
- + IL_10050: call System.Void Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController::<IL_Level_Render>g__DelayedBloomRendering|13_16(Celeste.Level) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
+ + IL_10050: call System.Void Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController::<IL_Level_Render>g__DelayedBloomRendering|18_16(Celeste.Level) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
    IL_00c1: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Level
    IL_00c6: ldarg.0
    IL_00c7: ldfld System.Single Celeste.Level::glitchTimer

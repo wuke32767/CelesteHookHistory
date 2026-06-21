@@ -1,0 +1,19 @@
+On: [auspicioushelper::]Celeste.Mod.auspicioushelper.Wrappers.BasicMultient.Hook(orig_OnLoseLeaderUtil,Follower)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.Follower::PersistentFollow
+   IL_0006: brfalse.s IL_001d
+   IL_0008: ldarg.0
+   IL_0009: call Monocle.Entity Monocle.Component::get_Entity()
+   IL_000e: ldsfld Monocle.BitTag Celeste.Tags::Persistent
+   IL_0013: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0018: callvirt System.Void Monocle.Entity::RemoveTag(System.Int32)
+   IL_001d: ldarg.0
+   IL_001e: ldnull
+   IL_001f: stfld Celeste.Leader Celeste.Follower::Leader
+   IL_0024: ldarg.0
+   IL_0025: ldfld System.Action Celeste.Follower::OnLoseLeader
+   IL_002a: brfalse.s IL_0037
+   IL_002c: ldarg.0
+   IL_002d: ldfld System.Action Celeste.Follower::OnLoseLeader
+   IL_0032: callvirt System.Void System.Action::Invoke()
+   IL_0037: ret
