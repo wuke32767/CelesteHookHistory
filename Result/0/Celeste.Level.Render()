@@ -24,6 +24,7 @@ IL: [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClas
         [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c.<LoadIfNeeded>b__2_0(Object)
         [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c.<LoadIfNeeded>b__2_1(Object)
         [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__1(Object)
+IL: [LylyraHelper::]Celeste.Mod.LylyraHelper.Entities.KuwaharaBlurController.LevelOnRender(ILContext)
 IL: [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
 IL: [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
 IL: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.MaskedDecal.Level_Render(ILContext)
@@ -153,46 +154,34 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_00b0: callvirt System.Void Celeste.BloomRenderer::Apply(Monocle.VirtualRenderTarget,Monocle.Scene)
  + IL_1002e: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
  + IL_1002f: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController::<IL_Level_Render>g__CustomForegroundRendering|18_15(Celeste.Level) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
- + IL_10030: brtrue IL_1004f @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
+ + IL_10030: brtrue IL_10045 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
+   IL_00b5: ldarg.0
  + IL_10031: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
  + IL_10032: ldc.i4 2 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
  + IL_10033: call System.Void Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer::RenderThis(Celeste.Level,System.Int32) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
- + IL_10034: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_10035: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_10036: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_10037: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
-       => Invoke: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer+<>c.<Level_Render>b__29_5(Level)
- + IL_10038: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_10039: call System.Void ExtendedVariants.Variants.ForegroundEffectOpacity::prepareForegroundOpacityEffect() @ [ExtendedVariantMode::]ExtendedVariants.Variants.ForegroundEffectOpacity.modLevelRender(ILContext)
- + IL_1003a: ldarg.0 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_1003b: call System.Void Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer::<Level_Render>g__renderStylemasksFgBehind|39_9(Celeste.Level) @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_Render(ILContext)
-   IL_00b5: ldarg.0
+ + IL_10034: ldarg.0 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_Render(ILContext)
+ + IL_10035: call System.Void Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer::<Level_Render>g__renderStylemasksFgBehind|39_9(Celeste.Level) @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_Render(ILContext)
+ + IL_10036: ldarg.0 @ [LylyraHelper::]Celeste.Mod.LylyraHelper.Entities.KuwaharaBlurController.LevelOnRender(ILContext)
+ + IL_10037: call System.Void Celeste.Mod.LylyraHelper.Entities.KuwaharaBlurController::ApplyKuwaharaBlur(Celeste.Level) @ [LylyraHelper::]Celeste.Mod.LylyraHelper.Entities.KuwaharaBlurController.LevelOnRender(ILContext)
    IL_00b6: ldfld Celeste.BackdropRenderer Celeste.Level::Foreground
    IL_00bb: ldarg.0
+ + IL_10038: ldarg.0 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_Render(ILContext)
+ + IL_10039: call System.Void Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer::<Level_Render>g__renderStylemasksFgAbove|39_10(Celeste.Level) @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_Render(ILContext)
    IL_00bc: callvirt System.Void Monocle.Renderer::Render(Monocle.Scene)
- + IL_1003c: ldarg.0 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_1003d: call System.Void Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer::<Level_Render>g__renderStylemasksFgAbove|39_10(Celeste.Level) @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_1003e: call System.Void ExtendedVariants.Variants.ForegroundEffectOpacity::finishForegroundOpacityEffect() @ [ExtendedVariantMode::]ExtendedVariants.Variants.ForegroundEffectOpacity.modLevelRender(ILContext)
- + IL_1003f: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_10040: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_10041: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_10042: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
-       => Invoke: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer+<>c.<Level_Render>b__29_6(Level)
- + IL_10043: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.StylegroundMaskRenderer.Level_Render(ILContext)
- + IL_10044: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
- + IL_10045: ldc.i4 3 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
- + IL_10046: call System.Void Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer::RenderThis(Celeste.Level,System.Int32) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
- + IL_10047: ldarg this @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
- + IL_10048: ldc.i4 0 @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
- + IL_10049: ldc.i4 0 @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
- + IL_1004a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
+ + IL_1003a: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
+ + IL_1003b: ldc.i4 3 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
+ + IL_1003c: call System.Void Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer::RenderThis(Celeste.Level,System.Int32) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
+ + IL_1003d: ldarg this @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
+ + IL_1003e: ldc.i4 0 @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
+ + IL_1003f: ldc.i4 0 @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
+ + IL_10040: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
        => Invoke: [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule+<>c.<modLevelRender>b__7_1(Level)
- + IL_1004b: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
- + IL_1004c: pop @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
- + IL_1004d: ldarg.0 @ [Aqua::]Celeste.Mod.Aqua.Rendering.RenderHook.Level_ILRender(ILContext)
- + IL_1004e: call System.Void Celeste.Mod.Aqua.Rendering.RenderHook::RenderForeground(Celeste.Level) @ [Aqua::]Celeste.Mod.Aqua.Rendering.RenderHook.Level_ILRender(ILContext)
- + IL_1004f: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
- + IL_10050: call System.Void Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController::<IL_Level_Render>g__DelayedBloomRendering|18_16(Celeste.Level) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
+ + IL_10041: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
+ + IL_10042: pop @ [WindowpaneHelper::]Celeste.Mod.WindowpaneHelper.WindowpaneHelperModule.modLevelRender(ILContext)
+ + IL_10043: ldarg.0 @ [Aqua::]Celeste.Mod.Aqua.Rendering.RenderHook.Level_ILRender(ILContext)
+ + IL_10044: call System.Void Celeste.Mod.Aqua.Rendering.RenderHook::RenderForeground(Celeste.Level) @ [Aqua::]Celeste.Mod.Aqua.Rendering.RenderHook.Level_ILRender(ILContext)
+ + IL_10045: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
+ + IL_10046: call System.Void Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController::<IL_Level_Render>g__DelayedBloomRendering|18_16(Celeste.Level) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.FgStylegroundBloomController.IL_Level_Render(ILContext)
    IL_00c1: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Level
    IL_00c6: ldarg.0
    IL_00c7: ldfld System.Single Celeste.Level::glitchTimer
@@ -202,8 +191,8 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_00d3: ldfld System.Single Celeste.Level::glitchSeed
    IL_00d8: ldc.r4 6.2831855
    IL_00dd: call System.Void Celeste.Glitch::Apply(Monocle.VirtualRenderTarget,System.Single,System.Single,System.Single)
- + IL_10051: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Stylegrounds.HallOfMirrors.ILLevelRender(ILContext)
- + IL_10052: call System.Void Celeste.Mod.ScugHelper.Stylegrounds.HallOfMirrors::SaveFullBuffer(Celeste.Level) @ [ScugHelper::]Celeste.Mod.ScugHelper.Stylegrounds.HallOfMirrors.ILLevelRender(ILContext)
+ + IL_10047: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Stylegrounds.HallOfMirrors.ILLevelRender(ILContext)
+ + IL_10048: call System.Void Celeste.Mod.ScugHelper.Stylegrounds.HallOfMirrors::SaveFullBuffer(Celeste.Level) @ [ScugHelper::]Celeste.Mod.ScugHelper.Stylegrounds.HallOfMirrors.ILLevelRender(ILContext)
    IL_00e2: ldsfld System.Boolean Monocle.Engine::DashAssistFreeze
    IL_00e7: brfalse.s IL_0133
    IL_00e9: ldarg.0
@@ -280,31 +269,31 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_01ec: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
    IL_01f1: call Monocle.Engine Monocle.Engine::get_Instance()
    IL_01f6: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
- + IL_10053: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
- + IL_10054: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
- + IL_10055: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
- + IL_10056: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_10049: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_1004a: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_1004b: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_1004c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
        => Invoke: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask+<>c.<Level_Render>b__12_2(Level)
- + IL_10057: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
- + IL_10058: call System.Void ExtendedVariants.Variants.BlurLevel::blurLevelBuffer() @ [ExtendedVariantMode::]ExtendedVariants.Variants.BlurLevel.modLevelRender(ILContext)
- + IL_10059: ldarg.0 @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.ILLevelRender(ILContext)
- + IL_1005a: call System.Void Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer::Render(Celeste.Level) @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.ILLevelRender(ILContext)
- + IL_1005b: ldarg.0 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
- + IL_1005c: call System.Void Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask::<Level_Render>g__prepareColorGradeMasks|13_2(Celeste.Level) @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
+ + IL_1004d: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_1004e: call System.Void ExtendedVariants.Variants.BlurLevel::blurLevelBuffer() @ [ExtendedVariantMode::]ExtendedVariants.Variants.BlurLevel.modLevelRender(ILContext)
+ + IL_1004f: ldarg.0 @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.ILLevelRender(ILContext)
+ + IL_10050: call System.Void Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer::Render(Celeste.Level) @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.ILLevelRender(ILContext)
+ + IL_10051: ldarg.0 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
+ + IL_10052: call System.Void Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask::<Level_Render>g__prepareColorGradeMasks|13_2(Celeste.Level) @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
    IL_01fb: ldnull
    IL_01fc: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTarget(Microsoft.Xna.Framework.Graphics.RenderTarget2D)
    IL_0201: call Monocle.Engine Monocle.Engine::get_Instance()
    IL_0206: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
    IL_020b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
    IL_0210: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::Clear(Microsoft.Xna.Framework.Color)
- + IL_1005d: ldarg.0 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
- + IL_1005e: ldc.i4 0 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
- + IL_1005f: call System.Void Celeste.Mod.VidPlayer.IVidPlayerStyleground::RenderHiresVPS(Celeste.Level,System.Boolean) @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
+ + IL_10053: ldarg.0 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
+ + IL_10054: ldc.i4 0 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
+ + IL_10055: call System.Void Celeste.Mod.VidPlayer.IVidPlayerStyleground::RenderHiresVPS(Celeste.Level,System.Boolean) @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
    IL_0215: call Monocle.Engine Monocle.Engine::get_Instance()
    IL_021a: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.Game::get_GraphicsDevice()
    IL_021f: call Microsoft.Xna.Framework.Graphics.Viewport Monocle.Engine::get_Viewport()
    IL_0224: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_Viewport(Microsoft.Xna.Framework.Graphics.Viewport)
- + IL_10060: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::Start_Store_LevelContent_In_TmpGameContent() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
+ + IL_10056: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::Start_Store_LevelContent_In_TmpGameContent() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
    IL_0229: ldc.r4 6
    IL_022e: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateScale(System.Single)
    IL_0233: ldsfld Microsoft.Xna.Framework.Matrix Monocle.Engine::ScreenMatrix
@@ -341,7 +330,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_029d: ldsfld Monocle.Atlas Celeste.GFX::ColorGrades
    IL_02a2: ldarg.0
    IL_02a3: ldfld System.String Celeste.Level::lastColorGrade
- + IL_10061: call System.String ExtendedVariants.Variants.ColorGrading::modColorGrading(System.String) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ColorGrading.modLevelRender(ILContext)
+ + IL_10057: call System.String ExtendedVariants.Variants.ColorGrading::modColorGrading(System.String) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ColorGrading.modLevelRender(ILContext)
    IL_02a8: ldsfld Monocle.Atlas Celeste.GFX::ColorGrades
    IL_02ad: ldstr "none"
    IL_02b2: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
@@ -351,7 +340,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_02c3: ldarg.0
    IL_02c4: ldfld Celeste.Session Celeste.Level::Session
    IL_02c9: ldfld System.String Celeste.Session::ColorGrade
- + IL_10062: call System.String ExtendedVariants.Variants.ColorGrading::modColorGrading(System.String) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ColorGrading.modLevelRender(ILContext)
+ + IL_10058: call System.String ExtendedVariants.Variants.ColorGrading::modColorGrading(System.String) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ColorGrading.modLevelRender(ILContext)
    IL_02ce: ldsfld Monocle.Atlas Celeste.GFX::ColorGrades
    IL_02d3: ldstr "none"
    IL_02d8: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
@@ -374,7 +363,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_030a: call System.Void Celeste.ColorGrade::Set(Monocle.MTexture)
    IL_030f: ldarg.0
    IL_0310: ldfld System.Single Celeste.Level::Zoom
- + IL_10063: call System.Single ExtendedVariants.Variants.ZoomLevel::modZoomStatic(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ZoomLevel.modLevelRender(ILContext)
+ + IL_10059: call System.Single ExtendedVariants.Variants.ZoomLevel::modZoomStatic(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ZoomLevel.modLevelRender(ILContext)
    IL_0315: ldc.r4 320
    IL_031a: ldarg.0
    IL_031b: ldfld System.Single Celeste.Level::ScreenPadding
@@ -393,9 +382,9 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_033e: ldc.r4 0.5625
    IL_0343: mul
    IL_0344: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
- + IL_10064: ldloca.s V_9 @ [ExtendedVariantMode::]ExtendedVariants.Variants.UpsideDown.modLevelRender(ILContext)
- + IL_10065: ldloca.s V_5 @ [ExtendedVariantMode::]ExtendedVariants.Variants.UpsideDown.modLevelRender(ILContext)
- + IL_10066: call System.Void ExtendedVariants.Variants.UpsideDown::applyUpsideDownEffect(Microsoft.Xna.Framework.Vector2&,Microsoft.Xna.Framework.Vector2&) @ [ExtendedVariantMode::]ExtendedVariants.Variants.UpsideDown.modLevelRender(ILContext)
+ + IL_1005a: ldloca.s V_9 @ [ExtendedVariantMode::]ExtendedVariants.Variants.UpsideDown.modLevelRender(ILContext)
+ + IL_1005b: ldloca.s V_5 @ [ExtendedVariantMode::]ExtendedVariants.Variants.UpsideDown.modLevelRender(ILContext)
+ + IL_1005c: call System.Void ExtendedVariants.Variants.UpsideDown::applyUpsideDownEffect(Microsoft.Xna.Framework.Vector2&,Microsoft.Xna.Framework.Vector2&) @ [ExtendedVariantMode::]ExtendedVariants.Variants.UpsideDown.modLevelRender(ILContext)
    IL_0349: ldsfld Celeste.SaveData Celeste.SaveData::Instance
    IL_034e: ldflda Celeste.Assists Celeste.SaveData::Assists
    IL_0353: ldfld System.Boolean Celeste.Assists::MirrorMode
@@ -421,7 +410,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_0398: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Microsoft.Xna.Framework.Graphics.RasterizerState::CullNone
    IL_039d: call Microsoft.Xna.Framework.Graphics.Effect Celeste.ColorGrade::get_Effect()
    IL_03a2: ldloc.2
- + IL_10067: call System.Void Celeste.Mod.MaxHelpingHand.Effects.HdParallax::renderHdParallaxesBg() @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Effects.HdParallax.onLevelRender(ILContext)
+ + IL_1005d: call System.Void Celeste.Mod.MaxHelpingHand.Effects.HdParallax::renderHdParallaxesBg() @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Effects.HdParallax.onLevelRender(ILContext)
    IL_03a3: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
    IL_03a8: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
    IL_03ad: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Level
@@ -433,13 +422,13 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_03c5: callvirt Microsoft.Xna.Framework.Rectangle Monocle.VirtualRenderTarget::get_Bounds()
    IL_03ca: newobj System.Void System.Nullable`1<Microsoft.Xna.Framework.Rectangle>::.ctor(T)
    IL_03cf: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
- + IL_10068: pop @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
- + IL_10069: ldarg.0 @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
- + IL_1006a: ldc.i4 0 @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
- + IL_1006b: ldc.i4 0 @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
- + IL_1006c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
+ + IL_1005e: pop @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
+ + IL_1005f: ldarg.0 @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
+ + IL_10060: ldc.i4 0 @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
+ + IL_10061: ldc.i4 0 @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
+ + IL_10062: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
        => Invoke: [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__1(Object)
- + IL_1006d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Microsoft.Xna.Framework.Color,System.Object>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
+ + IL_10063: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Microsoft.Xna.Framework.Color,System.Object>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [FrostTempleHelper::]FrostHelper.EntityRainbowifyController+<>c__DisplayClass4_0.<AllowColorChange>b__0(ILContext)
    IL_03d4: ldc.r4 0
    IL_03d9: ldloc.s V_5
    IL_03db: ldloc.s V_8
@@ -448,50 +437,50 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_03e7: ldfld System.Boolean Celeste.Assists::MirrorMode
    IL_03ec: brtrue.s IL_03f1
    IL_03ee: ldc.i4.0
-   IL_03ef: br.s IL_1006e
+   IL_03ef: br.s IL_10064
    IL_03f1: ldc.i4.1
- + IL_1006e: call Microsoft.Xna.Framework.Graphics.SpriteEffects ExtendedVariants.Variants.UpsideDown::applyUpsideDownEffectToSprites(Microsoft.Xna.Framework.Graphics.SpriteEffects) @ [ExtendedVariantMode::]ExtendedVariants.Variants.UpsideDown.modLevelRender(ILContext)
+ + IL_10064: call Microsoft.Xna.Framework.Graphics.SpriteEffects ExtendedVariants.Variants.UpsideDown::applyUpsideDownEffectToSprites(Microsoft.Xna.Framework.Graphics.SpriteEffects) @ [ExtendedVariantMode::]ExtendedVariants.Variants.UpsideDown.modLevelRender(ILContext)
    IL_03f2: ldc.r4 0
    IL_03f7: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Rectangle>,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Graphics.SpriteEffects,System.Single)
    IL_03fc: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
    IL_0401: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
- + IL_1006f: ldarg.0 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
- + IL_10070: ldc.i4 1 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
- + IL_10071: call System.Void Celeste.Mod.VidPlayer.IVidPlayerStyleground::RenderHiresVPS(Celeste.Level,System.Boolean) @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
- + IL_10072: call System.Void Celeste.Mod.MaxHelpingHand.Effects.HdParallax::renderHdParallaxesFg() @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Effects.HdParallax.onLevelRender(ILContext)
- + IL_10073: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
- + IL_10074: ldloc.s V_2 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
- + IL_10075: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
- + IL_10076: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
- + IL_10077: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_10065: ldarg.0 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
+ + IL_10066: ldc.i4 1 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
+ + IL_10067: call System.Void Celeste.Mod.VidPlayer.IVidPlayerStyleground::RenderHiresVPS(Celeste.Level,System.Boolean) @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
+ + IL_10068: call System.Void Celeste.Mod.MaxHelpingHand.Effects.HdParallax::renderHdParallaxesFg() @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Effects.HdParallax.onLevelRender(ILContext)
+ + IL_10069: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_1006a: ldloc.s V_2 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_1006b: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_1006c: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_1006d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
        => Invoke: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask+<>c.<Level_Render>b__12_10(Level,Matrix)
- + IL_10078: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<Celeste.Level,Microsoft.Xna.Framework.Matrix>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
- + IL_10079: ldloc V_2 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_1007a: ldloc V_9 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_1007b: ldloc V_5 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_1007c: ldloc V_8 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_1007d: call System.Void Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__UpdateCameraToScreenData|28_8(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_1007e: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_1007f: call Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__GetTrackedController|28_9(Celeste.Level) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_10080: stloc V_10 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_10081: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_10082: ldfld System.Boolean Monocle.Scene::Paused @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_10083: stloc V_11 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_10084: ldloc V_10 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_10085: call System.Void Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__RenderAboveColorgrade|28_10(Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_10086: ldarg.0 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
- + IL_10087: ldloc.s V_2 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
- + IL_10088: ldloc.s V_9 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
- + IL_10089: ldloc.s V_5 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
- + IL_1008a: ldloc.s V_8 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
- + IL_1008b: call System.Void Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask::<Level_Render>g__drawColorGradeMasks|13_10(Celeste.Level,Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single) @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
+ + IL_1006e: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<Celeste.Level,Microsoft.Xna.Framework.Matrix>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.StylegroundMasks.ColorGradeMask.Level_Render(ILContext)
+ + IL_1006f: ldloc V_2 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10070: ldloc V_9 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10071: ldloc V_5 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10072: ldloc V_8 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10073: call System.Void Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__UpdateCameraToScreenData|28_8(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10074: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10075: call Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__GetTrackedController|28_9(Celeste.Level) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10076: stloc V_10 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10077: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10078: ldfld System.Boolean Monocle.Scene::Paused @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10079: stloc V_11 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_1007a: ldloc V_10 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_1007b: call System.Void Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__RenderAboveColorgrade|28_10(Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_1007c: ldarg.0 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
+ + IL_1007d: ldloc.s V_2 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
+ + IL_1007e: ldloc.s V_9 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
+ + IL_1007f: ldloc.s V_5 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
+ + IL_10080: ldloc.s V_8 @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
+ + IL_10081: call System.Void Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask::<Level_Render>g__drawColorGradeMasks|13_10(Celeste.Level,Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single) @ [StyleMaskHelper::]Celeste.Mod.StyleMaskHelper.Entities.ColorGradeMask.Level_Render(ILContext)
    IL_0406: ldarg.0
    IL_0407: ldfld Celeste.Pathfinder Celeste.Level::Pathfinder
-   IL_040c: brfalse.s IL_1008c
+   IL_040c: brfalse.s IL_10082
    IL_040e: ldarg.0
    IL_040f: ldfld Celeste.Pathfinder Celeste.Level::Pathfinder
    IL_0414: ldfld System.Boolean Celeste.Pathfinder::DebugRenderEnabled
-   IL_0419: brfalse.s IL_1008c
+   IL_0419: brfalse.s IL_10082
    IL_041b: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
    IL_0420: ldc.i4.0
    IL_0421: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
@@ -510,23 +499,23 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_0452: callvirt System.Void Celeste.Pathfinder::Render()
    IL_0457: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
    IL_045c: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
- + IL_1008c: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::End_Store_LevelContent_In_TmpGameContent() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
- + IL_1008d: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::Draw_Something_On_TmpGameContent_Wrapper() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
- + IL_1008e: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::Draw_TmpGameContent_On_DefaultBuffer() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
- + IL_1008f: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::Redraw_Something_On_DefaultBuffer_Wrapper() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
- + IL_10090: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
- + IL_10091: call System.Void Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer::RenderHUD(Celeste.Level) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
- + IL_10092: ldarg.0 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
- + IL_10093: call System.Void Celeste.Mod.VidPlayer.GameplayHudRenderer::RenderForScene(Monocle.Scene) @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
+ + IL_10082: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::End_Store_LevelContent_In_TmpGameContent() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
+ + IL_10083: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::Draw_Something_On_TmpGameContent_Wrapper() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
+ + IL_10084: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::Draw_TmpGameContent_On_DefaultBuffer() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
+ + IL_10085: call System.Void Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager::Redraw_Something_On_DefaultBuffer_Wrapper() @ [DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.LoadLevelRenderHook(ILContext)
+ + IL_10086: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
+ + IL_10087: call System.Void Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer::RenderHUD(Celeste.Level) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.PlutoniumText.PlutoniumTextRenderer.Level_Render(ILContext)
+ + IL_10088: ldarg.0 @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
+ + IL_10089: call System.Void Celeste.Mod.VidPlayer.GameplayHudRenderer::RenderForScene(Monocle.Scene) @ [VidPlayer::]Celeste.Mod.VidPlayer.VidPlayerModule.ILLevelRenderPatches(ILContext)
    IL_0461: ldarg.0
    IL_0462: ldfld Celeste.Mod.UI.SubHudRenderer Celeste.Level::SubHudRenderer
    IL_0467: ldarg.0
    IL_0468: callvirt System.Void Monocle.Renderer::Render(Monocle.Scene)
- + IL_10094: ldarg.0 @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.ILLevelRender(ILContext)
- + IL_10095: call System.Void Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer::MapToScreen(Celeste.Level) @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.ILLevelRender(ILContext)
- + IL_10096: ldloc V_10 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_10097: ldloc V_11 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_10098: call System.Void Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__RenderBelowHud|28_11(Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController,System.Boolean) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_1008a: ldarg.0 @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.ILLevelRender(ILContext)
+ + IL_1008b: call System.Void Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer::MapToScreen(Celeste.Level) @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.ILLevelRender(ILContext)
+ + IL_1008c: ldloc V_10 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_1008d: ldloc V_11 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_1008e: call System.Void Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__RenderBelowHud|28_11(Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController,System.Boolean) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
    IL_046d: ldarg.0
    IL_046e: ldfld System.Boolean Monocle.Scene::Paused
    IL_0473: brfalse.s IL_047d
@@ -542,31 +531,31 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.Le
    IL_0494: brfalse.s IL_049e
    IL_0496: ldarg.0
    IL_0497: ldfld System.Boolean Celeste.Level::AllowHudHide
-   IL_049c: brtrue.s IL_10099
+   IL_049c: brtrue.s IL_1008f
    IL_049e: ldarg.0
    IL_049f: ldfld Celeste.HudRenderer Celeste.Level::HudRenderer
    IL_04a4: ldarg.0
    IL_04a5: callvirt System.Void Monocle.Renderer::Render(Monocle.Scene)
- + IL_10099: ldloc V_10 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_1009a: ldloc V_11 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
- + IL_1009b: call System.Void Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__RenderAboveHud|28_12(Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController,System.Boolean) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_1008f: ldloc V_10 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10090: ldloc V_11 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
+ + IL_10091: call System.Void Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController::<IL_Level_Render>g__RenderAboveHud|28_12(Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController,System.Boolean) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.StylegroundDepthController.IL_Level_Render(ILContext)
    IL_04aa: ldarg.0
    IL_04ab: ldfld Celeste.ScreenWipe Celeste.Level::Wipe
- + IL_1009c: call Celeste.ScreenWipe TAS.EverestInterop.SimplifiedGraphicsFeature::SimplifiedScreenWipe(Celeste.ScreenWipe) @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.LevelOnRender(ILContext)
-   IL_04b0: brfalse.s IL_100a0
- + IL_1009d: call Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModuleSettings Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModule::get_Settings() @ [AssortedAccessibility::]Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModule.LevelOnRender(ILContext)
- + IL_1009e: callvirt System.Boolean Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModuleSettings::get_DisableScreenWipes() @ [AssortedAccessibility::]Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModule.LevelOnRender(ILContext)
- + IL_1009f: brtrue IL_100a0 @ [AssortedAccessibility::]Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModule.LevelOnRender(ILContext)
+ + IL_10092: call Celeste.ScreenWipe TAS.EverestInterop.SimplifiedGraphicsFeature::SimplifiedScreenWipe(Celeste.ScreenWipe) @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.SimplifiedGraphicsFeature.LevelOnRender(ILContext)
+   IL_04b0: brfalse.s IL_10096
+ + IL_10093: call Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModuleSettings Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModule::get_Settings() @ [AssortedAccessibility::]Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModule.LevelOnRender(ILContext)
+ + IL_10094: callvirt System.Boolean Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModuleSettings::get_DisableScreenWipes() @ [AssortedAccessibility::]Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModule.LevelOnRender(ILContext)
+ + IL_10095: brtrue IL_10096 @ [AssortedAccessibility::]Celeste.Mod.AssortedAccessibility.AssortedAccessibilityModule.LevelOnRender(ILContext)
    IL_04b2: ldarg.0
    IL_04b3: ldfld Celeste.ScreenWipe Celeste.Level::Wipe
    IL_04b8: ldarg.0
    IL_04b9: callvirt System.Void Monocle.Renderer::Render(Monocle.Scene)
- + IL_100a0: ldarg.0 @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
- + IL_100a1: ldc.i4 0 @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
- + IL_100a2: ldc.i4 0 @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
- + IL_100a3: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
+ + IL_10096: ldarg.0 @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
+ + IL_10097: ldc.i4 0 @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
+ + IL_10098: ldc.i4 0 @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
+ + IL_10099: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
        => Invoke: [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks+<>c.<Level_Render>b__6_0(Level)
- + IL_100a4: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
+ + IL_1009a: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.Level>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [VivHelper::]VivHelper.Module__Extensions__Etc.TeleportV2Hooks.Level_Render(ILContext)
    IL_04be: ldarg.0
    IL_04bf: ldfld Celeste.HiresSnow Celeste.Level::HiresSnow
    IL_04c4: brfalse.s IL_04d2
