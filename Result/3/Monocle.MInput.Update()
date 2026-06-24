@@ -1,9 +1,9 @@
-On: [MiscUtils::]Celeste.Mod.MiscUtils.MiscUtilsModule.HookMInputUpdate(orig_Update)
-On: [CelesteTAS-EverestInterop::]TAS.Playback.Core.On_MInput_Update(orig_Update)
-On: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Cutscenes.TasHelper.MInput_Update(orig_Update)
-On: [SpeedrunTool::]Celeste.Mod.SpeedrunTool.Other.HotkeyConfigUi.MInputOnUpdate(orig_Update)
+On: {MiscUtils: Priority: 0, Before: CelesteTAS}[MiscUtils::]Celeste.Mod.MiscUtils.MiscUtilsModule.HookMInputUpdate(orig_Update)
+On: {CelesteTAS: Priority: 2147483647}[CelesteTAS-EverestInterop::]TAS.Playback.Core.On_MInput_Update(orig_Update)
+On: {UNKNOWN_DETOUR: Priority: 0}[StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Cutscenes.TasHelper.MInput_Update(orig_Update)
+On: {UNKNOWN_DETOUR: Priority: 0}[SpeedrunTool::]Celeste.Mod.SpeedrunTool.Other.HotkeyConfigUi.MInputOnUpdate(orig_Update)
 On: [GooberHelper::]Celeste.Mod.GooberHelper.Settings.Categories.MouseJoystick.MouseJoystick.patch_MInput_Update(orig_Update)
-IL: [CelesteTAS-EverestInterop::]TAS.Playback.Core.IL_MInput_Update(ILContext)
+IL: {CelesteTAS: Priority: 2147483647}[CelesteTAS-EverestInterop::]TAS.Playback.Core.IL_MInput_Update(ILContext)
 [V_0] System.Boolean
 [V_1] System.Boolean
 [V_2] System.Int32
