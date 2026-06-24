@@ -1,0 +1,47 @@
+On: [Aqua::]Celeste.Mod.Aqua.Core.FlyFeatherExtensions.FlyFeather_Update(orig_Update,FlyFeather)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld System.Single Celeste.FlyFeather::respawnTimer
+   IL_000c: ldc.r4 0
+   IL_0011: ble.un.s IL_0038
+   IL_0013: ldarg.0
+   IL_0014: ldarg.0
+   IL_0015: ldfld System.Single Celeste.FlyFeather::respawnTimer
+   IL_001a: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_001f: sub
+   IL_0020: stfld System.Single Celeste.FlyFeather::respawnTimer
+   IL_0025: ldarg.0
+   IL_0026: ldfld System.Single Celeste.FlyFeather::respawnTimer
+   IL_002b: ldc.r4 0
+   IL_0030: bgt.un.s IL_0038
+   IL_0032: ldarg.0
+   IL_0033: callvirt System.Void Celeste.FlyFeather::Respawn()
+   IL_0038: ldarg.0
+   IL_0039: callvirt System.Void Celeste.FlyFeather::UpdateY()
+   IL_003e: ldarg.0
+   IL_003f: ldfld Celeste.VertexLight Celeste.FlyFeather::light
+   IL_0044: ldarg.0
+   IL_0045: ldfld Celeste.VertexLight Celeste.FlyFeather::light
+   IL_004a: ldfld System.Single Celeste.VertexLight::Alpha
+   IL_004f: ldarg.0
+   IL_0050: ldfld Monocle.Sprite Celeste.FlyFeather::sprite
+   IL_0055: ldfld System.Boolean Monocle.Component::Visible
+   IL_005a: brtrue.s IL_0063
+   IL_005c: ldc.r4 0
+   IL_0061: br.s IL_0068
+   IL_0063: ldc.r4 1
+   IL_0068: ldc.r4 4
+   IL_006d: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0072: mul
+   IL_0073: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0078: stfld System.Single Celeste.VertexLight::Alpha
+   IL_007d: ldarg.0
+   IL_007e: ldfld Celeste.BloomPoint Celeste.FlyFeather::bloom
+   IL_0083: ldarg.0
+   IL_0084: ldfld Celeste.VertexLight Celeste.FlyFeather::light
+   IL_0089: ldfld System.Single Celeste.VertexLight::Alpha
+   IL_008e: ldc.r4 0.8
+   IL_0093: mul
+   IL_0094: stfld System.Single Celeste.BloomPoint::Alpha
+   IL_0099: ret
