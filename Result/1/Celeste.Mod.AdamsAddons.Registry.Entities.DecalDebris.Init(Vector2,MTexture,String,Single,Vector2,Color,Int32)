@@ -1,3 +1,5 @@
+IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+        [CelesteTAS-EverestInterop::]TAS.Gameplay.DesyncFix.SeededRandomness+DebrisHandler+<>c__DisplayClass4_0.<Init>b__3(ILCursor,ILContext)
 [V_0] Celeste.Mod.AdamsAddons.Registry.Entities.DecalDebris
  + IL_10000: ldarg pos @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10001: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
@@ -74,8 +76,12 @@
    IL_00d2: newobj System.Void Microsoft.Xna.Framework.Color::.ctor(System.Int32,System.Int32,System.Int32)
    IL_00d7: stfld Microsoft.Xna.Framework.Color Celeste.Mod.AdamsAddons.Registry.Entities.DecalDebris::colorDark
    IL_00dc: ldarg.0
-   IL_00dd: stloc.0
-   IL_00de: br.s IL_00e0
-   IL_00e0: ldloc.0
+   IL_00dd: ldarg.s depth
+   IL_00df: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_00e4: nop
+   IL_00e5: ldarg.0
+   IL_00e6: stloc.0
+   IL_00e7: br.s IL_00e9
+   IL_00e9: ldloc.0
  + IL_10002: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_00e1: ret
+   IL_00ea: ret

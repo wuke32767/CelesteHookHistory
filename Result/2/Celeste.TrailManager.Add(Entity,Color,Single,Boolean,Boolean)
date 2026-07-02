@@ -1,0 +1,31 @@
+On: [AdamsAddons::]Celeste.Mod.AdamsAddons.Entities.Controllers.TrailColorController.modAdd(orig_Add_Entity_Color_float_bool_bool,Entity,Color,Single,Boolean,Boolean)
+[V_0] Monocle.Image
+[V_1] Celeste.PlayerHair
+   IL_0000: ldarg.0
+   IL_0001: callvirt T Monocle.Entity::Get<Celeste.PlayerSprite>()
+   IL_0006: stloc.0
+   IL_0007: ldloc.0
+   IL_0008: brtrue.s IL_0011
+   IL_000a: ldarg.0
+   IL_000b: callvirt T Monocle.Entity::Get<Monocle.Sprite>()
+   IL_0010: stloc.0
+   IL_0011: ldarg.0
+   IL_0012: callvirt T Monocle.Entity::Get<Celeste.PlayerHair>()
+   IL_0017: stloc.1
+   IL_0018: ldarg.0
+   IL_0019: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_001e: ldloc.0
+   IL_001f: ldloc.1
+   IL_0020: ldloc.0
+   IL_0021: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0026: ldarg.1
+   IL_0027: ldarg.0
+   IL_0028: callvirt System.Int32 Monocle.Entity::get_Depth()
+   IL_002d: ldc.i4.1
+   IL_002e: add
+   IL_002f: ldarg.2
+   IL_0030: ldarg.3
+   IL_0031: ldarg.s useRawDeltaTime
+   IL_0033: call Celeste.TrailManager/Snapshot Celeste.TrailManager::Add(Microsoft.Xna.Framework.Vector2,Monocle.Image,Celeste.PlayerHair,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Int32,System.Single,System.Boolean,System.Boolean)
+   IL_0038: pop
+   IL_0039: ret
