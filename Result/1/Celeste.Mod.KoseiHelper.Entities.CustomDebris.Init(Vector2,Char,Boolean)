@@ -1,64 +1,92 @@
 IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
         [CelesteTAS-EverestInterop::]TAS.Gameplay.DesyncFix.SeededRandomness+DebrisHandler+<>c__DisplayClass4_0.<Init>b__3(ILCursor,ILContext)
-[V_0] Celeste.Mod.LogLevel
-[V_1] System.String
-[V_2] System.String
-[V_3] Celeste.Mod.Logger/LogInterpolatedStringHandler
-[V_4] System.Boolean
+[V_0] System.Boolean
+[V_1] System.Boolean
+[V_2] Monocle.Image
+[V_3] Celeste.Mod.LogLevel
+[V_4] System.String
+[V_5] Celeste.Mod.LogLevel
+[V_6] System.String
+[V_7] Celeste.Mod.Logger/LogInterpolatedStringHandler
+[V_8] System.Boolean
+[V_9] Celeste.Mod.KoseiHelper.Entities.CustomDebris
  + IL_10000: ldarg position @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
  + IL_10001: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_0000: ldarg.0
-   IL_0001: ldarg.1
-   IL_0002: ldarg.2
-   IL_0003: ldarg.3
-   IL_0004: call Celeste.Debris Celeste.Debris::Init(Microsoft.Xna.Framework.Vector2,System.Char,System.Boolean)
-   IL_0009: pop
-   IL_000a: ldarg.0
-   IL_000b: ldfld System.String Celeste.Mod.KoseiHelper.Entities.CustomDebris::customTexture
-   IL_0010: call System.Boolean System.String::IsNullOrEmpty(System.String)
-   IL_0015: brtrue.s IL_0089
-   IL_0017: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_001c: ldarg.0
-   IL_001d: ldfld System.String Celeste.Mod.KoseiHelper.Entities.CustomDebris::customTexture
-   IL_0022: callvirt System.Boolean Monocle.Atlas::Has(System.String)
-   IL_0027: brfalse.s IL_004d
-   IL_0029: ldarg.0
-   IL_002a: call T Monocle.Entity::Get<Monocle.Image>()
-   IL_002f: dup
-   IL_0030: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_0035: ldarg.0
-   IL_0036: ldfld System.String Celeste.Mod.KoseiHelper.Entities.CustomDebris::customTexture
-   IL_003b: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
-   IL_0040: stfld Monocle.MTexture Monocle.Image::Texture
-   IL_0045: callvirt Monocle.Image Monocle.Image::CenterOrigin()
-   IL_004a: pop
-   IL_004b: br.s IL_0089
-   IL_004d: ldc.i4.3
-   IL_004e: stloc.0
-   IL_004f: ldloc.0
-   IL_0050: ldstr "KoseiHelper"
-   IL_0055: stloc.1
-   IL_0056: ldloc.1
-   IL_0057: stloc.2
-   IL_0058: ldc.i4.s 19
-   IL_005a: ldc.i4.1
-   IL_005b: ldloc.0
-   IL_005c: ldloc.1
-   IL_005d: ldloca.s V_4
-   IL_005f: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler::.ctor(System.Int32,System.Int32,Celeste.Mod.LogLevel,System.String,System.Boolean&)
-   IL_0064: stloc.3
-   IL_0065: ldloc.s V_4
-   IL_0067: brfalse.s IL_0082
-   IL_0069: ldloca.s V_3
-   IL_006b: ldstr "Texture not found: "
-   IL_0070: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler::AppendLiteral(System.String)
-   IL_0075: ldloca.s V_3
-   IL_0077: ldarg.0
-   IL_0078: ldfld System.String Celeste.Mod.KoseiHelper.Entities.CustomDebris::customTexture
-   IL_007d: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler::AppendFormatted(System.String)
-   IL_0082: ldloc.2
-   IL_0083: ldloc.3
-   IL_0084: call System.Void Celeste.Mod.Logger::Log(Celeste.Mod.LogLevel,System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler)
-   IL_0089: ldarg.0
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.1
+   IL_0003: ldarg.2
+   IL_0004: ldarg.3
+   IL_0005: call Celeste.Debris Celeste.Debris::Init(Microsoft.Xna.Framework.Vector2,System.Char,System.Boolean)
+   IL_000a: pop
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.String Celeste.Mod.KoseiHelper.Entities.CustomDebris::customTexture
+   IL_0011: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0016: ldc.i4.0
+   IL_0017: ceq
+   IL_0019: stloc.0
+   IL_001a: ldloc.0
+   IL_001b: brfalse IL_00aa
+   IL_0020: nop
+   IL_0021: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0026: ldarg.0
+   IL_0027: ldfld System.String Celeste.Mod.KoseiHelper.Entities.CustomDebris::customTexture
+   IL_002c: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_0031: stloc.1
+   IL_0032: ldloc.1
+   IL_0033: brfalse.s IL_005d
+   IL_0035: nop
+   IL_0036: ldarg.0
+   IL_0037: call T Monocle.Entity::Get<Monocle.Image>()
+   IL_003c: stloc.2
+   IL_003d: ldloc.2
+   IL_003e: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_0043: ldarg.0
+   IL_0044: ldfld System.String Celeste.Mod.KoseiHelper.Entities.CustomDebris::customTexture
+   IL_0049: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_004e: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_0053: ldloc.2
+   IL_0054: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0059: pop
+   IL_005a: nop
+   IL_005b: br.s IL_00a9
+   IL_005d: nop
+   IL_005e: ldc.i4.3
+   IL_005f: stloc.3
+   IL_0060: ldloc.3
+   IL_0061: stloc.s V_5
+   IL_0063: ldstr "KoseiHelper"
+   IL_0068: stloc.s V_4
+   IL_006a: ldloc.s V_4
+   IL_006c: stloc.s V_6
+   IL_006e: ldc.i4.s 19
+   IL_0070: ldc.i4.1
+   IL_0071: ldloc.3
+   IL_0072: ldloc.s V_4
+   IL_0074: ldloca.s V_8
+   IL_0076: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler::.ctor(System.Int32,System.Int32,Celeste.Mod.LogLevel,System.String,System.Boolean&)
+   IL_007b: stloc.s V_7
+   IL_007d: ldloc.s V_8
+   IL_007f: brfalse.s IL_009c
+   IL_0081: ldloca.s V_7
+   IL_0083: ldstr "Texture not found: "
+   IL_0088: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_008d: nop
+   IL_008e: ldloca.s V_7
+   IL_0090: ldarg.0
+   IL_0091: ldfld System.String Celeste.Mod.KoseiHelper.Entities.CustomDebris::customTexture
+   IL_0096: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_009b: nop
+   IL_009c: ldloc.s V_5
+   IL_009e: ldloc.s V_6
+   IL_00a0: ldloc.s V_7
+   IL_00a2: call System.Void Celeste.Mod.Logger::Log(Celeste.Mod.LogLevel,System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler)
+   IL_00a7: nop
+   IL_00a8: nop
+   IL_00a9: nop
+   IL_00aa: ldarg.0
+   IL_00ab: stloc.s V_9
+   IL_00ad: br.s IL_00af
+   IL_00af: ldloc.s V_9
  + IL_10002: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-   IL_008a: ret
+   IL_00b1: ret

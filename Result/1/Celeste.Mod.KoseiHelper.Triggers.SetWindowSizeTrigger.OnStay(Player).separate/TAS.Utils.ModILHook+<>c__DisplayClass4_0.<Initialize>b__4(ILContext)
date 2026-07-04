@@ -1,44 +1,57 @@
-[V_0] System.Single
-[V_1] System.Int32
-   IL_0000: ldarg.0
-   IL_0001: ldarg.1
-   IL_0002: call System.Void Celeste.Trigger::OnStay(Celeste.Player)
+[V_0] Celeste.Level
+[V_1] System.Boolean
+[V_2] System.Single
+[V_3] System.Int32
+[V_4] System.Int32
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.1
+   IL_0003: call System.Void Celeste.Trigger::OnStay(Celeste.Player)
  + IL_10000: call System.Boolean TAS.Gameplay.ForceAllowAccessibilityTools::get_Enabled() @ [CelesteTAS-EverestInterop::]TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
- + IL_10001: brfalse IL_0007 @ [CelesteTAS-EverestInterop::]TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
+ + IL_10001: brfalse IL_0008 @ [CelesteTAS-EverestInterop::]TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
  + IL_10002: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.ModILHook+<>c__DisplayClass4_0.<Initialize>b__4(ILContext)
-   IL_0007: ldarg.0
-   IL_0008: call T Monocle.Entity::SceneAs<Celeste.Level>()
-   IL_000d: pop
-   IL_000e: ldarg.0
-   IL_000f: ldfld System.Boolean Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::fullScreen
-   IL_0014: brfalse.s IL_001c
-   IL_0016: call System.Void Monocle.Engine::SetFullscreen()
-   IL_001b: ret
-   IL_001c: ldarg.0
-   IL_001d: ldarg.1
-   IL_001e: ldarg.0
-   IL_001f: ldfld Celeste.Trigger/PositionModes Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::positionMode
-   IL_0024: call System.Single Celeste.Trigger::GetPositionLerp(Celeste.Player,Celeste.Trigger/PositionModes)
-   IL_0029: stloc.0
-   IL_002a: ldarg.0
-   IL_002b: ldfld System.Int32 Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::windowWidthFrom
-   IL_0030: conv.r4
+   IL_0008: nop
+   IL_0009: ldarg.0
+   IL_000a: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_000f: stloc.0
+   IL_0010: ldarg.0
+   IL_0011: ldfld System.Boolean Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::fullScreen
+   IL_0016: stloc.1
+   IL_0017: ldloc.1
+   IL_0018: brfalse.s IL_0022
+   IL_001a: call System.Void Monocle.Engine::SetFullscreen()
+   IL_001f: nop
+   IL_0020: br.s IL_0068
+   IL_0022: nop
+   IL_0023: ldarg.0
+   IL_0024: ldarg.1
+   IL_0025: ldarg.0
+   IL_0026: ldfld Celeste.Trigger/PositionModes Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::positionMode
+   IL_002b: call System.Single Celeste.Trigger::GetPositionLerp(Celeste.Player,Celeste.Trigger/PositionModes)
+   IL_0030: stloc.2
    IL_0031: ldarg.0
-   IL_0032: ldfld System.Int32 Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::windowWidthTo
+   IL_0032: ldfld System.Int32 Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::windowWidthFrom
    IL_0037: conv.r4
-   IL_0038: ldloc.0
-   IL_0039: call System.Single Microsoft.Xna.Framework.MathHelper::Lerp(System.Single,System.Single,System.Single)
-   IL_003e: conv.i4
-   IL_003f: ldarg.0
-   IL_0040: ldfld System.Int32 Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::windowHeightFrom
-   IL_0045: conv.r4
-   IL_0046: ldarg.0
-   IL_0047: ldfld System.Int32 Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::windowHeightTo
-   IL_004c: conv.r4
-   IL_004d: ldloc.0
-   IL_004e: call System.Single Microsoft.Xna.Framework.MathHelper::Lerp(System.Single,System.Single,System.Single)
-   IL_0053: conv.i4
-   IL_0054: stloc.1
-   IL_0055: ldloc.1
-   IL_0056: call System.Void Monocle.Engine::SetWindowed(System.Int32,System.Int32)
-   IL_005b: ret
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Int32 Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::windowWidthTo
+   IL_003e: conv.r4
+   IL_003f: ldloc.2
+   IL_0040: call System.Single Microsoft.Xna.Framework.MathHelper::Lerp(System.Single,System.Single,System.Single)
+   IL_0045: conv.i4
+   IL_0046: stloc.3
+   IL_0047: ldarg.0
+   IL_0048: ldfld System.Int32 Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::windowHeightFrom
+   IL_004d: conv.r4
+   IL_004e: ldarg.0
+   IL_004f: ldfld System.Int32 Celeste.Mod.KoseiHelper.Triggers.SetWindowSizeTrigger::windowHeightTo
+   IL_0054: conv.r4
+   IL_0055: ldloc.2
+   IL_0056: call System.Single Microsoft.Xna.Framework.MathHelper::Lerp(System.Single,System.Single,System.Single)
+   IL_005b: conv.i4
+   IL_005c: stloc.s V_4
+   IL_005e: ldloc.3
+   IL_005f: ldloc.s V_4
+   IL_0061: call System.Void Monocle.Engine::SetWindowed(System.Int32,System.Int32)
+   IL_0066: nop
+   IL_0067: nop
+   IL_0068: ret
