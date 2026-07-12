@@ -17,7 +17,7 @@
    IL_0009: ret
    IL_000a: ldarg.0
    IL_000b: ldfld Celeste.Editor.LevelTemplateType Celeste.Editor.LevelTemplate::Type
-   IL_0010: brtrue IL_0355
+   IL_0010: brtrue IL_034b
    IL_0015: ldc.i4.0
    IL_0016: stloc.0
    IL_0017: call Monocle.Scene Monocle.Engine::get_Scene()
@@ -118,7 +118,7 @@
    IL_0123: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Editor.LevelTemplate::solids
    IL_0128: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::GetEnumerator()
    IL_012d: stloc.s V_4
-   IL_012f: br.s IL_018c
+   IL_012f: br.s IL_0182
    IL_0131: ldloca.s V_4
    IL_0133: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::get_Current()
    IL_0138: stloc.s V_6
@@ -142,207 +142,205 @@
    IL_0167: conv.r4
    IL_0168: ldarg.0
    IL_0169: ldfld System.Boolean Celeste.Editor.LevelTemplate::Dummy
-   IL_016e: brtrue.s IL_0182
-   IL_0170: ldsfld Microsoft.Xna.Framework.Color[] Celeste.Editor.LevelTemplate::fgTilesColor
-   IL_0175: ldarg.0
-   IL_0176: ldfld System.Int32 Celeste.Editor.LevelTemplate::EditorColorIndex
-   IL_017b: ldelem.any Microsoft.Xna.Framework.Color
-   IL_0180: br.s IL_0187
-   IL_0182: ldsfld Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::dummyFgTilesColor
-   IL_0187: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_018c: ldloca.s V_4
-   IL_018e: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::MoveNext()
-   IL_0193: brtrue.s IL_0131
-   IL_0195: leave.s IL_01a5
-   IL_0197: ldloca.s V_4
-   IL_0199: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>
-   IL_019f: callvirt System.Void System.IDisposable::Dispose()
-   IL_01a4: endfinally
-   IL_01a5: ldarg.0
-   IL_01a6: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Editor.LevelTemplate::Spawns
-   IL_01ab: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::GetEnumerator()
-   IL_01b0: stloc.s V_7
-   IL_01b2: br.s IL_01f5
-   IL_01b4: ldloca.s V_7
-   IL_01b6: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::get_Current()
-   IL_01bb: stloc.s V_8
+   IL_016e: brtrue.s IL_0178
+   IL_0170: ldarg.0
+   IL_0171: call Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::get_EditorColor()
+   IL_0176: br.s IL_017d
+   IL_0178: ldsfld Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::dummyFgTilesColor
+   IL_017d: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0182: ldloca.s V_4
+   IL_0184: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::MoveNext()
+   IL_0189: brtrue.s IL_0131
+   IL_018b: leave.s IL_019b
+   IL_018d: ldloca.s V_4
+   IL_018f: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>
+   IL_0195: callvirt System.Void System.IDisposable::Dispose()
+   IL_019a: endfinally
+   IL_019b: ldarg.0
+   IL_019c: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Editor.LevelTemplate::Spawns
+   IL_01a1: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::GetEnumerator()
+   IL_01a6: stloc.s V_7
+   IL_01a8: br.s IL_01eb
+   IL_01aa: ldloca.s V_7
+   IL_01ac: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::get_Current()
+   IL_01b1: stloc.s V_8
  + IL_10000: ldarg.0 @ [VivHelper::]VivHelper.Entities.SpawnPointHooks.LevelTemplate_RenderContents(ILContext)
  + IL_10001: ldloc V_8 @ [VivHelper::]VivHelper.Entities.SpawnPointHooks.LevelTemplate_RenderContents(ILContext)
  + IL_10002: ldarg.2 @ [VivHelper::]VivHelper.Entities.SpawnPointHooks.LevelTemplate_RenderContents(ILContext)
  + IL_10003: call System.Boolean VivHelper.Entities.SpawnPointHooks::SpawnChecker(Celeste.Editor.LevelTemplate,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List`1<Celeste.Editor.LevelTemplate>) @ [VivHelper::]VivHelper.Entities.SpawnPointHooks.LevelTemplate_RenderContents(ILContext)
- + IL_10004: brtrue IL_01f5 @ [VivHelper::]VivHelper.Entities.SpawnPointHooks.LevelTemplate_RenderContents(ILContext)
-   IL_01bd: ldarg.0
-   IL_01be: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
-   IL_01c3: conv.r4
-   IL_01c4: ldloc.s V_8
-   IL_01c6: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_01cb: add
-   IL_01cc: ldarg.0
-   IL_01cd: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
-   IL_01d2: conv.r4
-   IL_01d3: ldloc.s V_8
-   IL_01d5: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_01da: add
-   IL_01db: ldc.r4 1
-   IL_01e0: sub
-   IL_01e1: ldc.r4 1
-   IL_01e6: ldc.r4 1
-   IL_01eb: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Red()
-   IL_01f0: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_01f5: ldloca.s V_7
-   IL_01f7: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::MoveNext()
-   IL_01fc: brtrue.s IL_01b4
-   IL_01fe: leave.s IL_020e
-   IL_0200: ldloca.s V_7
-   IL_0202: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>
-   IL_0208: callvirt System.Void System.IDisposable::Dispose()
-   IL_020d: endfinally
-   IL_020e: ldarg.0
-   IL_020f: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Editor.LevelTemplate::Strawberries
-   IL_0214: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::GetEnumerator()
-   IL_0219: stloc.s V_7
-   IL_021b: br.s IL_0264
-   IL_021d: ldloca.s V_7
-   IL_021f: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::get_Current()
-   IL_0224: stloc.s V_9
-   IL_0226: ldarg.0
-   IL_0227: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
-   IL_022c: conv.r4
-   IL_022d: ldloc.s V_9
-   IL_022f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_0234: add
-   IL_0235: ldc.r4 1
-   IL_023a: sub
-   IL_023b: ldarg.0
-   IL_023c: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
-   IL_0241: conv.r4
-   IL_0242: ldloc.s V_9
-   IL_0244: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_0249: add
-   IL_024a: ldc.r4 2
-   IL_024f: sub
-   IL_0250: ldc.r4 3
-   IL_0255: ldc.r4 3
-   IL_025a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_LightPink()
-   IL_025f: call System.Void Monocle.Draw::HollowRect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0264: ldloca.s V_7
-   IL_0266: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::MoveNext()
-   IL_026b: brtrue.s IL_021d
-   IL_026d: leave.s IL_027d
-   IL_026f: ldloca.s V_7
-   IL_0271: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>
-   IL_0277: callvirt System.Void System.IDisposable::Dispose()
-   IL_027c: endfinally
-   IL_027d: ldarg.0
-   IL_027e: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Editor.LevelTemplate::Checkpoints
-   IL_0283: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::GetEnumerator()
-   IL_0288: stloc.s V_7
-   IL_028a: br.s IL_02d3
-   IL_028c: ldloca.s V_7
-   IL_028e: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::get_Current()
-   IL_0293: stloc.s V_10
-   IL_0295: ldarg.0
-   IL_0296: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
-   IL_029b: conv.r4
-   IL_029c: ldloc.s V_10
-   IL_029e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_02a3: add
-   IL_02a4: ldc.r4 1
-   IL_02a9: sub
-   IL_02aa: ldarg.0
-   IL_02ab: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
-   IL_02b0: conv.r4
-   IL_02b1: ldloc.s V_10
-   IL_02b3: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_02b8: add
-   IL_02b9: ldc.r4 2
-   IL_02be: sub
-   IL_02bf: ldc.r4 3
-   IL_02c4: ldc.r4 3
-   IL_02c9: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Lime()
-   IL_02ce: call System.Void Monocle.Draw::HollowRect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_02d3: ldloca.s V_7
-   IL_02d5: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::MoveNext()
-   IL_02da: brtrue.s IL_028c
-   IL_02dc: leave.s IL_02ec
-   IL_02de: ldloca.s V_7
-   IL_02e0: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>
-   IL_02e6: callvirt System.Void System.IDisposable::Dispose()
-   IL_02eb: endfinally
-   IL_02ec: ldarg.0
-   IL_02ed: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Editor.LevelTemplate::Jumpthrus
-   IL_02f2: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::GetEnumerator()
-   IL_02f7: stloc.s V_4
-   IL_02f9: br.s IL_0339
-   IL_02fb: ldloca.s V_4
-   IL_02fd: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::get_Current()
-   IL_0302: stloc.s V_11
-   IL_0304: ldarg.0
-   IL_0305: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
-   IL_030a: ldloc.s V_11
-   IL_030c: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
-   IL_0311: add
-   IL_0312: conv.r4
-   IL_0313: ldarg.0
-   IL_0314: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
-   IL_0319: ldloc.s V_11
-   IL_031b: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
-   IL_0320: add
-   IL_0321: conv.r4
-   IL_0322: ldloc.s V_11
-   IL_0324: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
-   IL_0329: conv.r4
-   IL_032a: ldc.r4 1
-   IL_032f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Yellow()
-   IL_0334: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0339: ldloca.s V_4
-   IL_033b: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::MoveNext()
-   IL_0340: brtrue.s IL_02fb
-   IL_0342: leave IL_03cf
-   IL_0347: ldloca.s V_4
-   IL_0349: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>
-   IL_034f: callvirt System.Void System.IDisposable::Dispose()
-   IL_0354: endfinally
-   IL_0355: ldarg.0
-   IL_0356: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
-   IL_035b: conv.r4
-   IL_035c: ldarg.0
-   IL_035d: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
-   IL_0362: conv.r4
-   IL_0363: ldarg.0
-   IL_0364: ldfld System.Int32 Celeste.Editor.LevelTemplate::Width
-   IL_0369: conv.r4
-   IL_036a: ldarg.0
-   IL_036b: ldfld System.Int32 Celeste.Editor.LevelTemplate::Height
-   IL_0370: conv.r4
-   IL_0371: ldsfld Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::dummyFgTilesColor
-   IL_0376: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_037b: ldarg.0
-   IL_037c: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
-   IL_0381: ldarg.0
-   IL_0382: ldfld System.Int32 Celeste.Editor.LevelTemplate::Width
-   IL_0387: add
-   IL_0388: conv.r4
-   IL_0389: ldarg.0
-   IL_038a: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Editor.LevelTemplate::get_resizeHoldSize()
-   IL_038f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_0394: sub
-   IL_0395: ldarg.0
-   IL_0396: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
-   IL_039b: ldarg.0
-   IL_039c: ldfld System.Int32 Celeste.Editor.LevelTemplate::Height
-   IL_03a1: add
-   IL_03a2: conv.r4
-   IL_03a3: ldarg.0
-   IL_03a4: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Editor.LevelTemplate::get_resizeHoldSize()
-   IL_03a9: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_03ae: sub
-   IL_03af: ldarg.0
-   IL_03b0: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Editor.LevelTemplate::get_resizeHoldSize()
-   IL_03b5: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_03ba: ldarg.0
-   IL_03bb: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Editor.LevelTemplate::get_resizeHoldSize()
-   IL_03c0: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_03c5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Orange()
-   IL_03ca: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_03cf: ret
+ + IL_10004: brtrue IL_01eb @ [VivHelper::]VivHelper.Entities.SpawnPointHooks.LevelTemplate_RenderContents(ILContext)
+   IL_01b3: ldarg.0
+   IL_01b4: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
+   IL_01b9: conv.r4
+   IL_01ba: ldloc.s V_8
+   IL_01bc: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_01c1: add
+   IL_01c2: ldarg.0
+   IL_01c3: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
+   IL_01c8: conv.r4
+   IL_01c9: ldloc.s V_8
+   IL_01cb: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_01d0: add
+   IL_01d1: ldc.r4 1
+   IL_01d6: sub
+   IL_01d7: ldc.r4 1
+   IL_01dc: ldc.r4 1
+   IL_01e1: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Red()
+   IL_01e6: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_01eb: ldloca.s V_7
+   IL_01ed: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::MoveNext()
+   IL_01f2: brtrue.s IL_01aa
+   IL_01f4: leave.s IL_0204
+   IL_01f6: ldloca.s V_7
+   IL_01f8: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>
+   IL_01fe: callvirt System.Void System.IDisposable::Dispose()
+   IL_0203: endfinally
+   IL_0204: ldarg.0
+   IL_0205: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Editor.LevelTemplate::Strawberries
+   IL_020a: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::GetEnumerator()
+   IL_020f: stloc.s V_7
+   IL_0211: br.s IL_025a
+   IL_0213: ldloca.s V_7
+   IL_0215: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::get_Current()
+   IL_021a: stloc.s V_9
+   IL_021c: ldarg.0
+   IL_021d: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
+   IL_0222: conv.r4
+   IL_0223: ldloc.s V_9
+   IL_0225: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_022a: add
+   IL_022b: ldc.r4 1
+   IL_0230: sub
+   IL_0231: ldarg.0
+   IL_0232: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
+   IL_0237: conv.r4
+   IL_0238: ldloc.s V_9
+   IL_023a: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_023f: add
+   IL_0240: ldc.r4 2
+   IL_0245: sub
+   IL_0246: ldc.r4 3
+   IL_024b: ldc.r4 3
+   IL_0250: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_LightPink()
+   IL_0255: call System.Void Monocle.Draw::HollowRect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_025a: ldloca.s V_7
+   IL_025c: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::MoveNext()
+   IL_0261: brtrue.s IL_0213
+   IL_0263: leave.s IL_0273
+   IL_0265: ldloca.s V_7
+   IL_0267: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>
+   IL_026d: callvirt System.Void System.IDisposable::Dispose()
+   IL_0272: endfinally
+   IL_0273: ldarg.0
+   IL_0274: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.Editor.LevelTemplate::Checkpoints
+   IL_0279: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::GetEnumerator()
+   IL_027e: stloc.s V_7
+   IL_0280: br.s IL_02c9
+   IL_0282: ldloca.s V_7
+   IL_0284: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::get_Current()
+   IL_0289: stloc.s V_10
+   IL_028b: ldarg.0
+   IL_028c: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
+   IL_0291: conv.r4
+   IL_0292: ldloc.s V_10
+   IL_0294: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0299: add
+   IL_029a: ldc.r4 1
+   IL_029f: sub
+   IL_02a0: ldarg.0
+   IL_02a1: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
+   IL_02a6: conv.r4
+   IL_02a7: ldloc.s V_10
+   IL_02a9: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_02ae: add
+   IL_02af: ldc.r4 2
+   IL_02b4: sub
+   IL_02b5: ldc.r4 3
+   IL_02ba: ldc.r4 3
+   IL_02bf: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Lime()
+   IL_02c4: call System.Void Monocle.Draw::HollowRect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_02c9: ldloca.s V_7
+   IL_02cb: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>::MoveNext()
+   IL_02d0: brtrue.s IL_0282
+   IL_02d2: leave.s IL_02e2
+   IL_02d4: ldloca.s V_7
+   IL_02d6: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Vector2>
+   IL_02dc: callvirt System.Void System.IDisposable::Dispose()
+   IL_02e1: endfinally
+   IL_02e2: ldarg.0
+   IL_02e3: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle> Celeste.Editor.LevelTemplate::Jumpthrus
+   IL_02e8: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Microsoft.Xna.Framework.Rectangle>::GetEnumerator()
+   IL_02ed: stloc.s V_4
+   IL_02ef: br.s IL_032f
+   IL_02f1: ldloca.s V_4
+   IL_02f3: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::get_Current()
+   IL_02f8: stloc.s V_11
+   IL_02fa: ldarg.0
+   IL_02fb: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
+   IL_0300: ldloc.s V_11
+   IL_0302: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0307: add
+   IL_0308: conv.r4
+   IL_0309: ldarg.0
+   IL_030a: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
+   IL_030f: ldloc.s V_11
+   IL_0311: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0316: add
+   IL_0317: conv.r4
+   IL_0318: ldloc.s V_11
+   IL_031a: ldfld System.Int32 Microsoft.Xna.Framework.Rectangle::Width
+   IL_031f: conv.r4
+   IL_0320: ldc.r4 1
+   IL_0325: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Yellow()
+   IL_032a: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_032f: ldloca.s V_4
+   IL_0331: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>::MoveNext()
+   IL_0336: brtrue.s IL_02f1
+   IL_0338: leave IL_03c5
+   IL_033d: ldloca.s V_4
+   IL_033f: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Rectangle>
+   IL_0345: callvirt System.Void System.IDisposable::Dispose()
+   IL_034a: endfinally
+   IL_034b: ldarg.0
+   IL_034c: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
+   IL_0351: conv.r4
+   IL_0352: ldarg.0
+   IL_0353: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
+   IL_0358: conv.r4
+   IL_0359: ldarg.0
+   IL_035a: ldfld System.Int32 Celeste.Editor.LevelTemplate::Width
+   IL_035f: conv.r4
+   IL_0360: ldarg.0
+   IL_0361: ldfld System.Int32 Celeste.Editor.LevelTemplate::Height
+   IL_0366: conv.r4
+   IL_0367: ldsfld Microsoft.Xna.Framework.Color Celeste.Editor.LevelTemplate::dummyFgTilesColor
+   IL_036c: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0371: ldarg.0
+   IL_0372: ldfld System.Int32 Celeste.Editor.LevelTemplate::X
+   IL_0377: ldarg.0
+   IL_0378: ldfld System.Int32 Celeste.Editor.LevelTemplate::Width
+   IL_037d: add
+   IL_037e: conv.r4
+   IL_037f: ldarg.0
+   IL_0380: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Editor.LevelTemplate::get_resizeHoldSize()
+   IL_0385: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_038a: sub
+   IL_038b: ldarg.0
+   IL_038c: ldfld System.Int32 Celeste.Editor.LevelTemplate::Y
+   IL_0391: ldarg.0
+   IL_0392: ldfld System.Int32 Celeste.Editor.LevelTemplate::Height
+   IL_0397: add
+   IL_0398: conv.r4
+   IL_0399: ldarg.0
+   IL_039a: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Editor.LevelTemplate::get_resizeHoldSize()
+   IL_039f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_03a4: sub
+   IL_03a5: ldarg.0
+   IL_03a6: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Editor.LevelTemplate::get_resizeHoldSize()
+   IL_03ab: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03b0: ldarg.0
+   IL_03b1: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Editor.LevelTemplate::get_resizeHoldSize()
+   IL_03b6: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_03bb: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Orange()
+   IL_03c0: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_03c5: ret
