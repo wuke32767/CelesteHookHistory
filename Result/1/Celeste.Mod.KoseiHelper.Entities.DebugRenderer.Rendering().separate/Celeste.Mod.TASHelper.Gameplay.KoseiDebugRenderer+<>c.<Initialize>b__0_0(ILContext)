@@ -1,477 +1,773 @@
-[V_0] System.Boolean
-[V_1] System.Int32
-[V_2] System.Int32
-[V_3] System.Int32
-[V_4] System.Int32
-[V_5] Celeste.Mod.KoseiHelper.Entities.DebugRenderer/Shape
-[V_6] Celeste.Mod.KoseiHelper.Entities.DebugRenderer/Shape
+[V_0] Celeste.Level
+[V_1] Microsoft.Xna.Framework.Vector2
+[V_2] System.Single
+[V_3] System.Single
+[V_4] System.Single
+[V_5] System.Single
+[V_6] System.Single
 [V_7] System.Single
-[V_8] System.Boolean
+[V_8] Celeste.Mod.KoseiHelper.Entities.DebugRenderer/Shape
 [V_9] System.Single
-[V_10] System.Boolean
+[V_10] System.Single
 [V_11] Celeste.Mod.KoseiHelper.Entities.DebugRenderer/Font
-[V_12] Celeste.Mod.KoseiHelper.Entities.DebugRenderer/Font
-[V_13] System.Boolean
-[V_14] Monocle.Image
-[V_15] System.Boolean
+[V_12] Microsoft.Xna.Framework.Vector2
+[V_13] Monocle.Image
  + IL_10000: ldarg.0 @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.KoseiDebugRenderer+<>c.<Initialize>b__0_0(ILContext)
  + IL_10001: call System.Boolean Celeste.Mod.TASHelper.Gameplay.KoseiDebugRenderer::ShouldSkip(Monocle.Entity) @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.KoseiDebugRenderer+<>c.<Initialize>b__0_0(ILContext)
  + IL_10002: brfalse IL_0000 @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.KoseiDebugRenderer+<>c.<Initialize>b__0_0(ILContext)
  + IL_10003: ret @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.KoseiDebugRenderer+<>c.<Initialize>b__0_0(ILContext)
-   IL_0000: nop
-   IL_0001: ldarg.0
-   IL_0002: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::flagValue
-   IL_0007: brtrue.s IL_0016
-   IL_0009: ldarg.0
-   IL_000a: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::flagName
-   IL_000f: call System.Boolean System.String::IsNullOrEmpty(System.String)
-   IL_0014: br.s IL_0017
-   IL_0016: ldc.i4.1
-   IL_0017: stloc.0
-   IL_0018: ldloc.0
-   IL_0019: brfalse IL_0506
-   IL_001e: nop
+   IL_0000: ldarg.0
+   IL_0001: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::flagValue
+   IL_000d: brtrue.s IL_001f
+   IL_000f: ldarg.0
+   IL_0010: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::flagName
+   IL_0015: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_001a: brfalse IL_0972
    IL_001f: ldarg.0
    IL_0020: ldfld Celeste.Mod.KoseiHelper.Entities.DebugRenderer/Shape Celeste.Mod.KoseiHelper.Entities.DebugRenderer::shape
-   IL_0025: stloc.s V_6
-   IL_0027: ldloc.s V_6
-   IL_0029: stloc.s V_5
-   IL_002b: ldloc.s V_5
-   IL_002d: switch IL_005b,IL_0244,IL_008f,IL_0278,IL_02cc,IL_0327,IL_0349,IL_037c,IL_043b
-   IL_0056: br IL_0505
-   IL_005b: ldarg.0
-   IL_005c: call System.Single Monocle.Entity::get_X()
-   IL_0061: ldarg.0
-   IL_0062: call System.Single Monocle.Entity::get_Y()
-   IL_0067: ldarg.0
-   IL_0068: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
-   IL_006d: ldarg.0
-   IL_006e: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
-   IL_0073: ldarg.0
-   IL_0074: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_0079: ldarg.0
-   IL_007a: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_007f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_0084: call System.Void Monocle.Draw::HollowRect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0089: nop
-   IL_008a: br IL_0505
-   IL_008f: ldarg.0
-   IL_0090: call System.Single Monocle.Entity::get_Left()
-   IL_0095: conv.i4
-   IL_0096: stloc.1
+   IL_0025: stloc.s V_8
+   IL_0027: ldloc.s V_8
+   IL_0029: switch IL_0053,IL_037e,IL_00f0,IL_041b,IL_04dd,IL_05c5,IL_062d,IL_06d0,IL_0866
+   IL_0052: ret
+   IL_0053: ldarg.0
+   IL_0054: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_0059: brfalse.s IL_00c1
+   IL_005b: ldc.r4 6
+   IL_0060: ldarg.0
+   IL_0061: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0066: ldloc.0
+   IL_0067: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_006c: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_0071: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0076: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_007b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0080: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0085: stloc.1
+   IL_0086: ldloc.1
+   IL_0087: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_008c: ldloc.1
+   IL_008d: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0092: ldc.r4 6
    IL_0097: ldarg.0
-   IL_0098: call System.Single Monocle.Entity::get_Left()
-   IL_009d: ldarg.0
-   IL_009e: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
-   IL_00a3: add
-   IL_00a4: conv.i4
-   IL_00a5: stloc.2
-   IL_00a6: ldarg.0
-   IL_00a7: call System.Single Monocle.Entity::get_Top()
-   IL_00ac: conv.i4
-   IL_00ad: stloc.3
-   IL_00ae: ldarg.0
-   IL_00af: call System.Single Monocle.Entity::get_Top()
-   IL_00b4: ldarg.0
-   IL_00b5: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
-   IL_00ba: add
-   IL_00bb: conv.i4
-   IL_00bc: stloc.s V_4
-   IL_00be: ldloc.1
-   IL_00bf: conv.r4
-   IL_00c0: ldloc.3
-   IL_00c1: conv.r4
-   IL_00c2: ldc.r4 2
-   IL_00c7: ldc.r4 2
-   IL_00cc: ldarg.0
-   IL_00cd: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_00d2: ldarg.0
-   IL_00d3: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_00d8: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_00dd: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_00e2: nop
-   IL_00e3: ldloc.2
-   IL_00e4: ldc.i4.2
-   IL_00e5: sub
-   IL_00e6: conv.r4
-   IL_00e7: ldloc.3
-   IL_00e8: conv.r4
-   IL_00e9: ldc.r4 2
-   IL_00ee: ldc.r4 2
-   IL_00f3: ldarg.0
-   IL_00f4: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_00f9: ldarg.0
-   IL_00fa: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_00ff: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_0104: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0109: nop
-   IL_010a: ldloc.1
-   IL_010b: conv.r4
-   IL_010c: ldloc.s V_4
-   IL_010e: ldc.i4.2
-   IL_010f: sub
-   IL_0110: conv.r4
-   IL_0111: ldc.r4 2
-   IL_0116: ldc.r4 2
+   IL_0098: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_009d: mul
+   IL_009e: ldc.r4 6
+   IL_00a3: ldarg.0
+   IL_00a4: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_00a9: mul
+   IL_00aa: ldarg.0
+   IL_00ab: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_00b0: ldarg.0
+   IL_00b1: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_00b6: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00bb: call System.Void Monocle.Draw::HollowRect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00c0: ret
+   IL_00c1: ldarg.0
+   IL_00c2: call System.Single Monocle.Entity::get_X()
+   IL_00c7: ldarg.0
+   IL_00c8: call System.Single Monocle.Entity::get_Y()
+   IL_00cd: ldarg.0
+   IL_00ce: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_00d3: ldarg.0
+   IL_00d4: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_00d9: ldarg.0
+   IL_00da: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_00df: ldarg.0
+   IL_00e0: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_00e5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00ea: call System.Void Monocle.Draw::HollowRect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00ef: ret
+   IL_00f0: ldc.r4 6
+   IL_00f5: ldarg.0
+   IL_00f6: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00fb: ldloc.0
+   IL_00fc: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0101: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_0106: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_010b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_0110: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0115: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_011a: stloc.1
    IL_011b: ldarg.0
-   IL_011c: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_0121: ldarg.0
-   IL_0122: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_0127: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_012c: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0131: nop
-   IL_0132: ldloc.2
-   IL_0133: ldc.i4.2
-   IL_0134: sub
-   IL_0135: conv.r4
-   IL_0136: ldloc.s V_4
-   IL_0138: ldc.i4.2
-   IL_0139: sub
-   IL_013a: conv.r4
-   IL_013b: ldc.r4 2
-   IL_0140: ldc.r4 2
-   IL_0145: ldarg.0
-   IL_0146: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_014b: ldarg.0
-   IL_014c: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_0151: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_0156: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_015b: nop
-   IL_015c: ldloc.1
-   IL_015d: ldc.i4.3
-   IL_015e: add
-   IL_015f: conv.r4
-   IL_0160: stloc.s V_7
-   IL_0162: br.s IL_01c0
-   IL_0164: nop
-   IL_0165: ldloc.s V_7
-   IL_0167: ldloc.3
-   IL_0168: conv.r4
-   IL_0169: ldloc.s V_7
-   IL_016b: ldc.r4 2
-   IL_0170: add
-   IL_0171: ldloc.3
-   IL_0172: conv.r4
+   IL_011c: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_0121: brfalse.s IL_017f
+   IL_0123: ldc.r4 6
+   IL_0128: ldarg.0
+   IL_0129: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_012e: ldloc.0
+   IL_012f: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0134: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_0139: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_013e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_0143: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0148: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_014d: stloc.1
+   IL_014e: ldloc.1
+   IL_014f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0154: stloc.2
+   IL_0155: ldloc.1
+   IL_0156: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_015b: stloc.s V_4
+   IL_015d: ldloc.2
+   IL_015e: ldc.r4 6
+   IL_0163: ldarg.0
+   IL_0164: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_0169: mul
+   IL_016a: add
+   IL_016b: stloc.3
+   IL_016c: ldloc.s V_4
+   IL_016e: ldc.r4 6
    IL_0173: ldarg.0
-   IL_0174: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_0179: ldarg.0
-   IL_017a: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_017f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_0184: call System.Void Monocle.Draw::Line(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0189: nop
-   IL_018a: ldloc.s V_7
-   IL_018c: ldloc.s V_4
-   IL_018e: ldc.i4.1
-   IL_018f: sub
-   IL_0190: conv.r4
-   IL_0191: ldloc.s V_7
-   IL_0193: ldc.r4 2
-   IL_0198: add
-   IL_0199: ldloc.s V_4
-   IL_019b: ldc.i4.1
-   IL_019c: sub
-   IL_019d: conv.r4
-   IL_019e: ldarg.0
-   IL_019f: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_01a4: ldarg.0
-   IL_01a5: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_01aa: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_01af: call System.Void Monocle.Draw::Line(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_01b4: nop
-   IL_01b5: nop
-   IL_01b6: ldloc.s V_7
-   IL_01b8: ldc.r4 3
-   IL_01bd: add
-   IL_01be: stloc.s V_7
-   IL_01c0: ldloc.s V_7
-   IL_01c2: ldloc.2
-   IL_01c3: ldc.i4.3
-   IL_01c4: sub
-   IL_01c5: conv.r4
-   IL_01c6: clt
-   IL_01c8: stloc.s V_8
-   IL_01ca: ldloc.s V_8
-   IL_01cc: brtrue.s IL_0164
+   IL_0174: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_0179: mul
+   IL_017a: add
+   IL_017b: stloc.s V_5
+   IL_017d: br.s IL_01ab
+   IL_017f: ldarg.0
+   IL_0180: call System.Single Monocle.Entity::get_Left()
+   IL_0185: stloc.2
+   IL_0186: ldarg.0
+   IL_0187: call System.Single Monocle.Entity::get_Top()
+   IL_018c: stloc.s V_4
+   IL_018e: ldarg.0
+   IL_018f: call System.Single Monocle.Entity::get_Left()
+   IL_0194: ldarg.0
+   IL_0195: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_019a: add
+   IL_019b: stloc.3
+   IL_019c: ldarg.0
+   IL_019d: call System.Single Monocle.Entity::get_Top()
+   IL_01a2: ldarg.0
+   IL_01a3: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_01a8: add
+   IL_01a9: stloc.s V_5
+   IL_01ab: ldloc.2
+   IL_01ac: ldloc.s V_4
+   IL_01ae: ldc.r4 2
+   IL_01b3: ldc.r4 2
+   IL_01b8: ldarg.0
+   IL_01b9: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_01be: ldarg.0
+   IL_01bf: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_01c4: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_01c9: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
    IL_01ce: ldloc.3
-   IL_01cf: ldc.i4.3
-   IL_01d0: add
-   IL_01d1: conv.r4
-   IL_01d2: stloc.s V_9
-   IL_01d4: br.s IL_0230
-   IL_01d6: nop
-   IL_01d7: ldloc.1
-   IL_01d8: ldc.i4.1
-   IL_01d9: add
-   IL_01da: conv.r4
-   IL_01db: ldloc.s V_9
-   IL_01dd: ldloc.1
-   IL_01de: ldc.i4.1
-   IL_01df: add
-   IL_01e0: conv.r4
-   IL_01e1: ldloc.s V_9
-   IL_01e3: ldc.r4 2
-   IL_01e8: add
-   IL_01e9: ldarg.0
-   IL_01ea: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_01ef: ldarg.0
-   IL_01f0: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_01f5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_01fa: call System.Void Monocle.Draw::Line(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_01ff: nop
-   IL_0200: ldloc.2
-   IL_0201: conv.r4
-   IL_0202: ldloc.s V_9
-   IL_0204: ldloc.2
-   IL_0205: conv.r4
-   IL_0206: ldloc.s V_9
-   IL_0208: ldc.r4 2
-   IL_020d: add
-   IL_020e: ldarg.0
-   IL_020f: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_0214: ldarg.0
-   IL_0215: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_021a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_021f: call System.Void Monocle.Draw::Line(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0224: nop
-   IL_0225: nop
-   IL_0226: ldloc.s V_9
-   IL_0228: ldc.r4 3
-   IL_022d: add
-   IL_022e: stloc.s V_9
-   IL_0230: ldloc.s V_9
-   IL_0232: ldloc.s V_4
-   IL_0234: ldc.i4.3
-   IL_0235: sub
-   IL_0236: conv.r4
-   IL_0237: clt
-   IL_0239: stloc.s V_10
-   IL_023b: ldloc.s V_10
-   IL_023d: brtrue.s IL_01d6
-   IL_023f: br IL_0505
-   IL_0244: ldarg.0
-   IL_0245: call System.Single Monocle.Entity::get_X()
-   IL_024a: ldarg.0
-   IL_024b: call System.Single Monocle.Entity::get_Y()
-   IL_0250: ldarg.0
-   IL_0251: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
-   IL_0256: ldarg.0
-   IL_0257: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
-   IL_025c: ldarg.0
-   IL_025d: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_0262: ldarg.0
-   IL_0263: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_0268: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_026d: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0272: nop
-   IL_0273: br IL_0505
-   IL_0278: ldarg.0
-   IL_0279: call System.Single Monocle.Entity::get_X()
-   IL_027e: ldarg.0
-   IL_027f: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
-   IL_0284: ldc.r4 2
-   IL_0289: div
-   IL_028a: add
-   IL_028b: ldarg.0
-   IL_028c: call System.Single Monocle.Entity::get_Y()
-   IL_0291: ldarg.0
-   IL_0292: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
-   IL_0297: ldc.r4 2
-   IL_029c: div
-   IL_029d: add
-   IL_029e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_02a3: ldarg.0
-   IL_02a4: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
-   IL_02a9: ldc.r4 2
-   IL_02ae: div
-   IL_02af: ldarg.0
-   IL_02b0: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_02b5: ldarg.0
-   IL_02b6: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_02bb: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_02c0: ldc.i4.1
-   IL_02c1: call System.Void Monocle.Draw::Circle(Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Int32)
-   IL_02c6: nop
-   IL_02c7: br IL_0505
-   IL_02cc: ldarg.0
-   IL_02cd: ldarg.0
-   IL_02ce: call System.Single Monocle.Entity::get_X()
-   IL_02d3: ldarg.0
-   IL_02d4: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
-   IL_02d9: ldc.r4 2
-   IL_02de: div
-   IL_02df: add
-   IL_02e0: ldarg.0
-   IL_02e1: call System.Single Monocle.Entity::get_Y()
-   IL_02e6: ldarg.0
-   IL_02e7: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
-   IL_02ec: ldc.r4 2
-   IL_02f1: div
+   IL_01cf: ldc.r4 2
+   IL_01d4: sub
+   IL_01d5: ldloc.s V_4
+   IL_01d7: ldc.r4 2
+   IL_01dc: ldc.r4 2
+   IL_01e1: ldarg.0
+   IL_01e2: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_01e7: ldarg.0
+   IL_01e8: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_01ed: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_01f2: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_01f7: ldloc.2
+   IL_01f8: ldloc.s V_5
+   IL_01fa: ldc.r4 2
+   IL_01ff: sub
+   IL_0200: ldc.r4 2
+   IL_0205: ldc.r4 2
+   IL_020a: ldarg.0
+   IL_020b: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_0210: ldarg.0
+   IL_0211: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0216: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_021b: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0220: ldloc.3
+   IL_0221: ldc.r4 2
+   IL_0226: sub
+   IL_0227: ldloc.s V_5
+   IL_0229: ldc.r4 2
+   IL_022e: sub
+   IL_022f: ldc.r4 2
+   IL_0234: ldc.r4 2
+   IL_0239: ldarg.0
+   IL_023a: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_023f: ldarg.0
+   IL_0240: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0245: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_024a: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_024f: ldarg.0
+   IL_0250: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_0255: brtrue.s IL_025e
+   IL_0257: ldc.r4 3
+   IL_025c: br.s IL_0263
+   IL_025e: ldc.r4 18
+   IL_0263: stloc.s V_6
+   IL_0265: ldarg.0
+   IL_0266: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_026b: brtrue.s IL_0274
+   IL_026d: ldc.r4 2
+   IL_0272: br.s IL_0279
+   IL_0274: ldc.r4 12
+   IL_0279: stloc.s V_7
+   IL_027b: ldloc.2
+   IL_027c: ldc.r4 2
+   IL_0281: add
+   IL_0282: ldloc.3
+   IL_0283: ldloc.2
+   IL_0284: sub
+   IL_0285: ldc.r4 4
+   IL_028a: sub
+   IL_028b: ldloc.s V_6
+   IL_028d: rem
+   IL_028e: ldc.r4 0.5
+   IL_0293: mul
+   IL_0294: add
+   IL_0295: stloc.s V_9
+   IL_0297: br.s IL_02ee
+   IL_0299: ldloc.s V_9
+   IL_029b: ldloc.s V_4
+   IL_029d: ldloc.s V_9
+   IL_029f: ldloc.s V_7
+   IL_02a1: add
+   IL_02a2: ldloc.s V_4
+   IL_02a4: ldarg.0
+   IL_02a5: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_02aa: ldarg.0
+   IL_02ab: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_02b0: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_02b5: call System.Void Monocle.Draw::Line(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_02ba: ldloc.s V_9
+   IL_02bc: ldloc.s V_5
+   IL_02be: ldc.r4 1
+   IL_02c3: sub
+   IL_02c4: ldloc.s V_9
+   IL_02c6: ldloc.s V_7
+   IL_02c8: add
+   IL_02c9: ldloc.s V_5
+   IL_02cb: ldc.r4 1
+   IL_02d0: sub
+   IL_02d1: ldarg.0
+   IL_02d2: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_02d7: ldarg.0
+   IL_02d8: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_02dd: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_02e2: call System.Void Monocle.Draw::Line(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_02e7: ldloc.s V_9
+   IL_02e9: ldloc.s V_6
+   IL_02eb: add
+   IL_02ec: stloc.s V_9
+   IL_02ee: ldloc.s V_9
+   IL_02f0: ldloc.s V_7
    IL_02f2: add
-   IL_02f3: ldarg.0
-   IL_02f4: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
-   IL_02f9: ldc.r4 2
-   IL_02fe: div
-   IL_02ff: ldarg.0
-   IL_0300: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
-   IL_0305: ldc.r4 2
-   IL_030a: div
-   IL_030b: ldarg.0
-   IL_030c: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_0311: ldarg.0
-   IL_0312: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_0317: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_031c: callvirt System.Void Celeste.Mod.KoseiHelper.Entities.DebugRenderer::DrawEllipse(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0321: nop
-   IL_0322: br IL_0505
-   IL_0327: ldarg.0
-   IL_0328: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_032d: ldarg.0
-   IL_032e: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_0333: ldarg.0
-   IL_0334: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_0339: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_033e: call System.Void Monocle.Draw::Point(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
-   IL_0343: nop
-   IL_0344: br IL_0505
-   IL_0349: ldarg.0
-   IL_034a: call System.Single Monocle.Entity::get_X()
-   IL_034f: ldarg.0
-   IL_0350: call System.Single Monocle.Entity::get_Y()
-   IL_0355: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_035a: ldarg.0
-   IL_035b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.KoseiHelper.Entities.DebugRenderer::node
-   IL_0360: ldarg.0
-   IL_0361: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_0366: ldarg.0
-   IL_0367: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_036c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_0371: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
-   IL_0376: nop
-   IL_0377: br IL_0505
-   IL_037c: ldarg.0
-   IL_037d: ldfld Celeste.Mod.KoseiHelper.Entities.DebugRenderer/Font Celeste.Mod.KoseiHelper.Entities.DebugRenderer::font
-   IL_0382: stloc.s V_12
-   IL_0384: ldloc.s V_12
-   IL_0386: stloc.s V_11
-   IL_0388: ldloc.s V_11
-   IL_038a: brfalse.s IL_0398
-   IL_038c: br.s IL_038e
-   IL_038e: ldloc.s V_11
-   IL_0390: ldc.i4.1
-   IL_0391: beq.s IL_03e7
-   IL_0393: br IL_0436
-   IL_0398: call Microsoft.Xna.Framework.Graphics.SpriteFont Monocle.Draw::get_DefaultFont()
-   IL_039d: ldarg.0
-   IL_039e: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::message
-   IL_03a3: ldarg.0
-   IL_03a4: call System.Single Monocle.Entity::get_X()
-   IL_03a9: ldarg.0
-   IL_03aa: call System.Single Monocle.Entity::get_Y()
-   IL_03af: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_03b4: ldarg.0
-   IL_03b5: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_03ba: ldarg.0
-   IL_03bb: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_03c0: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_03c5: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
-   IL_03ca: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
-   IL_03cf: ldarg.0
-   IL_03d0: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::fontSize
-   IL_03d5: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_03da: ldc.r4 0
-   IL_03df: call System.Void Monocle.Draw::Text(Microsoft.Xna.Framework.Graphics.SpriteFont,System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_03e4: nop
-   IL_03e5: br.s IL_0436
-   IL_03e7: ldarg.0
-   IL_03e8: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::message
-   IL_03ed: ldarg.0
-   IL_03ee: call System.Single Monocle.Entity::get_X()
-   IL_03f3: ldarg.0
-   IL_03f4: call System.Single Monocle.Entity::get_Y()
-   IL_03f9: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_03fe: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
-   IL_0403: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
-   IL_0408: ldarg.0
-   IL_0409: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::fontSize
-   IL_040e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0413: ldc.r4 2
-   IL_0418: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_041d: ldarg.0
-   IL_041e: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_0423: ldarg.0
-   IL_0424: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_0429: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_042e: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
-   IL_0433: nop
-   IL_0434: br.s IL_0436
-   IL_0436: br IL_0505
-   IL_043b: ldarg.0
-   IL_043c: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::imagePath
-   IL_0441: call System.Boolean System.String::IsNullOrEmpty(System.String)
-   IL_0446: ldc.i4.0
-   IL_0447: ceq
-   IL_0449: stloc.s V_13
-   IL_044b: ldloc.s V_13
-   IL_044d: brfalse IL_0503
-   IL_0452: nop
-   IL_0453: ldsfld Monocle.Atlas Celeste.GFX::Game
-   IL_0458: ldarg.0
-   IL_0459: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::imagePath
-   IL_045e: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
-   IL_0463: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
-   IL_0468: stloc.s V_14
-   IL_046a: ldarg.0
-   IL_046b: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::scaled
-   IL_0470: stloc.s V_15
-   IL_0472: ldloc.s V_15
-   IL_0474: brfalse.s IL_04af
-   IL_0476: nop
-   IL_0477: ldloc.s V_14
-   IL_0479: ldarg.0
-   IL_047a: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_047f: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
-   IL_0484: ldloc.s V_14
-   IL_0486: ldarg.0
-   IL_0487: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
-   IL_048c: ldloc.s V_14
-   IL_048e: callvirt System.Single Monocle.Image::get_Width()
-   IL_0493: div
+   IL_02f3: ldloc.3
+   IL_02f4: ldc.r4 2
+   IL_02f9: sub
+   IL_02fa: ble.s IL_0299
+   IL_02fc: ldloc.s V_4
+   IL_02fe: ldc.r4 2
+   IL_0303: add
+   IL_0304: ldloc.s V_5
+   IL_0306: ldloc.s V_4
+   IL_0308: sub
+   IL_0309: ldc.r4 4
+   IL_030e: sub
+   IL_030f: ldloc.s V_6
+   IL_0311: rem
+   IL_0312: ldc.r4 0.5
+   IL_0317: mul
+   IL_0318: add
+   IL_0319: stloc.s V_10
+   IL_031b: br.s IL_036e
+   IL_031d: ldloc.2
+   IL_031e: ldc.r4 1
+   IL_0323: add
+   IL_0324: ldloc.s V_10
+   IL_0326: ldloc.2
+   IL_0327: ldc.r4 1
+   IL_032c: add
+   IL_032d: ldloc.s V_10
+   IL_032f: ldloc.s V_7
+   IL_0331: add
+   IL_0332: ldarg.0
+   IL_0333: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_0338: ldarg.0
+   IL_0339: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_033e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0343: call System.Void Monocle.Draw::Line(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0348: ldloc.3
+   IL_0349: ldloc.s V_10
+   IL_034b: ldloc.3
+   IL_034c: ldloc.s V_10
+   IL_034e: ldloc.s V_7
+   IL_0350: add
+   IL_0351: ldarg.0
+   IL_0352: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_0357: ldarg.0
+   IL_0358: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_035d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0362: call System.Void Monocle.Draw::Line(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0367: ldloc.s V_10
+   IL_0369: ldloc.s V_6
+   IL_036b: add
+   IL_036c: stloc.s V_10
+   IL_036e: ldloc.s V_10
+   IL_0370: ldloc.s V_7
+   IL_0372: add
+   IL_0373: ldloc.s V_5
+   IL_0375: ldc.r4 2
+   IL_037a: sub
+   IL_037b: ble.s IL_031d
+   IL_037d: ret
+   IL_037e: ldarg.0
+   IL_037f: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_0384: brfalse.s IL_03ec
+   IL_0386: ldc.r4 6
+   IL_038b: ldarg.0
+   IL_038c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0391: ldloc.0
+   IL_0392: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0397: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_039c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03a1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_03a6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_03ab: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03b0: stloc.1
+   IL_03b1: ldloc.1
+   IL_03b2: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_03b7: ldloc.1
+   IL_03b8: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_03bd: ldc.r4 6
+   IL_03c2: ldarg.0
+   IL_03c3: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_03c8: mul
+   IL_03c9: ldc.r4 6
+   IL_03ce: ldarg.0
+   IL_03cf: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_03d4: mul
+   IL_03d5: ldarg.0
+   IL_03d6: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_03db: ldarg.0
+   IL_03dc: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_03e1: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_03e6: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_03eb: ret
+   IL_03ec: ldarg.0
+   IL_03ed: call System.Single Monocle.Entity::get_X()
+   IL_03f2: ldarg.0
+   IL_03f3: call System.Single Monocle.Entity::get_Y()
+   IL_03f8: ldarg.0
+   IL_03f9: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_03fe: ldarg.0
+   IL_03ff: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_0404: ldarg.0
+   IL_0405: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_040a: ldarg.0
+   IL_040b: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0410: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0415: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_041a: ret
+   IL_041b: ldarg.0
+   IL_041c: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_0421: brfalse.s IL_048e
+   IL_0423: ldc.r4 6
+   IL_0428: ldarg.0
+   IL_0429: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_042e: ldloc.0
+   IL_042f: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0434: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_0439: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_043e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_0443: ldc.r4 6
+   IL_0448: ldc.r4 12
+   IL_044d: ldc.r4 12
+   IL_0452: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0457: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_045c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0461: stloc.1
+   IL_0462: ldloc.1
+   IL_0463: ldc.r4 6
+   IL_0468: ldarg.0
+   IL_0469: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_046e: mul
+   IL_046f: ldc.r4 2
+   IL_0474: div
+   IL_0475: ldarg.0
+   IL_0476: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_047b: ldarg.0
+   IL_047c: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0481: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0486: ldc.i4.s 10
+   IL_0488: call System.Void Monocle.Draw::Circle(Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Int32)
+   IL_048d: ret
+   IL_048e: ldarg.0
+   IL_048f: call System.Single Monocle.Entity::get_X()
    IL_0494: ldarg.0
-   IL_0495: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
-   IL_049a: ldloc.s V_14
-   IL_049c: callvirt System.Single Monocle.Image::get_Height()
-   IL_04a1: div
-   IL_04a2: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_04a7: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
-   IL_04ac: nop
-   IL_04ad: br.s IL_04e2
-   IL_04af: nop
-   IL_04b0: ldloc.s V_14
-   IL_04b2: ldarg.0
-   IL_04b3: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_04b8: ldloc.s V_14
-   IL_04ba: callvirt System.Single Monocle.Image::get_Width()
+   IL_0495: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_049a: ldc.r4 2
+   IL_049f: div
+   IL_04a0: add
+   IL_04a1: ldarg.0
+   IL_04a2: call System.Single Monocle.Entity::get_Y()
+   IL_04a7: ldarg.0
+   IL_04a8: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_04ad: ldc.r4 2
+   IL_04b2: div
+   IL_04b3: add
+   IL_04b4: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_04b9: ldarg.0
+   IL_04ba: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
    IL_04bf: ldc.r4 2
    IL_04c4: div
-   IL_04c5: ldloc.s V_14
-   IL_04c7: callvirt System.Single Monocle.Image::get_Height()
-   IL_04cc: ldc.r4 2
-   IL_04d1: div
-   IL_04d2: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_04d7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_04dc: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
-   IL_04e1: nop
-   IL_04e2: ldloc.s V_14
-   IL_04e4: ldarg.0
-   IL_04e5: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
-   IL_04ea: ldarg.0
-   IL_04eb: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
-   IL_04f0: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_04f5: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
-   IL_04fa: ldloc.s V_14
-   IL_04fc: callvirt System.Void Monocle.Component::Render()
-   IL_0501: nop
-   IL_0502: nop
-   IL_0503: br.s IL_0505
-   IL_0505: nop
-   IL_0506: ret
+   IL_04c5: ldarg.0
+   IL_04c6: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_04cb: ldarg.0
+   IL_04cc: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_04d1: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_04d6: ldc.i4.1
+   IL_04d7: call System.Void Monocle.Draw::Circle(Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color,System.Int32)
+   IL_04dc: ret
+   IL_04dd: ldarg.0
+   IL_04de: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_04e3: brfalse IL_056f
+   IL_04e8: ldc.r4 6
+   IL_04ed: ldarg.0
+   IL_04ee: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_04f3: ldloc.0
+   IL_04f4: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_04f9: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_04fe: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0503: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_0508: ldc.r4 6
+   IL_050d: ldc.r4 12
+   IL_0512: ldc.r4 12
+   IL_0517: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_051c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_0521: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0526: stloc.1
+   IL_0527: ldarg.0
+   IL_0528: ldloc.1
+   IL_0529: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_052e: ldloc.1
+   IL_052f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0534: ldc.r4 6
+   IL_0539: ldarg.0
+   IL_053a: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_053f: mul
+   IL_0540: ldc.r4 2
+   IL_0545: div
+   IL_0546: ldc.r4 6
+   IL_054b: ldarg.0
+   IL_054c: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_0551: mul
+   IL_0552: ldc.r4 2
+   IL_0557: div
+   IL_0558: ldarg.0
+   IL_0559: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_055e: ldarg.0
+   IL_055f: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0564: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0569: callvirt System.Void Celeste.Mod.KoseiHelper.Entities.DebugRenderer::DrawEllipse(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_056e: ret
+   IL_056f: ldarg.0
+   IL_0570: ldarg.0
+   IL_0571: call System.Single Monocle.Entity::get_X()
+   IL_0576: ldarg.0
+   IL_0577: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_057c: ldc.r4 2
+   IL_0581: div
+   IL_0582: add
+   IL_0583: ldarg.0
+   IL_0584: call System.Single Monocle.Entity::get_Y()
+   IL_0589: ldarg.0
+   IL_058a: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_058f: ldc.r4 2
+   IL_0594: div
+   IL_0595: add
+   IL_0596: ldarg.0
+   IL_0597: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_059c: ldc.r4 2
+   IL_05a1: div
+   IL_05a2: ldarg.0
+   IL_05a3: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_05a8: ldc.r4 2
+   IL_05ad: div
+   IL_05ae: ldarg.0
+   IL_05af: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_05b4: ldarg.0
+   IL_05b5: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_05ba: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_05bf: callvirt System.Void Celeste.Mod.KoseiHelper.Entities.DebugRenderer::DrawEllipse(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_05c4: ret
+   IL_05c5: ldarg.0
+   IL_05c6: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_05cb: brfalse.s IL_0610
+   IL_05cd: ldc.r4 6
+   IL_05d2: ldarg.0
+   IL_05d3: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_05d8: ldloc.0
+   IL_05d9: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_05de: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_05e3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_05e8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_05ed: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_05f2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_05f7: stloc.1
+   IL_05f8: ldloc.1
+   IL_05f9: ldarg.0
+   IL_05fa: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_05ff: ldarg.0
+   IL_0600: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0605: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_060a: call System.Void Monocle.Draw::Point(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_060f: ret
+   IL_0610: ldarg.0
+   IL_0611: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0616: ldarg.0
+   IL_0617: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_061c: ldarg.0
+   IL_061d: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0622: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0627: call System.Void Monocle.Draw::Point(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_062c: ret
+   IL_062d: ldarg.0
+   IL_062e: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_0633: brfalse.s IL_06a2
+   IL_0635: ldc.r4 6
+   IL_063a: ldarg.0
+   IL_063b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0640: ldloc.0
+   IL_0641: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0646: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_064b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0650: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_0655: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_065a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_065f: stloc.1
+   IL_0660: ldloc.1
+   IL_0661: ldc.r4 6
+   IL_0666: ldarg.0
+   IL_0667: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.KoseiHelper.Entities.DebugRenderer::node
+   IL_066c: ldloc.0
+   IL_066d: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0672: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_0677: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_067c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_0681: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0686: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_068b: ldarg.0
+   IL_068c: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_0691: ldarg.0
+   IL_0692: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0697: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_069c: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_06a1: ret
+   IL_06a2: ldarg.0
+   IL_06a3: call System.Single Monocle.Entity::get_X()
+   IL_06a8: ldarg.0
+   IL_06a9: call System.Single Monocle.Entity::get_Y()
+   IL_06ae: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_06b3: ldarg.0
+   IL_06b4: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.KoseiHelper.Entities.DebugRenderer::node
+   IL_06b9: ldarg.0
+   IL_06ba: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_06bf: ldarg.0
+   IL_06c0: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_06c5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_06ca: call System.Void Monocle.Draw::Line(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_06cf: ret
+   IL_06d0: ldarg.0
+   IL_06d1: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_06d6: brfalse IL_07ba
+   IL_06db: ldc.r4 6
+   IL_06e0: ldarg.0
+   IL_06e1: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_06e6: ldloc.0
+   IL_06e7: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_06ec: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_06f1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_06f6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_06fb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0700: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0705: stloc.1
+   IL_0706: ldarg.0
+   IL_0707: ldfld Celeste.Mod.KoseiHelper.Entities.DebugRenderer/Font Celeste.Mod.KoseiHelper.Entities.DebugRenderer::font
+   IL_070c: stloc.s V_11
+   IL_070e: ldloc.s V_11
+   IL_0710: brfalse.s IL_0718
+   IL_0712: ldloc.s V_11
+   IL_0714: ldc.i4.1
+   IL_0715: beq.s IL_0769
+   IL_0717: ret
+   IL_0718: call Microsoft.Xna.Framework.Graphics.SpriteFont Monocle.Draw::get_DefaultFont()
+   IL_071d: ldarg.0
+   IL_071e: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::message
+   IL_0723: ldloc.1
+   IL_0724: ldc.r4 0
+   IL_0729: ldc.r4 16
+   IL_072e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0733: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0738: ldarg.0
+   IL_0739: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_073e: ldarg.0
+   IL_073f: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0744: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0749: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_074e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0753: ldarg.0
+   IL_0754: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::fontSize
+   IL_0759: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_075e: ldc.r4 0
+   IL_0763: call System.Void Monocle.Draw::Text(Microsoft.Xna.Framework.Graphics.SpriteFont,System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0768: ret
+   IL_0769: ldarg.0
+   IL_076a: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::message
+   IL_076f: ldloc.1
+   IL_0770: ldc.r4 0
+   IL_0775: ldc.r4 16
+   IL_077a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_077f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0784: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0789: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_078e: ldarg.0
+   IL_078f: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::fontSize
+   IL_0794: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0799: ldc.r4 2
+   IL_079e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_07a3: ldarg.0
+   IL_07a4: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_07a9: ldarg.0
+   IL_07aa: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_07af: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_07b4: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_07b9: ret
+   IL_07ba: ldarg.0
+   IL_07bb: ldfld Celeste.Mod.KoseiHelper.Entities.DebugRenderer/Font Celeste.Mod.KoseiHelper.Entities.DebugRenderer::font
+   IL_07c0: stloc.s V_11
+   IL_07c2: ldloc.s V_11
+   IL_07c4: brfalse.s IL_07cc
+   IL_07c6: ldloc.s V_11
+   IL_07c8: ldc.i4.1
+   IL_07c9: beq.s IL_0819
+   IL_07cb: ret
+   IL_07cc: call Microsoft.Xna.Framework.Graphics.SpriteFont Monocle.Draw::get_DefaultFont()
+   IL_07d1: ldarg.0
+   IL_07d2: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::message
+   IL_07d7: ldarg.0
+   IL_07d8: call System.Single Monocle.Entity::get_X()
+   IL_07dd: ldarg.0
+   IL_07de: call System.Single Monocle.Entity::get_Y()
+   IL_07e3: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_07e8: ldarg.0
+   IL_07e9: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_07ee: ldarg.0
+   IL_07ef: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_07f4: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_07f9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_07fe: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0803: ldarg.0
+   IL_0804: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::fontSize
+   IL_0809: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_080e: ldc.r4 0
+   IL_0813: call System.Void Monocle.Draw::Text(Microsoft.Xna.Framework.Graphics.SpriteFont,System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0818: ret
+   IL_0819: ldarg.0
+   IL_081a: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::message
+   IL_081f: ldarg.0
+   IL_0820: call System.Single Monocle.Entity::get_X()
+   IL_0825: ldarg.0
+   IL_0826: call System.Single Monocle.Entity::get_Y()
+   IL_082b: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0830: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0835: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_083a: ldarg.0
+   IL_083b: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::fontSize
+   IL_0840: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0845: ldc.r4 2
+   IL_084a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_084f: ldarg.0
+   IL_0850: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_0855: ldarg.0
+   IL_0856: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_085b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0860: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0865: ret
+   IL_0866: ldarg.0
+   IL_0867: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::imagePath
+   IL_086c: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0871: brtrue IL_0972
+   IL_0876: ldarg.0
+   IL_0877: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_087c: brtrue.s IL_0886
+   IL_087e: ldarg.0
+   IL_087f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0884: br.s IL_08b0
+   IL_0886: ldc.r4 6
+   IL_088b: ldarg.0
+   IL_088c: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0891: ldloc.0
+   IL_0892: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0897: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::get_Position()
+   IL_089c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_08a1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_08a6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_08ab: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_08b0: stloc.s V_12
+   IL_08b2: ldarg.0
+   IL_08b3: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_08b8: brtrue.s IL_08cc
+   IL_08ba: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_08bf: ldarg.0
+   IL_08c0: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::imagePath
+   IL_08c5: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_08ca: br.s IL_08dc
+   IL_08cc: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_08d1: ldarg.0
+   IL_08d2: ldfld System.String Celeste.Mod.KoseiHelper.Entities.DebugRenderer::imagePath
+   IL_08d7: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_08dc: newobj System.Void Monocle.Image::.ctor(Monocle.MTexture)
+   IL_08e1: stloc.s V_13
+   IL_08e3: ldloc.s V_13
+   IL_08e5: ldloc.s V_12
+   IL_08e7: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_08ec: ldarg.0
+   IL_08ed: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::scaled
+   IL_08f2: brfalse.s IL_0953
+   IL_08f4: ldloc.s V_13
+   IL_08f6: ldarg.0
+   IL_08f7: ldfld System.Boolean Celeste.Mod.KoseiHelper.Entities.DebugRenderer::gui
+   IL_08fc: brtrue.s IL_0921
+   IL_08fe: ldarg.0
+   IL_08ff: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_0904: ldloc.s V_13
+   IL_0906: callvirt System.Single Monocle.Image::get_Width()
+   IL_090b: div
+   IL_090c: ldarg.0
+   IL_090d: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_0912: ldloc.s V_13
+   IL_0914: callvirt System.Single Monocle.Image::get_Height()
+   IL_0919: div
+   IL_091a: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_091f: br.s IL_094e
+   IL_0921: ldc.r4 6
+   IL_0926: ldarg.0
+   IL_0927: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::width
+   IL_092c: mul
+   IL_092d: ldloc.s V_13
+   IL_092f: callvirt System.Single Monocle.Image::get_Width()
+   IL_0934: div
+   IL_0935: ldc.r4 6
+   IL_093a: ldarg.0
+   IL_093b: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::height
+   IL_0940: mul
+   IL_0941: ldloc.s V_13
+   IL_0943: callvirt System.Single Monocle.Image::get_Height()
+   IL_0948: div
+   IL_0949: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_094e: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_0953: ldloc.s V_13
+   IL_0955: ldarg.0
+   IL_0956: ldfld Microsoft.Xna.Framework.Color Celeste.Mod.KoseiHelper.Entities.DebugRenderer::color
+   IL_095b: ldarg.0
+   IL_095c: ldfld System.Single Celeste.Mod.KoseiHelper.Entities.DebugRenderer::alpha
+   IL_0961: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0966: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_096b: ldloc.s V_13
+   IL_096d: callvirt System.Void Monocle.Component::Render()
+   IL_0972: ret
