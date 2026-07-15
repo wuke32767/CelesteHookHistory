@@ -7,8 +7,6 @@ IL: [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraFallingBlock.TeraCrushSequ
 IL: [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
 IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
 IL: [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
-IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
-IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(ILContext)
 [V_0] System.Int32
 [V_1] Celeste.CrushBlock
 [V_2] System.Boolean
@@ -105,37 +103,34 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_3(Single,CrushBlock)
  + IL_1000b: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_00ba: ldc.r4 240
- + IL_1000c: ldloc.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1000d: call System.Single ChroniaHelper.Entities.TeraCrushBlock::GetSpeedMultipler(Celeste.CrushBlock) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1000e: mul @ [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1000f: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_10010: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceSpeed|23_0(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_10011: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_10012: call System.Single Celeste.Mod.TeraHelper.Entities.TeraCrushBlock::GetSpeedMultipler(Celeste.CrushBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_10013: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_10014: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10015: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10016: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10017: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1000c: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_1000d: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceSpeed|23_0(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_1000e: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
+ + IL_1000f: call System.Single Celeste.Mod.TeraHelper.Entities.TeraCrushBlock::GetSpeedMultipler(Celeste.CrushBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
+ + IL_10010: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
+ + IL_10011: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10012: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10013: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_0(Single,CrushBlock)
- + IL_10018: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10019: ldloc.1 @ [Aqua::]Celeste.Mod.Aqua.Core.CrushBlockExtensions.CrushBlock_ILAttackSequence(ILContext)
- + IL_1001a: call System.Single Celeste.Mod.Aqua.Core.CrushBlockExtensions::CountExtraSpeed(System.Single,Celeste.CrushBlock) @ [Aqua::]Celeste.Mod.Aqua.Core.CrushBlockExtensions.CrushBlock_ILAttackSequence(ILContext)
+ + IL_10015: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10016: ldloc.1 @ [Aqua::]Celeste.Mod.Aqua.Core.CrushBlockExtensions.CrushBlock_ILAttackSequence(ILContext)
+ + IL_10017: call System.Single Celeste.Mod.Aqua.Core.CrushBlockExtensions::CountExtraSpeed(System.Single,Celeste.CrushBlock) @ [Aqua::]Celeste.Mod.Aqua.Core.CrushBlockExtensions.CrushBlock_ILAttackSequence(ILContext)
    IL_00bf: ldc.r4 500
- + IL_1001b: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_1001c: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceAcceleration|23_1(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10018: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10019: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceAcceleration|23_1(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
    IL_00c4: call System.Single Monocle.Engine::get_DeltaTime()
    IL_00c9: mul
    IL_00ca: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
    IL_00cf: stfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_1001d: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1001e: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1001f: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10020: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10021: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10022: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1001a: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1001b: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1001c: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1001d: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1001e: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1001f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_4(Single,CrushBlock)
- + IL_10023: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10020: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_00d4: br IL_0198
    IL_00d9: ldarg.0
    IL_00da: ldfld System.Boolean Celeste.CrushBlock/<AttackSequence>d__41::<slowing>5__2
@@ -153,30 +148,30 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_0104: ldarg.0
    IL_0105: ldarg.0
    IL_0106: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_10024: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10025: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10026: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10027: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10021: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10022: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10023: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10024: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_3(Single,CrushBlock)
- + IL_10028: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10025: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_010b: ldc.r4 24
    IL_0110: ldc.r4 500
- + IL_10029: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_1002a: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceAcceleration|23_1(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10026: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10027: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceAcceleration|23_1(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
    IL_0115: call System.Single Monocle.Engine::get_DeltaTime()
    IL_011a: mul
    IL_011b: ldc.r4 0.25
    IL_0120: mul
    IL_0121: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
    IL_0126: stfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_1002b: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1002c: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1002d: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1002e: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1002f: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10030: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10028: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10029: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1002a: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1002b: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1002c: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1002d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_4(Single,CrushBlock)
- + IL_10031: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1002e: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_012b: ldarg.0
    IL_012c: ldfld System.Boolean Celeste.CrushBlock/<AttackSequence>d__41::<slowing>5__2
    IL_0131: brtrue.s IL_0198
@@ -208,44 +203,41 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_0177: ldarg.0
    IL_0178: ldarg.0
    IL_0179: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_10032: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10033: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10034: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10035: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1002f: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10030: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10031: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10032: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_3(Single,CrushBlock)
- + IL_10036: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10033: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_017e: ldc.r4 240
- + IL_10037: ldloc.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_10038: call System.Single ChroniaHelper.Entities.TeraCrushBlock::GetSpeedMultipler(Celeste.CrushBlock) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_10039: mul @ [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1003a: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_1003b: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceSpeed|23_0(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_1003c: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1003d: call System.Single Celeste.Mod.TeraHelper.Entities.TeraCrushBlock::GetSpeedMultipler(Celeste.CrushBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1003e: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1003f: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10040: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10041: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10042: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10034: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10035: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceSpeed|23_0(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10036: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
+ + IL_10037: call System.Single Celeste.Mod.TeraHelper.Entities.TeraCrushBlock::GetSpeedMultipler(Celeste.CrushBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
+ + IL_10038: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
+ + IL_10039: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1003a: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1003b: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1003c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_0(Single,CrushBlock)
- + IL_10043: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10044: ldloc.1 @ [Aqua::]Celeste.Mod.Aqua.Core.CrushBlockExtensions.CrushBlock_ILAttackSequence(ILContext)
- + IL_10045: call System.Single Celeste.Mod.Aqua.Core.CrushBlockExtensions::CountExtraSpeed(System.Single,Celeste.CrushBlock) @ [Aqua::]Celeste.Mod.Aqua.Core.CrushBlockExtensions.CrushBlock_ILAttackSequence(ILContext)
+ + IL_1003d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1003e: ldloc.1 @ [Aqua::]Celeste.Mod.Aqua.Core.CrushBlockExtensions.CrushBlock_ILAttackSequence(ILContext)
+ + IL_1003f: call System.Single Celeste.Mod.Aqua.Core.CrushBlockExtensions::CountExtraSpeed(System.Single,Celeste.CrushBlock) @ [Aqua::]Celeste.Mod.Aqua.Core.CrushBlockExtensions.CrushBlock_ILAttackSequence(ILContext)
    IL_0183: ldc.r4 500
- + IL_10046: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_10047: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceAcceleration|23_1(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10040: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10041: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceAcceleration|23_1(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
    IL_0188: call System.Single Monocle.Engine::get_DeltaTime()
    IL_018d: mul
    IL_018e: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
    IL_0193: stfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_10048: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10049: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1004a: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1004b: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1004c: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1004d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10042: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10043: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10044: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10045: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10046: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10047: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_4(Single,CrushBlock)
- + IL_1004e: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10048: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_0198: ldloc.1
    IL_0199: ldflda Microsoft.Xna.Framework.Vector2 Celeste.CrushBlock::crushDir
    IL_019e: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
@@ -254,12 +246,12 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_01aa: ldloc.1
    IL_01ab: ldarg.0
    IL_01ac: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_1004f: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10050: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10051: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10052: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10049: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1004a: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1004b: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1004c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_3(Single,CrushBlock)
- + IL_10053: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1004d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_01b1: ldloc.1
    IL_01b2: ldflda Microsoft.Xna.Framework.Vector2 Celeste.CrushBlock::crushDir
    IL_01b7: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
@@ -272,12 +264,12 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_01cb: ldloc.1
    IL_01cc: ldarg.0
    IL_01cd: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_10054: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10055: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10056: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10057: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1004e: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1004f: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10050: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10051: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_3(Single,CrushBlock)
- + IL_10058: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10052: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_01d2: ldloc.1
    IL_01d3: ldflda Microsoft.Xna.Framework.Vector2 Celeste.CrushBlock::crushDir
    IL_01d8: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
@@ -303,12 +295,12 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_0210: ldc.i4.0
    IL_0211: ret
    IL_0212: ldloc.2
- + IL_10059: ldloc.1 @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
- + IL_1005a: ldc.i4 0 @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
- + IL_1005b: ldc.i4 0 @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
- + IL_1005c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
+ + IL_10053: ldloc.1 @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
+ + IL_10054: ldc.i4 0 @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
+ + IL_10055: ldc.i4 0 @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
+ + IL_10056: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
        => Invoke: [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c.<ILKevinCollide>b__40_0(Boolean,CrushBlock)
- + IL_1005d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Boolean,System.Boolean,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
+ + IL_10057: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Boolean,System.Boolean,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule+<>c__DisplayClass29_0.<Load>b__0(ILContext)
    IL_0213: brfalse.s IL_0242
    IL_0215: ldloc.1
    IL_0216: ldloc.1
@@ -318,21 +310,21 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_0222: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_0227: callvirt T Monocle.Entity::CollideFirst<Celeste.FallingBlock>(Microsoft.Xna.Framework.Vector2)
    IL_022c: stloc.s V_5
- + IL_1005e: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
- + IL_1005f: ldfld Celeste.CrushBlock Celeste.CrushBlock/<AttackSequence>d__41::<>4__this @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
- + IL_10060: dup @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
- + IL_10061: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CrushBlock::crushDir @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
- + IL_10062: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
- + IL_10063: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
- + IL_10064: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
+ + IL_10058: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
+ + IL_10059: ldfld Celeste.CrushBlock Celeste.CrushBlock/<AttackSequence>d__41::<>4__this @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
+ + IL_1005a: dup @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
+ + IL_1005b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.CrushBlock::crushDir @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
+ + IL_1005c: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
+ + IL_1005d: ldc.i4 0 @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
+ + IL_1005e: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
        => Invoke: [VivHelper::]VivHelper.VivHelperModule+<>c.<AttackSequence_CrushCustomFallingBlock>b__80_0(CrushBlock,Vector2)
- + IL_10065: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<Celeste.CrushBlock,Microsoft.Xna.Framework.Vector2>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
+ + IL_1005f: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<Celeste.CrushBlock,Microsoft.Xna.Framework.Vector2>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [VivHelper::]VivHelper.VivHelperModule+<>c__DisplayClass66_0.<Load>b__0(ILContext)
    IL_022e: ldloc.s V_5
    IL_0230: brfalse IL_03c3
- + IL_10066: ldloc.s V_5 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraFallingBlock.TeraCrushSequence(ILContext)
- + IL_10067: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraFallingBlock.TeraCrushSequence(ILContext)
- + IL_10068: call System.Boolean Celeste.Mod.TeraHelper.Entities.TeraFallingBlock::CrushTrigger(Celeste.FallingBlock,Celeste.CrushBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraFallingBlock.TeraCrushSequence(ILContext)
- + IL_10069: brfalse IL_03c3 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraFallingBlock.TeraCrushSequence(ILContext)
+ + IL_10060: ldloc.s V_5 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraFallingBlock.TeraCrushSequence(ILContext)
+ + IL_10061: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraFallingBlock.TeraCrushSequence(ILContext)
+ + IL_10062: call System.Boolean Celeste.Mod.TeraHelper.Entities.TeraFallingBlock::CrushTrigger(Celeste.FallingBlock,Celeste.CrushBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraFallingBlock.TeraCrushSequence(ILContext)
+ + IL_10063: brfalse IL_03c3 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraFallingBlock.TeraCrushSequence(ILContext)
    IL_0235: ldloc.s V_5
    IL_0237: ldc.i4.1
    IL_0238: stfld System.Boolean Celeste.FallingBlock::Triggered
@@ -722,8 +714,8 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_071a: div
    IL_071b: blt IL_067d
    IL_0720: ldstr "event:/game/06_reflection/crushblock_impact"
- + IL_1006a: ldloc.1 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
- + IL_1006b: call System.String Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock::replaceSound(System.String,Celeste.CrushBlock) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
+ + IL_10064: ldloc.1 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
+ + IL_10065: call System.String Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock::replaceSound(System.String,Celeste.CrushBlock) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
    IL_0725: ldloc.1
    IL_0726: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
    IL_072b: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
@@ -783,8 +775,8 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_07da: ldloc.1
    IL_07db: ldfld Celeste.SoundSource Celeste.CrushBlock::returnLoopSfx
    IL_07e0: ldstr "event:/game/06_reflection/crushblock_return_loop"
- + IL_1006c: ldloc.1 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
- + IL_1006d: call System.String Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock::replaceSound(System.String,Celeste.CrushBlock) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
+ + IL_10066: ldloc.1 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
+ + IL_10067: call System.String Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock::replaceSound(System.String,Celeste.CrushBlock) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
    IL_07e5: ldnull
    IL_07e6: ldc.r4 0
    IL_07eb: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)
@@ -804,14 +796,14 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_0811: ldarg.0
    IL_0812: ldc.r4 0
    IL_0817: stfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_1006e: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1006f: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10070: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10071: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10072: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10073: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10068: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10069: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1006a: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1006b: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1006c: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1006d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_4(Single,CrushBlock)
- + IL_10074: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1006e: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_081c: ldarg.0
    IL_081d: ldc.r4 0
    IL_0822: stfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<waypointSfxDelay>5__4
@@ -842,42 +834,39 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_0864: ldarg.0
    IL_0865: ldarg.0
    IL_0866: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_10075: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10076: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10077: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10078: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1006f: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10070: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10071: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10072: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_3(Single,CrushBlock)
- + IL_10079: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10073: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_086b: ldc.r4 60
- + IL_1007a: ldloc.1 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1007b: call System.Single ChroniaHelper.Entities.TeraCrushBlock::GetSpeedMultipler(Celeste.CrushBlock) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1007c: mul @ [ChroniaHelper::]ChroniaHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_1007d: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_1007e: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceReturnSpeed|23_2(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_1007f: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_10080: call System.Single Celeste.Mod.TeraHelper.Entities.TeraCrushBlock::GetSpeedMultipler(Celeste.CrushBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_10081: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
- + IL_10082: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
- + IL_10083: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
- + IL_10084: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
- + IL_10085: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
+ + IL_10074: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10075: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceReturnSpeed|23_2(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_10076: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
+ + IL_10077: call System.Single Celeste.Mod.TeraHelper.Entities.TeraCrushBlock::GetSpeedMultipler(Celeste.CrushBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
+ + IL_10078: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraCrushBlock.TeraSequence(ILContext)
+ + IL_10079: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
+ + IL_1007a: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
+ + IL_1007b: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
+ + IL_1007c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin+<>c.<IL_CrushBlock_AttackSequence>b__13_2(Single,CrushBlock)
- + IL_10086: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
+ + IL_1007d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ChainedKevin.IL_CrushBlock_AttackSequence(ILContext)
    IL_0870: ldc.r4 160
- + IL_10087: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
- + IL_10088: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceReturnAcceleration|23_3(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_1007e: ldloc.1 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
+ + IL_1007f: call System.Single Celeste.Mod.ScugHelper.Entities.CustomKevinController::<ILCrushBlockAttackCoro>g__ReplaceReturnAcceleration|23_3(System.Single,Celeste.CrushBlock) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.CustomKevinController.ILCrushBlockAttackCoro(ILContext)
    IL_0875: call System.Single Monocle.Engine::get_DeltaTime()
    IL_087a: mul
    IL_087b: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
    IL_0880: stfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_10089: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1008a: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1008b: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1008c: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1008d: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1008e: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10080: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10081: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10082: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10083: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10084: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10085: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_4(Single,CrushBlock)
- + IL_1008f: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10086: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_0885: ldarg.0
    IL_0886: ldarg.0
    IL_0887: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<waypointSfxDelay>5__4
@@ -895,12 +884,12 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_08b2: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_08b7: ldarg.0
    IL_08b8: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_10090: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10091: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10092: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10093: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10087: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10088: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10089: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1008a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_3(Single,CrushBlock)
- + IL_10094: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1008b: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_08bd: call System.Single Monocle.Engine::get_DeltaTime()
    IL_08c2: mul
    IL_08c3: callvirt System.Void Celeste.Platform::MoveTowardsX(System.Single,System.Single)
@@ -915,12 +904,12 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_08e3: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_08e8: ldarg.0
    IL_08e9: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_10095: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10096: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10097: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_10098: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1008c: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1008d: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1008e: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_1008f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_3(Single,CrushBlock)
- + IL_10099: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10090: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_08ee: call System.Single Monocle.Engine::get_DeltaTime()
    IL_08f3: mul
    IL_08f4: callvirt System.Void Celeste.Platform::MoveTowardsY(System.Single,System.Single)
@@ -956,14 +945,14 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_095c: ldarg.0
    IL_095d: ldc.r4 0
    IL_0962: stfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3
- + IL_1009a: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1009b: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1009c: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1009d: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1009e: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
- + IL_1009f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10091: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10092: ldfld System.Single Celeste.CrushBlock/<AttackSequence>d__41::<speed>5__3 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10093: ldloc.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10094: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10095: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10096: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable+<>c.<CrashBlock_AttackSequence>b__32_4(Single,CrushBlock)
- + IL_100a0: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
+ + IL_10097: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<System.Single,Celeste.CrushBlock>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Components.CrushBlockRedirectable.CrashBlock_AttackSequence(ILContext)
    IL_0967: ldloc.1
    IL_0968: ldfld System.Collections.Generic.List`1<Celeste.CrushBlock/MoveState> Celeste.CrushBlock::returnStack
    IL_096d: ldloc.1
@@ -996,8 +985,8 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_09b9: ldc.r4 0
    IL_09be: bgt.un.s IL_09f1
    IL_09c0: ldstr "event:/game/06_reflection/crushblock_rest"
- + IL_100a1: ldloc.1 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
- + IL_100a2: call System.String Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock::replaceSound(System.String,Celeste.CrushBlock) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
+ + IL_10098: ldloc.1 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
+ + IL_10099: call System.String Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock::replaceSound(System.String,Celeste.CrushBlock) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
    IL_09c5: ldloc.1
    IL_09c6: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
    IL_09cb: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
@@ -1008,8 +997,8 @@ IL: [ChroniaHelper::]ChroniaHelper.Entities.TeraFallingBlock.TeraCrushSequence(I
    IL_09d9: ldc.r4 0
    IL_09de: bgt.un.s IL_09f1
    IL_09e0: ldstr "event:/game/06_reflection/crushblock_rest_waypoint"
- + IL_100a3: ldloc.1 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
- + IL_100a4: call System.String Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock::replaceSound(System.String,Celeste.CrushBlock) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
+ + IL_1009a: ldloc.1 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
+ + IL_1009b: call System.String Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock::replaceSound(System.String,Celeste.CrushBlock) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReskinnableCrushBlock.modCrushBlockAttackSequence(ILContext)
    IL_09e5: ldloc.1
    IL_09e6: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
    IL_09eb: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)

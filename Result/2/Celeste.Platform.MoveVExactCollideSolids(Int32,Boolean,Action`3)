@@ -1,5 +1,4 @@
 IL: {UNKNOWN_ILHOOK$381: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
-IL: {UNKNOWN_ILHOOK$517: Priority: -1}[ChroniaHelper::]ChroniaHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
 IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Components.MovingPlatformHittable.IL_Platform_MoveVExactCollideSolids(ILContext)
 [V_0] System.Single
 [V_1] System.Int32
@@ -46,14 +45,10 @@ IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Components.MovingPlatformHittable.I
    IL_0059: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_005e: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
    IL_0063: brfalse.s IL_0097
- + IL_10004: ldloc.s V_5 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
- + IL_10005: ldarg.0 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
- + IL_10006: call System.Boolean ChroniaHelper.Entities.TeraDashBlock::CrushDash(Celeste.DashBlock,Celeste.Platform) @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
- + IL_10007: brfalse IL_0097 @ [ChroniaHelper::]ChroniaHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
- + IL_10008: ldloc.s V_5 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
- + IL_10009: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
- + IL_1000a: call System.Boolean Celeste.Mod.TeraHelper.Entities.TeraDashBlock::CrushDash(Celeste.DashBlock,Celeste.Platform) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
- + IL_1000b: brfalse IL_0097 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
+ + IL_10004: ldloc.s V_5 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
+ + IL_10005: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
+ + IL_10006: call System.Boolean Celeste.Mod.TeraHelper.Entities.TeraDashBlock::CrushDash(Celeste.DashBlock,Celeste.Platform) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
+ + IL_10007: brfalse IL_0097 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraDashBlock.SolidCheckV(ILContext)
    IL_0065: ldloc.s V_5
    IL_0067: ldarg.0
    IL_0068: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
