@@ -1,6 +1,8 @@
+On{ZZUaSb3dBP0}: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.MovePlayer(orig_Update,PlayerDeadBody)
 On{U42HUUFiQfQ}: [Killbind::]Celeste.Mod.Killbind.KillbindModule.OnPlayerDeadBodyUpdate(orig_Update,PlayerDeadBody)
 IL: {UNKNOWN_DETOUR: Priority: -1}[HideStats::]Celeste.Mod.HideStats.HideStatsModule.playerDeadbodyUpdate(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyUpdate(ILContext)
+IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Entities.DisableQuickRespawnController.PlayerDeadBodyOnUpdate(ILContext)
  + IL_10000: ldarg.0 @ [HideStats::]Celeste.Mod.HideStats.HideStatsModule.playerDeadbodyUpdate(ILContext)
  + IL_10001: ldc.i4 0 @ [HideStats::]Celeste.Mod.HideStats.HideStatsModule.playerDeadbodyUpdate(ILContext)
  + IL_10002: ldc.i4 0 @ [HideStats::]Celeste.Mod.HideStats.HideStatsModule.playerDeadbodyUpdate(ILContext)
@@ -13,6 +15,8 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[EndHelper::]Celeste.Mod.EndHelper.EndHelperMo
    IL_000b: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
  + IL_10005: call System.Boolean Celeste.Mod.EndHelper.EndHelperModule::ILHook_PlayerDeadBodyUpdate_ReplacementMenuConfirmPressed(System.Boolean) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyUpdate(ILContext)
    IL_0010: brfalse.s IL_0020
+ + IL_10006: call System.Boolean Celeste.Mod.MintChocolateHelper.Entities.DisableQuickRespawnController::DeadBodyCheck() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Entities.DisableQuickRespawnController.PlayerDeadBodyOnUpdate(ILContext)
+ + IL_10007: brtrue IL_0020 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Entities.DisableQuickRespawnController.PlayerDeadBodyOnUpdate(ILContext)
    IL_0012: ldarg.0
    IL_0013: ldfld System.Boolean Celeste.PlayerDeadBody::finished
    IL_0018: brtrue.s IL_0020

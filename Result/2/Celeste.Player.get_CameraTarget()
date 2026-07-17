@@ -217,13 +217,15 @@ IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHo
    IL_0248: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_024d: ldarg.0
    IL_024e: ldfld System.Boolean Celeste.Player::EnforceLevelBounds
- + IL_1000d: ldarg.0 @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
- + IL_1000e: call System.Boolean Bitsbolts.Triggers.UnlockCamera::<ILPlayerCameraTarget>m__1(Celeste.Player) @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
- + IL_1000f: and @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_1000d: ldloc.1 @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_1000e: ldarg.0 @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_1000f: call System.Boolean Bitsbolts.Triggers.UnlockCamera::<ILPlayerCameraTarget>m__1(System.Boolean,Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
    IL_0253: brfalse IL_02da
    IL_0258: ldloca.s V_0
    IL_025a: ldloc.1
    IL_025b: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+ + IL_10010: ldsfld System.Boolean Bitsbolts.Triggers.UnlockCamera::cameraUnlockedX @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_10011: brtrue IL_0293 @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
    IL_0260: ldarg.0
    IL_0261: ldfld Celeste.Level Celeste.Player::level
    IL_0266: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
@@ -245,6 +247,8 @@ IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHo
    IL_0298: ldloca.s V_0
    IL_029a: ldloc.1
    IL_029b: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+ + IL_10012: ldsfld System.Boolean Bitsbolts.Triggers.UnlockCamera::cameraUnlockedY @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_10013: brtrue IL_02d3 @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
    IL_02a0: ldarg.0
    IL_02a1: ldfld Celeste.Level Celeste.Player::level
    IL_02a6: callvirt Microsoft.Xna.Framework.Rectangle Celeste.Level::get_Bounds()
@@ -263,9 +267,12 @@ IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHo
    IL_02cd: conv.r4
    IL_02ce: call System.Single Microsoft.Xna.Framework.MathHelper::Clamp(System.Single,System.Single,System.Single)
    IL_02d3: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_02d8: br.s IL_02dc
+   IL_02d8: br.s IL_10014
    IL_02da: ldloc.1
    IL_02db: stloc.0
+ + IL_10014: ldloc.0 @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_10015: call Microsoft.Xna.Framework.Vector2 Bitsbolts.Triggers.UnlockCamera::<ILPlayerCameraTarget>m__6(Microsoft.Xna.Framework.Vector2) @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_10016: stloc.0 @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
    IL_02dc: ldarg.0
    IL_02dd: ldfld Celeste.Level Celeste.Player::level
    IL_02e2: ldfld Celeste.Level/CameraLockModes Celeste.Level::CameraLockMode
@@ -407,8 +414,7 @@ IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.TungstenCube.GetCameraTargetHo
    IL_04aa: stloc.s V_5
    IL_04ac: ldloc.s V_5
    IL_04ae: ldfld System.Boolean Monocle.Entity::Collidable
- + IL_10010: call System.Boolean Bitsbolts.Triggers.UnlockCamera::<ILPlayerCameraTarget>m__4() @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
- + IL_10011: and @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
+ + IL_10017: call System.Boolean Bitsbolts.Triggers.UnlockCamera::<ILPlayerCameraTarget>m__9(System.Boolean) @ [libbitsbolts::]Bitsbolts.Triggers.UnlockCamera.ILPlayerCameraTarget(ILContext)
    IL_04b3: brfalse.s IL_0501
    IL_04b5: ldarg.0
    IL_04b6: call System.Single Monocle.Entity::get_Top()
