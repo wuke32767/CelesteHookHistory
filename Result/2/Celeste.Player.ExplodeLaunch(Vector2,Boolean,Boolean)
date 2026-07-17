@@ -1,7 +1,9 @@
 On{s2BfEf7iOUw}: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.ExplodeLaunchSpeed.correctExplodeLaunchSpeed(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
+On{0chtxSUEXqc}: [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.TechlessController.HandleExplodeLaunch(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
 On{gvtbFMAvbi4}: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.ExplodeLaunchOnHook(orig_ExplodeLaunch_Vector2_bool_bool,Player,Vector2,Boolean,Boolean)
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StaticPuffer.onExplodeLaunch(ILContext)
 IL: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.ExplodeFocusArea.Player_ExplodeLaunch(ILContext)
+IL: [HooliganHelper::]Celeste.Mod.HooliganHelper.HooliganHelperModule.PlayerOnExplodeLaunch_Vector2_bool_bool(ILContext)
 IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MacabreBooster.ExplodeLaunchILHook(ILContext)
 IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.ExplodeLaunchILHook(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLaunchSpeedPreservation.patch_Player_ExplodeLaunch_Vector2_bool_bool(ILContext)
@@ -153,6 +155,8 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.ExplodeLau
    IL_019a: ldarg.0
    IL_019b: callvirt Celeste.PlayerInventory Celeste.Player::get_Inventory()
    IL_01a0: ldfld System.Boolean Celeste.PlayerInventory::NoRefills
+ + IL_10013: ldsfld System.Boolean Celeste.Mod.HooliganHelper.Entities.BumperRefill::ShouldSkipDashRefill @ [HooliganHelper::]Celeste.Mod.HooliganHelper.HooliganHelperModule.PlayerOnExplodeLaunch_Vector2_bool_bool(ILContext)
+ + IL_10014: or @ [HooliganHelper::]Celeste.Mod.HooliganHelper.HooliganHelperModule.PlayerOnExplodeLaunch_Vector2_bool_bool(ILContext)
    IL_01a5: brtrue.s IL_01ae
    IL_01a7: ldarg.0
    IL_01a8: callvirt System.Boolean Celeste.Player::RefillDash()

@@ -1,0 +1,23 @@
+On{RiF3X74ytFk}: [LocalizationHelper::]Celeste.Mod.LocalizationHelper.Hooks.LanguageHooks.Hook_ApplyLanguage(orig_ApplyLanguage,Settings)
+On{v/aHe9W17+I}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Module.AudioSplitterModule+AudioSplitterModuleHooks.Settings_ApplyLanguage(orig_ApplyLanguage,Settings)
+   IL_0000: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Language> Celeste.Dialog::Languages
+   IL_0005: ldarg.0
+   IL_0006: ldfld System.String Celeste.Settings::Language
+   IL_000b: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Celeste.Language>::ContainsKey(TKey)
+   IL_0010: brtrue.s IL_001d
+   IL_0012: ldarg.0
+   IL_0013: ldstr "english"
+   IL_0018: stfld System.String Celeste.Settings::Language
+   IL_001d: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Language> Celeste.Dialog::Languages
+   IL_0022: ldarg.0
+   IL_0023: ldfld System.String Celeste.Settings::Language
+   IL_0028: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Celeste.Language>::get_Item(TKey)
+   IL_002d: stsfld Celeste.Language Celeste.Dialog::Language
+   IL_0032: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Language> Celeste.Dialog::Languages
+   IL_0037: ldarg.0
+   IL_0038: ldfld System.String Celeste.Settings::Language
+   IL_003d: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Celeste.Language>::get_Item(TKey)
+   IL_0042: ldfld System.String Celeste.Language::FontFace
+   IL_0047: call Monocle.PixelFont Celeste.Fonts::Load(System.String)
+   IL_004c: pop
+   IL_004d: ret

@@ -1,0 +1,154 @@
+On{ZvonfAAyVWA}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Audio.InstanceDuplicatorHooks.SetCallbacksToLoadedModdedBank(orig_IngestBank,ModAsset)
+[V_0] FMOD.Studio.Bank
+[V_1] FMOD.RESULT
+[V_2] Celeste.Mod.ModAsset
+[V_3] System.Guid
+[V_4] System.IntPtr
+[V_5] FMOD.Studio.BANK_INFO
+[V_6] FMOD.Studio.BANK_INFO
+[V_7] System.String
+[V_8] Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>
+[V_9] System.Boolean
+[V_10] System.Int32
+   IL_0000: call System.Boolean Celeste.Mod.Everest/Flags::get_IsHeadless()
+   IL_0005: brfalse.s IL_0012
+   IL_0007: ldsfld System.IntPtr System.IntPtr::Zero
+   IL_000c: newobj System.Void FMOD.Studio.Bank::.ctor(System.IntPtr)
+   IL_0011: ret
+   IL_0012: ldstr "Audio.IngestBank"
+   IL_0017: ldarg.0
+   IL_0018: ldfld System.String Celeste.Mod.ModAsset::PathVirtual
+   IL_001d: call System.Void Celeste.Mod.Logger::Verbose(System.String,System.String)
+   IL_0022: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Audio::ingestedModBankPaths
+   IL_0027: ldarg.0
+   IL_0028: ldfld System.String Celeste.Mod.ModAsset::PathVirtual
+   IL_002d: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Add(T)
+   IL_0032: pop
+   IL_0033: ldsfld System.Collections.Generic.Dictionary`2<Celeste.Mod.ModAsset,FMOD.Studio.Bank> Celeste.Audio/Banks::ModCache
+   IL_0038: ldarg.0
+   IL_0039: ldloca.s V_0
+   IL_003b: callvirt System.Boolean System.Collections.Generic.Dictionary`2<Celeste.Mod.ModAsset,FMOD.Studio.Bank>::TryGetValue(TKey,TValue&)
+   IL_0040: brfalse.s IL_0044
+   IL_0042: ldloc.0
+   IL_0043: ret
+   IL_0044: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0049: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_UnpackFMODBanks()
+   IL_004e: brfalse.s IL_0069
+   IL_0050: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0055: ldarg.0
+   IL_0056: callvirt System.String Celeste.Mod.ModAsset::GetCachedPath()
+   IL_005b: ldc.i4.0
+   IL_005c: ldloca.s V_0
+   IL_005e: callvirt FMOD.RESULT FMOD.Studio.System::loadBankFile(System.String,FMOD.Studio.LOAD_BANK_FLAGS,FMOD.Studio.Bank&)
+   IL_0063: stloc.1
+   IL_0064: br IL_00ee
+   IL_0069: ldsfld System.Collections.Generic.Dictionary`2<System.IntPtr,Celeste.Mod.ModAsset> Celeste.Audio::modBankAssets
+   IL_006e: ldsfld System.Int32 Celeste.Audio::modBankHandleLast
+   IL_0073: ldc.i4.1
+   IL_0074: add
+   IL_0075: dup
+   IL_0076: stsfld System.Int32 Celeste.Audio::modBankHandleLast
+   IL_007b: conv.i
+   IL_007c: dup
+   IL_007d: stloc.s V_4
+   IL_007f: ldarg.0
+   IL_0080: callvirt System.Void System.Collections.Generic.Dictionary`2<System.IntPtr,Celeste.Mod.ModAsset>::set_Item(TKey,TValue)
+   IL_0085: ldloca.s V_6
+   IL_0087: initobj FMOD.Studio.BANK_INFO
+   IL_008d: ldloca.s V_6
+   IL_008f: ldsfld System.Int32 Celeste.Audio/Banks::SizeOfBankInfo
+   IL_0094: stfld System.Int32 FMOD.Studio.BANK_INFO::size
+   IL_0099: ldloca.s V_6
+   IL_009b: ldloc.s V_4
+   IL_009d: stfld System.IntPtr FMOD.Studio.BANK_INFO::userdata
+   IL_00a2: ldloca.s V_6
+   IL_00a4: ldc.i4.0
+   IL_00a5: stfld System.Int32 FMOD.Studio.BANK_INFO::userdatalength
+   IL_00aa: ldloca.s V_6
+   IL_00ac: ldsfld FMOD.FILE_OPENCALLBACK Celeste.Audio::ModBankOpen
+   IL_00b1: stfld FMOD.FILE_OPENCALLBACK FMOD.Studio.BANK_INFO::opencallback
+   IL_00b6: ldloca.s V_6
+   IL_00b8: ldsfld FMOD.FILE_CLOSECALLBACK Celeste.Audio::ModBankClose
+   IL_00bd: stfld FMOD.FILE_CLOSECALLBACK FMOD.Studio.BANK_INFO::closecallback
+   IL_00c2: ldloca.s V_6
+   IL_00c4: ldsfld FMOD.FILE_READCALLBACK Celeste.Audio::ModBankRead
+   IL_00c9: stfld FMOD.FILE_READCALLBACK FMOD.Studio.BANK_INFO::readcallback
+   IL_00ce: ldloca.s V_6
+   IL_00d0: ldsfld FMOD.FILE_SEEKCALLBACK Celeste.Audio::ModBankSeek
+   IL_00d5: stfld FMOD.FILE_SEEKCALLBACK FMOD.Studio.BANK_INFO::seekcallback
+   IL_00da: ldloc.s V_6
+   IL_00dc: stloc.s V_5
+   IL_00de: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_00e3: ldloc.s V_5
+   IL_00e5: ldc.i4.0
+   IL_00e6: ldloca.s V_0
+   IL_00e8: callvirt FMOD.RESULT FMOD.Studio.System::loadBankCustom(FMOD.Studio.BANK_INFO,FMOD.Studio.LOAD_BANK_FLAGS,FMOD.Studio.Bank&)
+   IL_00ed: stloc.1
+   IL_00ee: ldloc.1
+   IL_00ef: ldc.i4.s 70
+   IL_00f1: bne.un.s IL_013c
+   IL_00f3: ldstr "Audio.IngestBank"
+   IL_00f8: stloc.s V_7
+   IL_00fa: ldloc.s V_7
+   IL_00fc: ldc.i4.s 39
+   IL_00fe: ldc.i4.1
+   IL_00ff: ldloc.s V_7
+   IL_0101: ldloca.s V_9
+   IL_0103: newobj System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::.ctor(System.Int32,System.Int32,System.String,System.Boolean&)
+   IL_0108: stloc.s V_8
+   IL_010a: ldloc.s V_9
+   IL_010c: brfalse.s IL_0133
+   IL_010e: ldloca.s V_8
+   IL_0110: ldstr "Cannot load "
+   IL_0115: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_011a: ldloca.s V_8
+   IL_011c: ldarg.0
+   IL_011d: ldfld System.String Celeste.Mod.ModAsset::PathVirtual
+   IL_0122: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendFormatted(System.String)
+   IL_0127: ldloca.s V_8
+   IL_0129: ldstr " due to conflicting events!"
+   IL_012e: call System.Void Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>::AppendLiteral(System.String)
+   IL_0133: ldloc.s V_8
+   IL_0135: call System.Void Celeste.Mod.Logger::Warn(System.String,Celeste.Mod.Logger/LogInterpolatedStringHandler`1<Celeste.Mod.LogLevelConstTypes/Warn>)
+   IL_013a: ldnull
+   IL_013b: ret
+   IL_013c: ldloc.1
+   IL_013d: call System.Void Celeste.AudioExt::CheckFMOD(FMOD.RESULT)
+   IL_0142: ldarg.0
+   IL_0143: ldfld System.String Celeste.Mod.ModAsset::PathVirtual
+   IL_0148: ldstr ".guids"
+   IL_014d: call System.String System.String::Concat(System.String,System.String)
+   IL_0152: ldloca.s V_2
+   IL_0154: ldc.i4.0
+   IL_0155: call System.Boolean Celeste.Mod.Everest/Content::TryGet<Celeste.Mod.AssetTypeGUIDs>(System.String,Celeste.Mod.ModAsset&,System.Boolean)
+   IL_015a: brfalse.s IL_0162
+   IL_015c: ldloc.2
+   IL_015d: call System.Void Celeste.Audio::IngestGUIDs(Celeste.Mod.ModAsset)
+   IL_0162: ldsfld System.Collections.Generic.Dictionary`2<Celeste.Mod.ModAsset,FMOD.Studio.Bank> Celeste.Audio/Banks::ModCache
+   IL_0167: ldarg.0
+   IL_0168: ldloc.0
+   IL_0169: callvirt System.Void System.Collections.Generic.Dictionary`2<Celeste.Mod.ModAsset,FMOD.Studio.Bank>::set_Item(TKey,TValue)
+   IL_016e: ldloc.0
+   IL_016f: ldloca.s V_3
+   IL_0171: callvirt FMOD.RESULT FMOD.Studio.Bank::getID(System.Guid&)
+   IL_0176: pop
+   IL_0177: ldsfld System.Collections.Generic.Dictionary`2<System.Guid,System.String> Celeste.Audio::cachedBankPaths
+   IL_017c: ldloc.3
+   IL_017d: ldstr "bank:/mods/"
+   IL_0182: ldarg.0
+   IL_0183: ldfld System.String Celeste.Mod.ModAsset::PathVirtual
+   IL_0188: stloc.s V_7
+   IL_018a: ldstr "Audio/"
+   IL_018f: callvirt System.Int32 System.String::get_Length()
+   IL_0194: stloc.s V_10
+   IL_0196: ldloc.s V_7
+   IL_0198: ldloc.s V_10
+   IL_019a: ldloc.s V_7
+   IL_019c: callvirt System.Int32 System.String::get_Length()
+   IL_01a1: ldloc.s V_10
+   IL_01a3: sub
+   IL_01a4: callvirt System.String System.String::Substring(System.Int32,System.Int32)
+   IL_01a9: call System.String System.String::Concat(System.String,System.String)
+   IL_01ae: callvirt System.Void System.Collections.Generic.Dictionary`2<System.Guid,System.String>::set_Item(TKey,TValue)
+   IL_01b3: ldloc.0
+   IL_01b4: ret

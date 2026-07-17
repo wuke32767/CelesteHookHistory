@@ -1,0 +1,62 @@
+On{msGyXz551MQ}: {UNKNOWN_DETOUR: Priority: 0}[Linja::]Celeste.Mod.Linja.Hook.OnFakeWallAwake(orig_Awake,FakeWall,Scene)
+[V_0] Celeste.TransitionListener
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Awake(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Player>()
+   IL_000d: brfalse.s IL_0068
+   IL_000f: ldarg.0
+   IL_0010: ldfld Monocle.TileGrid Celeste.FakeWall::tiles
+   IL_0015: ldc.r4 0
+   IL_001a: stfld System.Single Monocle.TileGrid::Alpha
+   IL_001f: ldarg.0
+   IL_0020: ldc.i4.1
+   IL_0021: stfld System.Boolean Celeste.FakeWall::fade
+   IL_0026: ldarg.0
+   IL_0027: ldfld Celeste.EffectCutout Celeste.FakeWall::cutout
+   IL_002c: ldc.i4.0
+   IL_002d: stfld System.Boolean Monocle.Component::Visible
+   IL_0032: ldarg.0
+   IL_0033: ldfld System.Boolean Celeste.FakeWall::playRevealWhenTransitionedInto
+   IL_0038: brfalse.s IL_004b
+   IL_003a: ldstr "event:/game/general/secret_revealed"
+   IL_003f: ldarg.0
+   IL_0040: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0045: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_004a: pop
+   IL_004b: ldarg.0
+   IL_004c: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0051: ldfld Celeste.Session Celeste.Level::Session
+   IL_0056: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.Session::DoNotLoad
+   IL_005b: ldarg.0
+   IL_005c: ldfld Celeste.EntityID Celeste.FakeWall::eid
+   IL_0061: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Add(T)
+   IL_0066: pop
+   IL_0067: ret
+   IL_0068: newobj System.Void Celeste.TransitionListener::.ctor()
+   IL_006d: stloc.0
+   IL_006e: ldloc.0
+   IL_006f: ldarg.0
+   IL_0070: ldftn System.Void Celeste.FakeWall::OnTransitionOut(System.Single)
+   IL_0076: newobj System.Void System.Action`1<System.Single>::.ctor(System.Object,System.IntPtr)
+   IL_007b: stfld System.Action`1<System.Single> Celeste.TransitionListener::OnOut
+   IL_0080: ldloc.0
+   IL_0081: ldarg.0
+   IL_0082: ldftn System.Void Celeste.FakeWall::OnTransitionOutBegin()
+   IL_0088: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_008d: stfld System.Action Celeste.TransitionListener::OnOutBegin
+   IL_0092: ldloc.0
+   IL_0093: ldarg.0
+   IL_0094: ldftn System.Void Celeste.FakeWall::OnTransitionIn(System.Single)
+   IL_009a: newobj System.Void System.Action`1<System.Single>::.ctor(System.Object,System.IntPtr)
+   IL_009f: stfld System.Action`1<System.Single> Celeste.TransitionListener::OnIn
+   IL_00a4: ldloc.0
+   IL_00a5: ldarg.0
+   IL_00a6: ldftn System.Void Celeste.FakeWall::OnTransitionInBegin()
+   IL_00ac: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_00b1: stfld System.Action Celeste.TransitionListener::OnInBegin
+   IL_00b6: ldarg.0
+   IL_00b7: ldloc.0
+   IL_00b8: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00bd: ret

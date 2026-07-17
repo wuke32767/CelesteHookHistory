@@ -1,0 +1,734 @@
+IL: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
+[V_0] System.Boolean
+[V_1] Microsoft.Xna.Framework.Vector2
+[V_2] Microsoft.Xna.Framework.Vector2
+[V_3] Celeste.Player
+[V_4] System.Boolean
+[V_5] System.Boolean
+[V_6] System.Boolean
+[V_7] System.Boolean
+[V_8] Celeste.Player
+[V_9] System.Single
+[V_10] Microsoft.Xna.Framework.Vector2
+[V_11] Microsoft.Xna.Framework.Vector2
+[V_12] Microsoft.Xna.Framework.Vector2
+[V_13] System.Boolean
+[V_14] System.Boolean
+[V_15] System.Boolean
+[V_16] System.Boolean
+[V_17] System.Boolean
+[V_18] System.Boolean
+[V_19] System.Boolean
+[V_20] System.Boolean
+[V_21] Microsoft.Xna.Framework.Vector2
+[V_22] Microsoft.Xna.Framework.Vector2
+[V_23] System.Boolean
+[V_24] System.Boolean
+[V_25] System.Boolean
+[V_26] Microsoft.Xna.Framework.Vector2
+[V_27] System.Boolean
+[V_28] System.Boolean
+[V_29] System.Boolean
+[V_30] System.Single
+[V_31] System.Int32
+[V_32] System.Int32
+[V_33] Microsoft.Xna.Framework.Vector2
+[V_34] System.Boolean
+[V_35] System.Boolean
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: call System.Void Celeste.Solid::Update()
+   IL_0007: nop
+   IL_0008: ldarg.0
+   IL_0009: ldarg.0
+   IL_000a: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::reappearFlash
+   IL_000f: ldc.r4 0
+   IL_0014: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0019: ldc.r4 8
+   IL_001e: mul
+   IL_001f: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0024: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::reappearFlash
+   IL_0029: ldarg.0
+   IL_002a: ldfld VivHelper.Entities.ReskinnableBounceBlock/States VivHelper.Entities.ReskinnableBounceBlock::state
+   IL_002f: ldc.i4.0
+   IL_0030: ceq
+   IL_0032: stloc.0
+   IL_0033: ldloc.0
+   IL_0034: brfalse IL_0199
+   IL_0039: nop
+   IL_003a: ldarg.0
+   IL_003b: callvirt System.Void VivHelper.Entities.ReskinnableBounceBlock::CheckModeChange()
+   IL_0040: nop
+   IL_0041: ldarg.0
+   IL_0042: ldarg.0
+   IL_0043: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_0048: ldc.r4 100
+   IL_004d: ldc.r4 400
+   IL_0052: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0057: mul
+   IL_0058: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_005d: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_0062: ldarg.0
+   IL_0063: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_0068: ldarg.0
+   IL_0069: ldfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::startPos
+   IL_006e: ldarg.0
+   IL_006f: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_0074: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0079: mul
+   IL_007a: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_007f: stloc.1
+   IL_0080: ldloc.1
+   IL_0081: ldarg.0
+   IL_0082: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_0087: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_008c: ldarg.0
+   IL_008d: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_0092: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0097: stloc.2
+   IL_0098: ldloca.s V_2
+   IL_009a: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_009f: dup
+   IL_00a0: ldind.r4
+   IL_00a1: ldarg.0
+   IL_00a2: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::LiftSpeedXMult
+   IL_00a7: mul
+   IL_00a8: stind.r4
+   IL_00a9: ldarg.0
+   IL_00aa: ldloc.1
+   IL_00ab: ldloc.2
+   IL_00ac: call System.Void Celeste.Platform::MoveTo(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00b1: nop
+   IL_00b2: ldarg.0
+   IL_00b3: ldarg.0
+   IL_00b4: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpProgress
+   IL_00b9: ldc.r4 0
+   IL_00be: ldc.r4 1
+   IL_00c3: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00c8: mul
+   IL_00c9: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_00ce: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpProgress
+   IL_00d3: ldarg.0
+   IL_00d4: callvirt Celeste.Player VivHelper.Entities.ReskinnableBounceBlock::WindUpPlayerCheck()
+   IL_00d9: stloc.3
+   IL_00da: ldloc.3
+   IL_00db: ldnull
+   IL_00dc: cgt.un
+   IL_00de: stloc.s V_4
+   IL_00e0: ldloc.s V_4
+   IL_00e2: brfalse IL_0193
+   IL_00e7: nop
+   IL_00e8: ldarg.0
+   IL_00e9: ldc.r4 80
+   IL_00ee: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_00f3: ldarg.0
+   IL_00f4: ldc.r4 0
+   IL_00f9: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpStartTimer
+   IL_00fe: ldarg.0
+   IL_00ff: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_0104: stloc.s V_5
+   IL_0106: ldloc.s V_5
+   IL_0108: brfalse.s IL_011e
+   IL_010a: nop
+   IL_010b: ldarg.0
+   IL_010c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0111: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_0116: stfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceDir
+   IL_011b: nop
+   IL_011c: br.s IL_013c
+   IL_011e: nop
+   IL_011f: ldarg.0
+   IL_0120: ldloc.3
+   IL_0121: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0126: ldarg.0
+   IL_0127: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_012c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0131: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+ + IL_10000: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
+ + IL_10001: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController::GetBounceDir(Microsoft.Xna.Framework.Vector2,Celeste.Solid) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
+   IL_0136: stfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceDir
+   IL_013b: nop
+   IL_013c: ldarg.0
+   IL_013d: ldc.i4.1
+   IL_013e: stfld VivHelper.Entities.ReskinnableBounceBlock/States VivHelper.Entities.ReskinnableBounceBlock::state
+   IL_0143: ldc.i4.1
+   IL_0144: ldc.i4.1
+   IL_0145: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_014a: nop
+   IL_014b: ldarg.0
+   IL_014c: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_0151: stloc.s V_6
+   IL_0153: ldloc.s V_6
+   IL_0155: brfalse.s IL_017f
+   IL_0157: nop
+   IL_0158: ldarg.0
+   IL_0159: ldc.r4 2
+   IL_015e: ldarg.0
+   IL_015f: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::WallPushTime
+   IL_0164: mul
+   IL_0165: call System.Void Celeste.Platform::StartShaking(System.Single)
+   IL_016a: nop
+   IL_016b: ldstr "event:/game/09_core/iceblock_touch"
+   IL_0170: ldarg.0
+   IL_0171: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0176: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_017b: pop
+   IL_017c: nop
+   IL_017d: br.s IL_0192
+   IL_017f: nop
+   IL_0180: ldstr "event:/game/09_core/bounceblock_touch"
+   IL_0185: ldarg.0
+   IL_0186: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_018b: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0190: pop
+   IL_0191: nop
+   IL_0192: nop
+   IL_0193: nop
+   IL_0194: br IL_074f
+   IL_0199: ldarg.0
+   IL_019a: ldfld VivHelper.Entities.ReskinnableBounceBlock/States VivHelper.Entities.ReskinnableBounceBlock::state
+   IL_019f: ldc.i4.1
+   IL_01a0: ceq
+   IL_01a2: stloc.s V_7
+   IL_01a4: ldloc.s V_7
+   IL_01a6: brfalse IL_03fc
+   IL_01ab: nop
+   IL_01ac: ldarg.0
+   IL_01ad: callvirt Celeste.Player VivHelper.Entities.ReskinnableBounceBlock::WindUpPlayerCheck()
+   IL_01b2: stloc.s V_8
+   IL_01b4: ldloc.s V_8
+   IL_01b6: ldnull
+   IL_01b7: cgt.un
+   IL_01b9: stloc.s V_13
+   IL_01bb: ldloc.s V_13
+   IL_01bd: brfalse.s IL_0200
+   IL_01bf: nop
+   IL_01c0: ldarg.0
+   IL_01c1: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_01c6: stloc.s V_14
+   IL_01c8: ldloc.s V_14
+   IL_01ca: brfalse.s IL_01e0
+   IL_01cc: nop
+   IL_01cd: ldarg.0
+   IL_01ce: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_01d3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_UnaryNegation(Microsoft.Xna.Framework.Vector2)
+   IL_01d8: stfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceDir
+   IL_01dd: nop
+   IL_01de: br.s IL_01ff
+   IL_01e0: nop
+   IL_01e1: ldarg.0
+   IL_01e2: ldloc.s V_8
+   IL_01e4: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_01e9: ldarg.0
+   IL_01ea: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_01ef: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01f4: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+ + IL_10002: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
+ + IL_10003: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController::GetBounceDir(Microsoft.Xna.Framework.Vector2,Celeste.Solid) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
+   IL_01f9: stfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceDir
+   IL_01fe: nop
+   IL_01ff: nop
+   IL_0200: ldarg.0
+   IL_0201: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpStartTimer
+   IL_0206: ldc.r4 0
+   IL_020b: cgt
+   IL_020d: stloc.s V_15
+   IL_020f: ldloc.s V_15
+   IL_0211: brfalse.s IL_024c
+   IL_0213: nop
+   IL_0214: ldarg.0
+   IL_0215: ldarg.0
+   IL_0216: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpStartTimer
+   IL_021b: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0220: sub
+   IL_0221: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpStartTimer
+   IL_0226: ldarg.0
+   IL_0227: ldarg.0
+   IL_0228: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpProgress
+   IL_022d: ldc.r4 0
+   IL_0232: ldc.r4 1
+   IL_0237: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_023c: mul
+   IL_023d: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0242: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpProgress
+   IL_0247: br IL_074f
+   IL_024c: ldarg.0
+   IL_024d: ldarg.0
+   IL_024e: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_0253: ldarg.0
+   IL_0254: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_0259: brtrue.s IL_0262
+   IL_025b: ldc.r4 40
+   IL_0260: br.s IL_0267
+   IL_0262: ldc.r4 35
+   IL_0267: ldc.r4 600
+   IL_026c: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0271: mul
+   IL_0272: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0277: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_027c: ldarg.0
+   IL_027d: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_0282: brtrue.s IL_028b
+   IL_0284: ldc.r4 1
+   IL_0289: br.s IL_0290
+   IL_028b: ldc.r4 0.333
+   IL_0290: stloc.s V_9
+   IL_0292: ldarg.0
+   IL_0293: ldfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::startPos
+   IL_0298: ldarg.0
+   IL_0299: ldfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceDir
+   IL_029e: ldarg.0
+   IL_029f: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_02a4: brtrue.s IL_02ae
+   IL_02a6: ldarg.0
+   IL_02a7: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::WindUpDist
+   IL_02ac: br.s IL_02b4
+   IL_02ae: ldarg.0
+   IL_02af: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::IceWindUpDist
+   IL_02b4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02b9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02be: stloc.s V_10
+   IL_02c0: ldarg.0
+   IL_02c1: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_02c6: ldloc.s V_10
+   IL_02c8: ldarg.0
+   IL_02c9: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_02ce: ldloc.s V_9
+   IL_02d0: mul
+   IL_02d1: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_02d6: mul
+   IL_02d7: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02dc: stloc.s V_11
+   IL_02de: ldloc.s V_11
+   IL_02e0: ldarg.0
+   IL_02e1: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_02e6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02eb: ldarg.0
+   IL_02ec: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_02f1: ldloc.s V_9
+   IL_02f3: mul
+   IL_02f4: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_02f9: stloc.s V_12
+   IL_02fb: ldloca.s V_12
+   IL_02fd: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0302: dup
+   IL_0303: ldind.r4
+   IL_0304: ldarg.0
+   IL_0305: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::LiftSpeedXMult
+   IL_030a: mul
+   IL_030b: stind.r4
+   IL_030c: ldarg.0
+   IL_030d: ldloc.s V_11
+   IL_030f: ldloc.s V_12
+   IL_0311: call System.Void Celeste.Platform::MoveTo(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0316: nop
+   IL_0317: ldarg.0
+   IL_0318: ldarg.0
+   IL_0319: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_031e: ldloc.s V_10
+   IL_0320: call System.Single Microsoft.Xna.Framework.Vector2::Distance(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0325: ldc.r4 16
+   IL_032a: ldc.r4 2
+   IL_032f: ldc.r4 0
+   IL_0334: ldc.r4 1
+   IL_0339: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_033e: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpProgress
+   IL_0343: ldarg.0
+   IL_0344: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_0349: brfalse.s IL_0364
+   IL_034b: ldarg.0
+   IL_034c: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_0351: ldloc.s V_10
+   IL_0353: call System.Single Microsoft.Xna.Framework.Vector2::DistanceSquared(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0358: ldc.r4 12
+   IL_035d: cgt.un
+   IL_035f: ldc.i4.0
+   IL_0360: ceq
+   IL_0362: br.s IL_0365
+   IL_0364: ldc.i4.0
+   IL_0365: stloc.s V_16
+   IL_0367: ldloc.s V_16
+   IL_0369: brfalse.s IL_037c
+   IL_036b: nop
+   IL_036c: ldarg.0
+   IL_036d: ldarg.0
+   IL_036e: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::WallPushTime
+   IL_0373: call System.Void Celeste.Platform::StartShaking(System.Single)
+   IL_0378: nop
+   IL_0379: nop
+   IL_037a: br.s IL_03ac
+   IL_037c: ldarg.0
+   IL_037d: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_0382: brtrue.s IL_0396
+   IL_0384: ldarg.0
+   IL_0385: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpProgress
+   IL_038a: ldc.r4 0.5
+   IL_038f: clt.un
+   IL_0391: ldc.i4.0
+   IL_0392: ceq
+   IL_0394: br.s IL_0397
+   IL_0396: ldc.i4.0
+   IL_0397: stloc.s V_17
+   IL_0399: ldloc.s V_17
+   IL_039b: brfalse.s IL_03ac
+   IL_039d: nop
+   IL_039e: ldarg.0
+   IL_039f: ldarg.0
+   IL_03a0: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::WallPushTime
+   IL_03a5: call System.Void Celeste.Platform::StartShaking(System.Single)
+   IL_03aa: nop
+   IL_03ab: nop
+   IL_03ac: ldarg.0
+   IL_03ad: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_03b2: ldloc.s V_10
+   IL_03b4: call System.Single Microsoft.Xna.Framework.Vector2::DistanceSquared(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_03b9: ldc.r4 2
+   IL_03be: cgt.un
+   IL_03c0: ldc.i4.0
+   IL_03c1: ceq
+   IL_03c3: stloc.s V_18
+   IL_03c5: ldloc.s V_18
+   IL_03c7: brfalse.s IL_03f6
+   IL_03c9: nop
+   IL_03ca: ldarg.0
+   IL_03cb: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_03d0: stloc.s V_19
+   IL_03d2: ldloc.s V_19
+   IL_03d4: brfalse.s IL_03e1
+   IL_03d6: nop
+   IL_03d7: ldarg.0
+   IL_03d8: callvirt System.Void VivHelper.Entities.ReskinnableBounceBlock::Break()
+   IL_03dd: nop
+   IL_03de: nop
+   IL_03df: br.s IL_03ea
+   IL_03e1: nop
+   IL_03e2: ldarg.0
+   IL_03e3: ldc.i4.2
+   IL_03e4: stfld VivHelper.Entities.ReskinnableBounceBlock/States VivHelper.Entities.ReskinnableBounceBlock::state
+   IL_03e9: nop
+   IL_03ea: ldarg.0
+   IL_03eb: ldc.r4 0
+   IL_03f0: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_03f5: nop
+   IL_03f6: nop
+   IL_03f7: br IL_074f
+   IL_03fc: ldarg.0
+   IL_03fd: ldfld VivHelper.Entities.ReskinnableBounceBlock/States VivHelper.Entities.ReskinnableBounceBlock::state
+   IL_0402: ldc.i4.2
+   IL_0403: ceq
+   IL_0405: stloc.s V_20
+   IL_0407: ldloc.s V_20
+   IL_0409: brfalse IL_0545
+   IL_040e: nop
+   IL_040f: ldarg.0
+   IL_0410: ldarg.0
+   IL_0411: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_0416: ldc.r4 140
+   IL_041b: ldc.r4 800
+   IL_0420: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0425: mul
+   IL_0426: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_042b: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_0430: ldarg.0
+   IL_0431: ldfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::startPos
+   IL_0436: ldarg.0
+   IL_0437: ldfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceDir
+   IL_043c: ldarg.0
+   IL_043d: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::BounceDist
+   IL_0442: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0447: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_044c: stloc.s V_21
+   IL_044e: ldarg.0
+   IL_044f: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_0454: ldloc.s V_21
+   IL_0456: ldarg.0
+   IL_0457: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_045c: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0461: mul
+   IL_0462: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0467: stloc.s V_22
+   IL_0469: ldarg.0
+   IL_046a: ldloc.s V_22
+   IL_046c: ldarg.0
+   IL_046d: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_0472: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0477: ldarg.0
+   IL_0478: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_047d: ldc.r4 3
+   IL_0482: mul
+   IL_0483: ldc.r4 200
+   IL_0488: call System.Single System.Math::Min(System.Single,System.Single)
+   IL_048d: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0492: stfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceLift
+   IL_0497: ldarg.0
+   IL_0498: ldflda Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceLift
+   IL_049d: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_04a2: dup
+   IL_04a3: ldind.r4
+   IL_04a4: ldarg.0
+   IL_04a5: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::LiftSpeedXMult
+   IL_04aa: mul
+   IL_04ab: stind.r4
+   IL_04ac: ldarg.0
+   IL_04ad: ldloc.s V_22
+   IL_04af: ldarg.0
+   IL_04b0: ldfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceLift
+   IL_04b5: call System.Void Celeste.Platform::MoveTo(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04ba: nop
+   IL_04bb: ldarg.0
+   IL_04bc: ldc.r4 1
+   IL_04c1: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::windUpProgress
+   IL_04c6: ldarg.0
+   IL_04c7: call Microsoft.Xna.Framework.Vector2 Celeste.Platform::get_ExactPosition()
+   IL_04cc: ldloc.s V_21
+   IL_04ce: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Equality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_04d3: brtrue.s IL_04eb
+   IL_04d5: ldarg.0
+   IL_04d6: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_04db: brtrue.s IL_04e8
+   IL_04dd: ldarg.0
+   IL_04de: callvirt Celeste.Player VivHelper.Entities.ReskinnableBounceBlock::WindUpPlayerCheck()
+   IL_04e3: ldnull
+   IL_04e4: ceq
+   IL_04e6: br.s IL_04e9
+   IL_04e8: ldc.i4.0
+   IL_04e9: br.s IL_04ec
+   IL_04eb: ldc.i4.1
+   IL_04ec: stloc.s V_23
+   IL_04ee: ldloc.s V_23
+   IL_04f0: brfalse.s IL_053f
+   IL_04f2: nop
+   IL_04f3: ldarg.0
+   IL_04f4: ldloc.s V_21
+   IL_04f6: ldarg.0
+   IL_04f7: ldfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::startPos
+   IL_04fc: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0501: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_0506: stfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::debrisDirection
+   IL_050b: ldarg.0
+   IL_050c: ldc.i4.3
+   IL_050d: stfld VivHelper.Entities.ReskinnableBounceBlock/States VivHelper.Entities.ReskinnableBounceBlock::state
+   IL_0512: ldc.i4.1
+   IL_0513: ldc.i4.1
+   IL_0514: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0519: nop
+   IL_051a: ldarg.0
+   IL_051b: ldc.r4 0
+   IL_0520: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::moveSpeed
+   IL_0525: ldarg.0
+   IL_0526: ldarg.0
+   IL_0527: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::BounceEndTime
+   IL_052c: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::bounceEndTimer
+   IL_0531: ldarg.0
+   IL_0532: ldarg.0
+   IL_0533: ldfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::bounceLift
+   IL_0538: callvirt System.Void VivHelper.Entities.ReskinnableBounceBlock::ShakeOffPlayer(Microsoft.Xna.Framework.Vector2)
+   IL_053d: nop
+   IL_053e: nop
+   IL_053f: nop
+   IL_0540: br IL_074f
+   IL_0545: ldarg.0
+   IL_0546: ldfld VivHelper.Entities.ReskinnableBounceBlock/States VivHelper.Entities.ReskinnableBounceBlock::state
+   IL_054b: ldc.i4.3
+   IL_054c: ceq
+   IL_054e: stloc.s V_24
+   IL_0550: ldloc.s V_24
+   IL_0552: brfalse.s IL_058c
+   IL_0554: nop
+   IL_0555: ldarg.0
+   IL_0556: ldarg.0
+   IL_0557: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::bounceEndTimer
+   IL_055c: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0561: sub
+   IL_0562: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::bounceEndTimer
+   IL_0567: ldarg.0
+   IL_0568: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::bounceEndTimer
+   IL_056d: ldc.r4 0
+   IL_0572: cgt.un
+   IL_0574: ldc.i4.0
+   IL_0575: ceq
+   IL_0577: stloc.s V_25
+   IL_0579: ldloc.s V_25
+   IL_057b: brfalse.s IL_0586
+   IL_057d: nop
+   IL_057e: ldarg.0
+   IL_057f: callvirt System.Void VivHelper.Entities.ReskinnableBounceBlock::Break()
+   IL_0584: nop
+   IL_0585: nop
+   IL_0586: nop
+   IL_0587: br IL_074f
+   IL_058c: nop
+   IL_058d: ldarg.0
+   IL_058e: ldfld VivHelper.Entities.ReskinnableBounceBlock/States VivHelper.Entities.ReskinnableBounceBlock::state
+   IL_0593: ldc.i4.4
+   IL_0594: ceq
+   IL_0596: ldc.i4.0
+   IL_0597: ceq
+   IL_0599: stloc.s V_27
+   IL_059b: ldloc.s V_27
+   IL_059d: brfalse.s IL_05a5
+   IL_059f: nop
+   IL_05a0: br IL_074f
+   IL_05a5: ldarg.0
+   IL_05a6: ldc.i4 8990
+   IL_05ab: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_05b0: nop
+   IL_05b1: ldarg.0
+   IL_05b2: ldc.i4.0
+   IL_05b3: stfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::reformed
+   IL_05b8: ldarg.0
+   IL_05b9: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::respawnTimer
+   IL_05be: ldc.r4 0
+   IL_05c3: cgt
+   IL_05c5: stloc.s V_28
+   IL_05c7: ldloc.s V_28
+   IL_05c9: brfalse.s IL_05e3
+   IL_05cb: nop
+   IL_05cc: ldarg.0
+   IL_05cd: ldarg.0
+   IL_05ce: ldfld System.Single VivHelper.Entities.ReskinnableBounceBlock::respawnTimer
+   IL_05d3: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_05d8: sub
+   IL_05d9: stfld System.Single VivHelper.Entities.ReskinnableBounceBlock::respawnTimer
+   IL_05de: br IL_074f
+   IL_05e3: ldarg.0
+   IL_05e4: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_05e9: stloc.s V_26
+   IL_05eb: ldarg.0
+   IL_05ec: ldarg.0
+   IL_05ed: ldfld Microsoft.Xna.Framework.Vector2 VivHelper.Entities.ReskinnableBounceBlock::startPos
+   IL_05f2: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_05f7: ldarg.0
+   IL_05f8: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Actor>()
+   IL_05fd: brtrue.s IL_060a
+   IL_05ff: ldarg.0
+   IL_0600: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>()
+   IL_0605: ldc.i4.0
+   IL_0606: ceq
+   IL_0608: br.s IL_060b
+   IL_060a: ldc.i4.0
+   IL_060b: stloc.s V_29
+   IL_060d: ldloc.s V_29
+   IL_060f: brfalse IL_0744
+   IL_0614: nop
+   IL_0615: ldarg.0
+   IL_0616: callvirt System.Void VivHelper.Entities.ReskinnableBounceBlock::CheckModeChange()
+   IL_061b: nop
+   IL_061c: ldarg.0
+   IL_061d: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_0622: brtrue.s IL_062b
+   IL_0624: ldstr "event:/game/09_core/bounceblock_reappear"
+   IL_0629: br.s IL_0630
+   IL_062b: ldstr "event:/game/09_core/iceblock_reappear"
+   IL_0630: ldarg.0
+   IL_0631: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0636: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_063b: pop
+   IL_063c: ldc.r4 0.35
+   IL_0641: stloc.s V_30
+   IL_0643: ldc.i4.0
+   IL_0644: stloc.s V_31
+   IL_0646: br IL_06e9
+   IL_064b: nop
+   IL_064c: ldc.i4.0
+   IL_064d: stloc.s V_32
+   IL_064f: br.s IL_06ce
+   IL_0651: nop
+   IL_0652: ldloca.s V_33
+   IL_0654: ldarg.0
+   IL_0655: call System.Single Monocle.Entity::get_X()
+   IL_065a: ldloc.s V_31
+   IL_065c: conv.r4
+   IL_065d: add
+   IL_065e: ldc.r4 4
+   IL_0663: add
+   IL_0664: ldarg.0
+   IL_0665: call System.Single Monocle.Entity::get_Y()
+   IL_066a: ldloc.s V_32
+   IL_066c: conv.r4
+   IL_066d: add
+   IL_066e: ldc.r4 4
+   IL_0673: add
+   IL_0674: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0679: ldarg.0
+   IL_067a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_067f: call Monocle.Pooler Monocle.Engine::get_Pooler()
+   IL_0684: callvirt T Monocle.Pooler::Create<VivHelper.Entities.ReskinnableBounceBlock/RespawnDebris>()
+   IL_0689: ldloc.s V_33
+   IL_068b: ldloc.s V_33
+   IL_068d: ldarg.0
+   IL_068e: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0693: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0698: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_069d: ldc.r4 12
+   IL_06a2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_06a7: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_06ac: ldloc.s V_33
+   IL_06ae: ldarg.0
+   IL_06af: ldfld System.Boolean VivHelper.Entities.ReskinnableBounceBlock::iceMode
+   IL_06b4: ldloc.s V_30
+   IL_06b6: ldarg.0
+   IL_06b7: ldfld System.String VivHelper.Entities.ReskinnableBounceBlock::directory
+   IL_06bc: callvirt VivHelper.Entities.ReskinnableBounceBlock/RespawnDebris VivHelper.Entities.ReskinnableBounceBlock/RespawnDebris::Init(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Boolean,System.Single,System.String)
+   IL_06c1: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_06c6: nop
+   IL_06c7: nop
+   IL_06c8: ldloc.s V_32
+   IL_06ca: ldc.i4.8
+   IL_06cb: add
+   IL_06cc: stloc.s V_32
+   IL_06ce: ldloc.s V_32
+   IL_06d0: conv.r4
+   IL_06d1: ldarg.0
+   IL_06d2: call System.Single Monocle.Entity::get_Height()
+   IL_06d7: clt
+   IL_06d9: stloc.s V_34
+   IL_06db: ldloc.s V_34
+   IL_06dd: brtrue IL_0651
+   IL_06e2: nop
+   IL_06e3: ldloc.s V_31
+   IL_06e5: ldc.i4.8
+   IL_06e6: add
+   IL_06e7: stloc.s V_31
+   IL_06e9: ldloc.s V_31
+   IL_06eb: conv.r4
+   IL_06ec: ldarg.0
+   IL_06ed: call System.Single Monocle.Entity::get_Width()
+   IL_06f2: clt
+   IL_06f4: stloc.s V_35
+   IL_06f6: ldloc.s V_35
+   IL_06f8: brtrue IL_064b
+   IL_06fd: ldarg.0
+   IL_06fe: ldloc.s V_30
+   IL_0700: ldarg.0
+   IL_0701: ldftn System.Void VivHelper.Entities.ReskinnableBounceBlock::<Update>b__43_0()
+   IL_0707: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_070c: ldc.i4.1
+   IL_070d: call Monocle.Alarm Monocle.Alarm::Set(Monocle.Entity,System.Single,System.Action,Monocle.Alarm/AlarmMode)
+   IL_0712: pop
+   IL_0713: ldarg.0
+   IL_0714: ldc.i4 -9000
+   IL_0719: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_071e: nop
+   IL_071f: ldarg.0
+   IL_0720: ldarg.0
+   IL_0721: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0726: ldloc.s V_26
+   IL_0728: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_072d: call System.Void Celeste.Platform::MoveStaticMovers(Microsoft.Xna.Framework.Vector2)
+   IL_0732: nop
+   IL_0733: ldarg.0
+   IL_0734: ldc.i4.1
+   IL_0735: stfld System.Boolean Monocle.Entity::Collidable
+   IL_073a: ldarg.0
+   IL_073b: ldc.i4.0
+   IL_073c: stfld VivHelper.Entities.ReskinnableBounceBlock/States VivHelper.Entities.ReskinnableBounceBlock::state
+   IL_0741: nop
+   IL_0742: br.s IL_074e
+   IL_0744: nop
+   IL_0745: ldarg.0
+   IL_0746: ldloc.s V_26
+   IL_0748: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_074d: nop
+   IL_074e: nop
+   IL_074f: ret

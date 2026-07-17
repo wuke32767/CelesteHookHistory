@@ -1,8 +1,8 @@
 On{ifqsHyrExRY}: [GooberHelper::]Celeste.Mod.GooberHelper.Triggers.GooberHelperOptions.patch_Player_Die(orig_Die,Player,Vector2,Boolean,Boolean)
-On{uk9VwcABPx4}: [CoopHelper::]Celeste.Mod.CoopHelper.CoopHelperModule.OnPlayerDie(Func`5,Player,Vector2,Boolean,Boolean)
 IL: {GoldenTrainer.GoldenTrainerModule::RespawnInRoomWithBerry: Priority: -1}[GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.TweakManagers.ChangeDashSpeedOnce.DiePatch(ILContext)
 IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+IL: [EndersExtras::]Celeste.Mod.EndersExtras.EndersExtrasModule.Hook_ILOrigDie(ILContext)
 IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.Gameplay.BetterInvincible+<>c.<Initialize>b__1_0(ILContext)
 [V_0] Celeste.Player/<>c__DisplayClass344_0
@@ -59,7 +59,8 @@ IL: [CelesteTAS-EverestInterop::]TAS.Gameplay.BetterInvincible+<>c.<Initialize>b
    IL_007d: ldc.i4.1
    IL_007e: add
    IL_007f: stfld System.Int32 Celeste.Session::Deaths
- + IL_10003: call System.Void Celeste.Mod.EndHelper.EndHelperModule::ILRunOnPlayerDeath() @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+ + IL_10003: call System.Void Celeste.Mod.EndersExtras.EndersExtrasModule::ILRunOnPlayerDeath() @ [EndersExtras::]Celeste.Mod.EndersExtras.EndersExtrasModule.Hook_ILOrigDie(ILContext)
+ + IL_10004: call System.Void Celeste.Mod.EndHelper.EndHelperModule::ILRunOnPlayerDeath() @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
    IL_0084: ldloc.2
    IL_0085: ldfld Celeste.Player/<>c__DisplayClass344_0 Celeste.Player/<>c__DisplayClass344_1::CS$<>8__locals1
    IL_008a: ldfld Celeste.Session Celeste.Player/<>c__DisplayClass344_0::session
@@ -116,8 +117,8 @@ IL: [CelesteTAS-EverestInterop::]TAS.Gameplay.BetterInvincible+<>c.<Initialize>b
    IL_0139: ldarg.0
    IL_013a: ldc.i4.1
    IL_013b: callvirt System.Void Celeste.Player::set_Dead(System.Boolean)
- + IL_10004: call System.Boolean Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::CheckPlayerDeathSkipLoseFollowers() @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
- + IL_10005: brtrue.s IL_014b @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+ + IL_10005: call System.Boolean Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::CheckPlayerDeathSkipLoseFollowers() @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+ + IL_10006: brtrue.s IL_014b @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
    IL_0140: ldarg.0
    IL_0141: ldfld Celeste.Leader Celeste.Player::Leader
    IL_0146: callvirt System.Void Celeste.Leader::LoseFollowers()
@@ -149,7 +150,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.Gameplay.BetterInvincible+<>c.<Initialize>b
    IL_0199: ldarg.0
    IL_019a: ldfld Celeste.Level Celeste.Player::level
    IL_019f: ldc.r4 0.3
- + IL_10006: call System.Single Celeste.Mod.EndHelper.EndHelperModule::GetScreenShakeReplacementIntensity(System.Single) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+ + IL_10007: call System.Single Celeste.Mod.EndHelper.EndHelperModule::GetScreenShakeReplacementIntensity(System.Single) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
    IL_01a4: callvirt System.Void Celeste.Level::Shake(System.Single)
    IL_01a9: ldc.i4.0
    IL_01aa: ldc.i4.1
@@ -161,12 +162,12 @@ IL: [CelesteTAS-EverestInterop::]TAS.Gameplay.BetterInvincible+<>c.<Initialize>b
    IL_01b8: ldloc.2
    IL_01b9: ldfld Celeste.Strawberry Celeste.Player/<>c__DisplayClass344_1::goldenStrawb
    IL_01be: brfalse.s IL_01d9
- + IL_10007: ldc.i4 0 @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
  + IL_10008: ldc.i4 0 @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
- + IL_10009: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Boolean>>(System.Int32,System.Int32) @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
+ + IL_10009: ldc.i4 0 @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
+ + IL_1000a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Boolean>>(System.Int32,System.Int32) @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
        => Invoke: [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule+<>c.<RespawnInRoomWithBerry>b__33_2()
- + IL_1000a: callvirt TResult System.Func`1<System.Boolean>::Invoke() @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
- + IL_1000b: brtrue IL_01d9 @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
+ + IL_1000b: callvirt TResult System.Func`1<System.Boolean>::Invoke() @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
+ + IL_1000c: brtrue IL_01d9 @ [GoldenTrainer::]GoldenTrainer.GoldenTrainerModule.RespawnInRoomWithBerry(ILContext)
    IL_01c0: ldloc.3
    IL_01c1: ldc.i4.1
    IL_01c2: stfld System.Boolean Celeste.PlayerDeadBody::HasGolden
@@ -179,18 +180,18 @@ IL: [CelesteTAS-EverestInterop::]TAS.Gameplay.BetterInvincible+<>c.<Initialize>b
    IL_01da: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_01df: ldloc.3
    IL_01e0: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
- + IL_1000c: call System.Boolean Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::CheckPlayerDeathSkipRemovePlayer() @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
- + IL_1000d: brtrue.s IL_10012 @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
- + IL_1000e: call System.Boolean Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::ShouldSkipRemovePlayer() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
- + IL_1000f: brtrue IL_10010 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
+ + IL_1000d: call System.Boolean Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::CheckPlayerDeathSkipRemovePlayer() @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+ + IL_1000e: brtrue.s IL_10013 @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+ + IL_1000f: call System.Boolean Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::ShouldSkipRemovePlayer() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
+ + IL_10010: brtrue IL_10011 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
    IL_01e5: ldarg.0
    IL_01e6: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_01eb: ldarg.0
    IL_01ec: callvirt System.Void Monocle.Scene::Remove(Monocle.Entity)
- + IL_10010: call System.Void Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::FakeKillPlayer() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
- + IL_10011: br.s IL_01f1 @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
- + IL_10012: ldarg.0 @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
- + IL_10013: call System.Void Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::OnPlayerDeathSkip(Celeste.Player) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+ + IL_10011: call System.Void Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::FakeKillPlayer() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
+ + IL_10012: br.s IL_01f1 @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+ + IL_10013: ldarg.0 @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
+ + IL_10014: call System.Void Celeste.Mod.EndHelper.Utils.Utils_DeathHandler::OnPlayerDeathSkip(Celeste.Player) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_ILOrigDie(ILContext)
    IL_01f1: ldarg.0
    IL_01f2: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_01f7: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()

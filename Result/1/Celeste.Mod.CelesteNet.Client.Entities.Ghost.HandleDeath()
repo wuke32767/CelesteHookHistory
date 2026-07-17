@@ -1,0 +1,28 @@
+IL: [CelesteButtplug::]Celeste.Mod.CelesteButtplug.Managers.MultiplayerHooksManager+<>c.<Register>b__10_0(ILContext)
+[V_0] Celeste.Level
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: stloc.0
+   IL_000c: ldloc.0
+   IL_000d: brfalse.s IL_0030
+   IL_000f: ldloc.0
+   IL_0010: ldfld System.Boolean Monocle.Scene::Paused
+   IL_0015: brtrue.s IL_0030
+   IL_0017: ldloc.0
+   IL_0018: callvirt Celeste.Overlay Celeste.Level::get_Overlay()
+   IL_001d: brtrue.s IL_0030
+   IL_001f: call Celeste.Mod.CelesteNet.Client.CelesteNetClientSettings Celeste.Mod.CelesteNet.Client.CelesteNetClientModule::get_Settings()
+   IL_0024: callvirt Celeste.Mod.CelesteNet.Client.CelesteNetClientSettings/InGameMenu Celeste.Mod.CelesteNet.Client.CelesteNetClientSettings::get_InGame()
+   IL_0029: callvirt System.Int32 Celeste.Mod.CelesteNet.Client.CelesteNetClientSettings/InGameMenu::get_OtherPlayerOpacity()
+   IL_002e: brtrue.s IL_0031
+   IL_0030: ret
+   IL_0031: ldloc.0
+   IL_0032: ldarg.0
+   IL_0033: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Single Celeste.Mod.CelesteNet.Client.Entities.Ghost::Alpha
+   IL_003e: newobj System.Void Celeste.Mod.CelesteNet.Client.Entities.GhostDeadBody::.ctor(Celeste.Mod.CelesteNet.Client.Entities.Ghost,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0043: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+ + IL_10000: call System.Void Celeste.Mod.CelesteButtplug.MultiplayerEvents::Death() @ [CelesteButtplug::]Celeste.Mod.CelesteButtplug.Managers.MultiplayerHooksManager+<>c.<Register>b__10_0(ILContext)
+   IL_0048: ret

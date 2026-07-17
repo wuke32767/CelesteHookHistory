@@ -1,0 +1,70 @@
+[V_0] System.Int32
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Int32 Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<>1__state
+   IL_0006: stloc.0
+   IL_0007: ldloc.0
+   IL_0008: brfalse.s IL_0010
+   IL_000a: ldloc.0
+   IL_000b: ldc.i4.1
+   IL_000c: beq.s IL_006e
+   IL_000e: ldc.i4.0
+   IL_000f: ret
+   IL_0010: ldarg.0
+   IL_0011: ldc.i4.m1
+   IL_0012: stfld System.Int32 Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<>1__state
+   IL_0017: ldarg.0
+   IL_0018: ldsfld Celeste.Mod.Entities.SceneWrappingEntity`1<Celeste.Overworld> Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::overworldWrapper
+   IL_001d: dup
+   IL_001e: brtrue.s IL_0024
+   IL_0020: pop
+   IL_0021: ldnull
+   IL_0022: br.s IL_0029
+   IL_0024: ldfld T Celeste.Mod.Entities.SceneWrappingEntity`1<Celeste.Overworld>::WrappedScene
+   IL_0029: stfld Celeste.Overworld Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<overworld>5__2
+   IL_002e: ldarg.0
+   IL_002f: ldfld Celeste.Overworld Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<overworld>5__2
+   IL_0034: brtrue.s IL_0075
+   IL_0036: ldc.i4.0
+   IL_0037: ret
+   IL_0038: ldarg.0
+   IL_0039: ldfld Celeste.OuiChapterSelectIcon Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::icon
+   IL_003e: ldarg.0
+   IL_003f: ldfld Celeste.OuiChapterPanel Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::panel
+   IL_0044: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0049: ldarg.0
+   IL_004a: ldfld Celeste.OuiChapterPanel Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::panel
+   IL_004f: callvirt Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel::get_IconOffset()
+   IL_0054: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+ + IL_10000: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::ModifyIconOffset(Microsoft.Xna.Framework.Vector2) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.InGameOverworldHelper_UpdateIconRoutine(ILContext)
+   IL_0059: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_005e: ldarg.0
+   IL_005f: ldnull
+   IL_0060: stfld System.Object Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<>2__current
+   IL_0065: ldarg.0
+   IL_0066: ldc.i4.1
+   IL_0067: stfld System.Int32 Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<>1__state
+   IL_006c: ldc.i4.1
+   IL_006d: ret
+   IL_006e: ldarg.0
+   IL_006f: ldc.i4.m1
+   IL_0070: stfld System.Int32 Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<>1__state
+   IL_0075: ldarg.0
+   IL_0076: ldfld Celeste.Overworld Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<overworld>5__2
+   IL_007b: ldfld Celeste.Oui Celeste.Overworld::Current
+   IL_0080: ldarg.0
+   IL_0081: ldfld Celeste.OuiChapterPanel Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::panel
+   IL_0086: beq.s IL_0038
+   IL_0088: ldarg.0
+   IL_0089: ldfld Celeste.Overworld Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<overworld>5__2
+   IL_008e: ldfld Celeste.Oui Celeste.Overworld::Last
+   IL_0093: ldarg.0
+   IL_0094: ldfld Celeste.OuiChapterPanel Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::panel
+   IL_0099: beq.s IL_0038
+   IL_009b: ldarg.0
+   IL_009c: ldfld Celeste.Overworld Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::<overworld>5__2
+   IL_00a1: ldfld Celeste.Oui Celeste.Overworld::Next
+   IL_00a6: ldarg.0
+   IL_00a7: ldfld Celeste.OuiChapterPanel Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper/<UpdateIconRoutine>d__88::panel
+   IL_00ac: beq.s IL_0038
+   IL_00ae: ldc.i4.0
+   IL_00af: ret

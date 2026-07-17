@@ -1,0 +1,185 @@
+[V_0] Monocle.MTexture
+[V_1] Microsoft.Xna.Framework.Vector2
+[V_2] System.Int32
+[V_3] Microsoft.Xna.Framework.Vector2
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.MTexture Celeste.OuiChapterSelectIcon::front
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterSelectIcon::Scale
+   IL_000d: stloc.1
+   IL_000e: ldloc.0
+   IL_000f: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_0014: stloc.2
+   IL_0015: ldloc.1
+   IL_0016: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_001b: ldc.r4 0
+   IL_0020: bge.un.s IL_0029
+   IL_0022: ldarg.0
+   IL_0023: ldfld Monocle.MTexture Celeste.OuiChapterSelectIcon::back
+   IL_0028: stloc.0
+   IL_0029: ldarg.0
+   IL_002a: ldfld System.Boolean Celeste.OuiChapterSelectIcon::AssistModeUnlockable
+   IL_002f: brfalse.s IL_0046
+   IL_0031: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_0036: ldstr "areas/lock"
+   IL_003b: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0040: stloc.0
+   IL_0041: ldloc.2
+   IL_0042: ldc.i4.s 32
+   IL_0044: sub
+   IL_0045: stloc.2
+   IL_0046: ldarg.0
+   IL_0047: ldfld System.Boolean Celeste.OuiChapterSelectIcon::HideIcon
+   IL_004c: brtrue IL_0180
+   IL_0051: ldloc.1
+   IL_0052: ldc.r4 100
+   IL_0057: ldc.r4 44
+   IL_005c: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeInOut
+   IL_0061: ldarg.0
+   IL_0062: ldfld System.Single Celeste.OuiChapterSelectIcon::sizeEase
+   IL_0067: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_006c: mul
+   IL_006d: add
+   IL_006e: ldloc.2
+   IL_006f: conv.r4
+   IL_0070: div
+   IL_0071: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0076: stloc.1
+   IL_0077: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_007c: brfalse.s IL_009d
+   IL_007e: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0083: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0088: ldfld System.Boolean Celeste.Assists::MirrorMode
+   IL_008d: brfalse.s IL_009d
+   IL_008f: ldloca.s V_1
+   IL_0091: ldloc.1
+   IL_0092: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0097: neg
+   IL_0098: stfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_009d: ldloc.0
+   IL_009e: ldarg.0
+   IL_009f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00a4: ldarg.0
+   IL_00a5: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterSelectIcon::shake
+   IL_00aa: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00af: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00b4: ldloc.1
+   IL_00b5: ldarg.0
+   IL_00b6: ldfld System.Single Celeste.OuiChapterSelectIcon::Rotation
+ + IL_10000: ldarg.0 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterSelectIconOnRender(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::IconStartShaderLayerRender(Celeste.OuiChapterSelectIcon) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterSelectIconOnRender(ILContext)
+   IL_00bb: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2,System.Single)
+ + IL_10002: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndShaderLayerRender() @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterSelectIconOnRender(ILContext)
+   IL_00c0: ldarg.0
+   IL_00c1: ldfld System.Boolean Celeste.OuiChapterSelectIcon::New
+   IL_00c6: brfalse IL_0180
+   IL_00cb: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00d0: brfalse IL_0180
+   IL_00d5: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00da: ldfld System.Boolean Celeste.SaveData::CheatMode
+   IL_00df: brtrue IL_0180
+   IL_00e4: ldarg.0
+   IL_00e5: ldfld System.Int32 Celeste.OuiChapterSelectIcon::Area
+   IL_00ea: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00ef: callvirt System.Int32 Celeste.SaveData::get_UnlockedAreas_Safe()
+   IL_00f4: bne.un IL_0180
+   IL_00f9: ldarg.0
+   IL_00fa: ldfld System.Boolean Celeste.OuiChapterSelectIcon::selected
+   IL_00ff: brtrue IL_0180
+   IL_0104: ldarg.0
+   IL_0105: ldfld Monocle.Tween Celeste.OuiChapterSelectIcon::tween
+   IL_010a: brtrue.s IL_0180
+   IL_010c: ldarg.0
+   IL_010d: ldfld System.Boolean Celeste.OuiChapterSelectIcon::AssistModeUnlockable
+   IL_0112: brtrue.s IL_0180
+   IL_0114: ldsfld Celeste.Celeste/PlayModes Celeste.Celeste::PlayMode
+   IL_0119: ldc.i4.2
+   IL_011a: beq.s IL_0180
+   IL_011c: ldarg.0
+   IL_011d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0122: ldloc.2
+   IL_0123: conv.r4
+   IL_0124: ldc.r4 0.25
+   IL_0129: mul
+   IL_012a: ldloc.0
+   IL_012b: callvirt System.Int32 Monocle.MTexture::get_Height()
+   IL_0130: neg
+   IL_0131: conv.r4
+   IL_0132: ldc.r4 0.25
+   IL_0137: mul
+   IL_0138: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_013d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0142: stloc.3
+   IL_0143: ldloc.3
+   IL_0144: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_0149: ldarg.0
+   IL_014a: ldfld Monocle.Wiggler Celeste.OuiChapterSelectIcon::newWiggle
+   IL_014f: callvirt System.Single Monocle.Wiggler::get_Value()
+   IL_0154: ldc.r4 30
+   IL_0159: mul
+   IL_015a: call System.Single System.Math::Abs(System.Single)
+   IL_015f: neg
+   IL_0160: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0165: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_016a: stloc.3
+   IL_016b: ldsfld Monocle.Atlas Celeste.GFX::Gui
+   IL_0170: ldstr "areas/new"
+   IL_0175: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_017a: ldloc.3
+   IL_017b: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2)
+   IL_0180: ldarg.0
+   IL_0181: ldfld System.Single Celeste.OuiChapterSelectIcon::spotlightAlpha
+   IL_0186: ldc.r4 0
+   IL_018b: ble.un.s IL_01d0
+   IL_018d: call System.Void Celeste.HiresRenderer::EndRender()
+   IL_0192: ldarg.0
+   IL_0193: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0198: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_019d: ldarg.0
+   IL_019e: callvirt Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterSelectIcon::get_IdlePosition()
+   IL_01a3: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_01a8: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01ad: ldarg.0
+   IL_01ae: ldfld System.Single Celeste.OuiChapterSelectIcon::spotlightRadius
+   IL_01b3: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_01b8: ldarg.0
+   IL_01b9: ldfld System.Single Celeste.OuiChapterSelectIcon::spotlightAlpha
+   IL_01be: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_01c3: call System.Void Celeste.SpotlightWipe::DrawSpotlight(Microsoft.Xna.Framework.Vector2,System.Single,Microsoft.Xna.Framework.Color)
+   IL_01c8: ldnull
+   IL_01c9: ldnull
+   IL_01ca: call System.Void Celeste.HiresRenderer::BeginRender(Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState)
+   IL_01cf: ret
+   IL_01d0: ldarg.0
+   IL_01d1: ldfld System.Boolean Celeste.OuiChapterSelectIcon::AssistModeUnlockable
+   IL_01d6: brfalse.s IL_024e
+   IL_01d8: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_01dd: ldflda Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_01e2: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_01e7: ldarg.0
+   IL_01e8: ldfld System.Int32 Celeste.OuiChapterSelectIcon::Area
+   IL_01ed: bne.un.s IL_024e
+   IL_01ef: ldarg.0
+   IL_01f0: ldfld System.Boolean Celeste.OuiChapterSelectIcon::hidden
+   IL_01f5: brtrue.s IL_024e
+   IL_01f7: ldstr "ASSIST_SKIP"
+   IL_01fc: ldnull
+   IL_01fd: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_0202: ldarg.0
+   IL_0203: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0208: ldc.r4 0
+   IL_020d: ldc.r4 100
+   IL_0212: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0217: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_021c: ldc.r4 0.5
+   IL_0221: ldc.r4 0
+   IL_0226: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_022b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_0230: ldc.r4 0.7
+   IL_0235: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_023a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_023f: ldc.r4 2
+   IL_0244: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0249: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_024e: ret

@@ -1,5 +1,6 @@
 IL: {Celeste.Mod.CommunalHelper.Entities.MoveBlockRedirect::MoveBlock_Controller: Priority: -1}[CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveBlockRedirect.MoveBlock_Controller(ILContext)
 IL: [Aqua::]Celeste.Mod.Aqua.Core.MoveBlockExtensions.MoveBlock_ILController(ILContext)
+IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Entities.MoveBlockWaitController.ModController(ILContext)
 IL: [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
 [V_0] System.Int32
 [V_1] Celeste.MoveBlock
@@ -73,6 +74,8 @@ IL: [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILC
    IL_009c: callvirt System.Void Celeste.MoveBlock::ActivateParticles()
    IL_00a1: ldarg.0
    IL_00a2: ldc.r4 0.2
+ + IL_10003: ldloc.1 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Entities.MoveBlockWaitController.ModController(ILContext)
+ + IL_10004: call System.Single Celeste.Mod.HamburgerHelper.Entities.MoveBlockWaitController::ModStartTime(System.Single,Celeste.MoveBlock) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Entities.MoveBlockWaitController.ModController(ILContext)
    IL_00a7: box System.Single
    IL_00ac: stfld System.Object Celeste.MoveBlock/<Controller>d__45::<>2__current
    IL_00b1: ldarg.0
@@ -88,20 +91,20 @@ IL: [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILC
    IL_00c3: ldfld System.Boolean Celeste.MoveBlock::fast
    IL_00c8: brtrue.s IL_00d1
    IL_00ca: ldc.r4 60
- + IL_10003: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
- + IL_10004: call System.Single Celeste.Mod.TeraHelper.Entities.TeraMoveBlock::GetSpeedMultipler(Celeste.MoveBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
- + IL_10005: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
+ + IL_10005: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
+ + IL_10006: call System.Single Celeste.Mod.TeraHelper.Entities.TeraMoveBlock::GetSpeedMultipler(Celeste.MoveBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
+ + IL_10007: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
    IL_00cf: br.s IL_00d6
    IL_00d1: ldc.r4 75
- + IL_10006: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
- + IL_10007: call System.Single Celeste.Mod.TeraHelper.Entities.TeraMoveBlock::GetSpeedMultipler(Celeste.MoveBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
- + IL_10008: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
+ + IL_10008: ldloc.1 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
+ + IL_10009: call System.Single Celeste.Mod.TeraHelper.Entities.TeraMoveBlock::GetSpeedMultipler(Celeste.MoveBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
+ + IL_1000a: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraMoveBlock.TeraSequence(ILContext)
    IL_00d6: stfld System.Single Celeste.MoveBlock::targetSpeed
    IL_00db: ldloc.1
    IL_00dc: ldfld Celeste.SoundSource Celeste.MoveBlock::moveSfx
    IL_00e1: ldstr "event:/game/04_cliffside/arrowblock_move"
- + IL_10009: pop @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveBlockRedirect.MoveBlock_Controller(ILContext)
- + IL_1000a: ldstr "event:/CommunalHelperEvents/game/redirectMoveBlock/arrowblock_move" @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveBlockRedirect.MoveBlock_Controller(ILContext)
+ + IL_1000b: pop @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveBlockRedirect.MoveBlock_Controller(ILContext)
+ + IL_1000c: ldstr "event:/CommunalHelperEvents/game/redirectMoveBlock/arrowblock_move" @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveBlockRedirect.MoveBlock_Controller(ILContext)
    IL_00e6: ldnull
    IL_00e7: ldc.r4 0
    IL_00ec: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)

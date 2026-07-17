@@ -1,0 +1,105 @@
+[V_0] Celeste.Level
+[V_1] System.Boolean
+[V_2] Celeste.Mod.Meta.MapMetaModeProperties
+[V_3] System.Nullable`1<System.Boolean>
+[V_4] System.Collections.Generic.List`1<Celeste.Mod.IStrawberry>
+[V_5] System.Collections.ObjectModel.ReadOnlyCollection`1<System.Type>
+[V_6] System.Collections.Generic.List`1/Enumerator<Celeste.Follower>
+[V_7] Celeste.Follower
+[V_8] System.Collections.Generic.List`1/Enumerator<Celeste.Mod.IStrawberry>
+   IL_0000: ldarg.0
+   IL_0001: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: isinst Celeste.Level
+   IL_000b: stloc.0
+   IL_000c: ldc.i4.0
+   IL_000d: stloc.1
+   IL_000e: ldloc.0
+   IL_000f: brtrue.s IL_0014
+   IL_0011: ldnull
+   IL_0012: br.s IL_0029
+   IL_0014: ldloc.0
+   IL_0015: ldfld Celeste.Session Celeste.Level::Session
+   IL_001a: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_001f: castclass Celeste.MapData
+   IL_0024: callvirt Celeste.Mod.Meta.MapMetaModeProperties Celeste.MapData::get_Meta()
+   IL_0029: stloc.2
+   IL_002a: ldloc.2
+   IL_002b: brfalse.s IL_004c
+   IL_002d: ldloc.2
+   IL_002e: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMetaModeProperties::get_HeartIsEnd()
+   IL_0033: stloc.3
+   IL_0034: ldloca.s V_3
+   IL_0036: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_003b: brfalse.s IL_004c
+   IL_003d: ldloc.2
+   IL_003e: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Meta.MapMetaModeProperties::get_HeartIsEnd()
+   IL_0043: stloc.3
+   IL_0044: ldloca.s V_3
+   IL_0046: call T System.Nullable`1<System.Boolean>::get_Value()
+   IL_004b: stloc.1
+   IL_004c: ldloc.1
+   IL_004d: ldarg.0
+   IL_004e: ldfld System.Boolean Celeste.HeartGem::IsFake
+   IL_0053: ldc.i4.0
+   IL_0054: ceq
+   IL_0056: and
+   IL_0057: stloc.1
+   IL_0058: ldloc.1
+   IL_0059: brfalse IL_0108
+   IL_005e: newobj System.Void System.Collections.Generic.List`1<Celeste.Mod.IStrawberry>::.ctor()
+   IL_0063: stloc.s V_4
+   IL_0065: call System.Collections.ObjectModel.ReadOnlyCollection`1<System.Type> Celeste.Mod.StrawberryRegistry::GetBerryTypes()
+   IL_006a: stloc.s V_5
+   IL_006c: ldarg.1
+   IL_006d: ldfld Celeste.Leader Celeste.Player::Leader
+   IL_0072: ldfld System.Collections.Generic.List`1<Celeste.Follower> Celeste.Leader::Followers
+   IL_0077: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Follower>::GetEnumerator()
+   IL_007c: stloc.s V_6
+   IL_007e: br.s IL_00bf
+   IL_0080: ldloca.s V_6
+   IL_0082: call T System.Collections.Generic.List`1/Enumerator<Celeste.Follower>::get_Current()
+   IL_0087: stloc.s V_7
+   IL_0089: ldloc.s V_5
+   IL_008b: ldloc.s V_7
+   IL_008d: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0092: callvirt System.Type System.Object::GetType()
+   IL_0097: callvirt System.Boolean System.Collections.ObjectModel.ReadOnlyCollection`1<System.Type>::Contains(T)
+   IL_009c: brfalse.s IL_00bf
+   IL_009e: ldloc.s V_7
+   IL_00a0: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00a5: isinst Celeste.Mod.IStrawberry
+   IL_00aa: brfalse.s IL_00bf
+   IL_00ac: ldloc.s V_4
+   IL_00ae: ldloc.s V_7
+   IL_00b0: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_00b5: isinst Celeste.Mod.IStrawberry
+   IL_00ba: callvirt System.Void System.Collections.Generic.List`1<Celeste.Mod.IStrawberry>::Add(T)
+   IL_00bf: ldloca.s V_6
+   IL_00c1: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Follower>::MoveNext()
+   IL_00c6: brtrue.s IL_0080
+   IL_00c8: leave.s IL_00d8
+   IL_00ca: ldloca.s V_6
+   IL_00cc: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Follower>
+   IL_00d2: callvirt System.Void System.IDisposable::Dispose()
+   IL_00d7: endfinally
+   IL_00d8: ldloc.s V_4
+   IL_00da: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.IStrawberry>::GetEnumerator()
+   IL_00df: stloc.s V_8
+   IL_00e1: br.s IL_00ef
+   IL_00e3: ldloca.s V_8
+   IL_00e5: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.IStrawberry>::get_Current()
+ + IL_10000: dup @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.HeartCollectRoutinePatch(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.DiamondBerry.Entities.DiamondBerry::CheckAndLogDiamondBerry(Celeste.Strawberry) @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.HeartCollectRoutinePatch(ILContext)
+   IL_00ea: callvirt System.Void Celeste.Mod.IStrawberry::OnCollect()
+   IL_00ef: ldloca.s V_8
+   IL_00f1: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.IStrawberry>::MoveNext()
+   IL_00f6: brtrue.s IL_00e3
+   IL_00f8: leave.s IL_0108
+   IL_00fa: ldloca.s V_8
+   IL_00fc: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.IStrawberry>
+   IL_0102: callvirt System.Void System.IDisposable::Dispose()
+   IL_0107: endfinally
+   IL_0108: ldarg.0
+   IL_0109: ldarg.1
+   IL_010a: callvirt System.Collections.IEnumerator Celeste.HeartGem::orig_CollectRoutine(Celeste.Player)
+   IL_010f: ret

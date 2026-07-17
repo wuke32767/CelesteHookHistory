@@ -1,0 +1,44 @@
+On{eAvTUQjMNnI}: {UNKNOWN_DETOUR: Priority: 0}[repleH::]Celeste.Mod.repleH.Main.OnKillboxUpdate(orig_Update,Killbox)
+[V_0] Celeste.Player
+[V_1] Celeste.Player
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0006: brtrue.s IL_0039
+   IL_0008: ldarg.0
+   IL_0009: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000e: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0013: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0018: stloc.0
+   IL_0019: ldloc.0
+   IL_001a: brfalse.s IL_0068
+   IL_001c: ldloc.0
+   IL_001d: callvirt System.Single Monocle.Entity::get_Bottom()
+   IL_0022: ldarg.0
+   IL_0023: call System.Single Monocle.Entity::get_Top()
+   IL_0028: ldc.r4 32
+   IL_002d: sub
+   IL_002e: bge.un.s IL_0068
+   IL_0030: ldarg.0
+   IL_0031: ldc.i4.1
+   IL_0032: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0037: br.s IL_0068
+   IL_0039: ldarg.0
+   IL_003a: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_003f: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0044: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0049: stloc.1
+   IL_004a: ldloc.1
+   IL_004b: brfalse.s IL_0068
+   IL_004d: ldloc.1
+   IL_004e: callvirt System.Single Monocle.Entity::get_Top()
+   IL_0053: ldarg.0
+   IL_0054: call System.Single Monocle.Entity::get_Bottom()
+   IL_0059: ldc.r4 32
+   IL_005e: add
+   IL_005f: ble.un.s IL_0068
+   IL_0061: ldarg.0
+   IL_0062: ldc.i4.0
+   IL_0063: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0068: ldarg.0
+   IL_0069: call System.Void Monocle.Entity::Update()
+   IL_006e: ret

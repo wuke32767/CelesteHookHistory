@@ -1,0 +1,40 @@
+[V_0] Celeste.Level
+ + IL_10000: ldarg.0 @ [Idline::]Celeste.Mod.Idline.Hooks.ILPlayerUpdate(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.Idline.Hooks::<ILPlayerUpdate>g__CheckState|10_0(Celeste.Player) @ [Idline::]Celeste.Mod.Idline.Hooks.ILPlayerUpdate(ILContext)
+ + IL_10002: brfalse IL_0000 @ [Idline::]Celeste.Mod.Idline.Hooks.ILPlayerUpdate(ILContext)
+ + IL_10003: ldarg.0 @ [Idline::]Celeste.Mod.Idline.Hooks.ILPlayerUpdate(ILContext)
+ + IL_10004: call System.Void Monocle.Entity::Update() @ [Idline::]Celeste.Mod.Idline.Hooks.ILPlayerUpdate(ILContext)
+ + IL_10005: ret @ [Idline::]Celeste.Mod.Idline.Hooks.ILPlayerUpdate(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Celeste.Mod.Everest/Events/Player::BeforeUpdate(Celeste.Player)
+   IL_0006: ldarg.0
+   IL_0007: callvirt System.Void Celeste.Player::orig_Update()
+   IL_000c: ldarg.0
+   IL_000d: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0012: isinst Celeste.Level
+   IL_0017: stloc.0
+   IL_0018: ldloc.0
+   IL_0019: brtrue.s IL_001c
+   IL_001b: ret
+   IL_001c: ldloc.0
+   IL_001d: callvirt System.Boolean Celeste.Level::get_CanPause()
+   IL_0022: brfalse.s IL_003f
+   IL_0024: ldarg.0
+   IL_0025: ldfld System.Int32 Celeste.Player::framesAlive
+   IL_002a: ldc.i4 2147483647
+   IL_002f: bge.s IL_003f
+   IL_0031: ldarg.0
+   IL_0032: ldarg.0
+   IL_0033: ldfld System.Int32 Celeste.Player::framesAlive
+   IL_0038: ldc.i4.1
+   IL_0039: add
+   IL_003a: stfld System.Int32 Celeste.Player::framesAlive
+   IL_003f: ldarg.0
+   IL_0040: ldfld System.Int32 Celeste.Player::framesAlive
+   IL_0045: ldc.i4.8
+   IL_0046: blt.s IL_004e
+   IL_0048: ldc.i4.0
+   IL_0049: stsfld System.Int32 Celeste.Player::diedInGBJ
+   IL_004e: ldarg.0
+   IL_004f: call System.Void Celeste.Mod.Everest/Events/Player::AfterUpdate(Celeste.Player)
+   IL_0054: ret

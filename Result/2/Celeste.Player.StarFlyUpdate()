@@ -1,6 +1,8 @@
 On{xPWBcJkMjlA}: {UNKNOWN_DETOUR: Priority: 0}[Spirialis::]Celeste.Mod.Spirialis.TimePlayerSettings.CustomStarFlyUpdate(orig_StarFlyUpdate,Player)
+On{q+AYTQr6pU4}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.AffectSavedFeatherDir(orig_StarFlyUpdate,Player)
 On{TJiJtDGeWGY}: {UNKNOWN_DETOUR: Priority: 0}[Aqua::]Celeste.Mod.Aqua.Core.PlayerStates.Player_StarFlyUpdate(orig_StarFlyUpdate,Player)
 On{CcJG1hRpcAU}: [BlixelHelper::]Celeste.Mod.BlixelHelper.BlixelHelperModule.WaveFeather(orig_StarFlyUpdate,Player)
+IL: {UNKNOWN_DETOUR: Priority: -1}[RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.InsertUseCard(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
@@ -219,7 +221,7 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEnd
    IL_0217: ret
    IL_0218: call System.Boolean Celeste.Input::get_GrabCheck()
  + IL_10017: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
-   IL_021d: brfalse IL_029e
+   IL_021d: brfalse IL_10018
    IL_0222: ldc.i4.0
    IL_0223: stloc.s V_5
    IL_0225: ldc.i4.0
@@ -258,7 +260,7 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEnd
    IL_026f: ldc.i4.1
    IL_0270: stloc.s V_5
    IL_0272: ldloc.s V_5
-   IL_0274: brfalse.s IL_029e
+   IL_0274: brfalse.s IL_10018
    IL_0276: ldsfld Celeste.SaveData Celeste.SaveData::Instance
    IL_027b: ldflda Celeste.Assists Celeste.SaveData::Assists
    IL_0280: ldfld System.Boolean Celeste.Assists::NoGrabbing
@@ -273,6 +275,12 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEnd
    IL_029b: ret
    IL_029c: ldc.i4.1
    IL_029d: ret
+ + IL_10018: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.InsertUseCard(ILContext)
+ + IL_10019: call System.Boolean Celeste.Mod.RushHelper.PlayerExtensions::CheckUseCard(Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.InsertUseCard(ILContext)
+ + IL_1001a: brfalse.s IL_029e @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.InsertUseCard(ILContext)
+ + IL_1001b: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.InsertUseCard(ILContext)
+ + IL_1001c: call System.Int32 Celeste.Mod.RushHelper.PlayerExtensions::UseCard(Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.InsertUseCard(ILContext)
+ + IL_1001d: ret @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.InsertUseCard(ILContext)
    IL_029e: ldarg.0
    IL_029f: callvirt System.Boolean Celeste.Player::get_CanDash()
    IL_02a4: brfalse.s IL_02ad
@@ -289,9 +297,9 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEnd
    IL_02c0: ldfld System.Single Celeste.Player::starFlyTimer
    IL_02c5: ldc.r4 0
    IL_02ca: bgt.un IL_038b
- + IL_10018: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEndSpeedPreservation.patch_Player_StarFlyUpdate(ILContext)
- + IL_10019: call System.Boolean Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEndSpeedPreservation::tryPreserveSpeed(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEndSpeedPreservation.patch_Player_StarFlyUpdate(ILContext)
- + IL_1001a: brtrue IL_0382 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEndSpeedPreservation.patch_Player_StarFlyUpdate(ILContext)
+ + IL_1001e: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEndSpeedPreservation.patch_Player_StarFlyUpdate(ILContext)
+ + IL_1001f: call System.Boolean Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEndSpeedPreservation::tryPreserveSpeed(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEndSpeedPreservation.patch_Player_StarFlyUpdate(ILContext)
+ + IL_10020: brtrue IL_0382 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEndSpeedPreservation.patch_Player_StarFlyUpdate(ILContext)
    IL_02cf: ldsfld Monocle.VirtualIntegerAxis Celeste.Input::MoveY
    IL_02d4: ldfld System.Int32 Monocle.VirtualIntegerAxis::Value
    IL_02d9: ldc.i4.m1
@@ -317,12 +325,12 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEnd
    IL_0317: stfld System.Single Celeste.Player::AutoJumpTimer
    IL_031c: ldarg.0
    IL_031d: ldc.r4 0.2
- + IL_1001b: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_1001c: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_1001d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10021: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10022: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10023: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
        => Invoke: [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall+<>c.<modVarJumpTimer>b__18_0(Single)
- + IL_1001e: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
- + IL_1001f: call System.Single ExtendedVariants.Variants.JumpDuration::applyJumpDuration(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
+ + IL_10024: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Single,System.Single>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Waterfall.modVarJumpTimer(ILContext)
+ + IL_10025: call System.Single ExtendedVariants.Variants.JumpDuration::applyJumpDuration(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
    IL_0322: stfld System.Single Celeste.Player::varJumpTimer
    IL_0327: ldarg.0
    IL_0328: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
@@ -338,16 +346,16 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.FeatherEnd
    IL_034f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_0354: call System.Single System.Math::Abs(System.Single)
    IL_0359: ldc.r4 140
- + IL_10020: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
- + IL_10021: ldc.r4 0.9 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
- + IL_10022: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers::overrideFeatherSpeed(System.Single,Celeste.Player,System.Single) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
+ + IL_10026: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
+ + IL_10027: ldc.r4 0.9 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
+ + IL_10028: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers::overrideFeatherSpeed(System.Single,Celeste.Player,System.Single) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
    IL_035e: ble.un.s IL_0382
    IL_0360: ldarg.0
    IL_0361: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0366: ldc.r4 140
- + IL_10023: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
- + IL_10024: ldc.r4 0.75 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
- + IL_10025: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers::overrideFeatherSpeed(System.Single,Celeste.Player,System.Single) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
+ + IL_10029: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
+ + IL_1002a: ldc.r4 0.75 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
+ + IL_1002b: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers::overrideFeatherSpeed(System.Single,Celeste.Player,System.Single) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyUpdate(ILContext)
    IL_036b: ldarg.0
    IL_036c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0371: ldfld System.Single Microsoft.Xna.Framework.Vector2::X

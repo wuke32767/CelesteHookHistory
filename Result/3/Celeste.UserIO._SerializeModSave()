@@ -1,0 +1,69 @@
+On{f/KfirzoQIo}: [BeiDanCi::]Celeste.Mod.BeiDanCi.BeiDanCiModule.UserIO__SerializeModSave(orig__SerializeModSave)
+[V_0] System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>
+[V_1] Celeste.Mod.EverestModule
+[V_2] System.Nullable`1<System.Boolean>
+   IL_0000: newobj System.Void System.Collections.Generic.List`1<System.Tuple`3<Celeste.Mod.EverestModule,System.Byte[],System.Byte[]>>::.ctor()
+   IL_0005: stsfld System.Collections.Generic.List`1<System.Tuple`3<Celeste.Mod.EverestModule,System.Byte[],System.Byte[]>> Celeste.UserIO::savingModFileData
+   IL_000a: ldsfld System.Collections.Generic.List`1<System.Tuple`3<Celeste.Mod.EverestModule,System.Byte[],System.Byte[]>> Celeste.UserIO::savingModFileData
+   IL_000f: ldnull
+   IL_0010: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0015: castclass Celeste.SaveData
+   IL_001a: newobj System.Void Celeste.Mod.ModSaveData::.ctor(Celeste.SaveData)
+   IL_001f: call System.Byte[] Celeste.UserIO::Serialize<Celeste.Mod.ModSaveData>(T)
+   IL_0024: ldnull
+   IL_0025: call System.Tuple`3<T1,T2,T3> System.Tuple::Create<Celeste.Mod.EverestModule,System.Byte[],System.Byte[]>(T1,T2,T3)
+   IL_002a: callvirt System.Void System.Collections.Generic.List`1<System.Tuple`3<Celeste.Mod.EverestModule,System.Byte[],System.Byte[]>>::Add(T)
+   IL_002f: ldsfld System.Collections.Generic.List`1<Celeste.Mod.EverestModule> Celeste.Mod.Everest::_Modules
+   IL_0034: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.EverestModule>::GetEnumerator()
+   IL_0039: stloc.0
+   IL_003a: br IL_00c3
+   IL_003f: ldloca.s V_0
+   IL_0041: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::get_Current()
+   IL_0046: stloc.1
+   IL_0047: ldloc.1
+   IL_0048: callvirt System.Boolean Celeste.Mod.EverestModule::get_SaveDataAsync()
+   IL_004d: brfalse.s IL_0081
+   IL_004f: ldsfld System.Collections.Generic.List`1<System.Tuple`3<Celeste.Mod.EverestModule,System.Byte[],System.Byte[]>> Celeste.UserIO::savingModFileData
+   IL_0054: ldloc.1
+   IL_0055: ldloc.1
+   IL_0056: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_005b: ldfld System.Int32 Celeste.SaveData::FileSlot
+   IL_0060: callvirt System.Byte[] Celeste.Mod.EverestModule::SerializeSaveData(System.Int32)
+   IL_0065: ldloc.1
+   IL_0066: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_006b: ldfld System.Int32 Celeste.SaveData::FileSlot
+   IL_0070: callvirt System.Byte[] Celeste.Mod.EverestModule::SerializeSession(System.Int32)
+   IL_0075: call System.Tuple`3<T1,T2,T3> System.Tuple::Create<Celeste.Mod.EverestModule,System.Byte[],System.Byte[]>(T1,T2,T3)
+   IL_007a: callvirt System.Void System.Collections.Generic.List`1<System.Tuple`3<Celeste.Mod.EverestModule,System.Byte[],System.Byte[]>>::Add(T)
+   IL_007f: br.s IL_00c3
+   IL_0081: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0086: callvirt System.Nullable`1<System.Boolean> Celeste.Mod.Core.CoreModuleSettings::get_SaveDataFlush()
+   IL_008b: stloc.2
+   IL_008c: ldloca.s V_2
+   IL_008e: call T System.Nullable`1<System.Boolean>::GetValueOrDefault()
+   IL_0093: brfalse.s IL_00a3
+   IL_0095: ldloc.1
+   IL_0096: dup
+   IL_0097: ldfld System.Int32 Celeste.Mod.EverestModule::ForceSaveDataFlush
+   IL_009c: ldc.i4.2
+   IL_009d: add
+   IL_009e: stfld System.Int32 Celeste.Mod.EverestModule::ForceSaveDataFlush
+   IL_00a3: ldloc.1
+   IL_00a4: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00a9: ldfld System.Int32 Celeste.SaveData::FileSlot
+   IL_00ae: callvirt System.Void Celeste.Mod.EverestModule::SaveSaveData(System.Int32)
+   IL_00b3: ldloc.1
+   IL_00b4: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00b9: ldfld System.Int32 Celeste.SaveData::FileSlot
+   IL_00be: callvirt System.Void Celeste.Mod.EverestModule::SaveSession(System.Int32)
+   IL_00c3: ldloca.s V_0
+   IL_00c5: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::MoveNext()
+   IL_00ca: brtrue IL_003f
+   IL_00cf: leave.s IL_00df
+   IL_00d1: ldloca.s V_0
+   IL_00d3: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>
+   IL_00d9: callvirt System.Void System.IDisposable::Dispose()
+   IL_00de: endfinally
+   IL_00df: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00e4: callvirt System.Void Celeste.SaveData::AfterInitialize()
+   IL_00e9: ret

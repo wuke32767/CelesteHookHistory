@@ -1,0 +1,24 @@
+On{CdfiFXY1f9I}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Audio.AudioDuplicator+AudioDuplicatorHooks.OnAudioBusMuted(orig_BusMuted,String,Nullable`1)
+[V_0] FMOD.Studio.Bus
+[V_1] System.Boolean
+   IL_0000: ldc.i4.0
+   IL_0001: stloc.1
+   IL_0002: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0007: ldarg.0
+   IL_0008: ldloca.s V_0
+   IL_000a: callvirt FMOD.RESULT FMOD.Studio.System::getBus(System.String,FMOD.Studio.Bus&)
+   IL_000f: brtrue.s IL_0031
+   IL_0011: ldarga.s mute
+   IL_0013: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0018: brfalse.s IL_0028
+   IL_001a: ldloc.0
+   IL_001b: ldarga.s mute
+   IL_001d: call T System.Nullable`1<System.Boolean>::get_Value()
+   IL_0022: callvirt FMOD.RESULT FMOD.Studio.Bus::setMute(System.Boolean)
+   IL_0027: pop
+   IL_0028: ldloc.0
+   IL_0029: ldloca.s V_1
+   IL_002b: callvirt FMOD.RESULT FMOD.Studio.Bus::getPaused(System.Boolean&)
+   IL_0030: pop
+   IL_0031: ldloc.1
+   IL_0032: ret

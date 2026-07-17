@@ -2,6 +2,7 @@ IL: {Celeste.Mod.MinecireHelper.Triggers.BronzeBerryCollectTrigger::hookStrawber
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.AllStrawberriesAreGoldens.onStrawberryUpdate(ILContext)
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.modStrawberryOrigUpdate(ILContext)
 IL: [CollabUtils2::]Celeste.Mod.CollabUtils2.Triggers.SilverBerryCollectTrigger.hookStrawberryUpdate(ILContext)
+IL: [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.UpdatePatch(ILContext)
 IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
 [V_0] System.Int32
 [V_1] System.Single
@@ -115,6 +116,8 @@ IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionC
    IL_00f1: ldfld System.Boolean Celeste.Level::Completed
    IL_00f6: brfalse.s IL_011f
    IL_00f8: ldc.i4.1
+ + IL_10013: ldarg.0 @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.UpdatePatch(ILContext)
+ + IL_10014: call System.Int32 Celeste.Mod.DiamondBerry.Entities.DiamondBerry::CanCollectDiamondBerry(System.Int32,Celeste.Strawberry) @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.UpdatePatch(ILContext)
    IL_00f9: stloc.s V_4
    IL_00fb: br.s IL_011f
    IL_00fd: ldloc.3
@@ -161,15 +164,15 @@ IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionC
    IL_017a: ldarg.0
    IL_017b: callvirt System.Boolean Celeste.Strawberry::get_Winged()
    IL_0180: brfalse IL_0257
- + IL_10013: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10014: call Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController::<IL_Strawberry_orig_Update>g__GetDirectionController|7_10(Monocle.Entity) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10015: stloc V_7 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10016: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10017: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10018: ldfld System.Single Celeste.Strawberry::flapSpeed @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10019: ldloc V_7 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_1001a: call System.Boolean Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController::<IL_Strawberry_orig_Update>g__DirectionalMovement|7_11(Monocle.Entity,System.Single,Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_1001b: brtrue IL_019e @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10015: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10016: call Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController::<IL_Strawberry_orig_Update>g__GetDirectionController|7_10(Monocle.Entity) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10017: stloc V_7 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10018: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10019: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_1001a: ldfld System.Single Celeste.Strawberry::flapSpeed @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_1001b: ldloc V_7 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_1001c: call System.Boolean Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController::<IL_Strawberry_orig_Update>g__DirectionalMovement|7_11(Monocle.Entity,System.Single,Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_1001d: brtrue IL_019e @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
    IL_0185: ldarg.0
    IL_0186: ldarg.0
    IL_0187: call System.Single Monocle.Entity::get_Y()
@@ -182,10 +185,10 @@ IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionC
    IL_019e: ldarg.0
    IL_019f: ldfld System.Boolean Celeste.Strawberry::flyingAway
    IL_01a4: brfalse.s IL_01d4
- + IL_1001c: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_1001d: ldloc V_7 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_1001e: call System.Boolean Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController::<IL_Strawberry_orig_Update>g__DirectionalOutOfBoundsCheck|7_12(Monocle.Entity,Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_1001f: brtrue IL_0257 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_1001e: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_1001f: ldloc V_7 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10020: call System.Boolean Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController::<IL_Strawberry_orig_Update>g__DirectionalOutOfBoundsCheck|7_12(Monocle.Entity,Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10021: brtrue IL_0257 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
    IL_01a6: ldarg.0
    IL_01a7: call System.Single Monocle.Entity::get_Y()
    IL_01ac: ldarg.0
@@ -210,11 +213,11 @@ IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionC
    IL_01ea: mul
    IL_01eb: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
    IL_01f0: stfld System.Single Celeste.Strawberry::flapSpeed
- + IL_10020: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10021: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10022: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Strawberry::start @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10023: ldloc V_7 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
- + IL_10024: call System.Void Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController::<IL_Strawberry_orig_Update>g__HorizontalIdleBoundsCheck|7_13(Monocle.Entity,Microsoft.Xna.Framework.Vector2,Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10022: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10023: ldarg.0 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10024: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Strawberry::start @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10025: ldloc V_7 @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
+ + IL_10026: call System.Void Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController::<IL_Strawberry_orig_Update>g__HorizontalIdleBoundsCheck|7_13(Monocle.Entity,Microsoft.Xna.Framework.Vector2,Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController) @ [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionController.IL_Strawberry_orig_Update(ILContext)
    IL_01f5: ldarg.0
    IL_01f6: call System.Single Monocle.Entity::get_Y()
    IL_01fb: ldarg.0
@@ -265,7 +268,7 @@ IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.WingedStrawberryDirectionC
    IL_0291: br.s IL_02bc
    IL_0293: ldarg.0
    IL_0294: callvirt System.Boolean Celeste.Strawberry::get_Golden()
- + IL_10025: call System.Boolean ExtendedVariants.Variants.AllStrawberriesAreGoldens::strawberryHasGoldenCollectBehavior(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.AllStrawberriesAreGoldens.onStrawberryUpdate(ILContext)
+ + IL_10027: call System.Boolean ExtendedVariants.Variants.AllStrawberriesAreGoldens::strawberryHasGoldenCollectBehavior(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.AllStrawberriesAreGoldens.onStrawberryUpdate(ILContext)
    IL_0299: brfalse.s IL_02a4
    IL_029b: ldsfld Monocle.ParticleType Celeste.Strawberry::P_GoldGlow
    IL_02a0: stloc.s V_6

@@ -1,5 +1,6 @@
 IL: {UNKNOWN_DETOUR: Priority: -1}[CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModStrawberriesCounterRender(ILContext)
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Module.GuiStrawberryReskin.modStrawberrySkin(ILContext)
+IL: [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberriesCounterRenderPatch(ILContext)
 IL: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.CoinCounter.StrawberriesCounter_Render(ILContext)
 [V_0] Microsoft.Xna.Framework.Vector2
 [V_1] Microsoft.Xna.Framework.Vector2
@@ -96,11 +97,13 @@ IL: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.CoinCounter.Strawberries
  + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.CoinCounter.StrawberriesCounter_Render(ILContext)
        => Invoke: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.CoinCounter+<>c.<StrawberriesCounter_Render>b__3_1(String,StrawberriesCounter)
  + IL_10004: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.String,System.String,Celeste.StrawberriesCounter>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.CoinCounter.StrawberriesCounter_Render(ILContext)
- + IL_10005: call System.String Celeste.Mod.MaxHelpingHand.Module.GuiStrawberryReskin::replaceStrawberrySprite(System.String) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Module.GuiStrawberryReskin.modStrawberrySkin(ILContext)
+ + IL_10005: call System.String Celeste.Mod.DiamondBerry.Entities.DiamondBerry::ReplaceStrawberry(System.String) @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberriesCounterRenderPatch(ILContext)
+ + IL_10006: call System.String Celeste.Mod.MaxHelpingHand.Module.GuiStrawberryReskin::replaceStrawberrySprite(System.String) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Module.GuiStrawberryReskin.modStrawberrySkin(ILContext)
    IL_00ec: br.s IL_00f3
    IL_00ee: ldstr "collectables/goldberry"
- + IL_10006: call System.String Celeste.Mod.MaxHelpingHand.Module.GuiStrawberryReskin::replaceGoldberrySprite(System.String) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Module.GuiStrawberryReskin.modStrawberrySkin(ILContext)
- + IL_10007: call System.String Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::modStrawberryIconInChapterPanel(System.String) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModStrawberriesCounterRender(ILContext)
+ + IL_10007: call System.String Celeste.Mod.DiamondBerry.Entities.DiamondBerry::ReplaceGoldBerry(System.String) @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberriesCounterRenderPatch(ILContext)
+ + IL_10008: call System.String Celeste.Mod.MaxHelpingHand.Module.GuiStrawberryReskin::replaceGoldberrySprite(System.String) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Module.GuiStrawberryReskin.modStrawberrySkin(ILContext)
+ + IL_10009: call System.String Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::modStrawberryIconInChapterPanel(System.String) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModStrawberriesCounterRender(ILContext)
    IL_00f3: stloc.s V_8
    IL_00f5: ldsfld Monocle.Atlas Celeste.GFX::Gui
    IL_00fa: ldloc.s V_8

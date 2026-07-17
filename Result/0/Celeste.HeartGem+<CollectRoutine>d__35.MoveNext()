@@ -4,6 +4,7 @@ IL: {Celeste.Mod.Randomizer.RandoModule::HeartSfx: Priority: -1}[Randomizer::]Ce
 IL: {Celeste.Mod.Randomizer.RandoModule::FakeoutHeart: Priority: -1}[Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
         [Randomizer::]Celeste.Mod.Randomizer.RandoModule+<>c__DisplayClass16_0.<LateInitialize>b__4()
         [Randomizer::]Celeste.Mod.Randomizer.RandoModule+<>c__DisplayClass16_1.<LateInitialize>b__6()
+IL: [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.Heartorig_CollectRoutinePatch(ILContext)
 IL: [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
 [V_0] System.Int32
 [V_1] Celeste.HeartGem
@@ -141,12 +142,15 @@ IL: [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHook
    IL_0183: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Follower>
    IL_0189: callvirt System.Void System.IDisposable::Dispose()
    IL_018e: endfinally
+ + IL_10000: call System.Void Celeste.Mod.DiamondBerry.Entities.DiamondBerry::ResetFoundDiamondBerry() @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.Heartorig_CollectRoutinePatch(ILContext)
    IL_018f: ldloc.3
    IL_0190: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Strawberry>::GetEnumerator()
    IL_0195: stloc.s V_6
    IL_0197: br.s IL_01a5
    IL_0199: ldloca.s V_6
    IL_019b: call T System.Collections.Generic.List`1/Enumerator<Celeste.Strawberry>::get_Current()
+ + IL_10001: dup @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.Heartorig_CollectRoutinePatch(ILContext)
+ + IL_10002: call System.Void Celeste.Mod.DiamondBerry.Entities.DiamondBerry::CheckAndLogDiamondBerry(Celeste.Strawberry) @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.Heartorig_CollectRoutinePatch(ILContext)
    IL_01a0: callvirt System.Void Celeste.Strawberry::OnCollect()
    IL_01a5: ldloca.s V_6
    IL_01a7: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Strawberry>::MoveNext()
@@ -157,11 +161,11 @@ IL: [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHook
    IL_01b8: callvirt System.Void System.IDisposable::Dispose()
    IL_01bd: endfinally
    IL_01be: ldstr "event:/game/general/crystalheart_blue_get"
- + IL_10000: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.HeartSfx(ILContext)
- + IL_10001: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.HeartSfx(ILContext)
- + IL_10002: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.HeartSfx(ILContext)
+ + IL_10003: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.HeartSfx(ILContext)
+ + IL_10004: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.HeartSfx(ILContext)
+ + IL_10005: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.HeartSfx(ILContext)
        => Invoke: [Randomizer::]Celeste.Mod.Randomizer.RandoModule.<HeartSfx>b__31_0(String)
- + IL_10003: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.HeartSfx(ILContext)
+ + IL_10006: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.HeartSfx(ILContext)
    IL_01c3: stloc.2
    IL_01c4: ldloc.1
    IL_01c5: ldfld System.Boolean Celeste.HeartGem::IsFake
@@ -403,6 +407,7 @@ IL: [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHook
    IL_04a3: ldc.r4 0
    IL_04a8: call System.Single Monocle.Engine::get_RawDeltaTime()
    IL_04ad: ldc.r4 0.25
+ + IL_10007: call System.Single Celeste.Mod.DiamondBerry.Entities.DiamondBerry::GetEndSpeed(System.Single) @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.Heartorig_CollectRoutinePatch(ILContext)
    IL_04b2: mul
    IL_04b3: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
    IL_04b8: stsfld System.Single Monocle.Engine::TimeRate
@@ -426,6 +431,7 @@ IL: [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHook
    IL_04e6: ldarg.0
    IL_04e7: ldfld System.Single Celeste.HeartGem/<CollectRoutine>d__35::<t>5__6
    IL_04ec: ldc.r4 2
+ + IL_10008: call System.Single Celeste.Mod.DiamondBerry.Entities.DiamondBerry::GetEndTime(System.Single) @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.Heartorig_CollectRoutinePatch(ILContext)
    IL_04f1: blt.s IL_049e
    IL_04f3: ldarg.0
    IL_04f4: ldnull
@@ -441,12 +447,12 @@ IL: [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHook
    IL_050a: ldarg.0
    IL_050b: ldfld Celeste.Player Celeste.HeartGem/<CollectRoutine>d__35::player
    IL_0510: callvirt System.Boolean Celeste.Player::get_Dead()
- + IL_10004: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
- + IL_10005: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
- + IL_10006: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Boolean>>(System.Int32,System.Int32) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
+ + IL_10009: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
+ + IL_1000a: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
+ + IL_1000b: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Boolean>>(System.Int32,System.Int32) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
        => Invoke: [Randomizer::]Celeste.Mod.Randomizer.RandoModule.<FakeoutHeart>b__106_0()
- + IL_10007: callvirt TResult System.Func`1<System.Boolean>::Invoke() @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
- + IL_10008: or @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
+ + IL_1000c: callvirt TResult System.Func`1<System.Boolean>::Invoke() @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
+ + IL_1000d: or @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.FakeoutHeart(ILContext)
    IL_0515: brfalse.s IL_0537
    IL_0517: ldarg.0
    IL_0518: ldc.r4 100
@@ -503,13 +509,13 @@ IL: [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHook
    IL_05b7: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
    IL_05bc: stloc.s V_14
    IL_05be: ldloc.1
- + IL_10009: ldloc V_14 @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
- + IL_1000a: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
- + IL_1000b: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
- + IL_1000c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
+ + IL_1000e: ldloc V_14 @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
+ + IL_1000f: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
+ + IL_10010: ldc.i4 0 @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
+ + IL_10011: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
        => Invoke: [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule+<>c.<ILHookHeartGemCollectCoroutine>b__5_4(String)
- + IL_1000d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
- + IL_1000e: stloc V_14 @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
+ + IL_10012: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
+ + IL_10013: stloc V_14 @ [LuckyHelper::]LuckyHelper.Modules.CrystalHeartDialogControllerModule.ILHookHeartGemCollectCoroutine(ILContext)
    IL_05bf: ldloc.s V_14
    IL_05c1: ldloc.1
    IL_05c2: ldfld System.Boolean Celeste.HeartGem::IsFake

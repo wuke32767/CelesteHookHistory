@@ -1,0 +1,145 @@
+On{TFnuUpOGHS8}: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.SidewaysOnMove(Action`4,Entity,Solid,Boolean,Vector2)
+[V_0] System.Boolean
+[V_1] System.Collections.Generic.HashSet`1<Celeste.Actor>
+[V_2] System.Collections.Generic.List`1<Celeste.Actor>
+[V_3] Microsoft.Xna.Framework.Vector2
+[V_4] System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+[V_5] Celeste.Actor
+[V_6] System.Collections.Generic.HashSet`1/Enumerator<Celeste.Actor>
+[V_7] Celeste.Actor
+   IL_0000: ldarg.0
+   IL_0001: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0006: brtrue.s IL_0033
+   IL_0008: ldarg.0
+   IL_0009: dup
+   IL_000a: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000f: ldarg.3
+   IL_0010: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0015: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_001a: ldarg.1
+   IL_001b: ldarg.3
+   IL_001c: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0021: callvirt System.Void Celeste.Platform::MoveHNaive(System.Single)
+   IL_0026: ldarg.1
+   IL_0027: ldarg.3
+   IL_0028: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_002d: callvirt System.Void Celeste.Platform::MoveVNaive(System.Single)
+   IL_0032: ret
+   IL_0033: ldc.i4.0
+   IL_0034: stloc.0
+   IL_0035: ldarg.0
+   IL_0036: ldarg.0
+   IL_0037: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003c: ldarg.3
+   IL_003d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0042: callvirt System.Boolean Monocle.Entity::CollideCheckOutside<Celeste.Player>(Microsoft.Xna.Framework.Vector2)
+   IL_0047: brfalse.s IL_005f
+   IL_0049: ldarg.3
+   IL_004a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_004f: call System.Int32 System.Math::Sign(System.Single)
+   IL_0054: ldarg.2
+   IL_0055: brtrue.s IL_005a
+   IL_0057: ldc.i4.1
+   IL_0058: br.s IL_005b
+   IL_005a: ldc.i4.m1
+   IL_005b: bne.un.s IL_005f
+   IL_005d: ldc.i4.1
+   IL_005e: stloc.0
+   IL_005f: ldarg.0
+   IL_0060: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_0065: brfalse.s IL_0072
+   IL_0067: ldarg.0
+   IL_0068: ldarg.2
+   IL_0069: call Celeste.Player Celeste.Mod.MaxHelpingHand.Entities.SidewaysMovingPlatform::GetPlayerClimbing(Monocle.Entity,System.Boolean)
+   IL_006e: brfalse.s IL_0072
+   IL_0070: ldc.i4.1
+   IL_0071: stloc.0
+   IL_0072: ldarg.0
+   IL_0073: dup
+   IL_0074: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0079: ldarg.3
+   IL_007a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_007f: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0084: ldsfld System.Collections.Generic.HashSet`1<Celeste.Actor> Celeste.Solid::riders
+   IL_0089: newobj System.Void System.Collections.Generic.HashSet`1<Celeste.Actor>::.ctor(System.Collections.Generic.IEnumerable`1<T>)
+   IL_008e: stloc.1
+   IL_008f: ldsfld System.Collections.Generic.HashSet`1<Celeste.Actor> Celeste.Solid::riders
+   IL_0094: callvirt System.Void System.Collections.Generic.HashSet`1<Celeste.Actor>::Clear()
+   IL_0099: ldarg.1
+   IL_009a: ldloc.0
+   IL_009b: stfld System.Boolean Monocle.Entity::Collidable
+   IL_00a0: newobj System.Void System.Collections.Generic.List`1<Celeste.Actor>::.ctor()
+   IL_00a5: stloc.2
+   IL_00a6: ldarg.1
+   IL_00a7: ldfld System.Boolean Monocle.Entity::Collidable
+   IL_00ac: brfalse.s IL_0100
+   IL_00ae: ldarg.0
+   IL_00af: callvirt Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00b4: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_00b9: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.Actor>()
+   IL_00be: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
+   IL_00c3: stloc.s V_4
+   IL_00c5: br.s IL_00e7
+   IL_00c7: ldloca.s V_4
+   IL_00c9: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
+   IL_00ce: castclass Celeste.Actor
+   IL_00d3: stloc.s V_5
+   IL_00d5: ldloc.s V_5
+   IL_00d7: ldarg.1
+   IL_00d8: callvirt System.Boolean Celeste.Actor::IsRiding(Celeste.Solid)
+   IL_00dd: brfalse.s IL_00e7
+   IL_00df: ldloc.2
+   IL_00e0: ldloc.s V_5
+   IL_00e2: callvirt System.Void System.Collections.Generic.List`1<Celeste.Actor>::Add(T)
+   IL_00e7: ldloca.s V_4
+   IL_00e9: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_00ee: brtrue.s IL_00c7
+   IL_00f0: leave.s IL_0100
+   IL_00f2: ldloca.s V_4
+   IL_00f4: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_00fa: callvirt System.Void System.IDisposable::Dispose()
+   IL_00ff: endfinally
+   IL_0100: ldarg.1
+   IL_0101: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Platform::LiftSpeed
+   IL_0106: stloc.3
+   IL_0107: ldarg.1
+   IL_0108: ldarg.3
+   IL_0109: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_010e: ldloc.3
+   IL_010f: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0114: callvirt System.Void Celeste.Platform::MoveH(System.Single,System.Single)
+   IL_0119: ldarg.1
+   IL_011a: ldarg.3
+   IL_011b: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0120: ldloc.3
+   IL_0121: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0126: callvirt System.Void Celeste.Platform::MoveV(System.Single,System.Single)
+   IL_012b: ldarg.1
+   IL_012c: ldc.i4.0
+   IL_012d: stfld System.Boolean Monocle.Entity::Collidable
+   IL_0132: ldsfld System.Collections.Generic.HashSet`1<Celeste.Actor> Celeste.Solid::riders
+   IL_0137: callvirt System.Void System.Collections.Generic.HashSet`1<Celeste.Actor>::Clear()
+   IL_013c: ldloc.1
+   IL_013d: callvirt System.Collections.Generic.HashSet`1/Enumerator<T> System.Collections.Generic.HashSet`1<Celeste.Actor>::GetEnumerator()
+   IL_0142: stloc.s V_6
+   IL_0144: br.s IL_0166
+   IL_0146: ldloca.s V_6
+   IL_0148: call T System.Collections.Generic.HashSet`1/Enumerator<Celeste.Actor>::get_Current()
+   IL_014d: stloc.s V_7
+   IL_014f: ldloc.2
+   IL_0150: ldloc.s V_7
+   IL_0152: callvirt System.Boolean System.Collections.Generic.List`1<Celeste.Actor>::Contains(T)
+   IL_0157: brtrue.s IL_0166
+   IL_0159: ldsfld System.Collections.Generic.HashSet`1<Celeste.Actor> Celeste.Solid::riders
+   IL_015e: ldloc.s V_7
+   IL_0160: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.Actor>::Add(T)
+   IL_0165: pop
+   IL_0166: ldloca.s V_6
+   IL_0168: call System.Boolean System.Collections.Generic.HashSet`1/Enumerator<Celeste.Actor>::MoveNext()
+   IL_016d: brtrue.s IL_0146
+   IL_016f: leave.s IL_017f
+   IL_0171: ldloca.s V_6
+   IL_0173: constrained. System.Collections.Generic.HashSet`1/Enumerator<Celeste.Actor>
+   IL_0179: callvirt System.Void System.IDisposable::Dispose()
+   IL_017e: endfinally
+   IL_017f: ret

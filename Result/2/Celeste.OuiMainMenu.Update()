@@ -1,0 +1,19 @@
+On{GDgdNmAU1Hs}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Module.AudioSplitterModule+AudioSplitterModuleHooks.DisableExitWhileLoading(orig_Update,OuiMainMenu)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.OuiMainMenu::needsRebuild
+   IL_0006: brfalse.s IL_0015
+   IL_0008: ldarg.0
+   IL_0009: callvirt System.Void Celeste.OuiMainMenu::RebuildMainAndTitle()
+   IL_000e: ldarg.0
+   IL_000f: ldc.i4.0
+   IL_0010: stfld System.Boolean Celeste.OuiMainMenu::needsRebuild
+   IL_0015: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_001a: callvirt System.String Celeste.Mod.Core.CoreModuleSettings::get_MainMenuMode()
+   IL_001f: ldstr ""
+   IL_0024: call System.Boolean System.String::op_Equality(System.String,System.String)
+   IL_0029: brfalse.s IL_0031
+   IL_002b: ldarg.0
+   IL_002c: callvirt System.Void Celeste.OuiMainMenu::ScrollButtons()
+   IL_0031: ldarg.0
+   IL_0032: callvirt System.Void Celeste.OuiMainMenu::orig_Update()
+   IL_0037: ret

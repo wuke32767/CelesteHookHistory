@@ -1,4 +1,5 @@
 On{ZLwy5mN9TpU}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.XaphanHelper.StatsFlags.onHeartGemCollectRoutine(orig_CollectRoutine,HeartGem,Player)
+IL: [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.HeartCollectRoutinePatch(ILContext)
 [V_0] Celeste.Level
 [V_1] System.Boolean
 [V_2] Celeste.Mod.Meta.MapMetaModeProperties
@@ -89,6 +90,8 @@ On{ZLwy5mN9TpU}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.Xaphan
    IL_00e1: br.s IL_00ef
    IL_00e3: ldloca.s V_8
    IL_00e5: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.IStrawberry>::get_Current()
+ + IL_10000: dup @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.HeartCollectRoutinePatch(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.DiamondBerry.Entities.DiamondBerry::CheckAndLogDiamondBerry(Celeste.Strawberry) @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.HeartCollectRoutinePatch(ILContext)
    IL_00ea: callvirt System.Void Celeste.Mod.IStrawberry::OnCollect()
    IL_00ef: ldloca.s V_8
    IL_00f1: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.IStrawberry>::MoveNext()

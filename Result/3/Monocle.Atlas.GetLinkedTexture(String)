@@ -1,0 +1,21 @@
+On{it6g9Vw4E1M}: [LocalizationHelper::]Celeste.Mod.LocalizationHelper.Hooks.AtlasHooks.Hook_GetLinkedTexture(orig_GetLinkedTexture,Atlas,String)
+[V_0] System.String
+[V_1] Monocle.MTexture
+   IL_0000: ldarg.1
+   IL_0001: brfalse.s IL_0025
+   IL_0003: ldarg.0
+   IL_0004: ldfld System.Collections.Generic.Dictionary`2<System.String,System.String> Monocle.Atlas::links
+   IL_0009: ldarg.1
+   IL_000a: ldloca.s V_0
+   IL_000c: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.String>::TryGetValue(TKey,TValue&)
+   IL_0011: brfalse.s IL_0025
+   IL_0013: ldarg.0
+   IL_0014: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.MTexture> Monocle.Atlas::textures
+   IL_0019: ldloc.0
+   IL_001a: ldloca.s V_1
+   IL_001c: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,Monocle.MTexture>::TryGetValue(TKey,TValue&)
+   IL_0021: brfalse.s IL_0025
+   IL_0023: ldloc.1
+   IL_0024: ret
+   IL_0025: ldnull
+   IL_0026: ret

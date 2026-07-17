@@ -1,0 +1,293 @@
+On{ptIWtSD5SLo}: [ProtectEyesMode::]Celeste.Mod.ProtectEyesMode.ProtectEyesModeModule+<>c.<Load>b__24_0(Action`2,GraphicsDevice,RenderTargetBinding[])
+[V_0] System.Int32
+[V_1] System.Int32
+[V_2] Microsoft.Xna.Framework.Graphics.RenderTargetUsage
+[V_3] System.Boolean
+[V_4] System.Int32
+[V_5] System.Int32
+[V_6] Microsoft.Xna.Framework.Graphics.IRenderTarget
+[V_7] Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding*
+[V_8] Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding&
+[V_9] System.Int32
+[V_10] System.Boolean
+[V_11] System.Int32
+[V_12] Microsoft.Xna.Framework.Graphics.Viewport
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::ApplySamplers()
+   IL_0006: ldarg.1
+   IL_0007: brtrue.s IL_0012
+   IL_0009: ldarg.0
+   IL_000a: ldfld System.Int32 Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetCount
+   IL_000f: brtrue.s IL_0012
+   IL_0011: ret
+   IL_0012: ldarg.1
+   IL_0013: brfalse.s IL_007e
+   IL_0015: ldarg.1
+   IL_0016: ldlen
+   IL_0017: conv.i4
+   IL_0018: ldarg.0
+   IL_0019: ldfld System.Int32 Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetCount
+   IL_001e: bne.un.s IL_007e
+   IL_0020: ldc.i4.1
+   IL_0021: stloc.3
+   IL_0022: ldc.i4.0
+   IL_0023: stloc.s V_4
+   IL_0025: br.s IL_0073
+   IL_0027: ldarg.1
+   IL_0028: ldloc.s V_4
+   IL_002a: ldelema Microsoft.Xna.Framework.Graphics.RenderTargetBinding
+   IL_002f: call Microsoft.Xna.Framework.Graphics.Texture Microsoft.Xna.Framework.Graphics.RenderTargetBinding::get_RenderTarget()
+   IL_0034: ldarg.0
+   IL_0035: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetBindings
+   IL_003a: ldloc.s V_4
+   IL_003c: ldelema Microsoft.Xna.Framework.Graphics.RenderTargetBinding
+   IL_0041: call Microsoft.Xna.Framework.Graphics.Texture Microsoft.Xna.Framework.Graphics.RenderTargetBinding::get_RenderTarget()
+   IL_0046: bne.un.s IL_0069
+   IL_0048: ldarg.1
+   IL_0049: ldloc.s V_4
+   IL_004b: ldelema Microsoft.Xna.Framework.Graphics.RenderTargetBinding
+   IL_0050: call Microsoft.Xna.Framework.Graphics.CubeMapFace Microsoft.Xna.Framework.Graphics.RenderTargetBinding::get_CubeMapFace()
+   IL_0055: ldarg.0
+   IL_0056: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetBindings
+   IL_005b: ldloc.s V_4
+   IL_005d: ldelema Microsoft.Xna.Framework.Graphics.RenderTargetBinding
+   IL_0062: call Microsoft.Xna.Framework.Graphics.CubeMapFace Microsoft.Xna.Framework.Graphics.RenderTargetBinding::get_CubeMapFace()
+   IL_0067: beq.s IL_006d
+   IL_0069: ldc.i4.0
+   IL_006a: stloc.3
+   IL_006b: br.s IL_007a
+   IL_006d: ldloc.s V_4
+   IL_006f: ldc.i4.1
+   IL_0070: add
+   IL_0071: stloc.s V_4
+   IL_0073: ldloc.s V_4
+   IL_0075: ldarg.1
+   IL_0076: ldlen
+   IL_0077: conv.i4
+   IL_0078: blt.s IL_0027
+   IL_007a: ldloc.3
+   IL_007b: brfalse.s IL_007e
+   IL_007d: ret
+   IL_007e: ldarg.1
+   IL_007f: brfalse.s IL_0088
+   IL_0081: ldarg.1
+   IL_0082: ldlen
+   IL_0083: brtrue IL_0133
+   IL_0088: ldarg.0
+   IL_0089: ldfld System.IntPtr Microsoft.Xna.Framework.Graphics.GraphicsDevice::GLDevice
+   IL_008e: ldsfld System.IntPtr System.IntPtr::Zero
+   IL_0093: ldc.i4.0
+   IL_0094: ldsfld System.IntPtr System.IntPtr::Zero
+   IL_0099: ldc.i4.0
+   IL_009a: ldarg.0
+   IL_009b: callvirt Microsoft.Xna.Framework.Graphics.PresentationParameters Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_PresentationParameters()
+   IL_00a0: callvirt Microsoft.Xna.Framework.Graphics.RenderTargetUsage Microsoft.Xna.Framework.Graphics.PresentationParameters::get_RenderTargetUsage()
+   IL_00a5: ldc.i4.0
+   IL_00a6: cgt.un
+   IL_00a8: conv.u1
+   IL_00a9: call System.Void Microsoft.Xna.Framework.Graphics.FNA3D::FNA3D_SetRenderTargets(System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,Microsoft.Xna.Framework.Graphics.DepthFormat,System.Byte)
+   IL_00ae: ldarg.0
+   IL_00af: callvirt Microsoft.Xna.Framework.Graphics.PresentationParameters Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_PresentationParameters()
+   IL_00b4: callvirt System.Int32 Microsoft.Xna.Framework.Graphics.PresentationParameters::get_BackBufferWidth()
+   IL_00b9: stloc.0
+   IL_00ba: ldarg.0
+   IL_00bb: callvirt Microsoft.Xna.Framework.Graphics.PresentationParameters Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_PresentationParameters()
+   IL_00c0: callvirt System.Int32 Microsoft.Xna.Framework.Graphics.PresentationParameters::get_BackBufferHeight()
+   IL_00c5: stloc.1
+   IL_00c6: ldarg.0
+   IL_00c7: callvirt Microsoft.Xna.Framework.Graphics.PresentationParameters Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_PresentationParameters()
+   IL_00cc: callvirt Microsoft.Xna.Framework.Graphics.RenderTargetUsage Microsoft.Xna.Framework.Graphics.PresentationParameters::get_RenderTargetUsage()
+   IL_00d1: stloc.2
+   IL_00d2: ldc.i4.0
+   IL_00d3: stloc.s V_5
+   IL_00d5: br.s IL_00f5
+   IL_00d7: ldarg.0
+   IL_00d8: ldfld System.IntPtr Microsoft.Xna.Framework.Graphics.GraphicsDevice::GLDevice
+   IL_00dd: ldarg.0
+   IL_00de: ldfld Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::nativeTargetBindings
+   IL_00e3: ldloc.s V_5
+   IL_00e5: ldelema Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding
+   IL_00ea: call System.Void Microsoft.Xna.Framework.Graphics.FNA3D::FNA3D_ResolveTarget(System.IntPtr,Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding&)
+   IL_00ef: ldloc.s V_5
+   IL_00f1: ldc.i4.1
+   IL_00f2: add
+   IL_00f3: stloc.s V_5
+   IL_00f5: ldloc.s V_5
+   IL_00f7: ldarg.0
+   IL_00f8: ldfld System.Int32 Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetCount
+   IL_00fd: blt.s IL_00d7
+   IL_00ff: ldarg.0
+   IL_0100: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetBindings
+   IL_0105: ldc.i4.0
+   IL_0106: ldarg.0
+   IL_0107: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetBindings
+   IL_010c: ldlen
+   IL_010d: conv.i4
+   IL_010e: call System.Void System.Array::Clear(System.Array,System.Int32,System.Int32)
+   IL_0113: ldarg.0
+   IL_0114: ldfld Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::nativeTargetBindings
+   IL_0119: ldc.i4.0
+   IL_011a: ldarg.0
+   IL_011b: ldfld Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::nativeTargetBindings
+   IL_0120: ldlen
+   IL_0121: conv.i4
+   IL_0122: call System.Void System.Array::Clear(System.Array,System.Int32,System.Int32)
+   IL_0127: ldarg.0
+   IL_0128: ldc.i4.0
+   IL_0129: stfld System.Int32 Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetCount
+   IL_012e: br IL_0266
+   IL_0133: ldarg.1
+   IL_0134: ldc.i4.0
+   IL_0135: ldelema Microsoft.Xna.Framework.Graphics.RenderTargetBinding
+   IL_013a: call Microsoft.Xna.Framework.Graphics.Texture Microsoft.Xna.Framework.Graphics.RenderTargetBinding::get_RenderTarget()
+   IL_013f: isinst Microsoft.Xna.Framework.Graphics.IRenderTarget
+   IL_0144: stloc.s V_6
+   IL_0146: ldarg.0
+   IL_0147: ldfld Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::nativeTargetBindingsNext
+   IL_014c: ldc.i4.0
+   IL_014d: ldelema Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding
+   IL_0152: stloc.s V_8
+   IL_0154: ldloc.s V_8
+   IL_0156: conv.u
+   IL_0157: stloc.s V_7
+   IL_0159: ldloc.s V_7
+   IL_015b: ldarg.1
+   IL_015c: call System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::PrepareRenderTargetBindings(Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding*,Microsoft.Xna.Framework.Graphics.RenderTargetBinding[])
+   IL_0161: ldarg.0
+   IL_0162: ldfld System.IntPtr Microsoft.Xna.Framework.Graphics.GraphicsDevice::GLDevice
+   IL_0167: ldloc.s V_7
+   IL_0169: ldarg.1
+   IL_016a: ldlen
+   IL_016b: conv.i4
+   IL_016c: ldloc.s V_6
+   IL_016e: callvirt System.IntPtr Microsoft.Xna.Framework.Graphics.IRenderTarget::get_DepthStencilBuffer()
+   IL_0173: ldloc.s V_6
+   IL_0175: callvirt Microsoft.Xna.Framework.Graphics.DepthFormat Microsoft.Xna.Framework.Graphics.IRenderTarget::get_DepthStencilFormat()
+   IL_017a: ldloc.s V_6
+   IL_017c: callvirt Microsoft.Xna.Framework.Graphics.RenderTargetUsage Microsoft.Xna.Framework.Graphics.IRenderTarget::get_RenderTargetUsage()
+   IL_0181: ldc.i4.0
+   IL_0182: cgt.un
+   IL_0184: conv.u1
+   IL_0185: call System.Void Microsoft.Xna.Framework.Graphics.FNA3D::FNA3D_SetRenderTargets(System.IntPtr,Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding*,System.Int32,System.IntPtr,Microsoft.Xna.Framework.Graphics.DepthFormat,System.Byte)
+   IL_018a: ldc.i4.0
+   IL_018b: conv.u
+   IL_018c: stloc.s V_8
+   IL_018e: ldloc.s V_6
+   IL_0190: callvirt System.Int32 Microsoft.Xna.Framework.Graphics.IRenderTarget::get_Width()
+   IL_0195: stloc.0
+   IL_0196: ldloc.s V_6
+   IL_0198: callvirt System.Int32 Microsoft.Xna.Framework.Graphics.IRenderTarget::get_Height()
+   IL_019d: stloc.1
+   IL_019e: ldloc.s V_6
+   IL_01a0: callvirt Microsoft.Xna.Framework.Graphics.RenderTargetUsage Microsoft.Xna.Framework.Graphics.IRenderTarget::get_RenderTargetUsage()
+   IL_01a5: stloc.2
+   IL_01a6: ldc.i4.0
+   IL_01a7: stloc.s V_9
+   IL_01a9: br.s IL_0208
+   IL_01ab: ldc.i4.0
+   IL_01ac: stloc.s V_10
+   IL_01ae: ldc.i4.0
+   IL_01af: stloc.s V_11
+   IL_01b1: br.s IL_01df
+   IL_01b3: ldarg.0
+   IL_01b4: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetBindings
+   IL_01b9: ldloc.s V_9
+   IL_01bb: ldelema Microsoft.Xna.Framework.Graphics.RenderTargetBinding
+   IL_01c0: call Microsoft.Xna.Framework.Graphics.Texture Microsoft.Xna.Framework.Graphics.RenderTargetBinding::get_RenderTarget()
+   IL_01c5: ldarg.1
+   IL_01c6: ldloc.s V_11
+   IL_01c8: ldelema Microsoft.Xna.Framework.Graphics.RenderTargetBinding
+   IL_01cd: call Microsoft.Xna.Framework.Graphics.Texture Microsoft.Xna.Framework.Graphics.RenderTargetBinding::get_RenderTarget()
+   IL_01d2: bne.un.s IL_01d9
+   IL_01d4: ldc.i4.1
+   IL_01d5: stloc.s V_10
+   IL_01d7: br.s IL_01e6
+   IL_01d9: ldloc.s V_11
+   IL_01db: ldc.i4.1
+   IL_01dc: add
+   IL_01dd: stloc.s V_11
+   IL_01df: ldloc.s V_11
+   IL_01e1: ldarg.1
+   IL_01e2: ldlen
+   IL_01e3: conv.i4
+   IL_01e4: blt.s IL_01b3
+   IL_01e6: ldloc.s V_10
+   IL_01e8: brtrue.s IL_0202
+   IL_01ea: ldarg.0
+   IL_01eb: ldfld System.IntPtr Microsoft.Xna.Framework.Graphics.GraphicsDevice::GLDevice
+   IL_01f0: ldarg.0
+   IL_01f1: ldfld Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::nativeTargetBindings
+   IL_01f6: ldloc.s V_9
+   IL_01f8: ldelema Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding
+   IL_01fd: call System.Void Microsoft.Xna.Framework.Graphics.FNA3D::FNA3D_ResolveTarget(System.IntPtr,Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding&)
+   IL_0202: ldloc.s V_9
+   IL_0204: ldc.i4.1
+   IL_0205: add
+   IL_0206: stloc.s V_9
+   IL_0208: ldloc.s V_9
+   IL_020a: ldarg.0
+   IL_020b: ldfld System.Int32 Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetCount
+   IL_0210: blt.s IL_01ab
+   IL_0212: ldarg.0
+   IL_0213: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetBindings
+   IL_0218: ldc.i4.0
+   IL_0219: ldarg.0
+   IL_021a: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetBindings
+   IL_021f: ldlen
+   IL_0220: conv.i4
+   IL_0221: call System.Void System.Array::Clear(System.Array,System.Int32,System.Int32)
+   IL_0226: ldarg.1
+   IL_0227: ldarg.0
+   IL_0228: ldfld Microsoft.Xna.Framework.Graphics.RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetBindings
+   IL_022d: ldarg.1
+   IL_022e: ldlen
+   IL_022f: conv.i4
+   IL_0230: call System.Void System.Array::Copy(System.Array,System.Array,System.Int32)
+   IL_0235: ldarg.0
+   IL_0236: ldfld Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::nativeTargetBindings
+   IL_023b: ldc.i4.0
+   IL_023c: ldarg.0
+   IL_023d: ldfld Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::nativeTargetBindings
+   IL_0242: ldlen
+   IL_0243: conv.i4
+   IL_0244: call System.Void System.Array::Clear(System.Array,System.Int32,System.Int32)
+   IL_0249: ldarg.0
+   IL_024a: ldfld Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::nativeTargetBindingsNext
+   IL_024f: ldarg.0
+   IL_0250: ldfld Microsoft.Xna.Framework.Graphics.FNA3D/FNA3D_RenderTargetBinding[] Microsoft.Xna.Framework.Graphics.GraphicsDevice::nativeTargetBindings
+   IL_0255: ldarg.1
+   IL_0256: ldlen
+   IL_0257: conv.i4
+   IL_0258: call System.Void System.Array::Copy(System.Array,System.Array,System.Int32)
+   IL_025d: ldarg.0
+   IL_025e: ldarg.1
+   IL_025f: ldlen
+   IL_0260: conv.i4
+   IL_0261: stfld System.Int32 Microsoft.Xna.Framework.Graphics.GraphicsDevice::renderTargetCount
+   IL_0266: ldarg.0
+   IL_0267: ldc.i4.0
+   IL_0268: ldc.i4.0
+   IL_0269: ldloc.0
+   IL_026a: ldloc.1
+   IL_026b: newobj System.Void Microsoft.Xna.Framework.Graphics.Viewport::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0270: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_Viewport(Microsoft.Xna.Framework.Graphics.Viewport)
+   IL_0275: ldarg.0
+   IL_0276: ldc.i4.0
+   IL_0277: ldc.i4.0
+   IL_0278: ldloc.0
+   IL_0279: ldloc.1
+   IL_027a: newobj System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_027f: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_ScissorRectangle(Microsoft.Xna.Framework.Rectangle)
+   IL_0284: ldloc.2
+   IL_0285: brtrue.s IL_02a3
+   IL_0287: ldarg.0
+   IL_0288: ldc.i4.7
+   IL_0289: ldsfld Microsoft.Xna.Framework.Vector4 Microsoft.Xna.Framework.Graphics.GraphicsDevice::DiscardColor
+   IL_028e: ldarg.0
+   IL_028f: callvirt Microsoft.Xna.Framework.Graphics.Viewport Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Viewport()
+   IL_0294: stloc.s V_12
+   IL_0296: ldloca.s V_12
+   IL_0298: call System.Single Microsoft.Xna.Framework.Graphics.Viewport::get_MaxDepth()
+   IL_029d: ldc.i4.0
+   IL_029e: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::Clear(Microsoft.Xna.Framework.Graphics.ClearOptions,Microsoft.Xna.Framework.Vector4,System.Single,System.Int32)
+   IL_02a3: ret

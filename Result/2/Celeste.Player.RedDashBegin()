@@ -1,8 +1,12 @@
 On{zTljNivCN3U}: {UNKNOWN_DETOUR: Priority: 0}[Aqua::]Celeste.Mod.Aqua.Core.PlayerStates.Player_RedDashBegin(orig_RedDashBegin,Player)
+On{FEMIjLJTM7A}: [FreezeFramesToggler::]Celeste.Mod.FreezeFramesToggler.FreezeFramesTogglerModule.Player_RedDashBegin(orig_RedDashBegin,Player)
+IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashBeginHook(ILContext)
 [V_0] Microsoft.Xna.Framework.Vector2
    IL_0000: ldarg.0
    IL_0001: ldc.i4.0
    IL_0002: stfld System.Boolean Celeste.Player::calledDashEvents
+ + IL_10000: ldarg.0 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashBeginHook(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.WarlockHelper.WarlockHelperModule::playerSetDashProperties(Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashBeginHook(ILContext)
    IL_0007: ldarg.0
    IL_0008: ldc.i4.0
    IL_0009: stfld System.Boolean Celeste.Player::dashStartedOnGround
@@ -17,6 +21,9 @@ On{zTljNivCN3U}: {UNKNOWN_DETOUR: Priority: 0}[Aqua::]Celeste.Mod.Aqua.Core.Play
    IL_002e: ldc.i4.8
    IL_002f: ldnull
    IL_0030: call System.Void Celeste.Dust::Burst(Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,Monocle.ParticleType)
+ + IL_10002: ldarg.0 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashBeginHook(ILContext)
+ + IL_10003: call System.Boolean Celeste.Mod.WarlockHelper.WarlockHelperModule::playerGetDashNoCooldown(Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashBeginHook(ILContext)
+ + IL_10004: brtrue IL_004b @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashBeginHook(ILContext)
    IL_0035: ldarg.0
    IL_0036: ldc.r4 0.2
    IL_003b: stfld System.Single Celeste.Player::dashCooldownTimer

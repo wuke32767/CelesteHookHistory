@@ -1,0 +1,100 @@
+On{BQ189RUuCxg}: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableClimbtrigger.ForceCustomCoreblockTrigger(Func`2,ReskinnableBounceBlock)
+[V_0] Celeste.Player
+[V_1] System.Boolean
+[V_2] System.Boolean
+[V_3] System.Boolean
+[V_4] System.Boolean
+[V_5] Celeste.Player
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldarg.0
+   IL_0003: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0008: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitY()
+   IL_000d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0012: call T Monocle.Entity::CollideFirst<Celeste.Player>(Microsoft.Xna.Framework.Vector2)
+   IL_0017: stloc.0
+   IL_0018: ldloc.0
+   IL_0019: brfalse.s IL_002f
+   IL_001b: ldloc.0
+   IL_001c: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0021: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0026: ldc.r4 0
+   IL_002b: clt
+   IL_002d: br.s IL_0030
+   IL_002f: ldc.i4.0
+   IL_0030: stloc.1
+   IL_0031: ldloc.1
+   IL_0032: brfalse.s IL_0038
+   IL_0034: nop
+   IL_0035: ldnull
+   IL_0036: stloc.0
+   IL_0037: nop
+   IL_0038: ldloc.0
+   IL_0039: ldnull
+   IL_003a: ceq
+   IL_003c: stloc.2
+   IL_003d: ldloc.2
+   IL_003e: brfalse IL_00c3
+   IL_0043: nop
+   IL_0044: ldarg.0
+   IL_0045: ldarg.0
+   IL_0046: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_004b: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0050: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0055: call T Monocle.Entity::CollideFirst<Celeste.Player>(Microsoft.Xna.Framework.Vector2)
+   IL_005a: stloc.0
+   IL_005b: ldloc.0
+   IL_005c: brfalse.s IL_007a
+   IL_005e: ldloc.0
+   IL_005f: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0064: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_0069: ldc.i4.1
+   IL_006a: bne.un.s IL_007a
+   IL_006c: ldloc.0
+   IL_006d: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_0072: ldc.i4.m1
+   IL_0073: ceq
+   IL_0075: ldc.i4.0
+   IL_0076: ceq
+   IL_0078: br.s IL_007b
+   IL_007a: ldc.i4.1
+   IL_007b: stloc.3
+   IL_007c: ldloc.3
+   IL_007d: brfalse.s IL_00c2
+   IL_007f: nop
+   IL_0080: ldarg.0
+   IL_0081: ldarg.0
+   IL_0082: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0087: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_008c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0091: call T Monocle.Entity::CollideFirst<Celeste.Player>(Microsoft.Xna.Framework.Vector2)
+   IL_0096: stloc.0
+   IL_0097: ldloc.0
+   IL_0098: brfalse.s IL_00b6
+   IL_009a: ldloc.0
+   IL_009b: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00a0: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_00a5: ldc.i4.1
+   IL_00a6: bne.un.s IL_00b6
+   IL_00a8: ldloc.0
+   IL_00a9: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_00ae: ldc.i4.1
+   IL_00af: ceq
+   IL_00b1: ldc.i4.0
+   IL_00b2: ceq
+   IL_00b4: br.s IL_00b7
+   IL_00b6: ldc.i4.1
+   IL_00b7: stloc.s V_4
+   IL_00b9: ldloc.s V_4
+   IL_00bb: brfalse.s IL_00c1
+   IL_00bd: nop
+   IL_00be: ldnull
+   IL_00bf: stloc.0
+   IL_00c0: nop
+   IL_00c1: nop
+   IL_00c2: nop
+   IL_00c3: ldloc.0
+   IL_00c4: stloc.s V_5
+   IL_00c6: br.s IL_00c8
+   IL_00c8: ldloc.s V_5
+   IL_00ca: ret

@@ -1,0 +1,114 @@
+[V_0] System.Single
+[V_1] Microsoft.Xna.Framework.Vector2
+[V_2] Microsoft.Xna.Framework.Color
+[V_3] System.Single
+[V_4] Microsoft.Xna.Framework.Color
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Single Celeste.OuiChapterPanel/Option::get_Scale()
+   IL_0006: ldarg.2
+   IL_0007: brtrue.s IL_0010
+   IL_0009: ldc.r4 0
+   IL_000e: br.s IL_001c
+   IL_0010: ldarg.3
+   IL_0011: callvirt System.Single Monocle.Wiggler::get_Value()
+   IL_0016: ldc.r4 0.25
+   IL_001b: mul
+   IL_001c: add
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.Boolean Celeste.OuiChapterPanel/Option::Appeared
+   IL_0023: brtrue.s IL_002c
+   IL_0025: ldc.r4 0
+   IL_002a: br.s IL_0039
+   IL_002c: ldarg.s appearWiggler
+   IL_002e: callvirt System.Single Monocle.Wiggler::get_Value()
+   IL_0033: ldc.r4 0.25
+   IL_0038: mul
+   IL_0039: add
+   IL_003a: stloc.0
+   IL_003b: ldarg.0
+   IL_003c: ldarg.1
+   IL_003d: callvirt Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel/Option::GetRenderPosition(Microsoft.Xna.Framework.Vector2)
+   IL_0042: stloc.1
+   IL_0043: ldarg.0
+   IL_0044: ldfld Microsoft.Xna.Framework.Color Celeste.OuiChapterPanel/Option::BgColor
+   IL_0049: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_004e: ldc.r4 1
+   IL_0053: ldarg.0
+   IL_0054: ldfld System.Single Celeste.OuiChapterPanel/Option::Pop
+   IL_0059: sub
+   IL_005a: ldc.r4 0.6
+   IL_005f: mul
+   IL_0060: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0065: stloc.2
+   IL_0066: ldarg.0
+   IL_0067: ldfld Monocle.MTexture Celeste.OuiChapterPanel/Option::Bg
+   IL_006c: ldloc.1
+   IL_006d: ldc.r4 0
+   IL_0072: ldc.r4 10
+   IL_0077: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_007c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0081: ldloc.2
+   IL_0082: ldarg.0
+   IL_0083: ldfld System.Boolean Celeste.OuiChapterPanel/Option::Appeared
+   IL_0088: brtrue.s IL_008d
+   IL_008a: ldloc.0
+   IL_008b: br.s IL_0093
+   IL_008d: ldarg.0
+   IL_008e: callvirt System.Single Celeste.OuiChapterPanel/Option::get_Scale()
+   IL_0093: ldarg.0
+   IL_0094: ldfld System.Boolean Celeste.OuiChapterPanel/Option::Large
+   IL_0099: brtrue.s IL_00a2
+   IL_009b: ldc.r4 0.9
+   IL_00a0: br.s IL_00a7
+   IL_00a2: ldc.r4 1
+   IL_00a7: ldc.r4 1
+   IL_00ac: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_00b1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+ + IL_10000: ldstr "ChapterTab" @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OptionOnRender(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartShaderLayerRender(System.String) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OptionOnRender(ILContext)
+   IL_00b6: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Vector2)
+ + IL_10002: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndShaderLayerRender() @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OptionOnRender(ILContext)
+   IL_00bb: ldarg.0
+   IL_00bc: ldfld System.Single Celeste.OuiChapterPanel/Option::IconEase
+   IL_00c1: ldc.r4 0
+   IL_00c6: ble.un.s IL_0136
+   IL_00c8: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeIn
+   IL_00cd: ldarg.0
+   IL_00ce: ldfld System.Single Celeste.OuiChapterPanel/Option::IconEase
+   IL_00d3: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_00d8: stloc.3
+   IL_00d9: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00de: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_00e3: ldarg.0
+   IL_00e4: ldfld System.Single Celeste.OuiChapterPanel/Option::Faded
+   IL_00e9: ldc.r4 0.6
+   IL_00ee: mul
+   IL_00ef: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_00f4: ldloc.3
+   IL_00f5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_00fa: stloc.s V_4
+   IL_00fc: ldarg.0
+   IL_00fd: ldfld Monocle.MTexture Celeste.OuiChapterPanel/Option::Icon
+   IL_0102: ldloc.1
+   IL_0103: ldloc.s V_4
+   IL_0105: ldarg.0
+   IL_0106: ldfld Monocle.MTexture Celeste.OuiChapterPanel/Option::Bg
+   IL_010b: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_0110: ldc.i4.s 50
+   IL_0112: sub
+   IL_0113: conv.r4
+   IL_0114: ldarg.0
+   IL_0115: ldfld Monocle.MTexture Celeste.OuiChapterPanel/Option::Icon
+   IL_011a: callvirt System.Int32 Monocle.MTexture::get_Width()
+   IL_011f: conv.r4
+   IL_0120: div
+   IL_0121: ldloc.0
+   IL_0122: mul
+   IL_0123: ldc.r4 2.5
+   IL_0128: ldloc.3
+   IL_0129: ldc.r4 1.5
+   IL_012e: mul
+   IL_012f: sub
+   IL_0130: mul
+   IL_0131: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0136: ret

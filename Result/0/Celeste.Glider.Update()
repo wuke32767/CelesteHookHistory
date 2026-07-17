@@ -3,6 +3,7 @@ On{NzKjaOPwc8Y}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.Xaphan
 On{Z6nDWHRR6Q8}: {UNKNOWN_DETOUR: Priority: 0}[JackalHelper::]Celeste.Mod.JackalHelper.JackalModule.directionalJelly(orig_Update,Glider)
 On{NLgkjyiWKGo}: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.GliderFizzleGate.OnGliderUpdate(orig_Update,Glider)
 IL: {UNKNOWN_DETOUR: Priority: -1}[CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.DreamJellyfish.Glider_Update(ILContext)
+IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Triggers.DisableAirMovementTrigger.DisableSpriteChanges(ILContext)
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.RespawningJellyfishGeneric`2[[Celeste.Mod.MaxHelpingHand.Entities.RespawningJellyfish, MaxHelpingHand, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Celeste.Glider, Celeste, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].modGliderUpdate(ILContext)
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.CustomSeekerBarrier.onJellyUpdate(ILContext)
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.FrozenJelly.cancelGravity(ILContext)
@@ -704,9 +705,9 @@ IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.En
    IL_08ec: ldarg.0
    IL_08ed: callvirt System.Void Celeste.Glider::PlayOpen()
    IL_08f2: ldsfld Monocle.VirtualIntegerAxis Celeste.Input::GliderMoveY
+ + IL_10015: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Triggers.DisableAirMovementTrigger.DisableSpriteChanges(ILContext)
+ + IL_10016: call Monocle.VirtualIntegerAxis Celeste.Mod.LeniencyHelper.Triggers.DisableAirMovementTrigger::MoveYToZero(Monocle.VirtualIntegerAxis,Celeste.Player) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Triggers.DisableAirMovementTrigger.DisableSpriteChanges(ILContext)
    IL_08f7: ldfld System.Int32 Monocle.VirtualIntegerAxis::Value
- + IL_10015: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxis(ILContext)
- + IL_10016: call System.Int32 Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertYMovement(System.Int32,Celeste.Glider) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxis(ILContext)
    IL_08fc: ldc.i4.0
    IL_08fd: ble.s IL_0919
    IL_08ff: ldloca.s V_13
@@ -717,9 +718,9 @@ IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.En
    IL_0912: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_0917: br.s IL_093e
    IL_0919: ldsfld Monocle.VirtualIntegerAxis Celeste.Input::GliderMoveY
+ + IL_10017: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Triggers.DisableAirMovementTrigger.DisableSpriteChanges(ILContext)
+ + IL_10018: call Monocle.VirtualIntegerAxis Celeste.Mod.LeniencyHelper.Triggers.DisableAirMovementTrigger::MoveYToZero(Monocle.VirtualIntegerAxis,Celeste.Player) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Triggers.DisableAirMovementTrigger.DisableSpriteChanges(ILContext)
    IL_091e: ldfld System.Int32 Monocle.VirtualIntegerAxis::Value
- + IL_10017: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxis(ILContext)
- + IL_10018: call System.Int32 Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertYMovement(System.Int32,Celeste.Glider) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxis(ILContext)
    IL_0923: ldc.i4.0
    IL_0924: bge.s IL_093e
    IL_0926: ldloca.s V_13

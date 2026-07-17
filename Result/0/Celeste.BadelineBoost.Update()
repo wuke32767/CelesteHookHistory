@@ -1,0 +1,120 @@
+On{86Ty5zTRVWc}: {UNKNOWN_DETOUR: Priority: 0}[ScreenshotTool::]Celeste.Mod.ScreenshotTool.Scanner.SilentScanner.BadelineBoostUpdateHook(orig_Update,BadelineBoost)
+[V_0] Celeste.Player
+[V_1] System.Single
+[V_2] Microsoft.Xna.Framework.Vector2
+[V_3] Microsoft.Xna.Framework.Vector2
+[V_4] System.Boolean
+   IL_0000: ldarg.0
+   IL_0001: ldfld Monocle.Sprite Celeste.BadelineBoost::sprite
+   IL_0006: ldfld System.Boolean Monocle.Component::Visible
+   IL_000b: brfalse.s IL_004a
+   IL_000d: ldarg.0
+   IL_000e: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0013: ldc.r4 0.05
+   IL_0018: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_001d: brfalse.s IL_004a
+   IL_001f: ldarg.0
+   IL_0020: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0025: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesBG
+   IL_002a: ldsfld Monocle.ParticleType Celeste.BadelineBoost::P_Ambience
+   IL_002f: ldc.i4.1
+   IL_0030: ldarg.0
+   IL_0031: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_0036: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_003b: ldc.r4 3
+   IL_0040: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0045: callvirt System.Void Monocle.ParticleSystem::Emit(Monocle.ParticleType,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004a: ldarg.0
+   IL_004b: ldfld Celeste.Player Celeste.BadelineBoost::holding
+   IL_0050: brfalse.s IL_0062
+   IL_0052: ldarg.0
+   IL_0053: ldfld Celeste.Player Celeste.BadelineBoost::holding
+   IL_0058: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_005d: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0062: ldarg.0
+   IL_0063: ldfld System.Boolean Celeste.BadelineBoost::travelling
+   IL_0068: brtrue IL_0134
+   IL_006d: ldarg.0
+   IL_006e: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0073: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0078: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_007d: stloc.0
+   IL_007e: ldloc.0
+   IL_007f: brfalse IL_0134
+   IL_0084: ldloc.0
+   IL_0085: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_008a: ldarg.0
+   IL_008b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0090: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_0095: stloc.3
+   IL_0096: ldloca.s V_3
+   IL_0098: call System.Single Microsoft.Xna.Framework.Vector2::Length()
+   IL_009d: ldc.r4 16
+   IL_00a2: ldc.r4 64
+   IL_00a7: ldc.r4 12
+   IL_00ac: ldc.r4 0
+   IL_00b1: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_00b6: stloc.1
+   IL_00b7: ldloc.0
+   IL_00b8: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
+   IL_00bd: ldarg.0
+   IL_00be: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00c3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00c8: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+   IL_00cd: stloc.2
+   IL_00ce: ldarg.0
+   IL_00cf: ldfld Monocle.Sprite Celeste.BadelineBoost::sprite
+   IL_00d4: ldarg.0
+   IL_00d5: ldfld Monocle.Sprite Celeste.BadelineBoost::sprite
+   IL_00da: ldfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_00df: ldloc.2
+   IL_00e0: ldloc.1
+   IL_00e1: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00e6: ldc.r4 32
+   IL_00eb: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00f0: mul
+   IL_00f1: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00f6: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Position
+   IL_00fb: ldarg.0
+   IL_00fc: ldfld System.Boolean Celeste.BadelineBoost::canSkip
+   IL_0101: brfalse.s IL_0134
+   IL_0103: ldloc.0
+   IL_0104: ldflda Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0109: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_010e: ldarg.0
+   IL_010f: call System.Single Monocle.Entity::get_X()
+   IL_0114: sub
+   IL_0115: ldc.r4 100
+   IL_011a: blt.un.s IL_0134
+   IL_011c: ldarg.0
+   IL_011d: ldfld System.Int32 Celeste.BadelineBoost::nodeIndex
+   IL_0122: ldc.i4.1
+   IL_0123: add
+   IL_0124: ldarg.0
+   IL_0125: ldfld Microsoft.Xna.Framework.Vector2[] Celeste.BadelineBoost::nodes
+   IL_012a: ldlen
+   IL_012b: conv.i4
+   IL_012c: bge.s IL_0134
+   IL_012e: ldarg.0
+   IL_012f: callvirt System.Void Celeste.BadelineBoost::Skip()
+   IL_0134: ldarg.0
+   IL_0135: ldfld Celeste.VertexLight Celeste.BadelineBoost::light
+   IL_013a: ldarg.0
+   IL_013b: ldfld Celeste.BloomPoint Celeste.BadelineBoost::bloom
+   IL_0140: ldarg.0
+   IL_0141: ldfld Monocle.Sprite Celeste.BadelineBoost::sprite
+   IL_0146: ldfld System.Boolean Monocle.Component::Visible
+   IL_014b: brtrue.s IL_015a
+   IL_014d: ldarg.0
+   IL_014e: ldfld Monocle.Image Celeste.BadelineBoost::stretch
+   IL_0153: ldfld System.Boolean Monocle.Component::Visible
+   IL_0158: br.s IL_015b
+   IL_015a: ldc.i4.1
+   IL_015b: dup
+   IL_015c: stloc.s V_4
+   IL_015e: stfld System.Boolean Monocle.Component::Visible
+   IL_0163: ldloc.s V_4
+   IL_0165: stfld System.Boolean Monocle.Component::Visible
+   IL_016a: ldarg.0
+   IL_016b: call System.Void Monocle.Entity::Update()
+   IL_0170: ret

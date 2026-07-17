@@ -1,0 +1,40 @@
+On{EiAo33bHimc}: {YaoiHelper: Priority: 0}[YaoiHelper::]Celeste.Mod.YaoiHelper.Handlers.SpecialBuffers.On_LevelBegin_InitSpecialBuffers(orig_Begin,Level)
+On{UTVpK7UXOwU}: {UNKNOWN_DETOUR: Priority: 0}[LuckyHelper::]LuckyHelper.Module.LuckyHelperBuffers.LevelOnBegin(orig_Begin,Level)
+On{eR0BAO8gNSk}: {UNKNOWN_DETOUR: Priority: 0}[ChroniaHelper::]ChroniaHelper.Cores.MapProcessor.OnLevelBegin(orig_Begin,Level)
+On{jGfUDwc/BVM}: {UNKNOWN_DETOUR: Priority: 0}[ChroniaHelper::]ChroniaHelper.Cores.GeneralMouseEntity.OnLevelBegin(orig_Begin,Level)
+On{GmWvRaHhemw}: {UNKNOWN_DETOUR: Priority: 0}[ChroniaHelper::]ChroniaHelper.Utils.ChroniaSystem.ChroniaSystem.OnLevelBegin(orig_Begin,Level)
+On{8DSv2HsIskw}: {UNKNOWN_DETOUR: Priority: 0}[ChroniaHelper::]ChroniaHelper.Settings.Displayers.OnLevelBegin(orig_Begin,Level)
+On{/CLY/7f/hfA}: {UNKNOWN_DETOUR: Priority: 0}[DoonvHelper::]Celeste.Mod.DoonvHelper.DoonvHelperModule.ModLevelBegin(orig_Begin,Level)
+On{ZR6S5RhwLIo}: {UNKNOWN_DETOUR: Priority: 0}[ConsistencyTracker::]Celeste.Mod.ConsistencyTracker.ConsistencyTrackerModule.Level_Begin(orig_Begin,Level)
+On{wP/F25QY39E}: {UNKNOWN_DETOUR: Priority: 0}[SpeedrunTool::]Celeste.Mod.SpeedrunTool.RoomTimer.EndPoint.LevelOnBegin(orig_Begin,Level)
+On{xuaG6l4X09g}: {UNKNOWN_DETOUR: Priority: 0}[DBBHelper::]Celeste.Mod.DBBHelper.Mechanism.DBBEffectSourceManager.FirstLoadGameplayBuffers(orig_Begin,Level)
+On{UsoN+SEYq9Q}: {UNKNOWN_DETOUR: Priority: 0}[ChroniaPointsGame::]ChroniaPointsGame.Settings.Displayers.OnLevelBegin(orig_Begin,Level)
+On{W/ob5olc3c0}: {UNKNOWN_DETOUR: Priority: 0}[ChroniaPointsGame::]ChroniaPointsGame.Utils.ChroniaSystem.ChroniaSystem.OnLevelBegin(orig_Begin,Level)
+On{0ZqWzLh0oiE}: {UNKNOWN_DETOUR: Priority: 0}[Aqua::]Celeste.Mod.Aqua.Core.LevelStates.Level_Begin(orig_Begin,Level)
+On{YPaMAIOLqjw}: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.VariantRandomizer.onLevelBegin(orig_Begin,Level)
+On{xEiwRoh7k18}: [Vidcutter::]Celeste.Mod.Vidcutter.VidcutterModule.OnBegin(orig_Begin,Level)
+On{qAWTZum/t28}: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.HiresLevelRenderer.OnLevelBegin(orig_Begin,Level)
+On{RwND8T8nTr0}: [CelesteTAS-EverestInterop::]TAS.EverestInterop.Hitboxes.CycleHitboxColor.LevelOnBegin(orig_Begin,Level)
+On{eQjXqEo0IPg}: [CelesteTAS-EverestInterop::]TAS.InfoHUD.InfoWatchEntity.On_Level_Begin(orig_Begin,Level)
+On{wlYSmDzvGNc}: [izumisQOL::]Celeste.Mod.izumisQOL.Obs.OBSIntegration.OnLevelBegin(orig_Begin,Level)
+On{qnYgzYXD1l4}: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.HamburgerHelperGFX.LevelOnBegin(orig_Begin,Level)
+On{JbVKulAzaU0}: [CountingStrawberries::]Celeste.Mod.CountingStrawberries.Module.Level_Begin(orig_Begin,Level)
+On{jqmcbqolJoM}: [BounceHelper::]Celeste.Mod.BounceHelper.BounceHelperModule.onLevelBegin(orig_Begin,Level)
+On{rqMNb/Ns4Bc}: [borealisHelper::]Celeste.Mod.borealisHelper.borealisHelperModule.modLevelBegin(orig_Begin,Level)
+IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+        [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass9_0.<HookAfter>b__0(ILCursor,ILContext)
+   IL_0000: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0005: stsfld Microsoft.Xna.Framework.Color Celeste.ScreenWipe::WipeColor
+   IL_000a: call System.Void Celeste.GameplayBuffers::Create()
+   IL_000f: ldc.r4 1
+   IL_0014: call System.Void Celeste.Distort::set_WaterAlpha(System.Single)
+   IL_0019: ldc.r4 1
+   IL_001e: stsfld System.Single Celeste.Distort::WaterSineDirection
+   IL_0023: ldc.i4.0
+   IL_0024: call System.Void Celeste.Audio::set_MusicUnderwater(System.Boolean)
+   IL_0029: ldsfld FMOD.Studio.EventInstance Celeste.Level::DialogSnapshot
+   IL_002e: call System.Void Celeste.Audio::EndSnapshot(FMOD.Studio.EventInstance)
+   IL_0033: ldarg.0
+   IL_0034: call System.Void Monocle.Scene::Begin()
+ + IL_10000: call System.Void TAS.Input.Commands.MetadataCommands::<Load>g__StartFileTime|3_0() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0039: ret

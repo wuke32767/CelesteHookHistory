@@ -1,0 +1,102 @@
+IL: [RandomErrorPostcard::]Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule.hook_modErrorRoutine(ILContext)
+[V_0] System.Int32
+[V_1] Celeste.LevelEnter
+[V_2] Celeste.Postcard
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Int32 Celeste.LevelEnter/<ErrorRoutine>d__11::<>1__state
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld Celeste.LevelEnter Celeste.LevelEnter/<ErrorRoutine>d__11::<>4__this
+   IL_000d: stloc.1
+   IL_000e: ldloc.0
+   IL_000f: switch IL_0022,IL_0053,IL_0098
+   IL_0020: ldc.i4.0
+   IL_0021: ret
+   IL_0022: ldarg.0
+   IL_0023: ldc.i4.m1
+   IL_0024: stfld System.Int32 Celeste.LevelEnter/<ErrorRoutine>d__11::<>1__state
+   IL_0029: ldnull
+   IL_002a: ldc.i4.1
+   IL_002b: ldc.i4.1
+   IL_002c: call System.Boolean Celeste.Audio::SetMusic(System.String,System.Boolean,System.Boolean)
+   IL_0031: pop
+   IL_0032: ldnull
+   IL_0033: ldc.i4.1
+   IL_0034: call System.Boolean Celeste.Audio::SetAmbience(System.String,System.Boolean)
+   IL_0039: pop
+   IL_003a: ldarg.0
+   IL_003b: ldc.r4 1
+   IL_0040: box System.Single
+   IL_0045: stfld System.Object Celeste.LevelEnter/<ErrorRoutine>d__11::<>2__current
+   IL_004a: ldarg.0
+   IL_004b: ldc.i4.1
+   IL_004c: stfld System.Int32 Celeste.LevelEnter/<ErrorRoutine>d__11::<>1__state
+   IL_0051: ldc.i4.1
+   IL_0052: ret
+   IL_0053: ldarg.0
+   IL_0054: ldc.i4.m1
+   IL_0055: stfld System.Int32 Celeste.LevelEnter/<ErrorRoutine>d__11::<>1__state
+   IL_005a: ldloc.1
+   IL_005b: ldloc.1
+   IL_005c: ldarg.0
+   IL_005d: ldfld System.String Celeste.LevelEnter/<ErrorRoutine>d__11::message
+   IL_0062: ldstr "event:/ui/main/postcard_csides_in"
+   IL_0067: ldstr "event:/ui/main/postcard_csides_out"
+ + IL_10000: pop @ [RandomErrorPostcard::]Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule.hook_modErrorRoutine(ILContext)
+ + IL_10001: pop @ [RandomErrorPostcard::]Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule.hook_modErrorRoutine(ILContext)
+ + IL_10002: ldloc V_1 @ [RandomErrorPostcard::]Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule.hook_modErrorRoutine(ILContext)
+ + IL_10003: call System.Void Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule::ElectChosen(Celeste.LevelEnter) @ [RandomErrorPostcard::]Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule.hook_modErrorRoutine(ILContext)
+ + IL_10004: call System.String Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule::AddRandomPostcardInString() @ [RandomErrorPostcard::]Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule.hook_modErrorRoutine(ILContext)
+ + IL_10005: call System.String Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule::AddRandomPostcardOutString() @ [RandomErrorPostcard::]Celeste.Mod.RandomErrorPostcard.RandomErrorPostcardModule.hook_modErrorRoutine(ILContext)
+   IL_006c: newobj System.Void Celeste.Postcard::.ctor(System.String,System.String,System.String)
+   IL_0071: dup
+   IL_0072: stloc.2
+   IL_0073: stfld Celeste.Postcard Celeste.LevelEnter::postcard
+   IL_0078: ldloc.2
+   IL_0079: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_007e: ldarg.0
+   IL_007f: ldloc.1
+   IL_0080: ldfld Celeste.Postcard Celeste.LevelEnter::postcard
+   IL_0085: callvirt System.Collections.IEnumerator Celeste.Postcard::DisplayRoutine()
+   IL_008a: stfld System.Object Celeste.LevelEnter/<ErrorRoutine>d__11::<>2__current
+   IL_008f: ldarg.0
+   IL_0090: ldc.i4.2
+   IL_0091: stfld System.Int32 Celeste.LevelEnter/<ErrorRoutine>d__11::<>1__state
+   IL_0096: ldc.i4.1
+   IL_0097: ret
+   IL_0098: ldarg.0
+   IL_0099: ldc.i4.m1
+   IL_009a: stfld System.Int32 Celeste.LevelEnter/<ErrorRoutine>d__11::<>1__state
+   IL_009f: ldloc.1
+   IL_00a0: ldloc.1
+   IL_00a1: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_00a6: call Celeste.AreaData Celeste.AreaData::Get(Celeste.Session)
+   IL_00ab: brtrue.s IL_00c0
+   IL_00ad: ldc.i4.1
+   IL_00ae: ldc.i4.0
+   IL_00af: newobj System.Void Celeste.AreaKey::.ctor(System.Int32,Celeste.AreaMode)
+   IL_00b4: ldstr ""
+   IL_00b9: call Celeste.AreaKey Celeste.AreaKeyExt::SetSID(Celeste.AreaKey,System.String)
+   IL_00be: br.s IL_00cb
+   IL_00c0: ldloc.1
+   IL_00c1: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_00c6: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_00cb: ldnull
+   IL_00cc: ldnull
+   IL_00cd: newobj System.Void Celeste.Session::.ctor(Celeste.AreaKey,System.String,Celeste.AreaStats)
+   IL_00d2: stfld Celeste.Session Celeste.LevelEnter::session
+   IL_00d7: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00dc: ldloc.1
+   IL_00dd: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_00e2: stfld Celeste.Session Celeste.SaveData::CurrentSession_Safe
+   IL_00e7: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_00ec: ldloc.1
+   IL_00ed: ldfld Celeste.Session Celeste.LevelEnter::session
+   IL_00f2: ldfld Celeste.AreaKey Celeste.Session::Area
+   IL_00f7: stfld Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_00fc: ldc.i4.3
+   IL_00fd: ldnull
+   IL_00fe: newobj System.Void Celeste.OverworldLoader::.ctor(Celeste.Overworld/StartMode,Celeste.HiresSnow)
+   IL_0103: call System.Void Monocle.Engine::set_Scene(Monocle.Scene)
+   IL_0108: ldc.i4.0
+   IL_0109: ret

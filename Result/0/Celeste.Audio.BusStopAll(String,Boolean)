@@ -1,0 +1,20 @@
+On{NP4L9tkAaNE}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Audio.AudioDuplicator+AudioDuplicatorHooks.OnAudioBusStopAll(orig_BusStopAll,String,Boolean)
+[V_0] FMOD.Studio.Bus
+   IL_0000: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0005: ldnull
+   IL_0006: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_000b: brfalse.s IL_002a
+   IL_000d: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0012: ldarg.0
+   IL_0013: ldloca.s V_0
+   IL_0015: callvirt FMOD.RESULT FMOD.Studio.System::getBus(System.String,FMOD.Studio.Bus&)
+   IL_001a: brtrue.s IL_002a
+   IL_001c: ldloc.0
+   IL_001d: ldarg.1
+   IL_001e: brtrue.s IL_0023
+   IL_0020: ldc.i4.0
+   IL_0021: br.s IL_0024
+   IL_0023: ldc.i4.1
+   IL_0024: callvirt FMOD.RESULT FMOD.Studio.Bus::stopAllEvents(FMOD.Studio.STOP_MODE)
+   IL_0029: pop
+   IL_002a: ret

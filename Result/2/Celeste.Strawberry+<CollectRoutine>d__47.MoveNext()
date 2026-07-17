@@ -3,6 +3,7 @@ IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.En
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.injectMoonBerrySound(ILContext)
 IL: [CollabUtils2::]Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.modStrawberrySound(ILContext)
 IL: [CountingStrawberries::]Celeste.Mod.CountingStrawberries.Module.IL_CollectRoutine(ILContext)
+IL: [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberryCollectRoutinePatch(ILContext)
 [V_0] System.Int32
 [V_1] Celeste.Strawberry
 [V_2] System.Int32
@@ -56,12 +57,19 @@ IL: [CountingStrawberries::]Celeste.Mod.CountingStrawberries.Module.IL_CollectRo
    IL_0065: ldc.i4.2
    IL_0066: stloc.2
    IL_0067: ldstr "event:/game/general/strawberry_get"
- + IL_10004: ldarg.0 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.modStrawberrySound(ILContext)
- + IL_10005: ldfld Celeste.Strawberry Celeste.Strawberry/<CollectRoutine>d__47::<>4__this @ [CollabUtils2::]Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.modStrawberrySound(ILContext)
- + IL_10006: call System.String Celeste.Mod.CollabUtils2.Entities.StrawberryHooks::replaceStrawberryGetSound(System.String,Celeste.Strawberry) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.modStrawberrySound(ILContext)
- + IL_10007: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
- + IL_10008: ldfld Celeste.Strawberry Celeste.Strawberry/<CollectRoutine>d__47::<>4__this @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
- + IL_10009: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryGetSound(System.String,Celeste.Strawberry) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10004: pop @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberryCollectRoutinePatch(ILContext)
+ + IL_10005: ldloc.1 @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberryCollectRoutinePatch(ILContext)
+ + IL_10006: ldarg.0 @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberryCollectRoutinePatch(ILContext)
+ + IL_10007: ldfld System.Int32 Celeste.Strawberry/<CollectRoutine>d__47::collectIndex @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberryCollectRoutinePatch(ILContext)
+ + IL_10008: call System.Boolean Celeste.Mod.DiamondBerry.Entities.DiamondBerry::TryPlayDiamondAudio(Celeste.Strawberry,System.Int32) @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberryCollectRoutinePatch(ILContext)
+ + IL_10009: brtrue IL_008b @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberryCollectRoutinePatch(ILContext)
+ + IL_1000a: ldstr "event:/game/general/strawberry_get" @ [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.StrawberryCollectRoutinePatch(ILContext)
+ + IL_1000b: ldarg.0 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.modStrawberrySound(ILContext)
+ + IL_1000c: ldfld Celeste.Strawberry Celeste.Strawberry/<CollectRoutine>d__47::<>4__this @ [CollabUtils2::]Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.modStrawberrySound(ILContext)
+ + IL_1000d: call System.String Celeste.Mod.CollabUtils2.Entities.StrawberryHooks::replaceStrawberryGetSound(System.String,Celeste.Strawberry) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.Entities.StrawberryHooks.modStrawberrySound(ILContext)
+ + IL_1000e: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_1000f: ldfld Celeste.Strawberry Celeste.Strawberry/<CollectRoutine>d__47::<>4__this @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
+ + IL_10010: call System.String Celeste.Mod.MaxHelpingHand.Entities.SecretBerry::getStrawberryGetSound(System.String,Celeste.Strawberry) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.SecretBerry.replaceStrawberryStrings(ILContext)
    IL_006c: ldloc.1
    IL_006d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
    IL_0072: ldstr "colour"
@@ -108,8 +116,8 @@ IL: [CountingStrawberries::]Celeste.Mod.CountingStrawberries.Module.IL_CollectRo
    IL_00dd: ldfld System.Int32 Celeste.Strawberry/<CollectRoutine>d__47::collectIndex
    IL_00e2: ldloc.1
    IL_00e3: callvirt System.Boolean Celeste.Strawberry::get_Moon()
- + IL_1000a: call System.Object Celeste.Mod.CountingStrawberries.Module::CreateParticle(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Int32,System.Boolean) @ [CountingStrawberries::]Celeste.Mod.CountingStrawberries.Module.IL_CollectRoutine(ILContext)
- + IL_1000b: br IL_00ed @ [CountingStrawberries::]Celeste.Mod.CountingStrawberries.Module.IL_CollectRoutine(ILContext)
+ + IL_10011: call System.Object Celeste.Mod.CountingStrawberries.Module::CreateParticle(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Int32,System.Boolean) @ [CountingStrawberries::]Celeste.Mod.CountingStrawberries.Module.IL_CollectRoutine(ILContext)
+ + IL_10012: br IL_00ed @ [CountingStrawberries::]Celeste.Mod.CountingStrawberries.Module.IL_CollectRoutine(ILContext)
    IL_00e8: newobj System.Void Celeste.StrawberryPoints::.ctor(Microsoft.Xna.Framework.Vector2,System.Boolean,System.Int32,System.Boolean)
    IL_00ed: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
    IL_00f2: ldloc.1

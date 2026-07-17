@@ -1,0 +1,53 @@
+IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.OverworldCustomization.MountainRendererOnRender(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.MountainModel Celeste.MountainRenderer::Model
+   IL_0006: callvirt System.Void Celeste.MountainModel::Render()
+   IL_000b: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0010: ldc.i4.1
+   IL_0011: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::NonPremultiplied
+   IL_0016: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::LinearClamp
+   IL_001b: ldnull
+   IL_001c: ldnull
+   IL_001d: ldnull
+   IL_001e: ldsfld Microsoft.Xna.Framework.Matrix Monocle.Engine::ScreenMatrix
+   IL_0023: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
+   IL_0028: ldsfld Monocle.Atlas Celeste.OVR::Atlas
+   IL_002d: ldstr "vignette"
+ + IL_10000: call System.String Celeste.Mod.HamburgerHelper.Misc.OverworldCustomization::ModifyVignettePath(System.String) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.OverworldCustomization.MountainRendererOnRender(ILContext)
+   IL_0032: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_0037: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_003c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0041: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0046: ldc.r4 0.2
+   IL_004b: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0050: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_0055: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_005a: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_005f: ldarg.0
+   IL_0060: ldfld System.Boolean Celeste.MountainRenderer::inFreeCameraDebugMode
+   IL_0065: brfalse.s IL_00cb
+   IL_0067: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_006c: ldc.i4.1
+   IL_006d: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::NonPremultiplied
+   IL_0072: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::LinearClamp
+   IL_0077: ldnull
+   IL_0078: ldnull
+   IL_0079: ldnull
+   IL_007a: ldsfld Microsoft.Xna.Framework.Matrix Monocle.Engine::ScreenMatrix
+   IL_007f: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState,Microsoft.Xna.Framework.Graphics.Effect,Microsoft.Xna.Framework.Matrix)
+   IL_0084: ldarg.0
+   IL_0085: callvirt System.String Celeste.MountainRenderer::GetCameraString()
+   IL_008a: ldc.r4 8
+   IL_008f: ldc.r4 8
+   IL_0094: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0099: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_009e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00a3: ldc.r4 0.75
+   IL_00a8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00ad: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_00b2: ldc.r4 2
+   IL_00b7: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_00bc: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_00c1: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_00c6: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_00cb: ret

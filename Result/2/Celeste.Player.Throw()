@@ -1,6 +1,8 @@
 On{3HGWb74b5Rw}: {UNKNOWN_DETOUR: Priority: 0}[StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.PocketUmbrellaController.Player_Throw(orig_Throw,Player)
 On{qrsRTZx0MXg}: {UNKNOWN_DETOUR: Priority: 0}[StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.SkyLantern.patchPlayerThrow(orig_Throw,Player)
 On{dXmC2eBQc1A}: {UNKNOWN_DETOUR: Priority: 0}[LollydesSJContributions::]Celeste.Mod.LollydesSJContributions.Entities.PocketUmbrellaController.Player_Throw(orig_Throw,Player)
+On{iWxpgyiTbkY}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableBackboost.ReturnSpeed(orig_Throw,Player)
+On{CJizFJPYON4}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BackboostProtection.ConsumeBackboostFacing(orig_Throw,Player)
 On{qHy+eZMYPP4}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Drone.OnPlayerThrow(orig_Throw,Player)
 On{KJXc/Byv0tY}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.MegaBomb.OnPlayerThrow(orig_Throw,Player)
 On{rlQmZasoXLU}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Bomb.OnPlayerThrow(orig_Throw,Player)
@@ -10,8 +12,10 @@ On{1/e6Mjz3YiE}: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.ForceyHolda
 On{b8nvn4G2sxg}: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.HoldableTrajectoryController.OnThrow(orig_Throw,Player)
 On{DUUbfU9kAMo}: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.HangRail.OnThrow(orig_Throw,Player)
 On{L0d6ManNge8}: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Actions.ActionHooks.OnThrow(orig_Throw,Player)
+On{Tyhp8A8onhU}: [CelesteButtplug::]Celeste.Mod.CelesteButtplug.Events.OnThrow(orig_Throw,Player)
 On{VKo26cTDx1M}: [BounceHelper::]Celeste.Mod.BounceHelper.BounceHelperModule.modThrow(orig_Throw,Player)
 IL: {UNKNOWN_DETOUR: Priority: -1}[FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.UnforceAllFacings(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
    IL_0000: ldarg.0
@@ -37,6 +41,7 @@ IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.En
  + IL_10002: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
  + IL_10003: call Celeste.Facings Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertThrowFacing(Celeste.Facings,Celeste.Player) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
  + IL_10004: call Celeste.Facings ExtendedVariants.Variants.ThrowIgnoresForcedMove::applyFacingChange(Celeste.Facings) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
+ + IL_10005: call Celeste.Facings Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech::UnforcedFacing(Celeste.Facings) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.UnforceAllFacings(ILContext)
    IL_0038: conv.r4
    IL_0039: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_003e: callvirt System.Void Celeste.Holdable::Release(Microsoft.Xna.Framework.Vector2)
@@ -46,14 +51,15 @@ IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.En
    IL_004e: dup
    IL_004f: ldind.r4
    IL_0050: ldc.r4 80
- + IL_10005: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
- + IL_10006: call System.Single Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal::Upthrowcheck(Celeste.Player) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
- + IL_10007: mul @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+ + IL_10006: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+ + IL_10007: call System.Single Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal::Upthrowcheck(Celeste.Player) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+ + IL_10008: mul @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
    IL_0055: ldarg.0
    IL_0056: ldfld Celeste.Facings Celeste.Player::Facing
- + IL_10008: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
- + IL_10009: call Celeste.Facings Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertThrowFacing(Celeste.Facings,Celeste.Player) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
- + IL_1000a: call Celeste.Facings ExtendedVariants.Variants.ThrowIgnoresForcedMove::applyFacingChange(Celeste.Facings) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
+ + IL_10009: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+ + IL_1000a: call Celeste.Facings Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertThrowFacing(Celeste.Facings,Celeste.Player) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+ + IL_1000b: call Celeste.Facings ExtendedVariants.Variants.ThrowIgnoresForcedMove::applyFacingChange(Celeste.Facings) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
+ + IL_1000c: call Celeste.Facings Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech::UnforcedFacing(Celeste.Facings) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.UnforceAllFacings(ILContext)
    IL_005b: neg
    IL_005c: conv.r4
    IL_005d: mul

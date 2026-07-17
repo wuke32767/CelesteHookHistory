@@ -1,0 +1,131 @@
+On{4jjkeLoglss}: {UNKNOWN_DETOUR: Priority: 0}[Randomizer::]Celeste.Mod.Randomizer.RandoModule.EndlessCantRestartSnarky(orig_GiveUp,Level,Int32,Boolean,Boolean,Boolean)
+IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Module.LeniencyHelperModule.InsertSessionClear(ILContext)
+[V_0] Celeste.Level/<>c__DisplayClass150_0
+[V_1] Celeste.ReturnMapHint
+[V_2] System.Action
+   IL_0000: newobj System.Void Celeste.Level/<>c__DisplayClass150_0::.ctor()
+   IL_0005: stloc.0
+   IL_0006: ldloc.0
+   IL_0007: ldarg.0
+   IL_0008: stfld Celeste.Level Celeste.Level/<>c__DisplayClass150_0::<>4__this
+   IL_000d: ldloc.0
+   IL_000e: ldarg.2
+   IL_000f: stfld System.Boolean Celeste.Level/<>c__DisplayClass150_0::restartArea
+   IL_0014: ldloc.0
+   IL_0015: ldarg.1
+   IL_0016: stfld System.Int32 Celeste.Level/<>c__DisplayClass150_0::returnIndex
+   IL_001b: ldloc.0
+   IL_001c: ldarg.3
+   IL_001d: stfld System.Boolean Celeste.Level/<>c__DisplayClass150_0::minimal
+   IL_0022: ldarg.0
+   IL_0023: ldc.i4.1
+   IL_0024: stfld System.Boolean Monocle.Scene::Paused
+   IL_0029: ldloc.0
+   IL_002a: ldnull
+   IL_002b: stfld Celeste.QuickResetHint Celeste.Level/<>c__DisplayClass150_0::quickHint
+   IL_0030: ldloc.0
+   IL_0031: ldnull
+   IL_0032: stfld Celeste.ReturnMapHint Celeste.Level/<>c__DisplayClass150_0::returnHint
+   IL_0037: ldloc.0
+   IL_0038: ldfld System.Boolean Celeste.Level/<>c__DisplayClass150_0::restartArea
+   IL_003d: brtrue.s IL_0053
+   IL_003f: ldarg.0
+   IL_0040: ldloc.0
+   IL_0041: newobj System.Void Celeste.ReturnMapHint::.ctor()
+   IL_0046: dup
+   IL_0047: stloc.1
+   IL_0048: stfld Celeste.ReturnMapHint Celeste.Level/<>c__DisplayClass150_0::returnHint
+   IL_004d: ldloc.1
+   IL_004e: call System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0053: ldloc.0
+   IL_0054: newobj System.Void Celeste.TextMenu::.ctor()
+   IL_0059: stfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_005e: ldloc.0
+   IL_005f: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_0064: ldc.i4.0
+   IL_0065: stfld System.Boolean Celeste.TextMenu::AutoScroll
+   IL_006a: ldloc.0
+   IL_006b: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_0070: call System.Int32 Monocle.Engine::get_Width()
+   IL_0075: conv.r4
+   IL_0076: ldc.r4 2
+   IL_007b: div
+   IL_007c: call System.Int32 Monocle.Engine::get_Height()
+   IL_0081: conv.r4
+   IL_0082: ldc.r4 2
+   IL_0087: div
+   IL_0088: ldc.r4 100
+   IL_008d: sub
+   IL_008e: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0093: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0098: ldloc.0
+   IL_0099: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_009e: ldloc.0
+   IL_009f: ldfld System.Boolean Celeste.Level/<>c__DisplayClass150_0::restartArea
+   IL_00a4: brtrue.s IL_00ad
+   IL_00a6: ldstr "menu_return_title"
+   IL_00ab: br.s IL_00b2
+   IL_00ad: ldstr "menu_restart_title"
+   IL_00b2: ldnull
+   IL_00b3: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_00b8: newobj System.Void Celeste.TextMenu/Header::.ctor(System.String)
+   IL_00bd: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_00c2: pop
+   IL_00c3: ldloc.0
+   IL_00c4: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_00c9: ldloc.0
+   IL_00ca: ldfld System.Boolean Celeste.Level/<>c__DisplayClass150_0::restartArea
+   IL_00cf: brtrue.s IL_00d8
+   IL_00d1: ldstr "menu_return_continue"
+   IL_00d6: br.s IL_00dd
+   IL_00d8: ldstr "menu_restart_continue"
+   IL_00dd: ldnull
+   IL_00de: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_00e3: newobj System.Void Celeste.TextMenu/Button::.ctor(System.String)
+   IL_00e8: ldloc.0
+   IL_00e9: ldftn System.Void Celeste.Level/<>c__DisplayClass150_0::<GiveUp>b__0()
+   IL_00ef: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+ + IL_10000: call System.Action Celeste.Mod.LeniencyHelper.Module.LeniencyHelperModule::ClearSessionOnButtonPress(System.Action) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Module.LeniencyHelperModule.InsertSessionClear(ILContext)
+   IL_00f4: callvirt Celeste.TextMenu/Item Celeste.TextMenu/Item::Pressed(System.Action)
+   IL_00f9: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_00fe: pop
+   IL_00ff: ldloc.0
+   IL_0100: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_0105: ldloc.0
+   IL_0106: ldfld System.Boolean Celeste.Level/<>c__DisplayClass150_0::restartArea
+   IL_010b: brtrue.s IL_0114
+   IL_010d: ldstr "menu_return_cancel"
+   IL_0112: br.s IL_0119
+   IL_0114: ldstr "menu_restart_cancel"
+   IL_0119: ldnull
+   IL_011a: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
+   IL_011f: newobj System.Void Celeste.TextMenu/Button::.ctor(System.String)
+   IL_0124: ldloc.0
+   IL_0125: ldftn System.Void Celeste.Level/<>c__DisplayClass150_0::<GiveUp>b__1()
+   IL_012b: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0130: callvirt Celeste.TextMenu/Item Celeste.TextMenu/Item::Pressed(System.Action)
+   IL_0135: callvirt Celeste.TextMenu Celeste.TextMenu::Add(Celeste.TextMenu/Item)
+   IL_013a: pop
+   IL_013b: ldloc.0
+   IL_013c: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_0141: ldloc.0
+   IL_0142: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_0147: ldloc.0
+   IL_0148: ldftn System.Void Celeste.Level/<>c__DisplayClass150_0::<GiveUp>b__2()
+   IL_014e: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0153: dup
+   IL_0154: stloc.2
+   IL_0155: stfld System.Action Celeste.TextMenu::OnESC
+   IL_015a: ldloc.2
+   IL_015b: stfld System.Action Celeste.TextMenu::OnPause
+   IL_0160: ldloc.0
+   IL_0161: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_0166: ldloc.0
+   IL_0167: ldftn System.Void Celeste.Level/<>c__DisplayClass150_0::<GiveUp>b__3()
+   IL_016d: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0172: stfld System.Action Celeste.TextMenu::OnCancel
+   IL_0177: ldarg.0
+   IL_0178: ldloc.0
+   IL_0179: ldfld Celeste.TextMenu Celeste.Level/<>c__DisplayClass150_0::menu
+   IL_017e: call System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0183: ret

@@ -2,6 +2,7 @@ On{ZZUaSb3dBP0}: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.P
 On{U42HUUFiQfQ}: [Killbind::]Celeste.Mod.Killbind.KillbindModule.OnPlayerDeadBodyUpdate(orig_Update,PlayerDeadBody)
 IL: {UNKNOWN_DETOUR: Priority: -1}[HideStats::]Celeste.Mod.HideStats.HideStatsModule.playerDeadbodyUpdate(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.ILHook_PlayerDeadBodyUpdate(ILContext)
+IL: [BeiDanCi::]Celeste.Mod.BeiDanCi.BeiDanCiModule.PlayerDeadBody_Update(ILContext)
 IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Entities.DisableQuickRespawnController.PlayerDeadBodyOnUpdate(ILContext)
  + IL_10000: ldarg.0 @ [HideStats::]Celeste.Mod.HideStats.HideStatsModule.playerDeadbodyUpdate(ILContext)
  + IL_10001: ldc.i4 0 @ [HideStats::]Celeste.Mod.HideStats.HideStatsModule.playerDeadbodyUpdate(ILContext)
@@ -20,6 +21,12 @@ IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Entities.DisableQuick
    IL_0012: ldarg.0
    IL_0013: ldfld System.Boolean Celeste.PlayerDeadBody::finished
    IL_0018: brtrue.s IL_0020
+ + IL_10008: ldarg.0 @ [BeiDanCi::]Celeste.Mod.BeiDanCi.BeiDanCiModule.PlayerDeadBody_Update(ILContext)
+ + IL_10009: ldc.i4 0 @ [BeiDanCi::]Celeste.Mod.BeiDanCi.BeiDanCiModule.PlayerDeadBody_Update(ILContext)
+ + IL_1000a: ldc.i4 0 @ [BeiDanCi::]Celeste.Mod.BeiDanCi.BeiDanCiModule.PlayerDeadBody_Update(ILContext)
+ + IL_1000b: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [BeiDanCi::]Celeste.Mod.BeiDanCi.BeiDanCiModule.PlayerDeadBody_Update(ILContext)
+       => Invoke: [BeiDanCi::]Celeste.Mod.BeiDanCi.BeiDanCiModule+<>c.<PlayerDeadBody_Update>b__24_2(PlayerDeadBody)
+ + IL_1000c: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.PlayerDeadBody>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [BeiDanCi::]Celeste.Mod.BeiDanCi.BeiDanCiModule.PlayerDeadBody_Update(ILContext)
    IL_001a: ldarg.0
    IL_001b: callvirt System.Void Celeste.PlayerDeadBody::End()
    IL_0020: ldarg.0

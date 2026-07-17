@@ -1,0 +1,28 @@
+On{zkX1ol+9GHQ}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Audio.AudioDuplicator+AudioDuplicatorHooks.OnAudioBusPaused(orig_BusPaused,String,Nullable`1)
+[V_0] System.Boolean
+[V_1] FMOD.Studio.Bus
+   IL_0000: ldc.i4.0
+   IL_0001: stloc.0
+   IL_0002: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0007: ldnull
+   IL_0008: call System.Boolean FMOD.Studio.HandleBase::op_Inequality(FMOD.Studio.HandleBase,FMOD.Studio.HandleBase)
+   IL_000d: brfalse.s IL_003e
+   IL_000f: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0014: ldarg.0
+   IL_0015: ldloca.s V_1
+   IL_0017: callvirt FMOD.RESULT FMOD.Studio.System::getBus(System.String,FMOD.Studio.Bus&)
+   IL_001c: brtrue.s IL_003e
+   IL_001e: ldarga.s pause
+   IL_0020: call System.Boolean System.Nullable`1<System.Boolean>::get_HasValue()
+   IL_0025: brfalse.s IL_0035
+   IL_0027: ldloc.1
+   IL_0028: ldarga.s pause
+   IL_002a: call T System.Nullable`1<System.Boolean>::get_Value()
+   IL_002f: callvirt FMOD.RESULT FMOD.Studio.Bus::setPaused(System.Boolean)
+   IL_0034: pop
+   IL_0035: ldloc.1
+   IL_0036: ldloca.s V_0
+   IL_0038: callvirt FMOD.RESULT FMOD.Studio.Bus::getPaused(System.Boolean&)
+   IL_003d: pop
+   IL_003e: ldloc.0
+   IL_003f: ret

@@ -1,6 +1,9 @@
 On{uF2TPaxnGBs}: {CommunalHelper: Priority: 2147483647, Before: *}[CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.AeroBlockCharged.Player_ClimbJump(orig_ClimbJump,Player)
 On{5yW3caHnX9I}: {UNKNOWN_DETOUR: Priority: 0}[VivHelper::]VivHelper.SolidModifierComponent.Player_ClimbJump(orig_ClimbJump,Player)
 On{885BmF+dIiA}: {UNKNOWN_DETOUR: Priority: 0}[ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_ClimbJump(orig_ClimbJump,Player)
+On{9pfkQf/V8nA}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.RetainSpeedCornerboost.RetainSpeedOnClimbJump(orig_ClimbJump,Player)
+On{KAaAk4Dw74k}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.ClimbJumpDirBuffer(orig_ClimbJump,Player)
+On{o1Nxey5KllE}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableClimbtrigger.ClimbTriggerOnClimbJump(orig_ClimbJump,Player)
 On{MtuEWfUYvto}: {UNKNOWN_DETOUR: Priority: 0}[KoseiHelper::]Celeste.Mod.KoseiHelper.Entities.ClimbJumpController.Player_ClimbJump(orig_ClimbJump,Player)
 On{oQmfTxWLkmU}: {UNKNOWN_DETOUR: Priority: 0}[FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.Monopticon.Player_ClimbJump(orig_ClimbJump,Player)
 On{LmVVIa7WK3c}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.XaphanHelper.Hooks.Gravity.modClimbJump(orig_ClimbJump,Player)
@@ -19,11 +22,18 @@ On{2fcxF5lfX9g}: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedV
 On{+9HuJg1GBbI}: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.DisableClimbJumping.modClimbJump(orig_ClimbJump,Player)
 On{ndxMjg6RxVU}: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.EveryJumpIsUltra.modClimbJump(orig_ClimbJump,Player)
 On{8sfK1TWo33o}: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.CornerboostProtection.Player_ClimbJump(orig_ClimbJump,Player)
+On{42Y+6tbdciM}: [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.ThrowBlock.HandlePlayerClimbJump(orig_ClimbJump,Player)
 On{MDQMArP5W4U}: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.JumplessGoldenBerry.OnClimbJump(orig_ClimbJump,Player)
 On{77xX7BSYOV8}: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Actions.ActionHooks.OnClimbJump(orig_ClimbJump,Player)
+On{qf1o+qzcokU}: [AxiomeToolbox::]Celeste.Mod.AxiomeToolbox.BadCornerBoost.BadCornerBoostDetector.OnClimbJump(orig_ClimbJump,Player)
+On{q01ZpxwS1Wg}: [TilesetActionHelper::]Celeste.Mod.TilesetActionHelper.TilesetActionHelperModule.KeepStaminaJump(orig_ClimbJump,Player)
 On{g/RlPvIwO7o}: [FlaglinesAndSuch::]FlaglinesAndSuch.Class1.Player_ClimbJump(orig_ClimbJump,Player)
+On{VgR0OB5vsE8}: [CelesteButtplug::]Celeste.Mod.CelesteButtplug.Events.OnClimbJump(orig_ClimbJump,Player)
 On{3GGxeE+ykpY}: [BounceHelper::]Celeste.Mod.BounceHelper.BounceHelperModule.modClimbJump(orig_ClimbJump,Player)
+IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.RefillDashInCoyote.CancelRefillOnJump(ILContext)
+IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.WallCoyoteFrames.ConsumeOnWJ(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.ClimbJumpStaminaCost.onPlayerClimbJump(ILContext)
+IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Entities.WallboostLeniencyController.PlayerOnClimbJump(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
         [FrostTempleHelper::]FrostHelper.Triggers.Activator.OnJumpActivator.OnJump(Player,JumpTypes)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Moving.WallboostDirectionIsOppositeSpeed.patch_Player_ClimbJump(ILContext)
@@ -33,6 +43,8 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjum
  + IL_10000: ldarg this @ [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
  + IL_10001: ldc.i4 2 @ [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
  + IL_10002: call System.Void FrostHelper.Triggers.Activator.OnJumpActivator::OnJump(Celeste.Player,FrostHelper.Triggers.Activator.OnJumpActivator/JumpTypes) @ [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
+ + IL_10003: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.RefillDashInCoyote.CancelRefillOnJump(ILContext)
+ + IL_10004: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.RefillDashInCoyote::CallComponentCancel(Celeste.Player) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.RefillDashInCoyote.CancelRefillOnJump(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldfld System.Boolean Celeste.Player::onGround
    IL_0006: brtrue.s IL_0033
@@ -40,8 +52,8 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjum
    IL_0009: ldarg.0
    IL_000a: ldfld System.Single Celeste.Player::Stamina
    IL_000f: ldc.r4 27.5
- + IL_10003: call System.Single ExtendedVariants.Variants.ClimbJumpStaminaCost::getVariantValue() @ [ExtendedVariantMode::]ExtendedVariants.Variants.ClimbJumpStaminaCost.onPlayerClimbJump(ILContext)
- + IL_10004: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.ClimbJumpStaminaCost.onPlayerClimbJump(ILContext)
+ + IL_10005: call System.Single ExtendedVariants.Variants.ClimbJumpStaminaCost::getVariantValue() @ [ExtendedVariantMode::]ExtendedVariants.Variants.ClimbJumpStaminaCost.onPlayerClimbJump(ILContext)
+ + IL_10006: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.ClimbJumpStaminaCost.onPlayerClimbJump(ILContext)
    IL_0014: sub
    IL_0015: stfld System.Single Celeste.Player::Stamina
    IL_001a: ldarg.0
@@ -56,14 +68,14 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjum
    IL_0033: ldarg.0
    IL_0034: ldc.i4.0
    IL_0035: stfld System.Boolean Celeste.Player::dreamJump
- + IL_10005: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention.patch_Player_ClimbJump(ILContext)
- + IL_10006: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention::setSpeedToRetention(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention.patch_Player_ClimbJump(ILContext)
+ + IL_10007: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention.patch_Player_ClimbJump(ILContext)
+ + IL_10008: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention::setSpeedToRetention(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention.patch_Player_ClimbJump(ILContext)
    IL_003a: ldarg.0
    IL_003b: ldc.i4.0
    IL_003c: ldc.i4.0
    IL_003d: callvirt System.Void Celeste.Player::Jump(System.Boolean,System.Boolean)
- + IL_10007: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention.patch_Player_ClimbJump(ILContext)
- + IL_10008: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention::setRetentionToSpeed(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention.patch_Player_ClimbJump(ILContext)
+ + IL_10009: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention.patch_Player_ClimbJump(ILContext)
+ + IL_1000a: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention::setRetentionToSpeed(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjumpSpeedInRetention.patch_Player_ClimbJump(ILContext)
    IL_0042: ldarg.0
    IL_0043: ldfld System.Int32 Celeste.Player::moveX
    IL_0048: brtrue.s IL_0062
@@ -71,11 +83,13 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjum
    IL_004b: ldarg.0
    IL_004c: ldfld Celeste.Facings Celeste.Player::Facing
    IL_0051: neg
- + IL_10009: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Moving.WallboostDirectionIsOppositeSpeed.patch_Player_ClimbJump(ILContext)
- + IL_1000a: call System.Int32 Celeste.Mod.GooberHelper.Options.Physics.Moving.WallboostDirectionIsOppositeSpeed::overrideWallBoostDir(System.Int32,Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Moving.WallboostDirectionIsOppositeSpeed.patch_Player_ClimbJump(ILContext)
+ + IL_1000b: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Moving.WallboostDirectionIsOppositeSpeed.patch_Player_ClimbJump(ILContext)
+ + IL_1000c: call System.Int32 Celeste.Mod.GooberHelper.Options.Physics.Moving.WallboostDirectionIsOppositeSpeed::overrideWallBoostDir(System.Int32,Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Moving.WallboostDirectionIsOppositeSpeed.patch_Player_ClimbJump(ILContext)
    IL_0052: stfld System.Int32 Celeste.Player::wallBoostDir
    IL_0057: ldarg.0
    IL_0058: ldc.r4 0.2
+ + IL_1000d: ldarg.0 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Entities.WallboostLeniencyController.PlayerOnClimbJump(ILContext)
+ + IL_1000e: call System.Single Celeste.Mod.HamburgerHelper.Entities.WallboostLeniencyController::<PlayerOnClimbJump>g__ModWallboostTimer|6_3(System.Single,Celeste.Player) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Entities.WallboostLeniencyController.PlayerOnClimbJump(ILContext)
    IL_005d: stfld System.Single Celeste.Player::wallBoostTimer
    IL_0062: ldc.i4.m1
    IL_0063: stloc.0
@@ -125,6 +139,8 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjum
    IL_00e9: ldloc.0
    IL_00ea: callvirt Monocle.ParticleType Celeste.Player::DustParticleFromSurfaceIndex(System.Int32)
    IL_00ef: call System.Void Celeste.Dust::Burst(Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,Monocle.ParticleType)
+ + IL_1000f: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.WallCoyoteFrames.ConsumeOnWJ(ILContext)
+ + IL_10010: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.WallCoyoteFrames::ConsumeCoyoteTime(Celeste.Player) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.WallCoyoteFrames.ConsumeOnWJ(ILContext)
    IL_00f4: ret
    IL_00f5: ldarg.0
    IL_00f6: ldstr "event:/char/madeline/jump_climb_left"
@@ -144,4 +160,6 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.GetClimbjum
    IL_0128: ldloc.0
    IL_0129: callvirt Monocle.ParticleType Celeste.Player::DustParticleFromSurfaceIndex(System.Int32)
    IL_012e: call System.Void Celeste.Dust::Burst(Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,Monocle.ParticleType)
+ + IL_10011: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.WallCoyoteFrames.ConsumeOnWJ(ILContext)
+ + IL_10012: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.WallCoyoteFrames::ConsumeCoyoteTime(Celeste.Player) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.WallCoyoteFrames.ConsumeOnWJ(ILContext)
    IL_0133: ret

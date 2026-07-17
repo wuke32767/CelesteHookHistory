@@ -1,4 +1,5 @@
 IL: {UNKNOWN_DETOUR: Priority: -1}[JungleHelper::]Celeste.Mod.JungleHelper.Entities.SwingCassetteBlock.swingCassetteMusic(ILContext)
+IL: {UNKNOWN_DETOUR: Priority: -1}[audiohelper::]Celeste.Mod.audiohelper.Entities.CassetteLoopController.IL_CassetteLoopController(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[FrostTempleHelper::]FrostHelper.Components.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.AutoMute.CassetteBlockManagerOnAdvanceMusic(ILContext)
@@ -39,6 +40,8 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.AutoMute.CassetteBlockManage
    IL_0043: ldarg.0
    IL_0044: ldfld System.Int32 Celeste.CassetteBlockManager::beatIndexMax
    IL_0049: rem
+ + IL_10008: ldarg.0 @ [audiohelper::]Celeste.Mod.audiohelper.Entities.CassetteLoopController.IL_CassetteLoopController(ILContext)
+ + IL_10009: call System.Int32 Celeste.Mod.audiohelper.Entities.CassetteLoopController::LoopDelegate(System.Int32,Celeste.CassetteBlockManager) @ [audiohelper::]Celeste.Mod.audiohelper.Entities.CassetteLoopController.IL_CassetteLoopController(ILContext)
    IL_004a: stfld System.Int32 Celeste.CassetteBlockManager::beatIndex
    IL_004f: ldarg.0
    IL_0050: ldfld System.Int32 Celeste.CassetteBlockManager::beatIndex
@@ -75,7 +78,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.AutoMute.CassetteBlockManage
    IL_00a5: ldc.i4.1
    IL_00a6: ldc.i4.0
    IL_00a7: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
-   IL_00ac: br.s IL_10008
+   IL_00ac: br.s IL_1000a
    IL_00ae: ldarg.0
    IL_00af: ldfld System.Int32 Celeste.CassetteBlockManager::beatIndex
    IL_00b4: ldc.i4.1
@@ -101,21 +104,21 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.AutoMute.CassetteBlockManage
    IL_00e1: ldarg.0
    IL_00e2: ldfld System.Int32 Celeste.CassetteBlockManager::beatsPerTick
    IL_00e7: rem
-   IL_00e8: brtrue.s IL_10008
+   IL_00e8: brtrue.s IL_1000a
    IL_00ea: ldarg.0
    IL_00eb: ldfld System.Boolean Celeste.CassetteBlockManager::isLevelMusic
-   IL_00f0: brtrue.s IL_10008
+   IL_00f0: brtrue.s IL_1000a
    IL_00f2: ldstr "event:/game/general/cassette_block_switch_1"
    IL_00f7: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String)
    IL_00fc: pop
- + IL_10008: ldarg.0 @ [FrostTempleHelper::]FrostHelper.Components.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
- + IL_10009: call System.Void FrostHelper.Components.CassetteListener::AdvanceMusicCallback(Celeste.CassetteBlockManager) @ [FrostTempleHelper::]FrostHelper.Components.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
- + IL_1000a: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
- + IL_1000b: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
- + IL_1000c: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
- + IL_1000d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
+ + IL_1000a: ldarg.0 @ [FrostTempleHelper::]FrostHelper.Components.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
+ + IL_1000b: call System.Void FrostHelper.Components.CassetteListener::AdvanceMusicCallback(Celeste.CassetteBlockManager) @ [FrostTempleHelper::]FrostHelper.Components.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
+ + IL_1000c: ldarg.0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
+ + IL_1000d: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
+ + IL_1000e: ldc.i4 0 @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
+ + IL_1000f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
        => Invoke: [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener+<>c.<CassetteBlockManager_AdvanceMusic>b__15_3(CassetteBlockManager)
- + IL_1000e: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.CassetteBlockManager>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
+ + IL_10010: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Celeste.CassetteBlockManager>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.CassetteListener.CassetteBlockManager_AdvanceMusic(ILContext)
    IL_00fd: ldarg.0
    IL_00fe: ldfld System.Int32 Celeste.CassetteBlockManager::leadBeats
    IL_0103: ldc.i4.0
@@ -145,7 +148,7 @@ IL: [CelesteTAS-EverestInterop::]TAS.EverestInterop.AutoMute.CassetteBlockManage
    IL_013c: pop
    IL_013d: ldarg.0
    IL_013e: ldfld System.Int32 Celeste.CassetteBlockManager::leadBeats
- + IL_1000f: call System.Int32 TAS.EverestInterop.AutoMute::MuteBeats(System.Int32) @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.AutoMute.CassetteBlockManagerOnAdvanceMusic(ILContext)
+ + IL_10011: call System.Int32 TAS.EverestInterop.AutoMute::MuteBeats(System.Int32) @ [CelesteTAS-EverestInterop::]TAS.EverestInterop.AutoMute.CassetteBlockManagerOnAdvanceMusic(ILContext)
    IL_0143: ldc.i4.0
    IL_0144: bgt.s IL_0163
    IL_0146: ldarg.0

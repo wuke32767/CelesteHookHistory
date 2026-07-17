@@ -1,0 +1,15 @@
+On{YXphAX6O03Q}: [LocalizationHelper::]Celeste.Mod.LocalizationHelper.Hooks.AtlasHooks.Hook_GetOrDefault(orig_GetOrDefault,Atlas,String,MTexture)
+   IL_0000: ldarg.1
+   IL_0001: call System.Boolean System.String::IsNullOrEmpty(System.String)
+   IL_0006: brtrue.s IL_0011
+   IL_0008: ldarg.0
+   IL_0009: ldarg.1
+   IL_000a: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_000f: brtrue.s IL_0013
+   IL_0011: ldarg.2
+   IL_0012: ret
+   IL_0013: ldarg.0
+   IL_0014: ldfld System.Collections.Generic.Dictionary`2<System.String,Monocle.MTexture> Monocle.Atlas::textures
+   IL_0019: ldarg.1
+   IL_001a: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Monocle.MTexture>::get_Item(TKey)
+   IL_001f: ret

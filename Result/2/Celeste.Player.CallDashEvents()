@@ -14,6 +14,7 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[XaphanHelper::]Celeste.Mod.XaphanHelper.Upgra
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.InvertDashes.modCallDashEvents(ILContext)
 IL: [BounceHelper::]Celeste.Mod.BounceHelper.BounceHelperModule.modCallDashEvents(ILContext)
 IL: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
 [V_0] System.Boolean
 [V_1] System.Collections.Generic.List`1/Enumerator<Monocle.Component>
@@ -40,8 +41,10 @@ IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modC
    IL_000d: stfld System.Boolean Celeste.Player::calledDashEvents
  + IL_1000c: ldarg.0 @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
  + IL_1000d: call System.Boolean FrostHelper.Entities.Boosters.GenericCustomBooster::ShouldCallDashEvents(Celeste.Player) @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
- + IL_1000e: brtrue IL_0012 @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
+ + IL_1000e: brtrue IL_10010 @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
  + IL_1000f: ret @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
+ + IL_10010: ldarg.0 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
+ + IL_10011: call System.Void Celeste.Mod.WarlockHelper.WarlockHelperModule::playerPreDashEvents(Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
    IL_0012: ldarg.0
    IL_0013: ldfld Celeste.Booster Celeste.Player::CurrentBooster
    IL_0018: brtrue IL_0179
@@ -51,8 +54,8 @@ IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modC
    IL_0028: ldc.i4.1
    IL_0029: add
    IL_002a: stfld System.Int32 Celeste.SaveData::TotalDashes
- + IL_10010: ldarg.0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
- + IL_10011: call System.Void Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill::<Player_CallDashEvents>g__TryAddingMomentum|21_3(Celeste.Player) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+ + IL_10012: ldarg.0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+ + IL_10013: call System.Void Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill::<Player_CallDashEvents>g__TryAddingMomentum|21_3(Celeste.Player) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
    IL_002f: ldarg.0
    IL_0030: ldfld Celeste.Level Celeste.Player::level
    IL_0035: ldfld Celeste.Session Celeste.Level::Session
@@ -101,11 +104,11 @@ IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modC
    IL_00b0: brfalse.s IL_00c6
    IL_00b2: ldarg.0
    IL_00b3: ldstr "event:/char/madeline/dash_pink_right"
- + IL_10012: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
- + IL_10013: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
- + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10014: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10015: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10016: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash+<>c.<Player_CallDashEvents>b__24_0(String)
- + IL_10015: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10017: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
    IL_00b8: ldnull
    IL_00b9: ldc.r4 0
    IL_00be: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
@@ -113,11 +116,11 @@ IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modC
    IL_00c4: br.s IL_0108
    IL_00c6: ldarg.0
    IL_00c7: ldstr "event:/char/madeline/dash_red_right"
- + IL_10016: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
- + IL_10017: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
- + IL_10018: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10018: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10019: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_1001a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash+<>c.<Player_CallDashEvents>b__24_0(String)
- + IL_10019: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_1001b: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
    IL_00cc: ldnull
    IL_00cd: ldc.r4 0
    IL_00d2: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
@@ -128,11 +131,11 @@ IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modC
    IL_00e0: brfalse.s IL_00f6
    IL_00e2: ldarg.0
    IL_00e3: ldstr "event:/char/madeline/dash_pink_left"
- + IL_1001a: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
- + IL_1001b: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
- + IL_1001c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_1001c: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_1001d: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_1001e: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash+<>c.<Player_CallDashEvents>b__24_0(String)
- + IL_1001d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_1001f: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
    IL_00e8: ldnull
    IL_00e9: ldc.r4 0
    IL_00ee: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
@@ -140,29 +143,32 @@ IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modC
    IL_00f4: br.s IL_0108
    IL_00f6: ldarg.0
    IL_00f7: ldstr "event:/char/madeline/dash_red_left"
- + IL_1001e: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
- + IL_1001f: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
- + IL_10020: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10020: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10021: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10022: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash+<>c.<Player_CallDashEvents>b__24_0(String)
- + IL_10021: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
+ + IL_10023: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.String,System.String>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_CallDashEvents(ILContext)
    IL_00fc: ldnull
    IL_00fd: ldc.r4 0
    IL_0102: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
    IL_0107: pop
    IL_0108: ldarg.0
    IL_0109: callvirt System.Boolean Celeste.Player::SwimCheck()
- + IL_10022: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController.Player_CallDashEvents(ILContext)
- + IL_10023: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController.Player_CallDashEvents(ILContext)
- + IL_10024: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController.Player_CallDashEvents(ILContext)
+ + IL_10024: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController.Player_CallDashEvents(ILContext)
+ + IL_10025: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController.Player_CallDashEvents(ILContext)
+ + IL_10026: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController.Player_CallDashEvents(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController+<>c.<Player_CallDashEvents>b__8_0(Boolean)
- + IL_10025: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,System.Boolean>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController.Player_CallDashEvents(ILContext)
-   IL_010e: brfalse.s IL_0122
+ + IL_10027: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,System.Boolean>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.UnderwaterMusicController.Player_CallDashEvents(ILContext)
+   IL_010e: brfalse.s IL_10028
    IL_0110: ldarg.0
    IL_0111: ldstr "event:/char/madeline/water_dash_gen"
    IL_0116: ldnull
    IL_0117: ldc.r4 0
    IL_011c: callvirt FMOD.Studio.EventInstance Celeste.Player::Play(System.String,System.String,System.Single)
    IL_0121: pop
+ + IL_10028: ldarg.0 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
+ + IL_10029: call System.Boolean Celeste.Mod.WarlockHelper.WarlockHelperModule::playerGetSkipDashListeners(Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
+ + IL_1002a: brtrue IL_0192 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
    IL_0122: ldarg.0
    IL_0123: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_0128: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
@@ -195,14 +201,14 @@ IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modC
    IL_017f: ldarg.0
    IL_0180: ldarg.0
    IL_0181: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
- + IL_10026: ldarg.0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
- + IL_10027: ldfld Celeste.Booster Celeste.Player::CurrentBooster @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
- + IL_10028: ldarg.0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
- + IL_10029: ldc.i4 0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
- + IL_1002a: ldc.i4 0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
- + IL_1002b: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+ + IL_1002b: ldarg.0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+ + IL_1002c: ldfld Celeste.Booster Celeste.Player::CurrentBooster @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+ + IL_1002d: ldarg.0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+ + IL_1002e: ldc.i4 0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+ + IL_1002f: ldc.i4 0 @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+ + IL_10030: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
        => Invoke: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill+<>c.<Player_CallDashEvents>b__21_2(Booster,Player)
- + IL_1002c: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<Celeste.Booster,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
+ + IL_10031: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal2<Celeste.Booster,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/VoidVal2`2<T0,T1>) @ [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
    IL_0186: callvirt System.Void Celeste.Booster::PlayerBoosted(Celeste.Player,Microsoft.Xna.Framework.Vector2)
    IL_018b: ldarg.0
    IL_018c: ldnull

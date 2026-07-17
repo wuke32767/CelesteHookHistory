@@ -1,0 +1,31 @@
+On{7J2LvVnBtPw}: {UNKNOWN_DETOUR: Priority: 0}[Linja::]Celeste.Mod.Linja.Hook.OnSeekerAwake(orig_Awake,Seeker,Scene)
+[V_0] Celeste.Player
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Awake(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000d: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0012: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0017: stloc.0
+   IL_0018: ldloc.0
+   IL_0019: brfalse.s IL_0029
+   IL_001b: ldarg.0
+   IL_001c: call System.Single Monocle.Entity::get_X()
+   IL_0021: ldloc.0
+   IL_0022: callvirt System.Single Monocle.Entity::get_X()
+   IL_0027: bne.un.s IL_0035
+   IL_0029: ldarg.0
+   IL_002a: ldc.r4 1
+   IL_002f: callvirt System.Void Celeste.Seeker::SnapFacing(System.Single)
+   IL_0034: ret
+   IL_0035: ldarg.0
+   IL_0036: ldloc.0
+   IL_0037: callvirt System.Single Monocle.Entity::get_X()
+   IL_003c: ldarg.0
+   IL_003d: call System.Single Monocle.Entity::get_X()
+   IL_0042: sub
+   IL_0043: call System.Int32 System.Math::Sign(System.Single)
+   IL_0048: conv.r4
+   IL_0049: callvirt System.Void Celeste.Seeker::SnapFacing(System.Single)
+   IL_004e: ret

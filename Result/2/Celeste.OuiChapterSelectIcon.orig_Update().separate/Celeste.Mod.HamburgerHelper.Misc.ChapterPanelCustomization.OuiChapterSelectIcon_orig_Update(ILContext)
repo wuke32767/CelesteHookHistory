@@ -1,0 +1,86 @@
+[V_0] Celeste.OuiChapterPanel
+   IL_0000: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0005: brfalse IL_0111
+   IL_000a: ldarg.0
+   IL_000b: ldarg.0
+   IL_000c: ldfld System.Single Celeste.OuiChapterSelectIcon::sizeEase
+   IL_0011: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0016: ldflda Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_001b: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0020: ldarg.0
+   IL_0021: ldfld System.Int32 Celeste.OuiChapterSelectIcon::Area
+   IL_0026: beq.s IL_002f
+   IL_0028: ldc.r4 0
+   IL_002d: br.s IL_0034
+   IL_002f: ldc.r4 1
+   IL_0034: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0039: ldc.r4 4
+   IL_003e: mul
+   IL_003f: call System.Single Monocle.Calc::Approach(System.Single,System.Single,System.Single)
+   IL_0044: stfld System.Single Celeste.OuiChapterSelectIcon::sizeEase
+   IL_0049: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_004e: ldflda Celeste.AreaKey Celeste.SaveData::LastArea_Safe
+   IL_0053: ldfld System.Int32 Celeste.AreaKey::ID
+   IL_0058: ldarg.0
+   IL_0059: ldfld System.Int32 Celeste.OuiChapterSelectIcon::Area
+   IL_005e: bne.un.s IL_006a
+   IL_0060: ldarg.0
+   IL_0061: ldc.i4.s -50
+   IL_0063: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0068: br.s IL_0072
+   IL_006a: ldarg.0
+   IL_006b: ldc.i4.s -45
+   IL_006d: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0072: ldarg.0
+   IL_0073: ldfld Monocle.Tween Celeste.OuiChapterSelectIcon::tween
+   IL_0078: brtrue.s IL_00e6
+   IL_007a: ldarg.0
+   IL_007b: ldfld System.Boolean Celeste.OuiChapterSelectIcon::selected
+   IL_0080: brfalse.s IL_00bc
+   IL_0082: ldarg.0
+   IL_0083: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0088: isinst Celeste.Overworld
+   IL_008d: callvirt T Celeste.Overworld::GetUI<Celeste.OuiChapterPanel>()
+   IL_0092: stloc.0
+   IL_0093: ldarg.0
+   IL_0094: ldloc.0
+   IL_0095: ldfld System.Boolean Celeste.OuiChapterPanel::EnteringChapter
+   IL_009a: brfalse.s IL_00a4
+   IL_009c: ldloc.0
+   IL_009d: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00a2: br.s IL_00aa
+   IL_00a4: ldloc.0
+   IL_00a5: callvirt Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel::get_OpenPosition()
+   IL_00aa: ldloc.0
+   IL_00ab: callvirt Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel::get_IconOffset()
+   IL_00b0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+ + IL_10000: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::ModifyIconOffset(Microsoft.Xna.Framework.Vector2) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterSelectIcon_orig_Update(ILContext)
+   IL_00b5: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00ba: br.s IL_00e6
+   IL_00bc: ldarg.0
+   IL_00bd: ldfld System.Boolean Celeste.OuiChapterSelectIcon::hidden
+   IL_00c2: brtrue.s IL_00e6
+   IL_00c4: ldarg.0
+   IL_00c5: ldarg.0
+   IL_00c6: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00cb: ldarg.0
+   IL_00cc: callvirt Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterSelectIcon::get_IdlePosition()
+   IL_00d1: ldc.r4 2400
+   IL_00d6: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00db: mul
+   IL_00dc: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Approach(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00e1: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_00e6: ldarg.0
+   IL_00e7: ldfld System.Boolean Celeste.OuiChapterSelectIcon::New
+   IL_00ec: brfalse.s IL_010b
+   IL_00ee: ldarg.0
+   IL_00ef: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_00f4: ldc.r4 1.5
+   IL_00f9: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single)
+   IL_00fe: brfalse.s IL_010b
+   IL_0100: ldarg.0
+   IL_0101: ldfld Monocle.Wiggler Celeste.OuiChapterSelectIcon::newWiggle
+   IL_0106: callvirt System.Void Monocle.Wiggler::Start()
+   IL_010b: ldarg.0
+   IL_010c: call System.Void Monocle.Entity::Update()
+   IL_0111: ret

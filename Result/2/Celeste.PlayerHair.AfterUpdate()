@@ -1,6 +1,7 @@
 On{/KrcWLFvYdQ}: {UNKNOWN_DETOUR: Priority: 0}[Aqua::]Celeste.Mod.Aqua.Core.PlayerHairExtensions.PlayerHair_AfterUpdate(orig_AfterUpdate,PlayerHair)
 IL: {UNKNOWN_DETOUR: Priority: -1}[SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.il_PlayerHair_AfterUpdate(ILContext)
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger.hookHairCount(ILContext)
+IL: [Backflip::]Celeste.Mod.Backflip.BackflipModule.IL_PlayerHair_AfterUpdate(ILContext)
 [V_0] Microsoft.Xna.Framework.Vector2
 [V_1] Microsoft.Xna.Framework.Vector2
 [V_2] Microsoft.Xna.Framework.Vector2
@@ -37,6 +38,8 @@ IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Tr
    IL_0054: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_0059: ldloc.0
    IL_005a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+ + IL_10002: ldarg.0 @ [Backflip::]Celeste.Mod.Backflip.BackflipModule.IL_PlayerHair_AfterUpdate(ILContext)
+ + IL_10003: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.Backflip.BackflipModule::FixHairOffset(Microsoft.Xna.Framework.Vector2,Celeste.PlayerHair) @ [Backflip::]Celeste.Mod.Backflip.BackflipModule.IL_PlayerHair_AfterUpdate(ILContext)
    IL_005f: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::set_Item(System.Int32,T)
    IL_0064: ldarg.0
    IL_0065: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
@@ -98,8 +101,8 @@ IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Tr
    IL_0103: ldarg.0
    IL_0104: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
    IL_0109: ldfld System.Int32 Celeste.PlayerSprite::HairCount
- + IL_10002: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger.hookHairCount(ILContext)
- + IL_10003: call System.Int32 Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger::makeHairLonger(System.Int32,Celeste.PlayerHair) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger.hookHairCount(ILContext)
+ + IL_10004: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger.hookHairCount(ILContext)
+ + IL_10005: call System.Int32 Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger::makeHairLonger(System.Int32,Celeste.PlayerHair) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger.hookHairCount(ILContext)
    IL_010e: conv.r4
    IL_010f: div
    IL_0110: ldc.r4 0.5
@@ -191,9 +194,9 @@ IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Tr
    IL_01fe: ldarg.0
    IL_01ff: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
    IL_0204: ldfld System.Int32 Celeste.PlayerSprite::HairCount
- + IL_10004: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger.hookHairCount(ILContext)
- + IL_10005: call System.Int32 Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger::makeHairLonger(System.Int32,Celeste.PlayerHair) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger.hookHairCount(ILContext)
+ + IL_10006: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger.hookHairCount(ILContext)
+ + IL_10007: call System.Int32 Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger::makeHairLonger(System.Int32,Celeste.PlayerHair) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelinePonytailTrigger.hookHairCount(ILContext)
    IL_0209: blt IL_00ca
- + IL_10006: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.il_PlayerHair_AfterUpdate(ILContext)
- + IL_10007: call System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::<il_PlayerHair_AfterUpdate>g__hairGrowsOptimize|26_1(Celeste.PlayerHair) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.il_PlayerHair_AfterUpdate(ILContext)
+ + IL_10008: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.il_PlayerHair_AfterUpdate(ILContext)
+ + IL_10009: call System.Void Celeste.Mod.SkinModHelper.PlayerSkinSystem::<il_PlayerHair_AfterUpdate>g__hairGrowsOptimize|26_1(Celeste.PlayerHair) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.il_PlayerHair_AfterUpdate(ILContext)
    IL_020e: ret

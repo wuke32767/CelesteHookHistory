@@ -1,0 +1,28 @@
+On{bnADV6zqeRM}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Module.AudioSplitterModule+AudioSplitterModuleHooks.OnAudioVCAVolume(orig_VCAVolume,String,Nullable`1)
+[V_0] FMOD.Studio.VCA
+[V_1] System.Single
+[V_2] System.Single
+   IL_0000: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0005: ldarg.0
+   IL_0006: ldloca.s V_0
+   IL_0008: callvirt FMOD.RESULT FMOD.Studio.System::getVCA(System.String,FMOD.Studio.VCA&)
+   IL_000d: ldc.r4 1
+   IL_0012: stloc.1
+   IL_0013: ldc.r4 1
+   IL_0018: stloc.2
+   IL_0019: brtrue.s IL_003d
+   IL_001b: ldarga.s volume
+   IL_001d: call System.Boolean System.Nullable`1<System.Single>::get_HasValue()
+   IL_0022: brfalse.s IL_0032
+   IL_0024: ldloc.0
+   IL_0025: ldarga.s volume
+   IL_0027: call T System.Nullable`1<System.Single>::get_Value()
+   IL_002c: callvirt FMOD.RESULT FMOD.Studio.VCA::setVolume(System.Single)
+   IL_0031: pop
+   IL_0032: ldloc.0
+   IL_0033: ldloca.s V_1
+   IL_0035: ldloca.s V_2
+   IL_0037: callvirt FMOD.RESULT FMOD.Studio.VCA::getVolume(System.Single&,System.Single&)
+   IL_003c: pop
+   IL_003d: ldloc.1
+   IL_003e: ret

@@ -1,0 +1,79 @@
+On{66osgk7PhJE}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Audio.InstanceDuplicatorHooks.SetCallbacksToLoadedVanillaBank(orig_Load,String,Boolean)
+On{iqolIbo8mhE}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Audio.BankCache+BankCacheHooks.OnAudioBanksLoad(orig_Load,String,Boolean)
+[V_0] FMOD.Studio.Bank
+[V_1] Celeste.Mod.ModAsset
+[V_2] FMOD.Studio.Bank
+[V_3] FMOD.Studio.Bank
+   IL_0000: call System.Boolean Celeste.Mod.Everest/Flags::get_IsHeadless()
+   IL_0005: brfalse.s IL_0012
+   IL_0007: ldsfld System.IntPtr System.IntPtr::Zero
+   IL_000c: newobj System.Void FMOD.Studio.Bank::.ctor(System.IntPtr)
+   IL_0011: ret
+   IL_0012: ldsfld System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.Bank> Celeste.Audio/Banks::Banks
+   IL_0017: brtrue.s IL_0023
+   IL_0019: newobj System.Void System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.Bank>::.ctor()
+   IL_001e: stsfld System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.Bank> Celeste.Audio/Banks::Banks
+   IL_0023: ldsfld System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.Bank> Celeste.Audio/Banks::Banks
+   IL_0028: ldarg.0
+   IL_0029: ldloca.s V_0
+   IL_002b: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.Bank>::TryGetValue(TKey,TValue&)
+   IL_0030: brfalse.s IL_0034
+   IL_0032: ldloc.0
+   IL_0033: ret
+   IL_0034: ldstr "Audio/"
+   IL_0039: ldarg.0
+   IL_003a: call System.String System.String::Concat(System.String,System.String)
+   IL_003f: ldloca.s V_1
+   IL_0041: ldc.i4.0
+   IL_0042: call System.Boolean Celeste.Mod.Everest/Content::TryGet<Celeste.Mod.AssetTypeBank>(System.String,Celeste.Mod.ModAsset&,System.Boolean)
+   IL_0047: brfalse.s IL_0052
+   IL_0049: ldloc.1
+   IL_004a: call FMOD.Studio.Bank Celeste.Audio::IngestBank(Celeste.Mod.ModAsset)
+   IL_004f: stloc.0
+   IL_0050: br.s IL_0083
+   IL_0052: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_0057: call System.String Monocle.Engine::get_ContentDirectory()
+   IL_005c: ldstr "FMOD"
+   IL_0061: ldstr "Desktop"
+   IL_0066: ldarg.0
+   IL_0067: ldstr ".bank"
+   IL_006c: call System.String System.String::Concat(System.String,System.String)
+   IL_0071: call System.String System.IO.Path::Combine(System.String,System.String,System.String,System.String)
+   IL_0076: ldc.i4.0
+   IL_0077: ldloca.s V_0
+   IL_0079: callvirt FMOD.RESULT FMOD.Studio.System::loadBankFile(System.String,FMOD.Studio.LOAD_BANK_FLAGS,FMOD.Studio.Bank&)
+   IL_007e: call System.Void Celeste.AudioExt::CheckFMOD(FMOD.RESULT)
+   IL_0083: ldarg.1
+   IL_0084: brfalse.s IL_00da
+   IL_0086: ldstr "Audio/"
+   IL_008b: ldarg.0
+   IL_008c: ldstr ".strings"
+   IL_0091: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_0096: ldloca.s V_1
+   IL_0098: ldc.i4.0
+   IL_0099: call System.Boolean Celeste.Mod.Everest/Content::TryGet<Celeste.Mod.AssetTypeBank>(System.String,Celeste.Mod.ModAsset&,System.Boolean)
+   IL_009e: brfalse.s IL_00a9
+   IL_00a0: ldloc.1
+   IL_00a1: call FMOD.Studio.Bank Celeste.Audio::IngestBank(Celeste.Mod.ModAsset)
+   IL_00a6: pop
+   IL_00a7: br.s IL_00da
+   IL_00a9: ldsfld FMOD.Studio.System Celeste.Audio::system
+   IL_00ae: call System.String Monocle.Engine::get_ContentDirectory()
+   IL_00b3: ldstr "FMOD"
+   IL_00b8: ldstr "Desktop"
+   IL_00bd: ldarg.0
+   IL_00be: ldstr ".strings.bank"
+   IL_00c3: call System.String System.String::Concat(System.String,System.String)
+   IL_00c8: call System.String System.IO.Path::Combine(System.String,System.String,System.String,System.String)
+   IL_00cd: ldc.i4.0
+   IL_00ce: ldloca.s V_2
+   IL_00d0: callvirt FMOD.RESULT FMOD.Studio.System::loadBankFile(System.String,FMOD.Studio.LOAD_BANK_FLAGS,FMOD.Studio.Bank&)
+   IL_00d5: call System.Void Celeste.AudioExt::CheckFMOD(FMOD.RESULT)
+   IL_00da: ldsfld System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.Bank> Celeste.Audio/Banks::Banks
+   IL_00df: ldarg.0
+   IL_00e0: ldloc.0
+   IL_00e1: dup
+   IL_00e2: stloc.3
+   IL_00e3: callvirt System.Void System.Collections.Generic.Dictionary`2<System.String,FMOD.Studio.Bank>::set_Item(TKey,TValue)
+   IL_00e8: ldloc.3
+   IL_00e9: ret

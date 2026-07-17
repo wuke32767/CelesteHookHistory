@@ -1,0 +1,47 @@
+On{FoG8t9FgBAE}: [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.SpaceWrappedFallingBlock.HandleSpaceUpdate(orig_Update,SpaceController)
+[V_0] Celeste.Player
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_000c: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0011: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0016: stloc.0
+   IL_0017: ldloc.0
+   IL_0018: brfalse.s IL_008f
+   IL_001a: ldloc.0
+   IL_001b: callvirt System.Single Monocle.Entity::get_Top()
+   IL_0020: ldarg.0
+   IL_0021: ldfld Celeste.Level Celeste.SpaceController::level
+   IL_0026: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_002b: callvirt System.Single Monocle.Camera::get_Bottom()
+   IL_0030: ldc.r4 12
+   IL_0035: add
+   IL_0036: ble.un.s IL_0055
+   IL_0038: ldloc.0
+   IL_0039: ldarg.0
+   IL_003a: ldfld Celeste.Level Celeste.SpaceController::level
+   IL_003f: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0044: callvirt System.Single Monocle.Camera::get_Top()
+   IL_0049: ldc.r4 4
+   IL_004e: sub
+   IL_004f: callvirt System.Void Monocle.Entity::set_Bottom(System.Single)
+   IL_0054: ret
+   IL_0055: ldloc.0
+   IL_0056: callvirt System.Single Monocle.Entity::get_Bottom()
+   IL_005b: ldarg.0
+   IL_005c: ldfld Celeste.Level Celeste.SpaceController::level
+   IL_0061: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_0066: callvirt System.Single Monocle.Camera::get_Top()
+   IL_006b: ldc.r4 4
+   IL_0070: sub
+   IL_0071: bge.un.s IL_008f
+   IL_0073: ldloc.0
+   IL_0074: ldarg.0
+   IL_0075: ldfld Celeste.Level Celeste.SpaceController::level
+   IL_007a: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_007f: callvirt System.Single Monocle.Camera::get_Bottom()
+   IL_0084: ldc.r4 12
+   IL_0089: add
+   IL_008a: callvirt System.Void Monocle.Entity::set_Top(System.Single)
+   IL_008f: ret

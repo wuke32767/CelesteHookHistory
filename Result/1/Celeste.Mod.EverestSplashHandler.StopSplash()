@@ -1,0 +1,104 @@
+On{q8FBkFd6ejo}: [AF2024::]Celeste.Mod.AF2024.AF2024Module.Hook_StopSplash(Action)
+[V_0] System.Object
+[V_1] System.Boolean
+   IL_0000: ldsfld System.Object Celeste.Mod.EverestSplashHandler::splashPipeLock
+   IL_0005: stloc.0
+   IL_0006: ldc.i4.0
+   IL_0007: stloc.1
+   IL_0008: ldloc.0
+   IL_0009: ldloca.s V_1
+   IL_000b: call System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
+   IL_0010: call System.Boolean Celeste.Mod.EverestSplashHandler::get_SplashRan()
+   IL_0015: brtrue.s IL_0032
+   IL_0017: ldstr "EVEREST_SKIP_REQUEST_FOCUS_AFTER_SPLASH"
+   IL_001c: call System.String System.Environment::GetEnvironmentVariable(System.String)
+   IL_0021: brtrue.s IL_0032
+   IL_0023: ldstr "EVEREST_SKIP_REQUEST_FOCUS_AFTER_SPLASH"
+   IL_0028: ldstr "1"
+   IL_002d: call System.Void System.Environment::SetEnvironmentVariable(System.String,System.String)
+   IL_0032: ldsfld System.IO.Pipes.NamedPipeServerStream Celeste.Mod.EverestSplashHandler::splashPipeServerStream
+   IL_0037: brtrue.s IL_003e
+   IL_0039: leave IL_0185
+   IL_003e: ldsfld System.Threading.Tasks.Task Celeste.Mod.EverestSplashHandler::splashPipeServerStreamConnection
+   IL_0043: callvirt System.Boolean System.Threading.Tasks.Task::get_IsCompleted()
+   IL_0048: brfalse.s IL_0069
+   IL_004a: ldsfld System.IO.Pipes.NamedPipeServerStream Celeste.Mod.EverestSplashHandler::splashPipeServerStream
+   IL_004f: callvirt System.Boolean System.IO.Pipes.PipeStream::get_IsConnected()
+   IL_0054: brfalse.s IL_0069
+   IL_0056: ldsfld System.Threading.Tasks.Task Celeste.Mod.EverestSplashHandler::lastFlush
+   IL_005b: brfalse.s IL_00a2
+   IL_005d: ldsfld System.Threading.Tasks.Task Celeste.Mod.EverestSplashHandler::lastFlush
+   IL_0062: callvirt System.Boolean System.Threading.Tasks.Task::get_IsCompletedSuccessfully()
+   IL_0067: brtrue.s IL_00a2
+   IL_0069: ldstr "EverestSplash"
+   IL_006e: ldstr "Could not connect to splash"
+   IL_0073: call System.Void Celeste.Mod.Logger::Error(System.String,System.String)
+   IL_0078: ldsfld System.Diagnostics.Process Celeste.Mod.EverestSplashHandler::splashProcess
+   IL_007d: callvirt System.Boolean System.Diagnostics.Process::get_HasExited()
+   IL_0082: brtrue.s IL_009d
+   IL_0084: ldsfld System.Diagnostics.Process Celeste.Mod.EverestSplashHandler::splashProcess
+   IL_0089: callvirt System.Void System.Diagnostics.Process::Kill()
+   IL_008e: ldstr "EverestSplash"
+   IL_0093: ldstr "Splash was still alive. Killed splash!"
+   IL_0098: call System.Void Celeste.Mod.Logger::Error(System.String,System.String)
+   IL_009d: leave IL_0185
+   IL_00a2: nop
+   IL_00a3: ldsfld System.IO.Pipes.NamedPipeServerStream Celeste.Mod.EverestSplashHandler::splashPipeServerStream
+   IL_00a8: newobj System.Void System.IO.StreamWriter::.ctor(System.IO.Stream)
+   IL_00ad: dup
+   IL_00ae: ldstr "#stop"
+   IL_00b3: callvirt System.Void System.IO.TextWriter::WriteLine(System.String)
+   IL_00b8: callvirt System.Void System.IO.TextWriter::Flush()
+   IL_00bd: ldsfld System.Threading.ThreadStart Celeste.Mod.EverestSplashHandler/<>c::<>9__17_0
+   IL_00c2: dup
+   IL_00c3: brtrue.s IL_00dc
+   IL_00c5: pop
+   IL_00c6: ldsfld Celeste.Mod.EverestSplashHandler/<>c Celeste.Mod.EverestSplashHandler/<>c::<>9
+   IL_00cb: ldftn System.Void Celeste.Mod.EverestSplashHandler/<>c::<StopSplash>b__17_0()
+   IL_00d1: newobj System.Void System.Threading.ThreadStart::.ctor(System.Object,System.IntPtr)
+   IL_00d6: dup
+   IL_00d7: stsfld System.Threading.ThreadStart Celeste.Mod.EverestSplashHandler/<>c::<>9__17_0
+   IL_00dc: newobj System.Void System.Threading.Thread::.ctor(System.Threading.ThreadStart)
+   IL_00e1: dup
+   IL_00e2: callvirt System.Void System.Threading.Thread::Start()
+   IL_00e7: ldc.r8 10
+   IL_00f0: call System.TimeSpan System.TimeSpan::FromSeconds(System.Double)
+   IL_00f5: callvirt System.Boolean System.Threading.Thread::Join(System.TimeSpan)
+   IL_00fa: brtrue.s IL_0130
+   IL_00fc: ldstr "EverestSplash"
+   IL_0101: ldstr "Timeout!, splash did not respond, continuing..."
+   IL_0106: call System.Void Celeste.Mod.Logger::Error(System.String,System.String)
+   IL_010b: ldsfld System.Diagnostics.Process Celeste.Mod.EverestSplashHandler::splashProcess
+   IL_0110: callvirt System.Boolean System.Diagnostics.Process::get_HasExited()
+   IL_0115: brtrue.s IL_0130
+   IL_0117: ldsfld System.Diagnostics.Process Celeste.Mod.EverestSplashHandler::splashProcess
+   IL_011c: callvirt System.Void System.Diagnostics.Process::Kill()
+   IL_0121: ldstr "EverestSplash"
+   IL_0126: ldstr "Splash was still alive. Killed splash!"
+   IL_012b: call System.Void Celeste.Mod.Logger::Error(System.String,System.String)
+   IL_0130: ldsfld System.IO.Pipes.NamedPipeServerStream Celeste.Mod.EverestSplashHandler::splashPipeServerStream
+   IL_0135: callvirt System.Boolean System.IO.Pipes.PipeStream::get_IsConnected()
+   IL_013a: brfalse.s IL_0146
+   IL_013c: ldsfld System.IO.Pipes.NamedPipeServerStream Celeste.Mod.EverestSplashHandler::splashPipeServerStream
+   IL_0141: callvirt System.Void System.IO.Pipes.NamedPipeServerStream::Disconnect()
+   IL_0146: ldsfld System.IO.Pipes.NamedPipeServerStream Celeste.Mod.EverestSplashHandler::splashPipeServerStream
+   IL_014b: callvirt System.Void System.IO.Stream::Dispose()
+   IL_0150: ldnull
+   IL_0151: stsfld System.IO.Pipes.NamedPipeServerStream Celeste.Mod.EverestSplashHandler::splashPipeServerStream
+   IL_0156: ldnull
+   IL_0157: stsfld System.Threading.Tasks.Task Celeste.Mod.EverestSplashHandler::splashPipeServerStreamConnection
+   IL_015c: ldnull
+   IL_015d: stsfld System.Diagnostics.Process Celeste.Mod.EverestSplashHandler::splashProcess
+   IL_0162: leave.s IL_0185
+   IL_0164: ldstr "EverestSplash"
+   IL_0169: ldstr "Could not stop splash!"
+   IL_016e: call System.Void Celeste.Mod.Logger::Error(System.String,System.String)
+   IL_0173: ldnull
+   IL_0174: call System.Void Celeste.Mod.Logger::LogDetailed(System.Exception,System.String)
+   IL_0179: leave.s IL_0185
+   IL_017b: ldloc.1
+   IL_017c: brfalse.s IL_0184
+   IL_017e: ldloc.0
+   IL_017f: call System.Void System.Threading.Monitor::Exit(System.Object)
+   IL_0184: endfinally
+   IL_0185: ret

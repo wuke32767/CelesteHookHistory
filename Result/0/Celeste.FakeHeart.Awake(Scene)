@@ -1,0 +1,139 @@
+On{rTt9g6Rly9Y}: {UNKNOWN_DETOUR: Priority: 0}[Linja::]Celeste.Mod.Linja.Hook.OnFakeHeartAwake(orig_Awake,FakeHeart,Scene)
+[V_0] Celeste.AreaMode
+[V_1] Monocle.Sprite
+[V_2] Monocle.Wiggler
+[V_3] Celeste.BloomPoint
+[V_4] Microsoft.Xna.Framework.Color
+[V_5] Celeste.VertexLight
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Awake(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: ldsfld System.Random Monocle.Calc::Random
+   IL_000d: ldc.i4.0
+   IL_000e: ldc.i4.1
+   IL_000f: ldc.i4.2
+   IL_0010: call T Monocle.Calc::Choose<Celeste.AreaMode>(System.Random,T,T,T)
+   IL_0015: call Celeste.AreaMode Celeste.FakeHeart::_GetCustomColor(Celeste.AreaMode)
+   IL_001a: stloc.0
+   IL_001b: ldarg.0
+   IL_001c: ldarg.0
+   IL_001d: ldsfld Monocle.SpriteBank Celeste.GFX::SpriteBank
+   IL_0022: ldstr "heartgem"
+   IL_0027: ldloc.0
+   IL_0028: box System.Int32
+   IL_002d: call System.String System.String::Concat(System.Object,System.Object)
+   IL_0032: callvirt Monocle.Sprite Monocle.SpriteBank::Create(System.String)
+   IL_0037: dup
+   IL_0038: stloc.1
+   IL_0039: stfld Monocle.Sprite Celeste.FakeHeart::sprite
+   IL_003e: ldloc.1
+   IL_003f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0044: ldarg.0
+   IL_0045: ldfld Monocle.Sprite Celeste.FakeHeart::sprite
+   IL_004a: ldstr "spin"
+   IL_004f: ldc.i4.0
+   IL_0050: ldc.i4.0
+   IL_0051: callvirt System.Void Monocle.Sprite::Play(System.String,System.Boolean,System.Boolean)
+   IL_0056: ldarg.0
+   IL_0057: ldfld Monocle.Sprite Celeste.FakeHeart::sprite
+   IL_005c: ldarg.0
+   IL_005d: ldftn System.Void Celeste.FakeHeart::<Awake>b__14_0(System.String)
+   IL_0063: newobj System.Void System.Action`1<System.String>::.ctor(System.Object,System.IntPtr)
+   IL_0068: stfld System.Action`1<System.String> Monocle.Sprite::OnLoop
+   IL_006d: ldarg.0
+   IL_006e: ldc.r4 16
+   IL_0073: ldc.r4 16
+   IL_0078: ldc.r4 -8
+   IL_007d: ldc.r4 -8
+   IL_0082: newobj System.Void Monocle.Hitbox::.ctor(System.Single,System.Single,System.Single,System.Single)
+   IL_0087: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)
+   IL_008c: ldarg.0
+   IL_008d: ldarg.0
+   IL_008e: ldftn System.Void Celeste.FakeHeart::OnPlayer(Celeste.Player)
+   IL_0094: newobj System.Void System.Action`1<Celeste.Player>::.ctor(System.Object,System.IntPtr)
+   IL_0099: ldnull
+   IL_009a: ldnull
+   IL_009b: newobj System.Void Celeste.PlayerCollider::.ctor(System.Action`1<Celeste.Player>,Monocle.Collider,Monocle.Collider)
+   IL_00a0: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00a5: ldarg.0
+   IL_00a6: ldarg.0
+   IL_00a7: ldc.r4 0.5
+   IL_00ac: ldc.r4 4
+   IL_00b1: ldarg.0
+   IL_00b2: ldftn System.Void Celeste.FakeHeart::<Awake>b__14_1(System.Single)
+   IL_00b8: newobj System.Void System.Action`1<System.Single>::.ctor(System.Object,System.IntPtr)
+   IL_00bd: ldc.i4.0
+   IL_00be: ldc.i4.0
+   IL_00bf: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_00c4: dup
+   IL_00c5: stloc.2
+   IL_00c6: stfld Monocle.Wiggler Celeste.FakeHeart::ScaleWiggler
+   IL_00cb: ldloc.2
+   IL_00cc: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00d1: ldarg.0
+   IL_00d2: ldarg.0
+   IL_00d3: ldc.r4 0.75
+   IL_00d8: ldc.r4 16
+   IL_00dd: newobj System.Void Celeste.BloomPoint::.ctor(System.Single,System.Single)
+   IL_00e2: dup
+   IL_00e3: stloc.3
+   IL_00e4: stfld Celeste.BloomPoint Celeste.FakeHeart::bloom
+   IL_00e9: ldloc.3
+   IL_00ea: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00ef: ldloc.0
+   IL_00f0: brtrue.s IL_0106
+   IL_00f2: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Aqua()
+   IL_00f7: stloc.s V_4
+   IL_00f9: ldarg.0
+   IL_00fa: ldsfld Monocle.ParticleType Celeste.HeartGem::P_BlueShine
+   IL_00ff: stfld Monocle.ParticleType Celeste.FakeHeart::shineParticle
+   IL_0104: br.s IL_0130
+   IL_0106: ldloc.0
+   IL_0107: ldc.i4.1
+   IL_0108: bne.un.s IL_011e
+   IL_010a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Red()
+   IL_010f: stloc.s V_4
+   IL_0111: ldarg.0
+   IL_0112: ldsfld Monocle.ParticleType Celeste.HeartGem::P_RedShine
+   IL_0117: stfld Monocle.ParticleType Celeste.FakeHeart::shineParticle
+   IL_011c: br.s IL_0130
+   IL_011e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Gold()
+   IL_0123: stloc.s V_4
+   IL_0125: ldarg.0
+   IL_0126: ldsfld Monocle.ParticleType Celeste.HeartGem::P_GoldShine
+   IL_012b: stfld Monocle.ParticleType Celeste.FakeHeart::shineParticle
+   IL_0130: ldloc.s V_4
+   IL_0132: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0137: ldc.r4 0.5
+   IL_013c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Lerp(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0141: stloc.s V_4
+   IL_0143: ldarg.0
+   IL_0144: ldarg.0
+   IL_0145: ldloc.s V_4
+   IL_0147: ldc.r4 1
+   IL_014c: ldc.i4.s 32
+   IL_014e: ldc.i4.s 64
+   IL_0150: newobj System.Void Celeste.VertexLight::.ctor(Microsoft.Xna.Framework.Color,System.Single,System.Int32,System.Int32)
+   IL_0155: dup
+   IL_0156: stloc.s V_5
+   IL_0158: stfld Celeste.VertexLight Celeste.FakeHeart::light
+   IL_015d: ldloc.s V_5
+   IL_015f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0164: ldarg.0
+   IL_0165: ldc.r4 0.8
+   IL_016a: ldc.r4 2
+   IL_016f: ldnull
+   IL_0170: ldc.i4.0
+   IL_0171: ldc.i4.0
+   IL_0172: call Monocle.Wiggler Monocle.Wiggler::Create(System.Single,System.Single,System.Action`1<System.Single>,System.Boolean,System.Boolean)
+   IL_0177: stfld Monocle.Wiggler Celeste.FakeHeart::moveWiggler
+   IL_017c: ldarg.0
+   IL_017d: ldfld Monocle.Wiggler Celeste.FakeHeart::moveWiggler
+   IL_0182: ldc.i4.1
+   IL_0183: stfld System.Boolean Monocle.Wiggler::StartZero
+   IL_0188: ldarg.0
+   IL_0189: ldarg.0
+   IL_018a: ldfld Monocle.Wiggler Celeste.FakeHeart::moveWiggler
+   IL_018f: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0194: ret

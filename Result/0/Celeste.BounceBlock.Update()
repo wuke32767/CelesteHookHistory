@@ -1,5 +1,6 @@
 IL: {UNKNOWN_DETOUR: Priority: -1}[Aqua::]Celeste.Mod.Aqua.Core.BounceBlockExtensions.BounceBlock_ILUpdate(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
 [V_0] Microsoft.Xna.Framework.Vector2
 [V_1] Microsoft.Xna.Framework.Vector2
 [V_2] Celeste.Player
@@ -110,6 +111,8 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.
    IL_010d: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
    IL_0112: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_0117: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+ + IL_10006: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
+ + IL_10007: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController::GetBounceDir(Microsoft.Xna.Framework.Vector2,Celeste.Solid) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
    IL_011c: stfld Microsoft.Xna.Framework.Vector2 Celeste.BounceBlock::bounceDir
    IL_0121: ldarg.0
    IL_0122: ldc.i4.1
@@ -124,8 +127,8 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.
    IL_0138: ldc.r4 0.2
    IL_013d: call System.Void Celeste.Platform::StartShaking(System.Single)
    IL_0142: ldstr "event:/game/09_core/iceblock_touch"
- + IL_10006: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
- + IL_10007: call System.String Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetIceTouchSound(System.String,Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10008: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10009: call System.String Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetIceTouchSound(System.String,Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
    IL_0147: ldarg.0
    IL_0148: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
    IL_014d: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
@@ -161,6 +164,8 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.
    IL_019e: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
    IL_01a3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_01a8: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2)
+ + IL_1000a: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
+ + IL_1000b: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController::GetBounceDir(Microsoft.Xna.Framework.Vector2,Celeste.Solid) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Controllers.ConsistentCoreboostDirectionController.ModifyDirection(ILContext)
    IL_01ad: stfld Microsoft.Xna.Framework.Vector2 Celeste.BounceBlock::bounceDir
    IL_01b2: ldarg.0
    IL_01b3: ldfld System.Single Celeste.BounceBlock::windUpStartTimer
@@ -189,14 +194,14 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.
    IL_01fb: ldfld System.Boolean Celeste.BounceBlock::iceMode
    IL_0200: brtrue.s IL_0209
    IL_0202: ldc.r4 40
- + IL_10008: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
- + IL_10009: call System.Single Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetSpeedMultipler(Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
- + IL_1000a: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_1000c: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_1000d: call System.Single Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetSpeedMultipler(Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_1000e: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
    IL_0207: br.s IL_020e
    IL_0209: ldc.r4 35
- + IL_1000b: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
- + IL_1000c: call System.Single Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetSpeedMultipler(Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
- + IL_1000d: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_1000f: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10010: call System.Single Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetSpeedMultipler(Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10011: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
    IL_020e: ldc.r4 600
    IL_0213: call System.Single Monocle.Engine::get_DeltaTime()
    IL_0218: mul
@@ -315,9 +320,9 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.
    IL_0376: ldarg.0
    IL_0377: ldfld System.Single Celeste.BounceBlock::moveSpeed
    IL_037c: ldc.r4 140
- + IL_1000e: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
- + IL_1000f: call System.Single Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetSpeedMultipler(Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
- + IL_10010: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10012: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10013: call System.Single Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetSpeedMultipler(Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10014: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
    IL_0381: ldc.r4 800
    IL_0386: call System.Single Monocle.Engine::get_DeltaTime()
    IL_038b: mul
@@ -350,9 +355,9 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.
    IL_03e2: ldc.r4 3
    IL_03e7: mul
    IL_03e8: ldc.r4 200
- + IL_10011: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
- + IL_10012: call System.Single Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetSpeedMultipler(Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
- + IL_10013: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10015: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10016: call System.Single Celeste.Mod.TeraHelper.Entities.TeraBounceBlock::GetSpeedMultipler(Celeste.BounceBlock) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
+ + IL_10017: mul @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBounceBlock.TeraBounceUpdate(ILContext)
    IL_03ed: call System.Single System.Math::Min(System.Single,System.Single)
    IL_03f2: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::SafeNormalize(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_03f7: stfld Microsoft.Xna.Framework.Vector2 Celeste.BounceBlock::bounceLift
@@ -464,9 +469,9 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.
    IL_052c: ldarg.0
    IL_052d: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>()
    IL_0532: brtrue IL_064a
- + IL_10014: ldarg.0 @ [Aqua::]Celeste.Mod.Aqua.Core.BounceBlockExtensions.BounceBlock_ILUpdate(ILContext)
- + IL_10015: call System.Boolean Celeste.Mod.Aqua.Core.BounceBlockExtensions::WillRespawn(Celeste.BounceBlock) @ [Aqua::]Celeste.Mod.Aqua.Core.BounceBlockExtensions.BounceBlock_ILUpdate(ILContext)
- + IL_10016: brtrue IL_064a @ [Aqua::]Celeste.Mod.Aqua.Core.BounceBlockExtensions.BounceBlock_ILUpdate(ILContext)
+ + IL_10018: ldarg.0 @ [Aqua::]Celeste.Mod.Aqua.Core.BounceBlockExtensions.BounceBlock_ILUpdate(ILContext)
+ + IL_10019: call System.Boolean Celeste.Mod.Aqua.Core.BounceBlockExtensions::WillRespawn(Celeste.BounceBlock) @ [Aqua::]Celeste.Mod.Aqua.Core.BounceBlockExtensions.BounceBlock_ILUpdate(ILContext)
+ + IL_1001a: brtrue IL_064a @ [Aqua::]Celeste.Mod.Aqua.Core.BounceBlockExtensions.BounceBlock_ILUpdate(ILContext)
    IL_0537: ldarg.0
    IL_0538: callvirt System.Void Celeste.BounceBlock::CheckModeChange()
    IL_053d: ldarg.0

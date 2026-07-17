@@ -1,9 +1,11 @@
 On{nlRYAaZlm4I}: {UNKNOWN_DETOUR: Priority: 0}[Spirialis::]Celeste.Mod.Spirialis.TimeController.waterfallGrace(orig_WallJumpCheck,Player,Int32)
 On{X9TLBW7ZdcQ}: {UNKNOWN_DETOUR: Priority: 0}[ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_WallJumpCheck(orig_WallJumpCheck,Player,Int32)
+On{xnwhRryem3M}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.WallCoyoteFrames.CoyoteWallJumpCheck(orig_WallJumpCheck,Player,Int32)
 On{78fYQPRq8ko}: {UNKNOWN_DETOUR: Priority: 0}[libbitsbolts::]Bitsbolts.Components.PreventWallJump.OnPlayerWallJumpCheck(orig_WallJumpCheck,Player,Int32)
 On{Kc96ECvAsD0}: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.DisableWallJumping.modWallJumpCheck(orig_WallJumpCheck,Player,Int32)
 On{c32EL3eE23A}: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_WallJumpCheck(orig_WallJumpCheck,Player,Int32)
 IL: {UNKNOWN_DETOUR: Priority: -1}[ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
+IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
 IL: {VivHelper: Priority: -1, After: MaxHelpingHand}[VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.WallJumpDistance.onPlayerWallJumpCheck(ILContext)
@@ -15,18 +17,29 @@ IL: [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player
 [V_2] Celeste.Spikes/Directions
 [V_3] System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
 [V_4] Celeste.Spikes
-[V_5] Microsoft.Xna.Framework.Vector2
+[V_5] System.Int32
+[V_6] System.Boolean
+[V_7] System.Boolean
+[V_8] Microsoft.Xna.Framework.Vector2
+[V_9] Microsoft.Xna.Framework.Vector2
+ + IL_10000: call System.Boolean Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency::BothDisabled() @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10001: stloc V_6 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
    IL_0000: ldc.i4.3
- + IL_10000: call System.Int32 ExtendedVariants.Variants.WallJumpDistance::getVariantValue(System.Int32) @ [ExtendedVariantMode::]ExtendedVariants.Variants.WallJumpDistance.onPlayerWallJumpCheck(ILContext)
+ + IL_10002: dup @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10003: stloc V_5 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10004: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10005: ldarg.1 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10006: ldloc V_6 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10007: call System.Int32 Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency::GetNewLeniency(System.Int32,Celeste.Player,System.Int32,System.Boolean) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
    IL_0001: stloc.0
    IL_0002: ldarg.0
    IL_0003: callvirt System.Boolean Celeste.Player::get_DashAttacking()
- + IL_10001: ldarg.0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
- + IL_10002: ldc.i4 0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
- + IL_10003: ldc.i4 0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
- + IL_10004: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_10008: ldarg.0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_10009: ldc.i4 0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_1000a: ldc.i4 0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_1000b: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
        => Invoke: [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks+<>c.<Player_WallJumpCheck>b__3_0(Boolean,Player)
- + IL_10005: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Boolean,System.Boolean,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_1000c: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Boolean,System.Boolean,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
    IL_0008: brfalse.s IL_0030
    IL_000a: ldarg.0
    IL_000b: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
@@ -37,20 +50,22 @@ IL: [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player
    IL_001d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
    IL_0022: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_0027: ldc.r4 -1
- + IL_10006: ldarg.0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
- + IL_10007: ldc.i4 0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
- + IL_10008: ldc.i4 0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
- + IL_10009: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_1000d: ldarg.0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_1000e: ldc.i4 0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_1000f: ldc.i4 0 @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_10010: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
        => Invoke: [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks+<>c.<Player_WallJumpCheck>b__3_1(Single,Player)
- + IL_1000a: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
+ + IL_10011: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Single,System.Single,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player_WallJumpCheck(ILContext)
    IL_002c: ceq
    IL_002e: br.s IL_0031
    IL_0030: ldc.i4.0
    IL_0031: stloc.1
- + IL_1000b: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
- + IL_1000c: ldarg.1 @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
- + IL_1000d: call System.Boolean VivHelper.Entities.RestrictingEntityHooks::AddWallCheck(Celeste.Player,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
- + IL_1000e: brtrue IL_00fe @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
+ + IL_10012: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
+ + IL_10013: ldarg.1 @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
+ + IL_10014: call System.Boolean VivHelper.Entities.RestrictingEntityHooks::AddWallCheck(Celeste.Player,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
+ + IL_10015: brtrue IL_00fe @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
+ + IL_10016: ldloc.1 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10017: stloc V_7 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
    IL_0032: ldloc.1
    IL_0033: brfalse IL_00ba
    IL_0038: ldarg.1
@@ -85,7 +100,7 @@ IL: [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player
    IL_0081: conv.r4
    IL_0082: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_0087: ldc.r4 5
- + IL_1000f: call System.Single ExtendedVariants.Variants.WallBounceDistance::getVariantValueFloat(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.WallBounceDistance.onPlayerWallJumpCheck(ILContext)
+ + IL_10018: call System.Single ExtendedVariants.Variants.WallBounceDistance::getVariantValueFloat(System.Single) @ [ExtendedVariantMode::]ExtendedVariants.Variants.WallBounceDistance.onPlayerWallJumpCheck(ILContext)
    IL_008c: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_0091: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_0096: call System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
@@ -102,21 +117,38 @@ IL: [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player
    IL_00b4: callvirt System.Void System.IDisposable::Dispose()
    IL_00b9: endfinally
    IL_00ba: ldloc.1
- + IL_10010: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
- + IL_10011: ldarg.1 @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
- + IL_10012: call System.Boolean VivHelper.Entities.CustomSpike::AddWallCheck(System.Boolean,Celeste.Player,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
-   IL_00bb: brfalse.s IL_10014
+ + IL_10019: ldarg.0 @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
+ + IL_1001a: ldarg.1 @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
+ + IL_1001b: call System.Boolean VivHelper.Entities.CustomSpike::AddWallCheck(System.Boolean,Celeste.Player,System.Int32) @ [VivHelper::]VivHelper.VivHelperModule.Player_WallJumpCheck(ILContext)
+   IL_00bb: brfalse.s IL_00bf
    IL_00bd: ldc.i4.5
- + IL_10013: call System.Int32 ExtendedVariants.Variants.WallBounceDistance::getVariantValueInt(System.Int32) @ [ExtendedVariantMode::]ExtendedVariants.Variants.WallBounceDistance.onPlayerWallJumpCheck(ILContext)
+ + IL_1001c: pop @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1001d: ldc.i4 0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1001e: stloc V_7 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1001f: ldc.i4 5 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10020: dup @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10021: stloc V_5 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10022: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10023: ldarg.1 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10024: ldloc V_6 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10025: call System.Int32 Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency::GetNewLeniency(System.Int32,Celeste.Player,System.Int32,System.Boolean) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
    IL_00be: stloc.0
- + IL_10014: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_10015: ldloc.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_10016: call System.Int32 Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere::overrideDistance(Celeste.Player,System.Int32) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_10017: stloc.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
    IL_00bf: ldarg.0
+ + IL_10026: ldloc V_6 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10027: brtrue IL_00c0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10028: ldloc V_7 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10029: brtrue IL_1001c @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1002a: ldloc.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1002b: ldloc V_5 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1002c: ldarg.1 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1002d: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency::MovePlayer(Celeste.Player,System.Int32,System.Int32,System.Int32) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1002e: stloc V_8 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1002f: ldc.i4 1 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10030: stloc V_6 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10031: br IL_0000 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
    IL_00c0: ldarg.1
    IL_00c1: callvirt System.Boolean Celeste.Player::ClimbBoundsCheck(System.Int32)
-   IL_00c6: brfalse.s IL_10026
+   IL_00c6: brfalse.s IL_00fe
    IL_00c8: ldarg.0
    IL_00c9: ldfld Celeste.Level Celeste.Player::level
    IL_00ce: ldarg.0
@@ -124,7 +156,7 @@ IL: [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player
    IL_00d0: ldloc.0
    IL_00d1: mul
    IL_00d2: call System.Boolean Celeste.ClimbBlocker::EdgeCheck(Monocle.Scene,Monocle.Entity,System.Int32)
-   IL_00d7: brtrue.s IL_10026
+   IL_00d7: brtrue.s IL_00fe
    IL_00d9: ldarg.0
    IL_00da: ldarg.0
    IL_00db: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
@@ -136,29 +168,26 @@ IL: [VortexHelper::]Celeste.Mod.VortexHelper.Entities.PurpleBooster+Hooks.Player
    IL_00ed: conv.r4
    IL_00ee: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_00f3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
- + IL_10018: stloc V_5 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
- + IL_10019: ldloc V_5 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
+ + IL_10032: stloc V_9 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
+ + IL_10033: ldloc V_9 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
    IL_00f8: call System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
- + IL_1001a: ldarg.0 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
- + IL_1001b: ldarg.1 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
- + IL_1001c: ldloc V_5 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
- + IL_1001d: call System.Boolean VivHelper.SolidModifierComponent::ModifyWallJumpCheck(System.Boolean,Celeste.Player,System.Int32,Microsoft.Xna.Framework.Vector2) @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
- + IL_1001e: ldarg.0 @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
- + IL_1001f: ldarg.1 @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
- + IL_10020: ldc.i4 0 @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
- + IL_10021: ldc.i4 0 @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
- + IL_10022: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
+ + IL_10034: ldarg.0 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
+ + IL_10035: ldarg.1 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
+ + IL_10036: ldloc V_9 @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
+ + IL_10037: call System.Boolean VivHelper.SolidModifierComponent::ModifyWallJumpCheck(System.Boolean,Celeste.Player,System.Int32,Microsoft.Xna.Framework.Vector2) @ [VivHelper::]VivHelper.SolidModifierComponent.Player_WallJumpCheck(ILContext)
+ + IL_10038: ldarg.0 @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
+ + IL_10039: ldarg.1 @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
+ + IL_1003a: ldc.i4 0 @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
+ + IL_1003b: ldc.i4 0 @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
+ + IL_1003c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
        => Invoke: [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CheckCornerBoostBlock(Boolean,Player,Int32)
- + IL_10023: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<System.Boolean,System.Boolean,Celeste.Player,System.Int32>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
- + IL_10024: brfalse IL_10026 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_10025: ldc.i4 1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
+ + IL_1003d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<System.Boolean,System.Boolean,Celeste.Player,System.Int32>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [ChroniaHelper::]YoctoHelper.Hooks.CornerBoostHook.CornerBoost(ILContext)
+ + IL_1003e: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_1003f: ldloc V_8 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10040: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency::ReturnOrigPos(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
    IL_00fd: ret
- + IL_10026: ldloc.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_10027: ldc.i4 8 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_10028: sub @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_10029: stloc.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_1002a: ldloc.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_1002b: ldsfld System.Int32 Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere::redoLogicThreshold @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
- + IL_1002c: bgt IL_00c8 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.CornerboostBlocksEverywhere.patch_Player_WallJumpCheck(ILContext)
    IL_00fe: ldc.i4.0
+ + IL_10041: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10042: ldloc V_8 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
+ + IL_10043: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency::ReturnOrigPos(Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.IceWallIncreaseWallLeniency.CustomWJCheck(ILContext)
    IL_00ff: ret

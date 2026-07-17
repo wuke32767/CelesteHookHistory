@@ -1,0 +1,47 @@
+On{aHqYU+UYekA}: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Entities.TilePhysicsController.ClimbBlockerOnEdgeCheck(orig_EdgeCheck,Scene,Entity,Int32)
+[V_0] System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+[V_1] Celeste.ClimbBlocker
+[V_2] System.Boolean
+   IL_0000: ldarg.0
+   IL_0001: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0006: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.ClimbBlocker>()
+   IL_000b: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
+   IL_0010: stloc.0
+   IL_0011: br.s IL_0059
+   IL_0013: ldloca.s V_0
+   IL_0015: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
+   IL_001a: castclass Celeste.ClimbBlocker
+   IL_001f: stloc.1
+   IL_0020: ldloc.1
+   IL_0021: ldfld System.Boolean Celeste.ClimbBlocker::Blocking
+   IL_0026: brfalse.s IL_0059
+   IL_0028: ldloc.1
+   IL_0029: ldfld System.Boolean Celeste.ClimbBlocker::Edge
+   IL_002e: brfalse.s IL_0059
+   IL_0030: ldarg.1
+   IL_0031: ldloc.1
+   IL_0032: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_0037: ldarg.1
+   IL_0038: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_003d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
+   IL_0042: ldarg.2
+   IL_0043: conv.r4
+   IL_0044: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0049: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_004e: callvirt System.Boolean Monocle.Entity::CollideCheck(Monocle.Entity,Microsoft.Xna.Framework.Vector2)
+   IL_0053: brfalse.s IL_0059
+   IL_0055: ldc.i4.1
+   IL_0056: stloc.2
+   IL_0057: leave.s IL_0074
+   IL_0059: ldloca.s V_0
+   IL_005b: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Component>::MoveNext()
+   IL_0060: brtrue.s IL_0013
+   IL_0062: leave.s IL_0072
+   IL_0064: ldloca.s V_0
+   IL_0066: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Component>
+   IL_006c: callvirt System.Void System.IDisposable::Dispose()
+   IL_0071: endfinally
+   IL_0072: ldc.i4.0
+   IL_0073: ret
+   IL_0074: ldloc.2
+   IL_0075: ret

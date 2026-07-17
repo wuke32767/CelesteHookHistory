@@ -1,0 +1,18 @@
+On{UP8AuFSEffQ}: [AudioSplitter::]Celeste.Mod.AudioSplitter.Hooks.MenuButtonDisablingHooks.getSelectionColor(Func`2,MenuButton)
+   IL_0000: ldarg.0
+   IL_0001: ldfld System.Boolean Celeste.MenuButton::selected
+   IL_0006: brfalse.s IL_0032
+   IL_0008: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_000d: callvirt System.Boolean Celeste.Mod.Core.CoreModuleSettings::get_AllowTextHighlight()
+   IL_0012: brfalse.s IL_002c
+   IL_0014: ldarg.0
+   IL_0015: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_001a: ldc.r4 0.1
+   IL_001f: callvirt System.Boolean Monocle.Scene::BetweenInterval(System.Single)
+   IL_0024: brtrue.s IL_002c
+   IL_0026: ldsfld Microsoft.Xna.Framework.Color Celeste.TextMenu::HighlightColorB
+   IL_002b: ret
+   IL_002c: ldsfld Microsoft.Xna.Framework.Color Celeste.TextMenu::HighlightColorA
+   IL_0031: ret
+   IL_0032: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0037: ret

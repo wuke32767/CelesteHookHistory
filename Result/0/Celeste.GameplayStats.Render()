@@ -1,5 +1,6 @@
 On{THIfTsMYoIA}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.XaphanHelper.XaphanModule.onGameplayStatsRender(orig_Render,GameplayStats)
 On{bcZgqIAK9H8}: {UNKNOWN_DETOUR: Priority: 0}[AlwaysShowStrawDisplay::]VanillaTweaks.VanillaTweaksHooks.GameplayStats_Render(orig_Render,GameplayStats)
+IL: [FCHelper::]Celeste.Mod.FCHelper.ILStuff.PauseMenuExt.IL_RenderExtraCollectibles(ILContext)
 [V_0] System.Single
 [V_1] Celeste.Level
 [V_2] Celeste.AreaKey
@@ -94,6 +95,7 @@ On{bcZgqIAK9H8}: {UNKNOWN_DETOUR: Priority: 0}[AlwaysShowStrawDisplay::]VanillaT
    IL_00c8: ldloc.s V_6
    IL_00ca: sub
    IL_00cb: ldloc.s V_7
+ + IL_10000: call System.Int32 Celeste.Mod.FCHelper.ILStuff.PauseMenuExt::addCassetteWidth(System.Int32) @ [FCHelper::]Celeste.Mod.FCHelper.ILStuff.PauseMenuExt.IL_RenderExtraCollectibles(ILContext)
    IL_00cd: sub
    IL_00ce: ldc.i4.2
    IL_00cf: div
@@ -107,6 +109,7 @@ On{bcZgqIAK9H8}: {UNKNOWN_DETOUR: Priority: 0}[AlwaysShowStrawDisplay::]VanillaT
    IL_00e3: add
    IL_00e4: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
    IL_00e9: ldloca V_8
+ + IL_10001: call Microsoft.Xna.Framework.Vector2& Celeste.Mod.FCHelper.ILStuff.PauseMenuExt::RenderExtraCollectibles(Microsoft.Xna.Framework.Vector2&) @ [FCHelper::]Celeste.Mod.FCHelper.ILStuff.PauseMenuExt.IL_RenderExtraCollectibles(ILContext)
    IL_00ed: call System.Void Celeste.GameplayStats::getInitialPosition(Microsoft.Xna.Framework.Vector2&)
    IL_00f2: ldc.i4.0
    IL_00f3: ble IL_036b
@@ -310,12 +313,16 @@ On{bcZgqIAK9H8}: {UNKNOWN_DETOUR: Priority: 0}[AlwaysShowStrawDisplay::]VanillaT
    IL_034c: dup
    IL_034d: ldind.r4
    IL_034e: ldloc.s V_5
+ + IL_10002: ldloc V_10 @ [FCHelper::]Celeste.Mod.FCHelper.ILStuff.PauseMenuExt.IL_RenderExtraCollectibles(ILContext)
+ + IL_10003: call System.Int32 Celeste.Mod.FCHelper.ILStuff.PauseMenuExt::offsetIfCassette(System.Int32,System.Int32) @ [FCHelper::]Celeste.Mod.FCHelper.ILStuff.PauseMenuExt.IL_RenderExtraCollectibles(ILContext)
    IL_0350: conv.r4
    IL_0351: add
    IL_0352: stind.r4
    IL_0353: ldloca V_8
    IL_0357: call System.Void Celeste.GameplayStats::wrapPosition(Microsoft.Xna.Framework.Vector2&)
    IL_035c: ldloc.s V_10
+ + IL_10004: ldloc V_8 @ [FCHelper::]Celeste.Mod.FCHelper.ILStuff.PauseMenuExt.IL_RenderExtraCollectibles(ILContext)
+ + IL_10005: call System.Int32 Celeste.Mod.FCHelper.ILStuff.PauseMenuExt::DrawCassette(System.Int32,Microsoft.Xna.Framework.Vector2) @ [FCHelper::]Celeste.Mod.FCHelper.ILStuff.PauseMenuExt.IL_RenderExtraCollectibles(ILContext)
    IL_035e: ldc.i4.1
    IL_035f: add
    IL_0360: stloc.s V_10

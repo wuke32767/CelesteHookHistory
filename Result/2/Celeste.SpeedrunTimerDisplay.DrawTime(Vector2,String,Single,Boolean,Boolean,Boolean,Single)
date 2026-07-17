@@ -6,6 +6,7 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[Randomizer::]Celeste.Mod.Randomizer.RandoModu
 IL: {UNKNOWN_DETOUR: Priority: -1}[SpeedrunTool::]Celeste.Mod.SpeedrunTool.SaveLoad.Utils.StateMarkUtils.SetSaveStateColor(ILContext)
 IL: {HighFrameRateMod: Priority: -2147483648, After: *}[HighFrameRateMod::]Celeste.Mod.HighFrameRateMod.HighFrameRateModule.RecolorTimer(ILContext)
 IL: {TAS Helper BetterSpeedrunTimerDisplay: Before: *}[TASHelper::]Celeste.Mod.TASHelper.Gameplay.BetterSpeedrunTimerDisplay.IL_SpeedrunTimerDisplay_DrawTime(ILContext)
+IL: [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
 [V_0] Monocle.PixelFont
 [V_1] System.Single
 [V_2] System.Single
@@ -74,7 +75,17 @@ IL: {TAS Helper BetterSpeedrunTimerDisplay: Before: *}[TASHelper::]Celeste.Mod.T
  + IL_1001b: stloc V_6 @ [HighFrameRateMod::]Celeste.Mod.HighFrameRateMod.HighFrameRateModule.RecolorTimer(ILContext)
  + IL_1001c: br IL_00d8 @ [HighFrameRateMod::]Celeste.Mod.HighFrameRateMod.HighFrameRateModule.RecolorTimer(ILContext)
    IL_0057: ldarg.3
-   IL_0058: brtrue.s IL_1001d
+ + IL_1001d: call System.Boolean Celeste.Mod.Idline.Hooks::<ILSpeedrunTimerDisplayDrawTime>g__ShouldChangeTimerColor|13_1() @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+ + IL_1001e: brfalse IL_0058 @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+ + IL_1001f: ldsfld Microsoft.Xna.Framework.Color Celeste.Mod.Idline.Hooks::NewPrimaryTimerColor @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+ + IL_10020: ldarg alpha @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+ + IL_10021: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single) @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+ + IL_10022: stloc V_5 @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+ + IL_10023: ldsfld Microsoft.Xna.Framework.Color Celeste.Mod.Idline.Hooks::NewSecondaryTimerColor @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+ + IL_10024: ldarg alpha @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+ + IL_10025: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single) @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+ + IL_10026: stloc V_6 @ [Idline::]Celeste.Mod.Idline.Hooks.ILSpeedrunTimerDisplayDrawTime(ILContext)
+   IL_0058: brtrue.s IL_10027
    IL_005a: ldstr "918988"
    IL_005f: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String)
    IL_0064: ldarg.s alpha
@@ -86,23 +97,23 @@ IL: {TAS Helper BetterSpeedrunTimerDisplay: Before: *}[TASHelper::]Celeste.Mod.T
    IL_0079: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
    IL_007e: stloc.s V_6
    IL_0080: br.s IL_00d8
- + IL_1001d: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_1001e: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_1001f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Boolean>>(System.Int32,System.Int32) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10027: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10028: ldc.i4 0 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10029: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Func`1<System.Boolean>>(System.Int32,System.Int32) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
        => Invoke: [Randomizer::]Celeste.Mod.Randomizer.RandoModule.<SetPlatinumColor>b__85_0()
- + IL_10020: callvirt TResult System.Func`1<System.Boolean>::Invoke() @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_10021: brfalse IL_0082 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_10022: ldstr "cb19d2" @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_10023: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_10024: ldarg alpha @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_10025: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_10026: stloc V_5 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_10027: ldstr "994f9c" @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_10028: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_10029: ldarg alpha @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_1002a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_1002b: stloc V_6 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
- + IL_1002c: br IL_00d8 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_1002a: callvirt TResult System.Func`1<System.Boolean>::Invoke() @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_1002b: brfalse IL_0082 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_1002c: ldstr "cb19d2" @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_1002d: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_1002e: ldarg alpha @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_1002f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10030: stloc V_5 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10031: ldstr "994f9c" @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10032: call Microsoft.Xna.Framework.Color Monocle.Calc::HexToColor(System.String) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10033: ldarg alpha @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10034: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single) @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10035: stloc V_6 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
+ + IL_10036: br IL_00d8 @ [Randomizer::]Celeste.Mod.Randomizer.RandoModule.SetPlatinumColor(ILContext)
    IL_0082: ldarg.s bestTime
    IL_0084: brfalse.s IL_00ae
    IL_0086: ldstr "fad768"
@@ -195,8 +206,8 @@ IL: {TAS Helper BetterSpeedrunTimerDisplay: Before: *}[TASHelper::]Celeste.Mod.T
    IL_0172: ldloc.s V_9
    IL_0174: ldc.r4 2
    IL_0179: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
- + IL_1002d: ldarg.s alpha @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.BetterSpeedrunTimerDisplay.IL_SpeedrunTimerDisplay_DrawTime(ILContext)
- + IL_1002e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Multiply(Microsoft.Xna.Framework.Color,System.Single) @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.BetterSpeedrunTimerDisplay.IL_SpeedrunTimerDisplay_DrawTime(ILContext)
+ + IL_10037: ldarg.s alpha @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.BetterSpeedrunTimerDisplay.IL_SpeedrunTimerDisplay_DrawTime(ILContext)
+ + IL_10038: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::Multiply(Microsoft.Xna.Framework.Color,System.Single) @ [TASHelper::]Celeste.Mod.TASHelper.Gameplay.BetterSpeedrunTimerDisplay.IL_SpeedrunTimerDisplay_DrawTime(ILContext)
    IL_017e: callvirt System.Void Monocle.PixelFont::DrawOutline(System.Single,System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
    IL_0183: ldloc.3
    IL_0184: ldloc.s V_10

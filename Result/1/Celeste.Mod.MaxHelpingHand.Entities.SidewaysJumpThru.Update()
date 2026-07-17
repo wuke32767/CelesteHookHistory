@@ -1,0 +1,144 @@
+IL: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ModifyUpdate(ILContext)
+[V_0] Celeste.Player
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+ + IL_10000: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ModifyUpdate(ILContext)
+ + IL_10001: isinst Celeste.Mod.MaxHelpingHand.Entities.AttachedSidewaysJumpThru @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ModifyUpdate(ILContext)
+ + IL_10002: brfalse IL_0006 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ModifyUpdate(ILContext)
+ + IL_10003: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ModifyUpdate(ILContext)
+ + IL_10004: isinst Celeste.Mod.MaxHelpingHand.Entities.AttachedSidewaysJumpThru @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ModifyUpdate(ILContext)
+ + IL_10005: dup @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ModifyUpdate(ILContext)
+ + IL_10006: ldfld Celeste.Solid Celeste.Mod.MaxHelpingHand.Entities.AttachedSidewaysJumpThru::playerInteractingSolid @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ModifyUpdate(ILContext)
+ + IL_10007: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection::GainSidewaysBlockboost(Celeste.Mod.MaxHelpingHand.Entities.AttachedSidewaysJumpThru,Celeste.Solid) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ModifyUpdate(ILContext)
+   IL_0006: ldarg.0
+   IL_0007: call T Monocle.Entity::CollideFirst<Celeste.Player>()
+   IL_000c: stloc.0
+   IL_000d: ldloc.0
+   IL_000e: brtrue.s IL_0011
+   IL_0010: ret
+   IL_0011: ldarg.0
+   IL_0012: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.SidewaysJumpThru::pushPlayer
+   IL_0017: brfalse IL_00c9
+   IL_001c: ldarg.0
+   IL_001d: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.SidewaysJumpThru::AllowLeftToRight
+   IL_0022: brfalse.s IL_007c
+   IL_0024: ldloc.0
+   IL_0025: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_002a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_002f: ldc.r4 0
+   IL_0034: blt.un IL_00c9
+   IL_0039: ldloc.0
+   IL_003a: ldfld System.Boolean Celeste.Player::onGround
+   IL_003f: brtrue IL_00c9
+   IL_0044: ldloc.0
+   IL_0045: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_004a: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_004f: ldc.i4.1
+   IL_0050: bne.un.s IL_005e
+   IL_0052: ldloc.0
+   IL_0053: ldfld System.Int32 Celeste.Player::lastClimbMove
+   IL_0058: ldc.i4.m1
+   IL_0059: bne.un IL_00c9
+   IL_005e: ldloc.0
+   IL_005f: callvirt System.Boolean Celeste.Player::JumpThruBoostBlockedCheck()
+   IL_0064: brtrue.s IL_00c9
+   IL_0066: ldloc.0
+   IL_0067: ldc.r4 40
+   IL_006c: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0071: mul
+   IL_0072: ldnull
+   IL_0073: ldnull
+   IL_0074: callvirt System.Boolean Celeste.Actor::MoveH(System.Single,Celeste.Collision,Celeste.Solid)
+   IL_0079: pop
+   IL_007a: br.s IL_00c9
+   IL_007c: ldloc.0
+   IL_007d: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+   IL_0082: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0087: ldc.r4 0
+   IL_008c: bgt.un.s IL_00c9
+   IL_008e: ldloc.0
+   IL_008f: ldfld System.Boolean Celeste.Player::onGround
+   IL_0094: brtrue.s IL_00c9
+   IL_0096: ldloc.0
+   IL_0097: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_009c: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_00a1: ldc.i4.1
+   IL_00a2: bne.un.s IL_00ad
+   IL_00a4: ldloc.0
+   IL_00a5: ldfld System.Int32 Celeste.Player::lastClimbMove
+   IL_00aa: ldc.i4.m1
+   IL_00ab: bne.un.s IL_00c9
+   IL_00ad: ldloc.0
+   IL_00ae: callvirt System.Boolean Celeste.Player::JumpThruBoostBlockedCheck()
+   IL_00b3: brtrue.s IL_00c9
+   IL_00b5: ldloc.0
+   IL_00b6: ldc.r4 -40
+   IL_00bb: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_00c0: mul
+   IL_00c1: ldnull
+   IL_00c2: ldnull
+   IL_00c3: callvirt System.Boolean Celeste.Actor::MoveH(System.Single,Celeste.Collision,Celeste.Solid)
+   IL_00c8: pop
+   IL_00c9: ldarg.0
+   IL_00ca: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.SidewaysJumpThru::cornerCorrect
+   IL_00cf: brfalse IL_0171
+   IL_00d4: ldloc.0
+   IL_00d5: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00da: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_00df: ldc.i4.2
+   IL_00e0: beq.s IL_00f3
+   IL_00e2: ldloc.0
+   IL_00e3: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00e8: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_00ed: ldc.i4.5
+   IL_00ee: bne.un IL_0171
+   IL_00f3: ldloc.0
+   IL_00f4: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
+   IL_00f9: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00fe: call System.Single System.Math::Abs(System.Single)
+   IL_0103: ldc.r4 0.1
+   IL_0108: bge.un.s IL_0171
+   IL_010a: ldarg.0
+   IL_010b: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.SidewaysJumpThru::AllowLeftToRight
+   IL_0110: brfalse.s IL_013e
+   IL_0112: ldarg.0
+   IL_0113: call System.Single Monocle.Entity::get_Right()
+   IL_0118: ldloc.0
+   IL_0119: callvirt System.Single Monocle.Entity::get_Left()
+   IL_011e: sub
+   IL_011f: ldc.r4 6
+   IL_0124: bgt.un.s IL_013e
+   IL_0126: ldloc.0
+   IL_0127: ldarg.0
+   IL_0128: call System.Single Monocle.Entity::get_Right()
+   IL_012d: ldloc.0
+   IL_012e: callvirt System.Single Monocle.Entity::get_Left()
+   IL_0133: sub
+   IL_0134: conv.i4
+   IL_0135: ldnull
+   IL_0136: ldnull
+   IL_0137: callvirt System.Boolean Celeste.Actor::MoveHExact(System.Int32,Celeste.Collision,Celeste.Solid)
+   IL_013c: pop
+   IL_013d: ret
+   IL_013e: ldarg.0
+   IL_013f: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.SidewaysJumpThru::AllowLeftToRight
+   IL_0144: brtrue.s IL_0171
+   IL_0146: ldloc.0
+   IL_0147: callvirt System.Single Monocle.Entity::get_Right()
+   IL_014c: ldarg.0
+   IL_014d: call System.Single Monocle.Entity::get_Left()
+   IL_0152: sub
+   IL_0153: ldc.r4 6
+   IL_0158: bgt.un.s IL_0171
+   IL_015a: ldloc.0
+   IL_015b: ldarg.0
+   IL_015c: call System.Single Monocle.Entity::get_Left()
+   IL_0161: ldloc.0
+   IL_0162: callvirt System.Single Monocle.Entity::get_Right()
+   IL_0167: sub
+   IL_0168: conv.i4
+   IL_0169: ldnull
+   IL_016a: ldnull
+   IL_016b: callvirt System.Boolean Celeste.Actor::MoveHExact(System.Int32,Celeste.Collision,Celeste.Solid)
+   IL_0170: pop
+   IL_0171: ret
