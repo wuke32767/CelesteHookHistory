@@ -288,20 +288,5 @@ On{pWNS9BgFtLg}: {LegacyHookConfig: Priority: 0}[StrawberryJam2021::]Celeste.Mod
    IL_03a2: ldfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::flag
    IL_03a7: ldarg.0
    IL_03a8: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::inverted
-   IL_03ad: call System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::isLegacyFlagMode(Celeste.Level,System.String,System.Boolean)
-   IL_03b2: brtrue.s IL_03df
-   IL_03b4: ldloc.3
-   IL_03b5: ldarg.0
-   IL_03b6: ldfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::flag
-   IL_03bb: ldarg.0
-   IL_03bc: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::inverted
-   IL_03c1: call System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::isFlagPersistent(Celeste.Level,System.String,System.Boolean)
-   IL_03c6: brtrue.s IL_03df
-   IL_03c8: ldloc.3
-   IL_03c9: ldfld Celeste.Session Celeste.Level::Session
-   IL_03ce: ldarg.0
-   IL_03cf: ldfld System.String Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::flag
-   IL_03d4: ldarg.0
-   IL_03d5: ldfld System.Boolean Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::inverted
-   IL_03da: callvirt System.Void Celeste.Session::SetFlag(System.String,System.Boolean)
-   IL_03df: ret
+   IL_03ad: call System.Void Celeste.Mod.MaxHelpingHand.Entities.FlagTouchSwitch::ResetFlagIfNecessary(Celeste.Level,System.String,System.Boolean)
+   IL_03b2: ret

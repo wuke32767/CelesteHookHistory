@@ -14,7 +14,6 @@ On{uQ1BCsk/pkI}: [vitmod::]vitmod.InteractiveChaser.Player_OnTransition(orig_OnT
 On{YHAGYwwSlEo}: [AxiomeToolbox::]Celeste.Mod.AxiomeToolbox.WaterBoost.WaterBoostDetector.OnTransition(orig_OnTransition,Player)
 On{OLcJXFJbi0o}: [izumisQOL::]Celeste.Mod.izumisQOL.NoClipModule.OnPlayerTransition(orig_OnTransition,Player)
 On{ehB6adshET4}: [CelesteButtplug::]Celeste.Mod.CelesteButtplug.Events.OnScreenTransition(orig_OnTransition,Player)
-IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
    IL_0000: ldarg.0
    IL_0001: ldc.r4 1.2
    IL_0006: stfld System.Single Celeste.Player::wallSlideTimer
@@ -31,14 +30,7 @@ IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Varia
    IL_002d: callvirt System.Boolean Celeste.Player::RefillDash()
    IL_0032: pop
    IL_0033: ldarg.0
- + IL_10000: dup @ [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
- + IL_10001: call System.Boolean ExtendedVariants.Variants.Stamina::shouldSkipRefillStamina() @ [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
- + IL_10002: brfalse IL_0034 @ [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
- + IL_10003: pop @ [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
- + IL_10004: pop @ [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
- + IL_10005: br IL_0039 @ [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
    IL_0034: callvirt System.Void Celeste.Player::RefillStamina()
- + IL_10006: call System.Void ExtendedVariants.Variants.Stamina::afterRefillStamina(Celeste.Player) @ [ExtendedVariantMode::]ExtendedVariants.Variants.Stamina.wrapRefillStamina(ILContext)
    IL_0039: ldarg.0
    IL_003a: ldfld Celeste.Leader Celeste.Player::Leader
    IL_003f: callvirt System.Void Celeste.Leader::TransferFollowers()
