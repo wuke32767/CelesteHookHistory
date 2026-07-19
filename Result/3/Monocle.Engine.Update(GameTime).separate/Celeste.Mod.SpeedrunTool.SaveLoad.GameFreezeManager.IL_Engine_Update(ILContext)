@@ -33,10 +33,9 @@
    IL_005a: add
    IL_005b: call System.Void Monocle.Engine::set_FrameCounter(System.UInt64)
    IL_0060: call System.Void Monocle.MInput::Update()
- + IL_10000: call System.Void Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI::Update() @ [SpeedrunTool::]Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI.IL_Engine_Update(ILContext)
- + IL_10001: call System.Boolean Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI::IsPaused() @ [SpeedrunTool::]Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI.IL_Engine_Update(ILContext)
- + IL_10002: brfalse IL_0065 @ [SpeedrunTool::]Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI.IL_Engine_Update(ILContext)
- + IL_10003: ret @ [SpeedrunTool::]Celeste.Mod.SpeedrunTool.MoreSaveSlotsUI.SnapshotUI.IL_Engine_Update(ILContext)
+ + IL_10000: call System.Boolean Celeste.Mod.SpeedrunTool.SaveLoad.GameFreezeManager::UI_IsOpen() @ [SpeedrunTool::]Celeste.Mod.SpeedrunTool.SaveLoad.GameFreezeManager.IL_Engine_Update(ILContext)
+ + IL_10001: brfalse IL_0065 @ [SpeedrunTool::]Celeste.Mod.SpeedrunTool.SaveLoad.GameFreezeManager.IL_Engine_Update(ILContext)
+ + IL_10002: ret @ [SpeedrunTool::]Celeste.Mod.SpeedrunTool.SaveLoad.GameFreezeManager.IL_Engine_Update(ILContext)
    IL_0065: ldsfld System.Boolean Monocle.Engine::ExitOnEscapeKeypress
    IL_006a: brfalse.s IL_0081
    IL_006c: call Monocle.MInput/KeyboardData Monocle.MInput::get_Keyboard()
