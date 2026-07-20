@@ -1,0 +1,55 @@
+IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.SkipAddNewPage(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.FancyText::CalcLineWidth()
+   IL_0006: ldarg.0
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Int32 Celeste.FancyText::currentLine
+   IL_000d: ldc.i4.1
+   IL_000e: add
+   IL_000f: stfld System.Int32 Celeste.FancyText::currentLine
+   IL_0014: ldarg.0
+   IL_0015: ldc.r4 0
+   IL_001a: stfld System.Single Celeste.FancyText::currentPosition
+   IL_001f: ldarg.0
+   IL_0020: ldfld Celeste.FancyText/Text Celeste.FancyText::group
+   IL_0025: dup
+   IL_0026: ldfld System.Int32 Celeste.FancyText/Text::Lines
+   IL_002b: ldc.i4.1
+   IL_002c: add
+   IL_002d: stfld System.Int32 Celeste.FancyText/Text::Lines
+ + IL_10000: ldarg.0 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.SkipAddNewPage(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand::ShouldSkipAddNewPage(Celeste.FancyText) @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.SkipAddNewPage(ILContext)
+ + IL_10002: brtrue IL_007e @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.SkipAddNewPage(ILContext)
+   IL_0032: ldarg.0
+   IL_0033: ldfld System.Int32 Celeste.FancyText::currentLine
+   IL_0038: ldarg.0
+   IL_0039: ldfld System.Int32 Celeste.FancyText::linesPerPage
+   IL_003e: ble.s IL_007e
+   IL_0040: ldarg.0
+   IL_0041: ldfld Celeste.FancyText/Text Celeste.FancyText::group
+   IL_0046: dup
+   IL_0047: ldfld System.Int32 Celeste.FancyText/Text::Pages
+   IL_004c: ldc.i4.1
+   IL_004d: add
+   IL_004e: stfld System.Int32 Celeste.FancyText/Text::Pages
+   IL_0053: ldarg.0
+   IL_0054: ldarg.0
+   IL_0055: ldfld System.Int32 Celeste.FancyText::currentPage
+   IL_005a: ldc.i4.1
+   IL_005b: add
+   IL_005c: stfld System.Int32 Celeste.FancyText::currentPage
+   IL_0061: ldarg.0
+   IL_0062: ldc.i4.0
+   IL_0063: stfld System.Int32 Celeste.FancyText::currentLine
+   IL_0068: ldarg.0
+   IL_0069: ldfld Celeste.FancyText/Text Celeste.FancyText::group
+   IL_006e: ldfld System.Collections.Generic.List`1<Celeste.FancyText/Node> Celeste.FancyText/Text::Nodes
+   IL_0073: newobj System.Void Celeste.FancyText/NewPage::.ctor()
+   IL_0078: callvirt System.Void System.Collections.Generic.List`1<Celeste.FancyText/Node>::Add(T)
+   IL_007d: ret
+   IL_007e: ldarg.0
+   IL_007f: ldfld Celeste.FancyText/Text Celeste.FancyText::group
+   IL_0084: ldfld System.Collections.Generic.List`1<Celeste.FancyText/Node> Celeste.FancyText/Text::Nodes
+   IL_0089: newobj System.Void Celeste.FancyText/NewLine::.ctor()
+   IL_008e: callvirt System.Void System.Collections.Generic.List`1<Celeste.FancyText/Node>::Add(T)
+   IL_0093: ret
