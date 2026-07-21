@@ -318,6 +318,9 @@
    IL_03bc: callvirt Celeste.LevelData Celeste.Session::get_LevelData()
    IL_03c1: ldfld System.Boolean Celeste.LevelData::DisableDownTransition
    IL_03c6: brtrue.s IL_0419
+ + IL_10000: ldarg.1 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Level_EnforceBounds(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController::IsAffectedAndDreamDashing(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Level_EnforceBounds(ILContext)
+ + IL_10002: brtrue IL_03ed @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Level_EnforceBounds(ILContext)
    IL_03c8: ldarg.1
    IL_03c9: ldarg.1
    IL_03ca: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
@@ -326,10 +329,6 @@
    IL_03d9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_03de: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_03e3: callvirt System.Boolean Monocle.Entity::CollideCheck<Celeste.Solid>(Microsoft.Xna.Framework.Vector2)
- + IL_10000: ldarg.1 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Level_EnforceBounds(ILContext)
- + IL_10001: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController::IsAffectedAndDreamDashing(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Level_EnforceBounds(ILContext)
- + IL_10002: not @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Level_EnforceBounds(ILContext)
- + IL_10003: and @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Level_EnforceBounds(ILContext)
    IL_03e8: brtrue IL_047b
    IL_03ed: ldarg.1
    IL_03ee: callvirt System.Void Celeste.Player::BeforeDownTransition()

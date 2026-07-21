@@ -11,7 +11,6 @@ On{cUb9hmdIj0g}: {UNKNOWN_DETOUR: Priority: 0}[CenterCamDeath::]Celeste.Mod.Cent
 On{vQZOTLQZZGQ}: {UNKNOWN_DETOUR: Priority: 0}[StrawberryTool::]Celeste.Mod.StrawberryTool.Feature.Translucent.TranslucentUtils.PlayerOnRender(orig_Render,Player)
 On{8bWkwZDeepU}: {UNKNOWN_DETOUR: Priority: 0}[PandorasBox::]Celeste.Mod.PandorasBox.DreamDashController.Player_Render(orig_Render,Player)
 On{y5hCXjq0iwo}: {UNKNOWN_DETOUR: Priority: 0}[PandorasBox::]Celeste.Mod.PandorasBox.WaterDrowningController.Player_OnRender(orig_Render,Player)
-On{76Br3DHIYjE}: {UNKNOWN_DETOUR: Priority: 0}[LocksmithHelper::]Celeste.Mod.LocksmithHelper.LocksmithHelperModule.OnPlayerRender(orig_Render,Player)
 On{zOam52ZERk0}: {UNKNOWN_DETOUR: Priority: 0}[JackalHelper::]Celeste.Mod.JackalHelper.JackalModule.Player_Render(orig_Render,Player)
 On{tw4fpYsxQxw}: {UNKNOWN_DETOUR: Priority: 0}[JackalHelper::]TwigModule.onPlayerRender(orig_Render,Player)
 On{IM1a23wlBPw}: {UNKNOWN_DETOUR: Priority: 0}[BrokemiaHelper::]BrokemiaHelper.TronState.Player_Render(orig_Render,Player)
@@ -29,6 +28,7 @@ On{VolXGYFd1fM}: [IsaMods::]Celeste.Mod.IsaGrabBag.RewindCrystal.Player_Render(o
 On{LFflWzo54VE}: [Skateline::]Celeste.Mod.Skateline.Triggers.SkateboardTrigger.Player_Render(orig_Render,Player)
 On{T3RhWaizAGE}: [ScuffedHelper::]Celeste.Mod.ScuffedHelper.SetWaterDashesEntity.modRender(orig_Render,Player)
 On{R5fU9D/jTjY}: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMagicLanternController.Player_OnRender(orig_Render,Player)
+On{76Br3DHIYjE}: [LocksmithHelper::]Celeste.Mod.LocksmithHelper.LocksmithHelperModule.OnPlayerRender(orig_Render,Player)
 On{rEE1lsAqe4o}: [BlinkHelper::]Celeste.Mod.BlinkHelper.BlinkHelperModule.RenderNextPos(orig_Render,Player)
 IL: {UNKNOWN_DETOUR: Priority: -1}[CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.PoisonGas.Player_Render(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[XaphanHelper::]Celeste.Mod.XaphanHelper.XaphanModule.modILPlayerRender(ILContext)
@@ -39,9 +39,9 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[LuckyHelper::]LuckyHelper.Modules.CustomWater
 IL: {UNKNOWN_DETOUR: Priority: -1}[SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.MadelineSilhouetteTrigger.patchPlayerRender(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[VivHelper::]VivHelper.VivHelperModule.Player_Render(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[MultiheartHelper::]Celeste.Mod.MultiheartHelper.LineMirror.Hook_Render(ILContext)
-IL: {UNKNOWN_DETOUR: Priority: -1}[DzhakeHelper::]Celeste.Mod.DzhakeHelper.DzhakeHelperHooks.PlayerRender_IL(ILContext)
 IL: {MaddieHelpingHand_BeforeAll: Priority: -2147483648}[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger.patchPlayerRender(ILContext)
 IL: [PlayerGhostMode::]Celeste.Mod.PlayerGhostMode.GhostModeComponent.IL_Player_Render(ILContext)
+IL: [DzhakeHelper::]Celeste.Mod.DzhakeHelper.DzhakeHelperHooks.PlayerRender_IL(ILContext)
 [V_0] Microsoft.Xna.Framework.Vector2
 [V_1] System.Single
  + IL_10000: ldarg.0 @ [MultiheartHelper::]Celeste.Mod.MultiheartHelper.LineMirror.Hook_Render(ILContext)
@@ -158,9 +158,9 @@ IL: [PlayerGhostMode::]Celeste.Mod.PlayerGhostMode.GhostModeComponent.IL_Player_
    IL_00e4: ldarg.0
    IL_00e5: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_00ea: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
- + IL_10022: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger.patchPlayerRender(ILContext)
- + IL_10023: call Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger::overrideBodyColorWithHairColor(Microsoft.Xna.Framework.Color,Celeste.Player) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger.patchPlayerRender(ILContext)
- + IL_10024: call Microsoft.Xna.Framework.Color Celeste.Mod.DzhakeHelper.DzhakeHelperHooks::PlayersColor(Microsoft.Xna.Framework.Color) @ [DzhakeHelper::]Celeste.Mod.DzhakeHelper.DzhakeHelperHooks.PlayerRender_IL(ILContext)
+ + IL_10022: call Microsoft.Xna.Framework.Color Celeste.Mod.DzhakeHelper.DzhakeHelperHooks::PlayersColor(Microsoft.Xna.Framework.Color) @ [DzhakeHelper::]Celeste.Mod.DzhakeHelper.DzhakeHelperHooks.PlayerRender_IL(ILContext)
+ + IL_10023: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger.patchPlayerRender(ILContext)
+ + IL_10024: call Microsoft.Xna.Framework.Color Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger::overrideBodyColorWithHairColor(Microsoft.Xna.Framework.Color,Celeste.Player) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Triggers.MadelineSilhouetteTrigger.patchPlayerRender(ILContext)
  + IL_10025: ldarg.0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.MadelineSilhouetteTrigger.patchPlayerRender(ILContext)
  + IL_10026: ldc.i4 0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.MadelineSilhouetteTrigger.patchPlayerRender(ILContext)
  + IL_10027: ldc.i4 0 @ [SpringCollab2020::]Celeste.Mod.SpringCollab2020.Triggers.MadelineSilhouetteTrigger.patchPlayerRender(ILContext)
