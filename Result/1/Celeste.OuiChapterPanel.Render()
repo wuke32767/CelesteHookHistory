@@ -6,6 +6,7 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[EndersExtras::]Celeste.Mod.EndersExtras.Ender
 IL: {UNKNOWN_DETOUR: Priority: -1}[SpringCollab2020::]Celeste.Mod.SpringCollab2020.GrandmasterHeartSideHelper.renderOldGMHSCompletionStamp(ILContext)
 IL: [DiamondBerry::]Celeste.Mod.DiamondBerry.Entities.DiamondBerry.OuiChapterPanelRenderPatch(ILContext)
 IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+IL: [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.CustomChapterPanel.renderMixin(ILContext)
 [V_0] Microsoft.Xna.Framework.Vector2
 [V_1] System.Boolean
 [V_2] Monocle.MTexture
@@ -311,6 +312,8 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
  + IL_10031: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_02ad: ldarg.0
    IL_02ae: ldfld System.Boolean Celeste.OuiChapterPanel::selectingMode
+ + IL_10032: ldarg.0 @ [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.CustomChapterPanel.renderMixin(ILContext)
+ + IL_10033: call System.Boolean Celeste.Mod.ReallyBigHelper.CustomChapterPanel::CustomRender(System.Boolean,Celeste.OuiChapterPanel) @ [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.CustomChapterPanel.renderMixin(ILContext)
    IL_02b3: brfalse IL_034e
    IL_02b8: ldarg.0
    IL_02b9: ldfld Celeste.StrawberriesCounter Celeste.OuiChapterPanel::strawberries
@@ -336,16 +339,16 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
    IL_0309: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel::deathsOffset
    IL_030e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_0313: stfld Microsoft.Xna.Framework.Vector2 Celeste.DeathsCounter::Position
- + IL_10032: ldarg.0 @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
- + IL_10033: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel::contentOffset @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
- + IL_10034: ldc.i4 0 @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
- + IL_10035: ldc.i4 0 @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
- + IL_10036: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
+ + IL_10034: ldarg.0 @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
+ + IL_10035: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel::contentOffset @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
+ + IL_10036: ldc.i4 0 @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
+ + IL_10037: ldc.i4 0 @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
+ + IL_10038: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
        => Invoke: [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.UpdateComfCounterRenderedPosition(Vector2)
- + IL_10037: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Microsoft.Xna.Framework.Vector2>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
- + IL_10038: ldarg.0 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.SpeedBerryPBInChapterPanel.modOuiChapterPanelRender(ILContext)
- + IL_10039: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel::contentOffset @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.SpeedBerryPBInChapterPanel.modOuiChapterPanelRender(ILContext)
- + IL_1003a: call System.Void Celeste.Mod.CollabUtils2.UI.SpeedBerryPBInChapterPanel::updateSpeedBerryPBPosition(Microsoft.Xna.Framework.Vector2) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.SpeedBerryPBInChapterPanel.modOuiChapterPanelRender(ILContext)
+ + IL_10039: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal1<Microsoft.Xna.Framework.Vector2>(T0,MonoMod.Cil.FastDelegateInvokers/VoidVal1`1<T0>) @ [DoonvHelper::]Celeste.Mod.DoonvHelper.ComfCounterInChapterPanel.ModOuiChapterPanelRender(ILContext)
+ + IL_1003a: ldarg.0 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.SpeedBerryPBInChapterPanel.modOuiChapterPanelRender(ILContext)
+ + IL_1003b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.OuiChapterPanel::contentOffset @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.SpeedBerryPBInChapterPanel.modOuiChapterPanelRender(ILContext)
+ + IL_1003c: call System.Void Celeste.Mod.CollabUtils2.UI.SpeedBerryPBInChapterPanel::updateSpeedBerryPBPosition(Microsoft.Xna.Framework.Vector2) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.SpeedBerryPBInChapterPanel.modOuiChapterPanelRender(ILContext)
    IL_0318: ldarg.0
    IL_0319: ldfld Celeste.HeartGemDisplay Celeste.OuiChapterPanel::heart
    IL_031e: ldarg.0
@@ -362,6 +365,8 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
    IL_0349: call System.Void Monocle.Entity::Render()
    IL_034e: ldarg.0
    IL_034f: ldfld System.Boolean Celeste.OuiChapterPanel::selectingMode
+ + IL_1003d: ldarg.0 @ [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.CustomChapterPanel.renderMixin(ILContext)
+ + IL_1003e: call System.Boolean Celeste.Mod.ReallyBigHelper.CustomChapterPanel::disableRender(System.Boolean,Celeste.OuiChapterPanel) @ [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.CustomChapterPanel.renderMixin(ILContext)
    IL_0354: brtrue.s IL_03ab
    IL_0356: ldarg.0
    IL_0357: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
@@ -411,10 +416,10 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
    IL_03e5: ldarg.0
    IL_03e6: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
    IL_03eb: ldfld Microsoft.Xna.Framework.Color Celeste.AreaData::TitleBaseColor
- + IL_1003b: ldstr "Base" @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1003c: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartShaderLayerRender(System.String) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1003f: ldstr "Base" @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10040: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartShaderLayerRender(System.String) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_03f0: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
- + IL_1003d: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndShaderLayerRender() @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10041: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndShaderLayerRender() @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_03f5: ldsfld Monocle.Atlas Celeste.GFX::Gui
    IL_03fa: ldarg.0
    IL_03fb: ldstr "areaselect/accent"
@@ -432,30 +437,30 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
    IL_042f: ldarg.0
    IL_0430: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
    IL_0435: ldfld Microsoft.Xna.Framework.Color Celeste.AreaData::TitleAccentColor
- + IL_1003e: ldstr "Accent" @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1003f: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartShaderLayerRender(System.String) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10042: ldstr "Accent" @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10043: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartShaderLayerRender(System.String) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_043a: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
- + IL_10040: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndShaderLayerRender() @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10041: ldarg.0 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10042: ldloc.2 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10043: ldc.i4 2 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10044: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::DrawOverlays(Celeste.OuiChapterPanel,Monocle.MTexture,Celeste.Mod.HamburgerHelper.HamburgerHelperMetadata/OverlayData/Layers) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10044: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndShaderLayerRender() @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10045: ldarg.0 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10046: ldloc.2 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10047: ldc.i4 2 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10048: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::DrawOverlays(Celeste.OuiChapterPanel,Monocle.MTexture,Celeste.Mod.HamburgerHelper.HamburgerHelperMetadata/OverlayData/Layers) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_043f: ldarg.0
    IL_0440: ldfld Celeste.AreaKey Celeste.OuiChapterPanel::Area
    IL_0445: call Celeste.AreaData Celeste.AreaData::Get(Celeste.AreaKey)
    IL_044a: ldfld System.String Celeste.AreaData::Name
- + IL_10045: ldarg.0 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
- + IL_10046: call System.String Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::modChapterPanelName(System.String,Celeste.OuiChapterPanel) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
+ + IL_10049: ldarg.0 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
+ + IL_1004a: call System.String Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::modChapterPanelName(System.String,Celeste.OuiChapterPanel) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
    IL_044f: ldnull
    IL_0450: call System.String Celeste.Dialog::Clean(System.String,Celeste.Language)
- + IL_10047: ldarg.0 @ [EndersExtras::]Celeste.Mod.EndersExtras.EndersExtrasModule.ILHook_OuiChapterPanelRender(ILContext)
- + IL_10048: call System.String Celeste.Mod.EndersExtras.EndersExtrasModule::OuiChapterSelectReplacementMapName(System.String,Celeste.OuiChapterPanel) @ [EndersExtras::]Celeste.Mod.EndersExtras.EndersExtrasModule.ILHook_OuiChapterPanelRender(ILContext)
+ + IL_1004b: ldarg.0 @ [EndersExtras::]Celeste.Mod.EndersExtras.EndersExtrasModule.ILHook_OuiChapterPanelRender(ILContext)
+ + IL_1004c: call System.String Celeste.Mod.EndersExtras.EndersExtrasModule::OuiChapterSelectReplacementMapName(System.String,Celeste.OuiChapterPanel) @ [EndersExtras::]Celeste.Mod.EndersExtras.EndersExtrasModule.ILHook_OuiChapterPanelRender(ILContext)
    IL_0455: stloc.s V_12
    IL_0457: ldarg.0
    IL_0458: ldfld Celeste.AreaData Celeste.OuiChapterPanel::Data
    IL_045d: callvirt System.Boolean Celeste.AreaData::get_Interlude_Safe()
- + IL_10049: ldarg.0 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
- + IL_1004a: call System.Boolean Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::hideChapterNumberIfNecessary(System.Boolean,Celeste.OuiChapterPanel) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
+ + IL_1004d: ldarg.0 @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
+ + IL_1004e: call System.Boolean Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::hideChapterNumberIfNecessary(System.Boolean,Celeste.OuiChapterPanel) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
    IL_0462: brfalse.s IL_04c8
    IL_0464: ldloc.s V_12
    IL_0466: ldarg.0
@@ -478,29 +483,29 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
    IL_04af: ldfld Microsoft.Xna.Framework.Color Celeste.AreaData::TitleTextColor
    IL_04b4: ldc.r4 0.8
    IL_04b9: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
- + IL_1004b: stloc V_22 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1004c: stloc V_21 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1004d: stloc V_20 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1004e: stloc V_19 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1004f: stloc V_18 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10050: ldloc V_18 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10051: ldloc V_19 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10052: ldloc V_20 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10053: ldloc V_21 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10054: ldloc V_22 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10055: ldloc V_18 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10056: ldloc V_19 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10057: ldloc V_20 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10058: ldloc V_21 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10059: ldloc V_22 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1005a: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1004f: stloc V_22 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10050: stloc V_21 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10051: stloc V_20 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10052: stloc V_19 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10053: stloc V_18 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10054: ldloc V_18 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10055: ldloc V_19 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10056: ldloc V_20 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10057: ldloc V_21 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10058: ldloc V_22 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10059: ldloc V_18 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1005a: ldloc V_19 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1005b: ldloc V_20 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1005c: ldloc V_21 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1005d: ldloc V_22 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1005e: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_04be: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
- + IL_1005b: ldloc V_18 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1005c: ldloc V_19 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1005d: ldloc V_20 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1005e: ldloc V_21 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1005f: ldloc V_22 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10060: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1005f: ldloc V_18 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10060: ldloc V_19 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10061: ldloc V_20 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10062: ldloc V_21 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10063: ldloc V_22 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10064: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_04c3: br IL_058a
    IL_04c8: ldarg.0
    IL_04c9: ldfld System.String Celeste.OuiChapterPanel::chapter
@@ -511,7 +516,7 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
    IL_04da: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_04df: ldc.r4 -100
    IL_04e4: ldc.r4 -2
- + IL_10061: call System.Single Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::swapChapterNumberAndName(System.Single) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
+ + IL_10065: call System.Single Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::swapChapterNumberAndName(System.Single) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
    IL_04e9: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
    IL_04ee: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_04f3: ldc.r4 1
@@ -525,29 +530,29 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
    IL_0517: ldfld Microsoft.Xna.Framework.Color Celeste.AreaData::TitleAccentColor
    IL_051c: ldc.r4 0.8
    IL_0521: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
- + IL_10062: stloc V_27 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10063: stloc V_26 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10064: stloc V_25 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10065: stloc V_24 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10066: stloc V_23 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10067: ldloc V_23 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10068: ldloc V_24 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10069: ldloc V_25 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1006a: ldloc V_26 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1006b: ldloc V_27 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1006c: ldloc V_23 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1006d: ldloc V_24 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1006e: ldloc V_25 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1006f: ldloc V_26 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10070: ldloc V_27 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10071: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10066: stloc V_27 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10067: stloc V_26 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10068: stloc V_25 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10069: stloc V_24 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1006a: stloc V_23 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1006b: ldloc V_23 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1006c: ldloc V_24 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1006d: ldloc V_25 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1006e: ldloc V_26 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1006f: ldloc V_27 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10070: ldloc V_23 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10071: ldloc V_24 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10072: ldloc V_25 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10073: ldloc V_26 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10074: ldloc V_27 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10075: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_0526: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
- + IL_10072: ldloc V_23 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10073: ldloc V_24 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10074: ldloc V_25 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10075: ldloc V_26 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10076: ldloc V_27 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10077: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10076: ldloc V_23 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10077: ldloc V_24 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10078: ldloc V_25 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10079: ldloc V_26 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1007a: ldloc V_27 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1007b: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_052b: ldloc.s V_12
    IL_052d: ldarg.0
    IL_052e: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
@@ -556,7 +561,7 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
    IL_0539: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_053e: ldc.r4 -100
    IL_0543: ldc.r4 -18
- + IL_10078: call System.Single Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::swapChapterNumberAndName(System.Single) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
+ + IL_1007c: call System.Single Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper::swapChapterNumberAndName(System.Single) @ [CollabUtils2::]Celeste.Mod.CollabUtils2.UI.InGameOverworldHelper.ModOuiChapterPanelRender(ILContext)
    IL_0548: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
    IL_054d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_0552: ldc.r4 1
@@ -570,33 +575,33 @@ IL: [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomizatio
    IL_0576: ldfld Microsoft.Xna.Framework.Color Celeste.AreaData::TitleTextColor
    IL_057b: ldc.r4 0.8
    IL_0580: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
- + IL_10079: stloc V_32 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1007a: stloc V_31 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1007b: stloc V_30 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1007c: stloc V_29 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1007d: stloc V_28 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1007e: ldloc V_28 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1007f: ldloc V_29 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10080: ldloc V_30 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10081: ldloc V_31 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10082: ldloc V_32 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10083: ldloc V_28 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10084: ldloc V_29 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10085: ldloc V_30 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10086: ldloc V_31 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10087: ldloc V_32 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10088: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1007d: stloc V_32 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1007e: stloc V_31 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1007f: stloc V_30 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10080: stloc V_29 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10081: stloc V_28 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10082: ldloc V_28 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10083: ldloc V_29 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10084: ldloc V_30 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10085: ldloc V_31 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10086: ldloc V_32 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10087: ldloc V_28 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10088: ldloc V_29 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10089: ldloc V_30 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1008a: ldloc V_31 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1008b: ldloc V_32 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1008c: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::StartTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_0585: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
- + IL_10089: ldloc V_28 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1008a: ldloc V_29 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1008b: ldloc V_30 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1008c: ldloc V_31 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1008d: ldloc V_32 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1008e: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_1008f: ldarg.0 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10090: ldloc.2 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10091: ldc.i4 3 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
- + IL_10092: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::DrawOverlays(Celeste.OuiChapterPanel,Monocle.MTexture,Celeste.Mod.HamburgerHelper.HamburgerHelperMetadata/OverlayData/Layers) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1008d: ldloc V_28 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1008e: ldloc V_29 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_1008f: ldloc V_30 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10090: ldloc V_31 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10091: ldloc V_32 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10092: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::EndTextShaderLayerRender(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10093: ldarg.0 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10094: ldloc.2 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10095: ldc.i4 3 @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
+ + IL_10096: call System.Void Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization::DrawOverlays(Celeste.OuiChapterPanel,Monocle.MTexture,Celeste.Mod.HamburgerHelper.HamburgerHelperMetadata/OverlayData/Layers) @ [HamburgerHelper::]Celeste.Mod.HamburgerHelper.Misc.ChapterPanelCustomization.OuiChapterPanelOnRender(ILContext)
    IL_058a: ldarg.0
    IL_058b: ldfld System.Single Celeste.OuiChapterPanel::spotlightAlpha
    IL_0590: ldc.r4 0

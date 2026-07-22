@@ -1,0 +1,591 @@
+IL: [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.MountainModelExtensions.setFarPlane(ILContext)
+[V_0] Microsoft.Xna.Framework.Quaternion
+[V_1] Microsoft.Xna.Framework.Matrix
+[V_2] Microsoft.Xna.Framework.Matrix
+[V_3] Microsoft.Xna.Framework.Matrix
+[V_4] Microsoft.Xna.Framework.Matrix
+[V_5] Microsoft.Xna.Framework.Matrix
+[V_6] System.Single
+[V_7] System.Single
+[V_8] Microsoft.Xna.Framework.Matrix
+[V_9] Microsoft.Xna.Framework.Graphics.VertexPositionColor[]
+[V_10] System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Graphics.EffectPass>
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.MountainModel::ResetRenderTargets()
+   IL_0006: ldarg.0
+   IL_0007: ldflda Celeste.MountainCamera Celeste.MountainModel::Camera
+   IL_000c: ldfld Microsoft.Xna.Framework.Quaternion Celeste.MountainCamera::Rotation
+   IL_0011: stloc.0
+   IL_0012: ldarg.0
+   IL_0013: ldfld System.Boolean Celeste.MountainModel::ignoreCameraRotation
+   IL_0018: brfalse.s IL_0021
+   IL_001a: ldarg.0
+   IL_001b: ldfld Microsoft.Xna.Framework.Quaternion Celeste.MountainModel::lastCameraRotation
+   IL_0020: stloc.0
+   IL_0021: ldc.r4 0.7853982
+   IL_0026: call System.Int32 Monocle.Engine::get_Width()
+   IL_002b: conv.r4
+   IL_002c: call System.Int32 Monocle.Engine::get_Height()
+   IL_0031: conv.r4
+   IL_0032: div
+   IL_0033: ldc.r4 0.25
+   IL_0038: ldc.r4 50
+ + IL_10000: ldarg.0 @ [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.MountainModelExtensions.setFarPlane(ILContext)
+ + IL_10001: call System.Single Celeste.Mod.ReallyBigHelper.MountainModelExtensions::setFarPlane_internal(System.Single,Celeste.MountainModel) @ [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.MountainModelExtensions.setFarPlane(ILContext)
+   IL_003d: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreatePerspectiveFieldOfView(System.Single,System.Single,System.Single,System.Single)
+   IL_0042: stloc.1
+   IL_0043: ldarg.0
+   IL_0044: ldflda Celeste.MountainCamera Celeste.MountainModel::Camera
+   IL_0049: ldfld Microsoft.Xna.Framework.Vector3 Celeste.MountainCamera::Position
+   IL_004e: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Vector3::op_UnaryNegation(Microsoft.Xna.Framework.Vector3)
+   IL_0053: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateTranslation(Microsoft.Xna.Framework.Vector3)
+   IL_0058: ldloc.0
+   IL_0059: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateFromQuaternion(Microsoft.Xna.Framework.Quaternion)
+   IL_005e: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_0063: stloc.2
+   IL_0064: ldloc.2
+   IL_0065: ldloc.1
+   IL_0066: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_006b: stloc.3
+   IL_006c: ldarg.0
+   IL_006d: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Vector3::get_Forward()
+   IL_0072: ldarg.0
+   IL_0073: ldflda Celeste.MountainCamera Celeste.MountainModel::Camera
+   IL_0078: ldfld Microsoft.Xna.Framework.Quaternion Celeste.MountainCamera::Rotation
+   IL_007d: call Microsoft.Xna.Framework.Quaternion Monocle.QuaternionExt::Conjugated(Microsoft.Xna.Framework.Quaternion)
+   IL_0082: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Vector3::Transform(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Quaternion)
+   IL_0087: stfld Microsoft.Xna.Framework.Vector3 Celeste.MountainModel::Forward
+   IL_008c: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0091: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0096: ldarg.0
+   IL_0097: ldfld Monocle.VirtualRenderTarget Celeste.MountainModel::buffer
+   IL_009c: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_00a1: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::SetRenderTarget(Microsoft.Xna.Framework.Graphics.RenderTarget2D)
+   IL_00a6: ldarg.0
+   IL_00a7: ldfld System.Single Celeste.MountainModel::StarEase
+   IL_00ac: ldc.r4 1
+   IL_00b1: bge.un IL_040a
+   IL_00b6: ldc.r4 0
+   IL_00bb: ldc.r4 5
+   IL_00c0: ldarg.0
+   IL_00c1: ldflda Celeste.MountainCamera Celeste.MountainModel::Camera
+   IL_00c6: ldflda Microsoft.Xna.Framework.Vector3 Celeste.MountainCamera::Position
+   IL_00cb: ldfld System.Single Microsoft.Xna.Framework.Vector3::Y
+   IL_00d0: ldc.r4 1.1
+   IL_00d5: mul
+   IL_00d6: sub
+   IL_00d7: ldc.r4 0
+   IL_00dc: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateTranslation(System.Single,System.Single,System.Single)
+   IL_00e1: ldloc.0
+   IL_00e2: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateFromQuaternion(Microsoft.Xna.Framework.Quaternion)
+   IL_00e7: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_00ec: ldloc.1
+   IL_00ed: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_00f2: stloc.s V_4
+   IL_00f4: ldarg.0
+   IL_00f5: ldfld System.Int32 Celeste.MountainModel::currState
+   IL_00fa: ldarg.0
+   IL_00fb: ldfld System.Int32 Celeste.MountainModel::nextState
+   IL_0100: bne.un.s IL_0122
+   IL_0102: ldarg.0
+   IL_0103: ldfld Celeste.MountainState[] Celeste.MountainModel::mountainStates
+   IL_0108: ldarg.0
+   IL_0109: ldfld System.Int32 Celeste.MountainModel::currState
+   IL_010e: ldelem.ref
+   IL_010f: ldfld Celeste.Skybox Celeste.MountainState::Skybox
+   IL_0114: ldloc.s V_4
+   IL_0116: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_011b: callvirt System.Void Celeste.Skybox::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Color)
+   IL_0120: br.s IL_0169
+   IL_0122: ldarg.0
+   IL_0123: ldfld Celeste.MountainState[] Celeste.MountainModel::mountainStates
+   IL_0128: ldarg.0
+   IL_0129: ldfld System.Int32 Celeste.MountainModel::currState
+   IL_012e: ldelem.ref
+   IL_012f: ldfld Celeste.Skybox Celeste.MountainState::Skybox
+   IL_0134: ldloc.s V_4
+   IL_0136: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_013b: callvirt System.Void Celeste.Skybox::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Color)
+   IL_0140: ldarg.0
+   IL_0141: ldfld Celeste.MountainState[] Celeste.MountainModel::mountainStates
+   IL_0146: ldarg.0
+   IL_0147: ldfld System.Int32 Celeste.MountainModel::nextState
+   IL_014c: ldelem.ref
+   IL_014d: ldfld Celeste.Skybox Celeste.MountainState::Skybox
+   IL_0152: ldloc.s V_4
+   IL_0154: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0159: ldarg.0
+   IL_015a: ldfld System.Single Celeste.MountainModel::easeState
+   IL_015f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0164: callvirt System.Void Celeste.Skybox::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Color)
+   IL_0169: ldarg.0
+   IL_016a: ldfld System.Int32 Celeste.MountainModel::currState
+   IL_016f: ldarg.0
+   IL_0170: ldfld System.Int32 Celeste.MountainModel::nextState
+   IL_0175: beq.s IL_01b6
+   IL_0177: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_017c: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_0181: ldstr "ease"
+   IL_0186: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_018b: ldarg.0
+   IL_018c: ldfld System.Single Celeste.MountainModel::easeState
+   IL_0191: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(System.Single)
+   IL_0196: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_019b: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_01a0: callvirt Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection Microsoft.Xna.Framework.Graphics.Effect::get_Techniques()
+   IL_01a5: ldstr "Easing"
+   IL_01aa: callvirt Microsoft.Xna.Framework.Graphics.EffectTechnique Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection::get_Item(System.String)
+   IL_01af: callvirt System.Void Microsoft.Xna.Framework.Graphics.Effect::set_CurrentTechnique(Microsoft.Xna.Framework.Graphics.EffectTechnique)
+   IL_01b4: br.s IL_01d4
+   IL_01b6: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_01bb: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_01c0: callvirt Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection Microsoft.Xna.Framework.Graphics.Effect::get_Techniques()
+   IL_01c5: ldstr "Single"
+   IL_01ca: callvirt Microsoft.Xna.Framework.Graphics.EffectTechnique Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection::get_Item(System.String)
+   IL_01cf: callvirt System.Void Microsoft.Xna.Framework.Graphics.Effect::set_CurrentTechnique(Microsoft.Xna.Framework.Graphics.EffectTechnique)
+   IL_01d4: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_01d9: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_01de: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::Default
+   IL_01e3: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_DepthStencilState(Microsoft.Xna.Framework.Graphics.DepthStencilState)
+   IL_01e8: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_01ed: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_01f2: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_01f7: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_BlendState(Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_01fc: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0201: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0206: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Celeste.MountainModel::MountainRasterizer
+   IL_020b: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_RasterizerState(Microsoft.Xna.Framework.Graphics.RasterizerState)
+   IL_0210: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_0215: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_021a: ldstr "WorldViewProj"
+   IL_021f: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0224: ldloc.3
+   IL_0225: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Matrix)
+   IL_022a: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_022f: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_0234: ldstr "fog"
+   IL_0239: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_023e: ldarg.0
+   IL_023f: ldfld Celeste.Ring Celeste.MountainModel::fog
+   IL_0244: ldflda Microsoft.Xna.Framework.Color Celeste.Ring::TopColor
+   IL_0249: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Color::ToVector3()
+   IL_024e: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector3)
+   IL_0253: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0258: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_025d: callvirt Microsoft.Xna.Framework.Graphics.TextureCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Textures()
+   IL_0262: ldc.i4.0
+   IL_0263: ldarg.0
+   IL_0264: ldfld Celeste.MountainState[] Celeste.MountainModel::mountainStates
+   IL_0269: ldarg.0
+   IL_026a: ldfld System.Int32 Celeste.MountainModel::currState
+   IL_026f: ldelem.ref
+   IL_0270: ldfld Monocle.VirtualTexture Celeste.MountainState::TerrainTexture
+   IL_0275: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_027a: callvirt System.Void Microsoft.Xna.Framework.Graphics.TextureCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.Texture)
+   IL_027f: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0284: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0289: callvirt Microsoft.Xna.Framework.Graphics.SamplerStateCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_SamplerStates()
+   IL_028e: ldc.i4.0
+   IL_028f: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::LinearClamp
+   IL_0294: callvirt System.Void Microsoft.Xna.Framework.Graphics.SamplerStateCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.SamplerState)
+   IL_0299: ldarg.0
+   IL_029a: ldfld System.Int32 Celeste.MountainModel::currState
+   IL_029f: ldarg.0
+   IL_02a0: ldfld System.Int32 Celeste.MountainModel::nextState
+   IL_02a5: beq.s IL_02ed
+   IL_02a7: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_02ac: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_02b1: callvirt Microsoft.Xna.Framework.Graphics.TextureCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Textures()
+   IL_02b6: ldc.i4.1
+   IL_02b7: ldarg.0
+   IL_02b8: ldfld Celeste.MountainState[] Celeste.MountainModel::mountainStates
+   IL_02bd: ldarg.0
+   IL_02be: ldfld System.Int32 Celeste.MountainModel::nextState
+   IL_02c3: ldelem.ref
+   IL_02c4: ldfld Monocle.VirtualTexture Celeste.MountainState::TerrainTexture
+   IL_02c9: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_02ce: callvirt System.Void Microsoft.Xna.Framework.Graphics.TextureCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.Texture)
+   IL_02d3: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_02d8: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_02dd: callvirt Microsoft.Xna.Framework.Graphics.SamplerStateCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_SamplerStates()
+   IL_02e2: ldc.i4.1
+   IL_02e3: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::LinearClamp
+   IL_02e8: callvirt System.Void Microsoft.Xna.Framework.Graphics.SamplerStateCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.SamplerState)
+   IL_02ed: ldsfld Celeste.ObjModel Celeste.MTN::MountainTerrain
+   IL_02f2: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_02f7: callvirt System.Void Celeste.ObjModel::Draw(Microsoft.Xna.Framework.Graphics.Effect)
+   IL_02fc: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_0301: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_0306: ldstr "WorldViewProj"
+   IL_030b: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0310: ldarg.0
+   IL_0311: ldfld Microsoft.Xna.Framework.Vector3 Celeste.MountainModel::CoreWallPosition
+   IL_0316: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateTranslation(Microsoft.Xna.Framework.Vector3)
+   IL_031b: ldloc.3
+   IL_031c: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_0321: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Matrix)
+   IL_0326: ldsfld Celeste.ObjModel Celeste.MTN::MountainCoreWall
+   IL_032b: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_0330: callvirt System.Void Celeste.ObjModel::Draw(Microsoft.Xna.Framework.Graphics.Effect)
+   IL_0335: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_033a: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_033f: ldstr "WorldViewProj"
+   IL_0344: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0349: ldloc.3
+   IL_034a: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Matrix)
+   IL_034f: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0354: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0359: callvirt Microsoft.Xna.Framework.Graphics.TextureCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Textures()
+   IL_035e: ldc.i4.0
+   IL_035f: ldarg.0
+   IL_0360: ldfld Celeste.MountainState[] Celeste.MountainModel::mountainStates
+   IL_0365: ldarg.0
+   IL_0366: ldfld System.Int32 Celeste.MountainModel::currState
+   IL_036b: ldelem.ref
+   IL_036c: ldfld Monocle.VirtualTexture Celeste.MountainState::BuildingsTexture
+   IL_0371: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_0376: callvirt System.Void Microsoft.Xna.Framework.Graphics.TextureCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.Texture)
+   IL_037b: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0380: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0385: callvirt Microsoft.Xna.Framework.Graphics.SamplerStateCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_SamplerStates()
+   IL_038a: ldc.i4.0
+   IL_038b: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::LinearClamp
+   IL_0390: callvirt System.Void Microsoft.Xna.Framework.Graphics.SamplerStateCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.SamplerState)
+   IL_0395: ldarg.0
+   IL_0396: ldfld System.Int32 Celeste.MountainModel::currState
+   IL_039b: ldarg.0
+   IL_039c: ldfld System.Int32 Celeste.MountainModel::nextState
+   IL_03a1: beq.s IL_03e9
+   IL_03a3: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_03a8: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_03ad: callvirt Microsoft.Xna.Framework.Graphics.TextureCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Textures()
+   IL_03b2: ldc.i4.1
+   IL_03b3: ldarg.0
+   IL_03b4: ldfld Celeste.MountainState[] Celeste.MountainModel::mountainStates
+   IL_03b9: ldarg.0
+   IL_03ba: ldfld System.Int32 Celeste.MountainModel::nextState
+   IL_03bf: ldelem.ref
+   IL_03c0: ldfld Monocle.VirtualTexture Celeste.MountainState::BuildingsTexture
+   IL_03c5: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_03ca: callvirt System.Void Microsoft.Xna.Framework.Graphics.TextureCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.Texture)
+   IL_03cf: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_03d4: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_03d9: callvirt Microsoft.Xna.Framework.Graphics.SamplerStateCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_SamplerStates()
+   IL_03de: ldc.i4.1
+   IL_03df: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::LinearClamp
+   IL_03e4: callvirt System.Void Microsoft.Xna.Framework.Graphics.SamplerStateCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.SamplerState)
+   IL_03e9: ldsfld Celeste.ObjModel Celeste.MTN::MountainBuildings
+   IL_03ee: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_03f3: callvirt System.Void Celeste.ObjModel::Draw(Microsoft.Xna.Framework.Graphics.Effect)
+   IL_03f8: ldarg.0
+   IL_03f9: ldfld Celeste.Ring Celeste.MountainModel::fog
+   IL_03fe: ldloc.3
+   IL_03ff: ldnull
+   IL_0400: ldc.r4 1
+   IL_0405: callvirt System.Void Celeste.Ring::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Graphics.RasterizerState,System.Single)
+   IL_040a: ldarg.0
+   IL_040b: ldfld System.Single Celeste.MountainModel::StarEase
+   IL_0410: ldc.r4 0
+   IL_0415: ble.un IL_0748
+   IL_041a: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_041f: ldc.i4.0
+   IL_0420: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_0425: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::LinearClamp
+   IL_042a: ldnull
+   IL_042b: ldnull
+   IL_042c: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::Begin(Microsoft.Xna.Framework.Graphics.SpriteSortMode,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.SamplerState,Microsoft.Xna.Framework.Graphics.DepthStencilState,Microsoft.Xna.Framework.Graphics.RasterizerState)
+   IL_0431: ldc.r4 0
+   IL_0436: ldc.r4 0
+   IL_043b: ldarg.0
+   IL_043c: ldfld Monocle.VirtualRenderTarget Celeste.MountainModel::buffer
+   IL_0441: callvirt System.Int32 Monocle.VirtualAsset::get_Width()
+   IL_0446: conv.r4
+   IL_0447: ldarg.0
+   IL_0448: ldfld Monocle.VirtualRenderTarget Celeste.MountainModel::buffer
+   IL_044d: callvirt System.Int32 Monocle.VirtualAsset::get_Height()
+   IL_0452: conv.r4
+   IL_0453: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0458: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeInOut
+   IL_045d: ldarg.0
+   IL_045e: ldfld System.Single Celeste.MountainModel::StarEase
+   IL_0463: ldc.r4 0
+   IL_0468: ldc.r4 0.6
+   IL_046d: ldc.r4 0
+   IL_0472: ldc.r4 1
+   IL_0477: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_047c: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0481: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0486: call System.Void Monocle.Draw::Rect(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)
+   IL_048b: call Microsoft.Xna.Framework.Graphics.SpriteBatch Monocle.Draw::get_SpriteBatch()
+   IL_0490: callvirt System.Void Microsoft.Xna.Framework.Graphics.SpriteBatch::End()
+   IL_0495: ldarg.0
+   IL_0496: ldfld Microsoft.Xna.Framework.Vector3 Celeste.MountainModel::starCenter
+   IL_049b: ldarg.0
+   IL_049c: ldflda Celeste.MountainCamera Celeste.MountainModel::Camera
+   IL_04a1: ldfld Microsoft.Xna.Framework.Vector3 Celeste.MountainCamera::Position
+   IL_04a6: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Vector3::op_Subtraction(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3)
+   IL_04ab: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateTranslation(Microsoft.Xna.Framework.Vector3)
+   IL_04b0: ldloc.0
+   IL_04b1: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateFromQuaternion(Microsoft.Xna.Framework.Quaternion)
+   IL_04b6: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_04bb: ldloc.1
+   IL_04bc: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_04c1: stloc.s V_5
+   IL_04c3: ldarg.0
+   IL_04c4: ldfld System.Single Celeste.MountainModel::StarEase
+   IL_04c9: ldc.r4 0.8
+   IL_04ce: ldc.r4 1
+   IL_04d3: ldc.r4 0
+   IL_04d8: ldc.r4 1
+   IL_04dd: call System.Single Monocle.Calc::ClampedMap(System.Single,System.Single,System.Single,System.Single,System.Single)
+   IL_04e2: stloc.s V_6
+   IL_04e4: ldarg.0
+   IL_04e5: ldfld Celeste.Ring Celeste.MountainModel::starsky
+   IL_04ea: ldloc.s V_5
+   IL_04ec: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Celeste.MountainModel::CullCCRasterizer
+   IL_04f1: ldloc.s V_6
+   IL_04f3: callvirt System.Void Celeste.Ring::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Graphics.RasterizerState,System.Single)
+   IL_04f8: ldarg.0
+   IL_04f9: ldfld Celeste.Ring Celeste.MountainModel::starfog
+   IL_04fe: ldloc.s V_5
+   IL_0500: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Celeste.MountainModel::CullCCRasterizer
+   IL_0505: ldloc.s V_6
+   IL_0507: callvirt System.Void Celeste.Ring::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Graphics.RasterizerState,System.Single)
+   IL_050c: ldarg.0
+   IL_050d: ldfld Celeste.Ring Celeste.MountainModel::stardots0
+   IL_0512: ldloc.s V_5
+   IL_0514: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Celeste.MountainModel::CullCCRasterizer
+   IL_0519: ldloc.s V_6
+   IL_051b: callvirt System.Void Celeste.Ring::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Graphics.RasterizerState,System.Single)
+   IL_0520: ldarg.0
+   IL_0521: ldfld Celeste.Ring Celeste.MountainModel::starstream0
+   IL_0526: ldloc.s V_5
+   IL_0528: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Celeste.MountainModel::CullCCRasterizer
+   IL_052d: ldloc.s V_6
+   IL_052f: callvirt System.Void Celeste.Ring::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Graphics.RasterizerState,System.Single)
+   IL_0534: ldarg.0
+   IL_0535: ldfld Celeste.Ring Celeste.MountainModel::starstream1
+   IL_053a: ldloc.s V_5
+   IL_053c: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Celeste.MountainModel::CullCCRasterizer
+   IL_0541: ldloc.s V_6
+   IL_0543: callvirt System.Void Celeste.Ring::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Graphics.RasterizerState,System.Single)
+   IL_0548: ldarg.0
+   IL_0549: ldfld Celeste.Ring Celeste.MountainModel::starstream2
+   IL_054e: ldloc.s V_5
+   IL_0550: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Celeste.MountainModel::CullCCRasterizer
+   IL_0555: ldloc.s V_6
+   IL_0557: callvirt System.Void Celeste.Ring::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Graphics.RasterizerState,System.Single)
+   IL_055c: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0561: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_0566: ldsfld Microsoft.Xna.Framework.Graphics.DepthStencilState Microsoft.Xna.Framework.Graphics.DepthStencilState::Default
+   IL_056b: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_DepthStencilState(Microsoft.Xna.Framework.Graphics.DepthStencilState)
+   IL_0570: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0575: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_057a: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
+   IL_057f: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_BlendState(Microsoft.Xna.Framework.Graphics.BlendState)
+   IL_0584: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_0589: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_058e: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Celeste.MountainModel::CullCRasterizer
+   IL_0593: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::set_RasterizerState(Microsoft.Xna.Framework.Graphics.RasterizerState)
+   IL_0598: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_059d: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_05a2: callvirt Microsoft.Xna.Framework.Graphics.TextureCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_Textures()
+   IL_05a7: ldc.i4.0
+   IL_05a8: ldsfld Monocle.VirtualTexture Celeste.MTN::MountainMoonTexture
+   IL_05ad: callvirt Microsoft.Xna.Framework.Graphics.Texture2D Monocle.VirtualTexture::get_Texture_Safe()
+   IL_05b2: callvirt System.Void Microsoft.Xna.Framework.Graphics.TextureCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.Texture)
+   IL_05b7: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_05bc: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_05c1: callvirt Microsoft.Xna.Framework.Graphics.SamplerStateCollection Microsoft.Xna.Framework.Graphics.GraphicsDevice::get_SamplerStates()
+   IL_05c6: ldc.i4.0
+   IL_05c7: ldsfld Microsoft.Xna.Framework.Graphics.SamplerState Microsoft.Xna.Framework.Graphics.SamplerState::LinearClamp
+   IL_05cc: callvirt System.Void Microsoft.Xna.Framework.Graphics.SamplerStateCollection::set_Item(System.Int32,Microsoft.Xna.Framework.Graphics.SamplerState)
+   IL_05d1: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_05d6: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_05db: callvirt Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection Microsoft.Xna.Framework.Graphics.Effect::get_Techniques()
+   IL_05e0: ldstr "Single"
+   IL_05e5: callvirt Microsoft.Xna.Framework.Graphics.EffectTechnique Microsoft.Xna.Framework.Graphics.EffectTechniqueCollection::get_Item(System.String)
+   IL_05ea: callvirt System.Void Microsoft.Xna.Framework.Graphics.Effect::set_CurrentTechnique(Microsoft.Xna.Framework.Graphics.EffectTechnique)
+   IL_05ef: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_05f4: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_05f9: ldstr "WorldViewProj"
+   IL_05fe: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0603: ldloc.3
+   IL_0604: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Matrix)
+   IL_0609: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_060e: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_0613: ldstr "fog"
+   IL_0618: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_061d: ldarg.0
+   IL_061e: ldfld Celeste.Ring Celeste.MountainModel::fog
+   IL_0623: ldflda Microsoft.Xna.Framework.Color Celeste.Ring::TopColor
+   IL_0628: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Color::ToVector3()
+   IL_062d: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector3)
+   IL_0632: ldsfld Celeste.ObjModel Celeste.MTN::MountainMoon
+   IL_0637: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_063c: callvirt System.Void Celeste.ObjModel::Draw(Microsoft.Xna.Framework.Graphics.Effect)
+   IL_0641: ldarg.0
+   IL_0642: ldfld System.Single Celeste.MountainModel::birdTimer
+   IL_0647: ldc.r4 0.2
+   IL_064c: mul
+   IL_064d: stloc.s V_7
+   IL_064f: ldc.r4 0.25
+   IL_0654: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateScale(System.Single)
+   IL_0659: ldloc.s V_7
+   IL_065b: ldc.r4 2
+   IL_0660: mul
+   IL_0661: conv.r8
+   IL_0662: call System.Double System.Math::Cos(System.Double)
+   IL_0667: conv.r4
+   IL_0668: ldc.r4 0.5
+   IL_066d: mul
+   IL_066e: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateRotationZ(System.Single)
+   IL_0673: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_0678: ldc.r4 0.4
+   IL_067d: ldloc.s V_7
+   IL_067f: conv.r8
+   IL_0680: call System.Double System.Math::Sin(System.Double)
+   IL_0685: conv.r4
+   IL_0686: ldc.r4 0.05
+   IL_068b: mul
+   IL_068c: add
+   IL_068d: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateRotationX(System.Single)
+   IL_0692: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_0697: ldloc.s V_7
+   IL_0699: neg
+   IL_069a: ldc.r4 1.5707964
+   IL_069f: sub
+   IL_06a0: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateRotationY(System.Single)
+   IL_06a5: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_06aa: ldloc.s V_7
+   IL_06ac: conv.r8
+   IL_06ad: call System.Double System.Math::Cos(System.Double)
+   IL_06b2: conv.r4
+   IL_06b3: ldc.r4 2.2
+   IL_06b8: mul
+   IL_06b9: ldc.r4 31
+   IL_06be: ldloc.s V_7
+   IL_06c0: ldc.r4 2
+   IL_06c5: mul
+   IL_06c6: conv.r8
+   IL_06c7: call System.Double System.Math::Sin(System.Double)
+   IL_06cc: conv.r4
+   IL_06cd: ldc.r4 0.8
+   IL_06d2: mul
+   IL_06d3: add
+   IL_06d4: ldloc.s V_7
+   IL_06d6: conv.r8
+   IL_06d7: call System.Double System.Math::Sin(System.Double)
+   IL_06dc: conv.r4
+   IL_06dd: ldc.r4 2.2
+   IL_06e2: mul
+   IL_06e3: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::CreateTranslation(System.Single,System.Single,System.Single)
+   IL_06e8: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_06ed: stloc.s V_8
+   IL_06ef: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_06f4: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_06f9: ldstr "WorldViewProj"
+   IL_06fe: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0703: ldloc.s V_8
+   IL_0705: ldloc.3
+   IL_0706: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)
+   IL_070b: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Matrix)
+   IL_0710: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_0715: callvirt Microsoft.Xna.Framework.Graphics.EffectParameterCollection Microsoft.Xna.Framework.Graphics.Effect::get_Parameters()
+   IL_071a: ldstr "fog"
+   IL_071f: callvirt Microsoft.Xna.Framework.Graphics.EffectParameter Microsoft.Xna.Framework.Graphics.EffectParameterCollection::get_Item(System.String)
+   IL_0724: ldarg.0
+   IL_0725: ldfld Celeste.Ring Celeste.MountainModel::fog
+   IL_072a: ldflda Microsoft.Xna.Framework.Color Celeste.Ring::TopColor
+   IL_072f: call Microsoft.Xna.Framework.Vector3 Microsoft.Xna.Framework.Color::ToVector3()
+   IL_0734: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectParameter::SetValue(Microsoft.Xna.Framework.Vector3)
+   IL_0739: ldsfld Celeste.ObjModel Celeste.MTN::MountainBird
+   IL_073e: ldsfld Microsoft.Xna.Framework.Graphics.Effect Celeste.GFX::FxMountain
+   IL_0743: callvirt System.Void Celeste.ObjModel::Draw(Microsoft.Xna.Framework.Graphics.Effect)
+   IL_0748: ldarg.0
+   IL_0749: ldloc.3
+   IL_074a: ldarg.1
+   IL_074b: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0750: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.Billboard>()
+   IL_0755: callvirt System.Void Celeste.MountainModel::DrawBillboards(Microsoft.Xna.Framework.Matrix,System.Collections.Generic.List`1<Monocle.Component>)
+   IL_075a: ldarg.0
+   IL_075b: ldfld System.Single Celeste.MountainModel::StarEase
+   IL_0760: ldc.r4 1
+   IL_0765: bge.un.s IL_077d
+   IL_0767: ldarg.0
+   IL_0768: ldfld Celeste.Ring Celeste.MountainModel::fog2
+   IL_076d: ldloc.3
+   IL_076e: ldsfld Microsoft.Xna.Framework.Graphics.RasterizerState Celeste.MountainModel::CullCRasterizer
+   IL_0773: ldc.r4 1
+   IL_0778: callvirt System.Void Celeste.Ring::Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Graphics.RasterizerState,System.Single)
+   IL_077d: ldarg.0
+   IL_077e: ldfld System.Boolean Celeste.MountainModel::DrawDebugPoints
+   IL_0783: brfalse IL_0837
+   IL_0788: ldarg.0
+   IL_0789: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Graphics.VertexPositionColor> Celeste.MountainModel::DebugPoints
+   IL_078e: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Graphics.VertexPositionColor>::get_Count()
+   IL_0793: ldc.i4.0
+   IL_0794: ble IL_0837
+   IL_0799: ldsfld Microsoft.Xna.Framework.Graphics.BasicEffect Celeste.GFX::FxDebug
+   IL_079e: call Microsoft.Xna.Framework.Matrix Microsoft.Xna.Framework.Matrix::get_Identity()
+   IL_07a3: callvirt System.Void Microsoft.Xna.Framework.Graphics.BasicEffect::set_World(Microsoft.Xna.Framework.Matrix)
+   IL_07a8: ldsfld Microsoft.Xna.Framework.Graphics.BasicEffect Celeste.GFX::FxDebug
+   IL_07ad: ldloc.2
+   IL_07ae: callvirt System.Void Microsoft.Xna.Framework.Graphics.BasicEffect::set_View(Microsoft.Xna.Framework.Matrix)
+   IL_07b3: ldsfld Microsoft.Xna.Framework.Graphics.BasicEffect Celeste.GFX::FxDebug
+   IL_07b8: ldloc.1
+   IL_07b9: callvirt System.Void Microsoft.Xna.Framework.Graphics.BasicEffect::set_Projection(Microsoft.Xna.Framework.Matrix)
+   IL_07be: ldsfld Microsoft.Xna.Framework.Graphics.BasicEffect Celeste.GFX::FxDebug
+   IL_07c3: ldc.i4.0
+   IL_07c4: callvirt System.Void Microsoft.Xna.Framework.Graphics.BasicEffect::set_TextureEnabled(System.Boolean)
+   IL_07c9: ldsfld Microsoft.Xna.Framework.Graphics.BasicEffect Celeste.GFX::FxDebug
+   IL_07ce: ldc.i4.1
+   IL_07cf: callvirt System.Void Microsoft.Xna.Framework.Graphics.BasicEffect::set_VertexColorEnabled(System.Boolean)
+   IL_07d4: ldarg.0
+   IL_07d5: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Graphics.VertexPositionColor> Celeste.MountainModel::DebugPoints
+   IL_07da: callvirt T[] System.Collections.Generic.List`1<Microsoft.Xna.Framework.Graphics.VertexPositionColor>::ToArray()
+   IL_07df: stloc.s V_9
+   IL_07e1: ldsfld Microsoft.Xna.Framework.Graphics.BasicEffect Celeste.GFX::FxDebug
+   IL_07e6: callvirt Microsoft.Xna.Framework.Graphics.EffectTechnique Microsoft.Xna.Framework.Graphics.Effect::get_CurrentTechnique()
+   IL_07eb: callvirt Microsoft.Xna.Framework.Graphics.EffectPassCollection Microsoft.Xna.Framework.Graphics.EffectTechnique::get_Passes()
+   IL_07f0: callvirt System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Graphics.EffectPass> Microsoft.Xna.Framework.Graphics.EffectPassCollection::GetEnumerator()
+   IL_07f5: stloc.s V_10
+   IL_07f7: br.s IL_081e
+   IL_07f9: ldloca.s V_10
+   IL_07fb: call T System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Graphics.EffectPass>::get_Current()
+   IL_0800: callvirt System.Void Microsoft.Xna.Framework.Graphics.EffectPass::Apply()
+   IL_0805: call Microsoft.Xna.Framework.GraphicsDeviceManager Monocle.Engine::get_Graphics()
+   IL_080a: callvirt Microsoft.Xna.Framework.Graphics.GraphicsDevice Microsoft.Xna.Framework.GraphicsDeviceManager::get_GraphicsDevice()
+   IL_080f: ldc.i4.0
+   IL_0810: ldloc.s V_9
+   IL_0812: ldc.i4.0
+   IL_0813: ldloc.s V_9
+   IL_0815: ldlen
+   IL_0816: conv.i4
+   IL_0817: ldc.i4.3
+   IL_0818: div
+   IL_0819: callvirt System.Void Microsoft.Xna.Framework.Graphics.GraphicsDevice::DrawUserPrimitives<Microsoft.Xna.Framework.Graphics.VertexPositionColor>(Microsoft.Xna.Framework.Graphics.PrimitiveType,T[],System.Int32,System.Int32)
+   IL_081e: ldloca.s V_10
+   IL_0820: call System.Boolean System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Graphics.EffectPass>::MoveNext()
+   IL_0825: brtrue.s IL_07f9
+   IL_0827: leave.s IL_0837
+   IL_0829: ldloca.s V_10
+   IL_082b: constrained. System.Collections.Generic.List`1/Enumerator<Microsoft.Xna.Framework.Graphics.EffectPass>
+   IL_0831: callvirt System.Void System.IDisposable::Dispose()
+   IL_0836: endfinally
+   IL_0837: ldarg.0
+   IL_0838: ldfld Monocle.VirtualRenderTarget Celeste.MountainModel::buffer
+   IL_083d: call Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::op_Implicit(Monocle.VirtualRenderTarget)
+   IL_0842: ldarg.0
+   IL_0843: ldfld Monocle.VirtualRenderTarget Celeste.MountainModel::blurA
+   IL_0848: ldarg.0
+   IL_0849: ldfld Monocle.VirtualRenderTarget Celeste.MountainModel::blurB
+   IL_084e: ldc.r4 0.75
+   IL_0853: ldc.i4.1
+   IL_0854: ldc.i4.1
+   IL_0855: ldc.r4 1
+   IL_085a: ldc.i4.0
+   IL_085b: ldc.r4 1
+   IL_0860: call Microsoft.Xna.Framework.Graphics.Texture2D Celeste.GaussianBlur::Blur(Microsoft.Xna.Framework.Graphics.Texture2D,Monocle.VirtualRenderTarget,Monocle.VirtualRenderTarget,System.Single,System.Boolean,Celeste.GaussianBlur/Samples,System.Single,Celeste.GaussianBlur/Direction,System.Single)
+   IL_0865: pop
+   IL_0866: ret

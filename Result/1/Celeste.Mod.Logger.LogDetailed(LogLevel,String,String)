@@ -1,0 +1,65 @@
+On{6MOBcsyK9e0}: [AAA1458::]Celeste.Mod.AAA1458.AAA1458Module+<>c.<Load>b__22_1(LogDetailed,LogLevel,String,String)
+[V_0] System.Object
+[V_1] System.Boolean
+[V_2] System.String
+[V_3] System.Runtime.CompilerServices.DefaultInterpolatedStringHandler
+   IL_0000: ldarg.1
+   IL_0001: ldarg.0
+   IL_0002: call System.Boolean Celeste.Mod.Logger::shouldLog(System.String,Celeste.Mod.LogLevel)
+   IL_0007: brfalse IL_00ac
+   IL_000c: ldsfld System.Object Celeste.Mod.Logger::locker
+   IL_0011: stloc.0
+   IL_0012: ldc.i4.0
+   IL_0013: stloc.1
+   IL_0014: ldloc.0
+   IL_0015: ldloca.s V_1
+   IL_0017: call System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
+   IL_001c: ldarg.0
+   IL_001d: ldarg.1
+   IL_001e: ldarg.2
+   IL_001f: call System.Void Celeste.Mod.Logger::Log(Celeste.Mod.LogLevel,System.String,System.String)
+   IL_0024: call System.Boolean Celeste.Mod.Logger::get_ColorizedLogging()
+   IL_0029: brtrue.s IL_003e
+   IL_002b: ldc.i4.1
+   IL_002c: ldc.i4.1
+   IL_002d: newobj System.Void System.Diagnostics.StackTrace::.ctor(System.Int32,System.Boolean)
+   IL_0032: callvirt System.String System.Object::ToString()
+   IL_0037: call System.Void System.Console::WriteLine(System.String)
+   IL_003c: leave.s IL_00ac
+   IL_003e: ldarg.0
+   IL_003f: call System.String Celeste.Mod.LogLevelExtensions::GetAnsiEscapeCodeForText(Celeste.Mod.LogLevel)
+   IL_0044: stloc.2
+   IL_0045: ldsfld System.IO.TextWriter Celeste.Mod.Logger::outWriter
+   IL_004a: ldc.i4.0
+   IL_004b: ldc.i4.3
+   IL_004c: newobj System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_0051: stloc.3
+   IL_0052: ldloca.s V_3
+   IL_0054: ldloc.2
+   IL_0055: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_005a: ldloca.s V_3
+   IL_005c: ldc.i4.1
+   IL_005d: ldc.i4.1
+   IL_005e: newobj System.Void System.Diagnostics.StackTrace::.ctor(System.Int32,System.Boolean)
+   IL_0063: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Diagnostics.StackTrace>(T)
+   IL_0068: ldloca.s V_3
+   IL_006a: ldstr "[0m"
+   IL_006f: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_0074: ldloca.s V_3
+   IL_0076: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_007b: callvirt System.Void System.IO.TextWriter::WriteLine(System.String)
+   IL_0080: ldsfld System.IO.TextWriter Celeste.Mod.Logger::logWriter
+   IL_0085: ldc.i4.1
+   IL_0086: ldc.i4.1
+   IL_0087: newobj System.Void System.Diagnostics.StackTrace::.ctor(System.Int32,System.Boolean)
+   IL_008c: callvirt System.String System.Object::ToString()
+   IL_0091: callvirt System.Void System.IO.TextWriter::WriteLine(System.String)
+   IL_0096: ldsfld System.IO.TextWriter Celeste.Mod.Logger::logWriter
+   IL_009b: callvirt System.Void System.IO.TextWriter::Flush()
+   IL_00a0: leave.s IL_00ac
+   IL_00a2: ldloc.1
+   IL_00a3: brfalse.s IL_00ab
+   IL_00a5: ldloc.0
+   IL_00a6: call System.Void System.Threading.Monitor::Exit(System.Object)
+   IL_00ab: endfinally
+   IL_00ac: ret
