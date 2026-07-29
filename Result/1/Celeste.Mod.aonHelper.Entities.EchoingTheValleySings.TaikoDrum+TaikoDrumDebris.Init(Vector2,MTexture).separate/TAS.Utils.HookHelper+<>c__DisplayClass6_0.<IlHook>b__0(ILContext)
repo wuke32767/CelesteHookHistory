@@ -1,0 +1,70 @@
+ + IL_10000: ldarg pos @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+ + IL_10001: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PushRandom|4_0(Microsoft.Xna.Framework.Vector2) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0007: ldarg.0
+   IL_0008: ldsfld System.Random Monocle.Calc::Random
+   IL_000d: ldc.r4 0.6
+   IL_0012: ldc.r4 2.6
+   IL_0017: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_001c: stfld System.Single Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::lifeTimer
+   IL_0021: ldarg.0
+   IL_0022: ldc.r4 1
+   IL_0027: stfld System.Single Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::alpha
+   IL_002c: ldarg.0
+   IL_002d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_0032: stfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::speed
+   IL_0037: ldarg.0
+   IL_0038: ldsfld System.Random Monocle.Calc::Random
+   IL_003d: ldc.i4.1
+   IL_003e: ldc.i4.m1
+   IL_003f: call T Monocle.Calc::Choose<System.Int32>(System.Random,T,T)
+   IL_0044: stfld System.Int32 Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::rotateSign
+   IL_0049: ldarg.0
+   IL_004a: ldc.i4.0
+   IL_004b: stfld System.Boolean Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::hasHitGround
+   IL_0050: ldarg.0
+   IL_0051: ldfld Monocle.Image Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::image
+   IL_0056: ldarg.2
+   IL_0057: stfld Monocle.MTexture Monocle.Image::Texture
+   IL_005c: ldarg.0
+   IL_005d: ldfld Monocle.Image Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::image
+   IL_0062: callvirt Monocle.Image Monocle.Image::CenterOrigin()
+   IL_0067: pop
+   IL_0068: ldarg.0
+   IL_0069: ldfld Monocle.Image Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::image
+   IL_006e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0073: ldarg.0
+   IL_0074: ldfld System.Single Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::alpha
+   IL_0079: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_007e: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0083: ldarg.0
+   IL_0084: ldfld Monocle.Image Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::image
+   IL_0089: ldsfld System.Random Monocle.Calc::Random
+   IL_008e: call System.Single Monocle.Calc::NextAngle(System.Random)
+   IL_0093: stfld System.Single Monocle.GraphicsComponent::Rotation
+   IL_0098: ldarg.0
+   IL_0099: ldfld Monocle.Image Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::image
+   IL_009e: ldsfld System.Random Monocle.Calc::Random
+   IL_00a3: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00a8: ldc.r4 0.5
+   IL_00ad: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_00b2: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_00b7: call Microsoft.Xna.Framework.Vector2 Monocle.Calc::Range(System.Random,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_00bc: stfld Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_00c1: ldarg.0
+   IL_00c2: ldfld Monocle.Image Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::image
+   IL_00c7: ldsfld System.Random Monocle.Calc::Random
+   IL_00cc: ldc.r4 0.5
+   IL_00d1: call System.Boolean Monocle.Calc::Chance(System.Random,System.Single)
+   IL_00d6: callvirt System.Void Monocle.GraphicsComponent::set_FlipX(System.Boolean)
+   IL_00db: ldarg.0
+   IL_00dc: ldfld Monocle.Image Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum/TaikoDrumDebris::image
+   IL_00e1: ldsfld System.Random Monocle.Calc::Random
+   IL_00e6: ldc.r4 0.5
+   IL_00eb: call System.Boolean Monocle.Calc::Chance(System.Random,System.Single)
+   IL_00f0: callvirt System.Void Monocle.GraphicsComponent::set_FlipY(System.Boolean)
+   IL_00f5: ldarg.0
+ + IL_10002: call System.Void TAS.Gameplay.DesyncFix.SeededRandomness/DebrisHandler::<Init>g__PopRandom|4_1() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+   IL_00f6: ret
