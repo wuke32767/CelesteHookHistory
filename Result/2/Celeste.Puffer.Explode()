@@ -13,7 +13,7 @@ On{+XPjAU/JOew}: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.CrystalBombBadeline
 On{qTQkG7Nr/rE}: [SorbetHelper::]Celeste.Mod.SorbetHelper.Entities.PufferTweaksController.On_Puffer_Explode(orig_Explode,Puffer)
 IL: {UNKNOWN_DETOUR: Priority: -1}[FrostTempleHelper::]FrostHelper.DirectionalPuffer.Puffer_Explode(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[StrawberryJam2021::]Celeste.Mod.StrawberryJam2021.Entities.SpeedPreservePuffer.onPufferExplode(ILContext)
-IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum.IL_Puffer_Explode(ILContext)
+IL: [aonHelper::]Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider.IL_Puffer_Explode(ILContext)
 IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Components.ExplodeHittable.IL_Puffer_Explode(ILContext)
 IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass87_0.<applyILHook>b__0(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
@@ -182,8 +182,9 @@ IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHo
    IL_018a: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
    IL_0190: callvirt System.Void System.IDisposable::Dispose()
    IL_0195: endfinally
- + IL_10012: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum.IL_Puffer_Explode(ILContext)
- + IL_10013: call System.Void Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum::<IL_Puffer_Explode>g__ActivateTaikoDrums|34_3(Celeste.Puffer) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum.IL_Puffer_Explode(ILContext)
+ + IL_10012: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider.IL_Puffer_Explode(ILContext)
+ + IL_10013: ldc.i4 0 @ [aonHelper::]Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider.IL_Puffer_Explode(ILContext)
+ + IL_10014: call System.Void Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider::TriggerExplosionColliders(Monocle.Entity,Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider/ExplosionTypes) @ [aonHelper::]Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider.IL_Puffer_Explode(ILContext)
    IL_0196: ldarg.0
    IL_0197: ldloc.0
    IL_0198: call System.Void Monocle.Entity::set_Collider(Monocle.Collider)

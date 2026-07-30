@@ -1,5 +1,5 @@
 IL: {Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock::ILSetupSeekerRegen: Priority: -1}[CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock.ILSetupSeekerRegen(ILContext)
-IL: [aonHelper::]Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum.Seeker_RegenerateCoroutine(ILContext)
+IL: [aonHelper::]Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider.Seeker_RegenerateCoroutine(ILContext)
 IL: [SorbetHelper::]Celeste.Mod.SorbetHelper.Components.ExplodeHittable.IL_Seeker_RegenerateCoroutine(ILContext)
 IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass87_0.<applyILHook>b__0(ILContext)
 [V_0] System.Int32
@@ -189,12 +189,13 @@ IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass87_0.
    IL_01f5: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
    IL_01fb: callvirt System.Void System.IDisposable::Dispose()
    IL_0200: endfinally
- + IL_10004: ldloc.1 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum.Seeker_RegenerateCoroutine(ILContext)
- + IL_10005: call System.Void Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum::<Seeker_RegenerateCoroutine>g__ActivateTaikoDrums|35_4(Celeste.Seeker) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.EchoingTheValleySings.TaikoDrum.Seeker_RegenerateCoroutine(ILContext)
+ + IL_10004: ldloc.1 @ [aonHelper::]Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider.Seeker_RegenerateCoroutine(ILContext)
+ + IL_10005: ldc.i4 1 @ [aonHelper::]Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider.Seeker_RegenerateCoroutine(ILContext)
+ + IL_10006: call System.Void Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider::TriggerExplosionColliders(Monocle.Entity,Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider/ExplosionTypes) @ [aonHelper::]Celeste.Mod.aonHelper.Components.Colliders.ExplosionCollider.Seeker_RegenerateCoroutine(ILContext)
    IL_0201: ldloc.1
- + IL_10006: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock.ILSetupSeekerRegen(ILContext)
- + IL_10007: ldfld Celeste.Seeker Celeste.Seeker/<RegenerateCoroutine>d__143::<>4__this @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock.ILSetupSeekerRegen(ILContext)
- + IL_10008: call System.Void Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock::OnSeekerRegen(Celeste.Seeker) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock.ILSetupSeekerRegen(ILContext)
+ + IL_10007: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock.ILSetupSeekerRegen(ILContext)
+ + IL_10008: ldfld Celeste.Seeker Celeste.Seeker/<RegenerateCoroutine>d__143::<>4__this @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock.ILSetupSeekerRegen(ILContext)
+ + IL_10009: call System.Void Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock::OnSeekerRegen(Celeste.Seeker) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.ConnectedTempleCrackedBlock.ILSetupSeekerRegen(ILContext)
    IL_0202: ldloc.1
    IL_0203: ldfld Monocle.Hitbox Celeste.Seeker::physicsHitbox
    IL_0208: callvirt System.Void Monocle.Entity::set_Collider(Monocle.Collider)
