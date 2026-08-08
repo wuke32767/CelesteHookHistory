@@ -1761,9 +1761,6 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_1100: sub
    IL_1101: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_1106: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
- + IL_10105: ldarg.0 @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
- + IL_10106: ldloc.s V_12 @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
- + IL_10107: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.ProgHelper.PlayerExtensions::ApplyCameraConstraints(Microsoft.Xna.Framework.Vector2,Celeste.Player,Microsoft.Xna.Framework.Vector2) @ [ProgHelper::]Celeste.Mod.ProgHelper.PlayerExtensions.Player_orig_Update_il(ILContext)
    IL_110b: callvirt System.Void Monocle.Camera::set_Position(Microsoft.Xna.Framework.Vector2)
    IL_1110: ldarg.0
    IL_1111: callvirt System.Boolean Celeste.Player::get_Dead()
@@ -1784,19 +1781,19 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_1142: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_1147: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
    IL_114c: callvirt System.Collections.Generic.List`1<Monocle.Component> Monocle.Tracker::GetComponents<Celeste.PlayerCollider>()
- + IL_10108: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_10109: call System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::StoreActualColliderState(Monocle.Entity) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_10105: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_10106: call System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::StoreActualColliderState(Monocle.Entity) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
    IL_1151: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Component>::GetEnumerator()
    IL_1156: stloc.2
    IL_1157: br.s IL_1182
    IL_1159: ldloca.s V_2
    IL_115b: call T System.Collections.Generic.List`1/Enumerator<Monocle.Component>::get_Current()
    IL_1160: castclass Celeste.PlayerCollider
- + IL_1010a: dup @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_1010b: call Monocle.Entity Monocle.Component::get_Entity() @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_1010c: call System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::StoreActualColliderState(Monocle.Entity) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_1010d: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
- + IL_1010e: call DynamicMethod!IL_Player_origUpdate_StoreActualColliderStateForOtherEntities!System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::IL_Player_origUpdate_StoreActualColliderStateForOtherEntities(Celeste.Player) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_10107: dup @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_10108: call Monocle.Entity Monocle.Component::get_Entity() @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_10109: call System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::StoreActualColliderState(Monocle.Entity) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_1010a: ldarg.0 @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
+ + IL_1010b: call DynamicMethod!IL_Player_origUpdate_StoreActualColliderStateForOtherEntities!System.Void TAS.Gameplay.Hitboxes.ActualCollideHitbox::IL_Player_origUpdate_StoreActualColliderStateForOtherEntities(Celeste.Player) @ [CelesteTAS-EverestInterop::]TAS.Gameplay.Hitboxes.ActualCollideHitbox.IL_Player_origUpdate(ILContext)
    IL_1165: ldarg.0
    IL_1166: callvirt System.Boolean Celeste.PlayerCollider::Check(Celeste.Player)
    IL_116b: brfalse.s IL_1182
@@ -1832,9 +1829,9 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_11be: ldarg.0
    IL_11bf: callvirt System.Boolean Celeste.Player::get_Dead()
    IL_11c4: brtrue.s IL_11e9
- + IL_1010f: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
- + IL_10110: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController::ShouldAffectStateCheck(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
- + IL_10111: brtrue IL_11d5 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
+ + IL_1010c: ldarg.0 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
+ + IL_1010d: call System.Boolean Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController::ShouldAffectStateCheck(Celeste.Player) @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
+ + IL_1010e: brtrue IL_11d5 @ [aonHelper::]Celeste.Mod.aonHelper.Entities.Controllers.DreamDashThroughTransitionController.IL_Player_orig_Update(ILContext)
    IL_11c6: ldarg.0
    IL_11c7: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_11cc: callvirt System.Int32 Monocle.StateMachine::get_State()
@@ -1890,9 +1887,9 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_125e: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_1263: ldc.i4.3
    IL_1264: bne.un.s IL_126e
- + IL_10112: ldarg.0 @ [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.WaterPhysicsController.HandleUpdate(ILContext)
- + IL_10113: call System.Boolean Celeste.Mod.Casju0TrailMix.Entities.WaterPhysicsController::ShouldDisableVanillaWaterJump(Celeste.Player) @ [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.WaterPhysicsController.HandleUpdate(ILContext)
- + IL_10114: brtrue IL_126e @ [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.WaterPhysicsController.HandleUpdate(ILContext)
+ + IL_1010f: ldarg.0 @ [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.WaterPhysicsController.HandleUpdate(ILContext)
+ + IL_10110: call System.Boolean Celeste.Mod.Casju0TrailMix.Entities.WaterPhysicsController::ShouldDisableVanillaWaterJump(Celeste.Player) @ [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.WaterPhysicsController.HandleUpdate(ILContext)
+ + IL_10111: brtrue IL_126e @ [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.WaterPhysicsController.HandleUpdate(ILContext)
    IL_1266: ldarg.0
    IL_1267: callvirt System.Boolean Celeste.Player::SwimUnderwaterCheck()
    IL_126c: brfalse.s IL_1289
@@ -1929,8 +1926,8 @@ IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.SaferFireIceBarrier.Play
    IL_12c8: ldarg.0
    IL_12c9: ldc.i4.0
    IL_12ca: stfld System.Boolean Celeste.Player::windMovedUp
- + IL_10115: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
- + IL_10116: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBarrier::CollideBarrier(Celeste.Player) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
- + IL_10117: ldarg.0 @ [TilesetActionHelper::]Celeste.Mod.TilesetActionHelper.TilesetActionHelperModule.PreventOverclocking(ILContext)
- + IL_10118: call System.Void Celeste.Mod.TilesetActionHelper.TilesetActionHelperModule::UpdateFromWallBoostTimer(Celeste.Player) @ [TilesetActionHelper::]Celeste.Mod.TilesetActionHelper.TilesetActionHelperModule.PreventOverclocking(ILContext)
+ + IL_10112: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
+ + IL_10113: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBarrier::CollideBarrier(Celeste.Player) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBarrier.UpdateTeraBarrier(ILContext)
+ + IL_10114: ldarg.0 @ [TilesetActionHelper::]Celeste.Mod.TilesetActionHelper.TilesetActionHelperModule.PreventOverclocking(ILContext)
+ + IL_10115: call System.Void Celeste.Mod.TilesetActionHelper.TilesetActionHelperModule::UpdateFromWallBoostTimer(Celeste.Player) @ [TilesetActionHelper::]Celeste.Mod.TilesetActionHelper.TilesetActionHelperModule.PreventOverclocking(ILContext)
    IL_12cf: ret
