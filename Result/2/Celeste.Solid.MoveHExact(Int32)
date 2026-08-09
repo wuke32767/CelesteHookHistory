@@ -5,9 +5,8 @@ On{F4MfQrHldK4}: {UNKNOWN_DETOUR: Priority: 0}[EndHelper::]Celeste.Mod.EndHelper
 On{fe/ECbhJaJI}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.Detonator.OnSolidMoveHExact(orig_MoveHExact,Solid,Int32)
 On{BqLFbhPwxB4}: {UNKNOWN_DETOUR: Priority: 0}[PuzzleHelper::]Celeste.Mod.PuzzleHelper.PuzzleHelper.modSolidMoveHExact(orig_MoveHExact,Solid,Int32)
 On{uYTJZMdRLM8}: {UNKNOWN_DETOUR: Priority: 0}[BrokemiaHelper::]BrokemiaHelper.BrokemiaHelperModule.Solid_MoveHExact(orig_MoveHExact,Solid,Int32)
-On{SMkyjy4WZtY}: {UNKNOWN_DETOUR: Priority: 0}[ChronoHelper::]Celeste.Mod.ChronoHelper.ChronoHelper.SolidAttachedMoveH(orig_MoveHExact,Solid,Int32)
+On{qUnjpxXdORk}: {UNKNOWN_DETOUR: Priority: 0}[ChronoHelper::]Celeste.Mod.ChronoHelper.ChronoHelper.SolidAttachedMoveH(orig_MoveHExact,Solid,Int32)
 On{rlo3Cr/JvPI}: [WrenbowHelper::]Celeste.Mod.WrenbowHelper.DreamBlockLiftSpeedFix.Solid_MoveHExact(orig_MoveHExact,Solid,Int32)
-IL: {UNKNOWN_DETOUR: Priority: -1}[ChronoHelper::]Celeste.Mod.ChronoHelper.Entities.EeveeHelperExtension.EeveeHelperHooks.Solid_MoveHExact(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
@@ -150,24 +149,22 @@ IL: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
    IL_0158: ldarg.0
    IL_0159: callvirt System.Boolean Celeste.Actor::MoveHExact(System.Int32,Celeste.Collision,Celeste.Solid)
    IL_015e: pop
- + IL_10002: ldsfld System.Boolean Celeste.Mod.ChronoHelper.Entities.EeveeHelperExtension.EntityContainerMover::LiftSpeedFix @ [ChronoHelper::]Celeste.Mod.ChronoHelper.Entities.EeveeHelperExtension.EeveeHelperHooks.Solid_MoveHExact(ILContext)
- + IL_10003: brtrue IL_016c @ [ChronoHelper::]Celeste.Mod.ChronoHelper.Entities.EeveeHelperExtension.EeveeHelperHooks.Solid_MoveHExact(ILContext)
- + IL_10004: ldsfld System.Boolean Celeste.Mod.EeveeHelper.Components.EntityContainerMover::LiftSpeedFix @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
- + IL_10005: brtrue IL_016c @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
+ + IL_10002: ldsfld System.Boolean Celeste.Mod.EeveeHelper.Components.EntityContainerMover::LiftSpeedFix @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
+ + IL_10003: brtrue IL_016c @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
    IL_015f: ldloc.s V_4
    IL_0161: ldarg.0
    IL_0162: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Platform::LiftSpeed
- + IL_10006: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
- + IL_10007: ldloc V_4 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
- + IL_10008: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
- + IL_10009: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
- + IL_1000a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10004: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10005: ldloc V_4 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10006: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10007: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10008: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock+<>c.<Solid_MoveHExact>b__92_0(Vector2,Solid,Actor)
- + IL_1000b: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Celeste.Solid,Celeste.Actor>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10009: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Celeste.Solid,Celeste.Actor>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
    IL_0167: callvirt System.Void Celeste.Actor::set_LiftSpeed(Microsoft.Xna.Framework.Vector2)
- + IL_1000c: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
- + IL_1000d: ldloc.s V_4 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
- + IL_1000e: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::OnTeraSolidMove(Celeste.Solid,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
+ + IL_1000a: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
+ + IL_1000b: ldloc.s V_4 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
+ + IL_1000c: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::OnTeraSolidMove(Celeste.Solid,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
    IL_016c: ldarg.0
    IL_016d: ldc.i4.1
    IL_016e: stfld System.Boolean Monocle.Entity::Collidable
@@ -175,14 +172,14 @@ IL: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
    IL_0175: ldsfld System.Collections.Generic.HashSet`1<Celeste.Actor> Celeste.Solid::riders
    IL_017a: ldloc.s V_4
    IL_017c: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.Actor>::Contains(T)
- + IL_1000f: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
- + IL_10010: ldloc V_4 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
- + IL_10011: ldarg.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
- + IL_10012: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
- + IL_10013: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
- + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
+ + IL_1000d: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
+ + IL_1000e: ldloc V_4 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
+ + IL_1000f: ldarg.1 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
+ + IL_10010: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
+ + IL_10011: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
+ + IL_10012: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel+<>c.<Solid_MoveHExact>b__3_1(Boolean,Solid,Actor,Int32)
- + IL_10015: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal4<System.Boolean,System.Boolean,Celeste.Solid,Celeste.Actor,System.Int32>(T0,T1,T2,T3,MonoMod.Cil.FastDelegateInvokers/TypeVal4`5<TResult,T0,T1,T2,T3>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
+ + IL_10013: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal4<System.Boolean,System.Boolean,Celeste.Solid,Celeste.Actor,System.Int32>(T0,T1,T2,T3,MonoMod.Cil.FastDelegateInvokers/TypeVal4`5<TResult,T0,T1,T2,T3>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.FrictionlessPanel.Solid_MoveHExact(ILContext)
    IL_0181: brfalse.s IL_01c7
    IL_0183: ldarg.0
    IL_0184: ldc.i4.0
@@ -203,24 +200,22 @@ IL: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
    IL_01ac: ldnull
    IL_01ad: callvirt System.Boolean Celeste.Actor::MoveHExact(System.Int32,Celeste.Collision,Celeste.Solid)
    IL_01b2: pop
- + IL_10016: ldsfld System.Boolean Celeste.Mod.ChronoHelper.Entities.EeveeHelperExtension.EntityContainerMover::LiftSpeedFix @ [ChronoHelper::]Celeste.Mod.ChronoHelper.Entities.EeveeHelperExtension.EeveeHelperHooks.Solid_MoveHExact(ILContext)
- + IL_10017: brtrue IL_01c0 @ [ChronoHelper::]Celeste.Mod.ChronoHelper.Entities.EeveeHelperExtension.EeveeHelperHooks.Solid_MoveHExact(ILContext)
- + IL_10018: ldsfld System.Boolean Celeste.Mod.EeveeHelper.Components.EntityContainerMover::LiftSpeedFix @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
- + IL_10019: brtrue IL_01c0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
+ + IL_10014: ldsfld System.Boolean Celeste.Mod.EeveeHelper.Components.EntityContainerMover::LiftSpeedFix @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
+ + IL_10015: brtrue IL_01c0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
    IL_01b3: ldloc.s V_4
    IL_01b5: ldarg.0
    IL_01b6: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Platform::LiftSpeed
- + IL_1001a: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
- + IL_1001b: ldloc V_4 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
- + IL_1001c: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
- + IL_1001d: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
- + IL_1001e: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10016: ldarg.0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10017: ldloc V_4 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10018: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_10019: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_1001a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock+<>c.<Solid_MoveHExact>b__92_0(Vector2,Solid,Actor)
- + IL_1001f: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Celeste.Solid,Celeste.Actor>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
+ + IL_1001b: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal3<Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Celeste.Solid,Celeste.Actor>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/TypeVal3`4<TResult,T0,T1,T2>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.Entities.MoveSwapBlock.Solid_MoveHExact(ILContext)
    IL_01bb: callvirt System.Void Celeste.Actor::set_LiftSpeed(Microsoft.Xna.Framework.Vector2)
- + IL_10020: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
- + IL_10021: ldloc.s V_4 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
- + IL_10022: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::OnTeraSolidMove(Celeste.Solid,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
+ + IL_1001c: ldarg.0 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
+ + IL_1001d: ldloc.s V_4 @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
+ + IL_1001e: call System.Void Celeste.Mod.TeraHelper.Entities.TeraBlock::OnTeraSolidMove(Celeste.Solid,Celeste.Actor) @ [TeraHelper::]Celeste.Mod.TeraHelper.Entities.TeraBlock.OnSolidMoveH(ILContext)
    IL_01c0: ldarg.0
    IL_01c1: ldc.i4.1
    IL_01c2: stfld System.Boolean Monocle.Entity::Collidable
@@ -237,8 +232,8 @@ IL: [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Solid_MoveHExact(ILContext)
    IL_01eb: endfinally
    IL_01ec: ldsfld System.Collections.Generic.HashSet`1<Celeste.Actor> Celeste.Solid::riders
    IL_01f1: callvirt System.Void System.Collections.Generic.HashSet`1<Celeste.Actor>::Clear()
- + IL_10023: ldc.i4 0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableClimbtrigger.DontMovePlayer(ILContext)
- + IL_10024: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.BufferableClimbtrigger::SetUseOrig(System.Boolean) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableClimbtrigger.DontMovePlayer(ILContext)
- + IL_10025: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ComponentOnMove(ILContext)
- + IL_10026: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection::MoveDelegate(Monocle.Entity) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ComponentOnMove(ILContext)
+ + IL_1001f: ldc.i4 0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableClimbtrigger.DontMovePlayer(ILContext)
+ + IL_10020: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.BufferableClimbtrigger::SetUseOrig(System.Boolean) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableClimbtrigger.DontMovePlayer(ILContext)
+ + IL_10021: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ComponentOnMove(ILContext)
+ + IL_10022: call System.Void Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection::MoveDelegate(Monocle.Entity) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SolidBlockboostProtection.ComponentOnMove(ILContext)
    IL_01f6: ret
