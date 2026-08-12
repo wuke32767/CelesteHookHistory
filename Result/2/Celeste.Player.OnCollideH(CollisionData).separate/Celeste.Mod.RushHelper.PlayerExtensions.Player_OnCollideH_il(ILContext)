@@ -47,7 +47,7 @@
  + IL_10000: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
  + IL_10001: ldarg.1 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
  + IL_10002: call System.Boolean Celeste.Mod.RushHelper.PlayerExtensions::ShouldHitPlatform(Celeste.Player,Celeste.CollisionData) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
- + IL_10003: brtrue.s IL_00b9 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
+ + IL_10003: brtrue IL_00b9 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
    IL_0072: ldarg.0
    IL_0073: callvirt System.Boolean Celeste.Player::get_DashAttacking()
    IL_0078: brfalse IL_0130
@@ -123,7 +123,7 @@
    IL_013c: beq.s IL_014f
  + IL_10004: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
  + IL_10005: call System.Boolean Celeste.Mod.RushHelper.PlayerExtensions::IsInCustomDash(Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
- + IL_10006: brtrue.s IL_014f @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
+ + IL_10006: brtrue IL_014f @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
    IL_013e: ldarg.0
    IL_013f: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0144: callvirt System.Int32 Monocle.StateMachine::get_State()
@@ -262,8 +262,6 @@
    IL_02b9: stfld System.Single Celeste.Player::wallSpeedRetained
    IL_02be: ldarg.0
    IL_02bf: ldc.r4 0.06
- + IL_10007: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
- + IL_10008: call System.Single Celeste.Mod.RushHelper.PlayerExtensions::GetWallSpeedRetentionTime(System.Single,Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
    IL_02c4: stfld System.Single Celeste.Player::wallSpeedRetentionTimer
    IL_02c9: ldarg.1
    IL_02ca: ldfld Celeste.Platform Celeste.CollisionData::Hit
@@ -292,7 +290,7 @@
    IL_031b: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0320: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_0325: ldc.i4.5
-   IL_0326: bne.un.s IL_10009
+   IL_0326: bne.un.s IL_10007
    IL_0328: ldc.i4.1
    IL_0329: ldc.i4.0
    IL_032a: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
@@ -313,6 +311,6 @@
    IL_0365: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_036a: ldc.i4.6
    IL_036b: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
- + IL_10009: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
- + IL_1000a: call System.Void Celeste.Mod.RushHelper.PlayerExtensions::OnTrueCollideH(Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
+ + IL_10007: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
+ + IL_10008: call System.Void Celeste.Mod.RushHelper.PlayerExtensions::OnTrueCollideH(Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
    IL_0370: ret

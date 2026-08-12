@@ -20,11 +20,11 @@ On{0DWgZQ1Hdwk}: [FaerieHelper::]Celeste.Mod.FaerieHelper.Triggers.CustomCornerC
 IL: {UNKNOWN_DETOUR: Priority: -1}[CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.DreamTunnelDash+<>c.<.cctor>b__70_0(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.FeatherBarrier.AddCollideCheck(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier.AddCollideCheck(ILContext)
-IL: {UNKNOWN_DETOUR: Priority: -1}[RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[ChroniaHelper::]YoctoHelper.Hooks.MoonBoostHook.MoonBoost(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DynamicCornerCorrection.CustomOnCollideH(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.RemoveDBlockCCorection.CustomOnCollideH(ILContext)
+IL: {UNKNOWN_DETOUR: Priority: -1}[RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.CornerCorrection.hookCollideCornerCorrection(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.PermanentDashAttack.onPlayerCollide(ILContext)
@@ -131,7 +131,7 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.DashStickyRete
  + IL_1002a: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
  + IL_1002b: ldarg.1 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
  + IL_1002c: call System.Boolean Celeste.Mod.RushHelper.PlayerExtensions::ShouldHitPlatform(Celeste.Player,Celeste.CollisionData) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
- + IL_1002d: brtrue.s IL_00b9 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
+ + IL_1002d: brtrue IL_00b9 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
    IL_0072: ldarg.0
    IL_0073: callvirt System.Boolean Celeste.Player::get_DashAttacking()
    IL_0078: brfalse IL_0130
@@ -250,7 +250,7 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.DashStickyRete
    IL_013c: beq.s IL_014f
  + IL_10056: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
  + IL_10057: call System.Boolean Celeste.Mod.RushHelper.PlayerExtensions::IsInCustomDash(Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
- + IL_10058: brtrue.s IL_014f @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
+ + IL_10058: brtrue IL_014f @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
    IL_013e: ldarg.0
    IL_013f: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0144: callvirt System.Int32 Monocle.StateMachine::get_State()
@@ -438,8 +438,6 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.DashStickyRete
    IL_02be: ldarg.0
    IL_02bf: ldc.r4 0.06
  + IL_10087: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Other.RetentionLength::OverrideRetentionLength(System.Single) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Other.RetentionLength.patch_Player_OnCollideH(ILContext)
- + IL_10088: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
- + IL_10089: call System.Single Celeste.Mod.RushHelper.PlayerExtensions::GetWallSpeedRetentionTime(System.Single,Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
    IL_02c4: stfld System.Single Celeste.Player::wallSpeedRetentionTimer
    IL_02c9: ldarg.1
    IL_02ca: ldfld Celeste.Platform Celeste.CollisionData::Hit
@@ -460,8 +458,8 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.DashStickyRete
    IL_02ff: stfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_0304: ldarg.0
    IL_0305: ldc.r4 0
- + IL_1008a: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.KeepDashAttackOnCollision.keepDashAttack(ILContext)
- + IL_1008b: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Dashing.KeepDashAttackOnCollision::overrideDashAttack(System.Single,Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.KeepDashAttackOnCollision.keepDashAttack(ILContext)
+ + IL_10088: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.KeepDashAttackOnCollision.keepDashAttack(ILContext)
+ + IL_10089: call System.Single Celeste.Mod.GooberHelper.Options.Physics.Dashing.KeepDashAttackOnCollision::overrideDashAttack(System.Single,Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Dashing.KeepDashAttackOnCollision.keepDashAttack(ILContext)
    IL_030a: stfld System.Single Celeste.Player::dashAttackTimer
    IL_030f: ldarg.0
    IL_0310: ldc.r4 0
@@ -470,15 +468,15 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.DashStickyRete
    IL_031b: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0320: callvirt System.Int32 Monocle.StateMachine::get_State()
    IL_0325: ldc.i4.5
- + IL_1008c: ldarg.0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
- + IL_1008d: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
- + IL_1008e: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
- + IL_1008f: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
+ + IL_1008a: ldarg.0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
+ + IL_1008b: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
+ + IL_1008c: ldc.i4 0 @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
+ + IL_1008d: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
        => Invoke: [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<TranslateRedDash>b__2_0(Int32,Player)
- + IL_10090: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Int32,System.Int32,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
- + IL_10091: ldarg.0 @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
- + IL_10092: call System.Int32 FrostHelper.FrostModule::GetRedDashState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
-   IL_0326: bne.un.s IL_10098
+ + IL_1008e: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.Int32,System.Int32,Celeste.Player>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [VivHelper::]VivHelper.Entities.Boosters.BoostFunctions+<>c.<Load>b__0_4(ILContext)
+ + IL_1008f: ldarg.0 @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
+ + IL_10090: call System.Int32 FrostHelper.FrostModule::GetRedDashState(System.Int32,Celeste.Player) @ [FrostTempleHelper::]FrostHelper.CustomFeather.modFeatherState(ILContext)
+   IL_0326: bne.un.s IL_10096
    IL_0328: ldc.i4.1
    IL_0329: ldc.i4.0
    IL_032a: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
@@ -499,11 +497,11 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.DashStickyRete
    IL_0365: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_036a: ldc.i4.6
    IL_036b: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
- + IL_10093: ldarg.0 @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.FeatherBarrier.AddCollideCheck(ILContext)
- + IL_10094: ldarg.1 @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.FeatherBarrier.AddCollideCheck(ILContext)
- + IL_10095: call System.Void Celeste.Mod.DJMapHelper.Entities.FeatherBarrier::CheckCollide(Celeste.Player,Celeste.CollisionData) @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.FeatherBarrier.AddCollideCheck(ILContext)
- + IL_10096: ldarg.1 @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier.AddCollideCheck(ILContext)
- + IL_10097: call System.Void Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier::CheckCollide(Celeste.CollisionData) @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier.AddCollideCheck(ILContext)
- + IL_10098: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
- + IL_10099: call System.Void Celeste.Mod.RushHelper.PlayerExtensions::OnTrueCollideH(Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
+ + IL_10091: ldarg.0 @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.FeatherBarrier.AddCollideCheck(ILContext)
+ + IL_10092: ldarg.1 @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.FeatherBarrier.AddCollideCheck(ILContext)
+ + IL_10093: call System.Void Celeste.Mod.DJMapHelper.Entities.FeatherBarrier::CheckCollide(Celeste.Player,Celeste.CollisionData) @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.FeatherBarrier.AddCollideCheck(ILContext)
+ + IL_10094: ldarg.1 @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier.AddCollideCheck(ILContext)
+ + IL_10095: call System.Void Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier::CheckCollide(Celeste.CollisionData) @ [DJMapHelper::]Celeste.Mod.DJMapHelper.Entities.TheoCrystalBarrier.AddCollideCheck(ILContext)
+ + IL_10096: ldarg.0 @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
+ + IL_10097: call System.Void Celeste.Mod.RushHelper.PlayerExtensions::OnTrueCollideH(Celeste.Player) @ [RushHelper::]Celeste.Mod.RushHelper.PlayerExtensions.Player_OnCollideH_il(ILContext)
    IL_0370: ret
