@@ -14,8 +14,8 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[XaphanHelper::]Celeste.Mod.XaphanHelper.Upgra
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.InvertDashes.modCallDashEvents(ILContext)
 IL: [BounceHelper::]Celeste.Mod.BounceHelper.BounceHelperModule.modCallDashEvents(ILContext)
 IL: [SaladimHelper::]Celeste.Mod.SaladimHelper.Entities.BitsMomentumRefill.Player_CallDashEvents(ILContext)
-IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
+IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
 [V_0] System.Boolean
 [V_1] System.Collections.Generic.List`1/Enumerator<Monocle.Component>
 [V_2] Celeste.DashListener
@@ -39,12 +39,12 @@ IL: [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modC
    IL_000b: ldarg.0
    IL_000c: ldc.i4.1
    IL_000d: stfld System.Boolean Celeste.Player::calledDashEvents
- + IL_1000c: ldarg.0 @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
- + IL_1000d: call System.Boolean FrostHelper.Entities.Boosters.GenericCustomBooster::ShouldCallDashEvents(Celeste.Player) @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
- + IL_1000e: brtrue IL_10010 @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
- + IL_1000f: ret @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
- + IL_10010: ldarg.0 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
- + IL_10011: call System.Void Celeste.Mod.WarlockHelper.WarlockHelperModule::playerPreDashEvents(Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
+ + IL_1000c: ldarg.0 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
+ + IL_1000d: call System.Void Celeste.Mod.WarlockHelper.WarlockHelperModule::playerPreDashEvents(Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_callDashEventsMod(ILContext)
+ + IL_1000e: ldarg.0 @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
+ + IL_1000f: call System.Boolean FrostHelper.Entities.Boosters.GenericCustomBooster::ShouldCallDashEvents(Celeste.Player) @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
+ + IL_10010: brtrue IL_0012 @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
+ + IL_10011: ret @ [FrostTempleHelper::]FrostHelper.Entities.Boosters.GenericCustomBooster.modCallDashEvents(ILContext)
    IL_0012: ldarg.0
    IL_0013: ldfld Celeste.Booster Celeste.Player::CurrentBooster
    IL_0018: brtrue IL_0179

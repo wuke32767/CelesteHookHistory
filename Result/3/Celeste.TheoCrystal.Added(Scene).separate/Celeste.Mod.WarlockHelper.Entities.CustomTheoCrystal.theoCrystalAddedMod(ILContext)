@@ -1,5 +1,3 @@
-IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.TheoCrystalsEverywhere.excludeExtendedVariantTheoCrystalFromAdded(ILContext)
-IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal.theoCrystalAddedMod(ILContext)
 [V_0] System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
 [V_1] Celeste.TheoCrystal
    IL_0000: ldarg.0
@@ -16,7 +14,6 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal.theoCr
    IL_0014: ldfld Celeste.Level Celeste.TheoCrystal::Level
    IL_0019: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
    IL_001e: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<Celeste.TheoCrystal>()
- + IL_10003: call System.Collections.Generic.List`1<Monocle.Entity> ExtendedVariants.Variants.TheoCrystalsEverywhere::filterOutExtendedCrystals(System.Collections.Generic.List`1<Monocle.Entity>) @ [ExtendedVariantMode::]ExtendedVariants.Variants.TheoCrystalsEverywhere.excludeExtendedVariantTheoCrystalFromAdded(ILContext)
    IL_0023: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
    IL_0028: stloc.0
    IL_0029: br.s IL_004f
@@ -27,9 +24,9 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal.theoCr
    IL_0038: ldloc.1
    IL_0039: ldarg.0
    IL_003a: beq.s IL_004f
- + IL_10004: ldloc.1 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal.theoCrystalAddedMod(ILContext)
- + IL_10005: call System.Boolean Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal::theoCrystalIsEmpty(Celeste.TheoCrystal) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal.theoCrystalAddedMod(ILContext)
- + IL_10006: brtrue IL_004f @ [WarlockHelper::]Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal.theoCrystalAddedMod(ILContext)
+ + IL_10003: ldloc.1 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal.theoCrystalAddedMod(ILContext)
+ + IL_10004: call System.Boolean Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal::theoCrystalIsEmpty(Celeste.TheoCrystal) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal.theoCrystalAddedMod(ILContext)
+ + IL_10005: brtrue IL_004f @ [WarlockHelper::]Celeste.Mod.WarlockHelper.Entities.CustomTheoCrystal.theoCrystalAddedMod(ILContext)
    IL_003c: ldloc.1
    IL_003d: ldfld Celeste.Holdable Celeste.TheoCrystal::Hold
    IL_0042: callvirt System.Boolean Celeste.Holdable::get_IsHeld()

@@ -24,7 +24,6 @@ IL: [FaerieHelper::]Celeste.Mod.FaerieHelper.Entities.CoriolisController.Modifie
 IL: [RandomDashLength::]Celeste.Mod.RandomDashLength.RandomDashLengthModule.onDash(ILContext)
 IL: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_DashCoroutine(ILContext)
 IL: [CelesteTAS-EverestInterop::]TAS.GameInfo.PlayerOnDashCoroutine(ILContext)
-IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashCoroutineMod(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.TweakManagers.ChangeDashSpeedOnce.DashCoroutinePatch(ILContext)
 IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.OnPlayerDashCoro(ILContext)
 IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass91_0.<applyILHook>b__0(ILContext)
@@ -40,6 +39,7 @@ IL: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.CustomDashbounceTiming.G
 IL: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.DashDirBuffer(ILContext)
 IL: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.GultraCancel+<>c.<.cctor>b__10_1(ILContext)
 IL: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.NoFailedTech.GetDashDir(ILContext)
+IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashCoroutineMod(ILContext)
 IL: [ReverseHelper::]Celeste.Mod.ReverseHelper.Entities.DreamBlockConfigurer.Player_DashCoroutine(ILContext)
 IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.PlayerStateUtils.ILUltra(ILContext)
 [V_0] System.Int32
@@ -98,10 +98,10 @@ IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.PlayerStateUtils.ILUltra(ILConte
    IL_0090: pop
    IL_0091: ldloc.1
    IL_0092: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::lastAim
- + IL_10000: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection::ChangeLastAim(Microsoft.Xna.Framework.Vector2) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.DashDirBuffer(ILContext)
- + IL_10001: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.EndHelper.EndHelperModule::PreventDownRedirect(Microsoft.Xna.Framework.Vector2) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_DashCoroutine(ILContext)
- + IL_10002: ldloc.1 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashCoroutineMod(ILContext)
- + IL_10003: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.WarlockHelper.WarlockHelperModule::playerGetDashDir(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashCoroutineMod(ILContext)
+ + IL_10000: ldloc.1 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashCoroutineMod(ILContext)
+ + IL_10001: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.WarlockHelper.WarlockHelperModule::playerGetDashDir(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashCoroutineMod(ILContext)
+ + IL_10002: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection::ChangeLastAim(Microsoft.Xna.Framework.Vector2) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.DashDirBuffer(ILContext)
+ + IL_10003: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.EndHelper.EndHelperModule::PreventDownRedirect(Microsoft.Xna.Framework.Vector2) @ [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_DashCoroutine(ILContext)
  + IL_10004: ldloc.1 @ [AidenHelper::]Celeste.Mod.AidenHelper.Triggers.RunAndGunTrigger.ilHookDashCoroutine(ILContext)
  + IL_10005: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.AidenHelper.Triggers.RunAndGunTrigger::OverrideLastAim(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [AidenHelper::]Celeste.Mod.AidenHelper.Triggers.RunAndGunTrigger.ilHookDashCoroutine(ILContext)
    IL_0097: stloc.2

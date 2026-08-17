@@ -18,6 +18,7 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[FemtoHelper::]Celeste.Mod.FemtoHelper.Entitie
 IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.UnforceAllFacings(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
 IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.Components.CustomHoldable.Player_throwMod(ILContext)
    IL_0000: ldarg.0
    IL_0001: callvirt Celeste.Holdable Celeste.Player::get_Holding()
    IL_0006: brfalse IL_008b
@@ -45,21 +46,24 @@ IL: {MaddieHelpingHand_Default: }[MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.En
    IL_0038: conv.r4
    IL_0039: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_003e: callvirt System.Void Celeste.Holdable::Release(Microsoft.Xna.Framework.Vector2)
+ + IL_10006: ldarg.0 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.Components.CustomHoldable.Player_throwMod(ILContext)
+ + IL_10007: call System.Boolean Celeste.Mod.WarlockHelper.Components.CustomHoldable::playerGetHasCustomThrowRecoil(Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.Components.CustomHoldable.Player_throwMod(ILContext)
+ + IL_10008: brtrue IL_0060 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.Components.CustomHoldable.Player_throwMod(ILContext)
    IL_0043: ldarg.0
    IL_0044: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0049: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
    IL_004e: dup
    IL_004f: ldind.r4
    IL_0050: ldc.r4 80
- + IL_10006: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
- + IL_10007: call System.Single Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal::Upthrowcheck(Celeste.Player) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
- + IL_10008: mul @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+ + IL_10009: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+ + IL_1000a: call System.Single Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal::Upthrowcheck(Celeste.Player) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
+ + IL_1000b: mul @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.EvilTheoCrystal.PlayerThrowNoKb(ILContext)
    IL_0055: ldarg.0
    IL_0056: ldfld Celeste.Facings Celeste.Player::Facing
- + IL_10009: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
- + IL_1000a: call Celeste.Facings Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertThrowFacing(Celeste.Facings,Celeste.Player) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
- + IL_1000b: call Celeste.Facings ExtendedVariants.Variants.ThrowIgnoresForcedMove::applyFacingChange(Celeste.Facings) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
- + IL_1000c: call Celeste.Facings Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech::UnforcedFacing(Celeste.Facings) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.UnforceAllFacings(ILContext)
+ + IL_1000c: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+ + IL_1000d: call Celeste.Facings Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly::invertThrowFacing(Celeste.Facings,Celeste.Player) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.ReverseJelly.reverseYAxisThrow(ILContext)
+ + IL_1000e: call Celeste.Facings ExtendedVariants.Variants.ThrowIgnoresForcedMove::applyFacingChange(Celeste.Facings) @ [ExtendedVariantMode::]ExtendedVariants.Variants.ThrowIgnoresForcedMove.Player_Throw_il(ILContext)
+ + IL_1000f: call Celeste.Facings Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech::UnforcedFacing(Celeste.Facings) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.UnforceAllFacings(ILContext)
    IL_005b: neg
    IL_005c: conv.r4
    IL_005d: mul

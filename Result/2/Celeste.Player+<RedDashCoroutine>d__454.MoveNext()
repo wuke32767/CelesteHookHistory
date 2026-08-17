@@ -1,11 +1,11 @@
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.DashSpeed.modDashSpeed(ILContext)
-IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
 IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MacabreBooster.OnPlayerDashCoro(ILContext)
 IL: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.PinballBooster.OnPlayerDashCoro(ILContext)
 IL: [EndHelper::]Celeste.Mod.EndHelper.EndHelperModule.Hook_IL_RedDashCoroutine(ILContext)
 IL: [FemtoHelper::]Celeste.Mod.FemtoHelper.FemtoModule.ModDashSpeed(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.BubbleSpeedPreservation.modifyDashSpeedThing(ILContext)
 IL: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.DashDirBuffer(ILContext)
+IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
 [V_0] System.Int32
 [V_1] Celeste.Player
 [V_2] Microsoft.Xna.Framework.Vector2
@@ -40,9 +40,9 @@ IL: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtec
    IL_0036: ldloc.1
    IL_0037: ldloc.1
    IL_0038: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::lastAim
- + IL_10000: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection::ChangeLastAim(Microsoft.Xna.Framework.Vector2) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.DashDirBuffer(ILContext)
- + IL_10001: ldloc.1 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
- + IL_10002: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.WarlockHelper.WarlockHelperModule::playerGetDashDir(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
+ + IL_10000: ldloc.1 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
+ + IL_10001: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.WarlockHelper.WarlockHelperModule::playerGetDashDir(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
+ + IL_10002: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection::ChangeLastAim(Microsoft.Xna.Framework.Vector2) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.DashDirBuffer(ILContext)
    IL_003d: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Player::CorrectDashPrecision(Microsoft.Xna.Framework.Vector2)
    IL_0042: ldc.r4 240
  + IL_10003: ldloc.1 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.FemtoModule.ModDashSpeed(ILContext)
@@ -62,9 +62,9 @@ IL: [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtec
    IL_0052: ldloc.1
    IL_0053: ldloc.1
    IL_0054: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::lastAim
- + IL_1000e: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection::ChangeLastAim(Microsoft.Xna.Framework.Vector2) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.DashDirBuffer(ILContext)
- + IL_1000f: ldloc.1 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
- + IL_10010: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.WarlockHelper.WarlockHelperModule::playerGetDashDir(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
+ + IL_1000e: ldloc.1 @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
+ + IL_1000f: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.WarlockHelper.WarlockHelperModule::playerGetDashDir(Microsoft.Xna.Framework.Vector2,Celeste.Player) @ [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_redDashCoroutineMod(ILContext)
+ + IL_10010: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection::ChangeLastAim(Microsoft.Xna.Framework.Vector2) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.DashDirBuffer(ILContext)
    IL_0059: dup
    IL_005a: stloc.2
    IL_005b: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::DashDir
