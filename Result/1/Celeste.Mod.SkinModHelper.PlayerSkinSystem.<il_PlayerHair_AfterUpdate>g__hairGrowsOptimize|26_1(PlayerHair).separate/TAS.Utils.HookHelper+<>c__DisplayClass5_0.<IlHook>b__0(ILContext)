@@ -1,0 +1,72 @@
+[V_0] Celeste.Mod.SkinModHelper.HairConfig
+[V_1] System.Int32
+[V_2] System.Boolean
+[V_3] System.Int32
+[V_4] System.Boolean
+   IL_0000: nop
+   IL_0001: call Celeste.Mod.SkinModHelper.SkinModHelperSettings Celeste.Mod.SkinModHelper.SkinModHelperModule::get_smh_Settings()
+   IL_0006: callvirt System.Boolean Celeste.Mod.SkinModHelper.SkinModHelperSettings::get_BetterHairMotionOnGrows()
+   IL_000b: ldc.i4.0
+   IL_000c: ceq
+   IL_000e: stloc.2
+   IL_000f: ldloc.2
+   IL_0010: brfalse.s IL_0017
+   IL_0012: br IL_00a3
+   IL_0017: ldarg.0
+   IL_0018: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_001d: stloc.0
+   IL_001e: ldarg.0
+   IL_001f: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10000: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0024: ldfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_0029: ldarg.0
+   IL_002a: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_002f: callvirt System.Int32 System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Count()
+   IL_0034: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0039: stloc.1
+   IL_003a: ldloc.0
+   IL_003b: ldfld System.Int32 Celeste.Mod.SkinModHelper.HairConfig::lastHairCount
+   IL_0040: ldc.i4.2
+   IL_0041: call System.Int32 System.Math::Max(System.Int32,System.Int32)
+   IL_0046: stloc.3
+   IL_0047: br.s IL_0088
+   IL_0049: nop
+   IL_004a: ldarg.0
+   IL_004b: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_0050: ldloc.3
+   IL_0051: ldarg.0
+   IL_0052: ldfld System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2> Celeste.PlayerHair::Nodes
+   IL_0057: ldloc.3
+   IL_0058: ldc.i4.1
+   IL_0059: sub
+   IL_005a: callvirt T System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::get_Item(System.Int32)
+   IL_005f: ldc.i4.0
+   IL_0060: ldarg.0
+   IL_0061: ldfld Celeste.Facings Celeste.PlayerHair::Facing
+   IL_0066: sub
+   IL_0067: conv.r4
+   IL_0068: ldc.r4 0.5
+   IL_006d: mul
+   IL_006e: ldc.r4 0
+   IL_0073: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0078: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_007d: callvirt System.Void System.Collections.Generic.List`1<Microsoft.Xna.Framework.Vector2>::set_Item(System.Int32,T)
+   IL_0082: nop
+   IL_0083: nop
+   IL_0084: ldloc.3
+   IL_0085: ldc.i4.1
+   IL_0086: add
+   IL_0087: stloc.3
+   IL_0088: ldloc.3
+   IL_0089: ldloc.1
+   IL_008a: clt
+   IL_008c: stloc.s V_4
+   IL_008e: ldloc.s V_4
+   IL_0090: brtrue.s IL_0049
+   IL_0092: ldloc.0
+   IL_0093: ldarg.0
+   IL_0094: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10001: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0099: ldfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_009e: stfld System.Int32 Celeste.Mod.SkinModHelper.HairConfig::lastHairCount
+   IL_00a3: ret

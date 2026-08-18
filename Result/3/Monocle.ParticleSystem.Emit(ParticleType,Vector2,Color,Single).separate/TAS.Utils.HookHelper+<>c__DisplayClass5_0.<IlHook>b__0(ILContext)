@@ -1,0 +1,28 @@
+ + IL_10000: call System.Boolean TAS.Gameplay.Optimization.FastForwardOptimization::get_Active() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10002: ldarg type @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10003: call DynamicMethod!Initialize_SimulateTypeCreateCalls!System.Void TAS.Gameplay.Optimization.FastForwardOptimization::Initialize_SimulateTypeCreateCalls(Monocle.ParticleType) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10004: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.1
+   IL_0001: ldarg.0
+   IL_0002: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_0007: ldarg.0
+   IL_0008: ldfld System.Int32 Monocle.ParticleSystem::nextSlot
+   IL_000d: ldelema Monocle.Particle
+   IL_0012: ldarg.2
+   IL_0013: ldarg.3
+   IL_0014: ldarg.s direction
+   IL_0016: callvirt Monocle.Particle Monocle.ParticleType::Create(Monocle.Particle&,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_001b: pop
+   IL_001c: ldarg.0
+   IL_001d: ldarg.0
+   IL_001e: ldfld System.Int32 Monocle.ParticleSystem::nextSlot
+   IL_0023: ldc.i4.1
+   IL_0024: add
+   IL_0025: ldarg.0
+   IL_0026: ldfld Monocle.Particle[] Monocle.ParticleSystem::particles
+   IL_002b: ldlen
+   IL_002c: conv.i4
+   IL_002d: rem
+   IL_002e: stfld System.Int32 Monocle.ParticleSystem::nextSlot
+   IL_0033: ret

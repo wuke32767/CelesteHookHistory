@@ -1,0 +1,22 @@
+ + IL_10000: call System.Boolean TAS.Gameplay.SimplifiedGraphics::Enabled() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0000: ldc.i4.s 65
+   IL_0002: call T ExtendedVariants.Variants.AbstractExtendedVariant::GetVariantValue<System.Single>(ExtendedVariants.Module.ExtendedVariantsModule/Variant)
+   IL_0007: ldc.r4 0
+   IL_000c: ble.un.s IL_0041
+   IL_000e: call System.Void ExtendedVariants.Variants.BlurLevel::ensureBufferIsCorrect()
+   IL_0013: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Level
+   IL_0018: ldfld Microsoft.Xna.Framework.Graphics.RenderTarget2D Monocle.VirtualRenderTarget::Target
+   IL_001d: ldsfld Monocle.VirtualRenderTarget ExtendedVariants.Variants.BlurLevel::tempBuffer
+   IL_0022: ldsfld Monocle.VirtualRenderTarget Celeste.GameplayBuffers::Level
+   IL_0027: ldc.r4 0
+   IL_002c: ldc.i4.1
+   IL_002d: ldc.i4.2
+   IL_002e: ldc.i4.s 65
+   IL_0030: call T ExtendedVariants.Variants.AbstractExtendedVariant::GetVariantValue<System.Single>(ExtendedVariants.Module.ExtendedVariantsModule/Variant)
+   IL_0035: ldc.i4.0
+   IL_0036: ldc.r4 1
+   IL_003b: call Microsoft.Xna.Framework.Graphics.Texture2D Celeste.GaussianBlur::Blur(Microsoft.Xna.Framework.Graphics.Texture2D,Monocle.VirtualRenderTarget,Monocle.VirtualRenderTarget,System.Single,System.Boolean,Celeste.GaussianBlur/Samples,System.Single,Celeste.GaussianBlur/Direction,System.Single)
+   IL_0040: pop
+   IL_0041: ret

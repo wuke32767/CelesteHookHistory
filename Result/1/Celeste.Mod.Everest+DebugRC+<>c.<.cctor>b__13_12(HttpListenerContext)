@@ -1,6 +1,6 @@
 IL: {Celeste.Mod.DebugConsole.DebugConsole+<>c::<HookEverestDebugRc>b__24_0: Priority: -1}[DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
-IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-        [CelesteTAS-EverestInterop::]TAS.EverestInterop.Lua.EvalLuaCommand+<>c.<HookEverestDebugRc>b__6_0(ILCursor,ILContext)
+IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+        [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
 [V_0] System.String
 [V_1] System.Text.StringBuilder
 [V_2] System.Collections.Generic.IEnumerator`1<Monocle.Commands/CommandData>
@@ -16,6 +16,12 @@ IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHo
    IL_0010: ldstr "command"
    IL_0015: callvirt System.String System.Collections.Specialized.NameValueCollection::get_Item(System.String)
    IL_001a: call System.String System.Net.WebUtility::UrlDecode(System.String)
+ + IL_10000: dup @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10001: ldarg.1 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10002: call DynamicMethod!Load_CheckTasCommand!System.Boolean TAS.EverestInterop.ConsoleEnhancements::Load_CheckTasCommand(System.String,System.Net.HttpListenerContext) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10003: brfalse IL_001f @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10004: pop @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10005: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
    IL_001f: stloc.0
    IL_0020: ldloc.0
    IL_0021: call System.Boolean System.String::IsNullOrWhiteSpace(System.String)
@@ -203,18 +209,12 @@ IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHo
    IL_0249: stelem.i2
    IL_024a: ldc.i4.1
    IL_024b: callvirt System.String[] System.String::Split(System.Char[],System.StringSplitOptions)
- + IL_10000: ldloc.0 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_10001: ldc.i4 0 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_10002: ldc.i4 0 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_10003: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
-       => Invoke: [CelesteTAS-EverestInterop::]TAS.EverestInterop.Lua.EvalLuaCommand+<>c.<HookEverestDebugRc>b__6_2(String[],String)
- + IL_10004: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.String[],System.String[],System.String>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
- + IL_10005: ldloc.0 @ [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
- + IL_10006: ldc.i4 0 @ [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
+ + IL_10006: ldloc.0 @ [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
  + IL_10007: ldc.i4 0 @ [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
- + IL_10008: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
+ + IL_10008: ldc.i4 0 @ [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
+ + IL_10009: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
        => Invoke: [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_1(String[],String)
- + IL_10009: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.String[],System.String[],System.String>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
+ + IL_1000a: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal2<System.String[],System.String[],System.String>(T0,T1,MonoMod.Cil.FastDelegateInvokers/TypeVal2`3<TResult,T0,T1>) @ [DebugConsole::]Celeste.Mod.DebugConsole.DebugConsole+<>c.<HookEverestDebugRc>b__24_0(ILContext)
    IL_0250: stfld System.String[] Celeste.Mod.Everest/DebugRC/<>c__DisplayClass13_1::commandAndArgs
    IL_0255: ldloc.s V_6
    IL_0257: ldloc.s V_6

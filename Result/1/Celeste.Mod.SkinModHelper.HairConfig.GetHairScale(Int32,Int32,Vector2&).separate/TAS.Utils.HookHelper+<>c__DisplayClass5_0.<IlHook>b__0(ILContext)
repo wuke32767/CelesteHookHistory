@@ -1,0 +1,134 @@
+[V_0] System.Boolean
+[V_1] System.Boolean
+[V_2] System.Boolean
+[V_3] Microsoft.Xna.Framework.Vector2
+[V_4] System.Single
+[V_5] System.Boolean
+[V_6] System.Boolean
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2> Celeste.Mod.SkinModHelper.HairConfig::ActualHairScales
+   IL_0007: brfalse.s IL_000f
+   IL_0009: ldarg.1
+   IL_000a: ldc.i4.0
+   IL_000b: ceq
+   IL_000d: br.s IL_0010
+   IL_000f: ldc.i4.1
+   IL_0010: stloc.0
+   IL_0011: ldloc.0
+   IL_0012: brfalse.s IL_0027
+   IL_0014: nop
+   IL_0015: ldarg.3
+   IL_0016: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_001b: stobj Microsoft.Xna.Framework.Vector2
+   IL_0020: ldc.i4.0
+   IL_0021: stloc.1
+   IL_0022: br IL_0126
+   IL_0027: ldarg.0
+   IL_0028: ldfld System.Int32 Celeste.Mod.SkinModHelper.HairConfig::_AttrDasheslimit
+   IL_002d: ldarg.2
+   IL_002e: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0033: starg.s dashes
+   IL_0035: nop
+   IL_0036: ldarg.0
+   IL_0037: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2> Celeste.Mod.SkinModHelper.HairConfig::ActualHairScales
+   IL_003c: ldarg.2
+   IL_003d: ldc.i4.s 100
+   IL_003f: newobj System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_0044: ldarg.3
+   IL_0045: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2>::TryGetValue(TKey,TValue&)
+   IL_004a: stloc.2
+   IL_004b: ldloc.2
+   IL_004c: brfalse IL_010a
+   IL_0051: nop
+   IL_0052: ldarg.0
+   IL_0053: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2> Celeste.Mod.SkinModHelper.HairConfig::ActualHairScales
+   IL_0058: ldarg.2
+   IL_0059: ldarg.1
+   IL_005a: ldarg.0
+   IL_005b: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.HairConfig::attached
+   IL_0060: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10000: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0065: ldfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_006a: sub
+   IL_006b: newobj System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_0070: ldloca.s V_3
+   IL_0072: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2>::TryGetValue(TKey,TValue&)
+   IL_0077: brtrue.s IL_008f
+   IL_0079: ldarg.0
+   IL_007a: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2> Celeste.Mod.SkinModHelper.HairConfig::ActualHairScales
+   IL_007f: ldarg.2
+   IL_0080: ldarg.1
+   IL_0081: newobj System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_0086: ldloca.s V_3
+   IL_0088: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2>::TryGetValue(TKey,TValue&)
+   IL_008d: br.s IL_0090
+   IL_008f: ldc.i4.1
+   IL_0090: stloc.s V_5
+   IL_0092: ldloc.s V_5
+   IL_0094: brfalse.s IL_009f
+   IL_0096: nop
+   IL_0097: ldarg.3
+   IL_0098: ldloc.3
+   IL_0099: stobj Microsoft.Xna.Framework.Vector2
+   IL_009e: nop
+   IL_009f: ldarg.3
+   IL_00a0: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00a5: ldc.r4 1
+   IL_00aa: ldarg.1
+   IL_00ab: conv.r4
+   IL_00ac: ldarg.0
+   IL_00ad: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.HairConfig::attached
+   IL_00b2: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10001: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_00b7: ldfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_00bc: conv.r4
+   IL_00bd: div
+   IL_00be: sub
+   IL_00bf: ldarg.3
+   IL_00c0: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00c5: ldarg.3
+   IL_00c6: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00cb: sub
+   IL_00cc: mul
+   IL_00cd: add
+   IL_00ce: stloc.s V_4
+   IL_00d0: ldarg.3
+   IL_00d1: ldloc.s V_4
+   IL_00d3: ldarg.0
+   IL_00d4: ldfld Celeste.PlayerHair Celeste.Mod.SkinModHelper.HairConfig::attached
+   IL_00d9: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10002: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_00de: ldflda Microsoft.Xna.Framework.Vector2 Monocle.GraphicsComponent::Scale
+   IL_00e3: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00e8: call System.Single System.Math::Abs(System.Single)
+   IL_00ed: mul
+   IL_00ee: ldc.i4.2
+   IL_00ef: call System.Single System.Single::Round(System.Single,System.Int32)
+   IL_00f4: ldloc.s V_4
+   IL_00f6: ldc.i4.2
+   IL_00f7: call System.Single System.Single::Round(System.Single,System.Int32)
+   IL_00fc: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0101: stobj Microsoft.Xna.Framework.Vector2
+   IL_0106: ldc.i4.1
+   IL_0107: stloc.1
+   IL_0108: br.s IL_0126
+   IL_010a: ldarg.2
+   IL_010b: ldc.i4.2
+   IL_010c: cgt
+   IL_010e: ldc.i4.0
+   IL_010f: ceq
+   IL_0111: stloc.s V_6
+   IL_0113: ldloc.s V_6
+   IL_0115: brfalse.s IL_011c
+   IL_0117: nop
+   IL_0118: ldc.i4.0
+   IL_0119: stloc.1
+   IL_011a: br.s IL_0126
+   IL_011c: ldarg.2
+   IL_011d: ldc.i4.1
+   IL_011e: sub
+   IL_011f: starg.s dashes
+   IL_0121: br IL_0035
+   IL_0126: ldloc.1
+   IL_0127: ret

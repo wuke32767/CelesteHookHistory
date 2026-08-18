@@ -1,0 +1,35 @@
+[V_0] System.Boolean
+[V_1] System.Int32
+ + IL_10000: call DynamicMethod!Init_OverrideReturn!System.Boolean TAS.Gameplay.DesyncFix.SeededRandomness/CrystallineHelperHandler::Init_OverrideReturn() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10002: call DynamicMethod!Init_OverrideReturn!System.Int32 TAS.Gameplay.DesyncFix.SeededRandomness/CrystallineHelperHandler::Init_OverrideReturn() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10003: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0000: nop
+   IL_0001: call vitmod.VitModule/VitModuleSettings vitmod.VitModule::get_Settings()
+   IL_0006: callvirt vitmod.VitModule/RandomizationTypes vitmod.VitModule/VitModuleSettings::get_RandomizationType()
+   IL_000b: ldc.i4.0
+   IL_000c: ceq
+   IL_000e: stloc.0
+   IL_000f: ldloc.0
+   IL_0010: brfalse.s IL_0028
+   IL_0012: nop
+   IL_0013: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0018: ldfld System.Int64 Celeste.SaveData::Time
+   IL_001d: ldc.i4 2147483647
+   IL_0022: conv.i8
+   IL_0023: rem
+   IL_0024: conv.i4
+   IL_0025: stloc.1
+   IL_0026: br.s IL_003f
+   IL_0028: nop
+   IL_0029: ldarg.0
+   IL_002a: ldfld Celeste.Session Celeste.Level::Session
+   IL_002f: ldfld System.Int64 Celeste.Session::Time
+   IL_0034: ldc.i4 2147483647
+   IL_0039: conv.i8
+   IL_003a: rem
+   IL_003b: conv.i4
+   IL_003c: stloc.1
+   IL_003d: br.s IL_003f
+   IL_003f: ldloc.1
+   IL_0040: ret

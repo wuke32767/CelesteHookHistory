@@ -1,0 +1,256 @@
+[V_0] Celeste.Player
+[V_1] System.Int32
+[V_2] System.Int32
+[V_3] System.Int32
+[V_4] System.Int32
+ + IL_10000: ldsfld System.Random TAS.Gameplay.DesyncFix.SeededRandomness/PrologueBridgeHandler::bridgeRandom @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10001: call DynamicMethod!SeedMethod_PushRandom!System.Void TAS.Gameplay.DesyncFix.SeededRandomness/Handler::SeedMethod_PushRandom(System.Random) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::Update()
+   IL_0006: ldarg.0
+   IL_0007: ldfld Celeste.Level Celeste.Bridge::level
+   IL_000c: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0011: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_0016: stloc.0
+   IL_0017: ldloc.0
+   IL_0018: brfalse.s IL_0022
+   IL_001a: ldloc.0
+   IL_001b: callvirt System.Boolean Celeste.Player::get_Dead()
+   IL_0020: brfalse.s IL_002f
+   IL_0022: ldarg.0
+   IL_0023: ldfld Celeste.SoundSource Celeste.Bridge::collapseSfx
+   IL_0028: ldc.i4.1
+   IL_0029: callvirt Celeste.SoundSource Celeste.SoundSource::Stop(System.Boolean)
+   IL_002e: pop
+   IL_002f: ldarg.0
+   IL_0030: ldfld System.Boolean Celeste.Bridge::canCollapse
+   IL_0035: brtrue IL_00cf
+   IL_003a: ldloc.0
+   IL_003b: brfalse IL_10007
+   IL_0040: ldloc.0
+   IL_0041: callvirt System.Single Monocle.Entity::get_X()
+   IL_0046: ldarg.0
+   IL_0047: call System.Single Monocle.Entity::get_X()
+   IL_004c: ldc.r4 112
+   IL_0051: add
+   IL_0052: blt.un IL_10007
+   IL_0057: ldstr "event:/music/lvl0/bridge"
+   IL_005c: ldc.i4.1
+   IL_005d: ldc.i4.1
+   IL_005e: call System.Boolean Celeste.Audio::SetMusic(System.String,System.Boolean,System.Boolean)
+   IL_0063: pop
+   IL_0064: ldarg.0
+   IL_0065: ldfld Celeste.SoundSource Celeste.Bridge::collapseSfx
+   IL_006a: ldstr "event:/game/00_prologue/bridge_rumble_loop"
+   IL_006f: ldnull
+   IL_0070: ldc.r4 0
+   IL_0075: callvirt Celeste.SoundSource Celeste.SoundSource::Play(System.String,System.String,System.Single)
+   IL_007a: pop
+   IL_007b: ldarg.0
+   IL_007c: ldc.i4.1
+   IL_007d: stfld System.Boolean Celeste.Bridge::canCollapse
+   IL_0082: ldarg.0
+   IL_0083: ldc.i4.1
+   IL_0084: stfld System.Boolean Celeste.Bridge::canEndCollapseA
+   IL_0089: ldarg.0
+   IL_008a: ldc.i4.1
+   IL_008b: stfld System.Boolean Celeste.Bridge::canEndCollapseB
+   IL_0090: ldc.i4.0
+   IL_0091: stloc.1
+   IL_0092: br.s IL_00c9
+   IL_0094: ldarg.0
+   IL_0095: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_009a: ldc.i4.0
+   IL_009b: callvirt T System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Item(System.Int32)
+   IL_00a0: ldsfld System.Random Monocle.Calc::Random
+   IL_00a5: ldc.r4 0.1
+   IL_00aa: ldc.r4 0.5
+   IL_00af: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_00b4: callvirt System.Void Celeste.BridgeTile::Fall(System.Single)
+   IL_00b9: ldarg.0
+   IL_00ba: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_00bf: ldc.i4.0
+   IL_00c0: callvirt System.Void System.Collections.Generic.List`1<Celeste.BridgeTile>::RemoveAt(System.Int32)
+   IL_00c5: ldloc.1
+   IL_00c6: ldc.i4.1
+   IL_00c7: add
+   IL_00c8: stloc.1
+   IL_00c9: ldloc.1
+   IL_00ca: ldc.i4.s 11
+   IL_00cc: blt.s IL_0094
+ + IL_10002: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_00ce: ret
+   IL_00cf: ldarg.0
+   IL_00d0: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_00d5: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Count()
+   IL_00da: ldc.i4.0
+   IL_00db: ble IL_029b
+   IL_00e0: ldloc.0
+   IL_00e1: brfalse IL_10007
+   IL_00e6: ldarg.0
+   IL_00e7: ldfld System.Boolean Celeste.Bridge::canEndCollapseA
+   IL_00ec: brfalse IL_016a
+   IL_00f1: ldloc.0
+   IL_00f2: callvirt System.Single Monocle.Entity::get_X()
+   IL_00f7: ldarg.0
+   IL_00f8: call System.Single Monocle.Entity::get_X()
+   IL_00fd: ldarg.0
+   IL_00fe: ldfld System.Int32 Celeste.Bridge::width
+   IL_0103: conv.r4
+   IL_0104: add
+   IL_0105: ldc.r4 216
+   IL_010a: sub
+   IL_010b: ble.un.s IL_016a
+   IL_010d: ldarg.0
+   IL_010e: ldc.i4.0
+   IL_010f: stfld System.Boolean Celeste.Bridge::canEndCollapseA
+   IL_0114: ldc.i4.0
+   IL_0115: stloc.2
+   IL_0116: br.s IL_0165
+   IL_0118: ldarg.0
+   IL_0119: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_011e: ldarg.0
+   IL_011f: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_0124: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Count()
+   IL_0129: ldc.i4.8
+   IL_012a: sub
+   IL_012b: callvirt T System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Item(System.Int32)
+   IL_0130: ldsfld System.Random Monocle.Calc::Random
+   IL_0135: ldc.r4 0.1
+   IL_013a: ldc.r4 0.5
+   IL_013f: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_0144: callvirt System.Void Celeste.BridgeTile::Fall(System.Single)
+   IL_0149: ldarg.0
+   IL_014a: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_014f: ldarg.0
+   IL_0150: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_0155: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Count()
+   IL_015a: ldc.i4.8
+   IL_015b: sub
+   IL_015c: callvirt System.Void System.Collections.Generic.List`1<Celeste.BridgeTile>::RemoveAt(System.Int32)
+   IL_0161: ldloc.2
+   IL_0162: ldc.i4.1
+   IL_0163: add
+   IL_0164: stloc.2
+   IL_0165: ldloc.2
+   IL_0166: ldc.i4.5
+   IL_0167: blt.s IL_0118
+ + IL_10003: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0169: ret
+   IL_016a: ldarg.0
+   IL_016b: ldfld System.Boolean Celeste.Bridge::canEndCollapseB
+   IL_0170: brfalse IL_01fc
+   IL_0175: ldloc.0
+   IL_0176: callvirt System.Single Monocle.Entity::get_X()
+   IL_017b: ldarg.0
+   IL_017c: call System.Single Monocle.Entity::get_X()
+   IL_0181: ldarg.0
+   IL_0182: ldfld System.Int32 Celeste.Bridge::width
+   IL_0187: conv.r4
+   IL_0188: add
+   IL_0189: ldc.r4 104
+   IL_018e: sub
+   IL_018f: ble.un.s IL_01fc
+   IL_0191: ldarg.0
+   IL_0192: ldc.i4.0
+   IL_0193: stfld System.Boolean Celeste.Bridge::canEndCollapseB
+   IL_0198: ldc.i4.0
+   IL_0199: stloc.3
+   IL_019a: br.s IL_01e9
+   IL_019c: ldarg.0
+   IL_019d: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_01a2: ldarg.0
+   IL_01a3: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_01a8: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Count()
+   IL_01ad: ldc.i4.1
+   IL_01ae: sub
+   IL_01af: callvirt T System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Item(System.Int32)
+   IL_01b4: ldsfld System.Random Monocle.Calc::Random
+   IL_01b9: ldc.r4 0.1
+   IL_01be: ldc.r4 0.3
+   IL_01c3: call System.Single Monocle.Calc::Range(System.Random,System.Single,System.Single)
+   IL_01c8: callvirt System.Void Celeste.BridgeTile::Fall(System.Single)
+   IL_01cd: ldarg.0
+   IL_01ce: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_01d3: ldarg.0
+   IL_01d4: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_01d9: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Count()
+   IL_01de: ldc.i4.1
+   IL_01df: sub
+   IL_01e0: callvirt System.Void System.Collections.Generic.List`1<Celeste.BridgeTile>::RemoveAt(System.Int32)
+   IL_01e5: ldloc.3
+   IL_01e6: ldc.i4.1
+   IL_01e7: add
+   IL_01e8: stloc.3
+   IL_01e9: ldloc.3
+   IL_01ea: ldc.i4.7
+   IL_01eb: bge.s IL_10004
+   IL_01ed: ldarg.0
+   IL_01ee: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_01f3: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Count()
+   IL_01f8: ldc.i4.0
+   IL_01f9: bgt.s IL_019c
+ + IL_10004: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_01fb: ret
+   IL_01fc: ldarg.0
+   IL_01fd: ldfld System.Single Celeste.Bridge::collapseTimer
+   IL_0202: ldc.r4 0
+   IL_0207: ble.un.s IL_026d
+   IL_0209: ldarg.0
+   IL_020a: ldarg.0
+   IL_020b: ldfld System.Single Celeste.Bridge::collapseTimer
+   IL_0210: call System.Single Monocle.Engine::get_DeltaTime()
+   IL_0215: sub
+   IL_0216: stfld System.Single Celeste.Bridge::collapseTimer
+   IL_021b: ldarg.0
+   IL_021c: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_0221: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Count()
+   IL_0226: ldc.i4.5
+   IL_0227: blt IL_10007
+   IL_022c: ldloc.0
+   IL_022d: callvirt System.Single Monocle.Entity::get_X()
+   IL_0232: ldarg.0
+   IL_0233: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_0238: ldc.i4.4
+   IL_0239: callvirt T System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Item(System.Int32)
+   IL_023e: callvirt System.Single Monocle.Entity::get_X()
+   IL_0243: blt.un.s IL_10007
+   IL_0245: ldc.i4.0
+   IL_0246: stloc.s V_4
+   IL_0248: ldarg.0
+   IL_0249: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_024e: ldloc.s V_4
+   IL_0250: callvirt T System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Item(System.Int32)
+   IL_0255: ldc.r4 0.2
+   IL_025a: callvirt System.Void Celeste.BridgeTile::Fall(System.Single)
+   IL_025f: ldarg.0
+   IL_0260: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_0265: ldloc.s V_4
+   IL_0267: callvirt System.Void System.Collections.Generic.List`1<Celeste.BridgeTile>::RemoveAt(System.Int32)
+ + IL_10005: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_026c: ret
+   IL_026d: ldarg.0
+   IL_026e: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_0273: ldc.i4.0
+   IL_0274: callvirt T System.Collections.Generic.List`1<Celeste.BridgeTile>::get_Item(System.Int32)
+   IL_0279: ldc.r4 0.2
+   IL_027e: callvirt System.Void Celeste.BridgeTile::Fall(System.Single)
+   IL_0283: ldarg.0
+   IL_0284: ldfld System.Collections.Generic.List`1<Celeste.BridgeTile> Celeste.Bridge::tiles
+   IL_0289: ldc.i4.0
+   IL_028a: callvirt System.Void System.Collections.Generic.List`1<Celeste.BridgeTile>::RemoveAt(System.Int32)
+   IL_028f: ldarg.0
+   IL_0290: ldc.r4 0.2
+   IL_0295: stfld System.Single Celeste.Bridge::collapseTimer
+ + IL_10006: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_029a: ret
+   IL_029b: ldarg.0
+   IL_029c: ldfld System.Boolean Celeste.Bridge::ending
+   IL_02a1: brtrue.s IL_10007
+   IL_02a3: ldarg.0
+   IL_02a4: ldc.i4.1
+   IL_02a5: stfld System.Boolean Celeste.Bridge::ending
+   IL_02aa: ldarg.0
+   IL_02ab: callvirt System.Void Celeste.Bridge::StopCollapseLoop()
+ + IL_10007: call System.Void Monocle.Calc::PopRandom() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_02b0: ret

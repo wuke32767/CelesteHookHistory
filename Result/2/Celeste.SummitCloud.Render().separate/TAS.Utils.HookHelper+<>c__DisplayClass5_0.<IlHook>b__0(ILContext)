@@ -1,0 +1,17 @@
+[V_0] Microsoft.Xna.Framework.Vector2
+ + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedClutteredEntity() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+ + IL_10002: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0000: ldarg.0
+   IL_0001: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0006: stloc.0
+   IL_0007: ldarg.0
+   IL_0008: ldarg.0
+   IL_0009: callvirt Microsoft.Xna.Framework.Vector2 Celeste.SummitCloud::get_RenderPosition()
+   IL_000e: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0013: ldarg.0
+   IL_0014: call System.Void Monocle.Entity::Render()
+   IL_0019: ldarg.0
+   IL_001a: ldloc.0
+   IL_001b: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0020: ret

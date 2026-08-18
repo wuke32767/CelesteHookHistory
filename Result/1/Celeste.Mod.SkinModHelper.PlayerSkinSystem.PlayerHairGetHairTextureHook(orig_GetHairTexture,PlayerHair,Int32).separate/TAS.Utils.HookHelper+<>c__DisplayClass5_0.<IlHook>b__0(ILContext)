@@ -1,0 +1,213 @@
+[V_0] Celeste.Mod.SkinModHelper.HairConfig
+[V_1] System.Boolean
+[V_2] System.Runtime.CompilerServices.DefaultInterpolatedStringHandler
+[V_3] System.Boolean
+[V_4] Monocle.MTexture
+[V_5] System.Boolean
+[V_6] System.Boolean
+[V_7] System.Boolean
+[V_8] Monocle.MTexture
+[V_9] System.String
+[V_10] System.Boolean
+   IL_0000: nop
+   IL_0001: ldarg.1
+   IL_0002: call Celeste.Mod.SkinModHelper.HairConfig Celeste.Mod.SkinModHelper.HairConfig::For(Celeste.PlayerHair)
+   IL_0007: stloc.0
+   IL_0008: ldloc.0
+   IL_0009: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Mod.SkinModHelper.HairConfig::new_bangs
+   IL_000e: brfalse.s IL_003f
+   IL_0010: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Mod.SkinModHelper.SkinsSystem::VanillaCharacterTextures
+   IL_0015: ldloca.s V_2
+   IL_0017: ldc.i4.0
+   IL_0018: ldc.i4.1
+   IL_0019: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_001e: ldloca.s V_2
+   IL_0020: ldarg.1
+   IL_0021: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10000: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0026: ldfld Monocle.MTexture Monocle.Image::Texture
+   IL_002b: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<Monocle.MTexture>(T)
+   IL_0030: nop
+   IL_0031: ldloca.s V_2
+   IL_0033: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_0038: callvirt System.Boolean System.Collections.Generic.HashSet`1<System.String>::Contains(T)
+   IL_003d: br.s IL_0040
+   IL_003f: ldc.i4.0
+   IL_0040: stloc.1
+   IL_0041: ldloc.1
+   IL_0042: brfalse.s IL_00a9
+   IL_0044: nop
+   IL_0045: ldarg.1
+   IL_0046: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
+   IL_004b: ldstr "SMH_DisposableLog_aPhggdddd"
+   IL_0050: callvirt System.Object MonoMod.Utils.DynamicData::Get(System.String)
+   IL_0055: ldnull
+   IL_0056: ceq
+   IL_0058: stloc.3
+   IL_0059: ldloc.3
+   IL_005a: brfalse.s IL_009a
+   IL_005c: nop
+   IL_005d: ldc.i4.1
+   IL_005e: ldstr "SkinModHelper"
+   IL_0063: ldstr "Avoid the "
+   IL_0068: ldarg.1
+   IL_0069: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10001: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_006e: ldfld System.String Celeste.PlayerSprite::spriteName
+   IL_0073: ldstr "'s bangs texture work on vanilla characters texture..."
+   IL_0078: call System.String System.String::Concat(System.String,System.String,System.String)
+   IL_007d: call System.Void Celeste.Mod.Logger::Log(Celeste.Mod.LogLevel,System.String,System.String)
+   IL_0082: nop
+   IL_0083: ldarg.1
+   IL_0084: call MonoMod.Utils.DynamicData MonoMod.Utils.DynamicData::For(System.Object)
+   IL_0089: ldstr "SMH_DisposableLog_aPhggdddd"
+   IL_008e: ldstr ""
+   IL_0093: callvirt System.Void MonoMod.Utils.DynamicData::Set(System.String,System.Object)
+   IL_0098: nop
+   IL_0099: nop
+   IL_009a: ldarg.0
+   IL_009b: ldarg.1
+   IL_009c: ldarg.2
+   IL_009d: callvirt Monocle.MTexture On.Celeste.PlayerHair/orig_GetHairTexture::Invoke(Celeste.PlayerHair,System.Int32)
+   IL_00a2: stloc.s V_4
+   IL_00a4: br IL_0213
+   IL_00a9: ldarg.2
+   IL_00aa: ldc.i4.0
+   IL_00ab: ceq
+   IL_00ad: stloc.s V_5
+   IL_00af: ldloc.s V_5
+   IL_00b1: brfalse.s IL_010d
+   IL_00b3: nop
+   IL_00b4: ldloc.0
+   IL_00b5: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Mod.SkinModHelper.HairConfig::new_bangs
+   IL_00ba: ldnull
+   IL_00bb: cgt.un
+   IL_00bd: stloc.s V_6
+   IL_00bf: ldloc.s V_6
+   IL_00c1: brfalse.s IL_0107
+   IL_00c3: nop
+   IL_00c4: ldloc.0
+   IL_00c5: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Mod.SkinModHelper.HairConfig::new_bangs
+   IL_00ca: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.MTexture>::get_Count()
+   IL_00cf: ldarg.1
+   IL_00d0: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10002: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_00d5: callvirt System.Int32 Celeste.PlayerSprite::get_HairFrame()
+   IL_00da: bgt.s IL_00ea
+   IL_00dc: ldloc.0
+   IL_00dd: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Mod.SkinModHelper.HairConfig::new_bangs
+   IL_00e2: ldc.i4.0
+   IL_00e3: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_00e8: br.s IL_0100
+   IL_00ea: ldloc.0
+   IL_00eb: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Mod.SkinModHelper.HairConfig::new_bangs
+   IL_00f0: ldarg.1
+   IL_00f1: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10003: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_00f6: callvirt System.Int32 Celeste.PlayerSprite::get_HairFrame()
+   IL_00fb: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_0100: stloc.s V_4
+   IL_0102: br IL_0213
+   IL_0107: nop
+   IL_0108: br IL_0207
+   IL_010d: ldloc.0
+   IL_010e: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Mod.SkinModHelper.HairConfig::new_hairs
+   IL_0113: ldnull
+   IL_0114: cgt.un
+   IL_0116: stloc.s V_7
+   IL_0118: ldloc.s V_7
+   IL_011a: brfalse IL_0207
+   IL_011f: nop
+   IL_0120: ldloc.0
+   IL_0121: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Mod.SkinModHelper.HairConfig::new_hairs
+   IL_0126: callvirt System.Int32 System.Collections.Generic.List`1<Monocle.MTexture>::get_Count()
+   IL_012b: ldarg.1
+   IL_012c: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10004: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0131: callvirt System.Int32 Celeste.PlayerSprite::get_HairFrame()
+   IL_0136: bgt.s IL_0146
+   IL_0138: ldloc.0
+   IL_0139: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Mod.SkinModHelper.HairConfig::new_hairs
+   IL_013e: ldc.i4.0
+   IL_013f: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_0144: br.s IL_015c
+   IL_0146: ldloc.0
+   IL_0147: ldfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Mod.SkinModHelper.HairConfig::new_hairs
+   IL_014c: ldarg.1
+   IL_014d: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10005: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0152: callvirt System.Int32 Celeste.PlayerSprite::get_HairFrame()
+   IL_0157: callvirt T System.Collections.Generic.List`1<Monocle.MTexture>::get_Item(System.Int32)
+   IL_015c: stloc.s V_8
+   IL_015e: ldloca.s V_2
+   IL_0160: ldc.i4.1
+   IL_0161: ldc.i4.2
+   IL_0162: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_0167: ldloca.s V_2
+   IL_0169: ldloc.s V_8
+   IL_016b: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<Monocle.MTexture>(T)
+   IL_0170: nop
+   IL_0171: ldloca.s V_2
+   IL_0173: ldstr "_"
+   IL_0178: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_017d: nop
+   IL_017e: ldloca.s V_2
+   IL_0180: ldarg.2
+   IL_0181: ldarg.1
+   IL_0182: ldfld Celeste.PlayerSprite Celeste.PlayerHair::Sprite
+ + IL_10006: call Monocle.Sprite TAS.Gameplay.DesyncFix.SkinModFix::<Initialize>g__CorrectVisualSprite|9_8(Monocle.Sprite) @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+   IL_0187: ldfld System.Int32 Celeste.PlayerSprite::HairCount
+   IL_018c: sub
+   IL_018d: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(T)
+   IL_0192: nop
+   IL_0193: ldloca.s V_2
+   IL_0195: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_019a: stloc.s V_9
+   IL_019c: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_01a1: ldloc.s V_9
+   IL_01a3: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_01a8: brtrue.s IL_01e9
+   IL_01aa: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_01af: ldloca.s V_2
+   IL_01b1: ldc.i4.1
+   IL_01b2: ldc.i4.2
+   IL_01b3: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_01b8: ldloca.s V_2
+   IL_01ba: ldloc.s V_8
+   IL_01bc: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<Monocle.MTexture>(T)
+   IL_01c1: nop
+   IL_01c2: ldloca.s V_2
+   IL_01c4: ldstr "_"
+   IL_01c9: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_01ce: nop
+   IL_01cf: ldloca.s V_2
+   IL_01d1: ldarg.2
+   IL_01d2: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(T)
+   IL_01d7: nop
+   IL_01d8: ldloca.s V_2
+   IL_01da: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_01df: dup
+   IL_01e0: stloc.s V_9
+   IL_01e2: callvirt System.Boolean Monocle.Atlas::Has(System.String)
+   IL_01e7: br.s IL_01ea
+   IL_01e9: ldc.i4.1
+   IL_01ea: stloc.s V_10
+   IL_01ec: ldloc.s V_10
+   IL_01ee: brfalse.s IL_0201
+   IL_01f0: nop
+   IL_01f1: ldsfld Monocle.Atlas Celeste.GFX::Game
+   IL_01f6: ldloc.s V_9
+   IL_01f8: callvirt Monocle.MTexture Monocle.Atlas::get_Item(System.String)
+   IL_01fd: stloc.s V_4
+   IL_01ff: br.s IL_0213
+   IL_0201: ldloc.s V_8
+   IL_0203: stloc.s V_4
+   IL_0205: br.s IL_0213
+   IL_0207: ldarg.0
+   IL_0208: ldarg.1
+   IL_0209: ldarg.2
+   IL_020a: callvirt Monocle.MTexture On.Celeste.PlayerHair/orig_GetHairTexture::Invoke(Celeste.PlayerHair,System.Int32)
+   IL_020f: stloc.s V_4
+   IL_0211: br.s IL_0213
+   IL_0213: ldloc.s V_4
+   IL_0215: ret
