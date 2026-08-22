@@ -22,7 +22,7 @@
    IL_0008: ldloc.1
    IL_0009: brfalse.s IL_0011
    IL_000b: nop
-   IL_000c: br IL_037b
+   IL_000c: br IL_0395
    IL_0011: ldarg.0
    IL_0012: ldfld System.Int32 ChroniaHelper.Entities.SeamlessSpinner::randomSeed
    IL_0017: call System.Void Monocle.Calc::PushRandom(System.Int32)
@@ -236,7 +236,7 @@
    IL_0283: callvirt System.Collections.Generic.List`1<Monocle.Entity> Monocle.Tracker::GetEntities<ChroniaHelper.Entities.SeamlessSpinner>()
    IL_0288: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Monocle.Entity>::GetEnumerator()
    IL_028d: stloc.s V_11
-   IL_028f: br IL_031d
+   IL_028f: br IL_0337
    IL_0294: ldloca.s V_11
    IL_0296: call T System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::get_Current()
    IL_029b: castclass ChroniaHelper.Entities.SeamlessSpinner
@@ -246,78 +246,86 @@
    IL_02a5: ldfld System.Int32 ChroniaHelper.Entities.SeamlessSpinner::ID
    IL_02aa: ldarg.0
    IL_02ab: ldfld System.Int32 ChroniaHelper.Entities.SeamlessSpinner::ID
-   IL_02b0: ble.s IL_02e5
+   IL_02b0: ble.s IL_02ff
    IL_02b2: ldloc.s V_12
    IL_02b4: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::AttachToSolid
    IL_02b9: ldarg.0
    IL_02ba: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::AttachToSolid
-   IL_02bf: bne.un.s IL_02e5
+   IL_02bf: bne.un.s IL_02ff
    IL_02c1: ldloc.s V_12
-   IL_02c3: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02c3: callvirt System.Single Monocle.Entity::get_X()
    IL_02c8: ldarg.0
-   IL_02c9: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_02ce: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_02d3: stloc.s V_14
-   IL_02d5: ldloca.s V_14
-   IL_02d7: call System.Single Microsoft.Xna.Framework.Vector2::LengthSquared()
-   IL_02dc: ldc.r4 576
-   IL_02e1: clt
-   IL_02e3: br.s IL_02e6
-   IL_02e5: ldc.i4.0
-   IL_02e6: stloc.s V_13
-   IL_02e8: ldloc.s V_13
-   IL_02ea: brfalse.s IL_031c
-   IL_02ec: nop
-   IL_02ed: ldarg.0
-   IL_02ee: ldarg.0
-   IL_02ef: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_02f4: ldloc.s V_12
-   IL_02f6: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_02fb: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0300: ldc.r4 2
-   IL_0305: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_030a: ldarg.0
-   IL_030b: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_0310: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0315: callvirt System.Void ChroniaHelper.Entities.SeamlessSpinner::AddSprite(Microsoft.Xna.Framework.Vector2)
-   IL_031a: nop
-   IL_031b: nop
-   IL_031c: nop
-   IL_031d: ldloca.s V_11
-   IL_031f: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
-   IL_0324: brtrue IL_0294
-   IL_0329: leave.s IL_033a
-   IL_032b: ldloca.s V_11
-   IL_032d: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
-   IL_0333: callvirt System.Void System.IDisposable::Dispose()
-   IL_0338: nop
-   IL_0339: endfinally
-   IL_033a: ldarg.0
-   IL_033b: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::noBorder
-   IL_0340: ldc.i4.0
-   IL_0341: ceq
-   IL_0343: stloc.s V_15
-   IL_0345: ldloc.s V_15
-   IL_0347: brfalse.s IL_036e
-   IL_0349: nop
-   IL_034a: ldarg.0
-   IL_034b: call Monocle.Scene Monocle.Entity::get_Scene()
-   IL_0350: ldarg.0
-   IL_0351: ldarg.0
-   IL_0352: ldarg.0
-   IL_0353: ldfld ChroniaHelper.Entities.SeamlessSpinner/Inner ChroniaHelper.Entities.SeamlessSpinner::filler
-   IL_0358: newobj System.Void ChroniaHelper.Entities.SeamlessSpinner/Border::.ctor(Monocle.Entity,Monocle.Entity)
-   IL_035d: dup
-   IL_035e: stloc.s V_16
-   IL_0360: stfld ChroniaHelper.Entities.SeamlessSpinner/Border ChroniaHelper.Entities.SeamlessSpinner::border
-   IL_0365: ldloc.s V_16
-   IL_0367: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
-   IL_036c: nop
-   IL_036d: nop
-   IL_036e: ldarg.0
-   IL_036f: ldc.i4.1
-   IL_0370: stfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::expanded
-   IL_0375: call System.Void Monocle.Calc::PopRandom()
-   IL_037a: nop
+   IL_02c9: call System.Single Monocle.Entity::get_X()
+   IL_02ce: sub
+   IL_02cf: call System.Single System.Math::Abs(System.Single)
+   IL_02d4: ldc.r4 24
+   IL_02d9: bge.un.s IL_02ff
+   IL_02db: ldloc.s V_12
+   IL_02dd: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02e2: ldarg.0
+   IL_02e3: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02e8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02ed: stloc.s V_14
+   IL_02ef: ldloca.s V_14
+   IL_02f1: call System.Single Microsoft.Xna.Framework.Vector2::LengthSquared()
+   IL_02f6: ldc.r4 576
+   IL_02fb: clt
+   IL_02fd: br.s IL_0300
+   IL_02ff: ldc.i4.0
+   IL_0300: stloc.s V_13
+   IL_0302: ldloc.s V_13
+   IL_0304: brfalse.s IL_0336
+   IL_0306: nop
+   IL_0307: ldarg.0
+   IL_0308: ldarg.0
+   IL_0309: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_030e: ldloc.s V_12
+   IL_0310: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0315: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_031a: ldc.r4 2
+   IL_031f: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Division(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0324: ldarg.0
+   IL_0325: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_032a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Subtraction(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_032f: callvirt System.Void ChroniaHelper.Entities.SeamlessSpinner::AddSprite(Microsoft.Xna.Framework.Vector2)
+   IL_0334: nop
+   IL_0335: nop
+   IL_0336: nop
+   IL_0337: ldloca.s V_11
+   IL_0339: call System.Boolean System.Collections.Generic.List`1/Enumerator<Monocle.Entity>::MoveNext()
+   IL_033e: brtrue IL_0294
+   IL_0343: leave.s IL_0354
+   IL_0345: ldloca.s V_11
+   IL_0347: constrained. System.Collections.Generic.List`1/Enumerator<Monocle.Entity>
+   IL_034d: callvirt System.Void System.IDisposable::Dispose()
+   IL_0352: nop
+   IL_0353: endfinally
+   IL_0354: ldarg.0
+   IL_0355: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::noBorder
+   IL_035a: ldc.i4.0
+   IL_035b: ceq
+   IL_035d: stloc.s V_15
+   IL_035f: ldloc.s V_15
+   IL_0361: brfalse.s IL_0388
+   IL_0363: nop
+   IL_0364: ldarg.0
+   IL_0365: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_036a: ldarg.0
+   IL_036b: ldarg.0
+   IL_036c: ldarg.0
+   IL_036d: ldfld ChroniaHelper.Entities.SeamlessSpinner/Inner ChroniaHelper.Entities.SeamlessSpinner::filler
+   IL_0372: newobj System.Void ChroniaHelper.Entities.SeamlessSpinner/Border::.ctor(Monocle.Entity,Monocle.Entity)
+   IL_0377: dup
+   IL_0378: stloc.s V_16
+   IL_037a: stfld ChroniaHelper.Entities.SeamlessSpinner/Border ChroniaHelper.Entities.SeamlessSpinner::border
+   IL_037f: ldloc.s V_16
+   IL_0381: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
+   IL_0386: nop
+   IL_0387: nop
+   IL_0388: ldarg.0
+   IL_0389: ldc.i4.1
+   IL_038a: stfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::expanded
+   IL_038f: call System.Void Monocle.Calc::PopRandom()
+   IL_0394: nop
  + IL_10000: call System.Void Celeste.Mod.TASHelper.Gameplay.Spinner.SimplifiedSpinner::CallNeedClearSprites() @ [TASHelper::]Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
-   IL_037b: ret
+   IL_0395: ret
