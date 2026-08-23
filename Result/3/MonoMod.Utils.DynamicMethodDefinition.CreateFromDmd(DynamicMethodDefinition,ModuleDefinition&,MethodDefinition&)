@@ -1,0 +1,97 @@
+On{1u2ESvpIni0}: [AAA1458::]Celeste.Mod.AAA1458.AAA1458Module+<>c.<Load>b__25_1(orig_CopyDmd,DynamicMethodDefinition,DynamicMethodDefinition,ModuleDefinition&,MethodDefinition&)
+[V_0] Mono.Cecil.ModuleDefinition
+[V_1] Mono.Cecil.TypeDefinition
+[V_2] Mono.Cecil.MethodDefinition
+[V_3] System.Runtime.CompilerServices.DefaultInterpolatedStringHandler
+[V_4] Mono.Cecil.ModuleDefinition
+[V_5] Mono.Cecil.MethodDefinition
+   IL_0000: ldarg.2
+   IL_0001: ldloca.s V_3
+   IL_0003: ldc.i4.s 16
+   IL_0005: ldc.i4.2
+   IL_0006: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_000b: ldloca.s V_3
+   IL_000d: ldstr "DMD:DynModule<"
+   IL_0012: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0017: ldloca.s V_3
+   IL_0019: ldarg.1
+   IL_001a: callvirt System.String MonoMod.Utils.DynamicMethodDefinition::get_Name()
+   IL_001f: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_0024: ldloca.s V_3
+   IL_0026: ldstr ">?"
+   IL_002b: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0030: ldloca.s V_3
+   IL_0032: ldarg.0
+   IL_0033: callvirt System.Int32 System.Object::GetHashCode()
+   IL_0038: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(T)
+   IL_003d: ldloca.s V_3
+   IL_003f: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_0044: newobj System.Void Mono.Cecil.ModuleParameters::.ctor()
+   IL_0049: dup
+   IL_004a: ldc.i4.0
+   IL_004b: callvirt System.Void Mono.Cecil.ModuleParameters::set_Kind(Mono.Cecil.ModuleKind)
+   IL_0050: dup
+   IL_0051: ldsfld Mono.Cecil.IReflectionImporterProvider MonoMod.Utils.MMReflectionImporter::ProviderNoDefault
+   IL_0056: callvirt System.Void Mono.Cecil.ModuleParameters::set_ReflectionImporterProvider(Mono.Cecil.IReflectionImporterProvider)
+   IL_005b: call Mono.Cecil.ModuleDefinition Mono.Cecil.ModuleDefinition::CreateModule(System.String,Mono.Cecil.ModuleParameters)
+   IL_0060: dup
+   IL_0061: stloc.s V_4
+   IL_0063: stind.ref
+   IL_0064: ldloc.s V_4
+   IL_0066: stloc.0
+   IL_0067: ldstr ""
+   IL_006c: ldloca.s V_3
+   IL_006e: ldc.i4.6
+   IL_006f: ldc.i4.2
+   IL_0070: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+   IL_0075: ldloca.s V_3
+   IL_0077: ldstr "DMD<"
+   IL_007c: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_0081: ldloca.s V_3
+   IL_0083: ldarg.1
+   IL_0084: callvirt System.String MonoMod.Utils.DynamicMethodDefinition::get_Name()
+   IL_0089: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(System.String)
+   IL_008e: ldloca.s V_3
+   IL_0090: ldstr ">?"
+   IL_0095: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+   IL_009a: ldloca.s V_3
+   IL_009c: ldarg.0
+   IL_009d: callvirt System.Int32 System.Object::GetHashCode()
+   IL_00a2: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(T)
+   IL_00a7: ldloca.s V_3
+   IL_00a9: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+   IL_00ae: ldc.i4.1
+   IL_00af: newobj System.Void Mono.Cecil.TypeDefinition::.ctor(System.String,System.String,Mono.Cecil.TypeAttributes)
+   IL_00b4: stloc.1
+   IL_00b5: ldloc.0
+   IL_00b6: callvirt Mono.Collections.Generic.Collection`1<Mono.Cecil.TypeDefinition> Mono.Cecil.ModuleDefinition::get_Types()
+   IL_00bb: ldloc.1
+   IL_00bc: callvirt System.Void Mono.Collections.Generic.Collection`1<Mono.Cecil.TypeDefinition>::Add(T)
+   IL_00c1: ldarg.1
+   IL_00c2: callvirt System.String MonoMod.Utils.DynamicMethodDefinition::get_Name()
+   IL_00c7: ldc.i4 150
+   IL_00cc: ldloc.0
+   IL_00cd: ldarg.1
+   IL_00ce: callvirt Mono.Cecil.MethodDefinition MonoMod.Utils.DynamicMethodDefinition::get_Definition()
+   IL_00d3: callvirt Mono.Cecil.TypeReference Mono.Cecil.MethodReference::get_ReturnType()
+   IL_00d8: callvirt Mono.Cecil.TypeReference Mono.Cecil.ModuleDefinition::ImportReference(Mono.Cecil.TypeReference)
+   IL_00dd: newobj System.Void Mono.Cecil.MethodDefinition::.ctor(System.String,Mono.Cecil.MethodAttributes,Mono.Cecil.TypeReference)
+   IL_00e2: stloc.2
+   IL_00e3: ldloc.1
+   IL_00e4: callvirt Mono.Collections.Generic.Collection`1<Mono.Cecil.MethodDefinition> Mono.Cecil.TypeDefinition::get_Methods()
+   IL_00e9: ldloc.2
+   IL_00ea: callvirt System.Void Mono.Collections.Generic.Collection`1<Mono.Cecil.MethodDefinition>::Add(T)
+   IL_00ef: ldarg.3
+   IL_00f0: ldarg.1
+   IL_00f1: callvirt Mono.Cecil.MethodDefinition MonoMod.Utils.DynamicMethodDefinition::get_Definition()
+   IL_00f6: ldloc.2
+   IL_00f7: call Mono.Cecil.MethodDefinition MonoMod.Utils.Extensions::Clone(Mono.Cecil.MethodDefinition,Mono.Cecil.MethodDefinition)
+   IL_00fc: dup
+   IL_00fd: stloc.s V_5
+   IL_00ff: stind.ref
+   IL_0100: ldloc.s V_5
+   IL_0102: stloc.2
+   IL_0103: ldloc.2
+   IL_0104: ldloc.1
+   IL_0105: callvirt System.Void Mono.Cecil.MethodDefinition::set_DeclaringType(Mono.Cecil.TypeDefinition)
+   IL_010a: ret
