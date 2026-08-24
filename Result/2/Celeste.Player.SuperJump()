@@ -26,7 +26,7 @@ On{RPwss2lZo3w}: [AxiomeToolbox::]Celeste.Mod.AxiomeToolbox.WaterBoost.WaterBoos
 On{7bz1H8G1KTg}: [WrenbowHelper::]Celeste.Mod.WrenbowHelper.ExtraDreamJump.Player_SuperJump(orig_SuperJump,Player)
 On{VzmGNy3vn9k}: [NerdHelper::]NerdHelper.Code.Components.JumpListener.PlayerOnSuperJump(orig_SuperJump,Player)
 On{/QV3i2Hh17I}: [BrassHelper::]Celeste.Mod.BrassHelper.Hooks.BoostHooks.SuperJump(orig_SuperJump,Player)
-On{bRTErfUvFZA}: [BounceHelper::]Celeste.Mod.BounceHelper.BounceHelperModule.modSuperJump(orig_SuperJump,Player)
+On{j/aiPRC9MvQ}: [BounceHelper::]Celeste.Mod.BounceHelper.BounceHelperModule.modSuperJump(orig_SuperJump,Player)
 On{iF7Yp2fHCNI}: [Backflip::]Celeste.Mod.Backflip.BackflipModule.OnPlayerSuperJump(orig_SuperJump,Player)
 IL: {UNKNOWN_DETOUR: Priority: -1}[libbitsbolts::]Bitsbolts.Components.UnboundedDashing.ILPlayerSuperJump(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[PandorasBox::]Celeste.Mod.PandorasBox.CloneSpawner.patchConsumeBuffer(ILContext)
@@ -41,7 +41,6 @@ IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Varia
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.JumpDuration.modVarJumpTimer(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modSuperJump(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.HyperdashSpeed.modSuperJump(ILContext)
-IL: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.TweakManagers.ChangeDashSpeedOnce.SuperJumpPatch(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
         [FrostTempleHelper::]FrostHelper.Triggers.Activator.OnJumpActivator.OnJump(Player,JumpTypes)
@@ -50,6 +49,7 @@ IL: [DawnHelper::]Celeste.Mod.DawnHelper.Entities.CoyoteBlock.bullshit(ILContext
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Miscellaneous.BufferDelayVisualization.hookConsumeBuffer(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.SuperJump.patch_Player_SuperJump(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
+IL: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
 [V_0] System.Int32
 [V_1] Celeste.Platform
  + IL_10000: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
@@ -108,11 +108,11 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSp
    IL_0053: ldarg.0
    IL_0054: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0059: ldc.r4 260
- + IL_1001c: ldarg.0 @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.CoyoteBlock.bullshit(ILContext)
- + IL_1001d: call System.Single Celeste.Mod.DawnHelper.Entities.CoyoteBlock::spead(System.Single,Celeste.Player) @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.CoyoteBlock.bullshit(ILContext)
- + IL_1001e: call System.Single FrostHelper.TweakManagers.ChangeDashSpeedOnce::GetSuperJumpSpeed(System.Single) @ [FrostTempleHelper::]FrostHelper.TweakManagers.ChangeDashSpeedOnce.SuperJumpPatch(ILContext)
- + IL_1001f: ldarg.0 @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
- + IL_10020: call System.Single Celeste.Mod.SSMHelper.Entities.DashBoostField::ModifySpeed(System.Single,Celeste.Player) @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
+ + IL_1001c: ldarg.0 @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
+ + IL_1001d: call System.Single Celeste.Mod.SSMHelper.Entities.DashBoostField::ModifySpeed(System.Single,Celeste.Player) @ [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperJump(ILContext)
+ + IL_1001e: ldarg.0 @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.CoyoteBlock.bullshit(ILContext)
+ + IL_1001f: call System.Single Celeste.Mod.DawnHelper.Entities.CoyoteBlock::spead(System.Single,Celeste.Player) @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.CoyoteBlock.bullshit(ILContext)
+ + IL_10020: call System.Single FrostHelper.TweakManagers.ChangeDashSpeedOnce::GetSuperJumpSpeed(System.Single) @ [FrostTempleHelper::]FrostHelper.TweakManagers.ChangeDashSpeedOnce.SuperJumpPatch(ILContext)
  + IL_10021: call System.Single ExtendedVariants.Variants.HyperdashSpeed::determineHyperdashSpeedFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.HyperdashSpeed.modSuperJump(ILContext)
  + IL_10022: mul @ [ExtendedVariantMode::]ExtendedVariants.Variants.HyperdashSpeed.modSuperJump(ILContext)
  + IL_10023: call System.Single ExtendedVariants.Variants.SpeedX::determineSpeedXFactor() @ [ExtendedVariantMode::]ExtendedVariants.Variants.SpeedX.modSuperJump(ILContext)
