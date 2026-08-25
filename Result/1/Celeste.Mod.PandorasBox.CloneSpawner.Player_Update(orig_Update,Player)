@@ -1,0 +1,116 @@
+IL: {BitsHelper: Priority: 32}[BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.PandorasBoxCloneSpawner_Update(ILContext)
+[V_0] Celeste.Player
+[V_1] System.Collections.Generic.Dictionary`2/Enumerator<Monocle.VirtualButton,System.Boolean>
+[V_2] System.Collections.Generic.KeyValuePair`2<Monocle.VirtualButton,System.Boolean>
+[V_3] System.Boolean
+[V_4] System.Collections.Generic.Dictionary`2/Enumerator<Monocle.VirtualButton,System.Single>
+[V_5] System.Collections.Generic.KeyValuePair`2<Monocle.VirtualButton,System.Single>
+[V_6] System.Boolean
+[V_7] System.Boolean
+ + IL_10000: ldarg.1 @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.PandorasBoxCloneSpawner_Update(ILContext)
+ + IL_10001: call System.Boolean Celeste.Mod.BitsHelper.AlterEgo::<PandorasBoxCloneSpawner_Update>g__IsControllerPresent|5_0(Celeste.Player) @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.PandorasBoxCloneSpawner_Update(ILContext)
+ + IL_10002: brfalse IL_0000 @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.PandorasBoxCloneSpawner_Update(ILContext)
+ + IL_10003: ldarg.0 @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.PandorasBoxCloneSpawner_Update(ILContext)
+ + IL_10004: ldarg.1 @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.PandorasBoxCloneSpawner_Update(ILContext)
+ + IL_10005: callvirt System.Void On.Celeste.Player/orig_Update::Invoke(Celeste.Player) @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.PandorasBoxCloneSpawner_Update(ILContext)
+ + IL_10006: ret @ [BitsHelper::]Celeste.Mod.BitsHelper.AlterEgo.PandorasBoxCloneSpawner_Update(ILContext)
+   IL_0000: nop
+   IL_0001: nop
+   IL_0002: ldsfld System.Collections.Generic.Dictionary`2<Monocle.VirtualButton,System.Boolean> Celeste.Mod.PandorasBox.CloneSpawner::ConsumedPresses
+   IL_0007: callvirt System.Collections.Generic.Dictionary`2/Enumerator<TKey,TValue> System.Collections.Generic.Dictionary`2<Monocle.VirtualButton,System.Boolean>::GetEnumerator()
+   IL_000c: stloc.1
+   IL_000d: br.s IL_003e
+   IL_000f: ldloca.s V_1
+   IL_0011: call System.Collections.Generic.KeyValuePair`2<TKey,TValue> System.Collections.Generic.Dictionary`2/Enumerator<Monocle.VirtualButton,System.Boolean>::get_Current()
+   IL_0016: stloc.2
+   IL_0017: nop
+   IL_0018: ldloca.s V_2
+   IL_001a: call TValue System.Collections.Generic.KeyValuePair`2<Monocle.VirtualButton,System.Boolean>::get_Value()
+   IL_001f: stloc.3
+   IL_0020: ldloc.3
+   IL_0021: brfalse.s IL_003d
+   IL_0023: nop
+   IL_0024: ldsfld System.Reflection.FieldInfo Celeste.Mod.PandorasBox.CloneSpawner::virtualButtonConsumed
+   IL_0029: ldloca.s V_2
+   IL_002b: call TKey System.Collections.Generic.KeyValuePair`2<Monocle.VirtualButton,System.Boolean>::get_Key()
+   IL_0030: ldc.i4.0
+   IL_0031: box System.Boolean
+   IL_0036: callvirt System.Void System.Reflection.FieldInfo::SetValue(System.Object,System.Object)
+   IL_003b: nop
+   IL_003c: nop
+   IL_003d: nop
+   IL_003e: ldloca.s V_1
+   IL_0040: call System.Boolean System.Collections.Generic.Dictionary`2/Enumerator<Monocle.VirtualButton,System.Boolean>::MoveNext()
+   IL_0045: brtrue.s IL_000f
+   IL_0047: leave.s IL_0058
+   IL_0049: ldloca.s V_1
+   IL_004b: constrained. System.Collections.Generic.Dictionary`2/Enumerator<Monocle.VirtualButton,System.Boolean>
+   IL_0051: callvirt System.Void System.IDisposable::Dispose()
+   IL_0056: nop
+   IL_0057: endfinally
+   IL_0058: nop
+   IL_0059: ldsfld System.Collections.Generic.Dictionary`2<Monocle.VirtualButton,System.Single> Celeste.Mod.PandorasBox.CloneSpawner::BufferCounters
+   IL_005e: callvirt System.Collections.Generic.Dictionary`2/Enumerator<TKey,TValue> System.Collections.Generic.Dictionary`2<Monocle.VirtualButton,System.Single>::GetEnumerator()
+   IL_0063: stloc.s V_4
+   IL_0065: br.s IL_0090
+   IL_0067: ldloca.s V_4
+   IL_0069: call System.Collections.Generic.KeyValuePair`2<TKey,TValue> System.Collections.Generic.Dictionary`2/Enumerator<Monocle.VirtualButton,System.Single>::get_Current()
+   IL_006e: stloc.s V_5
+   IL_0070: nop
+   IL_0071: ldsfld System.Reflection.FieldInfo Celeste.Mod.PandorasBox.CloneSpawner::virtualButtonBufferCounter
+   IL_0076: ldloca.s V_5
+   IL_0078: call TKey System.Collections.Generic.KeyValuePair`2<Monocle.VirtualButton,System.Single>::get_Key()
+   IL_007d: ldloca.s V_5
+   IL_007f: call TValue System.Collections.Generic.KeyValuePair`2<Monocle.VirtualButton,System.Single>::get_Value()
+   IL_0084: box System.Single
+   IL_0089: callvirt System.Void System.Reflection.FieldInfo::SetValue(System.Object,System.Object)
+   IL_008e: nop
+   IL_008f: nop
+   IL_0090: ldloca.s V_4
+   IL_0092: call System.Boolean System.Collections.Generic.Dictionary`2/Enumerator<Monocle.VirtualButton,System.Single>::MoveNext()
+   IL_0097: brtrue.s IL_0067
+   IL_0099: leave.s IL_00aa
+   IL_009b: ldloca.s V_4
+   IL_009d: constrained. System.Collections.Generic.Dictionary`2/Enumerator<Monocle.VirtualButton,System.Single>
+   IL_00a3: callvirt System.Void System.IDisposable::Dispose()
+   IL_00a8: nop
+   IL_00a9: endfinally
+   IL_00aa: ldarg.0
+   IL_00ab: ldarg.1
+   IL_00ac: callvirt System.Void On.Celeste.Player/orig_Update::Invoke(Celeste.Player)
+   IL_00b1: nop
+   IL_00b2: ldsfld System.Runtime.CompilerServices.ConditionalWeakTable`2<Celeste.Player,Celeste.Player> Celeste.Mod.PandorasBox.CloneSpawner::syncedRespawn
+   IL_00b7: ldarg.1
+   IL_00b8: ldloca.s V_0
+   IL_00ba: callvirt System.Boolean System.Runtime.CompilerServices.ConditionalWeakTable`2<Celeste.Player,Celeste.Player>::TryGetValue(TKey,TValue&)
+   IL_00bf: stloc.s V_6
+   IL_00c1: ldloc.s V_6
+   IL_00c3: brfalse.s IL_010c
+   IL_00c5: nop
+   IL_00c6: ldsfld System.Reflection.FieldInfo Celeste.Mod.PandorasBox.CloneSpawner::playerRespawnTween
+   IL_00cb: ldloc.0
+   IL_00cc: callvirt System.Object System.Reflection.FieldInfo::GetValue(System.Object)
+   IL_00d1: ldnull
+   IL_00d2: ceq
+   IL_00d4: stloc.s V_7
+   IL_00d6: ldloc.s V_7
+   IL_00d8: brfalse.s IL_010b
+   IL_00da: nop
+   IL_00db: ldarg.1
+   IL_00dc: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00e1: ldloc.0
+   IL_00e2: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_00e7: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_00ec: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_00f1: nop
+   IL_00f2: ldarg.1
+   IL_00f3: ldloc.0
+   IL_00f4: ldfld Celeste.Facings Celeste.Player::Facing
+   IL_00f9: stfld Celeste.Facings Celeste.Player::Facing
+   IL_00fe: ldsfld System.Runtime.CompilerServices.ConditionalWeakTable`2<Celeste.Player,Celeste.Player> Celeste.Mod.PandorasBox.CloneSpawner::syncedRespawn
+   IL_0103: ldarg.1
+   IL_0104: callvirt System.Boolean System.Runtime.CompilerServices.ConditionalWeakTable`2<Celeste.Player,Celeste.Player>::Remove(TKey)
+   IL_0109: pop
+   IL_010a: nop
+   IL_010b: nop
+   IL_010c: ret
