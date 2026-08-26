@@ -8,14 +8,15 @@
 [V_7] System.Boolean
 [V_8] System.Boolean
 [V_9] System.Boolean
-[V_10] System.Boolean
+[V_10] System.Nullable`1<Microsoft.Xna.Framework.Vector2>
 [V_11] System.Boolean
 [V_12] System.Boolean
 [V_13] System.Boolean
 [V_14] System.Boolean
-[V_15] Celeste.Player
-[V_16] System.Boolean
+[V_15] System.Boolean
+[V_16] Celeste.Player
 [V_17] System.Boolean
+[V_18] System.Boolean
    IL_0000: nop
    IL_0001: ldarg.0
    IL_0002: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::trigger
@@ -137,160 +138,176 @@
    IL_012a: ceq
    IL_012c: stloc.s V_8
    IL_012e: ldloc.s V_8
-   IL_0130: brfalse.s IL_018e
-   IL_0132: nop
-   IL_0133: ldarg.0
-   IL_0134: ldc.i4.0
-   IL_0135: stfld System.Boolean Monocle.Entity::Collidable
-   IL_013a: ldarg.0
-   IL_013b: callvirt System.Boolean ChroniaHelper.Entities.SeamlessSpinner::InView()
-   IL_0140: stloc.s V_9
-   IL_0142: ldloc.s V_9
-   IL_0144: brfalse.s IL_0188
-   IL_0146: nop
-   IL_0147: ldarg.0
-   IL_0148: ldc.i4.1
-   IL_0149: stfld System.Boolean Monocle.Entity::Visible
-   IL_014e: ldarg.0
-   IL_014f: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::expanded
-   IL_0154: ldc.i4.0
-   IL_0155: ceq
-   IL_0157: stloc.s V_10
-   IL_0159: ldloc.s V_10
-   IL_015b: brfalse.s IL_0166
-   IL_015d: nop
-   IL_015e: ldarg.0
-   IL_015f: callvirt System.Void ChroniaHelper.Entities.SeamlessSpinner::CreateSprites()
-   IL_0164: nop
-   IL_0165: nop
-   IL_0166: ldarg.0
-   IL_0167: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::rainbow
-   IL_016c: stloc.s V_11
-   IL_016e: ldloc.s V_11
-   IL_0170: brfalse.s IL_0187
-   IL_0172: nop
-   IL_0173: ldarg.0
-   IL_0174: ldarg.0
-   IL_0175: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_017a: stfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.SeamlessSpinner::lastHuePos
+   IL_0130: brfalse IL_01af
+   IL_0135: nop
+   IL_0136: ldarg.0
+   IL_0137: ldc.i4.0
+   IL_0138: stfld System.Boolean Monocle.Entity::Collidable
+   IL_013d: ldarg.0
+   IL_013e: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0143: ldloca.s V_10
+   IL_0145: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector2>
+   IL_014b: ldloc.s V_10
+   IL_014d: ldc.r4 16
+   IL_0152: ldloca.s V_10
+   IL_0154: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector2>
+   IL_015a: ldloc.s V_10
+   IL_015c: call System.Boolean ChroniaHelper.Utils.Miscs::InView(Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Vector2>,System.Single,System.Nullable`1<Microsoft.Xna.Framework.Vector2>)
+   IL_0161: stloc.s V_9
+   IL_0163: ldloc.s V_9
+   IL_0165: brfalse.s IL_01a9
+   IL_0167: nop
+   IL_0168: ldarg.0
+   IL_0169: ldc.i4.1
+   IL_016a: stfld System.Boolean Monocle.Entity::Visible
+   IL_016f: ldarg.0
+   IL_0170: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::expanded
+   IL_0175: ldc.i4.0
+   IL_0176: ceq
+   IL_0178: stloc.s V_11
+   IL_017a: ldloc.s V_11
+   IL_017c: brfalse.s IL_0187
+   IL_017e: nop
    IL_017f: ldarg.0
-   IL_0180: callvirt System.Void ChroniaHelper.Entities.SeamlessSpinner::UpdateRainbowHue()
+   IL_0180: callvirt System.Void ChroniaHelper.Entities.SeamlessSpinner::CreateSprites()
    IL_0185: nop
    IL_0186: nop
-   IL_0187: nop
-   IL_0188: nop
-   IL_0189: br IL_027b
-   IL_018e: nop
-   IL_018f: ldarg.0
-   IL_0190: call System.Void Monocle.Entity::Update()
-   IL_0195: nop
-   IL_0196: ldarg.0
-   IL_0197: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::rainbow
-   IL_019c: brfalse.s IL_01b1
-   IL_019e: ldarg.0
-   IL_019f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_01a4: ldarg.0
-   IL_01a5: ldfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.SeamlessSpinner::lastHuePos
-   IL_01aa: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_01af: br.s IL_01b2
-   IL_01b1: ldc.i4.0
-   IL_01b2: stloc.s V_12
-   IL_01b4: ldloc.s V_12
-   IL_01b6: brfalse.s IL_01cd
-   IL_01b8: nop
-   IL_01b9: ldarg.0
-   IL_01ba: ldarg.0
-   IL_01bb: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_01c0: stfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.SeamlessSpinner::lastHuePos
+   IL_0187: ldarg.0
+   IL_0188: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::rainbow
+   IL_018d: stloc.s V_12
+   IL_018f: ldloc.s V_12
+   IL_0191: brfalse.s IL_01a8
+   IL_0193: nop
+   IL_0194: ldarg.0
+   IL_0195: ldarg.0
+   IL_0196: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_019b: stfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.SeamlessSpinner::lastHuePos
+   IL_01a0: ldarg.0
+   IL_01a1: callvirt System.Void ChroniaHelper.Entities.SeamlessSpinner::UpdateRainbowHue()
+   IL_01a6: nop
+   IL_01a7: nop
+   IL_01a8: nop
+   IL_01a9: nop
+   IL_01aa: br IL_02ba
+   IL_01af: nop
+   IL_01b0: ldarg.0
+   IL_01b1: call System.Void Monocle.Entity::Update()
+   IL_01b6: nop
+   IL_01b7: ldarg.0
+   IL_01b8: ldfld System.Boolean ChroniaHelper.Entities.SeamlessSpinner::rainbow
+   IL_01bd: brfalse.s IL_01d2
+   IL_01bf: ldarg.0
+   IL_01c0: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
    IL_01c5: ldarg.0
-   IL_01c6: callvirt System.Void ChroniaHelper.Entities.SeamlessSpinner::UpdateRainbowHue()
-   IL_01cb: nop
-   IL_01cc: nop
-   IL_01cd: ldarg.0
-   IL_01ce: call Monocle.Scene Monocle.Entity::get_Scene()
-   IL_01d3: ldc.r4 0.25
-   IL_01d8: ldarg.0
-   IL_01d9: ldfld System.Single ChroniaHelper.Entities.SeamlessSpinner::offset
-   IL_01de: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single,System.Single)
-   IL_01e3: brfalse.s IL_01f0
-   IL_01e5: ldarg.0
-   IL_01e6: callvirt System.Boolean ChroniaHelper.Entities.SeamlessSpinner::InView()
-   IL_01eb: ldc.i4.0
-   IL_01ec: ceq
-   IL_01ee: br.s IL_01f1
-   IL_01f0: ldc.i4.0
-   IL_01f1: stloc.s V_13
-   IL_01f3: ldloc.s V_13
-   IL_01f5: brfalse.s IL_0200
-   IL_01f7: nop
-   IL_01f8: ldarg.0
-   IL_01f9: ldc.i4.0
-   IL_01fa: stfld System.Boolean Monocle.Entity::Visible
-   IL_01ff: nop
-   IL_0200: ldarg.0
-   IL_0201: call Monocle.Scene Monocle.Entity::get_Scene()
-   IL_0206: ldc.r4 0.1
-   IL_020b: ldarg.0
-   IL_020c: ldfld System.Single ChroniaHelper.Entities.SeamlessSpinner::offset
-   IL_0211: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single,System.Single)
-   IL_0216: stloc.s V_14
-   IL_0218: ldloc.s V_14
-   IL_021a: brfalse.s IL_027a
-   IL_021c: nop
-   IL_021d: ldarg.0
-   IL_021e: call Monocle.Scene Monocle.Entity::get_Scene()
-   IL_0223: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
-   IL_0228: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
-   IL_022d: stloc.s V_15
-   IL_022f: ldloc.s V_15
-   IL_0231: ldnull
-   IL_0232: cgt.un
-   IL_0234: stloc.s V_16
-   IL_0236: ldloc.s V_16
-   IL_0238: brfalse.s IL_0279
-   IL_023a: nop
-   IL_023b: ldarg.0
-   IL_023c: ldloc.s V_15
-   IL_023e: callvirt System.Single Monocle.Entity::get_X()
-   IL_0243: ldarg.0
-   IL_0244: call System.Single Monocle.Entity::get_X()
-   IL_0249: sub
-   IL_024a: call System.Single System.Math::Abs(System.Single)
-   IL_024f: ldc.r4 128
-   IL_0254: bge.un.s IL_0272
-   IL_0256: ldloc.s V_15
-   IL_0258: callvirt System.Single Monocle.Entity::get_Y()
-   IL_025d: ldarg.0
-   IL_025e: call System.Single Monocle.Entity::get_Y()
-   IL_0263: sub
-   IL_0264: call System.Single System.Math::Abs(System.Single)
-   IL_0269: ldc.r4 128
-   IL_026e: clt
-   IL_0270: br.s IL_0273
-   IL_0272: ldc.i4.0
-   IL_0273: stfld System.Boolean Monocle.Entity::Collidable
-   IL_0278: nop
+   IL_01c6: ldfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.SeamlessSpinner::lastHuePos
+   IL_01cb: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_01d0: br.s IL_01d3
+   IL_01d2: ldc.i4.0
+   IL_01d3: stloc.s V_13
+   IL_01d5: ldloc.s V_13
+   IL_01d7: brfalse.s IL_01ee
+   IL_01d9: nop
+   IL_01da: ldarg.0
+   IL_01db: ldarg.0
+   IL_01dc: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_01e1: stfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.SeamlessSpinner::lastHuePos
+   IL_01e6: ldarg.0
+   IL_01e7: callvirt System.Void ChroniaHelper.Entities.SeamlessSpinner::UpdateRainbowHue()
+   IL_01ec: nop
+   IL_01ed: nop
+   IL_01ee: ldarg.0
+   IL_01ef: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_01f4: ldc.r4 0.25
+   IL_01f9: ldarg.0
+   IL_01fa: ldfld System.Single ChroniaHelper.Entities.SeamlessSpinner::offset
+   IL_01ff: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single,System.Single)
+   IL_0204: brfalse.s IL_022f
+   IL_0206: ldarg.0
+   IL_0207: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_020c: ldloca.s V_10
+   IL_020e: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector2>
+   IL_0214: ldloc.s V_10
+   IL_0216: ldc.r4 16
+   IL_021b: ldloca.s V_10
+   IL_021d: initobj System.Nullable`1<Microsoft.Xna.Framework.Vector2>
+   IL_0223: ldloc.s V_10
+   IL_0225: call System.Boolean ChroniaHelper.Utils.Miscs::InView(Microsoft.Xna.Framework.Vector2,System.Nullable`1<Microsoft.Xna.Framework.Vector2>,System.Single,System.Nullable`1<Microsoft.Xna.Framework.Vector2>)
+   IL_022a: ldc.i4.0
+   IL_022b: ceq
+   IL_022d: br.s IL_0230
+   IL_022f: ldc.i4.0
+   IL_0230: stloc.s V_14
+   IL_0232: ldloc.s V_14
+   IL_0234: brfalse.s IL_023f
+   IL_0236: nop
+   IL_0237: ldarg.0
+   IL_0238: ldc.i4.0
+   IL_0239: stfld System.Boolean Monocle.Entity::Visible
+   IL_023e: nop
+   IL_023f: ldarg.0
+   IL_0240: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0245: ldc.r4 0.1
+   IL_024a: ldarg.0
+   IL_024b: ldfld System.Single ChroniaHelper.Entities.SeamlessSpinner::offset
+   IL_0250: callvirt System.Boolean Monocle.Scene::OnInterval(System.Single,System.Single)
+   IL_0255: stloc.s V_15
+   IL_0257: ldloc.s V_15
+   IL_0259: brfalse.s IL_02b9
+   IL_025b: nop
+   IL_025c: ldarg.0
+   IL_025d: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0262: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_0267: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_026c: stloc.s V_16
+   IL_026e: ldloc.s V_16
+   IL_0270: ldnull
+   IL_0271: cgt.un
+   IL_0273: stloc.s V_17
+   IL_0275: ldloc.s V_17
+   IL_0277: brfalse.s IL_02b8
    IL_0279: nop
-   IL_027a: nop
-   IL_027b: ldarg.0
-   IL_027c: ldfld ChroniaHelper.Entities.SeamlessSpinner/Inner ChroniaHelper.Entities.SeamlessSpinner::filler
-   IL_0281: ldnull
-   IL_0282: cgt.un
-   IL_0284: stloc.s V_17
-   IL_0286: ldloc.s V_17
-   IL_0288: brfalse.s IL_10000
-   IL_028a: nop
-   IL_028b: ldarg.0
-   IL_028c: ldfld ChroniaHelper.Entities.SeamlessSpinner/Inner ChroniaHelper.Entities.SeamlessSpinner::filler
-   IL_0291: ldarg.0
-   IL_0292: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
-   IL_0297: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_027a: ldarg.0
+   IL_027b: ldloc.s V_16
+   IL_027d: callvirt System.Single Monocle.Entity::get_X()
+   IL_0282: ldarg.0
+   IL_0283: call System.Single Monocle.Entity::get_X()
+   IL_0288: sub
+   IL_0289: call System.Single System.Math::Abs(System.Single)
+   IL_028e: ldc.r4 128
+   IL_0293: bge.un.s IL_02b1
+   IL_0295: ldloc.s V_16
+   IL_0297: callvirt System.Single Monocle.Entity::get_Y()
    IL_029c: ldarg.0
-   IL_029d: ldfld ChroniaHelper.Entities.SeamlessSpinner/Inner ChroniaHelper.Entities.SeamlessSpinner::filler
-   IL_02a2: ldarg.0
-   IL_02a3: ldfld System.Boolean Monocle.Entity::Visible
-   IL_02a8: stfld System.Boolean Monocle.Entity::Visible
-   IL_02ad: nop
+   IL_029d: call System.Single Monocle.Entity::get_Y()
+   IL_02a2: sub
+   IL_02a3: call System.Single System.Math::Abs(System.Single)
+   IL_02a8: ldc.r4 128
+   IL_02ad: clt
+   IL_02af: br.s IL_02b2
+   IL_02b1: ldc.i4.0
+   IL_02b2: stfld System.Boolean Monocle.Entity::Collidable
+   IL_02b7: nop
+   IL_02b8: nop
+   IL_02b9: nop
+   IL_02ba: ldarg.0
+   IL_02bb: ldfld ChroniaHelper.Entities.SeamlessSpinner/Inner ChroniaHelper.Entities.SeamlessSpinner::filler
+   IL_02c0: ldnull
+   IL_02c1: cgt.un
+   IL_02c3: stloc.s V_18
+   IL_02c5: ldloc.s V_18
+   IL_02c7: brfalse.s IL_10000
+   IL_02c9: nop
+   IL_02ca: ldarg.0
+   IL_02cb: ldfld ChroniaHelper.Entities.SeamlessSpinner/Inner ChroniaHelper.Entities.SeamlessSpinner::filler
+   IL_02d0: ldarg.0
+   IL_02d1: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02d6: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_02db: ldarg.0
+   IL_02dc: ldfld ChroniaHelper.Entities.SeamlessSpinner/Inner ChroniaHelper.Entities.SeamlessSpinner::filler
+   IL_02e1: ldarg.0
+   IL_02e2: ldfld System.Boolean Monocle.Entity::Visible
+   IL_02e7: stfld System.Boolean Monocle.Entity::Visible
+   IL_02ec: nop
  + IL_10000: ldarg.0 @ [TASHelper::]Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
  + IL_10001: call System.Void Celeste.Mod.TASHelper.Gameplay.Spinner.Info.PositionHelper::PatchHazardUpdate(Monocle.Entity) @ [TASHelper::]Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<ILHook>b__0(ILContext)
-   IL_02ae: ret
+   IL_02ed: ret
