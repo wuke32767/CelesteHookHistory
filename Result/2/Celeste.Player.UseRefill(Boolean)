@@ -10,6 +10,7 @@ On{eN3GGri5TEk}: {UNKNOWN_DETOUR: Priority: 0}[CommunalHelper::]Celeste.Mod.Comm
 On{YMl6FPxkAso}: [ShroomHelper::]Celeste.Mod.ShroomHelper.Entities.OneDashWingedStrawberry.Player_UseRefill(orig_UseRefill,Player,Boolean)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.DashCount.modUseRefill(ILContext)
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
+IL: [DawnHelper::]Celeste.Mod.DawnHelper.Entities.SeaGlide.UseRefillHook(ILContext)
 [V_0] System.Int32
    IL_0000: ldarg.0
    IL_0001: callvirt System.Int32 Celeste.Player::get_MaxDashes()
@@ -23,8 +24,11 @@ IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Varia
    IL_000d: ldfld System.Int32 Celeste.Player::Dashes
    IL_0012: ldloc.0
    IL_0013: blt.s IL_0022
- + IL_10001: call System.Boolean ExtendedVariants.Variants.JumpCount::jumpNeedsRefilling() @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
- + IL_10002: brtrue.s IL_0022 @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
+ + IL_10001: ldarg.0 @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.SeaGlide.UseRefillHook(ILContext)
+ + IL_10002: call System.Boolean Celeste.Mod.DawnHelper.Entities.SeaGlide::CooldownArgument(Celeste.Player) @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.SeaGlide.UseRefillHook(ILContext)
+ + IL_10003: brtrue IL_0022 @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.SeaGlide.UseRefillHook(ILContext)
+ + IL_10004: call System.Boolean ExtendedVariants.Variants.JumpCount::jumpNeedsRefilling() @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
+ + IL_10005: brtrue.s IL_0022 @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.modUseRefill(ILContext)
    IL_0015: ldarg.0
    IL_0016: ldfld System.Single Celeste.Player::Stamina
    IL_001b: ldc.r4 20
@@ -32,9 +36,11 @@ IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Varia
    IL_0022: ldarg.0
    IL_0023: ldloc.0
    IL_0024: stfld System.Int32 Celeste.Player::Dashes
- + IL_10003: call System.Void ExtendedVariants.Variants.DashCount::triggerOnDashRefill() @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashCount.modUseRefill(ILContext)
+ + IL_10006: call System.Void ExtendedVariants.Variants.DashCount::triggerOnDashRefill() @ [ExtendedVariantMode::]ExtendedVariants.Variants.DashCount.modUseRefill(ILContext)
    IL_0029: ldarg.0
    IL_002a: callvirt System.Void Celeste.Player::RefillStamina()
+ + IL_10007: ldarg.0 @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.SeaGlide.UseRefillHook(ILContext)
+ + IL_10008: call System.Void Celeste.Mod.DawnHelper.Entities.SeaGlide::RefillGlideCooldown(Celeste.Player) @ [DawnHelper::]Celeste.Mod.DawnHelper.Entities.SeaGlide.UseRefillHook(ILContext)
    IL_002f: ldc.i4.1
    IL_0030: ret
    IL_0031: ldc.i4.0
