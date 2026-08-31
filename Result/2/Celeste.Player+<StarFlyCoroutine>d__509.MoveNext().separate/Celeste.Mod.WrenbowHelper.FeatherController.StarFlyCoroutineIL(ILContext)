@@ -1,5 +1,3 @@
-IL: [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
-IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyCoroutine(ILContext)
 [V_0] System.Int32
 [V_1] Celeste.Player
 [V_2] Microsoft.Xna.Framework.Vector2
@@ -16,9 +14,6 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeat
    IL_002a: ldarg.0
    IL_002b: ldc.i4.m1
    IL_002c: stfld System.Int32 Celeste.Player/<StarFlyCoroutine>d__509::<>1__state
- + IL_10000: ldloc.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyCoroutine(ILContext)
- + IL_10001: call System.Boolean Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers::maybeSkipIntoAndPlayAnimation(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyCoroutine(ILContext)
- + IL_10002: brtrue.s IL_00a5 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyCoroutine(ILContext)
    IL_0031: br.s IL_004a
    IL_0033: ldarg.0
    IL_0034: ldnull
@@ -53,7 +48,7 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeat
    IL_007b: ldfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
    IL_0080: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
    IL_0085: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Inequality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
- + IL_10003: call System.Boolean Celeste.Mod.WrenbowHelper.FeatherController::injectNoStartSlowdown(System.Boolean) @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
+ + IL_10000: call System.Boolean Celeste.Mod.WrenbowHelper.FeatherController::injectNoStartSlowdown(System.Boolean) @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
    IL_008a: brtrue.s IL_0063
    IL_008c: ldarg.0
    IL_008d: ldc.r4 0.1
@@ -71,7 +66,7 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeat
    IL_00ad: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_00b2: ldloc.1
    IL_00b3: ldfld Microsoft.Xna.Framework.Color Celeste.Player::starFlyColor
- + IL_10004: call Microsoft.Xna.Framework.Color Celeste.Mod.WrenbowHelper.FeatherController::injectTrailColor(Microsoft.Xna.Framework.Color) @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
+ + IL_10001: call Microsoft.Xna.Framework.Color Celeste.Mod.WrenbowHelper.FeatherController::injectTrailColor(Microsoft.Xna.Framework.Color) @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
    IL_00b8: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
    IL_00bd: ldloc.1
    IL_00be: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
@@ -99,7 +94,7 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeat
    IL_0104: stfld System.Boolean Celeste.Player::starFlyTransforming
    IL_0109: ldloc.1
    IL_010a: ldc.r4 2
- + IL_10005: call System.Single Celeste.Mod.WrenbowHelper.FeatherController::injectFlyTime(System.Single) @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
+ + IL_10002: call System.Single Celeste.Mod.WrenbowHelper.FeatherController::injectFlyTime(System.Single) @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
    IL_010f: stfld System.Single Celeste.Player::starFlyTimer
    IL_0114: ldloc.1
    IL_0115: callvirt System.Boolean Celeste.Player::RefillDash()
@@ -108,27 +103,25 @@ IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeat
    IL_011c: callvirt System.Void Celeste.Player::RefillStamina()
    IL_0121: ldsfld Monocle.VirtualJoystick Celeste.Input::Feather
    IL_0126: callvirt Microsoft.Xna.Framework.Vector2 Monocle.VirtualJoystick::get_Value()
- + IL_10006: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.WrenbowHelper.FeatherController::OctalSnapping(Microsoft.Xna.Framework.Vector2) @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
+ + IL_10003: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.WrenbowHelper.FeatherController::OctalSnapping(Microsoft.Xna.Framework.Vector2) @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
    IL_012b: stloc.2
    IL_012c: ldloc.2
    IL_012d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
    IL_0132: call System.Boolean Microsoft.Xna.Framework.Vector2::op_Equality(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0137: brfalse.s IL_10007
+   IL_0137: brfalse.s IL_10004
    IL_0139: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_UnitX()
    IL_013e: ldloc.1
    IL_013f: ldfld Celeste.Facings Celeste.Player::Facing
    IL_0144: conv.r4
    IL_0145: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_014a: stloc.2
- + IL_10007: call System.Boolean Celeste.Mod.WrenbowHelper.FeatherController::injectNoFeatherBoost() @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
- + IL_10008: brfalse IL_015c @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
+ + IL_10004: call System.Boolean Celeste.Mod.WrenbowHelper.FeatherController::injectNoFeatherBoost() @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
+ + IL_10005: brfalse IL_015c @ [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.StarFlyCoroutineIL(ILContext)
    IL_014b: ldloc.1
    IL_014c: ldloc.2
    IL_014d: ldc.r4 250
    IL_0152: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_0157: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
- + IL_10009: ldloc.1 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyCoroutine(ILContext)
- + IL_1000a: call System.Void Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers::setInitialFeatherSpeed(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomFeathers.patch_Player_StarFlyCoroutine(ILContext)
    IL_015c: ldloc.1
    IL_015d: ldloc.2
    IL_015e: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::starFlyLastDir

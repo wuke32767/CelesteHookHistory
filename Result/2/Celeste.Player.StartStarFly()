@@ -1,0 +1,33 @@
+On{eTBdQdzC7rs}: [WrenbowHelper::]Celeste.Mod.WrenbowHelper.FeatherController.Player_StartStarFly(orig_StartStarFly,Player)
+   IL_0000: ldarg.0
+   IL_0001: callvirt System.Void Celeste.Player::RefillStamina()
+   IL_0006: ldarg.0
+   IL_0007: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_000c: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_0011: ldc.i4.s 18
+   IL_0013: bne.un.s IL_0017
+   IL_0015: ldc.i4.0
+   IL_0016: ret
+   IL_0017: ldarg.0
+   IL_0018: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_001d: callvirt System.Int32 Monocle.StateMachine::get_State()
+   IL_0022: ldc.i4.s 19
+   IL_0024: bne.un.s IL_004b
+   IL_0026: ldarg.0
+   IL_0027: ldc.r4 2
+   IL_002c: stfld System.Single Celeste.Player::starFlyTimer
+   IL_0031: ldarg.0
+   IL_0032: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
+   IL_0037: ldarg.0
+   IL_0038: ldfld Microsoft.Xna.Framework.Color Celeste.Player::starFlyColor
+   IL_003d: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_0042: ldc.i4.1
+   IL_0043: ldc.i4.1
+   IL_0044: call System.Void Celeste.Input::Rumble(Celeste.RumbleStrength,Celeste.RumbleLength)
+   IL_0049: br.s IL_0058
+   IL_004b: ldarg.0
+   IL_004c: ldfld Monocle.StateMachine Celeste.Player::StateMachine
+   IL_0051: ldc.i4.s 19
+   IL_0053: callvirt System.Void Monocle.StateMachine::set_State(System.Int32)
+   IL_0058: ldc.i4.1
+   IL_0059: ret
