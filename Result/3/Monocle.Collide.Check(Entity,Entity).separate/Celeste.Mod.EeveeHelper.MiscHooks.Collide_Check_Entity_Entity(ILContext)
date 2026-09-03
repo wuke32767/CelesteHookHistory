@@ -9,10 +9,6 @@
    IL_0012: ldarg.0
    IL_0013: ldarg.1
    IL_0014: beq.s IL_002b
- + IL_10000: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
- + IL_10001: ldarg.1 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
- + IL_10002: call System.Boolean Celeste.Mod.EeveeHelper.MiscHooks::CheckContainers(Monocle.Entity,Monocle.Entity) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
- + IL_10003: brtrue IL_002b @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
    IL_0016: ldarg.1
    IL_0017: ldfld System.Boolean Monocle.Entity::Collidable
    IL_001c: brfalse.s IL_002b
@@ -20,6 +16,14 @@
    IL_001f: callvirt Monocle.Collider Monocle.Entity::get_Collider()
    IL_0024: ldarg.1
    IL_0025: callvirt System.Boolean Monocle.Collider::Collide(Monocle.Entity)
+ + IL_10000: dup @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10001: brfalse IL_002a @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10002: pop @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10003: ldarg.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10004: ldarg.1 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10005: call System.Boolean Celeste.Mod.EeveeHelper.MiscHooks::CheckContainers(Monocle.Entity,Monocle.Entity) @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10006: ldc.i4.0 @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
+ + IL_10007: ceq @ [EeveeHelper::]Celeste.Mod.EeveeHelper.MiscHooks.Collide_Check_Entity_Entity(ILContext)
    IL_002a: ret
    IL_002b: ldc.i4.0
    IL_002c: ret

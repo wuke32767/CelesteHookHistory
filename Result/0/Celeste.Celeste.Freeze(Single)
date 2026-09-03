@@ -8,6 +8,7 @@ On{zFwi6n6/AHk}: {YaoiHelper_FlagSequence: }[YaoiHelper::]Crackerberries.YaoiHel
 On{wadE6MHH998}: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.RefillFreeze.patch_Celeste_Freeze(orig_Freeze,Single)
 On{Lfe8JXBtoi8}: [auspicioushelper::]Celeste.Mod.auspicioushelper.TemplateCassetteManager.onFreeze(orig_Freeze,Single)
 On{ghJYC2Acbb0}: [FreezeFramesToggler::]Celeste.Mod.FreezeFramesToggler.FreezeFramesTogglerModule.OnCelesteFreeze(orig_Freeze,Single)
+IL: {UNKNOWN_DETOUR: Priority: -1}[audiohelper::]Celeste.Mod.audiohelper.Entities.CassetteTickReader.IL_Freeze(ILContext)
 IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.CassetteBlockHelper.ILCelesteFreeze(ILContext)
 [V_0] Celeste.CassetteBlockManager
    IL_0000: ldsfld System.Single Monocle.Engine::FreezeTimer
@@ -28,4 +29,6 @@ IL: [TASHelper::]Celeste.Mod.TASHelper.Gameplay.CassetteBlockHelper.ILCelesteFre
    IL_0028: ldloc.0
    IL_0029: ldarg.0
    IL_002a: callvirt System.Void Celeste.CassetteBlockManager::AdvanceMusic(System.Single)
+ + IL_10002: ldarg.0 @ [audiohelper::]Celeste.Mod.audiohelper.Entities.CassetteTickReader.IL_Freeze(ILContext)
+ + IL_10003: call System.Void Celeste.Mod.audiohelper.Entities.CassetteTickReader::FreezeDelegate(System.Single) @ [audiohelper::]Celeste.Mod.audiohelper.Entities.CassetteTickReader.IL_Freeze(ILContext)
    IL_002f: ret
