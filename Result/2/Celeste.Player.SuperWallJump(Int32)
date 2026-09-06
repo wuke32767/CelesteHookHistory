@@ -9,6 +9,7 @@ On{636kzBAA0YU}: {UNKNOWN_DETOUR: Priority: 0}[KoseiHelper::]Celeste.Mod.KoseiHe
 On{dKoF48rboWM}: {UNKNOWN_DETOUR: Priority: 0}[SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SomePatches.PlayerSuperWallJumpHook(orig_SuperWallJump,Player,Int32)
 On{H54tRhGuDC8}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.XaphanHelper.Entities.JumpBlock.onPlayerSuperWallJump(orig_SuperWallJump,Player,Int32)
 On{raOHe5GaSjA}: {UNKNOWN_DETOUR: Priority: 0}[TechAnnouncer::]Celeste.Mod.TechAnnouncer.TechAnnouncerModule.Player_SuperWallJump(orig_SuperWallJump,Player,Int32)
+On{5zFyPTs43uA}: {UNKNOWN_DETOUR: Priority: 0}[ShrimpHelper::]Celeste.Mod.ShrimpHelper.LeapPrawn.Player_SuperWallJump(orig_SuperWallJump,Player,Int32)
 On{TES06mZKt+w}: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.LiftboostProtection.Player_SuperWallJump(orig_SuperWallJump,Player,Int32)
 On{/GHcdqH6XyE}: [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.FiveEddController.HandleSuperWallJump(orig_SuperWallJump,Player,Int32)
 On{gXBIfQySLeA}: [Casju0TrailMix::]Celeste.Mod.Casju0TrailMix.Entities.TechlessController.HandleSuperWallJump(orig_SuperWallJump,Player,Int32)
@@ -20,7 +21,6 @@ On{mtHfHmg3zwQ}: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.OverchargeRefill.
 On{7gzBhVOf5qE}: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.Actions.ActionHooks.OnSuperWallJump(orig_SuperWallJump,Player,Int32)
 On{/Lr95iO4X08}: [AxiomeToolbox::]Celeste.Mod.AxiomeToolbox.Timeline.TimelineTracker.OnPlayerSuperWallJump(orig_SuperWallJump,Player,Int32)
 On{wPTx9qYGrc8}: [AxiomeToolbox::]Celeste.Mod.AxiomeToolbox.WaterBoost.WaterBoostDetector.OnSuperWallJump(orig_SuperWallJump,Player,Int32)
-On{5zFyPTs43uA}: [ShrimpHelper::]Celeste.Mod.ShrimpHelper.LeapPrawn.Player_SuperWallJump(orig_SuperWallJump,Player,Int32)
 On{FD9pWDkYp94}: [NerdHelper::]NerdHelper.Code.Components.JumpListener.PlayerOnSuperWallJump(orig_SuperWallJump,Player,Int32)
 On{yOxoHX/OkYc}: [BlixelHelper::]Celeste.Mod.BlixelHelper.BlixelHelperModule.PulseBounce(orig_SuperWallJump,Player,Int32)
 On{dCgvuaG4JFg}: [BrassHelper::]Celeste.Mod.BrassHelper.Hooks.BoostHooks.SuperWallJump(orig_SuperWallJump,Player,Int32)
@@ -42,7 +42,7 @@ IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Varia
 IL: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.JumpBoost.ChangeSuperWallJumpH(ILContext)
 IL: [FrostTempleHelper::]FrostHelper.EasierILHook+<>c__DisplayClass30_0.<CreatePrefixHook>b__0(ILContext)
         [FrostTempleHelper::]FrostHelper.Triggers.Activator.OnJumpActivator.OnJump(Player,JumpTypes)
-IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass91_0.<applyILHook>b__0(ILContext)
+IL: [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass92_0.<applyILHook>b__0(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.Miscellaneous.BufferDelayVisualization.hookConsumeBuffer(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.VerticalJumpSpeed.doStuff(ILContext)
 IL: [GooberHelper::]Celeste.Mod.GooberHelper.Options.GeneralHooks.Wallbounce.patch_Player_SuperWallJump(ILContext)
@@ -151,8 +151,8 @@ IL: [SSMHelper::]Celeste.Mod.SSMHelper.Entities.DashBoostField.IL_Player_SuperWa
    IL_0095: callvirt Microsoft.Xna.Framework.Vector2 Celeste.Player::get_LiftBoost()
    IL_009a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
    IL_009f: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
- + IL_10034: ldarg.0 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass91_0.<applyILHook>b__0(ILContext)
- + IL_10035: call System.Void Celeste.Mod.auspicioushelper.LiftspeedThing::BoostOnce(Celeste.Player) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass91_0.<applyILHook>b__0(ILContext)
+ + IL_10034: ldarg.0 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass92_0.<applyILHook>b__0(ILContext)
+ + IL_10035: call System.Void Celeste.Mod.auspicioushelper.LiftspeedThing::BoostOnce(Celeste.Player) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass92_0.<applyILHook>b__0(ILContext)
    IL_00a4: ldarg.0
    IL_00a5: ldarg.0
    IL_00a6: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed

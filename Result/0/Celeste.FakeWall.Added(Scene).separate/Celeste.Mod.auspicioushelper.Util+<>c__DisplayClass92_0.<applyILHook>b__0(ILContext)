@@ -1,0 +1,91 @@
+[V_0] System.Int32
+[V_1] System.Int32
+[V_2] Microsoft.Xna.Framework.Rectangle
+[V_3] Monocle.VirtualMap`1<System.Char>
+[V_4] System.Int32
+[V_5] System.Int32
+[V_6] Celeste.Mod.auspicioushelper.templateFiller/PaddedMap/OverlayStack
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Monocle.Entity::Added(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: call System.Single Monocle.Entity::get_Width()
+   IL_000d: conv.i4
+   IL_000e: ldc.i4.8
+   IL_000f: div
+   IL_0010: stloc.0
+   IL_0011: ldarg.0
+   IL_0012: call System.Single Monocle.Entity::get_Height()
+   IL_0017: conv.i4
+   IL_0018: ldc.i4.8
+   IL_0019: div
+   IL_001a: stloc.1
+   IL_001b: ldarg.0
+   IL_001c: ldfld Celeste.FakeWall/Modes Celeste.FakeWall::mode
+   IL_0021: brtrue.s IL_008a
+   IL_0023: ldarg.0
+   IL_0024: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_0029: dup
+   IL_002a: ldfld Celeste.Session Celeste.Level::Session
+   IL_002f: callvirt Celeste.MapData Celeste.Session::get_MapData()
+   IL_0034: callvirt Microsoft.Xna.Framework.Rectangle Celeste.MapData::get_TileBounds()
+   IL_0039: stloc.2
+   IL_003a: ldfld Monocle.VirtualMap`1<System.Char> Celeste.Level::SolidsData
+   IL_003f: stloc.3
+   IL_0040: ldarg.0
+   IL_0041: call System.Single Monocle.Entity::get_X()
+   IL_0046: conv.i4
+   IL_0047: ldc.i4.8
+   IL_0048: div
+   IL_0049: ldloca.s V_2
+   IL_004b: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Left()
+   IL_0050: sub
+   IL_0051: stloc.s V_4
+   IL_0053: ldarg.0
+   IL_0054: call System.Single Monocle.Entity::get_Y()
+   IL_0059: conv.i4
+   IL_005a: ldc.i4.8
+   IL_005b: div
+   IL_005c: ldloca.s V_2
+   IL_005e: call System.Int32 Microsoft.Xna.Framework.Rectangle::get_Top()
+   IL_0063: sub
+   IL_0064: stloc.s V_5
+   IL_0066: ldarg.0
+   IL_0067: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_006c: ldarg.0
+   IL_006d: ldfld System.Char Celeste.FakeWall::fillTile
+   IL_0072: ldloc.s V_4
+   IL_0074: ldloc.s V_5
+   IL_0076: ldloc.0
+   IL_0077: ldloc.1
+   IL_0078: ldloc.3
+ + IL_10000: ldarg.0 @ [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass92_0.<applyILHook>b__0(ILContext)
+ + IL_10001: call System.Void Celeste.Mod.auspicioushelper.templateFiller/PaddedMap::SetupOverlay(Monocle.Entity) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass92_0.<applyILHook>b__0(ILContext)
+   IL_0079: callvirt Celeste.Autotiler/Generated Celeste.Autotiler::GenerateOverlay(System.Char,System.Int32,System.Int32,System.Int32,System.Int32,Monocle.VirtualMap`1<System.Char>)
+   IL_007e: ldfld Monocle.TileGrid Celeste.Autotiler/Generated::TileGrid
+   IL_0083: stfld Monocle.TileGrid Celeste.FakeWall::tiles
+   IL_0088: br.s IL_00b0
+   IL_008a: ldarg.0
+   IL_008b: ldfld Celeste.FakeWall/Modes Celeste.FakeWall::mode
+   IL_0090: ldc.i4.1
+   IL_0091: bne.un.s IL_00b0
+   IL_0093: ldarg.0
+   IL_0094: ldsfld Celeste.Autotiler Celeste.GFX::FGAutotiler
+   IL_0099: ldarg.0
+   IL_009a: ldfld System.Char Celeste.FakeWall::fillTile
+   IL_009f: ldloc.0
+   IL_00a0: ldloc.1
+   IL_00a1: callvirt Celeste.Autotiler/Generated Celeste.Autotiler::GenerateBox(System.Char,System.Int32,System.Int32)
+   IL_00a6: ldfld Monocle.TileGrid Celeste.Autotiler/Generated::TileGrid
+   IL_00ab: stfld Monocle.TileGrid Celeste.FakeWall::tiles
+   IL_00b0: ldarg.0
+   IL_00b1: ldarg.0
+   IL_00b2: ldfld Monocle.TileGrid Celeste.FakeWall::tiles
+   IL_00b7: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00bc: ldarg.0
+   IL_00bd: ldarg.0
+   IL_00be: ldfld Monocle.TileGrid Celeste.FakeWall::tiles
+   IL_00c3: ldc.i4.0
+   IL_00c4: newobj System.Void Celeste.TileInterceptor::.ctor(Monocle.TileGrid,System.Boolean)
+   IL_00c9: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00ce: ret

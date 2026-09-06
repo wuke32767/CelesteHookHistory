@@ -1,0 +1,42 @@
+[V_0] Celeste.Autotiler/Generated
+[V_1] Celeste.AnimatedTiles
+   IL_0000: ldarg.0
+   IL_0001: call System.Void Monocle.Entity::.ctor()
+   IL_0006: ldarg.0
+   IL_0007: ldarg.1
+   IL_0008: stfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_000d: ldarg.0
+   IL_000e: ldsfld Monocle.BitTag Celeste.Tags::Global
+   IL_0013: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_0018: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_001d: ldsfld Celeste.Autotiler Celeste.GFX::BGAutotiler
+   IL_0022: ldarg.2
+   IL_0023: ldc.i4.0
+ + IL_10000: call System.Boolean Celeste.Mod.auspicioushelper.ConnectedBlocks/PaddingLock::phDelegate(System.Boolean) @ [auspicioushelper::]Celeste.Mod.auspicioushelper.Util+<>c__DisplayClass92_0.<applyILHook>b__0(ILContext)
+   IL_0024: callvirt Celeste.Autotiler/Generated Celeste.Autotiler::GenerateMap(Monocle.VirtualMap`1<System.Char>,System.Boolean)
+   IL_0029: stloc.0
+   IL_002a: ldarg.0
+   IL_002b: ldloc.0
+   IL_002c: ldfld Monocle.TileGrid Celeste.Autotiler/Generated::TileGrid
+   IL_0031: stfld Monocle.TileGrid Celeste.BackgroundTiles::Tiles
+   IL_0036: ldarg.0
+   IL_0037: ldfld Monocle.TileGrid Celeste.BackgroundTiles::Tiles
+   IL_003c: ldc.i4.1
+   IL_003d: stfld System.Int32 Monocle.TileGrid::VisualExtend
+   IL_0042: ldarg.0
+   IL_0043: ldarg.0
+   IL_0044: ldfld Monocle.TileGrid Celeste.BackgroundTiles::Tiles
+   IL_0049: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_004e: ldarg.0
+   IL_004f: ldarg.0
+   IL_0050: ldloc.0
+   IL_0051: ldfld Celeste.AnimatedTiles Celeste.Autotiler/Generated::SpriteOverlay
+   IL_0056: dup
+   IL_0057: stloc.1
+   IL_0058: stfld Celeste.AnimatedTiles Celeste.BackgroundTiles::AnimatedTiles
+   IL_005d: ldloc.1
+   IL_005e: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0063: ldarg.0
+   IL_0064: ldc.i4 10000
+   IL_0069: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_006e: ret
