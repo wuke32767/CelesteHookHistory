@@ -2,6 +2,7 @@
 [V_1] System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>
 [V_2] Celeste.Backdrop
 [V_3] Celeste.Parallax
+[V_4] Microsoft.Xna.Framework.Graphics.RenderTargetBinding[]
    IL_0000: ldsfld Microsoft.Xna.Framework.Graphics.BlendState Microsoft.Xna.Framework.Graphics.BlendState::AlphaBlend
    IL_0005: stloc.0
    IL_0006: ldarg.0
@@ -71,12 +72,14 @@
    IL_00af: ldarg.1
  + IL_10000: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
  + IL_10001: ldloc V_2 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
- + IL_10002: call System.Void Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController::renderStylegroundStart(Celeste.BackdropRenderer,Celeste.Backdrop) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10002: ldloca V_4 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10003: call System.Void Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController::beforeRenderStyleground(Celeste.BackdropRenderer,Celeste.Backdrop,Microsoft.Xna.Framework.Graphics.RenderTargetBinding[]&) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
    IL_00b0: callvirt System.Void Celeste.Backdrop::Render(Monocle.Scene)
- + IL_10003: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
- + IL_10004: ldloc V_2 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
- + IL_10005: ldloc V_0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
- + IL_10006: call System.Void Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController::renderStylegroundEnd(Celeste.BackdropRenderer,Celeste.Backdrop,Microsoft.Xna.Framework.Graphics.BlendState) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10004: ldarg.0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10005: ldloc V_2 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10006: ldloc V_0 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10007: ldloc V_4 @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
+ + IL_10008: call System.Void Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController::afterRenderStyleground(Celeste.BackdropRenderer,Celeste.Backdrop,Microsoft.Xna.Framework.Graphics.BlendState,Microsoft.Xna.Framework.Graphics.RenderTargetBinding[]) @ [MaxHelpingHand::]Celeste.Mod.MaxHelpingHand.Entities.StylegroundFadeController.modBackdropRendererRender(ILContext)
    IL_00b5: ldloca.s V_1
    IL_00b7: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Backdrop>::MoveNext()
    IL_00bc: brtrue IL_0017
