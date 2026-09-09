@@ -19,6 +19,16 @@ IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHo
 [V_16] System.Boolean
 [V_17] System.Boolean
 [V_18] System.Boolean
+[V_19] System.Collections.Generic.List`1<ChroniaHelper.Components.SelectiveSlider>
+[V_20] ChroniaHelper.Components.SelectiveSlider
+[V_21] ChroniaHelper.Components.SelectiveSlider
+[V_22] System.Boolean
+[V_23] System.Boolean
+[V_24] ChroniaHelper.Components.SelectiveSlider
+[V_25] ChroniaHelper.Components.SelectiveSlider
+[V_26] System.Boolean
+[V_27] System.Boolean
+[V_28] System.Boolean
  + IL_10000: call System.Boolean TAS.EverestInterop.SimplifiedGraphicsFeature::IsSimplifiedHud() @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
  + IL_10001: brfalse IL_0000 @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
  + IL_10002: ret @ [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
@@ -275,54 +285,152 @@ IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHo
    IL_0306: stfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_030b: nop
    IL_030c: ldarg.0
-   IL_030d: ldfld System.Boolean ChroniaHelper.Entities.ColoredCustomCoreMessage::outline
-   IL_0312: stloc.s V_18
-   IL_0314: ldloc.s V_18
-   IL_0316: brfalse.s IL_0370
-   IL_0318: nop
-   IL_0319: ldarg.0
-   IL_031a: ldfld System.String ChroniaHelper.Entities.ColoredCustomCoreMessage::text
-   IL_031f: ldloc.2
-   IL_0320: ldsfld System.Collections.Generic.Dictionary`2<ChroniaHelper.Utils.AlignUtils/Aligns,Microsoft.Xna.Framework.Vector2> ChroniaHelper.Utils.AlignUtils::AlignToJustify
-   IL_0325: ldarg.0
-   IL_0326: ldfld ChroniaHelper.Utils.AlignUtils/Aligns ChroniaHelper.Entities.ColoredCustomCoreMessage::align
-   IL_032b: callvirt TValue System.Collections.Generic.Dictionary`2<ChroniaHelper.Utils.AlignUtils/Aligns,Microsoft.Xna.Framework.Vector2>::get_Item(TKey)
-   IL_0330: ldarg.0
-   IL_0331: ldfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.ColoredCustomCoreMessage::scale
-   IL_0336: ldarg.0
-   IL_0337: ldflda ChroniaHelper.Utils.ColorUtils/ChroniaColor ChroniaHelper.Entities.ColoredCustomCoreMessage::color
-   IL_033c: ldfld Microsoft.Xna.Framework.Color ChroniaHelper.Utils.ColorUtils/ChroniaColor::color
-   IL_0341: ldarg.0
-   IL_0342: ldfld System.Single ChroniaHelper.Entities.ColoredCustomCoreMessage::alpha
-   IL_0347: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_034c: ldc.r4 2
-   IL_0351: ldarg.0
-   IL_0352: ldflda ChroniaHelper.Utils.ColorUtils/ChroniaColor ChroniaHelper.Entities.ColoredCustomCoreMessage::outlineColor
-   IL_0357: ldfld Microsoft.Xna.Framework.Color ChroniaHelper.Utils.ColorUtils/ChroniaColor::color
-   IL_035c: ldarg.0
-   IL_035d: ldfld System.Single ChroniaHelper.Entities.ColoredCustomCoreMessage::alpha
-   IL_0362: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_0367: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
-   IL_036c: nop
-   IL_036d: nop
-   IL_036e: br.s IL_03ab
-   IL_0370: nop
-   IL_0371: ldarg.0
-   IL_0372: ldfld System.String ChroniaHelper.Entities.ColoredCustomCoreMessage::text
-   IL_0377: ldloc.2
-   IL_0378: ldsfld System.Collections.Generic.Dictionary`2<ChroniaHelper.Utils.AlignUtils/Aligns,Microsoft.Xna.Framework.Vector2> ChroniaHelper.Utils.AlignUtils::AlignToJustify
+   IL_030d: ldfld System.Collections.Generic.Dictionary`2<Celeste.Language,System.Collections.Generic.List`1<ChroniaHelper.Components.SelectiveSlider>> ChroniaHelper.Entities.ColoredCustomCoreMessage::languageScales
+   IL_0312: call Celeste.Language ChroniaHelper.Utils.Languages::get_Current()
+   IL_0317: callvirt System.Boolean System.Collections.Generic.Dictionary`2<Celeste.Language,System.Collections.Generic.List`1<ChroniaHelper.Components.SelectiveSlider>>::ContainsKey(TKey)
+   IL_031c: stloc.s V_18
+   IL_031e: ldloc.s V_18
+   IL_0320: brfalse IL_03a1
+   IL_0325: nop
+   IL_0326: ldarg.0
+   IL_0327: ldfld System.Collections.Generic.Dictionary`2<Celeste.Language,System.Collections.Generic.List`1<ChroniaHelper.Components.SelectiveSlider>> ChroniaHelper.Entities.ColoredCustomCoreMessage::languageScales
+   IL_032c: call Celeste.Language ChroniaHelper.Utils.Languages::get_Current()
+   IL_0331: callvirt TValue System.Collections.Generic.Dictionary`2<Celeste.Language,System.Collections.Generic.List`1<ChroniaHelper.Components.SelectiveSlider>>::get_Item(TKey)
+   IL_0336: stloc.s V_19
+   IL_0338: ldloc.s V_19
+   IL_033a: ldc.i4.0
+   IL_033b: ldloca.s V_20
+   IL_033d: call System.Boolean ChroniaHelper.Utils.CollectiveUtils::TryGet<ChroniaHelper.Components.SelectiveSlider>(System.Collections.Generic.IList`1<T>,System.Int32,T&)
+   IL_0342: stloc.s V_22
+   IL_0344: ldloc.s V_22
+   IL_0346: brfalse.s IL_036c
+   IL_0348: nop
+   IL_0349: ldarg.0
+   IL_034a: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_034f: ldloc.s V_20
+   IL_0351: brtrue.s IL_035a
+   IL_0353: ldc.r4 1.25
+   IL_0358: br.s IL_0361
+   IL_035a: ldloc.s V_20
+   IL_035c: callvirt System.Single ChroniaHelper.Components.SelectiveSlider::get_Value()
+   IL_0361: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0366: stfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.ColoredCustomCoreMessage::scale
+   IL_036b: nop
+   IL_036c: ldloc.s V_19
+   IL_036e: ldc.i4.1
+   IL_036f: ldloca.s V_21
+   IL_0371: call System.Boolean ChroniaHelper.Utils.CollectiveUtils::TryGet<ChroniaHelper.Components.SelectiveSlider>(System.Collections.Generic.IList`1<T>,System.Int32,T&)
+   IL_0376: stloc.s V_23
+   IL_0378: ldloc.s V_23
+   IL_037a: brfalse.s IL_039b
+   IL_037c: nop
    IL_037d: ldarg.0
-   IL_037e: ldfld ChroniaHelper.Utils.AlignUtils/Aligns ChroniaHelper.Entities.ColoredCustomCoreMessage::align
-   IL_0383: callvirt TValue System.Collections.Generic.Dictionary`2<ChroniaHelper.Utils.AlignUtils/Aligns,Microsoft.Xna.Framework.Vector2>::get_Item(TKey)
-   IL_0388: ldarg.0
-   IL_0389: ldfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.ColoredCustomCoreMessage::scale
-   IL_038e: ldarg.0
-   IL_038f: ldflda ChroniaHelper.Utils.ColorUtils/ChroniaColor ChroniaHelper.Entities.ColoredCustomCoreMessage::color
-   IL_0394: ldfld Microsoft.Xna.Framework.Color ChroniaHelper.Utils.ColorUtils/ChroniaColor::color
-   IL_0399: ldarg.0
-   IL_039a: ldfld System.Single ChroniaHelper.Entities.ColoredCustomCoreMessage::alpha
-   IL_039f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_03a4: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
-   IL_03a9: nop
-   IL_03aa: nop
-   IL_03ab: ret
+   IL_037e: ldflda Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.ColoredCustomCoreMessage::scale
+   IL_0383: ldloc.s V_21
+   IL_0385: brtrue.s IL_038e
+   IL_0387: ldc.r4 1.25
+   IL_038c: br.s IL_0395
+   IL_038e: ldloc.s V_21
+   IL_0390: callvirt System.Single ChroniaHelper.Components.SelectiveSlider::get_Value()
+   IL_0395: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_039a: nop
+   IL_039b: nop
+   IL_039c: br IL_0423
+   IL_03a1: nop
+   IL_03a2: ldarg.0
+   IL_03a3: ldc.r4 1.25
+   IL_03a8: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_03ad: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(System.Single,Microsoft.Xna.Framework.Vector2)
+   IL_03b2: stfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.ColoredCustomCoreMessage::scale
+   IL_03b7: ldarg.0
+   IL_03b8: ldfld System.Collections.Generic.List`1<ChroniaHelper.Components.SelectiveSlider> ChroniaHelper.Entities.ColoredCustomCoreMessage::_scale
+   IL_03bd: ldc.i4.0
+   IL_03be: ldloca.s V_24
+   IL_03c0: call System.Boolean ChroniaHelper.Utils.CollectiveUtils::TryGet<ChroniaHelper.Components.SelectiveSlider>(System.Collections.Generic.IList`1<T>,System.Int32,T&)
+   IL_03c5: stloc.s V_26
+   IL_03c7: ldloc.s V_26
+   IL_03c9: brfalse.s IL_03ef
+   IL_03cb: nop
+   IL_03cc: ldarg.0
+   IL_03cd: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_03d2: ldloc.s V_24
+   IL_03d4: brtrue.s IL_03dd
+   IL_03d6: ldc.r4 1.25
+   IL_03db: br.s IL_03e4
+   IL_03dd: ldloc.s V_24
+   IL_03df: callvirt System.Single ChroniaHelper.Components.SelectiveSlider::get_Value()
+   IL_03e4: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_03e9: stfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.ColoredCustomCoreMessage::scale
+   IL_03ee: nop
+   IL_03ef: ldarg.0
+   IL_03f0: ldfld System.Collections.Generic.List`1<ChroniaHelper.Components.SelectiveSlider> ChroniaHelper.Entities.ColoredCustomCoreMessage::_scale
+   IL_03f5: ldc.i4.1
+   IL_03f6: ldloca.s V_25
+   IL_03f8: call System.Boolean ChroniaHelper.Utils.CollectiveUtils::TryGet<ChroniaHelper.Components.SelectiveSlider>(System.Collections.Generic.IList`1<T>,System.Int32,T&)
+   IL_03fd: stloc.s V_27
+   IL_03ff: ldloc.s V_27
+   IL_0401: brfalse.s IL_0422
+   IL_0403: nop
+   IL_0404: ldarg.0
+   IL_0405: ldflda Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.ColoredCustomCoreMessage::scale
+   IL_040a: ldloc.s V_25
+   IL_040c: brtrue.s IL_0415
+   IL_040e: ldc.r4 1.25
+   IL_0413: br.s IL_041c
+   IL_0415: ldloc.s V_25
+   IL_0417: callvirt System.Single ChroniaHelper.Components.SelectiveSlider::get_Value()
+   IL_041c: stfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0421: nop
+   IL_0422: nop
+   IL_0423: ldarg.0
+   IL_0424: ldfld System.Boolean ChroniaHelper.Entities.ColoredCustomCoreMessage::outline
+   IL_0429: stloc.s V_28
+   IL_042b: ldloc.s V_28
+   IL_042d: brfalse.s IL_0487
+   IL_042f: nop
+   IL_0430: ldarg.0
+   IL_0431: ldfld System.String ChroniaHelper.Entities.ColoredCustomCoreMessage::text
+   IL_0436: ldloc.2
+   IL_0437: ldsfld System.Collections.Generic.Dictionary`2<ChroniaHelper.Utils.AlignUtils/Aligns,Microsoft.Xna.Framework.Vector2> ChroniaHelper.Utils.AlignUtils::AlignToJustify
+   IL_043c: ldarg.0
+   IL_043d: ldfld ChroniaHelper.Utils.AlignUtils/Aligns ChroniaHelper.Entities.ColoredCustomCoreMessage::align
+   IL_0442: callvirt TValue System.Collections.Generic.Dictionary`2<ChroniaHelper.Utils.AlignUtils/Aligns,Microsoft.Xna.Framework.Vector2>::get_Item(TKey)
+   IL_0447: ldarg.0
+   IL_0448: ldfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.ColoredCustomCoreMessage::scale
+   IL_044d: ldarg.0
+   IL_044e: ldflda ChroniaHelper.Utils.ColorUtils/ChroniaColor ChroniaHelper.Entities.ColoredCustomCoreMessage::color
+   IL_0453: ldfld Microsoft.Xna.Framework.Color ChroniaHelper.Utils.ColorUtils/ChroniaColor::color
+   IL_0458: ldarg.0
+   IL_0459: ldfld System.Single ChroniaHelper.Entities.ColoredCustomCoreMessage::alpha
+   IL_045e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0463: ldc.r4 2
+   IL_0468: ldarg.0
+   IL_0469: ldflda ChroniaHelper.Utils.ColorUtils/ChroniaColor ChroniaHelper.Entities.ColoredCustomCoreMessage::outlineColor
+   IL_046e: ldfld Microsoft.Xna.Framework.Color ChroniaHelper.Utils.ColorUtils/ChroniaColor::color
+   IL_0473: ldarg.0
+   IL_0474: ldfld System.Single ChroniaHelper.Entities.ColoredCustomCoreMessage::alpha
+   IL_0479: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_047e: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_0483: nop
+   IL_0484: nop
+   IL_0485: br.s IL_04c2
+   IL_0487: nop
+   IL_0488: ldarg.0
+   IL_0489: ldfld System.String ChroniaHelper.Entities.ColoredCustomCoreMessage::text
+   IL_048e: ldloc.2
+   IL_048f: ldsfld System.Collections.Generic.Dictionary`2<ChroniaHelper.Utils.AlignUtils/Aligns,Microsoft.Xna.Framework.Vector2> ChroniaHelper.Utils.AlignUtils::AlignToJustify
+   IL_0494: ldarg.0
+   IL_0495: ldfld ChroniaHelper.Utils.AlignUtils/Aligns ChroniaHelper.Entities.ColoredCustomCoreMessage::align
+   IL_049a: callvirt TValue System.Collections.Generic.Dictionary`2<ChroniaHelper.Utils.AlignUtils/Aligns,Microsoft.Xna.Framework.Vector2>::get_Item(TKey)
+   IL_049f: ldarg.0
+   IL_04a0: ldfld Microsoft.Xna.Framework.Vector2 ChroniaHelper.Entities.ColoredCustomCoreMessage::scale
+   IL_04a5: ldarg.0
+   IL_04a6: ldflda ChroniaHelper.Utils.ColorUtils/ChroniaColor ChroniaHelper.Entities.ColoredCustomCoreMessage::color
+   IL_04ab: ldfld Microsoft.Xna.Framework.Color ChroniaHelper.Utils.ColorUtils/ChroniaColor::color
+   IL_04b0: ldarg.0
+   IL_04b1: ldfld System.Single ChroniaHelper.Entities.ColoredCustomCoreMessage::alpha
+   IL_04b6: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_04bb: call System.Void Celeste.ActiveFont::Draw(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_04c0: nop
+   IL_04c1: nop
+   IL_04c2: ret
