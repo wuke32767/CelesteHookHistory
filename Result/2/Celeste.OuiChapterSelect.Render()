@@ -63,7 +63,7 @@ On{eu+gTwOu3o4}: {UNKNOWN_DETOUR: Priority: 0}[AchievementHelper::]Celeste.Mod.A
    IL_00ce: ldarg.0
    IL_00cf: ldfld System.Single Celeste.OuiChapterSelect::searchEase
    IL_00d4: ldc.r4 0
-   IL_00d9: ble.un IL_0192
+   IL_00d9: ble.un IL_019c
    IL_00de: ldloca.s V_1
    IL_00e0: ldc.r4 128
    IL_00e5: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
@@ -102,114 +102,116 @@ On{eu+gTwOu3o4}: {UNKNOWN_DETOUR: Priority: 0}[AchievementHelper::]Celeste.Mod.A
    IL_014a: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
    IL_014f: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
    IL_0154: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
-   IL_0159: ldsfld Monocle.VirtualButton Celeste.Input::QuickRestart
-   IL_015e: call Microsoft.Xna.Framework.Input.Keys Celeste.Input::FirstKey(Monocle.VirtualButton)
-   IL_0163: ldstr "controls/keyboard/oemquestion"
-   IL_0168: call Monocle.MTexture Celeste.Input::GuiKey(Microsoft.Xna.Framework.Input.Keys,System.String)
-   IL_016d: ldloc.1
-   IL_016e: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
-   IL_0173: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
-   IL_0178: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
-   IL_017d: ldarg.0
-   IL_017e: ldfld System.Single Celeste.OuiChapterSelect::searchEase
-   IL_0183: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
-   IL_0188: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_018d: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
-   IL_0192: ldarg.0
-   IL_0193: ldfld System.Single Celeste.OuiChapterSelect::levelsetEase
-   IL_0198: ldc.r4 0
-   IL_019d: ble.un IL_0308
-   IL_01a2: ldloca.s V_2
-   IL_01a4: ldc.r4 1920
-   IL_01a9: ldc.r4 64
-   IL_01ae: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
-   IL_01b3: ldarg.0
-   IL_01b4: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
-   IL_01b9: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
-   IL_01be: mul
-   IL_01bf: sub
-   IL_01c0: ldc.r4 952
-   IL_01c5: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_01ca: ldarg.0
-   IL_01cb: ldfld System.String Celeste.OuiChapterSelect::currentLevelSet
-   IL_01d0: call System.String Celeste.Dialog::CleanLevelSet(System.String)
-   IL_01d5: dup
-   IL_01d6: ldloc.2
-   IL_01d7: ldc.r4 1
-   IL_01dc: ldc.r4 0.5
-   IL_01e1: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_01e6: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
-   IL_01eb: ldc.r4 0.7
-   IL_01f0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_01f5: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
-   IL_01fa: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
-   IL_01ff: ldarg.0
-   IL_0200: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
-   IL_0205: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
-   IL_020a: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_020f: ldc.r4 2
-   IL_0214: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
-   IL_0219: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
-   IL_021e: ldarg.0
-   IL_021f: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
-   IL_0224: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
-   IL_0229: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_022e: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
-   IL_0233: call Microsoft.Xna.Framework.Vector2 Celeste.ActiveFont::Measure(System.String)
-   IL_0238: ldc.r4 0.7
-   IL_023d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
-   IL_0242: stloc.3
-   IL_0243: ldc.r4 0
-   IL_0248: ldc.r4 -1
-   IL_024d: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_0252: call Monocle.MTexture Celeste.Input::GuiDirection(Microsoft.Xna.Framework.Vector2)
-   IL_0257: ldloc.2
-   IL_0258: ldloc.3
-   IL_0259: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_025e: neg
-   IL_025f: ldc.r4 0.5
-   IL_0264: mul
-   IL_0265: ldloc.3
-   IL_0266: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_026b: neg
-   IL_026c: ldc.r4 0.5
-   IL_0271: mul
-   IL_0272: ldc.r4 16
-   IL_0277: sub
-   IL_0278: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_027d: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_0282: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
-   IL_0287: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
-   IL_028c: ldarg.0
-   IL_028d: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
-   IL_0292: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
-   IL_0297: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_029c: ldc.r4 0.5
-   IL_02a1: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
-   IL_02a6: ldc.r4 0
-   IL_02ab: ldc.r4 1
-   IL_02b0: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_02b5: call Monocle.MTexture Celeste.Input::GuiDirection(Microsoft.Xna.Framework.Vector2)
-   IL_02ba: ldloc.2
-   IL_02bb: ldloc.3
-   IL_02bc: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
-   IL_02c1: neg
-   IL_02c2: ldc.r4 0.5
-   IL_02c7: mul
-   IL_02c8: ldloc.3
-   IL_02c9: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
-   IL_02ce: ldc.r4 0.5
-   IL_02d3: mul
-   IL_02d4: ldc.r4 16
-   IL_02d9: add
-   IL_02da: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
-   IL_02df: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
-   IL_02e4: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
-   IL_02e9: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
-   IL_02ee: ldarg.0
-   IL_02ef: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
-   IL_02f4: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
-   IL_02f9: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
-   IL_02fe: ldc.r4 0.5
-   IL_0303: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
-   IL_0308: ret
+   IL_0159: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_015e: callvirt Celeste.Mod.ButtonBinding Celeste.Mod.Core.CoreModuleSettings::get_MenuSearch()
+   IL_0163: ldfld Monocle.VirtualButton Celeste.Mod.ButtonBinding::Button
+   IL_0168: call Microsoft.Xna.Framework.Input.Keys Celeste.Input::FirstKey(Monocle.VirtualButton)
+   IL_016d: ldstr "controls/keyboard/oemquestion"
+   IL_0172: call Monocle.MTexture Celeste.Input::GuiKey(Microsoft.Xna.Framework.Input.Keys,System.String)
+   IL_0177: ldloc.1
+   IL_0178: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_017d: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0182: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0187: ldarg.0
+   IL_0188: ldfld System.Single Celeste.OuiChapterSelect::searchEase
+   IL_018d: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0192: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0197: callvirt System.Void Monocle.MTexture::Draw(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+   IL_019c: ldarg.0
+   IL_019d: ldfld System.Single Celeste.OuiChapterSelect::levelsetEase
+   IL_01a2: ldc.r4 0
+   IL_01a7: ble.un IL_0312
+   IL_01ac: ldloca.s V_2
+   IL_01ae: ldc.r4 1920
+   IL_01b3: ldc.r4 64
+   IL_01b8: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_01bd: ldarg.0
+   IL_01be: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
+   IL_01c3: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_01c8: mul
+   IL_01c9: sub
+   IL_01ca: ldc.r4 952
+   IL_01cf: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01d4: ldarg.0
+   IL_01d5: ldfld System.String Celeste.OuiChapterSelect::currentLevelSet
+   IL_01da: call System.String Celeste.Dialog::CleanLevelSet(System.String)
+   IL_01df: dup
+   IL_01e0: ldloc.2
+   IL_01e1: ldc.r4 1
+   IL_01e6: ldc.r4 0.5
+   IL_01eb: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_01f0: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_01f5: ldc.r4 0.7
+   IL_01fa: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01ff: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0204: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0209: ldarg.0
+   IL_020a: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
+   IL_020f: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0214: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0219: ldc.r4 2
+   IL_021e: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_0223: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0228: ldarg.0
+   IL_0229: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
+   IL_022e: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0233: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0238: call System.Void Celeste.ActiveFont::DrawOutline(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Color)
+   IL_023d: call Microsoft.Xna.Framework.Vector2 Celeste.ActiveFont::Measure(System.String)
+   IL_0242: ldc.r4 0.7
+   IL_0247: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_024c: stloc.3
+   IL_024d: ldc.r4 0
+   IL_0252: ldc.r4 -1
+   IL_0257: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_025c: call Monocle.MTexture Celeste.Input::GuiDirection(Microsoft.Xna.Framework.Vector2)
+   IL_0261: ldloc.2
+   IL_0262: ldloc.3
+   IL_0263: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0268: neg
+   IL_0269: ldc.r4 0.5
+   IL_026e: mul
+   IL_026f: ldloc.3
+   IL_0270: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0275: neg
+   IL_0276: ldc.r4 0.5
+   IL_027b: mul
+   IL_027c: ldc.r4 16
+   IL_0281: sub
+   IL_0282: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0287: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_028c: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_0291: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_0296: ldarg.0
+   IL_0297: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
+   IL_029c: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_02a1: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_02a6: ldc.r4 0.5
+   IL_02ab: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_02b0: ldc.r4 0
+   IL_02b5: ldc.r4 1
+   IL_02ba: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_02bf: call Monocle.MTexture Celeste.Input::GuiDirection(Microsoft.Xna.Framework.Vector2)
+   IL_02c4: ldloc.2
+   IL_02c5: ldloc.3
+   IL_02c6: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_02cb: neg
+   IL_02cc: ldc.r4 0.5
+   IL_02d1: mul
+   IL_02d2: ldloc.3
+   IL_02d3: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_02d8: ldc.r4 0.5
+   IL_02dd: mul
+   IL_02de: ldc.r4 16
+   IL_02e3: add
+   IL_02e4: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_02e9: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_02ee: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_White()
+   IL_02f3: ldsfld Monocle.Ease/Easer Monocle.Ease::CubeOut
+   IL_02f8: ldarg.0
+   IL_02f9: ldfld System.Single Celeste.OuiChapterSelect::maplistEase
+   IL_02fe: callvirt System.Single Monocle.Ease/Easer::Invoke(System.Single)
+   IL_0303: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0308: ldc.r4 0.5
+   IL_030d: callvirt System.Void Monocle.MTexture::DrawCentered(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)
+   IL_0312: ret

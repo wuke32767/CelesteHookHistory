@@ -28,21 +28,22 @@ IL: [TASHelper::]Celeste.Mod.TASHelper.Utils.HookHelper+<>c__DisplayClass3_0.<IL
    IL_003f: pop
    IL_0040: ldarg.0
    IL_0041: call System.Boolean Celeste.Oui::get_Selected()
-   IL_0046: brfalse.s IL_006d
+   IL_0046: brfalse.s IL_0072
    IL_0048: ldarg.0
    IL_0049: ldfld System.Boolean Celeste.Oui::Focused
-   IL_004e: brfalse.s IL_006d
-   IL_0050: ldsfld Monocle.VirtualButton Celeste.Input::QuickRestart
-   IL_0055: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
-   IL_005a: brfalse.s IL_006d
-   IL_005c: ldarg.0
-   IL_005d: ldfld System.Action Celeste.Mod.UI.OuiModOptions::startSearching
-   IL_0062: dup
-   IL_0063: brtrue.s IL_0067
-   IL_0065: pop
-   IL_0066: ret
-   IL_0067: callvirt System.Void System.Action::Invoke()
-   IL_006c: ret
-   IL_006d: ldarg.0
-   IL_006e: call System.Void Monocle.Entity::Update()
-   IL_0073: ret
+   IL_004e: brfalse.s IL_0072
+   IL_0050: call Celeste.Mod.Core.CoreModuleSettings Celeste.Mod.Core.CoreModule::get_Settings()
+   IL_0055: callvirt Celeste.Mod.ButtonBinding Celeste.Mod.Core.CoreModuleSettings::get_MenuSearch()
+   IL_005a: callvirt System.Boolean Celeste.Mod.ButtonBinding::get_Pressed()
+   IL_005f: brfalse.s IL_0072
+   IL_0061: ldarg.0
+   IL_0062: ldfld System.Action Celeste.Mod.UI.OuiModOptions::startSearching
+   IL_0067: dup
+   IL_0068: brtrue.s IL_006c
+   IL_006a: pop
+   IL_006b: ret
+   IL_006c: callvirt System.Void System.Action::Invoke()
+   IL_0071: ret
+   IL_0072: ldarg.0
+   IL_0073: call System.Void Monocle.Entity::Update()
+   IL_0078: ret
