@@ -68,9 +68,10 @@
    IL_00b8: stloc.2
    IL_00b9: ldloc.2
    IL_00ba: ldc.r4 240
- + IL_10000: call System.Single Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::EatAndReplace(System.Single) @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.ModifyDashSpeed(ILContext)
    IL_00bf: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
    IL_00c4: stloc.3
+ + IL_10000: call System.Boolean Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath::PseudoDeadWithRefill() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.ModifyDashSpeed(ILContext)
+ + IL_10001: brtrue IL_10002 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.ModifyDashSpeed(ILContext)
    IL_00c5: ldloc.1
    IL_00c6: ldflda Microsoft.Xna.Framework.Vector2 Celeste.Player::beforeDashSpeed
    IL_00cb: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
@@ -94,8 +95,9 @@
    IL_010c: stfld System.Single Microsoft.Xna.Framework.Vector2::X
    IL_0111: ldloc.1
    IL_0112: ldloc.3
- + IL_10001: call Microsoft.Xna.Framework.Vector2 Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::SpeedXFix(Microsoft.Xna.Framework.Vector2) @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.ModifyDashSpeed(ILContext)
    IL_0113: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+ + IL_10002: ldloc.3 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.ModifyDashSpeed(ILContext)
+ + IL_10003: call System.Void Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath::Redirect(Microsoft.Xna.Framework.Vector2) @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.ModifyDashSpeed(ILContext)
    IL_0118: ldloc.1
    IL_0119: callvirt System.Boolean Monocle.Entity::CollideCheck<Celeste.Water>()
    IL_011e: brfalse.s IL_0136

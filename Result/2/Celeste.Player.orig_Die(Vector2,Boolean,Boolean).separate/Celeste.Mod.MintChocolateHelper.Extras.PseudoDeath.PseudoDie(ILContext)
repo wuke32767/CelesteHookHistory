@@ -32,7 +32,6 @@
    IL_004b: beq IL_0210
    IL_0050: newobj System.Void Celeste.Player/<>c__DisplayClass344_1::.ctor()
    IL_0055: stloc.2
- + IL_10000: call System.Void Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::StorePlayerBullshit() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
    IL_0056: ldloc.2
    IL_0057: ldloc.0
    IL_0058: stfld Celeste.Player/<>c__DisplayClass344_0 Celeste.Player/<>c__DisplayClass344_1::CS$<>8__locals1
@@ -40,6 +39,8 @@
    IL_005e: ldarg.0
    IL_005f: ldfld Celeste.SoundSource Celeste.Player::wallSlideSfx
    IL_0064: callvirt System.Void Celeste.Player::Stop(Celeste.SoundSource)
+ + IL_10000: call System.Boolean Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath::PseudoDeadDontRegisterDeathInStats() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
+ + IL_10001: brtrue IL_00b6 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
    IL_0069: ldarg.3
    IL_006a: brfalse.s IL_00b6
    IL_006c: ldloc.2
@@ -106,17 +107,19 @@
    IL_0139: ldarg.0
    IL_013a: ldc.i4.1
    IL_013b: callvirt System.Void Celeste.Player::set_Dead(System.Boolean)
- + IL_10001: call System.Boolean Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::ShouldKeepFollowers() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
- + IL_10002: brtrue IL_014b @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
+ + IL_10002: call System.Boolean Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath::PseudoDeadKeepFollowers() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
+ + IL_10003: brtrue IL_014b @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
    IL_0140: ldarg.0
    IL_0141: ldfld Celeste.Leader Celeste.Player::Leader
    IL_0146: callvirt System.Void Celeste.Leader::LoseFollowers()
    IL_014b: ldarg.0
    IL_014c: ldc.i4 -1000000
    IL_0151: call System.Void Monocle.Entity::set_Depth(System.Int32)
+ + IL_10004: call System.Void Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath::StoreSpeed() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
    IL_0156: ldarg.0
    IL_0157: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
    IL_015c: stfld Microsoft.Xna.Framework.Vector2 Celeste.Player::Speed
+ + IL_10005: call System.Void Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath::SetState() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
    IL_0161: ldarg.0
    IL_0162: ldfld Monocle.StateMachine Celeste.Player::StateMachine
    IL_0167: ldc.i4.1
@@ -124,6 +127,7 @@
    IL_016d: ldarg.0
    IL_016e: ldc.i4.0
    IL_016f: stfld System.Boolean Monocle.Entity::Collidable
+ + IL_10006: call System.Void Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath::SetVisible() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
    IL_0174: ldarg.0
    IL_0175: callvirt System.Void Celeste.Player::Drop()
    IL_017a: ldarg.0
@@ -162,13 +166,13 @@
    IL_01da: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_01df: ldloc.3
    IL_01e0: callvirt System.Void Monocle.Scene::Add(Monocle.Entity)
- + IL_10003: call System.Boolean Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::ShouldSkipRemovePlayer() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
- + IL_10004: brtrue IL_10005 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
+ + IL_10007: call System.Boolean Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath::PlayerCanPseudoDie() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
+ + IL_10008: brtrue IL_10009 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
    IL_01e5: ldarg.0
    IL_01e6: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_01eb: ldarg.0
    IL_01ec: callvirt System.Void Monocle.Scene::Remove(Monocle.Entity)
- + IL_10005: call System.Void Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath::FakeKillPlayer() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PsuedoDeath.SkipRemovePlayer(ILContext)
+ + IL_10009: call System.Void Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath::SetPseudoDie() @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.PseudoDeath.PseudoDie(ILContext)
    IL_01f1: ldarg.0
    IL_01f2: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_01f7: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
