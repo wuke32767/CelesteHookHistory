@@ -1,0 +1,28 @@
+On{We1LkeHmes4}: {UNKNOWN_DETOUR: Priority: 0}[SkinModHelperPlus::]Celeste.Mod.SkinModHelper.TrailRecolor.onTrailManager_ctor(orig_ctor,TrailManager)
+   IL_0000: ldarg.0
+   IL_0001: ldc.i4 64
+   IL_0006: newarr Monocle.VirtualRenderTarget
+   IL_000b: stfld Monocle.VirtualRenderTarget[] Celeste.TrailManager::buffers
+   IL_0010: ldarg.0
+   IL_0011: ldc.i4.s 64
+   IL_0013: newarr Celeste.TrailManager/Snapshot
+   IL_0018: stfld Celeste.TrailManager/Snapshot[] Celeste.TrailManager::snapshots
+   IL_001d: ldarg.0
+   IL_001e: call System.Void Monocle.Entity::.ctor()
+   IL_0023: ldarg.0
+   IL_0024: ldsfld Monocle.BitTag Celeste.Tags::Global
+   IL_0029: call System.Int32 Monocle.BitTag::op_Implicit(Monocle.BitTag)
+   IL_002e: call System.Void Monocle.Entity::set_Tag(System.Int32)
+   IL_0033: ldarg.0
+   IL_0034: ldc.i4.s 10
+   IL_0036: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_003b: ldarg.0
+   IL_003c: ldarg.0
+   IL_003d: ldftn System.Void Celeste.TrailManager::BeforeRenderPatch()
+   IL_0043: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)
+   IL_0048: newobj System.Void Celeste.BeforeRenderHook::.ctor(System.Action)
+   IL_004d: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0052: ldarg.0
+   IL_0053: newobj System.Void Celeste.MirrorReflection::.ctor()
+   IL_0058: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_005d: ret

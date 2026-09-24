@@ -1,0 +1,71 @@
+IL: [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass5_0.<IlHook>b__0(ILContext)
+        [CelesteTAS-EverestInterop::]TAS.Utils.HookHelper+<>c__DisplayClass6_0.<IlHook>b__0(ILContext)
+[V_0] System.Boolean
+[V_1] System.Boolean
+[V_2] System.Boolean
+[V_3] System.Boolean
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2> Celeste.Mod.SkinModHelper.HairConfig::ActualHairScales
+   IL_0007: brfalse.s IL_000f
+   IL_0009: ldarg.1
+   IL_000a: ldc.i4.0
+   IL_000b: ceq
+   IL_000d: br.s IL_0010
+   IL_000f: ldc.i4.1
+   IL_0010: stloc.0
+   IL_0011: ldloc.0
+   IL_0012: brfalse.s IL_0024
+   IL_0014: nop
+   IL_0015: ldarg.3
+   IL_0016: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_Zero()
+   IL_001b: stobj Microsoft.Xna.Framework.Vector2
+   IL_0020: ldc.i4.0
+   IL_0021: stloc.1
+   IL_0022: br.s IL_007d
+   IL_0024: ldarg.0
+   IL_0025: ldfld System.Int32 Celeste.Mod.SkinModHelper.HairConfig::_AttrDasheslimit
+   IL_002a: ldarg.2
+   IL_002b: call System.Int32 System.Math::Min(System.Int32,System.Int32)
+   IL_0030: starg.s dashes
+   IL_0032: nop
+   IL_0033: ldarg.0
+   IL_0034: ldfld System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2> Celeste.Mod.SkinModHelper.HairConfig::ActualHairScales
+   IL_0039: ldarg.2
+   IL_003a: ldarg.1
+   IL_003b: newobj System.Void System.ValueTuple`2<System.Int32,System.Int32>::.ctor(T1,T2)
+   IL_0040: ldarg.3
+   IL_0041: callvirt System.Boolean System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,Microsoft.Xna.Framework.Vector2>::TryGetValue(TKey,TValue&)
+   IL_0046: stloc.2
+   IL_0047: ldloc.2
+   IL_0048: brfalse.s IL_0066
+   IL_004a: nop
+   IL_004b: ldarg.3
+   IL_004c: ldarg.3
+   IL_004d: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0052: ldarg.3
+   IL_0053: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0058: newobj System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_005d: stobj Microsoft.Xna.Framework.Vector2
+   IL_0062: ldc.i4.1
+   IL_0063: stloc.1
+   IL_0064: br.s IL_007d
+   IL_0066: ldarg.2
+   IL_0067: ldc.i4.2
+   IL_0068: cgt
+   IL_006a: ldc.i4.0
+   IL_006b: ceq
+   IL_006d: stloc.3
+   IL_006e: ldloc.3
+   IL_006f: brfalse.s IL_0076
+   IL_0071: nop
+   IL_0072: ldc.i4.0
+   IL_0073: stloc.1
+   IL_0074: br.s IL_007d
+   IL_0076: ldarg.2
+   IL_0077: ldc.i4.1
+   IL_0078: sub
+   IL_0079: starg.s dashes
+   IL_007b: br.s IL_0032
+   IL_007d: ldloc.1
+   IL_007e: ret
