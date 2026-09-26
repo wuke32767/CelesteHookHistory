@@ -4,7 +4,7 @@ IL: {Bitsbolts.Components.FancyTextExt::ILFancyTextParse: Priority: -1}[libbitsb
 IL: {UNKNOWN_DETOUR: Priority: -1}[PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SomePatches.ilFancyTextParse(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
-IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.ParseCommand(ILContext)
+IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands.ParseCommands(ILContext)
 [V_0] System.String[]
 [V_1] System.String[]
 [V_2] System.Int32
@@ -243,8 +243,10 @@ IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakT
    IL_0226: ldarg.0
    IL_0227: ldc.r4 0
    IL_022c: stfld System.Single Celeste.FancyText::currentPosition
- + IL_10000: ldarg.0 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.ParseCommand(ILContext)
- + IL_10001: call System.Void Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand::ResetDisableLineLimit(Celeste.FancyText) @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.ParseCommand(ILContext)
+ + IL_10000: ldarg.0 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands.ParseCommands(ILContext)
+ + IL_10001: ldloc V_7 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands.ParseCommands(ILContext)
+ + IL_10002: ldloc V_8 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands.ParseCommands(ILContext)
+ + IL_10003: call System.Void Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands::ParseNewPage(Celeste.FancyText,System.String,System.String[]) @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands.ParseCommands(ILContext)
    IL_0231: ldarg.0
    IL_0232: ldfld Celeste.FancyText/Text Celeste.FancyText::group
    IL_0237: ldfld System.Collections.Generic.List`1<Celeste.FancyText/Node> Celeste.FancyText/Text::Nodes
@@ -285,13 +287,14 @@ IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakT
    IL_02b0: stfld System.Single Celeste.FancyText::currentDelay
    IL_02b5: br IL_08f1
    IL_02ba: ldloc.s V_7
- + IL_10002: dup @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
- + IL_10003: ldarg.0 @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
- + IL_10004: ldloc.s V_8 @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
- + IL_10005: call System.Void Bitsbolts.Components.FancyTextExt::OnFancyTextParseParam(System.String,Celeste.FancyText,System.Collections.Generic.List`1<System.String>) @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
- + IL_10006: ldarg.0 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.ParseCommand(ILContext)
- + IL_10007: ldloc.s V_7 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.ParseCommand(ILContext)
- + IL_10008: call System.Void Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand::SetDisableLineLimit(Celeste.FancyText,System.String) @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakTextBoxCommand.ParseCommand(ILContext)
+ + IL_10004: dup @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
+ + IL_10005: ldarg.0 @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
+ + IL_10006: ldloc.s V_8 @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
+ + IL_10007: call System.Void Bitsbolts.Components.FancyTextExt::OnFancyTextParseParam(System.String,Celeste.FancyText,System.Collections.Generic.List`1<System.String>) @ [libbitsbolts::]Bitsbolts.Components.FancyTextExt.ILFancyTextParse(ILContext)
+ + IL_10008: ldarg.0 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands.ParseCommands(ILContext)
+ + IL_10009: ldloc V_7 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands.ParseCommands(ILContext)
+ + IL_1000a: ldloc V_8 @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands.ParseCommands(ILContext)
+ + IL_1000b: call System.Void Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands::AddTriggers(Celeste.FancyText,System.String,System.String[]) @ [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Extras.CustomDialogCommands.ParseCommands(ILContext)
    IL_02bc: ldstr "/>>"
    IL_02c1: callvirt System.Boolean System.String::Equals(System.String)
    IL_02c6: brfalse.s IL_02d8
@@ -425,7 +428,7 @@ IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakT
    IL_0466: brtrue.s IL_0473
    IL_0468: ldloc.s V_13
    IL_046a: ldloc.s V_15
- + IL_10009: call System.String Celeste.Mod.SkinModHelper.SomePatches::_findPortraitSkin(System.String) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SomePatches.ilFancyTextParse(ILContext)
+ + IL_1000c: call System.String Celeste.Mod.SkinModHelper.SomePatches::_findPortraitSkin(System.String) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.SomePatches.ilFancyTextParse(ILContext)
    IL_046c: stfld System.String Celeste.FancyText/Portrait::Sprite
    IL_0471: br.s IL_047c
    IL_0473: ldloc.s V_13
@@ -690,7 +693,7 @@ IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakT
    IL_07be: ldloc.s V_7
    IL_07c0: ldstr "s"
    IL_07c5: callvirt System.Boolean System.String::Equals(System.String)
-   IL_07ca: brfalse.s IL_1000a
+   IL_07ca: brfalse.s IL_1000d
    IL_07cc: ldc.i4.1
    IL_07cd: stloc.s V_25
    IL_07cf: ldloc.s V_8
@@ -713,20 +716,20 @@ IL: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.DialogCommands.BreakT
    IL_07f5: add
    IL_07f6: stfld System.Single Celeste.FancyText::currentPosition
    IL_07fb: br IL_08f1
- + IL_1000a: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
- + IL_1000b: ldloc V_7 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
- + IL_1000c: ldloc V_8 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
- + IL_1000d: call System.Boolean Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText::TryMatchObfuscatedCommand(Celeste.FancyText,System.String,System.Collections.Generic.List`1<System.String>) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
- + IL_1000e: brtrue IL_08f1 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_1000d: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_1000e: ldloc V_7 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_1000f: ldloc V_8 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_10010: call System.Boolean Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText::TryMatchObfuscatedCommand(Celeste.FancyText,System.String,System.Collections.Generic.List`1<System.String>) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
+ + IL_10011: brtrue IL_08f1 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.CustomFancyText.ObfuscatedFancyText.ParseObfuscatedCommandHook(ILContext)
    IL_0800: ldloc.s V_7
- + IL_1000f: ldarg.0 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_10010: ldloc.s V_7 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_10011: ldloc.s V_8 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_10012: ldc.i4 0 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_10013: ldc.i4 0 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
- + IL_10014: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_10012: ldarg.0 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_10013: ldloc.s V_7 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_10014: ldloc.s V_8 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_10015: ldc.i4 0 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_10016: ldc.i4 0 @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_10017: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
        => Invoke: [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks+<>c.<ParsePhTriggers>b__6_0(FancyText,String,List`1)
- + IL_10015: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.FancyText,System.String,System.Collections.Generic.List`1<System.String>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
+ + IL_10018: call System.Void MonoMod.Cil.FastDelegateInvokers::InvokeVoidVal3<Celeste.FancyText,System.String,System.Collections.Generic.List`1<System.String>>(T0,T1,T2,MonoMod.Cil.FastDelegateInvokers/VoidVal3`3<T0,T1,T2>) @ [PrismaticHelper::]PrismaticHelper.Cutscenes.ParserHooks.ParsePhTriggers(ILContext)
    IL_0802: ldstr "savedata"
    IL_0807: callvirt System.Boolean System.String::Equals(System.String)
    IL_080c: brfalse IL_08f1
