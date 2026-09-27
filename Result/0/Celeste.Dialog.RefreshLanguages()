@@ -1,0 +1,12 @@
+On{addaa91ySfA}: [MintChocolateHelper::]Celeste.Mod.MintChocolateHelper.Module.MintChocolateHelperHookLoading.DialogOnRefreshLanguages(orig_RefreshLanguages)
+   IL_0000: call System.Void Celeste.Dialog::PostLanguageLoad()
+   IL_0005: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Dialog::MissingDialogIds
+   IL_000a: callvirt System.Void System.Collections.Generic.HashSet`1<System.String>::Clear()
+   IL_000f: ldsfld System.Collections.Generic.HashSet`1<System.String> Celeste.Dialog::InvalidDialogIds
+   IL_0014: callvirt System.Void System.Collections.Generic.HashSet`1<System.String>::Clear()
+   IL_0019: ldsfld System.Collections.Generic.Dictionary`2<System.String,Celeste.Language> Celeste.Dialog::Languages
+   IL_001e: ldsfld Celeste.Language Celeste.Dialog::Language
+   IL_0023: ldfld System.String Celeste.Language::Id
+   IL_0028: callvirt TValue System.Collections.Generic.Dictionary`2<System.String,Celeste.Language>::get_Item(TKey)
+   IL_002d: stsfld Celeste.Language Celeste.Dialog::Language
+   IL_0032: ret

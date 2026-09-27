@@ -1,0 +1,69 @@
+[V_0] System.IO.DirectoryInfo
+[V_1] System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>
+   IL_0000: ldsfld System.Boolean Celeste.Mod.Everest/Content::_DumpAll
+   IL_0005: brfalse.s IL_000c
+   IL_0007: call System.Void Celeste.Mod.Everest/Content::DumpAll()
+   IL_000c: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_0011: call System.Void Celeste.Mod.TextInput::Initialize(Microsoft.Xna.Framework.Game)
+   IL_0016: call System.Runtime.InteropServices.OSPlatform System.Runtime.InteropServices.OSPlatform::get_Windows()
+   IL_001b: call System.Boolean System.Runtime.InteropServices.RuntimeInformation::IsOSPlatform(System.Runtime.InteropServices.OSPlatform)
+   IL_0020: brfalse.s IL_0057
+   IL_0022: call System.String Celeste.Mod.Everest::get_PathGame()
+   IL_0027: ldstr "orig"
+   IL_002c: ldstr "Saves"
+   IL_0031: call System.String System.IO.Path::Combine(System.String,System.String,System.String)
+   IL_0036: newobj System.Void System.IO.DirectoryInfo::.ctor(System.String)
+   IL_003b: stloc.0
+   IL_003c: ldloc.0
+   IL_003d: callvirt System.Boolean System.IO.FileSystemInfo::get_Exists()
+   IL_0042: brfalse.s IL_004f
+   IL_0044: ldloc.0
+   IL_0045: callvirt System.String System.IO.FileSystemInfo::get_LinkTarget()
+   IL_004a: ldnull
+   IL_004b: cgt.un
+   IL_004d: br.s IL_0050
+   IL_004f: ldc.i4.0
+   IL_0050: call System.Void Celeste.Mod.Everest::set_ShareVanillaSaveFiles(System.Boolean)
+   IL_0055: br.s IL_005d
+   IL_0057: ldc.i4.1
+   IL_0058: call System.Void Celeste.Mod.Everest::set_ShareVanillaSaveFiles(System.Boolean)
+   IL_005d: call System.Void Celeste.Mod.AutoSplitter::Init()
+   IL_0062: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_0067: callvirt Microsoft.Xna.Framework.GameComponentCollection Microsoft.Xna.Framework.Game::get_Components()
+   IL_006c: ldsfld Celeste.Mod.MainThreadHelper Celeste.Mod.MainThreadHelper::Instance
+   IL_0071: callvirt System.Void System.Collections.ObjectModel.Collection`1<Microsoft.Xna.Framework.IGameComponent>::Add(T)
+   IL_0076: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_007b: callvirt Microsoft.Xna.Framework.GameComponentCollection Microsoft.Xna.Framework.Game::get_Components()
+   IL_0080: ldsfld Celeste.Mod.STAThreadHelper Celeste.Mod.STAThreadHelper::Instance
+   IL_0085: callvirt System.Void System.Collections.ObjectModel.Collection`1<Microsoft.Xna.Framework.IGameComponent>::Add(T)
+   IL_008a: ldsfld System.Collections.Generic.List`1<Celeste.Mod.EverestModule> Celeste.Mod.Everest::_Modules
+   IL_008f: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.EverestModule>::GetEnumerator()
+   IL_0094: stloc.1
+   IL_0095: br.s IL_00a3
+   IL_0097: ldloca.s V_1
+   IL_0099: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::get_Current()
+ - IL_009e: callvirt System.Void Celeste.Mod.EverestModule::Initialize() @ [AAA1458::]Celeste.Mod.AAA1458.AAA1458Module+<>c.<Load>b__26_4(ILContext)
+ + IL_10000: call System.Void Celeste.Mod.AAA1458.AAA1458Module::<Load>g__PCallInitialize|26_6(Celeste.Mod.EverestModule) @ [AAA1458::]Celeste.Mod.AAA1458.AAA1458Module+<>c.<Load>b__26_4(ILContext)
+   IL_00a3: ldloca.s V_1
+   IL_00a5: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>::MoveNext()
+   IL_00aa: brtrue.s IL_0097
+   IL_00ac: leave.s IL_00bc
+   IL_00ae: ldloca.s V_1
+   IL_00b0: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.EverestModule>
+   IL_00b6: callvirt System.Void System.IDisposable::Dispose()
+   IL_00bb: endfinally
+   IL_00bc: ldc.i4.1
+   IL_00bd: stsfld System.Boolean Celeste.Mod.Everest::_Initialized
+   IL_00c2: call System.Void Celeste.Mod.DecalRegistry::LoadDecalRegistry()
+   IL_00c7: ldsfld Celeste.Celeste Celeste.Celeste::Instance
+   IL_00cc: ldsfld System.EventHandler`1<System.EventArgs> Celeste.Mod.Everest/<>O::<3>__Dispose
+   IL_00d1: dup
+   IL_00d2: brtrue.s IL_00e7
+   IL_00d4: pop
+   IL_00d5: ldnull
+   IL_00d6: ldftn System.Void Celeste.Mod.Everest::Dispose(System.Object,System.EventArgs)
+   IL_00dc: newobj System.Void System.EventHandler`1<System.EventArgs>::.ctor(System.Object,System.IntPtr)
+   IL_00e1: dup
+   IL_00e2: stsfld System.EventHandler`1<System.EventArgs> Celeste.Mod.Everest/<>O::<3>__Dispose
+   IL_00e7: callvirt System.Void Microsoft.Xna.Framework.Game::add_Disposed(System.EventHandler`1<System.EventArgs>)
+   IL_00ec: ret
