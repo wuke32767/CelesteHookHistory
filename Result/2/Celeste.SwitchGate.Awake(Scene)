@@ -1,0 +1,35 @@
+On{zZZfswsINZA}: {UNKNOWN_DETOUR: Priority: 0}[LuckyHelper::]LuckyHelper.Entities.Misc.SetFlagOnSwitchGateActivated.SwitchGateOnAwake(orig_Awake,SwitchGate,Scene)
+   IL_0000: ldarg.0
+   IL_0001: ldarg.1
+   IL_0002: call System.Void Celeste.Solid::Awake(Monocle.Scene)
+   IL_0007: ldarg.0
+   IL_0008: call T Monocle.Entity::SceneAs<Celeste.Level>()
+   IL_000d: call System.Boolean Celeste.Switch::CheckLevelFlag(Celeste.Level)
+   IL_0012: brfalse.s IL_004e
+   IL_0014: ldarg.0
+   IL_0015: ldarg.0
+   IL_0016: ldfld Microsoft.Xna.Framework.Vector2 Celeste.SwitchGate::node
+   IL_001b: call System.Void Celeste.Platform::MoveTo(Microsoft.Xna.Framework.Vector2)
+   IL_0020: ldarg.0
+   IL_0021: ldfld Monocle.Sprite Celeste.SwitchGate::icon
+   IL_0026: ldc.r4 0
+   IL_002b: stfld System.Single Monocle.Sprite::Rate
+   IL_0030: ldarg.0
+   IL_0031: ldfld Monocle.Sprite Celeste.SwitchGate::icon
+   IL_0036: ldc.i4.0
+   IL_0037: callvirt System.Void Monocle.Sprite::SetAnimationFrame(System.Int32)
+   IL_003c: ldarg.0
+   IL_003d: ldfld Monocle.Sprite Celeste.SwitchGate::icon
+   IL_0042: ldarg.0
+   IL_0043: ldfld Microsoft.Xna.Framework.Color Celeste.SwitchGate::finishColor
+   IL_0048: stfld Microsoft.Xna.Framework.Color Monocle.GraphicsComponent::Color
+   IL_004d: ret
+   IL_004e: ldarg.0
+   IL_004f: ldarg.0
+   IL_0050: ldarg.0
+   IL_0051: ldfld Microsoft.Xna.Framework.Vector2 Celeste.SwitchGate::node
+   IL_0056: callvirt System.Collections.IEnumerator Celeste.SwitchGate::Sequence(Microsoft.Xna.Framework.Vector2)
+   IL_005b: ldc.i4.1
+   IL_005c: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_0061: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_0066: ret
