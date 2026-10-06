@@ -3,6 +3,7 @@ On{3A9CjJbiLdw}: {UNKNOWN_DETOUR: Priority: 0}[Linja::]Celeste.Mod.Linja.Hook.On
 On{MGSKSE6G5eA}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.GultraCancel.CancelGultraOnMidAir(orig_DashUpdate,Player)
 On{XZGztaAZCvc}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DashCDIgnoreFFrames.InstantDashBegin(orig_DashUpdate,Player)
 On{Q1h/OyH1r0w}: {UNKNOWN_DETOUR: Priority: 0}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableClimbtrigger.ClimbTriggerDuringDash(orig_DashUpdate,Player)
+On{ROkCX+onFxI}: {UNKNOWN_DETOUR: Priority: 0}[FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.DriftRefill.Player_DashUpdate(orig_DashUpdate,Player)
 On{zklcnQTK9qE}: {UNKNOWN_DETOUR: Priority: 0}[XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.LightningDash.modDashUpdate(orig_DashUpdate,Player)
 On{quTSAnFlzuc}: {UNKNOWN_DETOUR: Priority: 0}[Aqua::]Celeste.Mod.Aqua.Core.PlayerStates.Player_DashUpdate(orig_DashUpdate,Player)
 On{QqPtrj/XeXw}: {ExtendedVariantMode_Default: }[ExtendedVariantMode::]ExtendedVariants.Variants.SuperdashSteeringSpeed.onDashUpdate(orig_DashUpdate,Player)
@@ -18,6 +19,7 @@ IL: {UNKNOWN_DETOUR: Priority: -1}[JungleHelper::]Celeste.Mod.JungleHelper.Entit
 IL: {UNKNOWN_DETOUR: Priority: -1}[XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.patch_SpriteMode_Badeline(ILContext)
+IL: {UNKNOWN_DETOUR: Priority: -1}[FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableExtends.AddSuperjumpCheckOnUpdate(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DirectionalReleaseProtection.AffectSuperDasheDir(ILContext)
 IL: {UNKNOWN_DETOUR: Priority: -1}[LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.ChangeClimbjumpCheckDir(ILContext)
@@ -272,7 +274,7 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashUp
    IL_01de: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
    IL_01e3: call System.Single System.Math::Abs(System.Single)
    IL_01e8: ldc.r4 0.1
-   IL_01ed: bge.un IL_10063
+   IL_01ed: bge.un IL_10065
    IL_01f2: ldarg.0
    IL_01f3: call Monocle.Scene Monocle.Entity::get_Scene()
    IL_01f8: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
@@ -342,12 +344,12 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashUp
    IL_0288: endfinally
    IL_0289: ldarg.0
    IL_028a: callvirt System.Boolean Celeste.Player::get_CanUnDuck()
-   IL_028f: brfalse.s IL_10063
+   IL_028f: brfalse.s IL_10065
    IL_0291: ldsfld Monocle.VirtualButton Celeste.Input::Jump
    IL_0296: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
-   IL_029b: brfalse.s IL_10063
+   IL_029b: brfalse.s IL_10065
  + IL_1004b: call System.Boolean ExtendedVariants.Variants.MidairTech::GetMidairTechAllowed() @ [ExtendedVariantMode::]ExtendedVariants.Variants.MidairTech.modMidairTech(ILContext)
- + IL_1004c: brtrue IL_10060 @ [ExtendedVariantMode::]ExtendedVariants.Variants.MidairTech.modMidairTech(ILContext)
+ + IL_1004c: brtrue IL_10062 @ [ExtendedVariantMode::]ExtendedVariants.Variants.MidairTech.modMidairTech(ILContext)
    IL_029d: ldarg.0
    IL_029e: ldfld System.Single Celeste.Player::jumpGraceTimer
  + IL_1004d: ldarg.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.patchJumpGraceTimer(ILContext)
@@ -358,52 +360,54 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashUp
  + IL_10052: ldc.i4.m1 @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.patchJumpGraceTimer(ILContext)
  + IL_10053: callvirt System.Boolean Celeste.Player::WallJumpCheck(System.Int32) @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.patchJumpGraceTimer(ILContext)
  + IL_10054: call System.Single ExtendedVariants.Variants.JumpCount::canJumpStatic(System.Single,Celeste.Player,System.Boolean,System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.JumpCount.patchJumpGraceTimer(ILContext)
- + IL_10055: ldarg.0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
- + IL_10056: ldarg.0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
- + IL_10057: ldc.i4.1 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
- + IL_10058: callvirt System.Boolean Celeste.Player::WallJumpCheck(System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
- + IL_10059: ldarg.0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
- + IL_1005a: ldc.i4.m1 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
- + IL_1005b: callvirt System.Boolean Celeste.Player::WallJumpCheck(System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
- + IL_1005c: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
- + IL_1005d: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
- + IL_1005e: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_10055: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
+ + IL_10056: call System.Single Celeste.Mod.FemtoHelper.Entities.AirRefill::CheckForMidairTech(System.Single,Celeste.Player) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
+ + IL_10057: ldarg.0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_10058: ldarg.0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_10059: ldc.i4.1 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_1005a: callvirt System.Boolean Celeste.Player::WallJumpCheck(System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_1005b: ldarg.0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_1005c: ldc.i4.m1 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_1005d: callvirt System.Boolean Celeste.Player::WallJumpCheck(System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_1005e: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_1005f: ldc.i4 0 @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_10060: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
        => Invoke: [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.canSpaceJump(Single,Player,Boolean,Boolean)
- + IL_1005f: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal4<System.Single,System.Single,Celeste.Player,System.Boolean,System.Boolean>(T0,T1,T2,T3,MonoMod.Cil.FastDelegateInvokers/TypeVal4`5<TResult,T0,T1,T2,T3>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
+ + IL_10061: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal4<System.Single,System.Single,Celeste.Player,System.Boolean,System.Boolean>(T0,T1,T2,T3,MonoMod.Cil.FastDelegateInvokers/TypeVal4`5<TResult,T0,T1,T2,T3>) @ [XaphanHelper::]Celeste.Mod.XaphanHelper.Upgrades.SpaceJump.patchJumpGraceTimer(ILContext)
    IL_02a3: ldc.r4 0
-   IL_02a8: ble.un.s IL_10063
- + IL_10060: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableExtends.AddSuperjumpCheckOnUpdate(ILContext)
- + IL_10061: call System.Boolean Celeste.Mod.LeniencyHelper.Tweaks.BufferableExtends::CanSuperjump(Celeste.Player) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableExtends.AddSuperjumpCheckOnUpdate(ILContext)
- + IL_10062: brfalse IL_02b2 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableExtends.AddSuperjumpCheckOnUpdate(ILContext)
+   IL_02a8: ble.un.s IL_10065
+ + IL_10062: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableExtends.AddSuperjumpCheckOnUpdate(ILContext)
+ + IL_10063: call System.Boolean Celeste.Mod.LeniencyHelper.Tweaks.BufferableExtends::CanSuperjump(Celeste.Player) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableExtends.AddSuperjumpCheckOnUpdate(ILContext)
+ + IL_10064: brfalse IL_02b2 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.BufferableExtends.AddSuperjumpCheckOnUpdate(ILContext)
    IL_02aa: ldarg.0
    IL_02ab: callvirt System.Void Celeste.Player::SuperJump()
    IL_02b0: ldc.i4.0
    IL_02b1: ret
- + IL_10063: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers.allowAllDirectionHypersAndSupers(ILContext)
- + IL_10064: ldc.i4 0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers.allowAllDirectionHypersAndSupers(ILContext)
- + IL_10065: call System.Boolean Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers::trySuperJump(Celeste.Player,System.Boolean) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers.allowAllDirectionHypersAndSupers(ILContext)
- + IL_10066: brtrue IL_02aa @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers.allowAllDirectionHypersAndSupers(ILContext)
- + IL_10067: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
- + IL_10068: ldc.i4 0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
- + IL_10069: ldc.i4 0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
- + IL_1006a: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
+ + IL_10065: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers.allowAllDirectionHypersAndSupers(ILContext)
+ + IL_10066: ldc.i4 0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers.allowAllDirectionHypersAndSupers(ILContext)
+ + IL_10067: call System.Boolean Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers::trySuperJump(Celeste.Player,System.Boolean) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers.allowAllDirectionHypersAndSupers(ILContext)
+ + IL_10068: brtrue IL_02aa @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllDirectionHypersAndSupers.allowAllDirectionHypersAndSupers(ILContext)
+ + IL_10069: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
+ + IL_1006a: ldc.i4 0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
+ + IL_1006b: ldc.i4 0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
+ + IL_1006c: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
        => Invoke: [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill+<>c.<DashUpdateHook>b__17_4(Player)
- + IL_1006b: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
- + IL_1006c: brfalse IL_02b2 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
- + IL_1006d: ldc.i4.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
- + IL_1006e: ret @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
+ + IL_1006d: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<System.Boolean,Celeste.Player>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
+ + IL_1006e: brfalse IL_02b2 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
+ + IL_1006f: ldc.i4.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
+ + IL_10070: ret @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashUpdateHook(ILContext)
    IL_02b2: ldarg.0
- + IL_1006f: ldloc V_8 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
- + IL_10070: call System.Boolean Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency::DreamHyperCheck(Celeste.Player,System.Boolean) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
- + IL_10071: ldc.i4 1 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
- + IL_10072: stloc V_8 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
- + IL_10073: brtrue IL_0289 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
- + IL_10074: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
- + IL_10075: call System.Boolean Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming::trySwimWalljumpFromDash(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
- + IL_10076: brfalse IL_10079 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
- + IL_10077: ldc.i4 3 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
- + IL_10078: ret @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
- + IL_10079: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
+ + IL_10071: ldloc V_8 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
+ + IL_10072: call System.Boolean Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency::DreamHyperCheck(Celeste.Player,System.Boolean) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
+ + IL_10073: ldc.i4 1 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
+ + IL_10074: stloc V_8 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
+ + IL_10075: brtrue IL_0289 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
+ + IL_10076: ldarg.0 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
+ + IL_10077: call System.Boolean Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming::trySwimWalljumpFromDash(Celeste.Player) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
+ + IL_10078: brfalse IL_1007b @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
+ + IL_10079: ldc.i4 3 @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
+ + IL_1007a: ret @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Entities.CustomSwimming.patch_Player_DashUpdate(ILContext)
+ + IL_1007b: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.ManualDreamhyperLeniency.RemoveDashDirCheck(ILContext)
    IL_02b3: callvirt System.Boolean Celeste.Player::get_SuperWallJumpAngleCheck()
    IL_02b8: brfalse.s IL_02fb
    IL_02ba: ldsfld Monocle.VirtualButton Celeste.Input::Jump
@@ -424,24 +428,31 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashUp
    IL_02e6: ldarg.0
    IL_02e7: ldc.i4.m1
    IL_02e8: callvirt System.Boolean Celeste.Player::WallJumpCheck(System.Int32)
- + IL_02ed: brfalse IL_1007a @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
-+- IL_02ed: brfalse IL_1007f @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext), [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_1007c: dup @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
+ + IL_1007d: ldarg.0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
+ + IL_1007e: call System.Boolean Celeste.Mod.FemtoHelper.Entities.AirRefill::CheckForWalllessWallbounce(System.Boolean,Celeste.Player) @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
+ + IL_1007f: brfalse IL_02ed @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
+ + IL_10080: pop @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
+ + IL_10081: ldc.i4 0 @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
+ + IL_10082: ret @ [FemtoHelper::]Celeste.Mod.FemtoHelper.Entities.AirRefill.Player_DashUpdate(ILContext)
+ + IL_02ed: brfalse IL_10083 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
++- IL_02ed: brfalse IL_10088 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext), [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
  - IL_02ed: brfalse IL_03e3 @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
    IL_02f2: ldarg.0
    IL_02f3: ldc.i4.1
    IL_02f4: callvirt System.Void Celeste.Player::SuperWallJump(System.Int32)
    IL_02f9: ldc.i4.0
    IL_02fa: ret
- + IL_1007a: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
- + IL_1007b: call System.Boolean Celeste.Mod.ScugHelper.Entities.MidairRefill::WalllessWallbounceDashCheck(Celeste.Player) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
- + IL_1007c: brfalse IL_1007f @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
- + IL_1007d: ldc.i4.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
- + IL_1007e: ret @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
- + IL_1007f: ldarg.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
- + IL_10080: call System.Boolean ExtendedVariants.Variants.WalllessWallbounce::WalllessWallbounceDashCheck(Celeste.Player) @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
- + IL_10081: brfalse IL_03e3 @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
- + IL_10082: ldc.i4.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
- + IL_10083: ret @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_10083: ldarg.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
+ + IL_10084: call System.Boolean Celeste.Mod.ScugHelper.Entities.MidairRefill::WalllessWallbounceDashCheck(Celeste.Player) @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
+ + IL_10085: brfalse IL_10088 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
+ + IL_10086: ldc.i4.0 @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
+ + IL_10087: ret @ [ScugHelper::]Celeste.Mod.ScugHelper.Entities.MidairRefill.DashOrRedDashUpdateHook(ILContext)
+ + IL_10088: ldarg.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_10089: call System.Boolean ExtendedVariants.Variants.WalllessWallbounce::WalllessWallbounceDashCheck(Celeste.Player) @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_1008a: brfalse IL_03e3 @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_1008b: ldc.i4.0 @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
+ + IL_1008c: ret @ [ExtendedVariantMode::]ExtendedVariants.Variants.WalllessWallbounce.DashOrRedDashUpdateHook(ILContext)
    IL_02fb: ldsfld Monocle.VirtualButton Celeste.Input::Jump
    IL_0300: callvirt System.Boolean Monocle.VirtualButton::get_Pressed()
    IL_0305: brfalse IL_03e3
@@ -450,21 +461,21 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashUp
    IL_0310: brfalse IL_03e3
    IL_0315: ldarg.0
    IL_0316: ldc.i4.1
- + IL_10084: dup @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
- + IL_10085: stloc V_9 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_1008d: dup @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_1008e: stloc V_9 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
    IL_0317: callvirt System.Boolean Celeste.Player::WallJumpCheck(System.Int32)
- + IL_10086: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
- + IL_10087: ldloc V_9 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
- + IL_10088: call System.Boolean Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump::CanWJ(Celeste.Player,System.Int32) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
- + IL_10089: and @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_1008f: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_10090: ldloc V_9 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_10091: call System.Boolean Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump::CanWJ(Celeste.Player,System.Int32) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_10092: and @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
    IL_031c: brfalse.s IL_037c
    IL_031e: ldarg.0
    IL_031f: ldfld Celeste.Facings Celeste.Player::Facing
- + IL_1008a: call Celeste.Facings Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech::UnforcedFacing(Celeste.Facings) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.ChangeClimbjumpCheckDir(ILContext)
+ + IL_10093: call Celeste.Facings Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech::UnforcedFacing(Celeste.Facings) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.ChangeClimbjumpCheckDir(ILContext)
    IL_0324: ldc.i4.1
    IL_0325: bne.un.s IL_0373
    IL_0327: call System.Boolean Celeste.Input::get_GrabCheck()
- + IL_1008b: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
+ + IL_10094: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
    IL_032c: brfalse.s IL_0373
    IL_032e: ldarg.0
    IL_032f: ldfld System.Single Celeste.Player::Stamina
@@ -472,7 +483,7 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashUp
    IL_0339: ble.un.s IL_0373
    IL_033b: ldarg.0
    IL_033c: callvirt Celeste.Holdable Celeste.Player::get_Holding()
- + IL_1008c: call Celeste.Holdable Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping::overrideHoldable(Celeste.Holdable) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.allowHoldableClimbjumping(ILContext)
+ + IL_10095: call Celeste.Holdable Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping::overrideHoldable(Celeste.Holdable) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.allowHoldableClimbjumping(ILContext)
    IL_0341: brtrue.s IL_0373
    IL_0343: ldarg.0
    IL_0344: call Monocle.Scene Monocle.Entity::get_Scene()
@@ -495,21 +506,21 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashUp
    IL_037b: ret
    IL_037c: ldarg.0
    IL_037d: ldc.i4.m1
- + IL_1008d: dup @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
- + IL_1008e: stloc V_9 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_10096: dup @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_10097: stloc V_9 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
    IL_037e: callvirt System.Boolean Celeste.Player::WallJumpCheck(System.Int32)
- + IL_1008f: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
- + IL_10090: ldloc V_9 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
- + IL_10091: call System.Boolean Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump::CanWJ(Celeste.Player,System.Int32) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
- + IL_10092: and @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_10098: ldarg.0 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_10099: ldloc V_9 @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_1009a: call System.Boolean Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump::CanWJ(Celeste.Player,System.Int32) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
+ + IL_1009b: and @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.SuperOverWalljump.PreventStupidThing(ILContext)
    IL_0383: brfalse.s IL_03e3
    IL_0385: ldarg.0
    IL_0386: ldfld Celeste.Facings Celeste.Player::Facing
- + IL_10093: call Celeste.Facings Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech::UnforcedFacing(Celeste.Facings) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.ChangeClimbjumpCheckDir(ILContext)
+ + IL_1009c: call Celeste.Facings Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech::UnforcedFacing(Celeste.Facings) @ [LeniencyHelper::]Celeste.Mod.LeniencyHelper.Tweaks.DisableForcemovedTech.ChangeClimbjumpCheckDir(ILContext)
    IL_038b: ldc.i4.m1
    IL_038c: bne.un.s IL_03da
    IL_038e: call System.Boolean Celeste.Input::get_GrabCheck()
- + IL_10094: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
+ + IL_1009d: call System.Boolean ExtendedVariants.Variants.InvertGrab::invertButtonCheck(System.Boolean) @ [ExtendedVariantMode::]ExtendedVariants.Variants.InvertGrab.modInputGrabCheck(ILContext)
    IL_0393: brfalse.s IL_03da
    IL_0395: ldarg.0
    IL_0396: ldfld System.Single Celeste.Player::Stamina
@@ -517,7 +528,7 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashUp
    IL_03a0: ble.un.s IL_03da
    IL_03a2: ldarg.0
    IL_03a3: callvirt Celeste.Holdable Celeste.Player::get_Holding()
- + IL_10095: call Celeste.Holdable Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping::overrideHoldable(Celeste.Holdable) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.allowHoldableClimbjumping(ILContext)
+ + IL_1009e: call Celeste.Holdable Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping::overrideHoldable(Celeste.Holdable) @ [GooberHelper::]Celeste.Mod.GooberHelper.Options.Physics.Jumping.AllowHoldableClimbjumping.allowHoldableClimbjumping(ILContext)
    IL_03a8: brtrue.s IL_03da
    IL_03aa: ldarg.0
    IL_03ab: call Monocle.Scene Monocle.Entity::get_Scene()
@@ -552,36 +563,36 @@ IL: [WarlockHelper::]Celeste.Mod.WarlockHelper.WarlockHelperModule.Player_dashUp
    IL_040e: ldfld System.Boolean Celeste.Player::wasDashB
    IL_0413: brtrue.s IL_041e
    IL_0415: ldsfld Monocle.ParticleType Celeste.Player::P_DashA
- + IL_10096: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
- + IL_10097: call Monocle.ParticleType Celeste.Mod.SkinModHelper.PlayerSkinSystem::<PlayerDashUpdateIlHook>g___pDashParticle|12_0(Monocle.ParticleType,Celeste.Player) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
+ + IL_1009f: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
+ + IL_100a0: call Monocle.ParticleType Celeste.Mod.SkinModHelper.PlayerSkinSystem::<PlayerDashUpdateIlHook>g___pDashParticle|12_0(Monocle.ParticleType,Celeste.Player) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
    IL_041a: stloc.s V_7
    IL_041c: br.s IL_043c
    IL_041e: ldarg.0
    IL_041f: ldfld Celeste.PlayerSprite Celeste.Player::Sprite
    IL_0424: callvirt Celeste.PlayerSpriteMode Celeste.PlayerSprite::get_Mode()
- + IL_10098: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.patch_SpriteMode_Badeline(ILContext)
- + IL_10099: call Celeste.PlayerSpriteMode Celeste.Mod.SkinModHelper.PlayerSkinSystem::_patchSpriteMode_Bad(Celeste.PlayerSpriteMode,Celeste.Player) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.patch_SpriteMode_Badeline(ILContext)
- + IL_1009a: call Celeste.PlayerSpriteMode Celeste.Mod.JungleHelper.Entities.EnforceSkinController::masqueradeAsBadeline(Celeste.PlayerSpriteMode) @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.EnforceSkinController.patchSpriteModeChecks(ILContext)
+ + IL_100a1: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.patch_SpriteMode_Badeline(ILContext)
+ + IL_100a2: call Celeste.PlayerSpriteMode Celeste.Mod.SkinModHelper.PlayerSkinSystem::_patchSpriteMode_Bad(Celeste.PlayerSpriteMode,Celeste.Player) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.patch_SpriteMode_Badeline(ILContext)
+ + IL_100a3: call Celeste.PlayerSpriteMode Celeste.Mod.JungleHelper.Entities.EnforceSkinController::masqueradeAsBadeline(Celeste.PlayerSpriteMode) @ [JungleHelper::]Celeste.Mod.JungleHelper.Entities.EnforceSkinController.patchSpriteModeChecks(ILContext)
    IL_0429: ldc.i4.3
    IL_042a: bne.un.s IL_0435
    IL_042c: ldsfld Monocle.ParticleType Celeste.Player::P_DashBadB
- + IL_1009b: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
- + IL_1009c: call Monocle.ParticleType Celeste.Mod.SkinModHelper.PlayerSkinSystem::<PlayerDashUpdateIlHook>g___pDashParticle|12_0(Monocle.ParticleType,Celeste.Player) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
+ + IL_100a4: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
+ + IL_100a5: call Monocle.ParticleType Celeste.Mod.SkinModHelper.PlayerSkinSystem::<PlayerDashUpdateIlHook>g___pDashParticle|12_0(Monocle.ParticleType,Celeste.Player) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
    IL_0431: stloc.s V_7
    IL_0433: br.s IL_043c
    IL_0435: ldsfld Monocle.ParticleType Celeste.Player::P_DashB
- + IL_1009d: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
- + IL_1009e: call Monocle.ParticleType Celeste.Mod.SkinModHelper.PlayerSkinSystem::<PlayerDashUpdateIlHook>g___pDashParticle|12_0(Monocle.ParticleType,Celeste.Player) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
+ + IL_100a6: ldarg.0 @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
+ + IL_100a7: call Monocle.ParticleType Celeste.Mod.SkinModHelper.PlayerSkinSystem::<PlayerDashUpdateIlHook>g___pDashParticle|12_0(Monocle.ParticleType,Celeste.Player) @ [SkinModHelperPlus::]Celeste.Mod.SkinModHelper.PlayerSkinSystem.PlayerDashUpdateIlHook(ILContext)
    IL_043a: stloc.s V_7
    IL_043c: ldarg.0
    IL_043d: ldfld Celeste.Level Celeste.Player::level
    IL_0442: ldfld Monocle.ParticleSystem Celeste.Level::ParticlesFG
    IL_0447: ldloc.s V_7
- + IL_1009f: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_DashUpdate(ILContext)
- + IL_100a0: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_DashUpdate(ILContext)
- + IL_100a1: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_DashUpdate(ILContext)
+ + IL_100a8: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_DashUpdate(ILContext)
+ + IL_100a9: ldc.i4 0 @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_DashUpdate(ILContext)
+ + IL_100aa: call T MonoMod.Utils.DynamicReferenceManager::GetValueTUnsafe<System.Delegate>(System.Int32,System.Int32) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_DashUpdate(ILContext)
        => Invoke: [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash+<>c.<Player_DashUpdate>b__22_3(ParticleType)
- + IL_100a2: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Monocle.ParticleType,Monocle.ParticleType>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_DashUpdate(ILContext)
+ + IL_100ab: call TResult MonoMod.Cil.FastDelegateInvokers::InvokeTypeVal1<Monocle.ParticleType,Monocle.ParticleType>(T0,MonoMod.Cil.FastDelegateInvokers/TypeVal1`2<TResult,T0>) @ [CommunalHelper::]Celeste.Mod.CommunalHelper.DashStates.SeekerDash.Player_DashUpdate(ILContext)
    IL_0449: ldarg.0
    IL_044a: call Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_Center()
    IL_044f: ldsfld System.Random Monocle.Calc::Random
