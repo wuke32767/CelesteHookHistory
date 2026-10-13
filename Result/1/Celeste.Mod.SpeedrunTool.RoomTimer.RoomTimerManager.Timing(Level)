@@ -1,0 +1,33 @@
+On{JykYSxZmhLE}: [SomeSplitButtons::]Celeste.Mod.SomeSplitButtons.Integration.SkipCutsceneRoomTimer.OnManagerTiming(Action`1,Level)
+[V_0] System.String
+[V_1] System.Boolean
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.Session Celeste.Level::Session
+   IL_0006: ldfld System.String Celeste.Session::Level
+   IL_000b: stloc.0
+   IL_000c: ldsfld System.String Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager::previousRoom
+   IL_0011: brfalse.s IL_0020
+   IL_0013: ldsfld System.String Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager::previousRoom
+   IL_0018: ldloc.0
+   IL_0019: call System.Boolean System.String::op_Inequality(System.String,System.String)
+   IL_001e: br.s IL_0021
+   IL_0020: ldc.i4.0
+   IL_0021: stloc.1
+   IL_0022: ldloc.0
+   IL_0023: stsfld System.String Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager::previousRoom
+   IL_0028: ldarg.0
+   IL_0029: ldfld System.Boolean Celeste.Level::Completed
+   IL_002e: ldloc.1
+   IL_002f: or
+   IL_0030: brtrue.s IL_0039
+   IL_0032: call System.Boolean Celeste.Mod.SpeedrunTool.RoomTimer.EndPoint::get_IsReachedRoomIdEndPoint()
+   IL_0037: brfalse.s IL_003f
+   IL_0039: ldc.i4.0
+   IL_003a: call System.Void Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager::UpdateTimerState(System.Boolean)
+   IL_003f: ldsfld Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerData Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager::NextRoomTimerData
+   IL_0044: ldarg.0
+   IL_0045: callvirt System.Void Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerData::Timing(Celeste.Level)
+   IL_004a: ldsfld Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerData Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerManager::CurrentRoomTimerData
+   IL_004f: ldarg.0
+   IL_0050: callvirt System.Void Celeste.Mod.SpeedrunTool.RoomTimer.RoomTimerData::Timing(Celeste.Level)
+   IL_0055: ret
