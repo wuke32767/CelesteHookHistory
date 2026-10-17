@@ -1,0 +1,308 @@
+On{00q3+nHZRf0}: [MotionSmoothing::]Celeste.Mod.MotionSmoothing.MotionSmoothingModule.GhostRankingListRenderHook(orig_ComponentRender,Component)
+[V_0] System.Single
+[V_1] System.Single
+[V_2] System.Single
+[V_3] System.Single
+[V_4] Microsoft.Xna.Framework.Vector2
+[V_5] Microsoft.Xna.Framework.Vector2
+[V_6] Microsoft.Xna.Framework.Rectangle
+[V_7] System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>
+[V_8] Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item
+[V_9] Celeste.Level
+[V_10] Celeste.Player
+[V_11] System.Single
+[V_12] Microsoft.Xna.Framework.Vector2
+[V_13] Microsoft.Xna.Framework.Rectangle
+[V_14] Microsoft.Xna.Framework.Rectangle
+   IL_0000: call Celeste.Mod.GhostModForTas.Module.GhostModuleSettings Celeste.Mod.GhostModForTas.GlobalVariables::get_ghostSettings()
+   IL_0005: ldfld System.Boolean Celeste.Mod.GhostModForTas.Module.GhostModuleSettings::CompareStyleIsModern
+   IL_000a: brfalse.s IL_0018
+   IL_000c: call Celeste.Mod.GhostModForTas.Module.GhostModuleSettings Celeste.Mod.GhostModForTas.GlobalVariables::get_ghostSettings()
+   IL_0011: callvirt System.Boolean Celeste.Mod.GhostModForTas.Module.GhostModuleSettings::get_ShowCompareTime()
+   IL_0016: brtrue.s IL_0019
+   IL_0018: ret
+   IL_0019: ldsfld System.Boolean Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::ConfigChanged
+   IL_001e: brfalse.s IL_005a
+   IL_0020: ldarg.0
+   IL_0021: ldfld System.Collections.Generic.List`1<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item> Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::items
+   IL_0026: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::GetEnumerator()
+   IL_002b: stloc.s V_7
+   IL_002d: br.s IL_003b
+   IL_002f: ldloca.s V_7
+   IL_0031: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::get_Current()
+   IL_0036: callvirt System.Void Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item::UpdateData()
+   IL_003b: ldloca.s V_7
+   IL_003d: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::MoveNext()
+   IL_0042: brtrue.s IL_002f
+   IL_0044: leave.s IL_0054
+   IL_0046: ldloca.s V_7
+   IL_0048: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>
+   IL_004e: callvirt System.Void System.IDisposable::Dispose()
+   IL_0053: endfinally
+   IL_0054: ldc.i4.0
+   IL_0055: stsfld System.Boolean Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::ConfigChanged
+   IL_005a: ldc.r4 0
+   IL_005f: stloc.0
+   IL_0060: ldc.r4 0
+   IL_0065: stloc.1
+   IL_0066: ldarg.0
+   IL_0067: ldfld System.Collections.Generic.List`1<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item> Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::items
+   IL_006c: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::GetEnumerator()
+   IL_0071: stloc.s V_7
+   IL_0073: br.s IL_009a
+   IL_0075: ldloca.s V_7
+   IL_0077: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::get_Current()
+   IL_007c: stloc.s V_8
+   IL_007e: ldloc.0
+   IL_007f: ldloc.s V_8
+   IL_0081: ldfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item::LeftWidth
+   IL_0086: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_008b: stloc.0
+   IL_008c: ldloc.1
+   IL_008d: ldloc.s V_8
+   IL_008f: ldfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item::RightWidth
+   IL_0094: call System.Single System.Math::Max(System.Single,System.Single)
+   IL_0099: stloc.1
+   IL_009a: ldloca.s V_7
+   IL_009c: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::MoveNext()
+   IL_00a1: brtrue.s IL_0075
+   IL_00a3: leave.s IL_00b3
+   IL_00a5: ldloca.s V_7
+   IL_00a7: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>
+   IL_00ad: callvirt System.Void System.IDisposable::Dispose()
+   IL_00b2: endfinally
+   IL_00b3: ldloc.0
+   IL_00b4: ldsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::SpacesBetween
+   IL_00b9: add
+   IL_00ba: ldloc.1
+   IL_00bb: add
+   IL_00bc: stloc.2
+   IL_00bd: ldc.i4.s 89
+   IL_00bf: call Microsoft.Xna.Framework.Vector2 Celeste.ActiveFont::Measure(System.Char)
+   IL_00c4: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_00c9: ldsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::f_scale
+   IL_00ce: mul
+   IL_00cf: stloc.3
+   IL_00d0: call Celeste.Mod.GhostModForTas.Module.Alignments Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::get_Alignment()
+   IL_00d5: ldc.i4.1
+   IL_00d6: bne.un.s IL_00f6
+   IL_00d8: ldsfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::TopRight
+   IL_00dd: stloc.s V_4
+   IL_00df: ldloca.s V_4
+   IL_00e1: ldflda System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_00e6: dup
+   IL_00e7: ldind.r4
+   IL_00e8: ldloc.2
+   IL_00e9: ldsfld System.Int32 Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::Padding
+   IL_00ee: ldc.i4.2
+   IL_00ef: mul
+   IL_00f0: conv.r4
+   IL_00f1: add
+   IL_00f2: sub
+   IL_00f3: stind.r4
+   IL_00f4: br.s IL_011a
+   IL_00f6: ldsfld Microsoft.Xna.Framework.Vector2 Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::TopLeft
+   IL_00fb: stloc.s V_4
+   IL_00fd: ldsfld Celeste.Settings Celeste.Settings::Instance
+   IL_0102: ldfld Celeste.SpeedrunType Celeste.Settings::SpeedrunClock
+   IL_0107: ldc.i4.2
+   IL_0108: bne.un.s IL_011a
+   IL_010a: ldloca.s V_4
+   IL_010c: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0111: dup
+   IL_0112: ldind.r4
+   IL_0113: ldc.r4 24
+   IL_0118: add
+   IL_0119: stind.r4
+   IL_011a: ldloca.s V_5
+   IL_011c: ldloc.2
+   IL_011d: ldloc.3
+   IL_011e: ldarg.0
+   IL_011f: ldfld System.Collections.Generic.List`1<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item> Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::items
+   IL_0124: callvirt System.Int32 System.Collections.Generic.List`1<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::get_Count()
+   IL_0129: conv.r4
+   IL_012a: mul
+   IL_012b: call System.Void Microsoft.Xna.Framework.Vector2::.ctor(System.Single,System.Single)
+   IL_0130: ldloca.s V_6
+   IL_0132: ldloc.s V_4
+   IL_0134: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0139: conv.i4
+   IL_013a: ldloc.s V_4
+   IL_013c: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0141: conv.i4
+   IL_0142: ldloc.s V_5
+   IL_0144: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0149: conv.i4
+   IL_014a: ldsfld System.Int32 Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::Padding
+   IL_014f: ldc.i4.2
+   IL_0150: mul
+   IL_0151: add
+   IL_0152: ldloc.s V_5
+   IL_0154: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0159: conv.i4
+   IL_015a: ldsfld System.Int32 Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::Padding
+   IL_015f: ldc.i4.2
+   IL_0160: mul
+   IL_0161: add
+   IL_0162: call System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_0167: call Celeste.Mod.GhostModForTas.Module.GhostModuleSettings Celeste.Mod.GhostModForTas.GlobalVariables::get_ghostSettings()
+   IL_016c: ldfld System.Single Celeste.Mod.GhostModForTas.Module.GhostModuleSettings::ComparerAlpha
+   IL_0171: stsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::alpha
+   IL_0176: ldarg.0
+   IL_0177: call Monocle.Scene Monocle.Component::get_Scene()
+   IL_017c: ldfld System.Boolean Monocle.Scene::Paused
+   IL_0181: brfalse.s IL_0198
+   IL_0183: ldsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::alpha
+   IL_0188: ldc.r4 0.5
+   IL_018d: mul
+   IL_018e: stsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::alpha
+   IL_0193: br IL_02af
+   IL_0198: ldarg.0
+   IL_0199: call Monocle.Scene Monocle.Component::get_Scene()
+   IL_019e: isinst Celeste.Level
+   IL_01a3: stloc.s V_9
+   IL_01a5: ldloc.s V_9
+   IL_01a7: brfalse IL_02af
+   IL_01ac: ldloc.s V_9
+   IL_01ae: callvirt Monocle.Tracker Monocle.Scene::get_Tracker()
+   IL_01b3: callvirt T Monocle.Tracker::GetEntity<Celeste.Player>()
+   IL_01b8: stloc.s V_10
+   IL_01ba: ldloc.s V_10
+   IL_01bc: brfalse IL_02af
+   IL_01c1: ldc.r4 6
+   IL_01c6: stloc.s V_11
+   IL_01c8: ldloc.s V_9
+   IL_01ca: ldfld Monocle.Camera Celeste.Level::Camera
+   IL_01cf: ldloc.s V_10
+   IL_01d1: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Entity::get_TopLeft()
+   IL_01d6: callvirt Microsoft.Xna.Framework.Vector2 Monocle.Camera::CameraToScreen(Microsoft.Xna.Framework.Vector2)
+   IL_01db: ldloc.s V_11
+   IL_01dd: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_01e2: stloc.s V_12
+   IL_01e4: ldloca.s V_13
+   IL_01e6: ldloc.s V_12
+   IL_01e8: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_01ed: conv.i4
+   IL_01ee: ldloc.s V_12
+   IL_01f0: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_01f5: conv.i4
+   IL_01f6: ldc.r4 8
+   IL_01fb: ldloc.s V_11
+   IL_01fd: mul
+   IL_01fe: conv.i4
+   IL_01ff: ldc.r4 11
+   IL_0204: ldloc.s V_11
+   IL_0206: mul
+   IL_0207: conv.i4
+   IL_0208: call System.Void Microsoft.Xna.Framework.Rectangle::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+   IL_020d: ldloc.s V_6
+   IL_020f: stloc.s V_14
+   IL_0211: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0216: dup
+   IL_0217: brtrue.s IL_021d
+   IL_0219: pop
+   IL_021a: ldc.i4.0
+   IL_021b: br.s IL_0227
+   IL_021d: ldflda Celeste.Assists Celeste.SaveData::Assists
+   IL_0222: ldfld System.Boolean Celeste.Assists::MirrorMode
+   IL_0227: brfalse.s IL_0254
+   IL_0229: ldloca.s V_14
+   IL_022b: ldloc.s V_4
+   IL_022d: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_0232: ldc.r4 1920
+   IL_0237: sub
+   IL_0238: ldloc.s V_5
+   IL_023a: ldfld System.Single Microsoft.Xna.Framework.Vector2::X
+   IL_023f: add
+   IL_0240: ldsfld System.Int32 Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::Padding
+   IL_0245: ldc.i4.2
+   IL_0246: mul
+   IL_0247: conv.r4
+   IL_0248: add
+   IL_0249: call System.Single System.Math::Abs(System.Single)
+   IL_024e: conv.i4
+   IL_024f: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::X
+   IL_0254: call System.Boolean Celeste.Mod.GhostModForTas.ModInterop.ModImports::get_UpsideDown()
+   IL_0259: brfalse.s IL_0286
+   IL_025b: ldloca.s V_14
+   IL_025d: ldloc.s V_4
+   IL_025f: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0264: ldc.r4 1080
+   IL_0269: sub
+   IL_026a: ldloc.s V_5
+   IL_026c: ldfld System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0271: add
+   IL_0272: ldsfld System.Int32 Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::Padding
+   IL_0277: ldc.i4.2
+   IL_0278: mul
+   IL_0279: conv.r4
+   IL_027a: add
+   IL_027b: call System.Single System.Math::Abs(System.Single)
+   IL_0280: conv.i4
+   IL_0281: stfld System.Int32 Microsoft.Xna.Framework.Rectangle::Y
+   IL_0286: ldloca.s V_13
+   IL_0288: ldloc.s V_14
+   IL_028a: call System.Boolean Microsoft.Xna.Framework.Rectangle::Intersects(Microsoft.Xna.Framework.Rectangle)
+   IL_028f: brfalse.s IL_02af
+   IL_0291: ldsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::alpha
+   IL_0296: call System.Boolean Celeste.Mod.GhostModForTas.ModInterop.TasImports::get_Manager_Running()
+   IL_029b: brtrue.s IL_02a4
+   IL_029d: ldc.r4 0.2
+   IL_02a2: br.s IL_02a9
+   IL_02a4: ldc.r4 0.5
+   IL_02a9: mul
+   IL_02aa: stsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::alpha
+   IL_02af: call System.Single Celeste.Mod.GhostModForTas.ModInterop.TasImports::get_ZoomLevel()
+   IL_02b4: ldc.r4 0.8
+   IL_02b9: bge.un.s IL_02e9
+   IL_02bb: ldloc.s V_6
+   IL_02bd: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_02c2: ldsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::alpha
+   IL_02c7: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_02cc: call System.Void Monocle.Draw::Rect(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color)
+   IL_02d1: ldloc.s V_6
+   IL_02d3: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Silver()
+   IL_02d8: ldsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::alpha
+   IL_02dd: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_02e2: call System.Void Monocle.Draw::HollowRect(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color)
+   IL_02e7: br.s IL_0305
+   IL_02e9: ldloc.s V_6
+   IL_02eb: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::get_Black()
+   IL_02f0: ldc.r4 0.3
+   IL_02f5: ldsfld System.Single Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::alpha
+   IL_02fa: mul
+   IL_02fb: call Microsoft.Xna.Framework.Color Microsoft.Xna.Framework.Color::op_Multiply(Microsoft.Xna.Framework.Color,System.Single)
+   IL_0300: call System.Void Monocle.Draw::Rect(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color)
+   IL_0305: ldloc.s V_4
+   IL_0307: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::get_One()
+   IL_030c: ldsfld System.Int32 Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::Padding
+   IL_0311: conv.r4
+   IL_0312: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Multiply(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_0317: call Microsoft.Xna.Framework.Vector2 Microsoft.Xna.Framework.Vector2::op_Addition(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)
+   IL_031c: stloc.s V_4
+   IL_031e: ldarg.0
+   IL_031f: ldfld System.Collections.Generic.List`1<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item> Celeste.Mod.GhostModForTas.Plugin.GhostRankingList::items
+   IL_0324: callvirt System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::GetEnumerator()
+   IL_0329: stloc.s V_7
+   IL_032b: br.s IL_0348
+   IL_032d: ldloca.s V_7
+   IL_032f: call T System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::get_Current()
+   IL_0334: ldloc.s V_4
+   IL_0336: ldloc.2
+   IL_0337: callvirt System.Void Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item::Render(Microsoft.Xna.Framework.Vector2,System.Single)
+   IL_033c: ldloca.s V_4
+   IL_033e: ldflda System.Single Microsoft.Xna.Framework.Vector2::Y
+   IL_0343: dup
+   IL_0344: ldind.r4
+   IL_0345: ldloc.3
+   IL_0346: add
+   IL_0347: stind.r4
+   IL_0348: ldloca.s V_7
+   IL_034a: call System.Boolean System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>::MoveNext()
+   IL_034f: brtrue.s IL_032d
+   IL_0351: leave.s IL_0361
+   IL_0353: ldloca.s V_7
+   IL_0355: constrained. System.Collections.Generic.List`1/Enumerator<Celeste.Mod.GhostModForTas.Plugin.GhostRankingList/Item>
+   IL_035b: callvirt System.Void System.IDisposable::Dispose()
+   IL_0360: endfinally
+   IL_0361: ret
