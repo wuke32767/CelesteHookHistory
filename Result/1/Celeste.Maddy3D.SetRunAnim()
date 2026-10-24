@@ -1,0 +1,51 @@
+IL: [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.CustomChapterPanel.textureMixin(ILContext)
+[V_0] System.String
+   IL_0000: ldarg.0
+   IL_0001: ldfld Celeste.MountainRenderer Celeste.Maddy3D::Renderer
+   IL_0006: callvirt System.Int32 Celeste.MountainRenderer::get_Area()
+   IL_000b: ldc.i4.0
+   IL_000c: blt.s IL_0025
+   IL_000e: ldarg.0
+   IL_000f: ldfld Celeste.MountainRenderer Celeste.Maddy3D::Renderer
+   IL_0014: callvirt System.Int32 Celeste.MountainRenderer::get_Area()
+   IL_0019: call Celeste.AreaData Celeste.AreaData::Get(System.Int32)
+   IL_001e: call System.Boolean Celeste.AreaDataExt::IsOfficialLevelSet(Celeste.AreaData)
+   IL_0023: brfalse.s IL_002c
+   IL_0025: ldarg.0
+   IL_0026: callvirt System.Void Celeste.Maddy3D::orig_SetRunAnim()
+   IL_002b: ret
+   IL_002c: ldarg.0
+   IL_002d: callvirt System.String Celeste.Maddy3D::getMarkerTexture()
+ + IL_10000: call System.String Celeste.Mod.ReallyBigHelper.CustomChapterPanel::customMarkerTexture(System.String) @ [ReallyBigHelper::]Celeste.Mod.ReallyBigHelper.CustomChapterPanel.textureMixin(ILContext)
+   IL_0032: stloc.0
+   IL_0033: ldloc.0
+   IL_0034: brfalse.s IL_0048
+   IL_0036: ldarg.0
+   IL_0037: ldsfld Monocle.Atlas Celeste.MTN::Mountain
+   IL_003c: ldloc.0
+   IL_003d: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0042: stfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Maddy3D::frames
+   IL_0047: ret
+   IL_0048: ldarg.0
+   IL_0049: ldfld Celeste.MountainRenderer Celeste.Maddy3D::Renderer
+   IL_004e: callvirt System.Int32 Celeste.MountainRenderer::get_Area()
+   IL_0053: call Celeste.AreaData Celeste.AreaData::Get(System.Int32)
+   IL_0058: ldfld Celeste.ModeProperties[] Celeste.AreaData::Mode
+   IL_005d: ldc.i4.0
+   IL_005e: ldelem.ref
+   IL_005f: ldflda Celeste.PlayerInventory Celeste.ModeProperties::Inventory
+   IL_0064: ldfld System.Int32 Celeste.PlayerInventory::Dashes
+   IL_0069: ldc.i4.1
+   IL_006a: ble.s IL_0082
+   IL_006c: ldarg.0
+   IL_006d: ldsfld Monocle.Atlas Celeste.MTN::Mountain
+   IL_0072: ldstr "marker/runNoBackpack"
+   IL_0077: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_007c: stfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Maddy3D::frames
+   IL_0081: ret
+   IL_0082: ldarg.0
+   IL_0083: ldsfld Monocle.Atlas Celeste.MTN::Mountain
+   IL_0088: ldstr "marker/runBackpack"
+   IL_008d: callvirt System.Collections.Generic.List`1<Monocle.MTexture> Monocle.Atlas::GetAtlasSubtextures(System.String)
+   IL_0092: stfld System.Collections.Generic.List`1<Monocle.MTexture> Celeste.Maddy3D::frames
+   IL_0097: ret
