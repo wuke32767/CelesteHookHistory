@@ -1,0 +1,93 @@
+On{Ss+ot3g6NgM}: {LegacyHookConfig: Priority: 0}[ConsistencyTracker::]Celeste.Mod.ConsistencyTracker.ThirdParty.PlatinumBerrySupport.PlatinumBerry_OnCollect(orig_OnCollect,Entity)
+[V_0] Celeste.Session
+[V_1] System.Boolean
+[V_2] System.Boolean
+[V_3] Celeste.Player
+[V_4] System.Boolean
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: ldfld System.Boolean Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::_collected
+   IL_0007: stloc.1
+   IL_0008: ldloc.1
+   IL_0009: brfalse.s IL_0011
+   IL_000b: nop
+   IL_000c: br IL_00e9
+   IL_0011: ldarg.0
+   IL_0012: ldc.i4.1
+   IL_0013: stfld System.Boolean Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::_collected
+   IL_0018: ldarg.0
+   IL_0019: ldfld Celeste.Follower Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::Follower
+   IL_001e: ldfld Celeste.Leader Celeste.Follower::Leader
+   IL_0023: ldnull
+   IL_0024: cgt.un
+   IL_0026: stloc.2
+   IL_0027: ldloc.2
+   IL_0028: brfalse.s IL_0072
+   IL_002a: nop
+   IL_002b: ldarg.0
+   IL_002c: ldfld Celeste.Follower Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::Follower
+   IL_0031: ldfld Celeste.Leader Celeste.Follower::Leader
+   IL_0036: callvirt Monocle.Entity Monocle.Component::get_Entity()
+   IL_003b: isinst Celeste.Player
+   IL_0040: stloc.3
+   IL_0041: ldloc.3
+   IL_0042: dup
+   IL_0043: ldfld System.Int32 Celeste.Player::StrawberryCollectIndex
+   IL_0048: ldc.i4.1
+   IL_0049: add
+   IL_004a: stfld System.Int32 Celeste.Player::StrawberryCollectIndex
+   IL_004f: ldloc.3
+   IL_0050: ldc.r4 2.5
+   IL_0055: stfld System.Single Celeste.Player::StrawberryCollectResetTimer
+   IL_005a: ldarg.0
+   IL_005b: ldfld Celeste.Follower Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::Follower
+   IL_0060: ldfld Celeste.Leader Celeste.Follower::Leader
+   IL_0065: ldarg.0
+   IL_0066: ldfld Celeste.Follower Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::Follower
+   IL_006b: callvirt System.Void Celeste.Leader::LoseFollower(Celeste.Follower)
+   IL_0070: nop
+   IL_0071: nop
+   IL_0072: ldarg.0
+   IL_0073: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0078: castclass Celeste.Level
+   IL_007d: ldfld Celeste.Session Celeste.Level::Session
+   IL_0082: stloc.0
+   IL_0083: ldarg.0
+   IL_0084: ldfld System.Boolean Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::CommandSpawned
+   IL_0089: ldc.i4.0
+   IL_008a: ceq
+   IL_008c: stloc.s V_4
+   IL_008e: ldloc.s V_4
+   IL_0090: brfalse.s IL_00cf
+   IL_0092: nop
+   IL_0093: ldsfld Celeste.SaveData Celeste.SaveData::Instance
+   IL_0098: ldarg.0
+   IL_0099: ldfld Celeste.EntityID Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::ID
+   IL_009e: ldarg.0
+   IL_009f: ldfld System.Boolean Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::Golden
+   IL_00a4: callvirt System.Void Celeste.SaveData::AddStrawberry(Celeste.EntityID,System.Boolean)
+   IL_00a9: nop
+   IL_00aa: ldloc.0
+   IL_00ab: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.Session::DoNotLoad
+   IL_00b0: ldarg.0
+   IL_00b1: ldfld Celeste.EntityID Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::ID
+   IL_00b6: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Add(T)
+   IL_00bb: pop
+   IL_00bc: ldloc.0
+   IL_00bd: ldfld System.Collections.Generic.HashSet`1<Celeste.EntityID> Celeste.Session::Strawberries
+   IL_00c2: ldarg.0
+   IL_00c3: ldfld Celeste.EntityID Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::ID
+   IL_00c8: callvirt System.Boolean System.Collections.Generic.HashSet`1<Celeste.EntityID>::Add(T)
+   IL_00cd: pop
+   IL_00ce: nop
+   IL_00cf: ldloc.0
+   IL_00d0: callvirt System.Void Celeste.Session::UpdateLevelStartDashes()
+   IL_00d5: nop
+   IL_00d6: ldarg.0
+   IL_00d7: ldarg.0
+   IL_00d8: callvirt System.Collections.IEnumerator Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::CollectRoutine()
+   IL_00dd: ldc.i4.1
+   IL_00de: newobj System.Void Monocle.Coroutine::.ctor(System.Collections.IEnumerator,System.Boolean)
+   IL_00e3: call System.Void Monocle.Entity::Add(Monocle.Component)
+   IL_00e8: nop
+   IL_00e9: ret

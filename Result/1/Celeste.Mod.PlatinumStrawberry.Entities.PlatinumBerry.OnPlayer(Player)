@@ -1,0 +1,49 @@
+On{F87Y7igl/z8}: {LegacyHookConfig: Priority: 0}[ConsistencyTracker::]Celeste.Mod.ConsistencyTracker.ThirdParty.PlatinumBerrySupport.PlatinumBerry_OnPlayer(orig_OnPlayer,Entity,Player)
+[V_0] System.Boolean
+   IL_0000: nop
+   IL_0001: ldarg.0
+   IL_0002: call Monocle.Scene Monocle.Entity::get_Scene()
+   IL_0007: castclass Celeste.Level
+   IL_000c: ldfld Celeste.Session Celeste.Level::Session
+   IL_0011: ldc.i4.1
+   IL_0012: stfld System.Boolean Celeste.Session::GrabbedGolden
+   IL_0017: ldarg.0
+   IL_0018: ldfld Celeste.Follower Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::Follower
+   IL_001d: ldfld Celeste.Leader Celeste.Follower::Leader
+   IL_0022: brtrue.s IL_002c
+   IL_0024: ldarg.0
+   IL_0025: ldfld System.Boolean Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::_collected
+   IL_002a: br.s IL_002d
+   IL_002c: ldc.i4.1
+   IL_002d: stloc.0
+   IL_002e: ldloc.0
+   IL_002f: brfalse.s IL_0033
+   IL_0031: br.s IL_0084
+   IL_0033: ldarg.0
+   IL_0034: ldc.i4.1
+   IL_0035: stfld System.Boolean Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::ReturnHomeWhenLost
+   IL_003a: ldarg.0
+   IL_003b: ldfld System.Boolean Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::_isGhostBerry
+   IL_0040: brtrue.s IL_0049
+   IL_0042: ldstr "event:/game/general/strawberry_touch"
+   IL_0047: br.s IL_004e
+   IL_0049: ldstr "event:/game/general/strawberry_blue_touch"
+   IL_004e: ldarg.0
+   IL_004f: ldfld Microsoft.Xna.Framework.Vector2 Monocle.Entity::Position
+   IL_0054: call FMOD.Studio.EventInstance Celeste.Audio::Play(System.String,Microsoft.Xna.Framework.Vector2)
+   IL_0059: pop
+   IL_005a: ldarg.1
+   IL_005b: ldfld Celeste.Leader Celeste.Player::Leader
+   IL_0060: ldarg.0
+   IL_0061: ldfld Celeste.Follower Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::Follower
+   IL_0066: callvirt System.Void Celeste.Leader::GainFollower(Celeste.Follower)
+   IL_006b: nop
+   IL_006c: ldarg.0
+   IL_006d: ldfld Monocle.Wiggler Celeste.Mod.PlatinumStrawberry.Entities.PlatinumBerry::_wiggler
+   IL_0072: callvirt System.Void Monocle.Wiggler::Start()
+   IL_0077: nop
+   IL_0078: ldarg.0
+   IL_0079: ldc.i4 -1000000
+   IL_007e: call System.Void Monocle.Entity::set_Depth(System.Int32)
+   IL_0083: nop
+   IL_0084: ret
